@@ -1,12 +1,8 @@
 import classNames from 'classnames';
 import { FC } from 'react';
+import { IDescriptionProps } from './types';
 
-interface IDescriptionProps {
-  children?: React.ReactNode;
-  className?: string;
-}
-
-export const Description: FC<IDescriptionProps> = ({ children, className }) => {
+const Description: FC<IDescriptionProps> = ({ children, className }) => {
   return (
     <p
       className={classNames(
@@ -18,3 +14,5 @@ export const Description: FC<IDescriptionProps> = ({ children, className }) => {
     </p>
   );
 };
+
+export default Description;

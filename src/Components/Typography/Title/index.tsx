@@ -1,12 +1,8 @@
 import classNames from 'classnames';
 import { FC } from 'react';
+import { ITitleProps } from './types';
 
-interface ITitleProps {
-  children?: React.ReactNode;
-  className?: string;
-}
-
-export const Title: FC<ITitleProps> = ({ children, className }) => {
+const Title: FC<ITitleProps> = ({ children, className }) => {
   return (
     <h1
       className={classNames(
@@ -18,3 +14,5 @@ export const Title: FC<ITitleProps> = ({ children, className }) => {
     </h1>
   );
 };
+
+export default Title;
