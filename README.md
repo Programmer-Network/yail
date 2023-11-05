@@ -1,7 +1,7 @@
 # Luigui
 
 <p align="center">
-  <img src="./assets/images/logo.png" width="150">
+  <img src="./assets/images/logo.png" width="250">
 </p>
 
 **Luigui**, pronounced "lui-gooey" and inspired by the Super Mario character Luigi, is an official React library used by Programmer Network.
