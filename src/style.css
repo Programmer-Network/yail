@@ -1,0 +1,27 @@
+/* tailwind.css */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import 'react-tooltip/dist/react-tooltip.css';
+
+:root {
+  --color-primary: #4f46e5;
+  --color-bg: #1b1f23;
+  --text-color: #6b7280;
+}
+
+.primary {
+  color: var(--color-primary);
+}
+
+.primary-background-color {
+  color: var(--color-bg);
+}
+
+.primary-text-color {
+  color: var(--text-color);
+}
+
+.bg-derived {
+  background-color: var(--color-bg-rgb);
+}
