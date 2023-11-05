@@ -4,7 +4,7 @@
   <img src="./assets/images/logo.png" width="250">
 </p>
 
-**Luigui**, pronounced "lui-gooey" and inspired by the Super Mario character Luigi, is an official React library used by Programmer Network.
+**Luigui**, pronounced "lui-gooey" and inspired by the Super Mario character Luigi, is an official React UI component library used by Programmer Network.
 
 ## Prerequisites
 
