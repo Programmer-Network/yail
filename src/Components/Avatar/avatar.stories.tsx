@@ -1,22 +1,29 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import Title from './';
+import Avatar from './';
 
 const meta = {
-  title: 'Typography/Title',
-  component: Title,
+  title: 'Core/Avatar',
+  component: Avatar,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
   argTypes: {},
-} satisfies Meta<typeof Title>;
+} satisfies Meta<typeof Avatar>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    children: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec',
+    size: 150,
+  },
+};
+
+export const WithURL: Story = {
+  args: {
+    src: 'https://avatars.githubusercontent.com/u/2085263?v=4',
+    size: 150,
   },
 };

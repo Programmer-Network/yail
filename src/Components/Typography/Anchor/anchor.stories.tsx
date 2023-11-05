@@ -15,7 +15,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Simple: Story = {
+export const Default: Story = {
   args: {
     href: 'https://www.google.com',
     children: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec',

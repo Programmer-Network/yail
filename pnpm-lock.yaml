@@ -1,121 +1,124 @@
 lockfileVersion: '6.0'
 
 dependencies:
+  boring-avatars:
+    specifier: 1.10.1
+    version: 1.10.1
   classnames:
-    specifier: ^2.3.2
+    specifier: 2.3.2
     version: 2.3.2
   react:
-    specifier: ^18.2.0
+    specifier: 18.2.0
     version: 18.2.0
   react-dom:
-    specifier: ^18.2.0
+    specifier: 18.2.0
     version: 18.2.0(react@18.2.0)
   react-tooltip:
-    specifier: ^5.22.0
+    specifier: 5.22.0
     version: 5.22.0(react-dom@18.2.0)(react@18.2.0)
 
 devDependencies:
   '@babel/core':
-    specifier: ^7.23.2
+    specifier: 7.23.2
     version: 7.23.2
   '@babel/preset-env':
-    specifier: ^7.23.2
+    specifier: 7.23.2
     version: 7.23.2(@babel/core@7.23.2)
   '@babel/preset-react':
-    specifier: ^7.22.15
+    specifier: 7.22.15
     version: 7.22.15(@babel/core@7.23.2)
   '@babel/preset-typescript':
-    specifier: ^7.23.2
+    specifier: 7.23.2
     version: 7.23.2(@babel/core@7.23.2)
   '@storybook/addon-essentials':
-    specifier: ^7.5.2
+    specifier: 7.5.2
     version: 7.5.2(@types/react-dom@18.2.14)(@types/react@18.2.35)(react-dom@18.2.0)(react@18.2.0)
   '@storybook/addon-interactions':
-    specifier: ^7.5.2
+    specifier: 7.5.2
     version: 7.5.2(@types/react-dom@18.2.14)(@types/react@18.2.35)(react-dom@18.2.0)(react@18.2.0)
   '@storybook/addon-links':
-    specifier: ^7.5.2
+    specifier: 7.5.2
     version: 7.5.2(react-dom@18.2.0)(react@18.2.0)
   '@storybook/addon-onboarding':
-    specifier: ^1.0.8
+    specifier: 1.0.8
     version: 1.0.8(react-dom@18.2.0)(react@18.2.0)
   '@storybook/blocks':
-    specifier: ^7.5.2
+    specifier: 7.5.2
     version: 7.5.2(@types/react-dom@18.2.14)(@types/react@18.2.35)(react-dom@18.2.0)(react@18.2.0)
   '@storybook/react':
-    specifier: ^7.5.2
+    specifier: 7.5.2
     version: 7.5.2(react-dom@18.2.0)(react@18.2.0)(typescript@5.2.2)
   '@storybook/react-vite':
-    specifier: ^7.5.2
+    specifier: 7.5.2
     version: 7.5.2(react-dom@18.2.0)(react@18.2.0)(typescript@5.2.2)(vite@4.5.0)
   '@storybook/testing-library':
-    specifier: ^0.2.2
+    specifier: 0.2.2
     version: 0.2.2
   '@tailwindcss/forms':
-    specifier: ^0.5.6
+    specifier: 0.5.6
     version: 0.5.6(tailwindcss@3.3.5)
   '@tailwindcss/typography':
-    specifier: ^0.5.10
+    specifier: 0.5.10
     version: 0.5.10(tailwindcss@3.3.5)
   '@types/react':
-    specifier: ^18.2.35
+    specifier: 18.2.35
     version: 18.2.35
   '@types/react-dom':
-    specifier: ^18.2.14
+    specifier: 18.2.14
     version: 18.2.14
   '@types/react-tooltip':
-    specifier: ^4.2.4
+    specifier: 4.2.4
     version: 4.2.4(react-dom@18.2.0)(react@18.2.0)
   '@typescript-eslint/eslint-plugin':
-    specifier: ^6.9.1
+    specifier: 6.9.1
     version: 6.9.1(@typescript-eslint/parser@6.9.1)(eslint@8.53.0)(typescript@5.2.2)
   '@typescript-eslint/parser':
-    specifier: ^6.9.1
+    specifier: 6.9.1
     version: 6.9.1(eslint@8.53.0)(typescript@5.2.2)
   '@vitejs/plugin-react':
-    specifier: ^4.1.1
+    specifier: 4.1.1
     version: 4.1.1(vite@4.5.0)
   autoprefixer:
-    specifier: ^10.4.16
+    specifier: 10.4.16
     version: 10.4.16(postcss@8.4.31)
   eslint:
-    specifier: ^8.53.0
+    specifier: 8.53.0
     version: 8.53.0
   eslint-config-prettier:
-    specifier: ^9.0.0
+    specifier: 9.0.0
     version: 9.0.0(eslint@8.53.0)
   eslint-plugin-prettier:
-    specifier: ^5.0.1
+    specifier: 5.0.1
     version: 5.0.1(eslint-config-prettier@9.0.0)(eslint@8.53.0)(prettier@3.0.3)
   eslint-plugin-react:
-    specifier: ^7.33.2
+    specifier: 7.33.2
     version: 7.33.2(eslint@8.53.0)
   eslint-plugin-react-hooks:
-    specifier: ^4.6.0
+    specifier: 4.6.0
     version: 4.6.0(eslint@8.53.0)
   eslint-plugin-storybook:
-    specifier: ^0.6.15
+    specifier: 0.6.15
     version: 0.6.15(eslint@8.53.0)(typescript@5.2.2)
   postcss:
-    specifier: ^8.4.31
+    specifier: 8.4.31
     version: 8.4.31
   prettier:
-    specifier: ^3.0.3
+    specifier: 3.0.3
     version: 3.0.3
   storybook:
-    specifier: ^7.5.2
+    specifier: 7.5.2
     version: 7.5.2
   tailwindcss:
-    specifier: ^3.3.5
+    specifier: 3.3.5
     version: 3.3.5
   typescript:
-    specifier: ^5.2.2
+    specifier: 5.2.2
     version: 5.2.2
   vite:
-    specifier: ^4.5.0
+    specifier: 4.5.0
     version: 4.5.0
   vite-plugin-dts:
-    specifier: ^3.6.3
+    specifier: 3.6.3
     version: 3.6.3(typescript@5.2.2)(vite@4.5.0)
 
 packages:
@@ -4614,6 +4617,10 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /boring-avatars@1.10.1:
+    resolution: {integrity: sha512-WcgHDeLrazCR03CDPEvCchLsUecZAZvs4F6FnMiGlTEjyQQf15Q5TRl4EUaAQ1dacvhPq7lC9EOTWkCojQ6few==}
+    dev: false
 
   /bplist-parser@0.2.0:
     resolution: {integrity: sha512-z0M+byMThzQmD9NILRniCUXYsYpjwnlO8N5uCFaCqIOpqRsJCrQL9NK3JsD67CN5a08nF5oIL2bD6loTdHOuKw==}
