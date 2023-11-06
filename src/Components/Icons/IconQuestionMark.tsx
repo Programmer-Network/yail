@@ -1,10 +1,7 @@
 import { FC } from 'react';
+import { IIconProps } from './types';
 
-interface IQuestionCircleProps {
-  className?: string;
-}
-
-const QuestionMarkIcon: FC<IQuestionCircleProps> = props => (
+const IConQuestionMark: FC<IIconProps> = props => (
   <svg
     fill="currentColor"
     viewBox="0 0 16 16"
@@ -18,4 +15,4 @@ const QuestionMarkIcon: FC<IQuestionCircleProps> = props => (
   </svg>
 );
 
-export default QuestionMarkIcon;
+export default IConQuestionMark;

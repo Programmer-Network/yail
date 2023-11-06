@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { InputHeaderProps } from './types';
 import Tooltip from '../../../Tooltip';
 import CharacterCounter from '../../../CharacterCounter';
-import { QuestionMarkIcon } from '../../../Icons';
+import { IconQuestionMark } from '../../../Icons';
 
 const InputHeader: FC<InputHeaderProps> = ({
   name,
@@ -22,7 +22,7 @@ const InputHeader: FC<InputHeaderProps> = ({
       <div className="flex items-center gap-1">
         {hint && name && (
           <Tooltip text={hint} id={name} place="right">
-            <QuestionMarkIcon className="w-4 text-primary-text-color" />
+            <IconQuestionMark className="w-4 text-primary-text-color" />
           </Tooltip>
         )}
         <div className="text-sm text-primary-text-color">

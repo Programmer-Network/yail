@@ -1,3 +1,4 @@
+/// <reference types="vitest" />
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import dts from 'vite-plugin-dts';
@@ -6,15 +7,14 @@ export default defineConfig({
   plugins: [
     react(),
     dts({
-      // Generates .d.ts files for your TypeScript library
-      insertTypesEntry: true, // This adds an entry for the .d.ts files in your dist
+      insertTypesEntry: true,
     }),
   ],
   build: {
     lib: {
       entry: 'src/index.ts',
       name: 'MyReactLibrary',
-      formats: ['es', 'umd'], // Specify your desired output formats here
+      formats: ['es', 'umd'],
       fileName: format => `my-react-library.${format}.js`,
     },
     rollupOptions: {
@@ -26,5 +26,11 @@ export default defineConfig({
         },
       },
     },
+  },
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: './test/setup.js',
+    css: true,
   },
 });
