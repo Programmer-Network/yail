@@ -16,7 +16,8 @@ implemented features and components.
 </p>
 
 **Luigui**, pronounced "lui-gooey" and inspired by the Super Mario character
-Luigi, is an official React UI component library used by Programmer Network.
+Luigi, is an official React UI component library used by
+[Programmer Network 💻🤓](https://programmer.network).
 
 ## Prerequisites
 
