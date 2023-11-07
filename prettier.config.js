@@ -10,7 +10,12 @@ module.exports = {
   trailingComma: "none",
   useTabs: false,
   endOfLine: "auto",
-  importOrder: ["<THIRD_PARTY_MODULES>", "^Components/(.*)$", "^[./]"],
+  importOrder: [
+    "<THIRD_PARTY_MODULES>",
+    "^Components/(.*)$",
+    "^Utils/(.*)$",
+    "^[./]"
+  ],
   importOrderSeparation: true,
   importOrderSortSpecifiers: true,
   plugins: [

@@ -4,7 +4,13 @@
     "target": "ESNext",
     "outDir": "dist",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "types": ["vite/client", "node"],
+    "types": [
+      "vite/client",
+      "vitest",
+      "node",
+      "jest",
+      "@testing-library/jest-dom"
+    ],
     "baseUrl": "./src",
     "allowJs": true,
     "esModuleInterop": true,
