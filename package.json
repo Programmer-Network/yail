@@ -2,10 +2,6 @@
   "name": "programmer-network-luigui",
   "version": "1.0.0",
   "description": "",
-  "engines": {
-    "node": "20.8",
-    "pnpm": "8.1"
-  },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
