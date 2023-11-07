@@ -54,6 +54,9 @@ devDependencies:
   '@storybook/blocks':
     specifier: 7.5.2
     version: 7.5.2(@types/react-dom@18.2.14)(@types/react@18.2.35)(react-dom@18.2.0)(react@18.2.0)
+  '@storybook/manager-api':
+    specifier: ^7.5.3
+    version: 7.5.3(react-dom@18.2.0)(react@18.2.0)
   '@storybook/react':
     specifier: 7.5.2
     version: 7.5.2(react-dom@18.2.0)(react@18.2.0)(typescript@5.2.2)
@@ -63,6 +66,9 @@ devDependencies:
   '@storybook/testing-library':
     specifier: 0.2.2
     version: 0.2.2
+  '@storybook/theming':
+    specifier: ^7.5.3
+    version: 7.5.3(react-dom@18.2.0)(react@18.2.0)
   '@tailwindcss/forms':
     specifier: 0.5.6
     version: 0.5.6(tailwindcss@3.3.5)
@@ -111,6 +117,9 @@ devDependencies:
   client:
     specifier: link:@types/vite-plugin-svgr/client
     version: link:@types/vite-plugin-svgr/client
+  create:
+    specifier: link:@types/@storybook/theming/create
+    version: link:@types/@storybook/theming/create
   eslint:
     specifier: 8.53.0
     version: 8.53.0
@@ -236,7 +245,7 @@ packages:
     resolution: {integrity: sha512-oLcVCTeIFadUoArDTwpluncplrYBmTCCZZgXCbgNGvOBBiSDDK3eWO4b/+eOTli5tKv1lg+a5/NAXg+nTcei1w==}
     engines: {node: '>=6.9.0'}
     dependencies:
-      '@babel/types': 7.17.0
+      '@babel/types': 7.23.0
       jsesc: 2.5.2
       source-map: 0.5.7
     dev: true

@@ -12,6 +12,15 @@ const preview: Preview = {
         date: /Date$/i
       }
     },
+    backgrounds: {
+      default: "programmer.network",
+      values: [
+        {
+          name: "programmer.network",
+          value: "#1b1f23"
+        }
+      ]
+    },
     layout: "fullscreen"
   }
 };
