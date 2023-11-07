@@ -1,5 +1,9 @@
 # Luigui
 
+[![lint-and-test-pr](https://github.com/Programmer-Network/luigui/actions/workflows/lint-and-test.yaml/badge.svg)](https://github.com/Programmer-Network/luigui/actions/workflows/lint-and-test.yaml)
+[![pages-build-deployment](https://github.com/Programmer-Network/luigui/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/Programmer-Network/luigui/actions/workflows/pages/pages-build-deployment)
+[![deploy-storybook](https://github.com/Programmer-Network/luigui/actions/workflows/deploy-storybook.yaml/badge.svg)](https://github.com/Programmer-Network/luigui/actions/workflows/deploy-storybook.yaml)
+
 ## 🎨Luigui's [Storybook](https://luigui.programmer.network)
 
 For an in-depth look at what _Luigui_ offers, the Storybook is a good starting
