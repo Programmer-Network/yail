@@ -236,7 +236,7 @@ packages:
     resolution: {integrity: sha512-oLcVCTeIFadUoArDTwpluncplrYBmTCCZZgXCbgNGvOBBiSDDK3eWO4b/+eOTli5tKv1lg+a5/NAXg+nTcei1w==}
     engines: {node: '>=6.9.0'}
     dependencies:
-      '@babel/types': 7.23.0
+      '@babel/types': 7.17.0
       jsesc: 2.5.2
       source-map: 0.5.7
     dev: true
@@ -3446,7 +3446,7 @@ packages:
       '@types/find-cache-dir': 3.2.1
       '@types/node': 18.18.8
       '@types/node-fetch': 2.6.9
-      '@types/pretty-hrtime': 1.0.2
+      '@types/pretty-hrtime': 1.0.3
       chalk: 4.1.2
       esbuild: 0.18.20
       esbuild-register: 3.5.0(esbuild@0.18.20)
@@ -3477,7 +3477,7 @@ packages:
       '@types/find-cache-dir': 3.2.1
       '@types/node': 18.18.8
       '@types/node-fetch': 2.6.9
-      '@types/pretty-hrtime': 1.0.2
+      '@types/pretty-hrtime': 1.0.3
       chalk: 4.1.2
       esbuild: 0.18.20
       esbuild-register: 3.5.0(esbuild@0.18.20)
@@ -3531,7 +3531,7 @@ packages:
       '@storybook/types': 7.5.2
       '@types/detect-port': 1.3.5
       '@types/node': 18.18.8
-      '@types/pretty-hrtime': 1.0.2
+      '@types/pretty-hrtime': 1.0.3
       '@types/semver': 7.5.4
       better-opn: 3.0.2
       chalk: 4.1.2
@@ -3726,7 +3726,7 @@ packages:
       '@storybook/csf': 0.1.1
       '@storybook/global': 5.0.0
       '@storybook/types': 7.5.2
-      '@types/qs': 6.9.9
+      '@types/qs': 6.9.10
       dequal: 2.0.3
       lodash: 4.17.21
       memoizerific: 1.11.3
@@ -3745,7 +3745,7 @@ packages:
       '@storybook/csf': 0.1.1
       '@storybook/global': 5.0.0
       '@storybook/types': 7.5.3
-      '@types/qs': 6.9.9
+      '@types/qs': 6.9.10
       dequal: 2.0.3
       lodash: 4.17.21
       memoizerific: 1.11.3
@@ -4162,9 +4162,9 @@ packages:
     resolution: {integrity: sha512-OaJ7XLaelTgrvlZD8/aa0vvvxZdUmlCn6MtWeB7TkiKW70BQLc9XEPpDLPdbo52ZhXUCrznlWdCHWxJWtdyajA==}
     dependencies:
       '@types/node': 20.8.10
-      '@types/qs': 6.9.9
-      '@types/range-parser': 1.2.6
-      '@types/send': 0.17.3
+      '@types/qs': 6.9.10
+      '@types/range-parser': 1.2.7
+      '@types/send': 0.17.4
     dev: true
 
   /@types/express@4.17.21:
@@ -4172,8 +4172,8 @@ packages:
     dependencies:
       '@types/body-parser': 1.19.5
       '@types/express-serve-static-core': 4.17.41
-      '@types/qs': 6.9.9
-      '@types/serve-static': 1.15.4
+      '@types/qs': 6.9.10
+      '@types/serve-static': 1.15.5
     dev: true
 
   /@types/find-cache-dir@3.2.1:
@@ -4267,19 +4267,19 @@ packages:
   /@types/parse-json@4.0.2:
     resolution: {integrity: sha512-dISoDXWWQwUquiKsyZ4Ng+HX2KsPL7LyHKHQwgGFEA3IaKac4Obd+h2a/a6waisAoepJlBcx9paWqjA8/HVjCw==}
 
-  /@types/pretty-hrtime@1.0.2:
-    resolution: {integrity: sha512-vyv9knII8XeW8TnXDcGH7HqG6FeR56ESN6ExM34d/U8Zvs3xuG34euV6CVyB7KEYI7Ts4lQM8b4NL72e7UadnA==}
+  /@types/pretty-hrtime@1.0.3:
+    resolution: {integrity: sha512-nj39q0wAIdhwn7DGUyT9irmsKK1tV0bd5WFEhgpqNTMFZ8cE+jieuTphCW0tfdm47S2zVT5mr09B28b1chmQMA==}
     dev: true
 
-  /@types/prop-types@15.7.9:
-    resolution: {integrity: sha512-n1yyPsugYNSmHgxDFjicaI2+gCNjsBck8UX9kuofAKlc0h1bL+20oSF72KeNaW2DUlesbEVCFgyV2dPGTiY42g==}
+  /@types/prop-types@15.7.10:
+    resolution: {integrity: sha512-mxSnDQxPqsZxmeShFH+uwQ4kO4gcJcGahjjMFeLbKE95IAZiiZyiEepGZjtXJ7hN/yfu0bu9xN2ajcU0JcxX6A==}
 
-  /@types/qs@6.9.9:
-    resolution: {integrity: sha512-wYLxw35euwqGvTDx6zfY1vokBFnsK0HNrzc6xNHchxfO2hpuRg74GbkEW7e3sSmPvj0TjCDT1VCa6OtHXnubsg==}
+  /@types/qs@6.9.10:
+    resolution: {integrity: sha512-3Gnx08Ns1sEoCrWssEgTSJs/rsT2vhGP+Ja9cnnk9k4ALxinORlQneLXFeFKOTJMOeZUFD1s7w+w2AphTpvzZw==}
     dev: true
 
-  /@types/range-parser@1.2.6:
-    resolution: {integrity: sha512-+0autS93xyXizIYiyL02FCY8N+KkKPhILhcUSA276HxzreZ16kl+cmwvV2qAM/PuCCwPXzOXOWhiPcw20uSFcA==}
+  /@types/range-parser@1.2.7:
+    resolution: {integrity: sha512-hKormJbkJqzQGhziax5PItDUTMAM9uE2XXQmM37dyd4hVM+5aVl7oVxMVUiVQn2oCQFN/LKCZdvSM0pFRqbSmQ==}
     dev: true
 
   /@types/react-dom@18.2.14:
@@ -4317,30 +4317,30 @@ packages:
   /@types/react@18.2.35:
     resolution: {integrity: sha512-LG3xpFZ++rTndV+/XFyX5vUP7NI9yxyk+MQvBDq+CVs8I9DLSc3Ymwb1Vmw5YDoeNeHN4PDZa3HylMKJYT9PNQ==}
     dependencies:
-      '@types/prop-types': 15.7.9
-      '@types/scheduler': 0.16.5
+      '@types/prop-types': 15.7.10
+      '@types/scheduler': 0.16.6
       csstype: 3.1.2
 
-  /@types/resolve@1.20.4:
-    resolution: {integrity: sha512-BKGK0T1VgB1zD+PwQR4RRf0ais3NyvH1qjLUrHI5SEiccYaJrhLstLuoXFWJ+2Op9whGizSPUMGPJY/Qtb/A2w==}
+  /@types/resolve@1.20.5:
+    resolution: {integrity: sha512-aten5YPFp8G+cMpkTK5MCcUW5GlwZUby+qlt0/3oFgOCooFgzqvZQ9/0tROY49sUYmhEybBBj3jwpkQ/R3rjjw==}
     dev: true
 
-  /@types/scheduler@0.16.5:
-    resolution: {integrity: sha512-s/FPdYRmZR8SjLWGMCuax7r3qCWQw9QKHzXVukAuuIJkXkDRwp+Pu5LMIVFi0Fxbav35WURicYr8u1QsoybnQw==}
+  /@types/scheduler@0.16.6:
+    resolution: {integrity: sha512-Vlktnchmkylvc9SnwwwozTv04L/e1NykF5vgoQ0XTmI8DD+wxfjQuHuvHS3p0r2jz2x2ghPs2h1FVeDirIteWA==}
 
   /@types/semver@7.5.4:
     resolution: {integrity: sha512-MMzuxN3GdFwskAnb6fz0orFvhfqi752yjaXylr0Rp4oDg5H0Zn1IuyRhDVvYOwAXoJirx2xuS16I3WjxnAIHiQ==}
     dev: true
 
-  /@types/send@0.17.3:
-    resolution: {integrity: sha512-/7fKxvKUoETxjFUsuFlPB9YndePpxxRAOfGC/yJdc9kTjTeP5kRCTzfnE8kPUKCeyiyIZu0YQ76s50hCedI1ug==}
+  /@types/send@0.17.4:
+    resolution: {integrity: sha512-x2EM6TJOybec7c52BX0ZspPodMsQUd5L6PRwOunVyVUhXiBSKf3AezDL8Dgvgt5o0UfKNfuA0eMLr2wLT4AiBA==}
     dependencies:
       '@types/mime': 1.3.4
       '@types/node': 20.8.10
     dev: true
 
-  /@types/serve-static@1.15.4:
-    resolution: {integrity: sha512-aqqNfs1XTF0HDrFdlY//+SGUxmdSUbjeRXb5iaZc3x0/vMbYmdw9qvOgHWOyyLFxSSRnUuP5+724zBgfw8/WAw==}
+  /@types/serve-static@1.15.5:
+    resolution: {integrity: sha512-PDRk21MnK70hja/YF8AHfC7yIsiQHn1rcXx7ijCFBX/k+XQJhQT/gw3xekXKJvx+5SXaMMS8oqQy09Mzvz2TuQ==}
     dependencies:
       '@types/http-errors': 2.0.4
       '@types/mime': 3.0.3
@@ -5220,7 +5220,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001561
-      electron-to-chromium: 1.4.577
+      electron-to-chromium: 1.4.578
       node-releases: 2.0.13
       update-browserslist-db: 1.0.13(browserslist@4.22.1)
     dev: true
@@ -5863,8 +5863,8 @@ packages:
       jake: 10.8.7
     dev: true
 
-  /electron-to-chromium@1.4.577:
-    resolution: {integrity: sha512-/5xHPH6f00SxhHw6052r+5S1xO7gHNc89hV7tqlvnStvKbSrDqc/u6AlwPvVWWNj+s4/KL6T6y8ih+nOY0qYNA==}
+  /electron-to-chromium@1.4.578:
+    resolution: {integrity: sha512-V0ZhSu1BQZKfG0yNEL6Dadzik8E1vAzfpVOapdSiT9F6yapEJ3Bk+4tZ4SMPdWiUchCgnM/ByYtBzp5ntzDMIA==}
     dev: true
 
   /emoji-regex@8.0.0:
@@ -8784,7 +8784,7 @@ packages:
       '@types/babel__core': 7.20.4
       '@types/babel__traverse': 7.20.4
       '@types/doctrine': 0.0.6
-      '@types/resolve': 1.20.4
+      '@types/resolve': 1.20.5
       doctrine: 3.0.0
       resolve: 1.22.8
       strip-indent: 4.0.0
