@@ -14,7 +14,7 @@
     "prepare": "husky install",
     "storybook": "storybook dev --ci -p 6006",
     "format": "prettier --cache --write . --ignore-unknown",
-    "build-storybook": "build-storybook",
+    "build-storybook": "storybook build",
     "test": "vitest run",
     "test:ui": "vitest --ui",
     "coverage": "vitest run --coverage",
