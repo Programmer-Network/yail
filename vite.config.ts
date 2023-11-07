@@ -17,7 +17,7 @@ export default defineConfig({
       entry: "src/index.ts",
       name: "Luigui",
       formats: ["es", "umd"],
-      fileName: format => `my-react-library.${format}.js`
+      fileName: format => `luigui.${format}.js`
     },
     rollupOptions: {
       external: ["react", "react-dom"],

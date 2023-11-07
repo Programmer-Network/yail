@@ -13,7 +13,7 @@
     "build": "tsc && vite build",
     "prepare": "husky install",
     "storybook": "storybook dev --ci -p 6006",
-    "format": "prettier --cache --write . --ignore-unknown",
+    "format": "prettier --write .",
     "build-storybook": "storybook build",
     "test": "vitest run",
     "test:ui": "vitest --ui",
@@ -26,7 +26,7 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": "eslint --cache --fix",
-    "*": "prettier --ignore-unknown --cache --write"
+    "*": "prettier --write"
   },
   "vitest": {
     "test": {

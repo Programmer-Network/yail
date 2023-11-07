@@ -27,7 +27,7 @@ const DomainInput: FC<IDomainInputProps> = props => {
         <input
           {...props}
           className={classNames(
-            "bg-transparent focus:ring-transparent w-full cursor-pointer border-2 border-primary-text-color p-2 text-sm transition-colors hover:border-primary focus:border-primary focus:outline-none",
+            "w-full cursor-pointer border-2 border-primary-text-color bg-transparent p-2 text-sm transition-colors hover:border-primary focus:border-primary focus:outline-none focus:ring-transparent",
             props.className,
             {
               "hover:cursor-not-allowed hover:border-primary": props.disabled

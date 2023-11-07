@@ -29,7 +29,7 @@ const InputHeader: FC<InputHeaderProps> = ({
         )}
         <div className='text-sm text-primary-text-color'>
           {label}
-          {required && <span className='text-rose-500 ml-1'>*</span>}
+          {required && <span className='ml-1 text-rose-500'>*</span>}
         </div>
       </div>
 
