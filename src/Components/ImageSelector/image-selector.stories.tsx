@@ -1,17 +1,24 @@
 import { action } from "@storybook/addon-actions";
 import { useState } from "react";
 
-import { ImageSelector } from ".";
+import ImageSelector from "./";
+import { IImage } from "./types";
 
 export default {
-  title: "Core / ImageSelector"
+  title: "Core / ImageSelector",
+  parameters: {
+    layout: "centered"
+  },
+  tags: ["autodocs"]
 };
 
 export const Primary = () => {
-  const value =
-    "https://images.immediate.co.uk/production/volatile/sites/3/2018/08/Simpsons_SO28_Gallery_11-fb0b632.jpg?quality=90&resize=800,534";
+  const value = {
+    url: "https://images.immediate.co.uk/production/volatile/sites/3/2018/08/Simpsons_SO28_Gallery_11-fb0b632.jpg?quality=90&resize=800,534",
+    id: 99
+  };
 
-  const [images, setImages] = useState([
+  const [images, setImages] = useState<IImage[]>([
     {
       id: 1,
       url: "https://upload.wikimedia.org/wikipedia/en/0/0b/Marge_Simpson.png"
@@ -26,18 +33,16 @@ export const Primary = () => {
     }
   ]);
 
-  const handleSelected = image => {
+  const handleSelected = (image: IImage) => {
     action("onSelected")(image);
   };
 
-  const handleDelete = ({ id }) => {
+  const handleDelete = (image: IImage): Promise<IImage[]> => {
     return new Promise(resolve => {
       setTimeout(() => {
-        setTimeout(() => {
-          setImages(images.filter(i => i.id !== id));
-          resolve(images.filter(i => i !== id));
-          action("onSelected")(images);
-        }, 2000);
+        setImages(images.filter(i => i.id !== image.id));
+        resolve(images.filter(i => i.id !== image.id));
+        action("onSelected")(images);
       }, 2000);
     });
   };

@@ -6,7 +6,7 @@ import Spinner from "Components/Spinner";
 
 import { IImage, IImageSelectorProps } from "./types";
 
-export const ImageSelector: FC<IImageSelectorProps> = ({
+const ImageSelector: FC<IImageSelectorProps> = ({
   images,
   value,
   onSelected,
@@ -69,3 +69,5 @@ export const ImageSelector: FC<IImageSelectorProps> = ({
     </div>
   );
 };
+
+export default ImageSelector;
