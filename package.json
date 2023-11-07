@@ -89,7 +89,7 @@
     "vite-tsconfig-paths": "^4.2.1",
     "vitest": "^0.34.6"
   },
-  "peerDependencies": {
+  "dependencies": {
     "boring-avatars": "1.10.1",
     "classnames": "2.3.2",
     "react": "18.2.0",
