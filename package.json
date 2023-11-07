@@ -11,7 +11,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "prepare": "husky install && pnpm run build",
+    "prepare": "husky install",
     "storybook": "storybook dev --ci -p 6006",
     "format": "prettier --cache --write . --ignore-unknown",
     "build-storybook": "build-storybook",

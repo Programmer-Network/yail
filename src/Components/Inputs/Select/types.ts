@@ -12,7 +12,7 @@ export interface ISelectProps {
   max?: number;
   isMulti?: boolean;
   isSearchable?: boolean;
-  onChange: (e: unknown) => void;
+  onChange: (e: Record<string, string> | Record<string, string[]>) => void;
   options: { value: string; label: string }[];
   inputWrapperClassName?: string;
 }

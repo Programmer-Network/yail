@@ -13,15 +13,18 @@ export default {
 };
 
 export const SingleSelect = (args: ISelectProps) => {
-  const [value, setValue] = useState<string>("");
+  const [input, setInput] = useState<Record<string, string>>({
+    foo: ""
+  });
 
   return (
     <Select
       {...args}
-      value={value}
-      onChange={(value: string) => {
-        action("onChange")(value);
-        setValue(value);
+      name='foo'
+      value={input.foo}
+      onChange={input => {
+        action("onChange")(input);
+        setInput(input as { foo: string });
       }}
     />
   );
@@ -39,15 +42,16 @@ SingleSelect.args = {
 };
 
 export const MultiSelect = (args: ISelectProps) => {
-  const [value, setValue] = useState<string[]>([]);
+  const [input, setInput] = useState<Record<string, string[]>>({ foo: [] });
 
   return (
     <Select
       {...args}
-      value={value}
-      onChange={(values: string[]) => {
+      name='foo'
+      value={input.foo}
+      onChange={values => {
         action("onChange")(values);
-        setValue(values);
+        setInput(values as { foo: string[] });
       }}
     />
   );
