@@ -1,7 +1,8 @@
-import classNames from 'classnames';
-import { FC, useState } from 'react';
-import { InputError } from '../Inputs';
-import { IconStarEmpty, IconStarFilled } from '../Icons';
+import classNames from "classnames";
+import { FC, useState } from "react";
+
+import { IconStarEmpty, IconStarFilled } from "Components/Icons";
+import { InputError } from "Components/Inputs";
 
 interface IStarsProps {
   name: string;
@@ -16,14 +17,14 @@ const Stars: FC<IStarsProps> = ({
   stars = 0,
   onChange,
   value = 0,
-  error,
+  error
 }) => {
   const [hovered, setHovered] = useState(0);
   const [selected, setSelected] = useState(value);
 
   return (
     <div>
-      <div className="flex gap-2">
+      <div className='flex gap-2'>
         {Array(5)
           .fill(null)
           .map((_, index) => {
@@ -50,11 +51,11 @@ const Stars: FC<IStarsProps> = ({
                       }
                     : undefined
                 }
-                className={classNames('w-4 relative right-1', {
-                  'fill-yellow-400 hover:cursor-pointer':
+                className={classNames("relative right-1 w-4", {
+                  "fill-yellow-400 hover:cursor-pointer":
                     index < stars ||
                     index < selected ||
-                    (onChange && index < hovered),
+                    (onChange && index < hovered)
                 })}
               />
             );

@@ -1,36 +1,38 @@
 /// <reference types="vitest" />
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-import dts from 'vite-plugin-dts';
+import react from "@vitejs/plugin-react";
+import { defineConfig } from "vite";
+import dts from "vite-plugin-dts";
+import viteTsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
   plugins: [
     react(),
+    viteTsconfigPaths(),
     dts({
-      insertTypesEntry: true,
-    }),
+      insertTypesEntry: true
+    })
   ],
   build: {
     lib: {
-      entry: 'src/index.ts',
-      name: 'MyReactLibrary',
-      formats: ['es', 'umd'],
-      fileName: format => `my-react-library.${format}.js`,
+      entry: "src/index.ts",
+      name: "Luigui",
+      formats: ["es", "umd"],
+      fileName: format => `my-react-library.${format}.js`
     },
     rollupOptions: {
-      external: ['react', 'react-dom'],
+      external: ["react", "react-dom"],
       output: {
         globals: {
-          react: 'React',
-          'react-dom': 'ReactDOM',
-        },
-      },
-    },
+          react: "React",
+          "react-dom": "ReactDOM"
+        }
+      }
+    }
   },
   test: {
     globals: true,
-    environment: 'jsdom',
-    setupFiles: './test/setup.js',
-    css: true,
-  },
+    environment: "jsdom",
+    setupFiles: "./test/setup.js",
+    css: true
+  }
 });

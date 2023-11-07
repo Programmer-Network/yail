@@ -1,3 +1,3 @@
-export { default as IconQuestionMark } from './IconQuestionMark';
-export { default as IconStarFilled } from './IconStarFilled';
-export { default as IconStarEmpty } from './IconStarEmpty';
+export { default as IconQuestionMark } from "Components/Icons/IconQuestionMark";
+export { default as IconStarFilled } from "Components/Icons/IconStarFilled";
+export { default as IconStarEmpty } from "Components/Icons/IconStarEmpty";

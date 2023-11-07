@@ -1,6 +1,7 @@
-import { FC } from 'react';
-import { ICharacterCounterProps } from './types';
-import classNames from 'classnames';
+import classNames from "classnames";
+import { FC } from "react";
+
+import { ICharacterCounterProps } from "./types";
 
 const CharacterCounter: FC<ICharacterCounterProps> = ({ text, max }) => {
   const getCounter = () => {
@@ -15,8 +16,8 @@ const CharacterCounter: FC<ICharacterCounterProps> = ({ text, max }) => {
 
   return (
     <div
-      className={classNames('text-xs text-primary-text-color flex gap-1', {
-        '!text-rose-500': text.length > max,
+      className={classNames("flex gap-1 text-xs text-primary-text-color", {
+        "!text-rose-500": text.length > max
       })}
     >
       {getCounter()}
@@ -25,8 +26,8 @@ const CharacterCounter: FC<ICharacterCounterProps> = ({ text, max }) => {
 };
 
 CharacterCounter.defaultProps = {
-  text: '',
-  max: 0,
+  text: "",
+  max: 0
 };
 
 export default CharacterCounter;

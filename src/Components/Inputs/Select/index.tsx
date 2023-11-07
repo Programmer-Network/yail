@@ -1,11 +1,12 @@
-import classNames from 'classnames';
-import ReactSelect, { MultiValue, SingleValue } from 'react-select';
+import classNames from "classnames";
+import { FC } from "react";
+import ReactSelect, { MultiValue, SingleValue } from "react-select";
 
-import { styles } from './styles';
-import InputHeader from '../Common/InputHeader';
-import InputError from '../Common/InputError';
-import { FC } from 'react';
-import { ISelectProps } from './types';
+import InputError from "Components/Inputs/Common/InputError";
+import InputHeader from "Components/Inputs/Common/InputHeader";
+
+import { styles } from "./styles";
+import { ISelectProps } from "./types";
 
 type Option = {
   value: string;
@@ -55,8 +56,8 @@ const Select: FC<ISelectProps> = props => {
         defaultValue={defaultValue}
         value={getValue()}
         styles={styles()}
-        className="pn-select-container text-sm"
-        classNamePrefix="pn-select"
+        className='pn-select-container text-sm'
+        classNamePrefix='pn-select'
         onChange={handleOnChange}
       />
       {props.error && <InputError error={props.error} />}

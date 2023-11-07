@@ -1,15 +1,15 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from "@storybook/react";
 
-import TextOverLine from './';
+import TextOverLine from "./";
 
 const meta = {
-  title: 'Core/TextOverLine',
+  title: "Core/TextOverLine",
   component: TextOverLine,
   parameters: {
-    layout: 'centered',
+    layout: "centered"
   },
-  tags: ['autodocs'],
-  argTypes: {},
+  tags: ["autodocs"],
+  argTypes: {}
 } satisfies Meta<typeof TextOverLine>;
 
 export default meta;
@@ -17,6 +17,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Filled: Story = {
   args: {
-    children: 'Hello World',
-  },
+    children: "Hello World"
+  }
 };

@@ -1,8 +1,10 @@
-import { FC } from 'react';
-import { InputHeaderProps } from './types';
-import Tooltip from '../../../Tooltip';
-import CharacterCounter from '../../../CharacterCounter';
-import { IconQuestionMark } from '../../../Icons';
+import { FC } from "react";
+
+import CharacterCounter from "Components/CharacterCounter";
+import { IconQuestionMark } from "Components/Icons";
+import Tooltip from "Components/Tooltip";
+
+import { InputHeaderProps } from "./types";
 
 const InputHeader: FC<InputHeaderProps> = ({
   name,
@@ -11,27 +13,27 @@ const InputHeader: FC<InputHeaderProps> = ({
   label,
   hint,
   type,
-  required,
+  required
 }) => {
   if (!hint && !max && !label) {
     return null;
   }
 
   return (
-    <div className="flex items-center justify-between mb-2">
-      <div className="flex items-center gap-1">
+    <div className='mb-2 flex items-center justify-between'>
+      <div className='flex items-center gap-1'>
         {hint && name && (
-          <Tooltip text={hint} id={name} place="right">
-            <IconQuestionMark className="w-4 text-primary-text-color" />
+          <Tooltip text={hint} id={name} place='right'>
+            <IconQuestionMark className='w-4 text-primary-text-color' />
           </Tooltip>
         )}
-        <div className="text-sm text-primary-text-color">
+        <div className='text-sm text-primary-text-color'>
           {label}
-          {required && <span className="text-rose-500 ml-1">*</span>}
+          {required && <span className='text-rose-500 ml-1'>*</span>}
         </div>
       </div>
 
-      {!!max && value && type !== 'date' && (
+      {!!max && value && type !== "date" && (
         <CharacterCounter text={value} max={max} />
       )}
     </div>
@@ -39,13 +41,13 @@ const InputHeader: FC<InputHeaderProps> = ({
 };
 
 InputHeader.defaultProps = {
-  name: '',
-  value: '',
+  name: "",
+  value: "",
   max: 0,
-  label: '',
-  hint: '',
-  type: '',
-  required: false,
+  label: "",
+  hint: "",
+  type: "",
+  required: false
 };
 
 export default InputHeader;

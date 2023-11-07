@@ -1,17 +1,18 @@
-import { FC } from 'react';
-import { ITextOverLineProps } from './types';
-import classNames from 'classnames';
+import classNames from "classnames";
+import { FC } from "react";
+
+import { ITextOverLineProps } from "./types";
 
 const TextOverLine: FC<ITextOverLineProps> = ({ children, className }) => {
   return (
     <div
       className={classNames(
-        'inline-flex items-center justify-center w-full relative',
+        "relative inline-flex w-full items-center justify-center",
         className
       )}
     >
-      <hr className="w-64 h-[1px] bg-primary-text-color border-0 rounded" />
-      <div className="absolute px-4 -translate-x-1/2 bg-primary-background-color left-1/2 text-primary-text-color">
+      <hr className='h-[1px] w-64 rounded border-0 bg-primary-text-color' />
+      <div className='absolute left-1/2 -translate-x-1/2 bg-primary-background-color px-4 text-primary-text-color'>
         {children}
       </div>
     </div>

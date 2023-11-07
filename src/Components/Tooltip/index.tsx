@@ -1,15 +1,14 @@
-import { Tooltip as ReactTooltip } from 'react-tooltip';
-
-import { FC } from 'react';
+import { FC } from "react";
+import { Tooltip as ReactTooltip } from "react-tooltip";
 
 interface ITooltipProps {
   text: string;
   id: string;
   children: React.ReactNode;
-  place?: 'top' | 'bottom' | 'left' | 'right';
+  place?: "top" | "bottom" | "left" | "right";
 }
 
-const Tooltip: FC<ITooltipProps> = ({ text, children, id, place = 'top' }) => {
+const Tooltip: FC<ITooltipProps> = ({ text, children, id, place = "top" }) => {
   if (!text) {
     return children;
   }

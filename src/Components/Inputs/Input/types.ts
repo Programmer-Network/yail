@@ -1,7 +1,7 @@
-import { ChangeEvent, InputHTMLAttributes } from 'react';
+import { ChangeEvent, InputHTMLAttributes } from "react";
 
 export interface IInputProps
-  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange'> {
+  extends Omit<InputHTMLAttributes<HTMLInputElement>, "onChange"> {
   name: string;
   value: string;
   label: string;

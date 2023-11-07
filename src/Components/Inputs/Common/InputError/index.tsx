@@ -1,6 +1,7 @@
-import classNames from 'classnames';
-import { FC } from 'react';
-import { IInputErrorProps } from './types';
+import classNames from "classnames";
+import { FC } from "react";
+
+import { IInputErrorProps } from "./types";
 
 const InputError: FC<IInputErrorProps> = ({ error, className }) => {
   if (Array.isArray(error)) {
@@ -9,7 +10,7 @@ const InputError: FC<IInputErrorProps> = ({ error, className }) => {
         <p
           key={i}
           className={classNames(
-            'text-sm text-pink-600 peer-invalid:visible mt-4',
+            "text-pink-600 mt-4 text-sm peer-invalid:visible",
             className
           )}
         >
@@ -19,13 +20,13 @@ const InputError: FC<IInputErrorProps> = ({ error, className }) => {
     });
   }
 
-  if (typeof error === 'object') {
+  if (typeof error === "object") {
     return Object.keys(error).map((e, i) => {
       return (
         <p
           key={i}
           className={classNames(
-            'text-sm text-pink-600 peer-invalid:visible mt-4',
+            "text-pink-600 mt-4 text-sm peer-invalid:visible",
             className
           )}
         >
@@ -38,7 +39,7 @@ const InputError: FC<IInputErrorProps> = ({ error, className }) => {
   return (
     <p
       className={classNames(
-        'mt-2 text-sm text-pink-600 peer-invalid:visible',
+        "text-pink-600 mt-2 text-sm peer-invalid:visible",
         className
       )}
     >
@@ -48,8 +49,8 @@ const InputError: FC<IInputErrorProps> = ({ error, className }) => {
 };
 
 InputError.defaultProps = {
-  error: '',
-  className: '',
+  error: "",
+  className: ""
 };
 
 export default InputError;

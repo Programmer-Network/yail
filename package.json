@@ -2,6 +2,10 @@
   "name": "programmer-network-luigui",
   "version": "1.0.0",
   "description": "",
+  "engines": {
+    "node": "20.8",
+    "pnpm": "8.1"
+  },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -11,12 +15,22 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "prepare": "pnpm run build",
-    "storybook": "storybook dev -p 6006",
+    "prepare": "husky install && pnpm run build",
+    "storybook": "storybook dev --ci -p 6006",
+    "format": "prettier --cache --write . --ignore-unknown",
     "build-storybook": "build-storybook",
     "test": "vitest run",
     "test:ui": "vitest --ui",
-    "coverage": "vitest run --coverage"
+    "coverage": "vitest run --coverage",
+    "lint:ci": "eslint --cache .",
+    "lint:fix": "eslint --cache --fix src",
+    "lint:quiet": "eslint --cache --quiet src",
+    "test:ci": "vitest",
+    "types:check": "tsc"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": "eslint --cache --fix",
+    "*": "prettier --ignore-unknown --cache --write"
   },
   "vitest": {
     "test": {
@@ -44,6 +58,8 @@
     "@tailwindcss/typography": "0.5.10",
     "@testing-library/jest-dom": "^6.1.4",
     "@testing-library/react": "^14.0.0",
+    "@trivago/prettier-plugin-sort-imports": "^4.2.1",
+    "@types/node": "^20.8.10",
     "@types/react": "18.2.35",
     "@types/react-dom": "18.2.14",
     "@types/react-select": "^5.0.1",
@@ -53,20 +69,24 @@
     "@vitejs/plugin-react": "4.1.1",
     "@vitest/ui": "^0.34.6",
     "autoprefixer": "10.4.16",
+    "client": "link:@types/vite-plugin-svgr/client",
     "eslint": "8.53.0",
     "eslint-config-prettier": "9.0.0",
     "eslint-plugin-prettier": "5.0.1",
     "eslint-plugin-react": "7.33.2",
     "eslint-plugin-react-hooks": "4.6.0",
     "eslint-plugin-storybook": "0.6.15",
+    "husky": "^8.0.3",
     "jsdom": "^22.1.0",
     "postcss": "8.4.31",
     "prettier": "3.0.3",
+    "prettier-plugin-tailwindcss": "^0.5.6",
     "storybook": "7.5.2",
     "tailwindcss": "3.3.5",
     "typescript": "5.2.2",
     "vite": "4.5.0",
     "vite-plugin-dts": "3.6.3",
+    "vite-tsconfig-paths": "^4.2.1",
     "vitest": "^0.34.6"
   },
   "peerDependencies": {
@@ -74,8 +94,8 @@
     "classnames": "2.3.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-tooltip": "5.22.0",
     "react-select": "^5.8.0",
-    "react-select-async-paginate": "^0.7.3"
+    "react-select-async-paginate": "^0.7.3",
+    "react-tooltip": "5.22.0"
   }
 }

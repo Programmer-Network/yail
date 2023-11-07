@@ -1,26 +1,26 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from "@storybook/react";
 
-import Spinner from './';
+import Spinner from "./";
 
 const meta = {
-  title: 'Core/Spinner',
+  title: "Core/Spinner",
   component: Spinner,
   parameters: {
-    layout: 'centered',
+    layout: "centered"
   },
-  tags: ['autodocs'],
-  argTypes: {},
+  tags: ["autodocs"],
+  argTypes: {}
 } satisfies Meta<typeof Spinner>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-  args: {},
+  args: {}
 };
 
 export const WithClassName: Story = {
   args: {
-    className: 'w-24 text-primary',
-  },
+    className: "w-24 text-primary"
+  }
 };

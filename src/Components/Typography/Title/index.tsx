@@ -1,12 +1,13 @@
-import classNames from 'classnames';
-import { FC } from 'react';
-import { ITitleProps } from './types';
+import classNames from "classnames";
+import { FC } from "react";
+
+import { ITitleProps } from "./types";
 
 const Title: FC<ITitleProps> = ({ children, className }) => {
   return (
     <h1
       className={classNames(
-        'text-xl md:text-3xl text-primary cursor-pointer break-all',
+        "cursor-pointer break-all text-xl text-primary md:text-3xl",
         className
       )}
     >

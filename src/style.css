@@ -1,8 +1,7 @@
-/* tailwind.css */
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
-@import 'react-tooltip/dist/react-tooltip.css';
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import "react-tooltip/dist/react-tooltip.css";
 
 :root {
   --color-primary: #4f46e5;

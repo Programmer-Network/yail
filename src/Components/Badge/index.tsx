@@ -1,5 +1,5 @@
-import classNames from 'classnames';
-import { FC } from 'react';
+import classNames from "classnames";
+import { FC } from "react";
 
 interface IBadgeProps {
   title: string;
@@ -10,7 +10,7 @@ const Badge: FC<IBadgeProps> = ({ title, className }) => {
   return (
     <span
       className={classNames(
-        'border border-primary-text-color text-primary-text-color rounded px-1 pb-[2px] pt-[1px] text-[10px] relative top-[-2px]',
+        "relative top-[-2px] rounded border border-primary-text-color px-1 pb-[2px] pt-[1px] text-[10px] text-primary-text-color",
         className
       )}
     >

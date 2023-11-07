@@ -1,15 +1,15 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from "@storybook/react";
 
-import Button from './';
+import Button from "./";
 
 const meta = {
-  title: 'Core/Button',
+  title: "Core/Button",
   component: Button,
   parameters: {
-    layout: 'centered',
+    layout: "centered"
   },
-  tags: ['autodocs'],
-  argTypes: {},
+  tags: ["autodocs"],
+  argTypes: {}
 } satisfies Meta<typeof Button>;
 
 export default meta;
@@ -17,43 +17,43 @@ type Story = StoryObj<typeof meta>;
 
 export const Filled: Story = {
   args: {
-    children: 'Button',
-  },
+    children: "Button"
+  }
 };
 
 export const FilledDisabled: Story = {
   args: {
-    children: 'Button',
-    disabled: true,
-  },
+    children: "Button",
+    disabled: true
+  }
 };
 
 export const FilledSpining: Story = {
   args: {
-    children: 'Button',
-    isLoading: true,
-  },
+    children: "Button",
+    isLoading: true
+  }
 };
 
 export const Outlined: Story = {
   args: {
-    children: 'Button',
-    outlined: true,
-  },
+    children: "Button",
+    outlined: true
+  }
 };
 
 export const OutlinedDisabled: Story = {
   args: {
-    children: 'Button',
+    children: "Button",
     outlined: true,
-    disabled: true,
-  },
+    disabled: true
+  }
 };
 
 export const OutlinedSpinning: Story = {
   args: {
-    children: 'Button',
+    children: "Button",
     outlined: true,
-    isLoading: true,
-  },
+    isLoading: true
+  }
 };

@@ -1,4 +1,4 @@
-import { PropsValue } from 'react-select';
+import { PropsValue } from "react-select";
 
 export interface ISelectProps {
   name: string;
@@ -12,7 +12,7 @@ export interface ISelectProps {
   max?: number;
   isMulti?: boolean;
   isSearchable?: boolean;
-  onChange: (e: any) => void;
+  onChange: (e: unknown) => void;
   options: { value: string; label: string }[];
   inputWrapperClassName?: string;
 }

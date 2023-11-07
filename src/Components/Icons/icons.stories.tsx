@@ -1,8 +1,9 @@
-import React from 'react';
-import * as Icons from './';
+import React from "react";
+
+import * as Icons from "./";
 
 export default {
-  title: 'Core/Icons',
+  title: "Core/Icons"
 };
 
 const Template = () => {
@@ -13,7 +14,7 @@ const Template = () => {
 
   return (
     <div>
-      <div className="flex gap-4">
+      <div className='flex gap-4'>
         {Object.keys(AllIcons)
           .sort()
           .map((iconName: string) => {
@@ -21,10 +22,10 @@ const Template = () => {
             return (
               <div
                 key={iconName}
-                className="flex flex-col items-center justify-center gap-2"
+                className='flex flex-col items-center justify-center gap-2'
               >
-                <Icon className="w-12 h-12" />
-                <span className="font-bold">{iconName}</span>
+                <Icon className='h-12 w-12' />
+                <span className='font-bold'>{iconName}</span>
               </div>
             );
           })}

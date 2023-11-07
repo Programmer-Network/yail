@@ -1,17 +1,19 @@
-import '../src/style.css';
+import type { Preview } from "@storybook/react";
+import "tailwindcss/tailwind.css";
 
-import type { Preview } from '@storybook/react';
+import "../src/style.css";
 
 const preview: Preview = {
   parameters: {
-    actions: { argTypesRegex: '^on[A-Z].*' },
+    actions: { argTypesRegex: "^on[A-Z].*" },
     controls: {
       matchers: {
         color: /(background|color)$/i,
-        date: /Date$/i,
-      },
+        date: /Date$/i
+      }
     },
-  },
+    layout: "fullscreen"
+  }
 };
 
 export default preview;

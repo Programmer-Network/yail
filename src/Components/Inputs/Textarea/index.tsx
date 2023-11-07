@@ -1,14 +1,15 @@
-import classNames from 'classnames';
-import { InputError, InputHeader } from '..';
-import { ChangeEvent, FC } from 'react';
-import { ITextareaProps } from './types';
+import classNames from "classnames";
+import { ChangeEvent, FC } from "react";
+
+import { InputError, InputHeader } from "..";
+import { ITextareaProps } from "./types";
 
 const Textarea: FC<ITextareaProps> = props => {
   const { rows = 3, className } = props;
 
   const onChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     if (!onChange) {
-      throw new Error('💣 Textarea is missing onChange handler 💣');
+      throw new Error("💣 Textarea is missing onChange handler 💣");
     }
 
     if (!e.target.name) {
@@ -26,7 +27,7 @@ const Textarea: FC<ITextareaProps> = props => {
         rows={rows}
         onChange={onChange}
         className={classNames(
-          'bg w-full border-2 border-primary-text-color rounded-sm bg-transparent p-4 hover:border-primary focus:border-primary focus:shadow-none focus:outline-none focus:ring-transparent text-primary-text-color dark:text-primary-text-color',
+          "bg bg-transparent focus:ring-transparent w-full rounded-sm border-2 border-primary-text-color p-4 text-primary-text-color hover:border-primary focus:border-primary focus:shadow-none focus:outline-none dark:text-primary-text-color",
           className
         )}
       />

@@ -1,8 +1,10 @@
-import classNames from 'classnames';
-import { ChangeEvent, FC, forwardRef } from 'react';
-import InputHeader from '../Common/InputHeader';
-import InputError from '../Common/InputError';
-import { IInputProps } from './types';
+import classNames from "classnames";
+import { ChangeEvent, FC, forwardRef } from "react";
+
+import InputError from "Components/Inputs/Common/InputError";
+import InputHeader from "Components/Inputs/Common/InputHeader";
+
+import { IInputProps } from "./types";
 
 const Input: FC<IInputProps> = forwardRef<HTMLInputElement, IInputProps>(
   function InputForwardRef(props, ref) {
@@ -29,7 +31,7 @@ const Input: FC<IInputProps> = forwardRef<HTMLInputElement, IInputProps>(
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
       if (!onChange) {
-        throw new Error('💣 Input is missing onChange handler 💣');
+        throw new Error("💣 Input is missing onChange handler 💣");
       }
 
       if (!e.target.name) {
@@ -41,10 +43,10 @@ const Input: FC<IInputProps> = forwardRef<HTMLInputElement, IInputProps>(
 
     const getMinValue = () => {
       switch (type) {
-        case 'text':
-        case 'number':
+        case "text":
+        case "number":
           return min;
-        case 'datetime-local':
+        case "datetime-local":
           return minDate;
         default:
           return undefined;
@@ -52,9 +54,9 @@ const Input: FC<IInputProps> = forwardRef<HTMLInputElement, IInputProps>(
     };
 
     return (
-      <div className={classNames('input-wrapper', inputWrapperClassName)}>
+      <div className={classNames("input-wrapper", inputWrapperClassName)}>
         <InputHeader {...inputHeaderProps} />
-        <div className="relative">
+        <div className='relative'>
           <input
             ref={ref}
             {...rest}
@@ -62,19 +64,19 @@ const Input: FC<IInputProps> = forwardRef<HTMLInputElement, IInputProps>(
             value={value}
             type={type}
             onChange={handleChange}
-            className={classNames('input-base', className, {
-              'input-disabled': disabled,
+            className={classNames("input-base", className, {
+              "input-disabled": disabled
             })}
-            maxLength={type === 'text' ? max : undefined}
+            maxLength={type === "text" ? max : undefined}
             min={getMinValue()}
-            max={type !== 'text' ? max : undefined}
+            max={type !== "text" ? max : undefined}
             disabled={disabled}
           />
-          {children && <div className="input-children">{children}</div>}
+          {children && <div className='input-children'>{children}</div>}
         </div>
         {error && <InputError error={error} />}
-        {typeof min === 'number' && value.length < min && (
-          <p className="text-warning mt-2 text-sm">
+        {typeof min === "number" && value.length < min && (
+          <p className='text-warning mt-2 text-sm'>
             {min - value.length} characters to go
           </p>
         )}
