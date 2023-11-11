@@ -20,11 +20,13 @@ const Bookmark: React.FC<IBookmarkProps> = ({
           <>
             {isBookmarked ? (
               <IconBookmarked
+                data-testid='icon-bookmarked'
                 className='relative top-[-1px] w-5 cursor-pointer fill-primary hover:fill-primary'
                 onClick={handleDelete}
               />
             ) : (
               <IconBookmark
+                data-testid='icon-bookmark'
                 className='relative top-[-1px] w-5 cursor-pointer fill-primary-text-color hover:fill-primary'
                 onClick={handleAdd}
               />

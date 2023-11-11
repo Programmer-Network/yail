@@ -1,0 +1,28 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`CTA component > renders correctly - snapshot test 1`] = `
+<DocumentFragment>
+  <div
+    class="flex items-center justify-center"
+  >
+    <div
+      class="flex flex-col items-center gap-4 text-center"
+    >
+      <div
+        class="flex flex-col items-center justify-center"
+      >
+        <h3
+          class="text-sm font-medium text-primary-text-color md:text-2xl"
+        >
+          Test Title
+        </h3>
+        <p
+          class="mx-auto mt-1 max-w-md text-sm text-primary md:text-xl"
+        >
+          Test Subtitle
+        </p>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

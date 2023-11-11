@@ -1,10 +1,7 @@
 import classNames from "classnames";
 import { FC } from "react";
 
-interface IBadgeProps {
-  title: string;
-  className?: string;
-}
+import { IBadgeProps } from "./types";
 
 const Badge: FC<IBadgeProps> = ({ title, className }) => {
   return (

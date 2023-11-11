@@ -9,6 +9,7 @@ const IconExpandLess: FC<IIconProps> = props => (
     role='img'
     fill='currentColor'
     xmlns='http://www.w3.org/2000/svg'
+    data-testid='icon-expand-less'
     {...props}
   >
     <path fill='none' d='M0 0h24v24H0V0z' />

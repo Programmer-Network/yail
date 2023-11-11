@@ -2,7 +2,6 @@ export interface ISectionItem {
   id: number;
   title: string;
   order: number;
-  videoURL: string;
 }
 
 export interface ISection {

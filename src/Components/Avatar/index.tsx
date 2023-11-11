@@ -1,13 +1,9 @@
+import { StringUtils } from "Utils";
 import BoringAvatars from "boring-avatars";
 import classNames from "classnames";
 import { FC } from "react";
 
-interface IAvatarProps {
-  src?: string;
-  alt?: string;
-  size?: number;
-  colors?: string[];
-}
+import { IAvatarProps } from "./types";
 
 const Avatar: FC<IAvatarProps> = ({
   src,
@@ -17,9 +13,12 @@ const Avatar: FC<IAvatarProps> = ({
 }) => {
   const className = classNames("sm:m-0 rounded-full overflow-hidden");
 
+  src && StringUtils.validateURL(src);
+
   if (!src) {
     return (
       <div
+        data-testid='svg-avatar-parent'
         className={className}
         style={{ width: `${size}px`, height: `${size}px` }}
       >

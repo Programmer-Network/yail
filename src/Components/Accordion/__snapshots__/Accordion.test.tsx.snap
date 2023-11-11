@@ -1,0 +1,117 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Accordion component > renders correctly 1`] = `
+<DocumentFragment>
+  <section
+    class=""
+  >
+    <div
+      class="border border-primary-text-color p-2  mb-0 border-b-0"
+      role="presentation"
+    >
+      <h3
+        aria-expanded="true"
+        class="flex cursor-pointer select-none items-center justify-between capitalize text-primary-text-color mb-2 border-b border-primary-text-color pb-2"
+        role="button"
+        tabindex="0"
+      >
+        <div
+          class="flex items-center gap-1 overflow-hidden text-ellipsis whitespace-nowrap text-base"
+        >
+          <svg
+            class="w-8 cursor-pointer fill-primary-text-color hover:fill-primary"
+            data-testid="icon-expand-less"
+            fill="currentColor"
+            focusable="false"
+            role="img"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0 0h24v24H0V0z"
+              fill="none"
+            />
+            <path
+              d="m7.71 15.29 3.88-3.88 3.88 3.88a.996.996 0 1 0 1.41-1.41l-4.59-4.59a.996.996 0 0 0-1.41 0l-4.59 4.59a.996.996 0 0 0 0 1.41c.39.38 1.03.39 1.42 0z"
+            />
+          </svg>
+          Section 1
+        </div>
+      </h3>
+      <ul
+        aria-labelledby="1"
+        class="ml-[10px] leading-8"
+        role="region"
+      >
+        <li
+          class="mb-2 text-primary-text-color cursor-pointer"
+        >
+          <div
+            class="flex gap-2 break-all"
+          >
+            <span
+              class="capitalize text-primary-text-color"
+            >
+              1.
+            </span>
+            <span>
+              Item A
+            </span>
+          </div>
+        </li>
+        <li
+          class="mb-2 text-primary-text-color cursor-pointer"
+        >
+          <div
+            class="flex gap-2 break-all"
+          >
+            <span
+              class="capitalize text-primary-text-color"
+            >
+              2.
+            </span>
+            <span>
+              Item B
+            </span>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div
+      class="border border-primary-text-color p-2 "
+      role="presentation"
+    >
+      <h3
+        aria-expanded="false"
+        class="flex cursor-pointer select-none items-center justify-between capitalize text-primary-text-color"
+        role="button"
+        tabindex="0"
+      >
+        <div
+          class="flex items-center gap-1 overflow-hidden text-ellipsis whitespace-nowrap text-base"
+        >
+          <svg
+            class="w-8 cursor-pointer fill-primary-text-color hover:fill-primary"
+            data-testid="icon-expand-more"
+            fill="currentColor"
+            focusable="false"
+            role="img"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M24 24H0V0h24v24z"
+              fill="none"
+              opacity="0.87"
+            />
+            <path
+              d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6-1.41-1.41z"
+            />
+          </svg>
+          Section 2
+        </div>
+      </h3>
+    </div>
+  </section>
+</DocumentFragment>
+`;

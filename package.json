@@ -16,6 +16,7 @@
     "format": "prettier --write .",
     "build-storybook": "storybook build",
     "test": "vitest run",
+    "test:watch": "vitest",
     "test:ui": "vitest --ui",
     "coverage": "vitest run --coverage",
     "lint:ci": "eslint --cache .",

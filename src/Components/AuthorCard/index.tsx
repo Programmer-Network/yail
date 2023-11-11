@@ -12,7 +12,10 @@ const AuthorCard: React.FC<IAuthorCardProps> = ({
   onClick
 }) => {
   return (
-    <div className='border border-primary-text-color p-6' onClick={onClick}>
+    <div
+      className='border border-primary-text-color p-6'
+      onClick={() => (onClick ? onClick({ name, avatar, about }) : undefined)}
+    >
       <div className='flex flex-col items-center gap-4 text-sm md:flex-row'>
         <div className='hidden md:block'>
           <Avatar src={avatar} size={75} />

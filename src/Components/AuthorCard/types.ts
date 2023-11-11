@@ -1,6 +1,6 @@
 export interface IAuthorCardProps {
   name: string;
-  avatar: string;
+  avatar?: string;
   about: string;
-  onClick?: () => void;
+  onClick?: (author: { name: string; avatar?: string; about: string }) => void;
 }

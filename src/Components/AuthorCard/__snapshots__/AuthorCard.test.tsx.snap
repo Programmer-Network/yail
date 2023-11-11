@@ -1,0 +1,41 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`AuthorCard component > renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="border border-primary-text-color p-6"
+  >
+    <div
+      class="flex flex-col items-center gap-4 text-sm md:flex-row"
+    >
+      <div
+        class="hidden md:block"
+      >
+        <div
+          class="sm:m-0 rounded-full overflow-hidden"
+          style="width: 75px; height: 75px;"
+        >
+          <img
+            alt="John Doe"
+            loading="lazy"
+            src="https://avatars.githubusercontent.com/u/2085263?v=4"
+            style="width: 75px; height: 75px;"
+          />
+        </div>
+      </div>
+      <div>
+        <h1
+          class="cursor-pointer break-all text-xl text-primary md:text-3xl"
+        >
+          John Doe
+        </h1>
+        <p
+          class="break-all text-primary-text-color md:text-2xl"
+        >
+          An expert in the field.
+        </p>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

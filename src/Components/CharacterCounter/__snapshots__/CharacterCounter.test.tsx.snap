@@ -1,0 +1,25 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`CharacterCounter component > renders correctly - snapshot test 1`] = `
+<DocumentFragment>
+  <div
+    class="flex gap-1 text-xs text-primary-text-color"
+  >
+    <span
+      data-testid="current-length"
+    >
+      4
+    </span>
+    <span
+      data-testid="separator"
+    >
+      /
+    </span>
+    <span
+      data-testid="max-length"
+    >
+      10
+    </span>
+  </div>
+</DocumentFragment>
+`;

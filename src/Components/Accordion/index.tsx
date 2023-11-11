@@ -32,7 +32,7 @@ const Accordion: FC<IAccordionProps> = ({
     }
 
     setExpandedSections([sections[0].id]);
-  }, []);
+  }, [sections, setExpandedSections]);
 
   return (
     <section className={classNames(className)}>

@@ -14,7 +14,7 @@ const Template = () => {
 
   return (
     <div>
-      <div className='flex gap-4'>
+      <div className='grid grid-cols-4 gap-4'>
         {Object.keys(AllIcons)
           .sort()
           .map((iconName: string) => {
@@ -24,8 +24,8 @@ const Template = () => {
                 key={iconName}
                 className='flex flex-col items-center justify-center gap-2 p-8'
               >
-                <Icon className='h-12 w-12 text-gray-500' />
-                <span className='font-bold text-gray-300'>{iconName}</span>
+                <Icon className='h-16 w-16 text-indigo-500' />
+                <span className='font-bold text-indigo-500'>{iconName}</span>
               </div>
             );
           })}
