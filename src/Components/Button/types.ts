@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 
 export interface IButtonProps {
-  onClick?: () => void;
+  onClick?: (e: React.MouseEvent) => void;
   children?: ReactNode;
   className?: string;
   disabled?: boolean;
