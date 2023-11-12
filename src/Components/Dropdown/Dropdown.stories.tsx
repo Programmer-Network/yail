@@ -20,13 +20,13 @@ Default.args = {
   buttonContent: "Click Me",
   children: (
     <ul className='p-2 text-primary-text-color'>
-      <li className='p-2 text-primary-text-color hover:cursor-pointer hover:bg-indigo-500 hover:text-primary-background-color'>
+      <li className='p-2 text-primary-text-color hover:cursor-pointer hover:bg-primary hover:text-primary-background-color'>
         Option 1
       </li>
-      <li className='p-2 text-primary-text-color hover:cursor-pointer hover:bg-indigo-500 hover:text-primary-background-color'>
+      <li className='p-2 text-primary-text-color hover:cursor-pointer hover:bg-primary hover:text-primary-background-color'>
         Option 2
       </li>
-      <li className='p-2 text-primary-text-color hover:cursor-pointer hover:bg-indigo-500 hover:text-primary-background-color'>
+      <li className='p-2 text-primary-text-color hover:cursor-pointer hover:bg-primary hover:text-primary-background-color'>
         Option 3
       </li>
     </ul>
@@ -39,10 +39,10 @@ WithLongContent.args = {
   children: (
     <div className='p-2 text-primary-text-color'>
       <ul>
-        <li className='p-2 text-primary-text-color hover:cursor-pointer hover:bg-indigo-500 hover:text-primary-background-color'>
+        <li className='p-2 text-primary-text-color hover:cursor-pointer hover:bg-primary hover:text-primary-background-color'>
           Extended Option 1
         </li>
-        <li className='p-2 text-primary-text-color hover:cursor-pointer hover:bg-indigo-500 hover:text-primary-background-color'>
+        <li className='p-2 text-primary-text-color hover:cursor-pointer hover:bg-primary hover:text-primary-background-color'>
           Extended Option 2
         </li>
       </ul>
