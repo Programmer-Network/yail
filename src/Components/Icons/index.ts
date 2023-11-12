@@ -6,3 +6,7 @@ export { default as IconExpandMore } from "Components/Icons/IconExpandMore";
 export { default as IconExpandLess } from "Components/Icons/IconExpandLess";
 export { default as IconBookmark } from "Components/Icons/IconBookmark";
 export { default as IconBookmarked } from "Components/Icons/IconBookmarked";
+export { default as IconArrowUp } from "Components/Icons/IconArrowUp";
+export { default as IconArrowDown } from "Components/Icons/IconArrowDown";
+export { default as IconComment } from "Components/Icons/IconComment";
+export { default as IconShare } from "Components/Icons/IconShare";
