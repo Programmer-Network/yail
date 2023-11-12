@@ -75,8 +75,7 @@ Button.defaultProps = {
   className: "",
   disabled: false,
   outlined: false,
-  isLoading: false,
-  spinnerColor: ""
+  isLoading: false
 };
 
 export default Button;
