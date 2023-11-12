@@ -71,6 +71,7 @@
     "@vitest/ui": "0.34.6",
     "autoprefixer": "10.4.16",
     "client": "link:@types/vite-plugin-svgr/client",
+    "core": "link:@types/@popperjs/core",
     "create": "link:@types/@storybook/theming/create",
     "eslint": "8.53.0",
     "eslint-config-prettier": "9.0.0",
@@ -92,6 +93,7 @@
     "vitest": "0.34.6"
   },
   "dependencies": {
+    "@popperjs/core": "^2.11.8",
     "boring-avatars": "1.10.1",
     "classnames": "2.3.2",
     "react": "18.2.0",
