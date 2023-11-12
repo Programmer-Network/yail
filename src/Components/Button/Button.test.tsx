@@ -40,7 +40,7 @@ describe("Button component", () => {
     expect(handleClick).toHaveBeenCalledTimes(1);
   });
 
-  test("has correct styles when disabled and not outlined", () => {
+  test("has correct styles when disabled and filled", () => {
     render(<Button disabled>Disabled Button</Button>);
     const button = screen.getByRole("button");
     expect(button).toHaveClass("text-primary-background-color");
@@ -48,14 +48,13 @@ describe("Button component", () => {
     expect(button).toHaveClass("!bg-primary");
   });
 
-  test("has correct styles when loading and not outlined", () => {
+  test("has correct styles when loading and filled", () => {
     render(<Button isLoading>Button</Button>);
     const button = screen.getByRole("button");
-    expect(button).toHaveClass("!text-primary-background-color");
     expect(button).toHaveClass("hover:bg-transparent");
   });
 
-  test("has correct styles when not disabled, not loading, and not outlined", () => {
+  test("has correct styles when not disabled, not loading, and filled", () => {
     render(<Button>Button</Button>);
     const button = screen.getByRole("button");
     expect(button).toHaveClass("bg-primary");

@@ -1,5 +1,4 @@
 import classNames from "classnames";
-import { useState } from "react";
 
 import Spinner from "Components/Spinner";
 
@@ -14,12 +13,8 @@ const Button: React.FC<IButtonProps> = ({
   isLoading = false,
   outlined = false
 }) => {
-  const [isHovering, setIsHovering] = useState(false);
-
   return (
     <button
-      onMouseEnter={() => setIsHovering(true)}
-      onMouseLeave={() => setIsHovering(false)}
       disabled={disabled}
       onClick={onClick}
       type={type}
@@ -32,8 +27,7 @@ const Button: React.FC<IButtonProps> = ({
           "text-primary-background-color": !outlined || disabled,
           "!text-bg-primary-background-color !bg-primary":
             !outlined && disabled,
-          "!text-primary-background-color hover:bg-transparent":
-            !outlined && isLoading,
+          "hover:bg-transparent": !outlined && isLoading,
           "bg-primary hover:bg-transparent hover:text-primary":
             !outlined && !disabled,
           "hover:bg-primary hover:text-primary-background-color":
@@ -51,18 +45,7 @@ const Button: React.FC<IButtonProps> = ({
           {children}
         </span>
         <span className='absolute'>
-          {isLoading && (
-            <Spinner
-              className={classNames("h-8 w-8", {
-                "text-text-primary-background-color": outlined && isHovering,
-                "text-primary":
-                  (outlined && !isHovering) ||
-                  (isHovering && isLoading && !outlined),
-                "text-primary-background-color":
-                  isHovering && isLoading && outlined
-              })}
-            />
-          )}
+          {isLoading && <Spinner className={classNames("h-8 w-8")} />}
         </span>
       </div>
     </button>
