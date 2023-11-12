@@ -1,17 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import Button from ".";
-import vitestResults from "../../../test-results.json";
 
 const meta = {
   title: "Core/Button",
   component: Button,
   parameters: {
-    layout: "centered",
-    vitest: {
-      testFile: "Button.test.tsx",
-      testResults: vitestResults
-    }
+    layout: "centered"
   },
   tags: ["autodocs"],
   argTypes: {}

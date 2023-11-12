@@ -4,6 +4,10 @@
 [![pages-build-deployment](https://github.com/Programmer-Network/luigui/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/Programmer-Network/luigui/actions/workflows/pages/pages-build-deployment)
 [![deploy-storybook](https://github.com/Programmer-Network/luigui/actions/workflows/deploy-storybook.yaml/badge.svg)](https://github.com/Programmer-Network/luigui/actions/workflows/deploy-storybook.yaml)
 
+<p align="center">
+  <img src="./assets/images/logo.png" width="250">
+</p>
+
 ## 🎨Luigui's [Storybook](https://luigui.programmer.network)
 
 _Luigui_ is the official UI library of
@@ -30,10 +34,6 @@ For an in-depth look at what _Luigui_ offers, the Storybook is a good starting
 point. It documents the current set of UI components and their usage patterns.
 You can visit our [🖌️Storybook](https://luigui.programmer.network) to review the
 implemented features and components.
-
-<p align="center">
-  <img src="./assets/images/logo.png" width="250">
-</p>
 
 **Luigui**, pronounced "lui-gooey" and inspired by the Super Mario character
 Luigi, is an official React UI component library used by
