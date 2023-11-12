@@ -5,7 +5,7 @@ import ImageSelector from ".";
 import { IImage } from "./types";
 
 export default {
-  title: "Core / ImageSelector",
+  title: "Components / ImageSelector",
   parameters: {
     layout: "centered"
   },
@@ -14,22 +14,22 @@ export default {
 
 export const Primary = () => {
   const value = {
-    url: "https://images.immediate.co.uk/production/volatile/sites/3/2018/08/Simpsons_SO28_Gallery_11-fb0b632.jpg?quality=90&resize=800,534",
-    id: 99
+    id: 2,
+    url: "https://avatars.githubusercontent.com/u/2085261?v=2"
   };
 
   const [images, setImages] = useState<IImage[]>([
     {
       id: 1,
-      url: "https://upload.wikimedia.org/wikipedia/en/0/0b/Marge_Simpson.png"
+      url: "https://avatars.githubusercontent.com/u/2085264?v=1"
     },
     {
       id: 2,
-      url: "https://imagedelivery.net/mG9yIKlH_7CYi04eBXEpYg/e097c28d-933b-4b02-5415-17319b236e00/public"
+      url: "https://avatars.githubusercontent.com/u/2085261?v=2"
     },
     {
       id: 3,
-      url: "https://images.immediate.co.uk/production/volatile/sites/3/2018/08/Simpsons_SO28_Gallery_11-fb0b632.jpg?quality=90&resize=800,534"
+      url: "https://avatars.githubusercontent.com/u/2085268?v=4"
     }
   ]);
 
@@ -40,8 +40,9 @@ export const Primary = () => {
   const handleDelete = (image: IImage): Promise<IImage[]> => {
     return new Promise(resolve => {
       setTimeout(() => {
-        setImages(images.filter(i => i.id !== image.id));
-        resolve(images.filter(i => i.id !== image.id));
+        const removed = images.filter(i => i.id !== image.id);
+        setImages(removed);
+        resolve(removed);
         action("onSelected")(images);
       }, 2000);
     });

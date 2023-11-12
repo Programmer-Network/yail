@@ -3,12 +3,17 @@ import { Meta } from "@storybook/react";
 import { useState } from "react";
 
 import Accordion from ".";
+import vitestResults from "../../../test-results.json";
 
 const meta = {
   title: "Core / Accordion",
   component: Accordion,
   parameters: {
-    layout: "centered"
+    layout: "centered",
+    vitest: {
+      testFile: "Accordion.test.tsx",
+      testResults: vitestResults
+    }
   },
   tags: ["autodocs"],
   argTypes: {}

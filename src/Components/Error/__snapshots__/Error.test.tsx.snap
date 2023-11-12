@@ -1,0 +1,39 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Error component > renders correctly - snapshot test 1`] = `
+<DocumentFragment>
+  <div
+    class="flex min-h-full flex-col pb-12 pt-16"
+    data-testid="error-wrapper"
+  >
+    <div
+      class="mx-auto flex w-full max-w-7xl flex-grow flex-col px-4 lg:px-8"
+    >
+      <div
+        class="flex flex-shrink-0 justify-center"
+      >
+        <a
+          class="inline-flex"
+        />
+      </div>
+      <div>
+        <div
+          class="text-center"
+        >
+          <p
+            class="font-semibold uppercase tracking-wide text-primary md:text-6xl"
+            data-testid="error-text"
+          >
+            404 error
+          </p>
+          <h1
+            class="mt-2 text-4xl font-extrabold tracking-tight text-primary-text-color sm:text-3xl"
+          >
+            Page not found.
+          </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

@@ -18,7 +18,7 @@ const Divider: FC<IDividerProps> = ({ className, classes }) => {
         ArrayUtils.shuffle(classes).map((bg, index) => (
           <div
             key={index}
-            className={classNames("block h-[2px] w-28", bg)}
+            className={classNames("block h-[1px] w-28", bg)}
             data-testid={`divider-child-${index}`}
           />
         ))}

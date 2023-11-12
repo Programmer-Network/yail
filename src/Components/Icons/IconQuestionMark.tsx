@@ -2,7 +2,7 @@ import { FC } from "react";
 
 import { IIconProps } from "./types";
 
-const IConQuestionMark: FC<IIconProps> = props => (
+const IconQuestionMark: FC<IIconProps> = props => (
   <svg
     fill='currentColor'
     viewBox='0 0 16 16'
@@ -17,4 +17,4 @@ const IConQuestionMark: FC<IIconProps> = props => (
   </svg>
 );
 
-export default IConQuestionMark;
+export default IconQuestionMark;

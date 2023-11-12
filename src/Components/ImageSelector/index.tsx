@@ -34,11 +34,9 @@ const ImageSelector: FC<IImageSelectorProps> = ({
             key={image.id}
             style={{ backgroundImage: `url(${image.url})` }}
             className={classNames(
-              "relative h-full min-h-[150px] w-full bg-cover bg-center bg-no-repeat p-4",
+              "relative aspect-square h-full w-full min-w-[150px] cursor-pointer bg-cover bg-center bg-no-repeat opacity-70",
               {
-                "border-text border-2 border-dotted":
-                  image.url === selected.url,
-                "cursor-pointer": image.url !== image.url,
+                "opacity-100": selected.url === image.url,
                 "flex items-center justify-center border-rose-500 opacity-50":
                   itemToDelete?.url === image.url
               }
@@ -60,7 +58,7 @@ const ImageSelector: FC<IImageSelectorProps> = ({
                     setItemToDelete(null);
                   }
                 }}
-                className='absolute right-1 top-1 w-6 cursor-pointer text-rose-500 transition duration-200 ease-in hover:text-rose-700'
+                className='absolute right-1 top-1 w-4 cursor-pointer text-primary-text-color transition duration-200 ease-in hover:text-rose-700'
               />
             )}
           </div>
