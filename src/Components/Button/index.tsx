@@ -16,32 +16,6 @@ const Button: React.FC<IButtonProps> = ({
 }) => {
   const [isHovering, setIsHovering] = useState(false);
 
-  const getSpinnerClass = () =>
-    classNames("w-8 h-8", {
-      "text-text-primary-background-color": outlined && isHovering,
-      "text-primary": outlined && !isHovering
-    });
-
-  const getStyles = () =>
-    classNames(
-      "border-2",
-      {
-        "text-primary border-primary": outlined,
-        "text-primary-background-color border-primary": !outlined
-      },
-      {
-        "hover:bg-primary hover:text-primary-background-color":
-          outlined && !disabled,
-        "bg-primary hover:text-primary hover:bg-transparent":
-          !outlined && !disabled,
-        "!bg-primary !text-bg-primary-background-color !opacity-80":
-          !outlined && disabled,
-        "!bg-transparent !text-primary !opacity-80": outlined && disabled,
-        "hover:bg-transparent !text-primary-background-color":
-          !outlined && isLoading
-      }
-    );
-
   return (
     <button
       onMouseEnter={() => setIsHovering(true)}
@@ -50,11 +24,21 @@ const Button: React.FC<IButtonProps> = ({
       onClick={onClick}
       type={type}
       className={classNames(
-        getStyles(),
-        "select-none px-3 py-2 text-sm font-semibold uppercase tracking-tight",
+        "select-none border-2 border-primary px-3 py-2 text-sm font-semibold uppercase tracking-tight shadow-lg",
         className,
         {
-          "cursor-not-allowed opacity-75": disabled
+          "cursor-not-allowed opacity-70": disabled,
+          "text-primary": outlined && !disabled,
+          "text-primary-background-color": !outlined || disabled,
+          "!text-bg-primary-background-color !bg-primary":
+            !outlined && disabled,
+          "!text-primary-background-color hover:bg-transparent":
+            !outlined && isLoading,
+          "bg-primary hover:bg-transparent hover:text-primary":
+            !outlined && !disabled,
+          "hover:bg-primary hover:text-primary-background-color":
+            outlined && !disabled,
+          "!bg-transparent !text-primary": outlined && disabled
         }
       )}
     >
@@ -67,7 +51,18 @@ const Button: React.FC<IButtonProps> = ({
           {children}
         </span>
         <span className='absolute'>
-          {isLoading && <Spinner className={getSpinnerClass()} />}
+          {isLoading && (
+            <Spinner
+              className={classNames("h-8 w-8", {
+                "text-text-primary-background-color": outlined && isHovering,
+                "text-primary":
+                  (outlined && !isHovering) ||
+                  (isHovering && isLoading && !outlined),
+                "text-primary-background-color":
+                  isHovering && isLoading && outlined
+              })}
+            />
+          )}
         </span>
       </div>
     </button>
