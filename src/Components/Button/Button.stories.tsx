@@ -57,3 +57,12 @@ export const OutlinedSpinning: Story = {
     isLoading: true
   }
 };
+
+export const WithChangedCustomCSSProperty: Story = {
+  args: {
+    children: "Button",
+    outlined: true,
+    isLoading: true,
+    className: "luigui-button--error"
+  }
+};

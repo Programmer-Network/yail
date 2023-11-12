@@ -2,6 +2,7 @@ import classNames from "classnames";
 
 import Spinner from "Components/Spinner";
 
+import "./style.css";
 import { IButtonProps } from "./types";
 
 const Button: React.FC<IButtonProps> = ({
