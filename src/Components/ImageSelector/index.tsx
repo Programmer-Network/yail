@@ -25,6 +25,7 @@ const ImageSelector: FC<IImageSelectorProps> = ({
       {images.map(image => {
         return (
           <div
+            data-testid={`image-${image.id}`}
             onClick={() => {
               setSelected(image);
               onSelected(image);
@@ -36,7 +37,7 @@ const ImageSelector: FC<IImageSelectorProps> = ({
             className={classNames(
               "relative aspect-square h-full w-full min-w-[150px] cursor-pointer bg-cover bg-center bg-no-repeat opacity-70",
               {
-                "opacity-100": selected.url === image.url,
+                "!opacity-100": selected.url === image.url,
                 "flex items-center justify-center border-rose-500 opacity-50":
                   itemToDelete?.url === image.url
               }
@@ -48,6 +49,7 @@ const ImageSelector: FC<IImageSelectorProps> = ({
 
             {!itemToDelete && hoveredImage?.url === image.url && (
               <IconRemoveCircle
+                data-testid={`icon-remove-circle-${image.id}`}
                 onClick={async e => {
                   try {
                     e.stopPropagation();

@@ -1,0 +1,20 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ImageSelector component > renders correctly - snapshot test 1`] = `
+<DocumentFragment>
+  <div
+    class="grid grid-cols-4 gap-4"
+  >
+    <div
+      class="relative aspect-square h-full w-full min-w-[150px] cursor-pointer bg-cover bg-center bg-no-repeat opacity-70 !opacity-100"
+      data-testid="image-1"
+      style="background-image: url(http://example.com/image1.jpg);"
+    />
+    <div
+      class="relative aspect-square h-full w-full min-w-[150px] cursor-pointer bg-cover bg-center bg-no-repeat opacity-70"
+      data-testid="image-2"
+      style="background-image: url(http://example.com/image2.jpg);"
+    />
+  </div>
+</DocumentFragment>
+`;

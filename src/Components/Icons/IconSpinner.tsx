@@ -7,10 +7,10 @@ const IconSpinner: FC<IIconProps> = props => {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
+      data-testid='icon-spinner'
+      className={classNames("w-10", props.className)}
       viewBox='0 0 24 24'
       {...props}
-      className={classNames("w-10", props.className)}
-      data-testid='icon-spinner'
     >
       <circle cx='4' cy='12' r='0' fill='currentColor'>
         <animate
