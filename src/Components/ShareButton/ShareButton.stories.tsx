@@ -6,6 +6,9 @@ import ShareButton from ".";
 
 export default {
   title: "Components/ShareButton",
+  parameters: {
+    layout: "centered"
+  },
   component: ShareButton
 };
 

@@ -6,6 +6,9 @@ import { IReactionsProps } from "./types";
 
 export default {
   title: "Components/Reactions",
+  parameters: {
+    layout: "centered"
+  },
   component: Reactions,
   argTypes: {
     onLike: { action: "liked" },
