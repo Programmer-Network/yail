@@ -1,12 +1,12 @@
 # Yail
 
-<p align="center">
-  <img src="./assets/images/yail-logo.png">
-</p>
-
 [![lint-and-test-pr](https://github.com/Programmer-Network/yail/actions/workflows/lint-and-test.yaml/badge.svg)](https://github.com/Programmer-Network/yail/actions/workflows/lint-and-test.yaml)
 [![pages-build-deployment](https://github.com/Programmer-Network/yail/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/Programmer-Network/yail/actions/workflows/pages/pages-build-deployment)
 [![deploy-storybook](https://github.com/Programmer-Network/yail/actions/workflows/deploy-storybook.yaml/badge.svg)](https://github.com/Programmer-Network/yail/actions/workflows/deploy-storybook.yaml)
+
+<p align="center">
+  <img src="./assets/images/yail-logo.png">
+</p>
 
 ## 🎨Yail's [Storybook](https://yail.programmer.network)
 
