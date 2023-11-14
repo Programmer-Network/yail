@@ -24,7 +24,6 @@ export interface IImageInputProps {
   onValidationError?: (error: { reason: string; message: string }) => void;
   compression?: { enabled: boolean; maxWidth?: number; quality?: number };
   inputWrapperClassName?: string;
-  hint?: string;
   label?: string;
   error?: string;
 }

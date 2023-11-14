@@ -1,6 +1,4 @@
-// ImageInput.stories.tsx
 import { Meta, Story } from "@storybook/react";
-import React from "react";
 
 import ImageInput from "./ImageInput";
 import { IImageInputProps } from "./types";
@@ -8,6 +6,15 @@ import { IImageInputProps } from "./types";
 export default {
   title: "Input/ImageInput",
   component: ImageInput,
+  parameters: {
+    layout: "centered",
+    docs: {
+      description: {
+        component: "A component for selecting an image file."
+      }
+    }
+  },
+  tags: ["autodocs"],
   argTypes: {
     onFileLoaded: { action: "File Loaded" },
     onChange: { action: "Changed" },
@@ -24,7 +31,6 @@ Default.args = {
   maxFileSize: 5000000,
   allowedMimeTypes: ["image/jpeg", "image/png"],
   compression: { enabled: false },
-  hint: "Upload Image",
   label: "Select an image"
 };
 

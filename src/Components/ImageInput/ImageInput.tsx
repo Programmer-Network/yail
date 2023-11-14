@@ -1,8 +1,10 @@
 import { ImageUtils } from "Utils";
 import classNames from "classnames";
-import { FC } from "react";
+import { FC, useRef } from "react";
 
-import { InputError, InputHeader } from "Components/Inputs";
+import Button from "Components/Button";
+import { IconImage } from "Components/Icons/IconImage";
+import { InputError } from "Components/Inputs";
 
 import { IImageInputProps } from "./types";
 
@@ -17,10 +19,11 @@ const ImageInput: FC<IImageInputProps> = ({
   onValidationError,
   compression,
   inputWrapperClassName,
-  hint,
   label,
   error
 }) => {
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
   const handleSelect = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files || e.target.files.length === 0) {
       return;
@@ -60,22 +63,29 @@ const ImageInput: FC<IImageInputProps> = ({
     });
   };
 
+  const handleButtonClick = () => {
+    fileInputRef.current?.click();
+  };
+
   return (
     <div className={classNames(inputWrapperClassName)}>
-      {(hint || label) && <InputHeader hint={hint} label={label} />}
-      <label className='flex justify-center'>
+      <label>
         <input
+          ref={fileInputRef}
           id={id}
           type='file'
           accept={accept}
           onChange={handleSelect}
-          className={classNames(
-            "file:mr-5 file:rounded-full file:border-0 file:bg-primary file:px-6 file:py-2 file:text-sm file:font-medium file:text-primary-background-color hover:file:cursor-pointer hover:file:bg-primary hover:file:text-primary-background-color",
-            className
-          )}
+          className={classNames("hidden", className)}
         />
+
+        <Button type='button' onClick={handleButtonClick} outlined>
+          <div className='flex items-center justify-center gap-1'>
+            <IconImage className='w-6' /> {label}
+          </div>
+        </Button>
       </label>
-      {error && <InputError error={error} className='mt-4 text-center' />}
+      {error && <InputError error={error} />}
     </div>
   );
 };
