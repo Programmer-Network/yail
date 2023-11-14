@@ -63,6 +63,6 @@ export const WithChangedCustomCSSProperty: Story = {
     children: "Button",
     outlined: true,
     isLoading: true,
-    className: "luigui-button--error"
+    className: "yail-button--error"
   }
 };

@@ -1,0 +1,13 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Tag component > renders correctly - snapshot test 1`] = `
+<DocumentFragment>
+  <div
+    class="rounded-md bg-transparent text-base text-primary last:mr-0 hover:border-primary hover:text-primary"
+  >
+    <span>
+      #example
+    </span>
+  </div>
+</DocumentFragment>
+`;

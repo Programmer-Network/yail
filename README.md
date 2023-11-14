@@ -1,42 +1,41 @@
-# Luigui
+# Yail
 
-[![lint-and-test-pr](https://github.com/Programmer-Network/luigui/actions/workflows/lint-and-test.yaml/badge.svg)](https://github.com/Programmer-Network/luigui/actions/workflows/lint-and-test.yaml)
-[![pages-build-deployment](https://github.com/Programmer-Network/luigui/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/Programmer-Network/luigui/actions/workflows/pages/pages-build-deployment)
-[![deploy-storybook](https://github.com/Programmer-Network/luigui/actions/workflows/deploy-storybook.yaml/badge.svg)](https://github.com/Programmer-Network/luigui/actions/workflows/deploy-storybook.yaml)
+[![lint-and-test-pr](https://github.com/Programmer-Network/yail/actions/workflows/lint-and-test.yaml/badge.svg)](https://github.com/Programmer-Network/yail/actions/workflows/lint-and-test.yaml)
+[![pages-build-deployment](https://github.com/Programmer-Network/yail/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/Programmer-Network/yail/actions/workflows/pages/pages-build-deployment)
+[![deploy-storybook](https://github.com/Programmer-Network/yail/actions/workflows/deploy-storybook.yaml/badge.svg)](https://github.com/Programmer-Network/yail/actions/workflows/deploy-storybook.yaml)
 
 <p align="center">
-  <img src="./assets/images/logo.png" width="250">
+  <img src="./assets/images/yail-logo.png" width="250">
 </p>
 
-## 🎨Luigui's [Storybook](https://luigui.programmer.network)
+## 🎨Yail's [Storybook](https://yail.programmer.network)
 
-_Luigui_ is the official UI library of
+_Yail_ is the official UI library of
 [Programmer Network](https://programmer.network), crafted for developers who
-prioritize simplicity and efficiency. Embracing a minimalist approach, _Luigui_
-is now open-sourced to share its straightforward and effective design ethos with
-the broader community. Here’s what makes _Luigui_ stand out:
+prioritize simplicity and efficiency. Embracing a minimalist approach, _Yail_ is
+now open-sourced to share its straightforward and effective design ethos with
+the broader community. Here’s what makes _Yail_ stand out:
 
-- **Minimalistic Design**: _Luigui_ focuses on the essentials to deliver a
+- **Minimalistic Design**: _Yail_ focuses on the essentials to deliver a
   user-friendly experience free from unnecessary complexity.
-- **Tailored with Tailwind-CSS**: Integrating Tailwind-CSS, _Luigui_ offers
+- **Tailored with Tailwind-CSS**: Integrating Tailwind-CSS, _Yail_ offers
   intuitive styling options, enabling you to create visually appealing web
   projects effortlessly.
-- **Ease of Maintenance**: We prioritize hassle-free maintenance, making
-  _Luigui_ as easy to manage as it is to implement.
+- **Ease of Maintenance**: We prioritize hassle-free maintenance, making _Yail_
+  as easy to manage as it is to implement.
 
 Originally developed for [Programmer Network](https://programmer.network), we
-decided to open source _Luigui_ due to the growing interest from the community.
-Whether you're working on small-scale projects or large applications, _Luigui_
+decided to open source _Yail_ due to the growing interest from the community.
+Whether you're working on small-scale projects or large applications, _Yail_
 provides the tools for building elegant, responsive, and accessible UIs with
 minimal overhead.
 
-For an in-depth look at what _Luigui_ offers, the Storybook is a good starting
+For an in-depth look at what _Yail_ offers, the Storybook is a good starting
 point. It documents the current set of UI components and their usage patterns.
-You can visit our [🖌️Storybook](https://luigui.programmer.network) to review the
+You can visit our [🖌️Storybook](https://yail.programmer.network) to review the
 implemented features and components.
 
-**Luigui**, pronounced "lui-gooey" and inspired by the Super Mario character
-Luigi, is an official React UI component library used by
+Yail is _yet another interface library_ used by
 [Programmer Network 💻🤓](https://programmer.network).
 
 ## Prerequisites
@@ -70,4 +69,4 @@ pnpm build
 ```
 
 This command generates the `dist` folder containing the production build of
-Luigui.
+Yail.
