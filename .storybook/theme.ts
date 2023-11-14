@@ -4,7 +4,8 @@ export default create({
   base: "dark",
   brandTitle: "Yail",
   brandUrl: "https://programmer.network",
-  brandImage: "https://gcdnb.pbrd.co/images/cxz5XaICNQb0.png?o=1",
+  brandImage:
+    "https://raw.githubusercontent.com/Programmer-Network/yail/master/assets/images/yail-logo.png",
   brandTarget: "_self",
   appBg: "#1b1f23",
   appContentBg: "#1b1f23",

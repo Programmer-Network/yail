@@ -1,7 +1,7 @@
 export interface IImageCropProps {
   src: string;
-  setFile: any;
-  file: any;
+  setFile: unknown;
+  file: unknown;
   locked?: boolean;
   width: number;
   height: number;
