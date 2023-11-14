@@ -15,8 +15,8 @@ import { IImageCropProps } from "./types";
 
 const ImageCrop: FC<IImageCropProps> = ({
   src,
-  setFile,
-  file,
+  onComplete,
+  onError,
   width,
   height,
   unit,
@@ -75,13 +75,17 @@ const ImageCrop: FC<IImageCropProps> = ({
         return;
       }
 
-      CanvasUtils.canvasPreview(
-        imgRef.current,
-        previewCanvasRef.current,
-        crop,
-        scale,
-        rotate
-      );
+      try {
+        CanvasUtils.canvasPreview(
+          imgRef.current,
+          previewCanvasRef.current,
+          crop,
+          scale,
+          rotate
+        );
+      } catch (error) {
+        onError?.((error as Error)?.message || "An error occurred");
+      }
     },
     100,
     [crop, scale, rotate]
@@ -96,11 +100,18 @@ const ImageCrop: FC<IImageCropProps> = ({
       return;
     }
 
+    const { croppedImage, cropError } = await CanvasUtils.getCroppedImg(
+      imgRef.current,
+      crop
+    );
+
+    if (cropError) {
+      onError?.(cropError);
+      return;
+    }
+
     setCrop({ ...crop, width: crop.width, height: crop.height });
-    setFile({
-      ...file,
-      blob: await CanvasUtils.getCroppedImg(imgRef.current, crop)
-    });
+    onComplete?.(croppedImage as Blob);
   };
 
   return (
@@ -110,7 +121,7 @@ const ImageCrop: FC<IImageCropProps> = ({
           locked={locked}
           crop={crop}
           onChange={handleChange}
-          onComplete={setFile ? handleComplete : undefined}
+          onComplete={onComplete ? handleComplete : undefined}
           aspect={aspect}
           keepSelection
           circularCrop={circularCrop}

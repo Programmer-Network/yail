@@ -1,7 +1,7 @@
 export interface IImageCropProps {
   src: string;
-  setFile: unknown;
-  file: unknown;
+  onComplete?: (file: Blob) => void;
+  onError?: (error: string) => void;
   locked?: boolean;
   width: number;
   height: number;

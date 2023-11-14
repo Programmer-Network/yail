@@ -12,17 +12,12 @@ export default class CanvasUtils {
     const TO_RADIANS = Math.PI / 180;
 
     if (!ctx) {
-      throw new Error("No 2d context");
+      throw new Error("Could not get canvas context.");
     }
 
     const scaleX = image.naturalWidth / image.width;
     const scaleY = image.naturalHeight / image.height;
-    // devicePixelRatio slightly increases sharpness on retina devices
-    // at the expense of slightly slower render times and needing to
-    // size the image back down if you want to download/upload and be
-    // true to the images natural size.
     const pixelRatio = window.devicePixelRatio;
-    // const pixelRatio = 1
 
     canvas.width = Math.floor(crop.width * scaleX * pixelRatio);
     canvas.height = Math.floor(crop.height * scaleY * pixelRatio);
@@ -39,15 +34,10 @@ export default class CanvasUtils {
 
     ctx.save();
 
-    // 5) Move the crop origin to the canvas origin (0,0)
     ctx.translate(-cropX, -cropY);
-    // 4) Move the origin to the center of the original position
     ctx.translate(centerX, centerY);
-    // 3) Rotate around the origin
     ctx.rotate(rotateRads);
-    // 2) Scale the image
     ctx.scale(scale, scale);
-    // 1) Move the center of the image to the origin (0,0)
     ctx.translate(-centerX, -centerY);
     ctx.drawImage(
       image,
@@ -67,7 +57,7 @@ export default class CanvasUtils {
   public static getCroppedImg(
     image: HTMLImageElement,
     crop: Crop
-  ): Promise<Blob | Error> {
+  ): Promise<{ croppedImage: Blob | null; cropError: string | null }> {
     const canvas = document.createElement("canvas");
     const pixelRatio = window.devicePixelRatio;
     const scaleX = image.naturalWidth / image.width;
@@ -78,7 +68,10 @@ export default class CanvasUtils {
     canvas.height = crop.height * pixelRatio * scaleY;
 
     if (!ctx) {
-      return Promise.reject(new Error("No 2d context"));
+      return Promise.resolve({
+        croppedImage: null,
+        cropError: "Could not get canvas context."
+      });
     }
 
     ctx.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
@@ -95,14 +88,20 @@ export default class CanvasUtils {
       crop.height * scaleY
     );
 
-    return new Promise((resolve, reject) => {
+    return new Promise(resolve => {
       canvas.toBlob(
         blob => {
           if (!blob) {
-            reject(new Error("Canvas is empty"));
-            return;
+            return resolve({
+              croppedImage: null,
+              cropError: "Canvas is empty"
+            });
           }
-          resolve(blob);
+
+          return resolve({
+            croppedImage: blob,
+            cropError: null
+          });
         },
         "image/jpeg",
         1

@@ -1,5 +1,6 @@
 import { Meta, Story } from "@storybook/react";
 
+import image from "../../../assets/images/image-crop.png";
 import ImageCrop from "./";
 import { IImageCropProps } from "./types";
 
@@ -12,7 +13,7 @@ const Template: Story<IImageCropProps> = args => <ImageCrop {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  src: "https://raw.githubusercontent.com/Programmer-Network/yail/master/assets/images/logo.png",
+  src: image,
   width: 150,
   height: 150,
   unit: "%",
