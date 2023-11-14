@@ -6,7 +6,7 @@ import ImageInput from "./ImageInput";
 import { IImageInputProps } from "./types";
 
 export default {
-  title: "Components/ImageInput",
+  title: "Input/ImageInput",
   component: ImageInput,
   argTypes: {
     onFileLoaded: { action: "File Loaded" },
