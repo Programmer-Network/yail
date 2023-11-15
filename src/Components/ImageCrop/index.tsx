@@ -3,7 +3,6 @@ import { CanvasUtils } from "Utils";
 import classNames from "classnames";
 import { FC, useRef, useState } from "react";
 import ReactCrop, {
-  Crop,
   PercentCrop,
   PixelCrop,
   centerCrop,
@@ -17,25 +16,15 @@ const ImageCrop: FC<IImageCropProps> = ({
   src,
   onComplete,
   onError,
-  width,
-  height,
-  unit,
+  crop,
+  setCrop,
   circularCrop,
   locked,
-  x,
-  y,
   aspect = 1,
   cropAreaClassName
 }) => {
   const previewCanvasRef = useRef(null);
   const imgRef = useRef(null);
-  const [crop, setCrop] = useState<Crop>({
-    unit,
-    width,
-    height,
-    x,
-    y
-  });
 
   const [scale] = useState(1);
   const [rotate] = useState(0);
@@ -51,8 +40,8 @@ const ImageCrop: FC<IImageCropProps> = ({
       centerCrop(
         makeAspectCrop(
           {
-            unit: "%",
-            width: 90
+            unit: crop.unit as PixelCrop["unit"],
+            width: crop.width
           },
           aspect,
           mediaWidth,
@@ -62,6 +51,30 @@ const ImageCrop: FC<IImageCropProps> = ({
         mediaHeight
       )
     );
+  };
+
+  const handleChange = (_: PixelCrop, percentCrop: PercentCrop) => {
+    setCrop(percentCrop);
+  };
+
+  const handleComplete = async (crop: PixelCrop) => {
+    if (!imgRef.current) {
+      return;
+    }
+
+    const { croppedImage, cropError } = await CanvasUtils.getCroppedImg(
+      imgRef.current,
+      crop
+    );
+
+    if (cropError) {
+      onError?.(cropError);
+      return;
+    }
+
+    setCrop({ ...crop, width: crop.width, height: crop.height });
+
+    onComplete?.(croppedImage as Blob);
   };
 
   useDebounceEffect(
@@ -90,29 +103,6 @@ const ImageCrop: FC<IImageCropProps> = ({
     100,
     [crop, scale, rotate]
   );
-
-  const handleChange = (_: PixelCrop, percentCrop: PercentCrop) => {
-    setCrop(percentCrop);
-  };
-
-  const handleComplete = async (crop: PixelCrop) => {
-    if (!imgRef.current) {
-      return;
-    }
-
-    const { croppedImage, cropError } = await CanvasUtils.getCroppedImg(
-      imgRef.current,
-      crop
-    );
-
-    if (cropError) {
-      onError?.(cropError);
-      return;
-    }
-
-    setCrop({ ...crop, width: crop.width, height: crop.height });
-    onComplete?.(croppedImage as Blob);
-  };
 
   return (
     <div>

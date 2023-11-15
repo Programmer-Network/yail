@@ -11,7 +11,6 @@ import { IImageInputProps } from "./types";
 const ImageInput: FC<IImageInputProps> = ({
   id,
   accept,
-  onChange,
   className,
   maxFileSize,
   onFileLoaded,
@@ -40,26 +39,16 @@ const ImageInput: FC<IImageInputProps> = ({
     if (!isValidImage) {
       onValidationError?.(imageValidationError);
 
-      onChange({ file: null, error: imageValidationError });
       return;
     }
 
     onFileLoaded({
       file: { blob: file, fileName, mimeType },
       base64: !compression?.enabled
-        ? await readFileAsDataURL(file)
+        ? await ImageUtils.readFileAsDataURL(file)
         : await ImageUtils.compress(file, compression),
       fileName,
       mimeType
-    });
-  };
-
-  const readFileAsDataURL = (file: File): Promise<string> => {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onload = () => resolve(reader.result as string);
-      reader.onerror = () => reject(new Error("Failed to read file."));
-      reader.readAsDataURL(file);
     });
   };
 

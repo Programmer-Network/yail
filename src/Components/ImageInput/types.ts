@@ -4,22 +4,19 @@ interface FileData {
   mimeType: string;
 }
 
-type OnChangeData =
-  | { file: FileData; error: null }
-  | { file: null; error: { message: string; reason: string } };
+export interface IOnFileLoadedArgs {
+  base64: string;
+  fileName: string;
+  mimeType: string;
+  file: FileData;
+}
 
 export interface IImageInputProps {
   id?: string;
   accept: string;
-  onChange: (data: OnChangeData) => void;
   className?: string;
   maxFileSize: number;
-  onFileLoaded: (data: {
-    base64: string;
-    fileName: string;
-    mimeType: string;
-    file: FileData;
-  }) => void;
+  onFileLoaded: (data: IOnFileLoadedArgs) => void;
   allowedMimeTypes: string[];
   onValidationError?: (error: { reason: string; message: string }) => void;
   compression?: { enabled: boolean; maxWidth?: number; quality?: number };

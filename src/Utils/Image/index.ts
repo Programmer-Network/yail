@@ -107,6 +107,15 @@ class ImageUtils {
     return canvas.toDataURL("image/jpeg", quality);
   }
 
+  public static readFileAsDataURL(file: File): Promise<string> {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result as string);
+      reader.onerror = () => reject(new Error("Failed to read file."));
+      reader.readAsDataURL(file);
+    });
+  }
+
   private static loadImage(file: File): Promise<HTMLImageElement> {
     return new Promise((resolve, reject) => {
       const img = new Image();
