@@ -1,0 +1,23 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Button component > renders correctly - snapshot test 1`] = `
+<DocumentFragment>
+  <button
+    class="select-none border-2 border-primary px-3 py-2 text-sm font-semibold uppercase tracking-tight shadow-lg text-primary-background-color bg-primary hover:bg-transparent hover:text-primary"
+    type="button"
+  >
+    <div
+      class="relative flex items-center justify-center"
+    >
+      <span
+        class=""
+      >
+        Snapshot Button
+      </span>
+      <span
+        class="absolute"
+      />
+    </div>
+  </button>
+</DocumentFragment>
+`;

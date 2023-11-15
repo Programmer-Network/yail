@@ -15,9 +15,9 @@ export default defineConfig({
   build: {
     lib: {
       entry: "src/index.ts",
-      name: "Luigui",
+      name: "Yail",
       formats: ["es", "umd"],
-      fileName: format => `luigui.${format}.js`
+      fileName: format => `yail.${format}.js`
     },
     rollupOptions: {
       external: ["react", "react-dom"],

@@ -8,5 +8,4 @@ export interface IButtonProps {
   type?: "button" | "submit" | "reset";
   isLoading?: boolean;
   outlined?: boolean;
-  spinnerColor?: string;
 }

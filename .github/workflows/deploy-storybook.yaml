@@ -35,7 +35,7 @@ jobs:
         run: pnpm run build-storybook
 
       - name: Create CNAME record file
-        run: echo "luigui.programmer-network" > ./storybook-static/CNAME
+        run: echo "yail.programmer-network" > ./storybook-static/CNAME
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
