@@ -1,5 +1,7 @@
 import { Meta, Story } from "@storybook/react";
 
+import { IconShare } from "Components/Icons";
+
 import Dropdown from "./";
 
 export default {
@@ -15,8 +17,14 @@ const Template: Story = args => (
   <Dropdown {...args} />
 );
 
-export const Default = Template.bind({});
-Default.args = {
+export const DefaultDropdown = Template.bind({});
+DefaultDropdown.args = {
+  buttonContent: "Click Me",
+  options: [{ value: "foo", icon: <IconShare className='w-4' /> }]
+};
+
+export const WithChildren = Template.bind({});
+WithChildren.args = {
   buttonContent: "Click Me",
   children: (
     <ul className='p-2 text-primary-text-color'>
