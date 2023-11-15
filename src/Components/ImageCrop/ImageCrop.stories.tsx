@@ -14,12 +14,14 @@ const Template: Story<IImageCropProps> = args => <ImageCrop {...args} />;
 export const Default = Template.bind({});
 Default.args = {
   src: image,
-  width: 150,
-  height: 150,
-  unit: "%",
+  crop: {
+    width: 150,
+    height: 150,
+    unit: "%",
+    x: 50,
+    y: 50
+  },
   circularCrop: false,
-  x: 50,
-  y: 50,
   aspect: 1,
   cropAreaClassName: "custom-crop-area-class"
 };
