@@ -37,7 +37,7 @@ export const ErrorWithCustomIcon = () => (
     title='Server Error'
     description='Oops! Something went wrong on our end.'
     Icon={IconQuestionMark}
-    IconProps={{ className: "text-red-500 w-36 text-indigo-500" }}
+    IconProps={{ className: "text-red-500 w-36 text-primary" }}
     onIconClick={() => action("Icon clicked")()}
   />
 );
