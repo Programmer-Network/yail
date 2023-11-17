@@ -5,7 +5,7 @@ import { Crop } from "react-image-crop";
 
 import ImageCrop from "Components/ImageCrop";
 
-import ImageInput from "./ImageInput";
+import ImageInput from ".";
 import { IImageInputProps, IOnFileLoadedArgs } from "./types";
 
 export default {
