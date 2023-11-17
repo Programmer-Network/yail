@@ -1,8 +1,13 @@
 {
-  "name": "programmer-network-yail",
+  "name": "@programmer_network/yail",
   "version": "1.0.0",
-  "description": "",
-  "main": "dist/index.js",
+  "description": "Programmer Network's official UI library for React",
+  "author": "Aleksandar Grbic - (https://programmer.network)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Programmer-Network/yail.git"
+  },
+  "main": "dist/yail.es.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist",
@@ -35,7 +40,6 @@
     }
   },
   "keywords": [],
-  "author": "",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "7.23.2",
