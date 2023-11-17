@@ -17,17 +17,20 @@ Default.args = {
   crop: {
     width: 150,
     height: 150,
-    unit: "%",
-    x: 50,
-    y: 50
+    unit: "px",
+    x: 0,
+    y: 0
   },
   circularCrop: false,
   aspect: 1,
-  cropAreaClassName: "custom-crop-area-class"
+  cropAreaClassName: "custom-crop-area-class",
+  locked: false,
+  setCrop: () => {}
 };
 
 export const CircularCrop = Template.bind({});
 CircularCrop.args = {
   ...Default.args,
-  circularCrop: true
+  circularCrop: true,
+  locked: false
 };
