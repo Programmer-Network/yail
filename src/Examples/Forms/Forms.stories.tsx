@@ -17,7 +17,7 @@ export const UseAjvForm = () => {
       type: "object",
       required: [],
       properties: {
-        title: { type: "string", minLength: 2, "secure-string": true },
+        title: { type: "string", minLength: 3, "secure-string": true },
         description: { type: "string", minLength: 5 },
         about: { type: "string", minLength: 5 }
       }
@@ -54,7 +54,11 @@ export const UseAjvForm = () => {
         onBlur={() => form.onBlur("about")}
         onChange={({ about }) => form.set({ about })}
       />
-      <Button className='max-w-max' onClick={() => form.validate()}>
+      <Button
+        className='max-w-max'
+        onClick={() => form.validate()}
+        disabled={!form.isDirty}
+      >
         Save
       </Button>
     </div>

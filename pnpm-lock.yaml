@@ -49,8 +49,8 @@ devDependencies:
     specifier: 7.23.2
     version: 7.23.2(@babel/core@7.23.2)
   '@programmer_network/use-ajv-form':
-    specifier: 1.0.1
-    version: 1.0.1(react-dom@18.2.0)(react@18.2.0)
+    specifier: 1.0.2
+    version: 1.0.2(react-dom@18.2.0)(react@18.2.0)
   '@storybook/addon-actions':
     specifier: 7.5.3
     version: 7.5.3(@types/react-dom@18.2.14)(@types/react@18.2.35)(react-dom@18.2.0)(react@18.2.0)
@@ -2231,8 +2231,8 @@ packages:
     resolution: {integrity: sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==}
     dev: false
 
-  /@programmer_network/use-ajv-form@1.0.1(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-xiGyjXqdKWX67wLOgMfoj4hxQqUt9sEMSXXYhopOkQI0As+85OER5hgK9VaTBBlEHzHPjXVDeEKkue+VIlB4qg==}
+  /@programmer_network/use-ajv-form@1.0.2(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-O4Pk9x/3iVxpezIeoeQOU9roHZPDXfJyjtnUoAdlb9JgnCyzVy68ZQWAwi8TZVa3frfklSnEWQO0+ur2CUPR1w==}
     peerDependencies:
       react: '>= 18.2.0'
       react-dom: '>= 18.2.0'
