@@ -1,4 +1,4 @@
-import { ChangeEvent, InputHTMLAttributes } from "react";
+import { FocusEvent, InputHTMLAttributes } from "react";
 
 export interface IInputProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, "onChange"> {
@@ -16,8 +16,6 @@ export interface IInputProps
   error?: string | string[] | Record<string, string>;
   required?: boolean;
   inputWrapperClassName?: string;
-  onChange?: (
-    e: ChangeEvent<HTMLInputElement>,
-    value: Record<string, string>
-  ) => void;
+  onChange?: (value: Record<string, string>) => void;
+  onBlur?: (value: FocusEvent<HTMLInputElement, Element>) => void;
 }

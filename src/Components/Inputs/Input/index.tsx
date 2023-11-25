@@ -38,7 +38,7 @@ const Input: FC<IInputProps> = forwardRef<HTMLInputElement, IInputProps>(
         throw new Error('💣 Input is missing a "name" prop 💣');
       }
 
-      onChange?.(e, { [e.target.name]: e.target.value });
+      onChange?.({ [e.target.name]: e.target.value });
     };
 
     const getMinValue = () => {
@@ -54,9 +54,9 @@ const Input: FC<IInputProps> = forwardRef<HTMLInputElement, IInputProps>(
     };
 
     return (
-      <div className={classNames("input-wrapper", inputWrapperClassName)}>
+      <div className={classNames(inputWrapperClassName)}>
         <InputHeader {...inputHeaderProps} />
-        <div className='relative'>
+        <div className='flex flex-col gap-1'>
           <input
             ref={ref}
             {...rest}
@@ -64,17 +64,21 @@ const Input: FC<IInputProps> = forwardRef<HTMLInputElement, IInputProps>(
             value={value}
             type={type}
             onChange={handleChange}
-            className={classNames("input-base", className, {
-              "input-disabled": disabled
-            })}
+            className={classNames(
+              "w-full appearance-none rounded-sm border-2 border-primary-text-color bg-transparent p-2 text-sm text-primary-text-color transition-colors hover:border-primary focus:border-primary focus:outline-none focus:ring-transparent dark:text-primary-text-color",
+              className,
+              {
+                "input-disabled": disabled
+              }
+            )}
             maxLength={type === "text" ? max : undefined}
             min={getMinValue()}
             max={type !== "text" ? max : undefined}
             disabled={disabled}
           />
           {children && <div className='input-children'>{children}</div>}
+          {error && <InputError error={error} />}
         </div>
-        {error && <InputError error={error} />}
         {typeof min === "number" && value.length < min && (
           <p className='text-warning mt-2 text-sm'>
             {min - value.length} characters to go

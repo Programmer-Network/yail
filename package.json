@@ -31,7 +31,8 @@
     "lint:fix": "eslint --cache --fix src",
     "lint:quiet": "eslint --cache --quiet src",
     "test:ci": "vitest",
-    "types:check": "tsc"
+    "types:check": "tsc",
+    "publish": "npm publish --auth-type=legacy"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": "eslint --cache --fix",
@@ -49,6 +50,7 @@
     "@babel/preset-env": "7.23.2",
     "@babel/preset-react": "7.22.15",
     "@babel/preset-typescript": "7.23.2",
+    "@programmer_network/use-ajv-form": "1.0.1",
     "@storybook/addon-actions": "7.5.3",
     "@storybook/addon-essentials": "7.5.2",
     "@storybook/addon-interactions": "7.5.2",
@@ -68,7 +70,7 @@
     "@types/jest": "29.5.8",
     "@types/node": "20.8.10",
     "@types/react": "18.2.35",
-    "@types/react-copy-to-clipboard": "^5.0.7",
+    "@types/react-copy-to-clipboard": "5.0.7",
     "@types/react-dom": "18.2.14",
     "@types/react-select": "5.0.1",
     "@types/react-tooltip": "4.2.4",
@@ -100,14 +102,14 @@
     "vitest": "0.34.6"
   },
   "dependencies": {
-    "@popperjs/core": "^2.11.8",
-    "@types/react-image-crop": "^8.1.6",
+    "@popperjs/core": "2.11.8",
+    "@types/react-image-crop": "8.1.6",
     "boring-avatars": "1.10.1",
     "classnames": "2.3.2",
     "react": "18.2.0",
-    "react-copy-to-clipboard": "^5.1.0",
+    "react-copy-to-clipboard": "5.1.0",
     "react-dom": "18.2.0",
-    "react-image-crop": "^10.1.8",
+    "react-image-crop": "10.1.8",
     "react-select": "5.8.0",
     "react-select-async-paginate": "0.7.3",
     "react-tooltip": "5.22.0"
