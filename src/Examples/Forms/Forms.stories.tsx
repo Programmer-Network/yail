@@ -1,4 +1,4 @@
-import useAjvForm from "@programmer_network/use-ajv-form/src/index";
+import useAjvForm from "@programmer_network/use-ajv-form";
 
 import Button from "Components/Button";
 import { Input, Textarea } from "Components/Inputs";
