@@ -21,3 +21,4 @@ export { default as TextOverLine } from "Components/TextOverLine";
 
 export * from "Components/Icons";
 export * from "Components/Typography";
+export * from "Components/Inputs";
