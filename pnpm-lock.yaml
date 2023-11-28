@@ -49,8 +49,8 @@ devDependencies:
     specifier: 7.23.2
     version: 7.23.2(@babel/core@7.23.2)
   '@programmer_network/use-ajv-form':
-    specifier: 1.0.5
-    version: 1.0.5(react-dom@18.2.0)(react@18.2.0)
+    specifier: 1.0.7
+    version: 1.0.7(react-dom@18.2.0)(react@18.2.0)
   '@storybook/addon-actions':
     specifier: 7.5.3
     version: 7.5.3(@types/react-dom@18.2.14)(@types/react@18.2.35)(react-dom@18.2.0)(react@18.2.0)
@@ -2249,8 +2249,8 @@ packages:
     resolution: {integrity: sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==}
     dev: false
 
-  /@programmer_network/use-ajv-form@1.0.5(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-JDQhKn95f56vDnWlkU5gzizsoPaAd8cHRHxRme8OhJJWXaOacLdKRPSMlHWuraY9HIY/kU8x+F7NMl+QHVi30g==}
+  /@programmer_network/use-ajv-form@1.0.7(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-fb2uSxhC3eF5ClSBGOn1hIQOunq+4LKljA0vrajqMpsw7kXweU9aBLANoqDAbo1Xhkshatt28HtJTXEhziC/lQ==}
     peerDependencies:
       react: '>= 18.2.0'
       react-dom: '>= 18.2.0'
@@ -2258,7 +2258,6 @@ packages:
       ajv: 8.12.0
       ajv-errors: 3.0.0(ajv@8.12.0)
       ajv-formats: 2.1.1(ajv@8.12.0)
-      prop-types: 15.7.2
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: true
@@ -8835,14 +8834,6 @@ packages:
     dependencies:
       kleur: 3.0.3
       sisteransi: 1.0.5
-    dev: true
-
-  /prop-types@15.7.2:
-    resolution: {integrity: sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==}
-    dependencies:
-      loose-envify: 1.4.0
-      object-assign: 4.1.1
-      react-is: 16.13.1
     dev: true
 
   /prop-types@15.8.1:
