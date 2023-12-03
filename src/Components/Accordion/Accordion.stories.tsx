@@ -182,14 +182,23 @@ const sections = [
 ];
 
 export const Primary = () => {
-  const [expandedSections, setExpandedSections] = useState<number[]>([]);
+  const [expandedSections, setExpandedSections] = useState<number[]>([
+    sections[0].id
+  ]);
 
   return (
     <Accordion
       className='w-[500px]'
       sections={sections}
-      expandedSections={expandedSections}
-      setExpandedSections={setExpandedSections}
+      expanded={expandedSections}
+      setExpanded={(expanded: number[]) => {
+        console.log(
+          "🚀 ─── file: Accordion.stories.tsx:196 ─── Primary ─── expanded:",
+          expanded
+        );
+
+        setExpandedSections(expanded);
+      }}
       onSectionItemClick={sectionItem => {
         action("onSectionItemClick")(sectionItem);
       }}

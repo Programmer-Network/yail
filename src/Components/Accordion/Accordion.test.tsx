@@ -28,8 +28,8 @@ describe("Accordion component", () => {
     const { asFragment } = render(
       <Accordion
         sections={mockSections}
-        setExpandedSections={() => null}
-        expandedSections={[1]}
+        setExpanded={() => null}
+        expanded={[1]}
         onSectionItemClick={vi.fn()}
       />
     );
@@ -37,12 +37,12 @@ describe("Accordion component", () => {
   });
 
   test("renders all sections and items correctly", () => {
-    const setExpandedSections = vi.fn();
+    const setExpanded = vi.fn();
     render(
       <Accordion
         sections={mockSections}
-        setExpandedSections={setExpandedSections}
-        expandedSections={[1]}
+        setExpanded={setExpanded}
+        expanded={[1]}
         onSectionItemClick={vi.fn()}
       />
     );
@@ -54,22 +54,19 @@ describe("Accordion component", () => {
   });
 
   test("expands and collapses sections on click", () => {
-    const setExpandedSections = vi.fn();
+    const setExpanded = vi.fn();
 
     render(
       <Accordion
         sections={mockSections}
-        setExpandedSections={setExpandedSections}
-        expandedSections={[1]}
+        setExpanded={setExpanded}
+        expanded={[mockSections[0].id]}
         onSectionItemClick={vi.fn()}
       />
     );
 
     fireEvent.click(screen.getByText("Section 1"));
-    expect(setExpandedSections).toHaveBeenCalledWith([1]);
-
-    fireEvent.click(screen.getByText("Section 1"));
-    expect(setExpandedSections).toHaveBeenCalledWith([1]);
+    expect(setExpanded).toHaveBeenCalledWith([]);
   });
 
   test("handles section item click events", () => {
@@ -77,9 +74,9 @@ describe("Accordion component", () => {
     render(
       <Accordion
         sections={mockSections}
-        setExpandedSections={vi.fn()}
+        setExpanded={vi.fn()}
         onSectionItemClick={onSectionItemClick}
-        expandedSections={[1]}
+        expanded={[1]}
       />
     );
 
@@ -93,8 +90,8 @@ describe("Accordion component", () => {
         sections={mockSections}
         className='custom-class'
         sectionTitleClassName='custom-title-class'
-        setExpandedSections={vi.fn()}
-        expandedSections={[]}
+        setExpanded={vi.fn()}
+        expanded={[]}
         onSectionItemClick={vi.fn()}
       />
     );

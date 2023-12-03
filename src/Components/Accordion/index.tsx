@@ -12,14 +12,14 @@ const Accordion: FC<IAccordionProps> = ({
   itemsLabelText,
   onSectionItemClick,
   selectedItemId = null,
-  expandedSections,
-  setExpandedSections
+  expanded,
+  setExpanded
 }) => {
-  const toggleExpandSection = (sectionId: number) => {
-    if (expandedSections.includes(sectionId)) {
-      setExpandedSections(expandedSections.filter(id => id !== sectionId));
+  const toggleExpand = (sectionId: number) => {
+    if (expanded.includes(sectionId)) {
+      setExpanded(expanded.filter(id => id !== sectionId));
     } else {
-      setExpandedSections([...expandedSections, sectionId]);
+      setExpanded([...expanded, sectionId]);
     }
   };
 
@@ -31,7 +31,7 @@ const Accordion: FC<IAccordionProps> = ({
       {sections.map((section, idx) => (
         <div
           key={section.id}
-          className={classNames("border border-primary-text-color p-2 ", {
+          className={classNames("border border-primary-text-color p-2", {
             "mb-0 border-b-0": idx !== sections.length - 1
           })}
           role='presentation'
@@ -42,21 +42,21 @@ const Accordion: FC<IAccordionProps> = ({
               sectionTitleClassName,
               {
                 "mb-2 border-b border-primary-text-color pb-2":
-                  expandedSections.includes(section.id)
+                  expanded.includes(section.id)
               }
             )}
-            onClick={() => toggleExpandSection(section.id)}
+            onClick={() => toggleExpand(section.id)}
             onKeyDown={e => {
               if (e.key === "Enter" || e.key === " ") {
-                toggleExpandSection(section.id);
+                toggleExpand(section.id);
               }
             }}
             tabIndex={0}
             role='button'
-            aria-expanded={expandedSections.includes(section.id)}
+            aria-expanded={expanded.includes(section.id)}
           >
             <div className='flex items-center gap-1 overflow-hidden text-ellipsis whitespace-nowrap text-base'>
-              {expandedSections.includes(section.id) ? (
+              {expanded.includes(section.id) ? (
                 <IconExpandLess className='w-8 cursor-pointer fill-primary-text-color hover:fill-primary' />
               ) : (
                 <IconExpandMore className='w-8 cursor-pointer fill-primary-text-color hover:fill-primary' />
@@ -71,7 +71,7 @@ const Accordion: FC<IAccordionProps> = ({
               </div>
             )}
           </h3>
-          {expandedSections.indexOf(section.id) >= 0 && (
+          {expanded.includes(section.id) && (
             <ul
               className='ml-[10px] leading-8'
               role='region'
