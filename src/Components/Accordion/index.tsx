@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { FC, useEffect } from "react";
+import { FC } from "react";
 
 import { IconExpandLess, IconExpandMore } from "Components/Icons";
 
@@ -25,14 +25,6 @@ const Accordion: FC<IAccordionProps> = ({
 
   const getItemsLabelText = (items: number) =>
     `${items} ${items === 1 ? itemsLabelText : `${itemsLabelText}s`}`;
-
-  useEffect(() => {
-    if (!sections.length) {
-      return;
-    }
-
-    setExpandedSections([sections[0].id]);
-  }, [sections, setExpandedSections]);
 
   return (
     <section className={classNames(className)}>
