@@ -6,7 +6,7 @@ exports[`Accordion component > renders correctly 1`] = `
     class=""
   >
     <div
-      class="border border-primary-text-color p-2  mb-0 border-b-0"
+      class="border border-primary-text-color p-2 mb-0 border-b-0"
       role="presentation"
     >
       <h3
@@ -78,7 +78,7 @@ exports[`Accordion component > renders correctly 1`] = `
       </ul>
     </div>
     <div
-      class="border border-primary-text-color p-2 "
+      class="border border-primary-text-color p-2"
       role="presentation"
     >
       <h3
