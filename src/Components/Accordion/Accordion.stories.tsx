@@ -52,8 +52,28 @@ const sections = [
       },
       {
         id: 199,
-        title: "unbearably",
+        title: "Explore Bear Mountain on a Segway",
         order: 6
+      },
+      {
+        id: 1991,
+        title: "Attend a bear-themed costume party",
+        order: 7
+      },
+      {
+        id: 1992,
+        title: "Try bear-shaped pancakes for breakfast",
+        order: 8
+      },
+      {
+        id: 1993,
+        title: "Write a story about a bear on an adventure",
+        order: 9
+      },
+      {
+        id: 1994,
+        title: "unbearably",
+        order: 10
       }
     ]
   },
