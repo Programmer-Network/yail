@@ -13,8 +13,8 @@ module.exports = {
       keyframes: {
         heightAnimation: {
           "0%": { height: "0", overflow: "hidden" },
-          "50%": { height: "10rem", overflow: "hidden" },
-          "100%": { height: "20rem", opacity: "1" }
+          "50%": { height: "10rem" },
+          "100%": { height: "20rem" }
         }
       },
       animation: {
