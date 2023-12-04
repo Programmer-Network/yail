@@ -9,6 +9,17 @@ module.exports = {
         primary: "var(--color-primary)",
         "primary-text-color": "var(--text-color)",
         "primary-background-color-40": "var(--color-bg-rgb)"
+      },
+      keyframes: {
+        heightAnimation: {
+          "0%": { height: "0", overflow: "hidden" },
+          "50%": { height: "10rem", overflow: "hidden" },
+          "100%": { height: "20rem", opacity: "1" }
+        }
+      },
+      animation: {
+        heightAnimation:
+          "heightAnimation 100ms cubic-bezier(0.3, 0.31, 0.59, 0.7)" // Adjust duration and timing function as needed
       }
     }
   }
