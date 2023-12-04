@@ -19,7 +19,7 @@ module.exports = {
       },
       animation: {
         heightAnimation:
-          "heightAnimation 100ms cubic-bezier(0.3, 0.31, 0.59, 0.7)" // Adjust duration and timing function as needed
+          "heightAnimation 100ms cubic-bezier(0.3, 0.31, 0.59, 0.7)"
       }
     }
   }
