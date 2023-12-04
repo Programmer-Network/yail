@@ -73,7 +73,7 @@ const Accordion: FC<IAccordionProps> = ({
           </h3>
           {expanded.includes(section.id) && (
             <ul
-              className=' animate-heightAnimation ml-[10px] leading-8'
+              className='animate-heightAnimation ml-[10px] leading-8'
               role='region'
               aria-labelledby={section.id.toString()}
             >
