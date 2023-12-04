@@ -55,9 +55,7 @@ const Accordion: FC<IAccordionProps> = ({
             role='button'
             aria-expanded={expanded.includes(section.id)}
           >
-            <div
-              className={`flex items-center gap-1 overflow-hidden text-ellipsis whitespace-nowrap text-base`}
-            >
+            <div className='flex items-center gap-1 overflow-hidden text-ellipsis whitespace-nowrap text-base'>
               {expanded.includes(section.id) ? (
                 <IconExpandLess className='w-8 cursor-pointer fill-primary-text-color hover:fill-primary' />
               ) : (
