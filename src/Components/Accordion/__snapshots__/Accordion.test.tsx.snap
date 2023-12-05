@@ -40,7 +40,7 @@ exports[`Accordion component > renders correctly 1`] = `
       </h3>
       <ul
         aria-labelledby="1"
-        class="ml-[10px] animate-heightAnimation leading-8"
+        class="ml-[10px] animate-height-animation leading-8"
         role="region"
       >
         <li
