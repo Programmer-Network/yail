@@ -11,15 +11,15 @@ module.exports = {
         "primary-background-color-40": "var(--color-bg-rgb)"
       },
       keyframes: {
-        heightAnimation: {
+        "height-animation": {
           "0%": { height: "0", overflow: "hidden" },
           "50%": { height: "10rem" },
           "100%": { height: "20rem" }
         }
       },
       animation: {
-        heightAnimation:
-          "heightAnimation 100ms cubic-bezier(0.3, 0.31, 0.59, 0.7)"
+        "height-animation":
+          "height-animation 100ms cubic-bezier(0.3, 0.31, 0.59, 0.7)"
       }
     }
   }
