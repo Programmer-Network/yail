@@ -48,25 +48,43 @@ Before you begin, ensure you have met the following requirements:
   the project directory.
 - [pnpm](https://pnpm.io/): Install pnpm globally with `npm install -g pnpm`.
 
+
 ## Getting Started
 
-To view components in Storybook, which is an open-source tool for developing UI
-components in isolation, run the following command:
+### Usage
+
+#### Installation
+
+To integrate Yail into your project, install it using your preferred package manager. For example, with `pnpm`, you can add it as follows:
+
+```bash
+pnpm add @programmer_network/yail
+```
+
+#### Incorporating Components into Your Project
+
+After installation, you can start using Yail components in your React project. Here's how you can import a component:
+
+```jsx
+import { Button } from "@programmer_network/yail";
+```
+
+#### Exploring Components with Storybook
+
+Yail provides a comprehensive component showcase through Storybook. To explore these components, start the Storybook server:
 
 ```bash
 pnpm storybook
 ```
 
-Storybook will start at `http://localhost:6006`, where you can view and interact
-with the components.
-
 ## Building the Library
 
-When you're ready to build a production version of the library, run:
+### For Production
+
+When you're ready to build Yail for production use, execute the following command:
 
 ```bash
 pnpm build
 ```
 
-This command generates the `dist` folder containing the production build of
-Yail.
+This will create a `dist` folder containing the optimized production build of Yail, ready for integration into your projects.
