@@ -77,14 +77,80 @@ Yail provides a comprehensive component showcase through Storybook. To explore t
 pnpm storybook
 ```
 
-## Building the Library
+## Contributing to Yail
 
-### For Production
+We welcome contributions to Yail! Here's how you can set up the project locally for development.
 
-When you're ready to build Yail for production use, execute the following command:
+### Setting Up the Development Environment
+
+**Clone the Repository**
+
+First, clone the repository to your local machine:
 
 ```bash
-pnpm build
+git clone https://github.com/Programmer-Network/yail.git
+cd yail
 ```
 
-This will create a `dist` folder containing the optimized production build of Yail, ready for integration into your projects.
+**Install Dependencies**
+
+Use `pnpm` to install all necessary dependencies:
+
+```bash
+pnpm install
+```
+
+**Running the Development Server**
+
+To start the development server, run:
+
+```bash
+pnpm dev
+```
+
+This command will launch Vite's development server. You can then make changes to the library, and Vite will automatically reload these changes.
+
+### Running Tests
+
+Yail uses Vitest for testing. To run tests, use the following commands:
+
+**Run all tests:**
+
+```bash
+pnpm test
+```
+
+**Run tests in watch mode:**
+
+```bash
+pnpm test:watch
+```
+
+### Linting and Code Formatting
+
+To ensure code consistency, we use ESLint and Prettier. Run these before committing your changes:
+
+**To lint your code:**
+
+```bash
+pnpm lint:fix
+```
+
+**To format your code:**
+
+```bash
+pnpm format
+```
+
+### Creating a Pull Request
+
+Once you've made your changes:
+
+1. Fork the repository.
+2. Create a new branch for your changes.
+3. Commit your changes and push them to your fork.
+4. Open a pull request against the `main` branch of the `Programmer-Network/yail` repository.
+
+Please provide a clear description of the changes in your pull request.
+
+Thank you for contributing to Yail!
