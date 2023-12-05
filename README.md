@@ -110,6 +110,12 @@ pnpm dev
 
 This command will launch Vite's development server. You can then make changes to the library, and Vite will automatically reload these changes.
 
+View your changes inside storybook:
+
+```bash
+pnpm storybook
+```
+
 ### Running Tests
 
 Yail uses Vitest for testing. To run tests, use the following commands:
