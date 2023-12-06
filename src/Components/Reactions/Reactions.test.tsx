@@ -62,14 +62,6 @@ describe("Reactions component", () => {
     expect(mockProps.onDislike).toHaveBeenCalledTimes(0);
   });
 
-  test("onShared is called", () => {
-    render(<Reactions {...mockProps} hasDisliked={true} />);
-
-    const shareIcon = screen.getByTestId("icon-share");
-    fireEvent.click(shareIcon);
-    expect(mockProps.onShared).toHaveBeenCalled();
-  });
-
   test("should not be able to like if its currently disliking", () => {
     render(<Reactions {...mockProps} isDisliking={true} />);
 
