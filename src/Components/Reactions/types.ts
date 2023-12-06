@@ -6,13 +6,10 @@ export enum ShareType {
 export interface IReactionsProps {
   hasLiked: boolean;
   hasDisliked: boolean;
-  commentCount: number;
   likesCount: number;
   dislikesCount: number;
   onLike: () => void;
-  onShared?: (type: ShareType) => void;
   onDislike: () => void;
   isLiking: boolean;
   isDisliking: boolean;
-  shareUrl?: string;
 }

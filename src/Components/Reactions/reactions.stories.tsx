@@ -26,13 +26,10 @@ Default.args = {
   dislikesCount: 22,
   onLike: action("liked"),
   onDislike: action("disliked"),
-  shareUrl: "https://www.google.com",
-  commentCount: 10,
   isDisliking: false,
   isLiking: false,
   hasDisliked: false,
-  hasLiked: true,
-  onShared: action("shared")
+  hasLiked: true
 };
 
 export const Liked = Template.bind({});
@@ -59,16 +56,4 @@ export const DislikingInProgress = Template.bind({});
 DislikingInProgress.args = {
   ...Default.args,
   isDisliking: true
-};
-
-export const WithCommentsDisabled = Template.bind({});
-WithCommentsDisabled.args = {
-  ...Default.args,
-  commentCount: 0
-};
-
-export const WithSharingDisabled = Template.bind({});
-WithSharingDisabled.args = {
-  ...Default.args,
-  shareUrl: undefined
 };
