@@ -107,13 +107,18 @@ jobs:
       - name: Auto increment version (optional)
         run: npm version patch -m "Upgrade to %s for reasons"
 
+      - name: Extract branch or tag name
+        id: extract_ref
+        run:
+          echo "##[set-output name=branch_or_tag;]$(echo ${GITHUB_REF#refs/*/})"
+
       - name: Create GitHub Release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
+          tag_name: ${{ steps.extract_ref.outputs.branch_or_tag }}
+          release_name: Release ${{ steps.extract_ref.outputs.branch_or_tag }}
           draft: false
           prerelease: false
 
