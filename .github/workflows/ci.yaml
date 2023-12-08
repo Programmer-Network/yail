@@ -13,6 +13,12 @@ permissions:
   deployments: write
   actions: write
   packages: write
+  statuses: write
+  security-events: write
+  repository-projects: write
+  pull-requests: write
+  issues: write
+  discussions: write
 
 jobs:
   lint-and-test:
