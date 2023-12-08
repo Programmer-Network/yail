@@ -123,6 +123,8 @@ jobs:
           prerelease: false
 
       - name: Publish to npm
-        run: pnpm publish
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
+          pnpm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
