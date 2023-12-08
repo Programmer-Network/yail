@@ -101,6 +101,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "20"
+          registry-url: "https://registry.npmjs.org"
+          scope: "@programmer_network"
           cache: "pnpm"
 
       - name: Install NodeJS dependencies
@@ -123,8 +125,6 @@ jobs:
           prerelease: false
 
       - name: Publish to npm
-        run: |
-          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
-          pnpm publish --no-git-checks
+        run: npm publish --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
