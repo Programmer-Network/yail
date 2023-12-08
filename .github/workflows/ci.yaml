@@ -9,6 +9,10 @@ permissions:
   contents: write
   id-token: write
   pages: write
+  checks: write
+  deployments: write
+  actions: write
+  packages: write
 
 jobs:
   lint-and-test:
