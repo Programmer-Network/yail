@@ -2,8 +2,8 @@ name: Continuous Integration and Deployment
 
 on:
   push:
-    branches:
-      - master
+    tags:
+      - "v*"
 
 permissions:
   contents: write
@@ -125,6 +125,6 @@ jobs:
       - name: Publish to npm
         run: |
           echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
-          pnpm publish
+          pnpm publish --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
