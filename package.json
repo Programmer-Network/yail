@@ -31,8 +31,7 @@
     "lint:fix": "eslint --cache --fix src",
     "lint:quiet": "eslint --cache --quiet src",
     "test:ci": "vitest",
-    "types:check": "tsc",
-    "publish": "npm publish --auth-type=legacy"
+    "types:check": "tsc"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": "eslint --cache --fix",
