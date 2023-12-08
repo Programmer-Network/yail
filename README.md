@@ -1,8 +1,6 @@
 # Yail
 
-[![lint-and-test-pr](https://github.com/Programmer-Network/yail/actions/workflows/lint-and-test.yaml/badge.svg)](https://github.com/Programmer-Network/yail/actions/workflows/lint-and-test.yaml)
-[![pages-build-deployment](https://github.com/Programmer-Network/yail/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/Programmer-Network/yail/actions/workflows/pages/pages-build-deployment)
-[![deploy-storybook](https://github.com/Programmer-Network/yail/actions/workflows/deploy-storybook.yaml/badge.svg)](https://github.com/Programmer-Network/yail/actions/workflows/deploy-storybook.yaml)
+[![lint-and-test-pr](https://github.com/Programmer-Network/yail/actions/workflows/ci.yaml/badge.svg)](https://github.com/Programmer-Network/yail/actions/workflows/ci.yaml)
 
 <p align="center">
   <img src="./assets/images/yail-logo.png">
@@ -48,14 +46,14 @@ Before you begin, ensure you have met the following requirements:
   the project directory.
 - [pnpm](https://pnpm.io/): Install pnpm globally with `npm install -g pnpm`.
 
-
 ## Getting Started
 
 ### Usage
 
 #### Installation
 
-To integrate Yail into your project, install it using your preferred package manager. For example, with `pnpm`, you can add it as follows:
+To integrate Yail into your project, install it using your preferred package
+manager. For example, with `pnpm`, you can add it as follows:
 
 ```bash
 pnpm add @programmer_network/yail
@@ -63,7 +61,8 @@ pnpm add @programmer_network/yail
 
 #### Incorporating Components into Your Project
 
-After installation, you can start using Yail components in your React project. Here's how you can import a component:
+After installation, you can start using Yail components in your React project.
+Here's how you can import a component:
 
 ```jsx
 import { Button } from "@programmer_network/yail";
@@ -71,7 +70,8 @@ import { Button } from "@programmer_network/yail";
 
 #### Exploring Components with Storybook
 
-Yail provides a comprehensive component showcase through Storybook. To explore these components, start the Storybook server:
+Yail provides a comprehensive component showcase through Storybook. To explore
+these components, start the Storybook server:
 
 ```bash
 pnpm storybook
@@ -79,7 +79,8 @@ pnpm storybook
 
 ## Contributing to Yail
 
-We welcome contributions to Yail! Here's how you can set up the project locally for development.
+We welcome contributions to Yail! Here's how you can set up the project locally
+for development.
 
 ### Setting Up the Development Environment
 
@@ -108,7 +109,8 @@ To start the development server, run:
 pnpm dev
 ```
 
-This command will launch Vite's development server. You can then make changes to the library, and Vite will automatically reload these changes.
+This command will launch Vite's development server. You can then make changes to
+the library, and Vite will automatically reload these changes.
 
 View your changes inside storybook:
 
@@ -134,7 +136,8 @@ pnpm test:watch
 
 ### Linting and Code Formatting
 
-To ensure code consistency, we use ESLint and Prettier. Run these before committing your changes:
+To ensure code consistency, we use ESLint and Prettier. Run these before
+committing your changes:
 
 **To lint your code:**
 
@@ -155,7 +158,8 @@ Once you've made your changes:
 1. Fork the repository.
 2. Create a new branch for your changes.
 3. Commit your changes and push them to your fork.
-4. Open a pull request against the `main` branch of the `Programmer-Network/yail` repository.
+4. Open a pull request against the `main` branch of the
+   `Programmer-Network/yail` repository.
 
 Please provide a clear description of the changes in your pull request.
 
