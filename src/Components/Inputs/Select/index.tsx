@@ -6,12 +6,7 @@ import InputError from "Components/Inputs/Common/InputError";
 import InputHeader from "Components/Inputs/Common/InputHeader";
 
 import { styles } from "./styles";
-import { ISelectProps } from "./types";
-
-type Option = {
-  value: string;
-  label: string;
-};
+import { ISelectProps, Option } from "./types";
 
 const Select: FC<ISelectProps> = props => {
   const { hint, label, max, defaultValue, isMulti = false, options } = props;
@@ -20,20 +15,10 @@ const Select: FC<ISelectProps> = props => {
     option: MultiValue<Option | undefined> | SingleValue<Option | undefined>
   ): void => {
     if (Array.isArray(option) && isMulti) {
-      return props.onChange({ [props.name]: option.map(({ value }) => value) });
+      return props.onChange({ [props.name]: option });
     }
 
-    return props.onChange({ [props.name]: (option as Option).value });
-  };
-
-  const getValue = () => {
-    if (Array.isArray(props.value)) {
-      return props.value.map(value =>
-        props.options.find(option => option.value === value)
-      );
-    }
-
-    return props.options.find(option => option.value === props.value);
+    return props.onChange({ [props.name]: option });
   };
 
   return (
@@ -54,7 +39,7 @@ const Select: FC<ISelectProps> = props => {
         closeMenuOnSelect={isMulti ? false : true}
         isMulti={isMulti}
         defaultValue={defaultValue}
-        value={getValue()}
+        value={props.value}
         styles={styles()}
         className='pn-select-container text-sm'
         classNamePrefix='pn-select'

@@ -32,16 +32,19 @@ export const styles = () => {
         ...styles,
         backgroundColor: "transparent",
         color,
-        cursor: isDisabled ? "not-allowed" : "default"
+        cursor: isDisabled ? "not-allowed" : "default",
+        "&:active": {
+          backgroundColor: "var(--color-primary)",
+          color: "#fff"
+        }
       };
     },
     multiValueRemove: styles => {
       return {
         ...styles,
-
         "&:hover": {
-          backgroundColor: "var(--text-color)",
-          color
+          backgroundColor: "var(--color-primary)",
+          color: "#fff"
         }
       };
     },
@@ -94,7 +97,7 @@ export const styles = () => {
     },
     menuList: base => ({
       ...base,
-
+      padding: 0,
       "::-webkit-scrollbar": {
         width: "10px"
       },
