@@ -20,7 +20,7 @@ const Reactions: FC<IReactionsProps> = ({
   return (
     <div className='flex gap-4 py-2 text-primary-text-color'>
       <div className='flex gap-8'>
-        <div className='my-0 flex items-center justify-center gap-1'>
+        <div className='my-0 flex items-center justify-center gap-4'>
           {isLiking ? (
             <IconSpinner className='w-5' />
           ) : (
@@ -37,7 +37,7 @@ const Reactions: FC<IReactionsProps> = ({
             </>
           )}
         </div>
-        <div className='flex items-center justify-center gap-1'>
+        <div className='flex items-center justify-center gap-4'>
           {isDisliking ? (
             <Spinner className='w-5' />
           ) : (
