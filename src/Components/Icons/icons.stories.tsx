@@ -24,8 +24,10 @@ const Template = () => {
                 key={iconName}
                 className='flex flex-col items-center justify-center gap-2 p-8'
               >
-                <Icon className='h-16 w-16 text-primary' />
-                <span className='font-bold text-primary'>{iconName}</span>
+                <Icon className='h-16 w-16 text-white' />
+                <span className='font-bold text-primary-text-color'>
+                  {iconName}
+                </span>
               </div>
             );
           })}

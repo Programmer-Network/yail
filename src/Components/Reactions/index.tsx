@@ -19,14 +19,14 @@ const Reactions: FC<IReactionsProps> = ({
 }) => {
   return (
     <div className='flex gap-4 py-2 text-primary-text-color'>
-      <div className='flex gap-4'>
+      <div className='flex gap-8'>
         <div className='my-0 flex items-center justify-center gap-1'>
           {isLiking ? (
             <IconSpinner className='w-5' />
           ) : (
             <>
               <IconArrowUp
-                className={classNames("w-12", {
+                className={classNames("w-6", {
                   "fill-primary-text-color": !hasLiked,
                   "cursor-not-allowed text-primary": hasLiked || isDisliking,
                   "cursor-pointer hover:text-primary": !hasLiked
@@ -43,7 +43,7 @@ const Reactions: FC<IReactionsProps> = ({
           ) : (
             <>
               <IconArrowDown
-                className={classNames("w-12", {
+                className={classNames("w-6", {
                   "fill-primary-text-color": !hasDisliked,
                   "cursor-not-allowed text-rose-500": hasDisliked || isLiking,
                   "cursor-pointer hover:text-rose-500":
