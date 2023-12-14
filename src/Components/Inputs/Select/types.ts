@@ -9,7 +9,7 @@ export interface ISelectProps {
   name: string;
   type?: string;
   required?: boolean;
-  value: PropsValue<Option | undefined>;
+  value: PropsValue<Option | undefined> | string | string[];
   defaultValue?: PropsValue<Option | undefined>;
   error?: string;
   hint?: string;
