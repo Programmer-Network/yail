@@ -15,10 +15,36 @@ const Select: FC<ISelectProps> = props => {
     option: MultiValue<Option | undefined> | SingleValue<Option | undefined>
   ): void => {
     if (Array.isArray(option) && isMulti) {
-      return props.onChange({ [props.name]: option });
+      return props.onChange({ [props.name]: option.map(o => o?.value) });
     }
 
-    return props.onChange({ [props.name]: option });
+    return props.onChange({ [props.name]: (option as Option)?.value });
+  };
+
+  const getValue = () => {
+    if (!props.value) {
+      return;
+    }
+
+    if (isMulti && Array.isArray(props.value)) {
+      const values = props.value.map(value => {
+        if (typeof value === "object" && value !== null && "value" in value) {
+          return options.find(
+            option => option.value === (value as Option)?.value
+          );
+        } else {
+          return options.find(option => option.value === value);
+        }
+      });
+
+      return values.filter(Boolean).length ? values : undefined;
+    }
+
+    return options.find(
+      option =>
+        option.value === props.value ||
+        option.value === (props.value as Option)?.value
+    );
   };
 
   return (
@@ -39,7 +65,7 @@ const Select: FC<ISelectProps> = props => {
         closeMenuOnSelect={isMulti ? false : true}
         isMulti={isMulti}
         defaultValue={defaultValue}
-        value={props.value}
+        value={getValue()}
         styles={styles()}
         className='pn-select-container text-sm'
         classNamePrefix='pn-select'

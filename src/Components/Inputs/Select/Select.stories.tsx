@@ -1,9 +1,8 @@
 import { action } from "@storybook/addon-actions";
 import { useEffect, useState } from "react";
-import { MultiValue, SingleValue } from "react-select";
 
 import Select from ".";
-import { ISelectProps, Option } from "./types";
+import { ISelectProps } from "./types";
 
 export default {
   title: "Input/Select",
@@ -17,16 +16,8 @@ export default {
 };
 
 export const SingleSelect = (args: ISelectProps) => {
-  const [input, setInput] = useState<
-    Record<
-      string,
-      MultiValue<Option | undefined> | SingleValue<Option | undefined>
-    >
-  >({
-    foo: {
-      value: "foo",
-      label: "foo"
-    }
+  const [input, setInput] = useState<Record<string, string[] | string>>({
+    foo: "foo"
   });
 
   useEffect(() => {
@@ -48,13 +39,8 @@ SingleSelect.args = {
 };
 
 export const MultiSelect = (args: ISelectProps) => {
-  const [input, setInput] = useState<
-    Record<
-      string,
-      MultiValue<Option | undefined> | SingleValue<Option | undefined>
-    >
-  >({
-    foo: []
+  const [input, setInput] = useState<Record<string, string[] | string>>({
+    foo: ["foo", "bar"]
   });
 
   useEffect(() => {
