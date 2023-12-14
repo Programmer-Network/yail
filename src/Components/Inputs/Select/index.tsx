@@ -15,10 +15,10 @@ const Select: FC<ISelectProps> = props => {
     option: MultiValue<Option | undefined> | SingleValue<Option | undefined>
   ): void => {
     if (Array.isArray(option) && isMulti) {
-      return props.onChange({ [props.name]: option });
+      return props.onChange({ [props.name]: option.map(o => o?.value) });
     }
 
-    return props.onChange({ [props.name]: option });
+    return props.onChange({ [props.name]: (option as Option)?.value });
   };
 
   const getValue = () => {

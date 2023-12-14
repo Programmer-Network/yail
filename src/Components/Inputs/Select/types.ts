@@ -1,4 +1,4 @@
-import { MultiValue, PropsValue, SingleValue } from "react-select";
+import { PropsValue } from "react-select";
 
 export type Option = {
   value: string;
@@ -17,12 +17,7 @@ export interface ISelectProps {
   max?: number;
   isMulti?: boolean;
   isSearchable?: boolean;
-  onChange: (
-    option: Record<
-      string,
-      MultiValue<Option | undefined> | SingleValue<Option | undefined>
-    >
-  ) => void;
+  onChange: (option: Record<string, string[] | string>) => void;
   options: Option[];
   inputWrapperClassName?: string;
 }

@@ -1,9 +1,8 @@
 import { action } from "@storybook/addon-actions";
 import { useEffect, useState } from "react";
-import { MultiValue, SingleValue } from "react-select";
 
 import Select from ".";
-import { ISelectProps, Option } from "./types";
+import { ISelectProps } from "./types";
 
 export default {
   title: "Input/Select",
@@ -17,16 +16,8 @@ export default {
 };
 
 export const SingleSelect = (args: ISelectProps) => {
-  const [input, setInput] = useState<
-    Record<
-      string,
-      MultiValue<Option | undefined> | SingleValue<Option | undefined>
-    >
-  >({
-    foo: {
-      value: "foo",
-      label: "foo"
-    }
+  const [input, setInput] = useState<Record<string, string[] | string>>({
+    foo: "foo"
   });
 
   useEffect(() => {
@@ -47,72 +38,8 @@ SingleSelect.args = {
   value: "foo"
 };
 
-export const SingleSelectWithStringValue = (args: ISelectProps) => {
-  const [input, setInput] = useState<
-    Record<
-      string,
-      MultiValue<Option | undefined> | SingleValue<Option | undefined | string>
-    >
-  >({
-    foo: "foo"
-  });
-
-  useEffect(() => {
-    console.log(input);
-  }, [input]);
-
-  return <Select {...args} name='foo' value={input.foo} onChange={setInput} />;
-};
-
-SingleSelectWithStringValue.args = {
-  name: "single-select",
-  onChange: action("onChange"),
-  options: [
-    { value: "foo", label: "Foo" },
-    { value: "bar", label: "Bar" },
-    { value: "baz", label: "Baz" }
-  ],
-  value: "foo"
-};
-
 export const MultiSelect = (args: ISelectProps) => {
-  const [input, setInput] = useState<
-    Record<
-      string,
-      MultiValue<Option | undefined> | SingleValue<Option | undefined>
-    >
-  >({
-    foo: [
-      { value: "foo", label: "foo" },
-      { value: "bar", label: "bar" }
-    ]
-  });
-
-  useEffect(() => {
-    console.log(input);
-  }, [input]);
-
-  return <Select {...args} value={input.foo} onChange={setInput} />;
-};
-
-MultiSelect.args = {
-  name: "foo",
-  isMulti: true,
-  options: [
-    { value: "foo", label: "Foo" },
-    { value: "bar", label: "Bar" },
-    { value: "baz", label: "Baz" }
-  ]
-};
-
-export const MultiSelectWithStringArray = (args: ISelectProps) => {
-  const [input, setInput] = useState<
-    Record<
-      string,
-      | MultiValue<Option | undefined>
-      | SingleValue<Option | undefined | string[]>
-    >
-  >({
+  const [input, setInput] = useState<Record<string, string[] | string>>({
     foo: ["foo", "bar"]
   });
 
@@ -123,7 +50,7 @@ export const MultiSelectWithStringArray = (args: ISelectProps) => {
   return <Select {...args} value={input.foo} onChange={setInput} />;
 };
 
-MultiSelectWithStringArray.args = {
+MultiSelect.args = {
   name: "foo",
   isMulti: true,
   options: [
