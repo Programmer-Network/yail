@@ -21,7 +21,8 @@ const ImageCrop: FC<IImageCropProps> = ({
   circularCrop,
   locked,
   aspect = 1,
-  cropAreaClassName
+  imgCropWrapperClassName,
+  imgCropClassName
 }) => {
   const previewCanvasRef = useRef(null);
   const imgRef = useRef(null);
@@ -116,13 +117,22 @@ const ImageCrop: FC<IImageCropProps> = ({
           keepSelection
           circularCrop={circularCrop}
         >
-          <img
-            className={classNames(cropAreaClassName)}
-            ref={imgRef}
-            alt='Crop me'
-            src={src}
-            onLoad={onImageLoad}
-          />
+          <div
+            className={classNames(imgCropWrapperClassName, {
+              "relative h-[350px] w-[350px]": !imgCropWrapperClassName
+            })}
+          >
+            <img
+              className={classNames(imgCropClassName, {
+                "absolute h-full w-full bg-left-top object-cover":
+                  !imgCropClassName
+              })}
+              ref={imgRef}
+              alt='Crop me'
+              src={src}
+              onLoad={onImageLoad}
+            />
+          </div>
         </ReactCrop>
       )}
     </div>

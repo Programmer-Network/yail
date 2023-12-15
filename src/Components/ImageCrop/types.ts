@@ -9,5 +9,6 @@ export interface IImageCropProps {
   locked?: boolean;
   circularCrop?: boolean;
   aspect?: number;
-  cropAreaClassName?: string;
+  imgCropWrapperClassName?: string;
+  imgCropClassName?: string;
 }

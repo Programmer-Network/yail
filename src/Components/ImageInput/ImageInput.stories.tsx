@@ -90,7 +90,6 @@ export const WithImageCrop = () => {
       <div className='flex items-start gap-2'>
         {image && (
           <ImageCrop
-            cropAreaClassName='max-w-[600px] max-h-[600px] min-w-[600px]'
             setCrop={setCrop}
             crop={crop}
             src={image}
@@ -98,7 +97,14 @@ export const WithImageCrop = () => {
             locked={false}
           />
         )}
-        {croppedImage && <img src={croppedImage} />}
+        {croppedImage && (
+          <div className='relative h-[150px] w-[150px]'>
+            <img
+              className='absolute h-full w-full bg-left-top object-cover'
+              src={croppedImage}
+            />
+          </div>
+        )}
       </div>
 
       <ImageInput
