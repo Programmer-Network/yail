@@ -1,9 +1,4 @@
-type ValidationResult =
-  | { isValidImage: true; imageValidationError: null }
-  | {
-      isValidImage: false;
-      imageValidationError: { message: string; reason: string };
-    };
+import { CompressReturnType, ValidationResult } from "./types";
 
 class ImageUtils {
   public static async validate(
@@ -86,9 +81,17 @@ class ImageUtils {
 
   public static async compress(
     file: File,
-    options: { maxWidth?: number; quality?: number } = {}
-  ): Promise<string> {
-    const { maxWidth = 672, quality = 0.9 } = options;
+    options: {
+      maxWidth?: number;
+      quality?: number;
+      format?: CompressReturnType;
+    } = {}
+  ): Promise<string | Blob> {
+    const {
+      maxWidth = 672,
+      quality = 0.9,
+      format = CompressReturnType.BASE64
+    } = options;
 
     const image = await ImageUtils.loadImage(file);
     const canvas = document.createElement("canvas");
@@ -104,7 +107,11 @@ class ImageUtils {
 
     ctx.drawImage(image, 0, 0, width, height);
 
-    return canvas.toDataURL("image/jpeg", quality);
+    const base64DataURL = canvas.toDataURL("image/jpeg", quality);
+
+    return format === CompressReturnType.BASE64
+      ? base64DataURL
+      : ImageUtils.base64ToBlob(base64DataURL, "image/jpeg");
   }
 
   public static readFileAsDataURL(file: File): Promise<string> {
@@ -115,6 +122,23 @@ class ImageUtils {
       reader.readAsDataURL(file);
     });
   }
+
+  private static base64ToBlob = (base64: string, mimeType: string): Blob => {
+    const byteCharacters = atob(base64.split(",")[1]);
+    const byteArrays = [];
+
+    for (let offset = 0; offset < byteCharacters.length; offset += 512) {
+      const slice = byteCharacters.slice(offset, offset + 512);
+      const byteNumbers = new Array(slice.length);
+      for (let i = 0; i < slice.length; i++) {
+        byteNumbers[i] = slice.charCodeAt(i);
+      }
+      const byteArray = new Uint8Array(byteNumbers);
+      byteArrays.push(byteArray);
+    }
+
+    return new Blob(byteArrays, { type: mimeType });
+  };
 
   private static loadImage(file: File): Promise<HTMLImageElement> {
     return new Promise((resolve, reject) => {

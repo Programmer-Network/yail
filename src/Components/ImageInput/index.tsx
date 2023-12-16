@@ -6,6 +6,8 @@ import Button from "Components/Button";
 import { IconImage } from "Components/Icons/IconImage";
 import { InputError } from "Components/Inputs";
 
+import { CompressReturnType } from "Utils/Image/types";
+
 import { IImageInputProps } from "./types";
 
 const ImageInput: FC<IImageInputProps> = ({
@@ -46,7 +48,10 @@ const ImageInput: FC<IImageInputProps> = ({
       file: { blob: file, fileName, mimeType },
       base64: !compression?.enabled
         ? await ImageUtils.readFileAsDataURL(file)
-        : await ImageUtils.compress(file, compression),
+        : ((await ImageUtils.compress(file, {
+            ...compression,
+            format: CompressReturnType.BASE64
+          })) as string),
       fileName,
       mimeType
     });
