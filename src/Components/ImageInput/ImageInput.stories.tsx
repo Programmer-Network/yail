@@ -77,10 +77,10 @@ export const WithImageCrop = () => {
   };
 
   const handleCropComplete = async (croppedImage: Blob) => {
-    const compressedImage = await ImageUtils.compress(croppedImage as File, {
+    const compressedImage = (await ImageUtils.compress(croppedImage as File, {
       maxWidth: 200,
       quality: 0.7
-    });
+    })) as string;
 
     setCroppedImage(compressedImage);
   };
