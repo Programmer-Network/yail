@@ -26,14 +26,13 @@ const Button: React.FC<IButtonProps> = ({
           "cursor-not-allowed opacity-70": disabled,
           "text-primary": outlined && !disabled,
           "text-primary-background-color": !outlined || disabled,
-          "!text-bg-primary-background-color !bg-primary":
-            !outlined && disabled,
+          "text-bg-primary-background-color bg-primary": !outlined && disabled,
           "hover:bg-transparent": !outlined && isLoading,
           "bg-primary hover:bg-transparent hover:text-primary":
             !outlined && !disabled,
           "hover:bg-primary hover:text-primary-background-color":
             outlined && !disabled,
-          "!bg-transparent !text-primary": outlined && disabled
+          "bg-transparent text-primary": outlined && disabled
         }
       )}
     >
