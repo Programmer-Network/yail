@@ -14,27 +14,31 @@ const Button: React.FC<IButtonProps> = ({
   isLoading = false,
   outlined = false
 }) => {
+  let cls =
+    "select-none border-2 border-primary px-3 py-2 text-sm font-semibold uppercase tracking-tight shadow-lg ";
+
+  if (disabled) {
+    cls += "cursor-not-allowed opacity-70 ";
+    if (outlined) {
+      cls += "text-primary ";
+    } else {
+      cls += "text-bg-primary-background-color bg-primary ";
+    }
+  } else {
+    if (outlined) {
+      cls +=
+        "bg-transparent text-primary hover:bg-primary hover:text-primary-background-color";
+    } else {
+      cls += "bg-primary hover:bg-transparent hover:text-primary";
+    }
+  }
+
   return (
     <button
       disabled={disabled}
       onClick={onClick}
       type={type}
-      className={classNames(
-        "select-none border-2 border-primary px-3 py-2 text-sm font-semibold uppercase tracking-tight shadow-lg",
-        className,
-        {
-          "cursor-not-allowed opacity-70": disabled,
-          "text-primary": outlined && !disabled,
-          "text-primary-background-color": !outlined || disabled,
-          "text-bg-primary-background-color bg-primary": !outlined && disabled,
-          "hover:bg-transparent": !outlined && isLoading,
-          "bg-primary hover:bg-transparent hover:text-primary":
-            !outlined && !disabled,
-          "hover:bg-primary hover:text-primary-background-color":
-            outlined && !disabled,
-          "bg-transparent text-primary": outlined && disabled
-        }
-      )}
+      className={classNames(cls, className)}
     >
       <div className='relative flex items-center justify-center'>
         <span
