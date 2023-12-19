@@ -2,7 +2,7 @@ import classNames from "classnames";
 
 import Spinner from "Components/Spinner";
 
-import "./style.css";
+import "./button-style.css";
 import { IButtonProps } from "./types";
 
 const Button: React.FC<IButtonProps> = ({
@@ -29,7 +29,8 @@ const Button: React.FC<IButtonProps> = ({
       cls +=
         "bg-transparent text-primary hover:bg-primary hover:text-primary-background-color";
     } else {
-      cls += "bg-primary hover:bg-transparent hover:text-primary";
+      cls +=
+        "bg-primary hover:bg-transparent hover:text-primary text-primary-background-color";
     }
   }
 

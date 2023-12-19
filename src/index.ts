@@ -1,4 +1,5 @@
-import "./style.css";
+import "./custom-properties.css";
+import "./tailwind.css";
 
 export { default as Button } from "Components/Button";
 export { default as Spinner } from "Components/Spinner";
