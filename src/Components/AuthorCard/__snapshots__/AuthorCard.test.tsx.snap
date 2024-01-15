@@ -30,7 +30,7 @@ exports[`AuthorCard component > renders correctly 1`] = `
           John Doe
         </h1>
         <p
-          class="break-all text-primary-text-color md:text-2xl"
+          class="break-all text-primary-text-color md:text-2xl !text-base"
         >
           An expert in the field.
         </p>
