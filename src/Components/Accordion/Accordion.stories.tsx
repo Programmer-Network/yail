@@ -212,11 +212,6 @@ export const Primary = () => {
       sections={sections}
       expanded={expandedSections}
       setExpanded={(expanded: number[]) => {
-        console.log(
-          "🚀 ─── file: Accordion.stories.tsx:196 ─── Primary ─── expanded:",
-          expanded
-        );
-
         setExpandedSections(expanded);
       }}
       onSectionItemClick={sectionItem => {

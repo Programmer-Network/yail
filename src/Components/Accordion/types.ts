@@ -17,7 +17,7 @@ export interface IAccordionProps {
   sections: ISection[];
   sectionTitleClassName?: string;
   itemsLabelText?: string;
-  onSectionItemClick: (item: ISectionItem) => void;
+  onSectionItemClick?: (item: ISectionItem) => void;
   selectedItemId?: number | null;
   expanded: number[];
   setExpanded: (sections: number[]) => void;
