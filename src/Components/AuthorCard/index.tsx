@@ -22,7 +22,7 @@ const AuthorCard: React.FC<IAuthorCardProps> = ({
         </div>
         <div>
           <Title>{name}</Title>
-          <Description className="!text-base">{about}</Description>
+          <Description className='!text-base'>{about}</Description>
         </div>
       </div>
     </div>

@@ -84,7 +84,9 @@ const Accordion: FC<IAccordionProps> = ({
                     "text-primary": selectedItemId === item.id
                   })}
                   key={item.id}
-                  onClick={() => onSectionItemClick  ? onSectionItemClick(item) : null}
+                  onClick={() =>
+                    onSectionItemClick ? onSectionItemClick(item) : null
+                  }
                 >
                   <div className='flex gap-2 break-all'>
                     <span className='capitalize text-primary-text-color'>{`${
