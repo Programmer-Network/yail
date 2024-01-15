@@ -22,7 +22,7 @@ const Button: React.FC<IButtonProps> = ({
     if (outlined) {
       cls += "text-primary ";
     } else {
-      cls += "text-bg-primary-background-color bg-primary ";
+      cls += "text-primary-background-color bg-primary ";
     }
   } else {
     if (outlined) {
