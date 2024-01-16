@@ -13,9 +13,12 @@ const Accordion: FC<IAccordionProps> = ({
   onSectionItemClick,
   onSelected,
   expanded,
-  setExpanded
+  setExpanded,
+  selectedId
 }) => {
-  const [selectedItemId, setSelectedItemId] = useState<number | null>(null);
+  const [selectedItemId, setSelectedItemId] = useState<number | null>(
+    selectedId || null
+  );
 
   const toggleExpand = (sectionId: number) => {
     if (expanded.includes(sectionId)) {

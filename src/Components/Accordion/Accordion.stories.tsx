@@ -209,6 +209,7 @@ export const Primary = () => {
   return (
     <Accordion
       className='w-[500px]'
+      selectedId={235}
       sections={sections}
       expanded={expandedSections}
       setExpanded={(expanded: number[]) => {

@@ -21,4 +21,5 @@ export interface IAccordionProps {
   onSelected?: (item: ISectionItem) => void;
   expanded: number[];
   setExpanded: (sections: number[]) => void;
+  selectedId?: number;
 }
