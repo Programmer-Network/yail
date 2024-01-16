@@ -2,6 +2,8 @@ import { action } from "@storybook/addon-actions";
 import { Meta } from "@storybook/react";
 import { useState } from "react";
 
+import Button from "Components/Button";
+
 import Accordion from ".";
 
 const meta = {
@@ -206,21 +208,34 @@ export const Primary = () => {
     sections[0].id
   ]);
 
+  const [randomId, setRandomId] = useState<number>(235);
+
+  const ids = [235, 270, 304, 339, 376, 412];
+
   return (
-    <Accordion
-      className='w-[500px]'
-      selectedId={235}
-      sections={sections}
-      expanded={expandedSections}
-      setExpanded={(expanded: number[]) => {
-        setExpandedSections(expanded);
-      }}
-      onSelected={item => {
-        action("onSelected")(item);
-      }}
-      onSectionItemClick={sectionItem => {
-        action("onSectionItemClick")(sectionItem);
-      }}
-    />
+    <div>
+      <Button
+        onClick={() => {
+          setRandomId(ids[Math.floor(Math.random() * ids.length)]);
+        }}
+      >
+        Select Random
+      </Button>
+      <Accordion
+        className='w-[500px]'
+        selectedId={randomId}
+        sections={sections}
+        expanded={expandedSections}
+        setExpanded={(expanded: number[]) => {
+          setExpandedSections(expanded);
+        }}
+        onSelected={item => {
+          action("onSelected")(item);
+        }}
+        onSectionItemClick={sectionItem => {
+          action("onSectionItemClick")(sectionItem);
+        }}
+      />
+    </div>
   );
 };

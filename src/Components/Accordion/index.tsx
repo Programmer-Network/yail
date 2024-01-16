@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 
 import { IconExpandLess, IconExpandMore } from "Components/Icons";
 
@@ -30,6 +30,14 @@ const Accordion: FC<IAccordionProps> = ({
 
   const getItemsLabelText = (items: number) =>
     `${items} ${items === 1 ? itemsLabelText : `${itemsLabelText}s`}`;
+
+  useEffect(() => {
+    if (!selectedId) {
+      return;
+    }
+
+    setSelectedItemId(selectedId);
+  }, [selectedId]);
 
   return (
     <section className={classNames(className)}>
