@@ -214,6 +214,9 @@ export const Primary = () => {
       setExpanded={(expanded: number[]) => {
         setExpandedSections(expanded);
       }}
+      onSelected={item => {
+        action("onSelected")(item);
+      }}
       onSectionItemClick={sectionItem => {
         action("onSectionItemClick")(sectionItem);
       }}

@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { FC } from "react";
+import { FC, useState } from "react";
 
 import { IconExpandLess, IconExpandMore } from "Components/Icons";
 
@@ -11,10 +11,12 @@ const Accordion: FC<IAccordionProps> = ({
   sectionTitleClassName,
   itemsLabelText,
   onSectionItemClick,
-  selectedItemId = null,
+  onSelected,
   expanded,
   setExpanded
 }) => {
+  const [selectedItemId, setSelectedItemId] = useState<number | null>(null);
+
   const toggleExpand = (sectionId: number) => {
     if (expanded.includes(sectionId)) {
       setExpanded(expanded.filter(id => id !== sectionId));
@@ -84,15 +86,29 @@ const Accordion: FC<IAccordionProps> = ({
                     "text-primary": selectedItemId === item.id
                   })}
                   key={item.id}
-                  onClick={() =>
-                    onSectionItemClick ? onSectionItemClick(item) : null
-                  }
+                  onClick={() => {
+                    if (typeof onSectionItemClick !== "function") {
+                      return;
+                    }
+
+                    onSectionItemClick(item);
+                    onSelected ? onSelected(item) : null;
+                    setSelectedItemId(item.id);
+                  }}
                 >
                   <div className='flex gap-2 break-all'>
-                    <span className='capitalize text-primary-text-color'>{`${
-                      index + 1
-                    }.`}</span>
-                    <span>{item.title}</span>
+                    <span
+                      className={classNames(
+                        "capitalize text-primary-text-color"
+                      )}
+                    >{`${index + 1}.`}</span>
+                    <span
+                      className={classNames({
+                        "text-primary": selectedItemId === item.id
+                      })}
+                    >
+                      {item.title}
+                    </span>
                   </div>
                 </li>
               ))}
