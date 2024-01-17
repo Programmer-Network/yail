@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { DraggableList } from ".";
+import { IDraggableListItem } from "./types";
 
 const meta = {
   title: "Core/DraggableList",
@@ -19,7 +20,7 @@ export const Default: Story = {
   args: {
     draggedClassName: "bg-primary",
     draggedOverClassName: "bg-rose-500",
-    onSorted: (items: any) => console.log(items),
+    onSorted: (items: IDraggableListItem[]) => console.log(items),
     items: [
       {
         id: 1,
