@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { DraggableList } from ".";
+import DraggableList from ".";
 import { IDraggableListItem } from "./types";
 
 const meta = {
