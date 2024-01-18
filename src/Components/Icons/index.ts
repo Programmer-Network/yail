@@ -10,3 +10,6 @@ export { default as IconArrowUp } from "Components/Icons/IconArrowUp";
 export { default as IconArrowDown } from "Components/Icons/IconArrowDown";
 export { default as IconComment } from "Components/Icons/IconComment";
 export { default as IconShare } from "Components/Icons/IconShare";
+export { default as IconSpinner } from "Components/Icons/IconSpinner";
+export { default as IconSpinner2 } from "Components/Icons/IconSpinner2";
+export { default as IconDraggableVertically } from "Components/Icons/IconDraggableVertically";
