@@ -1,7 +1,7 @@
 import classNames from "classnames";
-import { DragEvent, FC, useState } from "react";
+import { DragEvent, FC, useEffect, useState } from "react";
 
-import { IconDraggableVertically, IconSpinner2 } from "Components/Icons";
+import { IconDrag, IconSpinner2 } from "Components/Icons";
 
 import { IDraggableList, IDraggableListItem } from "./types";
 
@@ -11,7 +11,8 @@ const DraggableList: FC<IDraggableList> = ({
   draggedClassName,
   draggedOverClassName,
   liClassName,
-  onSorted
+  onSorted,
+  onClick
 }) => {
   const [draggedId, setDraggedId] = useState<number | null>(null);
   const [draggedOverId, setDraggedOverId] = useState<number | null>(null);
@@ -59,6 +60,10 @@ const DraggableList: FC<IDraggableList> = ({
     setDraggedOverId(null);
   };
 
+  useEffect(() => {
+    setListItems(items);
+  }, [items.length]);
+
   return (
     <ul
       className={classNames("relative text-primary-text-color", className)}
@@ -70,23 +75,29 @@ const DraggableList: FC<IDraggableList> = ({
       {listItems.map(item => {
         return (
           <li
-            className={classNames("relative flex items-center", liClassName, {
-              [draggedClassName ?? ""]: !isSorting && draggedId === item.id,
-              [draggedOverClassName ?? ""]:
-                !isSorting && draggedOverId === item.id,
-              "opacity-30": isSorting && draggedId !== item.id,
-              "cursor-move": hoveredId === item.id
-            })}
+            className={classNames(
+              "relative flex cursor-pointer items-center",
+              liClassName,
+              {
+                [draggedClassName ?? ""]: !isSorting && draggedId === item.id,
+                [draggedOverClassName ?? ""]:
+                  !isSorting && draggedOverId === item.id,
+                "opacity-30": isSorting && draggedId !== item.id
+              }
+            )}
             draggable={true}
             key={item.id}
             onDrag={e => handleDrag(e, item)}
             onDragOver={() => setDraggedOverId(item.id)}
             onMouseOver={() => setHoveredId(item.id)}
             onMouseLeave={() => setHoveredId(null)}
+            onClick={() => onClick?.(item)}
           >
-            {hoveredId === item.id && (
-              <IconDraggableVertically className='absolute -left-7 w-6' />
-            )}
+            <IconDrag
+              className={classNames("absolute -left-7 w-6 opacity-50", {
+                "cursor-move opacity-100": hoveredId === item.id
+              })}
+            />
             {item.title}
           </li>
         );

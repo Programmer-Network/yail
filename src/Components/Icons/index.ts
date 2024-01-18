@@ -13,3 +13,4 @@ export { default as IconShare } from "Components/Icons/IconShare";
 export { default as IconSpinner } from "Components/Icons/IconSpinner";
 export { default as IconSpinner2 } from "Components/Icons/IconSpinner2";
 export { default as IconDraggableVertically } from "Components/Icons/IconDraggableVertically";
+export { default as IconDrag } from "Components/Icons/IconDrag";
