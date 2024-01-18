@@ -44,19 +44,15 @@ const Accordion: FC<IAccordionProps> = ({
       {sections.map((section, idx) => (
         <div
           key={section.id}
-          className={classNames("border border-primary-text-color p-2", {
+          className={classNames({
             "mb-0 border-b-0": idx !== sections.length - 1
           })}
           role='presentation'
         >
           <h3
             className={classNames(
-              "flex cursor-pointer select-none items-center justify-between capitalize text-primary-text-color",
-              sectionTitleClassName,
-              {
-                "mb-2 border-b border-primary-text-color pb-2":
-                  expanded.includes(section.id)
-              }
+              "flex cursor-pointer select-none items-center justify-between capitalize text-primary",
+              sectionTitleClassName
             )}
             onClick={() => toggleExpand(section.id)}
             onKeyDown={e => {
@@ -70,9 +66,9 @@ const Accordion: FC<IAccordionProps> = ({
           >
             <div className='flex items-center gap-1 overflow-hidden text-ellipsis whitespace-nowrap text-base'>
               {expanded.includes(section.id) ? (
-                <IconExpandLess className='w-8 cursor-pointer fill-primary-text-color hover:fill-primary' />
+                <IconExpandLess className='w-6 cursor-pointer fill-primary-text-color hover:fill-primary' />
               ) : (
-                <IconExpandMore className='w-8 cursor-pointer fill-primary-text-color hover:fill-primary' />
+                <IconExpandMore className='w-6 cursor-pointer fill-primary-text-color hover:fill-primary' />
               )}
               {section.title}
             </div>
@@ -86,13 +82,13 @@ const Accordion: FC<IAccordionProps> = ({
           </h3>
           {expanded.includes(section.id) && (
             <ul
-              className='ml-[10px] animate-height-animation leading-8'
+              className='ml-[28px] animate-height-animation leading-8'
               role='region'
               aria-labelledby={section.id.toString()}
             >
               {section.items.map((item, index) => (
                 <li
-                  className={classNames("mb-2 text-primary-text-color", {
+                  className={classNames("text-primary-text-color", {
                     "cursor-pointer": onSectionItemClick,
                     "text-primary": selectedItemId === item.id
                   })}
@@ -107,12 +103,7 @@ const Accordion: FC<IAccordionProps> = ({
                     setSelectedItemId(item.id);
                   }}
                 >
-                  <div className='flex gap-2 break-all'>
-                    <span
-                      className={classNames(
-                        "capitalize text-primary-text-color"
-                      )}
-                    >{`${index + 1}.`}</span>
+                  <div className='flex break-all'>
                     <span
                       className={classNames({
                         "text-primary": selectedItemId === item.id
