@@ -1,4 +1,4 @@
-import { FC, SVGProps } from "react";
+import { FC } from "react";
 
 import { IIconProps } from "./types";
 

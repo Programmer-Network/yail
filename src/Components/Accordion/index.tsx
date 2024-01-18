@@ -86,7 +86,7 @@ const Accordion: FC<IAccordionProps> = ({
               role='region'
               aria-labelledby={section.id.toString()}
             >
-              {section.items.map((item, index) => (
+              {section.items.map(item => (
                 <li
                   className={classNames("text-primary-text-color", {
                     "cursor-pointer": onSectionItemClick,
