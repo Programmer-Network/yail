@@ -20,7 +20,13 @@ export const Default: Story = {
   args: {
     draggedClassName: "bg-primary",
     draggedOverClassName: "bg-rose-500",
-    onSorted: (items: IDraggableListItem[]) => console.log(items),
+    onSorted: (items: IDraggableListItem[]) => {
+      return new Promise(resolve => {
+        setTimeout(() => {
+          resolve(items);
+        }, 2000);
+      });
+    },
     items: [
       {
         id: 1,

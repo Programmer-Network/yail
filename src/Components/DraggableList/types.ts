@@ -8,7 +8,8 @@ export interface IDraggableList {
   className?: string;
   draggedClassName?: string;
   draggedOverClassName?: string;
+  liClassName?: string;
   items: IDraggableListItem[];
-  onSorted?: (items: IDraggableListItem[]) => void;
+  onSorted?: (items: IDraggableListItem[]) => Promise<unknown>;
   ListItemComponent?: React.FC<IDraggableListItem>;
 }
