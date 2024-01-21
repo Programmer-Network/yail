@@ -51,7 +51,7 @@ const Accordion: FC<IAccordionProps> = ({
         >
           <h3
             className={classNames(
-              "flex cursor-pointer select-none items-center justify-between capitalize text-primary",
+              "relative flex cursor-pointer select-none items-center justify-between capitalize text-primary",
               sectionTitleClassName
             )}
             onClick={() => toggleExpand(section.id)}
@@ -66,23 +66,21 @@ const Accordion: FC<IAccordionProps> = ({
           >
             <div className='flex items-center gap-1 overflow-hidden text-ellipsis whitespace-nowrap text-base'>
               {expanded.includes(section.id) ? (
-                <IconExpandLess className='w-6 cursor-pointer fill-primary-text-color hover:fill-primary' />
+                <IconExpandLess className='absolute right-0 w-6 cursor-pointer fill-primary-text-color hover:fill-primary' />
               ) : (
-                <IconExpandMore className='w-6 cursor-pointer fill-primary-text-color hover:fill-primary' />
+                <IconExpandMore className='absolute right-0 w-6 cursor-pointer fill-primary-text-color hover:fill-primary' />
               )}
               {section.title}
             </div>
             {itemsLabelText && (
-              <div>
-                <span className='whitespace-nowrap text-sm lowercase text-primary-text-color'>
-                  {getItemsLabelText(section.items.length)}
-                </span>
-              </div>
+              <span className='whitespace-nowrap pr-6 text-sm lowercase text-primary-text-color'>
+                {getItemsLabelText(section.items.length)}
+              </span>
             )}
           </h3>
           {expanded.includes(section.id) && (
             <ul
-              className='ml-[28px] animate-height-animation leading-8'
+              className='animate-height-animation leading-8'
               role='region'
               aria-labelledby={section.id.toString()}
             >
