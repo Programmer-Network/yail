@@ -213,6 +213,7 @@ export const Primary = () => {
         selectedId={2}
         sections={sections}
         expanded={expandedSections}
+        itemsLabelText='lesson'
         setExpanded={(expanded: number[]) => {
           setExpandedSections(expanded);
         }}

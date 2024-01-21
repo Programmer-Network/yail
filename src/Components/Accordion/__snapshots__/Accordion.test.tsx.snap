@@ -6,12 +6,12 @@ exports[`Accordion component > renders correctly 1`] = `
     class=""
   >
     <div
-      class="border border-primary-text-color p-2 mb-0 border-b-0"
+      class="mb-0 border-b-0"
       role="presentation"
     >
       <h3
         aria-expanded="true"
-        class="flex cursor-pointer select-none items-center justify-between capitalize text-primary-text-color mb-2 border-b border-primary-text-color pb-2"
+        class="relative flex cursor-pointer select-none items-center justify-between capitalize text-primary"
         role="button"
         tabindex="0"
       >
@@ -19,7 +19,7 @@ exports[`Accordion component > renders correctly 1`] = `
           class="flex items-center gap-1 overflow-hidden text-ellipsis whitespace-nowrap text-base"
         >
           <svg
-            class="w-8 cursor-pointer fill-primary-text-color hover:fill-primary"
+            class="absolute right-0 w-6 cursor-pointer fill-primary-text-color hover:fill-primary"
             data-testid="icon-expand-less"
             fill="currentColor"
             focusable="false"
@@ -40,20 +40,15 @@ exports[`Accordion component > renders correctly 1`] = `
       </h3>
       <ul
         aria-labelledby="1"
-        class="ml-[10px] animate-height-animation leading-8"
+        class="animate-height-animation leading-8"
         role="region"
       >
         <li
-          class="mb-2 text-primary-text-color cursor-pointer"
+          class="text-primary-text-color cursor-pointer"
         >
           <div
-            class="flex gap-2 break-all"
+            class="flex break-all"
           >
-            <span
-              class="capitalize text-primary-text-color"
-            >
-              1.
-            </span>
             <span
               class=""
             >
@@ -62,16 +57,11 @@ exports[`Accordion component > renders correctly 1`] = `
           </div>
         </li>
         <li
-          class="mb-2 text-primary-text-color cursor-pointer"
+          class="text-primary-text-color cursor-pointer"
         >
           <div
-            class="flex gap-2 break-all"
+            class="flex break-all"
           >
-            <span
-              class="capitalize text-primary-text-color"
-            >
-              2.
-            </span>
             <span
               class=""
             >
@@ -82,12 +72,12 @@ exports[`Accordion component > renders correctly 1`] = `
       </ul>
     </div>
     <div
-      class="border border-primary-text-color p-2"
+      class=""
       role="presentation"
     >
       <h3
         aria-expanded="false"
-        class="flex cursor-pointer select-none items-center justify-between capitalize text-primary-text-color"
+        class="relative flex cursor-pointer select-none items-center justify-between capitalize text-primary"
         role="button"
         tabindex="0"
       >
@@ -95,7 +85,7 @@ exports[`Accordion component > renders correctly 1`] = `
           class="flex items-center gap-1 overflow-hidden text-ellipsis whitespace-nowrap text-base"
         >
           <svg
-            class="w-8 cursor-pointer fill-primary-text-color hover:fill-primary"
+            class="absolute right-0 w-6 cursor-pointer fill-primary-text-color hover:fill-primary"
             data-testid="icon-expand-more"
             fill="currentColor"
             focusable="false"
