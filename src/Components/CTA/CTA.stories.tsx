@@ -1,6 +1,6 @@
 import { action } from "@storybook/addon-actions";
 
-import { IconStarFilled } from "Components/Icons";
+import { IconAddCircle } from "Components/Icons";
 
 import CTA from ".";
 import { ICTAProps } from "./types";
@@ -16,16 +16,16 @@ export default {
 export const Basic = (args: ICTAProps) => <CTA {...args} />;
 
 Basic.args = {
-  title: "That's how it is...",
+  title: "You haven't added any experience",
   subtitle:
-    "Just like a failed database lookup or an unresolved promise, sometimes life leaves us empty-handed",
+    "Adding experience will expose your profile to recruiters and like-minded developers looking to team up for projects",
   buttonText: "Get Started",
-  onClick: action("onClick")
+  onClick: action("onClick"),
+  Icon: IconAddCircle,
+  ButtonIcon: IconAddCircle
 };
 
-export const WithIcons = (args: ICTAProps) => (
-  <CTA {...args} Icon={IconStarFilled} ButtonIcon={IconStarFilled} />
-);
+export const WithIcons = (args: ICTAProps) => <CTA {...args} />;
 
 WithIcons.args = {
   title: "Explore Our Features",
@@ -33,13 +33,4 @@ WithIcons.args = {
   buttonText: "Learn More",
   iconClassName: "custom-icon-class",
   onClick: action("onClick")
-};
-
-export const Disabled = (args: ICTAProps) => <CTA {...args} />;
-
-Disabled.args = {
-  title: "Feature Coming Soon",
-  subtitle: "Stay tuned for updates.",
-  buttonText: "Notify Me",
-  onClick: undefined // To simulate disabled state
 };

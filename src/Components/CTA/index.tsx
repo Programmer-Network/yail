@@ -16,36 +16,37 @@ const CTA: FC<ICTAProps> = ({
 }) => {
   return (
     <div className='flex items-center justify-center'>
-      <div className='flex flex-col items-center gap-4 text-center'>
-        <div className='flex flex-col items-center justify-center'>
-          {Icon && (
-            <Icon
-              className={classNames(
-                "mx-auto mb-4 h-12 text-primary-text-color dark:text-primary-text-color md:mb-0 md:h-24",
-                iconClassName
-              )}
-            />
-          )}
+      <div className='flex flex-col items-center text-center'>
+        <div className='flex flex-col items-center justify-center gap-4'>
+          <div className='flex flex-col gap-2'>
+            {Icon && (
+              <Icon
+                className={classNames(
+                  "mx-auto w-14 text-primary-text-color dark:text-primary-text-color md:w-28",
+                  iconClassName
+                )}
+              />
+            )}
 
-          <h3 className='text-sm font-medium text-primary-text-color md:text-2xl'>
-            {title}
-          </h3>
-          <p className='mx-auto mt-1 max-w-md text-sm text-primary md:text-xl'>
-            {subtitle}
-          </p>
-        </div>
-        {buttonText && onClick && (
-          <div className='mt-6'>
-            <Button onClick={onClick} outlined>
+            <h3 className='text-xl font-extrabold uppercase text-primary-text-color'>
+              {title}
+            </h3>
+            <p className='mx-auto max-w-md text-primary-text-color'>
+              {subtitle}
+            </p>
+          </div>
+
+          {buttonText && onClick && (
+            <Button onClick={onClick}>
               <span className='flex items-center gap-2'>
                 {ButtonIcon && (
-                  <ButtonIcon className='h-4 w-4' aria-hidden='true' />
+                  <ButtonIcon className='w-4' aria-hidden='true' />
                 )}
                 {buttonText}
               </span>
             </Button>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </div>
   );

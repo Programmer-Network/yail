@@ -14,3 +14,4 @@ export { default as IconSpinner } from "Components/Icons/IconSpinner";
 export { default as IconSpinner2 } from "Components/Icons/IconSpinner2";
 export { default as IconDraggableVertically } from "Components/Icons/IconDraggableVertically";
 export { default as IconDrag } from "Components/Icons/IconDrag";
+export { default as IconAddCircle } from "Components/Icons/IconAddCircle";
