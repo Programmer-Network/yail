@@ -1,5 +1,4 @@
 import type { SVGProps } from "react";
-
 const SvgIconBook2 = (props: SVGProps<SVGSVGElement>) => (
   <svg xmlns='http://www.w3.org/2000/svg' viewBox='3.5 3 17 17' {...props}>
     <path
