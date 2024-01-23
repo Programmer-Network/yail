@@ -3,7 +3,7 @@ import classNames from "classnames";
 import { FC, useRef } from "react";
 
 import Button from "Components/Button";
-import { IconImage } from "Components/Icons/IconImage";
+import { IconImage } from "Components/Icons";
 import { InputError } from "Components/Inputs";
 
 import { CompressReturnType } from "Utils/Image/types";
