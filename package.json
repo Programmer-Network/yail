@@ -19,7 +19,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "build-icons": "npx @svgr/cli --typescript --no-prettier -d src/Components/Icons assets/icons",
+    "build-icons": "npx @svgr/cli --typescript -d src/Components/Icons assets/icons",
     "prepare": "husky install",
     "storybook": "storybook dev --ci -p 6006",
     "format": "prettier --write .",
