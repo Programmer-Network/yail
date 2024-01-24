@@ -1,6 +1,5 @@
 import { render, screen } from "@testing-library/react";
-
-import { Alert } from "./Alert";
+import { Alert } from "index";
 
 describe("Alert component", () => {
   it("renders correctly with children", () => {

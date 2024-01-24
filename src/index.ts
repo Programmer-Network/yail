@@ -22,6 +22,7 @@ export { default as Stars } from "Components/Stars";
 export { default as Tag } from "Components/Tag";
 export { default as TextOverLine } from "Components/TextOverLine";
 export { default as DraggableList } from "Components/DraggableList";
+export { default as Alert } from "Components/Alert";
 
 export * from "Components/Icons";
 export * from "Components/Typography";

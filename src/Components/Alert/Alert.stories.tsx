@@ -1,6 +1,5 @@
 import { Meta } from "@storybook/react";
-
-import { Alert } from ".";
+import { Alert } from "index";
 
 const meta = {
   title: "Core / Alert",
