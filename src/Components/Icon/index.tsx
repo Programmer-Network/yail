@@ -2,6 +2,7 @@ import {
   ComponentType,
   FC,
   LazyExoticComponent,
+  SVGProps,
   Suspense,
   lazy,
   useEffect,
@@ -16,7 +17,7 @@ const Icon: FC<{ iconName: IconName; className?: string }> = ({
 }) => {
   const [error, setError] = useState<boolean>(false);
   const [IconComponent, setIconComponent] = useState<LazyExoticComponent<
-    ComponentType<any>
+    ComponentType<SVGProps<SVGSVGElement>>
   > | null>(null);
 
   useEffect(() => {
