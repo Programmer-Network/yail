@@ -45,13 +45,13 @@ const Accordion: FC<IAccordionProps> = ({
         <div
           key={section.id}
           className={classNames({
-            "mb-0 border-b-0": idx !== sections.length - 1
+            "mb-4 border-b-0": idx !== sections.length - 1
           })}
           role='presentation'
         >
           <h3
             className={classNames(
-              "relative flex cursor-pointer select-none items-center justify-between capitalize text-primary",
+              "relative flex cursor-pointer select-none items-center justify-between font-semibold capitalize text-primary-text-color",
               sectionTitleClassName
             )}
             onClick={() => toggleExpand(section.id)}
