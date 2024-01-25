@@ -1,13 +1,11 @@
 import type { SVGProps } from "react";
 
 const SvgIconBold = (props: SVGProps<SVGSVGElement>) => (
-  <svg
-    xmlns='http://www.w3.org/2000/svg'
-    fill='currentColor'
-    viewBox='0 0 24 24'
-    {...props}
-  >
-    <path d='M17.061 11.22A4.46 4.46 0 0 0 18 8.5C18 6.019 15.981 4 13.5 4H6v15h8c2.481 0 4.5-2.019 4.5-4.5a4.48 4.48 0 0 0-1.439-3.28M13.5 7c.827 0 1.5.673 1.5 1.5s-.673 1.5-1.5 1.5H9V7zm.5 9H9v-3h5c.827 0 1.5.673 1.5 1.5S14.827 16 14 16' />
+  <svg xmlns='http://www.w3.org/2000/svg' viewBox='6.8 5 10.4 14' {...props}>
+    <path
+      fill='currentColor'
+      d='M6.8 19V5h5.525q1.625 0 3 1T16.7 8.775q0 1.275-.575 1.963t-1.075.987q.625.275 1.388 1.025T17.2 15q0 2.225-1.625 3.113t-3.05.887zm3.025-2.8h2.6q1.2 0 1.463-.612t.262-.888-.262-.887-1.538-.613H9.825zm0-5.7h2.325q.825 0 1.2-.425t.375-.95q0-.6-.425-.975t-1.1-.375H9.825z'
+    />
   </svg>
 );
 export default SvgIconBold;
