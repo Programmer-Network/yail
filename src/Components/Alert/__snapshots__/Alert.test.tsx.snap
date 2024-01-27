@@ -1,0 +1,11 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Alert component > renders correctly with children 1`] = `
+<DocumentFragment>
+  <div
+    class="p-4 shadow-md border border-green-400 bg-green-300 text-green-700"
+  >
+    Success Message
+  </div>
+</DocumentFragment>
+`;

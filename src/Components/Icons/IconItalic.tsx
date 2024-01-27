@@ -1,14 +1,11 @@
 import type { SVGProps } from "react";
 
 const SvgIconItalic = (props: SVGProps<SVGSVGElement>) => (
-  <svg
-    xmlns='http://www.w3.org/2000/svg'
-    fill='currentColor'
-    viewBox='0 0 24 24'
-    {...props}
-  >
-    <path fill='none' d='M0 0h24v24H0z' />
-    <path d='M15 20H7v-2h2.927l2.116-12H9V4h8v2h-2.927l-2.116 12H15z' />
+  <svg xmlns='http://www.w3.org/2000/svg' viewBox='5 5 13 14' {...props}>
+    <path
+      fill='currentColor'
+      d='M5 19v-2.5h4l3-9H8V5h10v2.5h-3.5l-3 9H15V19z'
+    />
   </svg>
 );
 export default SvgIconItalic;
