@@ -17,6 +17,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
+    target: "_blank",
     href: "https://www.google.com",
     children: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec"
   }

@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .text-stroke {
+    -webkit-text-stroke: 0.8px;
+  }
+}
