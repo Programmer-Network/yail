@@ -1,5 +1,6 @@
 export { default as IconAddBookmark } from "./IconAddBookmark";
 export { default as IconAddCircle } from "./IconAddCircle";
+export { default as IconAddYoutube } from "./IconAddYoutube";
 export { default as IconAdd } from "./IconAdd";
 export { default as IconAdjust } from "./IconAdjust";
 export { default as IconArrowDown } from "./IconArrowDown";
