@@ -1,9 +1,5 @@
 lockfileVersion: '6.0'
 
-settings:
-  autoInstallPeers: true
-  excludeLinksFromLockfile: false
-
 dependencies:
   '@popperjs/core':
     specifier: 2.11.8
@@ -20,6 +16,9 @@ dependencies:
   react:
     specifier: 18.2.0
     version: 18.2.0
+  react-colorful:
+    specifier: ^5.6.1
+    version: 5.6.1(react-dom@18.2.0)(react@18.2.0)
   react-copy-to-clipboard:
     specifier: 5.1.0
     version: 5.1.0(react@18.2.0)
@@ -9001,7 +9000,6 @@ packages:
     dependencies:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
-    dev: true
 
   /react-confetti@6.1.0(react@18.2.0):
     resolution: {integrity: sha512-7Ypx4vz0+g8ECVxr88W9zhcQpbeujJAVqL14ZnXJ3I23mOI9/oBVTQ3dkJhUmB0D6XOtCZEM6N0Gm9PMngkORw==}
@@ -10991,3 +10989,7 @@ packages:
     optionalDependencies:
       commander: 9.5.0
     dev: true
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
