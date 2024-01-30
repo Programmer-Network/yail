@@ -7,7 +7,7 @@ import Button from "Components/Button";
 import Icon from "Components/Icon";
 import Tooltip from "Components/Tooltip";
 
-import { IThemeBuilder } from "./types";
+import { IColors, IThemeBuilder } from "./types";
 
 const ThemeBuilder: FC<IThemeBuilder> = ({
   onColorsChange,
@@ -28,11 +28,7 @@ const ThemeBuilder: FC<IThemeBuilder> = ({
     cssVariable: string;
   }>(initial);
 
-  const [colors, setColors] = useState<{
-    primary: string;
-    background: string;
-    text: string;
-  }>({
+  const [colors, setColors] = useState<IColors>({
     primary: "",
     background: "",
     text: ""
