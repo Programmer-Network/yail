@@ -29,7 +29,7 @@ Default.args = {
   isDisliking: false,
   isLiking: false,
   hasDisliked: false,
-  hasLiked: true
+  hasLiked: false
 };
 
 export const Liked = Template.bind({});
