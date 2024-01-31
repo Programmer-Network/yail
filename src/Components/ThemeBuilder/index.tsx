@@ -108,9 +108,11 @@ const ThemeBuilder: FC<IThemeBuilder> = ({
           })}
         </>
         <div className='flex'>
-          <Button className='group ml-2' onClick={handleSaveColors}>
-            Save
-          </Button>
+          <Tooltip text='Save theme' id='save-theme' place='bottom'>
+            <Button className='group ml-2' onClick={handleSaveColors}>
+              Save
+            </Button>
+          </Tooltip>
 
           {isResetButtonShown && (
             <Tooltip
