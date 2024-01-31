@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { H1 } from "Components/Typography";
+import { H1, Paragraph } from "Components/Typography";
 
 import ThemeBuilder from ".";
 
@@ -10,19 +10,13 @@ export default {
 
 export const Primary = () => {
   const [settings, setSettings] = useState({
-    primary: "",
-    background: "",
-    text: ""
+    primary: "#4f46e5",
+    background: "#1b1f23",
+    text: "#6b7280"
   });
 
   return (
     <div className='m-10'>
-      <div className='mb-6 flex gap-2'>
-        <div className='h-24 w-24 bg-primary'></div>
-        <div className='h-24 w-24 bg-primary-background-color shadow-md'></div>
-        <H1 className='text-primary-text-color'>Lorem ipsum dolor sit amet.</H1>
-      </div>
-
       <ThemeBuilder
         isResetButtonShown={true}
         onColorsChange={setSettings}
@@ -47,6 +41,18 @@ export const Primary = () => {
           }
         ]}
       />
+
+      <section className='bg-primary-background-color p-6'>
+        <H1>Lorem ipsum dolor sit amet.</H1>
+        <Paragraph>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum beatae
+          veritatis exercitationem dolores. Eos saepe tenetur, adipisci deserunt
+          quasi sit aliquam explicabo voluptas id nobis omnis quaerat aspernatur
+          perspiciatis provident itaque ea eveniet fuga vero! Maiores quas rem
+          voluptatibus consectetur ipsum! Asperiores suscipit reprehenderit
+          porro tempore corrupti iure deserunt distinctio.
+        </Paragraph>
+      </section>
     </div>
   );
 };
