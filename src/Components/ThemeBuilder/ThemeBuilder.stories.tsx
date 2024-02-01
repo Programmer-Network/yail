@@ -16,7 +16,7 @@ export const Primary = () => {
   });
 
   return (
-    <div className='m-10'>
+    <div className='m-12'>
       <ThemeBuilder
         isResetButtonShown={true}
         onColorsChange={setSettings}
@@ -31,8 +31,7 @@ export const Primary = () => {
           {
             label: "Background",
             type: "background",
-            cssVariable: "--color-bg",
-            className: "border-l-0 border-r-0"
+            cssVariable: "--color-bg"
           },
           {
             label: "Text",
@@ -42,7 +41,7 @@ export const Primary = () => {
         ]}
       />
 
-      <section className='bg-primary-background-color p-6'>
+      <section className='bg-primary-background-color'>
         <H1>Lorem ipsum dolor sit amet.</H1>
         <Paragraph>
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum beatae

@@ -7,14 +7,14 @@ exports[`ThemeBuilder component > renders correctly with given props 1`] = `
       class="mb-1 flex items-center"
     >
       <div
-        class="border-2 border-r-0 border-primary px-3 py-2"
+        class="relative border-2 border-r-0 border-primary bg-primary px-3 py-2"
       >
         <div>
           Loading...
         </div>
       </div>
       <button
-        class="select-none border-2 border-primary px-3 py-2 text-sm font-semibold uppercase tracking-tight shadow-lg bg-transparent text-primary hover:bg-primary hover:text-primary-background-color primary-button"
+        class="select-none border-2 border-primary px-3 py-2 text-sm font-semibold uppercase tracking-tight shadow-lg bg-transparent text-primary hover:bg-primary hover:text-primary-background-color primary-button shadow-none"
         type="button"
       >
         <div
@@ -31,7 +31,7 @@ exports[`ThemeBuilder component > renders correctly with given props 1`] = `
         </div>
       </button>
       <button
-        class="select-none border-2 border-primary px-3 py-2 text-sm font-semibold uppercase tracking-tight shadow-lg bg-transparent text-primary hover:bg-primary hover:text-primary-background-color background-button"
+        class="select-none border-2 border-primary px-3 py-2 text-sm font-semibold uppercase tracking-tight shadow-lg bg-transparent text-primary hover:bg-primary hover:text-primary-background-color background-button shadow-none border-l-0 border-r-0"
         type="button"
       >
         <div
@@ -48,7 +48,7 @@ exports[`ThemeBuilder component > renders correctly with given props 1`] = `
         </div>
       </button>
       <button
-        class="select-none border-2 border-primary px-3 py-2 text-sm font-semibold uppercase tracking-tight shadow-lg bg-transparent text-primary hover:bg-primary hover:text-primary-background-color text-button"
+        class="select-none border-2 border-primary px-3 py-2 text-sm font-semibold uppercase tracking-tight shadow-lg bg-transparent text-primary hover:bg-primary hover:text-primary-background-color text-button shadow-none"
         type="button"
       >
         <div

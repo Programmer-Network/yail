@@ -13,7 +13,7 @@ const ThemeBuilder: FC<IThemeBuilder> = ({
   onReset,
   isResetButtonShown,
   buttons,
-  settings
+  settings = { background: "", primary: "", text: "" }
 }) => {
   const initialSelected = {
     type: "",
@@ -33,17 +33,13 @@ const ThemeBuilder: FC<IThemeBuilder> = ({
     text: ""
   });
 
-  const initialSelectedStateRef = useRef(settings);
   const ref = useRef<HTMLDivElement>(null);
-
   const isDirty = useMemo(
     () =>
       Object.keys(colors).some(
-        key =>
-          colors[key as keyof IColors] !==
-          initialSelectedStateRef.current[key as keyof IColors]
+        key => colors[key as keyof IColors] !== settings[key as keyof IColors]
       ),
-    [colors]
+    [colors, settings]
   );
 
   useOnClickOutside(ref, () => {
@@ -91,16 +87,20 @@ const ThemeBuilder: FC<IThemeBuilder> = ({
     <div ref={ref}>
       <div className='mb-1 flex items-center'>
         <div
-          className={classNames("border-2 border-r-0 border-primary px-3 py-2")}
+          className={classNames(
+            "relative border-2 border-r-0 border-primary bg-primary px-3 py-2"
+          )}
         >
-          <Icon iconName='IconColors' className='w-5 text-primary' />
+          <Icon iconName='IconColors' className='w-5' />
         </div>
-        {buttons.map(button => {
+        {buttons.map((button, idx) => {
           return (
             <Button
               key={button.type}
               outlined={button.type !== selected.type}
-              className={button.className}
+              className={classNames(button.className, "shadow-none", {
+                "border-l-0 border-r-0": idx === 1
+              })}
               onClick={() => {
                 setSelected({
                   type: button.type,
@@ -113,40 +113,41 @@ const ThemeBuilder: FC<IThemeBuilder> = ({
             </Button>
           );
         })}
-      </div>
-      {isDirty && (
-        <div className='flex gap-1'>
-          <Button className='group' onClick={handleSaveColors}>
-            Save
-          </Button>
-
-          {isResetButtonShown && (
-            <Button outlined onClick={handleReset}>
-              Reset
+        {isDirty && (
+          <div className='ml-2 flex gap-1'>
+            <Button className='group' onClick={handleSaveColors}>
+              Save
             </Button>
-          )}
-        </div>
-      )}
+
+            {isResetButtonShown && (
+              <Button outlined onClick={handleReset}>
+                Reset
+              </Button>
+            )}
+          </div>
+        )}
+      </div>
+
       {selected.type && (
         <div className='relative flex items-center justify-start'>
-          <div className='relative mt-4'>
+          <div className='relative mt-2'>
             <div onClick={() => setSelected(initialSelected)}>
               <Icon
                 iconName='IconClose'
-                className='absolute -right-4 -top-4 z-50 w-4 cursor-pointer text-primary'
+                className='absolute right-[-5px] top-[-5px] z-50 w-4 cursor-pointer rounded-lg border-2 border-primary bg-primary-background-color text-primary hover:bg-primary hover:text-primary-background-color'
               />
             </div>
 
-            <HexColorPicker
-              onChange={color => setSelected({ ...selected, color })}
-              color={selected?.color}
-            />
             <HexColorInput
               role='presentation'
               onChange={(color: string) => setSelected({ ...selected, color })}
               color={selected?.color || ""}
               placeholder='e.g.175ca1'
-              className='bg mt-2 rounded-lg border-2 border-primary bg-transparent p-2 text-primary-text-color shadow-md hover:border-primary focus:border-primary focus:shadow-none focus:outline-none focus:ring-transparent dark:text-primary-text-color'
+              className='bg mb-2 rounded-lg border-2 border-primary bg-transparent p-2 text-primary-text-color shadow-md hover:border-primary focus:border-primary focus:shadow-none focus:outline-none focus:ring-transparent dark:text-primary-text-color'
+            />
+            <HexColorPicker
+              onChange={color => setSelected({ ...selected, color })}
+              color={selected?.color}
             />
           </div>
         </div>
