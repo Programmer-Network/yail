@@ -1,5 +1,3 @@
-export { default as Title } from "./Title";
-export { default as Description } from "./Description";
 export { default as Anchor } from "./Anchor";
 export { default as H1 } from "./H1";
 export { default as H2 } from "./H2";
