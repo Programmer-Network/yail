@@ -8,7 +8,7 @@ const H4: FC<{ children: ReactNode; className?: string }> = ({
   className
 }) => {
   return (
-    <h4 className={classNames("text-3xl", headingCommonStyles, className)}>
+    <h4 className={classNames("text-lg", headingCommonStyles, className)}>
       {children}
     </h4>
   );

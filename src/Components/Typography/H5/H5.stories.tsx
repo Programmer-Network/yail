@@ -1,4 +1,5 @@
 import H5 from ".";
+import Paragraph from "../Paragraph";
 
 export default {
   title: "Typography/H5",
@@ -9,5 +10,12 @@ export default {
 };
 
 export const Default = () => {
-  return <H5>Hi World</H5>;
+  return (
+    <div>
+      <H5>Hi World</H5>
+      <Paragraph>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est, quasi.
+      </Paragraph>
+    </div>
+  );
 };

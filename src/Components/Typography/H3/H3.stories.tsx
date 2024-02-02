@@ -1,4 +1,5 @@
 import H3 from ".";
+import Paragraph from "../Paragraph";
 
 export default {
   title: "Typography/H3",
@@ -9,5 +10,12 @@ export default {
 };
 
 export const Default = () => {
-  return <H3>Hi World</H3>;
+  return (
+    <div>
+      <H3>Hi World</H3>
+      <Paragraph>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est, quasi.
+      </Paragraph>
+    </div>
+  );
 };

@@ -1,4 +1,5 @@
 import H6 from ".";
+import Paragraph from "../Paragraph";
 
 export default {
   title: "Typography/H6",
@@ -9,5 +10,12 @@ export default {
 };
 
 export const Default = () => {
-  return <H6>Hi World</H6>;
+  return (
+    <div>
+      <H6>Hi World</H6>
+      <Paragraph>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est, quasi.
+      </Paragraph>
+    </div>
+  );
 };
