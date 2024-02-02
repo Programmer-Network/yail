@@ -1,7 +1,5 @@
 import type { Meta } from "@storybook/react";
 
-import Card from "Components/Card";
-
 import Cards from ".";
 
 const meta = {
