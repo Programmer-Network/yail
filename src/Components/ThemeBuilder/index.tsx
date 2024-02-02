@@ -6,110 +6,108 @@ import { HexColorInput, HexColorPicker } from "react-colorful";
 import Button from "Components/Button";
 import Icon from "Components/Icon";
 
-import { IColors, IThemeBuilder } from "./types";
+import { initialSelected } from "./constants";
+import { IThemeBuilder, IThemeBuilderSetting } from "./types";
+import { setCSSVariable } from "./utils";
 
-const ThemeBuilder: FC<IThemeBuilder> = ({
-  onColorsChange,
-  onReset,
-  isResetButtonShown,
-  buttons,
-  settings = { background: "", primary: "", text: "" }
-}) => {
-  const initialSelected = {
-    type: "",
-    color: "",
-    cssVariable: ""
-  };
-
+const ThemeBuilder: FC<IThemeBuilder> = ({ onChange, onReset, settings }) => {
   const [selected, setSelected] = useState<{
     type: string;
     color: string;
     cssVariable: string;
   }>(initialSelected);
 
-  const [colors, setColors] = useState<IColors>({
-    primary: "",
-    background: "",
-    text: ""
-  });
+  const [localSettings, setLocalSettings] =
+    useState<IThemeBuilderSetting[]>(settings);
 
   const ref = useRef<HTMLDivElement>(null);
-  const isDirty = useMemo(
-    () =>
-      Object.keys(colors).some(
-        key => colors[key as keyof IColors] !== settings[key as keyof IColors]
-      ),
-    [colors, settings]
-  );
+
+  const isDirty = useMemo(() => {
+    return localSettings.some((localSetting, index) => {
+      const setting = settings[index];
+      return localSetting.color !== setting.color;
+    });
+  }, [localSettings, settings]);
 
   useOnClickOutside(ref, () => {
     setSelected(initialSelected);
   });
 
   const handleSaveColors = () => {
-    onColorsChange(colors);
-    setColors(colors);
+    onChange(localSettings);
     setSelected(initialSelected);
   };
 
-  const setCSSVariable = (variable: string, value: string) =>
-    document.documentElement.style.setProperty(variable, value);
-
   const handleReset = () => {
-    setCSSVariable("--color-primary", "#4f46e5");
-    setCSSVariable("--text-color", "#6b7280");
-    setCSSVariable("--color-bg", "#1b1f23");
+    settings.forEach(button => {
+      setCSSVariable(
+        button.customCSSProperty,
+        settings.find(s => s.type === button.type)?.defaultColor || ""
+      );
+    });
+
+    setLocalSettings(settings);
     setSelected(initialSelected);
-    setColors(settings);
     onReset();
   };
 
   useEffect(() => {
-    setCSSVariable("--color-primary", settings.primary);
-    setCSSVariable("--text-color", settings.text);
-    setCSSVariable("--color-bg", settings.background);
-    setColors(settings);
-  }, [settings.primary, settings.background, settings.text]);
+    settings.forEach(setting => {
+      setCSSVariable(
+        setting.customCSSProperty,
+        settings.find(s => s.type === setting.type)?.color || ""
+      );
+    });
+  }, [settings]);
 
   useEffect(() => {
-    if (!selected.type) {
-      return;
-    }
-
     setCSSVariable(selected.cssVariable, selected.color);
-    setColors({
-      ...colors,
-      [selected.type]: selected.color
-    });
+    setLocalSettings(
+      localSettings.map(s => {
+        if (s.type !== selected.type) {
+          return s;
+        }
+
+        return {
+          ...s,
+          color: selected.color
+        };
+      })
+    );
   }, [selected.type, selected.color]);
 
   return (
     <div ref={ref}>
       <div className='mb-1 flex items-center'>
-        <div
-          className={classNames(
-            "relative border-2 border-r-0 border-primary bg-primary px-3 py-2"
-          )}
-        >
-          <Icon iconName='IconColors' className='w-5' />
+        <div className={classNames("relative -right-1 bg-primary p-3")}>
+          <Icon
+            iconName='IconColors'
+            className='w-5 text-primary-background-color'
+          />
         </div>
-        {buttons.map((button, idx) => {
+        {settings.map((setting, idx) => {
           return (
             <Button
-              key={button.type}
-              outlined={button.type !== selected.type}
-              className={classNames(button.className, "shadow-none", {
-                "border-l-0 border-r-0": idx === 1
-              })}
+              key={setting.type}
+              outlined={setting.type !== selected.type}
+              className={classNames(
+                setting.className,
+                "min-w-[120px] border-l-0 shadow-none",
+                {
+                  "border-r-0": idx !== settings.length - 1
+                }
+              )}
               onClick={() => {
                 setSelected({
-                  type: button.type,
-                  cssVariable: button.cssVariable,
-                  color: colors[button.type as keyof typeof colors]
+                  type: setting.type,
+                  cssVariable: setting.customCSSProperty,
+                  color:
+                    localSettings.find(s => s.type === setting.type)?.color ||
+                    ""
                 });
               }}
             >
-              {button.label}
+              {setting.label}
             </Button>
           );
         })}
@@ -119,11 +117,9 @@ const ThemeBuilder: FC<IThemeBuilder> = ({
               Save
             </Button>
 
-            {isResetButtonShown && (
-              <Button outlined onClick={handleReset}>
-                Reset
-              </Button>
-            )}
+            <Button outlined onClick={handleReset}>
+              Reset
+            </Button>
           </div>
         )}
       </div>

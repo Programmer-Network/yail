@@ -8,37 +8,37 @@ export default {
   title: "Components / Theme Builder"
 };
 
-export const Primary = () => {
-  const [settings, setSettings] = useState({
-    primary: "#4f46e5",
-    background: "#1b1f23",
-    text: "#6b7280"
-  });
+export const Default = () => {
+  const [settings, setSettings] = useState([
+    {
+      label: "Primary",
+      type: "primary",
+      customCSSProperty: "--color-primary",
+      color: "#4f46e5",
+      defaultColor: "#4f46e5"
+    },
+    {
+      label: "Background",
+      type: "background",
+      customCSSProperty: "--color-bg",
+      color: "#1b1f23",
+      defaultColor: "#1b1f23"
+    },
+    {
+      label: "Text",
+      type: "text",
+      customCSSProperty: "--text-color",
+      color: "#6b7280",
+      defaultColor: "#6b7280"
+    }
+  ]);
 
   return (
     <div className='m-12'>
       <ThemeBuilder
-        isResetButtonShown={true}
-        onColorsChange={setSettings}
+        onChange={setSettings}
         onReset={() => null}
         settings={settings}
-        buttons={[
-          {
-            label: "Primary",
-            type: "primary",
-            cssVariable: "--color-primary"
-          },
-          {
-            label: "Background",
-            type: "background",
-            cssVariable: "--color-bg"
-          },
-          {
-            label: "Text",
-            type: "text",
-            cssVariable: "--text-color"
-          }
-        ]}
       />
 
       <section className='bg-primary-background-color'>

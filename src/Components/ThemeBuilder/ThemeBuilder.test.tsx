@@ -4,30 +4,28 @@ import { vi } from "vitest";
 import ThemeBuilder from ".";
 
 describe("ThemeBuilder component", () => {
-  const mockSettings = {
-    primary: "#4f46e5",
-    background: "#1b1f23",
-    text: "#6b7280"
-  };
-
-  const mockButtons = [
+  const mockSettings = [
     {
       label: "Primary Color",
       type: "primary",
-      cssVariable: "--color-primary",
+      customCSSProperty: "--color-primary",
+      color: "#4f46e5",
+      defaultColor: "#4f46e5",
       className: "primary-button"
     },
     {
-      label: "Background Color",
+      label: "Background",
       type: "background",
-      cssVariable: "--color-bg",
-      className: "background-button"
+      customCSSProperty: "--color-bg",
+      color: "#1b1f23",
+      defaultColor: "#1b1f23"
     },
     {
       label: "Text Color",
       type: "text",
-      cssVariable: "--text-color",
-      className: "text-button"
+      customCSSProperty: "--text-color",
+      color: "#6b7280",
+      defaultColor: "#6b7280"
     }
   ];
 
@@ -38,10 +36,8 @@ describe("ThemeBuilder component", () => {
     const { asFragment } = render(
       <ThemeBuilder
         settings={mockSettings}
-        buttons={mockButtons}
-        onColorsChange={mockOnColorsChange}
+        onChange={mockOnColorsChange}
         onReset={mockOnReset}
-        isResetButtonShown={true}
       />
     );
     expect(asFragment()).toMatchSnapshot();
@@ -51,10 +47,8 @@ describe("ThemeBuilder component", () => {
     render(
       <ThemeBuilder
         settings={mockSettings}
-        buttons={mockButtons}
-        onColorsChange={mockOnColorsChange}
+        onChange={mockOnColorsChange}
         onReset={mockOnReset}
-        isResetButtonShown={true}
       />
     );
 
@@ -72,10 +66,8 @@ describe("ThemeBuilder component", () => {
     render(
       <ThemeBuilder
         settings={mockSettings}
-        buttons={mockButtons}
-        onColorsChange={mockOnColorsChange}
+        onChange={mockOnColorsChange}
         onReset={mockOnReset}
-        isResetButtonShown={true}
       />
     );
 
@@ -89,10 +81,8 @@ describe("ThemeBuilder component", () => {
     render(
       <ThemeBuilder
         settings={mockSettings}
-        buttons={mockButtons}
-        onColorsChange={mockOnColorsChange}
+        onChange={mockOnColorsChange}
         onReset={mockOnReset}
-        isResetButtonShown={true}
       />
     );
 
@@ -111,10 +101,8 @@ describe("ThemeBuilder component", () => {
     render(
       <ThemeBuilder
         settings={mockSettings}
-        buttons={mockButtons}
-        onColorsChange={mockOnColorsChange}
+        onChange={mockOnColorsChange}
         onReset={mockOnReset}
-        isResetButtonShown={true}
       />
     );
 
@@ -129,70 +117,34 @@ describe("ThemeBuilder component", () => {
     expect(mockOnReset).toHaveBeenCalled();
   });
 
-  it("conditionally renders reset button based on isResetButtonShown prop", () => {
-    const { rerender } = render(
-      <ThemeBuilder
-        settings={mockSettings}
-        buttons={mockButtons}
-        onColorsChange={mockOnColorsChange}
-        onReset={mockOnReset}
-        isResetButtonShown={true}
-      />
-    );
-
-    const primaryButton = screen.getByText("Primary Color");
-    fireEvent.click(primaryButton);
-
-    const colorPicker = screen.getByRole("presentation");
-    fireEvent.change(colorPicker, { target: { value: "#ff0000" } });
-
-    expect(screen.getByText("Reset")).toBeInTheDocument();
-
-    rerender(
-      <ThemeBuilder
-        settings={mockSettings}
-        buttons={mockButtons}
-        onColorsChange={mockOnColorsChange}
-        onReset={mockOnReset}
-        isResetButtonShown={false}
-      />
-    );
-
-    expect(screen.queryByText("Reset")).not.toBeInTheDocument();
-  });
-
   it("sets initial CSS variables based on provided settings", () => {
     render(
       <ThemeBuilder
         settings={mockSettings}
-        buttons={mockButtons}
-        onColorsChange={mockOnColorsChange}
+        onChange={mockOnColorsChange}
         onReset={mockOnReset}
-        isResetButtonShown={true}
       />
     );
 
     expect(
       document.documentElement.style.getPropertyValue("--color-primary")
-    ).toBe(mockSettings.primary);
+    ).toBe(mockSettings[0].color);
 
     expect(document.documentElement.style.getPropertyValue("--color-bg")).toBe(
-      mockSettings.background
+      mockSettings[1].color
     );
 
     expect(
       document.documentElement.style.getPropertyValue("--text-color")
-    ).toBe(mockSettings.text);
+    ).toBe(mockSettings[2].color);
   });
 
   it("updates CSS variables dynamically when a color is changed", () => {
     render(
       <ThemeBuilder
         settings={mockSettings}
-        buttons={mockButtons}
-        onColorsChange={mockOnColorsChange}
+        onChange={mockOnColorsChange}
         onReset={mockOnReset}
-        isResetButtonShown={true}
       />
     );
 
@@ -211,10 +163,8 @@ describe("ThemeBuilder component", () => {
     render(
       <ThemeBuilder
         settings={mockSettings}
-        buttons={mockButtons}
-        onColorsChange={mockOnColorsChange}
+        onChange={mockOnColorsChange}
         onReset={mockOnReset}
-        isResetButtonShown={true}
       />
     );
 
