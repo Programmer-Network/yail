@@ -25,6 +25,8 @@ export { default as DraggableList } from "Components/DraggableList";
 export { default as Alert } from "Components/Alert";
 export { default as Icon } from "Components/Icon";
 export { default as ThemeBuilder } from "Components/ThemeBuilder";
+export { default as Card } from "Components/Card";
+export { default as Cards } from "Components/Cards";
 
 export * from "Components/Icons";
 export * from "Components/Typography";
