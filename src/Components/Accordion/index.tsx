@@ -73,7 +73,7 @@ const Accordion: FC<IAccordionProps> = ({
               {section.title}
             </div>
             {itemsLabelText && (
-              <span className='whitespace-nowrap pr-6 text-sm lowercase text-primary-text-color'>
+              <span className='whitespace-nowrap pr-6 lowercase text-primary-text-color'>
                 {getItemsLabelText(section.items.length)}
               </span>
             )}

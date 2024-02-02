@@ -3,7 +3,7 @@
 exports[`Button component > renders correctly - snapshot test 1`] = `
 <DocumentFragment>
   <button
-    class="select-none border-2 border-primary px-3 py-2 text-sm font-semibold uppercase tracking-tight shadow-lg bg-primary hover:bg-transparent hover:text-primary text-primary-background-color"
+    class="select-none border-2 border-primary px-3 py-2 font-semibold uppercase tracking-tight shadow-lg bg-primary hover:bg-transparent hover:text-primary text-primary-background-color"
     type="button"
   >
     <div

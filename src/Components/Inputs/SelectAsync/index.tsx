@@ -26,7 +26,7 @@ const SelectAsync: FC<IAsyncSelectProps> = props => {
       <AsyncPaginate
         value={props.value}
         styles={styles()}
-        className='pn-select-container text-sm'
+        className='pn-select-container'
         classNamePrefix='pn-select'
         onChange={onChange}
         debounceTimeout={1000}

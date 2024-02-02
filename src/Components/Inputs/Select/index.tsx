@@ -67,7 +67,7 @@ const Select: FC<ISelectProps> = props => {
         defaultValue={defaultValue}
         value={getValue()}
         styles={styles()}
-        className='pn-select-container text-sm'
+        className='pn-select-container'
         classNamePrefix='pn-select'
         onChange={handleOnChange}
       />

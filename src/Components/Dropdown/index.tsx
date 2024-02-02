@@ -35,7 +35,7 @@ const Dropdown: React.FC<DropdownProps> = ({
       <button
         ref={buttonRef}
         onClick={() => setIsOpen(!isOpen)}
-        className='border-2 border-primary-text-color px-4 py-2 text-sm'
+        className='border-2 border-primary-text-color px-4 py-2'
       >
         {buttonContent}
       </button>

@@ -10,7 +10,7 @@ const InputError: FC<IInputErrorProps> = ({ error, className }) => {
         <span
           key={i}
           className={classNames(
-            "mt-4 text-sm text-pink-600 peer-invalid:visible",
+            "mt-4 text-pink-600 peer-invalid:visible",
             className
           )}
         >
@@ -26,7 +26,7 @@ const InputError: FC<IInputErrorProps> = ({ error, className }) => {
         <span
           key={i}
           className={classNames(
-            "mt-4 text-sm text-pink-600 peer-invalid:visible",
+            "mt-4 text-pink-600 peer-invalid:visible",
             className
           )}
         >
@@ -39,7 +39,7 @@ const InputError: FC<IInputErrorProps> = ({ error, className }) => {
   return (
     <span
       className={classNames(
-        "mt-2 text-sm text-pink-600 peer-invalid:visible",
+        "mt-2 text-pink-600 peer-invalid:visible",
         className
       )}
     >

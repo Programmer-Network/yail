@@ -19,9 +19,7 @@ const Checkbox: FC<ICheckboxProps> = props => {
             className='checkbox checkbox-primary cursor-pointer rounded-none text-primary focus:outline-primary'
             onChange={onChange}
           />
-          {text && (
-            <span className='text-sm text-primary-text-color'>{text}</span>
-          )}
+          {text && <span className='text-primary-text-color'>{text}</span>}
         </label>
       </div>
       {props.error && <InputError error={props.error} />}

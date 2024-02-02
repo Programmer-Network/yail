@@ -27,7 +27,7 @@ const InputHeader: FC<InputHeaderProps> = ({
             <IconQuestionMark className='w-4 text-primary-text-color' />
           </Tooltip>
         )}
-        <div className='text-sm text-primary-text-color'>
+        <div className='text-primary-text-color'>
           {label}
           {required && <span className='ml-1 text-rose-500'>*</span>}
         </div>

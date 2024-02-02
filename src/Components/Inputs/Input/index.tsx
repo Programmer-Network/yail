@@ -65,7 +65,7 @@ const Input: FC<IInputProps> = forwardRef<HTMLInputElement, IInputProps>(
             type={type}
             onChange={handleChange}
             className={classNames(
-              "w-full appearance-none rounded-sm border-2 border-primary-text-color bg-transparent p-2 text-sm text-primary-text-color transition-colors hover:border-primary focus:border-primary focus:outline-none focus:ring-transparent dark:text-primary-text-color",
+              "w-full appearance-none rounded-sm border-2 border-primary-text-color bg-transparent p-2 text-primary-text-color transition-colors hover:border-primary focus:border-primary focus:outline-none focus:ring-transparent dark:text-primary-text-color",
               className,
               {
                 "input-disabled": disabled
@@ -80,7 +80,7 @@ const Input: FC<IInputProps> = forwardRef<HTMLInputElement, IInputProps>(
           {error && <InputError error={error} />}
         </div>
         {typeof min === "number" && value.length < min && (
-          <p className='text-warning mt-2 text-sm'>
+          <p className='text-warning mt-2'>
             {min - value.length} characters to go
           </p>
         )}
