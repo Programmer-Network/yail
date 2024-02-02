@@ -5,21 +5,22 @@ import { AlertProps } from "./types";
 
 const Alert: FC<AlertProps> = ({ type, children, className }) => {
   return (
-    <div
-      className={classNames(
-        "p-4 shadow-md",
-        {
-          "border border-green-400 bg-green-300 text-green-700":
+    <div className='flex min-h-screen max-w-screen-sm items-center justify-center'>
+      <div
+        className={classNames("bg-gradient-to-r p-[1px]", className, {
+          "from-green-400 via-green-500 to-green-900 text-green-500":
             type === "success",
-          "border border-red-400 bg-red-300 text-red-700": type === "error",
-          "border border-yellow-400 bg-yellow-300 text-yellow-700":
+          "from-red-400 via-red-500 to-red-900 text-red-500": type === "error",
+          "from-yellow-400 via-yellow-500 to-yellow-900 text-yellow-500":
             type === "warning",
-          "border border-blue-400 bg-blue-300 text-blue-700": type === "info"
-        },
-        className
-      )}
-    >
-      {children}
+          "from-blue-400 via-blue-500 to-blue-900 text-blue-500":
+            type === "info"
+        })}
+      >
+        <div className='back flex h-full w-full items-center justify-center bg-primary-background-color p-4'>
+          <span>{children}</span>
+        </div>
+      </div>
     </div>
   );
 };

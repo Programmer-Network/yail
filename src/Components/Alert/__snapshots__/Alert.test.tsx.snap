@@ -3,9 +3,19 @@
 exports[`Alert component > renders correctly with children 1`] = `
 <DocumentFragment>
   <div
-    class="p-4 shadow-md border border-green-400 bg-green-300 text-green-700"
+    class="flex min-h-screen max-w-screen-sm items-center justify-center"
   >
-    Success Message
+    <div
+      class="bg-gradient-to-r p-[1px] from-green-400 via-green-500 to-green-900 text-green-500"
+    >
+      <div
+        class="back flex h-full w-full items-center justify-center bg-primary-background-color p-4"
+      >
+        <span>
+          Success Message
+        </span>
+      </div>
+    </div>
   </div>
 </DocumentFragment>
 `;

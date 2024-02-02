@@ -17,8 +17,17 @@ export const Success = () => {
   return (
     <Alert type='success'>
       <span className='font-bold'>Lorem ipsum dolor</span> sit amet, consectetur
-      adipisicing elit. Doloremque sed numquam iste fugiat odit accusamus culpa,
-      recusandae ea nemo quo!
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi magni
+      obcaecati, itaque dolorum quidem, delectus reiciendis rerum ullam beatae
+      veniam rem saepe eius tempora ab possimus quis sint nulla ipsa, pariatur
+      qui. Explicabo, cum inventore laudantium dicta deserunt doloribus. Amet
+      iusto dolores harum ullam delectus, minima id praesentium deleniti fugit
+      molestiae similique ducimus, laborum cupiditate quaerat exercitationem
+      doloremque quis quibusdam, ea voluptatibus quisquam laudantium nesciunt
+      voluptate molestias! Rem nam cupiditate libero tenetur quod, doloremque
+      magni sunt numquam nulla voluptates illo quo repellendus voluptatum rerum
+      alias, sapiente, ad minima deleniti omnis. Autem soluta sit libero quam
+      sequi dolor sed adipisci incidunt!
     </Alert>
   );
 };
