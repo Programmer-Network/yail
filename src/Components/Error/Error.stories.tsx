@@ -37,21 +37,7 @@ export const ErrorWithCustomIcon = () => (
     title='Server Error'
     description='Oops! Something went wrong on our end.'
     Icon={IconQuestionMark}
-    IconProps={{ className: "text-red-500 w-36 text-primary" }}
+    IconProps={{ className: "text-red-500 w-24 text-primary mb-4" }}
     onIconClick={() => action("Icon clicked")()}
-  />
-);
-
-export const FullyCustomizedError = () => (
-  <Error
-    error='Maintenance'
-    title='Under Maintenance'
-    description='Our site is currently undergoing scheduled maintenance.'
-    backToText='Home'
-    onBackToClick={() => action("Back to home clicked")()}
-    Icon={IconQuestionMark}
-    IconProps={{ className: "text-green-500" }}
-    onIconClick={() => action("Icon clicked")()}
-    className='bg-gray-100 text-center'
   />
 );
