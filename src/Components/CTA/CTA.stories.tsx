@@ -13,9 +13,9 @@ export default {
   component: CTA
 };
 
-export const Basic = (args: ICTAProps) => <CTA {...args} />;
+export const Default = (args: ICTAProps) => <CTA {...args} />;
 
-Basic.args = {
+Default.args = {
   title: "You haven't added any experience",
   subtitle:
     "Adding experience will expose your profile to recruiters and like-minded developers looking to team up for projects",
@@ -23,14 +23,4 @@ Basic.args = {
   onClick: action("onClick"),
   Icon: IconAddCircle,
   ButtonIcon: IconAddCircle
-};
-
-export const WithIcons = (args: ICTAProps) => <CTA {...args} />;
-
-WithIcons.args = {
-  title: "Explore Our Features",
-  subtitle: "Discover what makes us unique.",
-  buttonText: "Learn More",
-  iconClassName: "custom-icon-class",
-  onClick: action("onClick")
 };

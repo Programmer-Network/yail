@@ -22,13 +22,13 @@ const CTA: FC<ICTAProps> = ({
             {Icon && (
               <Icon
                 className={classNames(
-                  "mx-auto w-14 text-primary-text-color dark:text-primary-text-color md:w-28",
+                  "mx-auto w-14 text-primary md:w-28",
                   iconClassName
                 )}
               />
             )}
 
-            <h3 className='text-xl font-extrabold uppercase text-primary-text-color'>
+            <h3 className='text-xl font-extrabold text-primary-text-color'>
               {title}
             </h3>
             <p className='mx-auto max-w-md text-primary-text-color'>

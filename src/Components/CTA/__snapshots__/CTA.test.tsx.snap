@@ -15,7 +15,7 @@ exports[`CTA component > renders correctly - snapshot test 1`] = `
           class="flex flex-col gap-2"
         >
           <h3
-            class="text-xl font-extrabold uppercase text-primary-text-color"
+            class="text-xl font-extrabold text-primary-text-color"
           >
             Test Title
           </h3>
