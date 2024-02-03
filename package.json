@@ -1,6 +1,6 @@
 {
   "name": "@programmer_network/yail",
-  "version": "1.0.66",
+  "version": "1.0.67",
   "description": "Programmer Network's official UI library for React",
   "author": "Aleksandar Grbic - (https://programmer.network)",
   "publishConfig": {
@@ -20,7 +20,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "build-icons": "npx @svgr/cli --typescript --jsx-runtime=automatic --prettier-config=./prettier.config.js -d src/Components/Icons assets/icons",
-    "prepare": "husky install",
+    "prepare": "husky",
     "storybook": "storybook dev --ci -p 6006",
     "format": "prettier --write .",
     "build-storybook": "storybook build",
@@ -34,9 +34,17 @@
     "test:ci": "vitest",
     "types:check": "tsc"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": "eslint --cache --fix",
-    "*": "prettier --write"
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --cache --fix",
+      "prettier --write"
+    ],
+    "*.{css,html,md}": "prettier --write"
   },
   "vitest": {
     "test": {
@@ -88,7 +96,7 @@
     "eslint-plugin-react": "7.33.2",
     "eslint-plugin-react-hooks": "4.6.0",
     "eslint-plugin-storybook": "0.6.15",
-    "husky": "8.0.3",
+    "husky": "^9.0.10",
     "jsdom": "22.1.0",
     "postcss": "8.4.31",
     "prettier": "3.0.3",
