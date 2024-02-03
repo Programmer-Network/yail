@@ -4,17 +4,17 @@ exports[`ThemeBuilder component > renders correctly with given props 1`] = `
 <DocumentFragment>
   <div>
     <div
-      class="mb-1 flex items-center"
+      class="mb-1 flex h-12 items-center"
     >
       <div
-        class="relative -right-1 bg-primary p-3"
+        class="relative flex h-full items-center justify-center bg-primary px-3 py-2"
       >
         <div>
           Loading...
         </div>
       </div>
       <button
-        class="select-none border-2 border-primary px-3 py-2 font-semibold uppercase tracking-tight shadow-lg bg-transparent text-primary hover:bg-primary hover:text-primary-background-color primary-button min-w-[120px] border-l-0 shadow-none border-r-0"
+        class="select-none border-2 border-primary px-3 py-2 font-semibold uppercase tracking-tight shadow-lg bg-transparent text-primary hover:bg-primary hover:text-primary-background-color primary-button h-12 min-w-[120px] border-l-0 shadow-none border-r-0"
         type="button"
       >
         <div
@@ -31,7 +31,7 @@ exports[`ThemeBuilder component > renders correctly with given props 1`] = `
         </div>
       </button>
       <button
-        class="select-none border-2 border-primary px-3 py-2 font-semibold uppercase tracking-tight shadow-lg bg-transparent text-primary hover:bg-primary hover:text-primary-background-color min-w-[120px] border-l-0 shadow-none border-r-0"
+        class="select-none border-2 border-primary px-3 py-2 font-semibold uppercase tracking-tight shadow-lg bg-transparent text-primary hover:bg-primary hover:text-primary-background-color h-12 min-w-[120px] border-l-0 shadow-none border-r-0"
         type="button"
       >
         <div
@@ -48,7 +48,7 @@ exports[`ThemeBuilder component > renders correctly with given props 1`] = `
         </div>
       </button>
       <button
-        class="select-none border-2 border-primary px-3 py-2 font-semibold uppercase tracking-tight shadow-lg bg-transparent text-primary hover:bg-primary hover:text-primary-background-color min-w-[120px] border-l-0 shadow-none"
+        class="select-none border-2 border-primary px-3 py-2 font-semibold uppercase tracking-tight shadow-lg bg-transparent text-primary hover:bg-primary hover:text-primary-background-color h-12 min-w-[120px] border-l-0 shadow-none"
         type="button"
       >
         <div

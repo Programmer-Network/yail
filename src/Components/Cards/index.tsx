@@ -2,13 +2,13 @@ import classNames from "classnames";
 import { FC } from "react";
 
 import Card from "Components/Card";
-import { ICard } from "Components/Card/types";
+import { ICardData } from "Components/Card/types";
 
-const Cards: FC<{ cards: ICard[]; columns: number; className?: string }> = ({
-  className,
-  cards,
-  columns
-}) => {
+const Cards: FC<{
+  cards: ICardData[];
+  columns: number;
+  className?: string;
+}> = ({ className, cards, columns }) => {
   return (
     <div
       data-testid='cards'
@@ -28,16 +28,7 @@ const Cards: FC<{ cards: ICard[]; columns: number; className?: string }> = ({
       })}
     >
       {cards.map((card, index) => {
-        return (
-          <Card
-            key={index}
-            title={card.title}
-            description={card.description}
-            author={card.author}
-            date={card.date}
-            tags={card.tags}
-          />
-        );
+        return <Card key={index} data={card} />;
       })}
     </div>
   );

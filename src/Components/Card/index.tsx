@@ -5,14 +5,9 @@ import { Anchor, H3, Paragraph } from "Components/Typography";
 
 import { ICard } from "./types";
 
-const Card: FC<ICard> = ({
-  title,
-  description,
-  date,
-  author,
-  tags,
-  className
-}) => {
+const Card: FC<ICard> = ({ data, className }) => {
+  const { title, description, author, date, tags } = data;
+
   return (
     <div className={classNames("group mb-4", className)}>
       <div className='flex items-center text-primary-text-color'>

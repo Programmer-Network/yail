@@ -78,8 +78,12 @@ const ThemeBuilder: FC<IThemeBuilder> = ({ onChange, onReset, settings }) => {
 
   return (
     <div ref={ref}>
-      <div className='mb-1 flex items-center'>
-        <div className={classNames("relative -right-1 bg-primary p-3")}>
+      <div className='mb-1 flex h-12 items-center'>
+        <div
+          className={classNames(
+            "relative flex h-full items-center justify-center bg-primary px-3 py-2"
+          )}
+        >
           <Icon
             iconName='IconColors'
             className='w-5 text-primary-background-color'
@@ -92,7 +96,7 @@ const ThemeBuilder: FC<IThemeBuilder> = ({ onChange, onReset, settings }) => {
               outlined={setting.type !== selected.type}
               className={classNames(
                 setting.className,
-                "min-w-[120px] border-l-0 shadow-none",
+                "h-12 min-w-[120px] border-l-0 shadow-none",
                 {
                   "border-r-0": idx !== settings.length - 1
                 }
@@ -113,11 +117,11 @@ const ThemeBuilder: FC<IThemeBuilder> = ({ onChange, onReset, settings }) => {
         })}
         {isDirty && (
           <div className='ml-2 flex gap-1'>
-            <Button className='group' onClick={handleSaveColors}>
+            <Button className='h-12' onClick={handleSaveColors}>
               Save
             </Button>
 
-            <Button outlined onClick={handleReset}>
+            <Button className='h-12' outlined onClick={handleReset}>
               Reset
             </Button>
           </div>
