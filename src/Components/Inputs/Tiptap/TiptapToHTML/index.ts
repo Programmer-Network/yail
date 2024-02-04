@@ -10,10 +10,21 @@ import {
 import { toolbarItemToClassName } from "../constants";
 import { getAllowedTags } from "./utils";
 
+/**
+ * Converts Tiptap editor content to sanitized HTML.
+ * This class takes toolbar items and optional suggestion configurations to generate HTML content
+ * from a Tiptap editor's JSON content state. The HTML is then sanitized based on a set of allowed tags,
+ * attributes, and classes to ensure safety and compliance with expected content structures.
+ */
 export default class TiptapToHTML {
   suggestions: TiptapSuggestionOptions | undefined;
   toolbarItems: TiptapControls;
 
+  /**
+   * Constructs an instance of the TiptapToHTML converter.
+   * @param {TiptapControls} toolbarItems - The toolbar items configuration for the Tiptap editor.
+   * @param {TiptapSuggestionOptions} [suggestions] - Optional suggestions configuration for the Tiptap editor.
+   */
   constructor(
     toolbarItems: TiptapControls,
     suggestions?: TiptapSuggestionOptions
@@ -23,9 +34,9 @@ export default class TiptapToHTML {
   }
 
   /**
-   * Generates sanitized HTML from stringified tiptap's content state
-   * @param stringifiedContentState - stringified tiptap's content state
-   * @returns sanitized HTML
+   * Generates sanitized HTML from a stringified Tiptap editor content state.
+   * @param {string} stringifiedContentState - The JSON stringified content state of the Tiptap editor.
+   * @returns {string} The sanitized HTML string.
    */
   generateSanitizedHTML(stringifiedContentState: string): string {
     if (!stringifiedContentState) {
@@ -40,6 +51,14 @@ export default class TiptapToHTML {
     return htmlContent;
   }
 
+  /**
+   * Generates HTML from the Tiptap editor's JSON content state.
+   * This method utilizes the Tiptap `generateHTML` function along with the editor configuration
+   * to convert JSON content state into HTML.
+   * @private
+   * @param {JSONContent} editorContent - The JSON content state of the Tiptap editor.
+   * @returns {string} The generated HTML string.
+   */
   private generateHTML(editorContent: JSONContent): string {
     return generateHTML(
       editorContent,
@@ -50,6 +69,13 @@ export default class TiptapToHTML {
     );
   }
 
+  /**
+   * Defines the configuration for the HTML sanitizer.
+   * Specifies allowed tags, attributes, classes, and iframe hostnames to ensure the generated HTML
+   * is safe and meets the defined constraints.
+   * @private
+   * @returns {Object} The sanitizer configuration object.
+   */
   private sanitizeConfig() {
     return {
       allowedTags: [

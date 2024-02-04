@@ -3,9 +3,8 @@ import { Editor } from "@tiptap/react";
 class TiptapUtils {
   constructor() {}
 
-  isEmptySelection(editor: Editor) {
-    const selection = editor.state.selection;
-    return selection.empty;
+  isEmptySelection(editor: Editor): boolean {
+    return editor.state.selection.empty;
   }
 
   setEmptyContent() {
@@ -20,11 +19,11 @@ class TiptapUtils {
     });
   }
 
-  hasSelection(editor: Editor) {
+  hasSelection(editor: Editor): boolean {
     return editor.state.selection.from !== editor.state.selection.to;
   }
 
-  startsWithCharAtCursor(editor: Editor, char: string) {
+  startsWithCharAtCursor(editor: Editor, char: string): boolean {
     const { doc, selection } = editor.state;
 
     const parent = doc.resolve(selection.from).parent;
@@ -35,7 +34,7 @@ class TiptapUtils {
     return parent.firstChild.textContent.startsWith(char);
   }
 
-  isCursorAtStartOfEmptyLine(editor: Editor) {
+  isCursorAtStartOfEmptyLine(editor: Editor): boolean {
     const { doc, selection } = editor.state;
 
     if (this.hasSelection(editor)) {

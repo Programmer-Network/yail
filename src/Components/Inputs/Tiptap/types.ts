@@ -6,7 +6,7 @@ import { TIPTAP_TOOLBAR_ITEMS } from "./constants";
 
 export interface TiptapSuggestionOptions {
   items: Partial<SuggestionOptions>["items"];
-  mentionTriggerCharacter?: string;
+  trigger?: string;
 }
 
 export interface TiptapProps {
@@ -68,7 +68,7 @@ export interface IEditorConfig {
   onSelectionUpdate?: (props: EditorEvents["selectionUpdate"]) => void;
   onTransaction?: (props: EditorEvents["transaction"]) => void;
   suggestions?: TiptapSuggestionOptions;
-  mentionTriggerCharacter?: string;
+  trigger?: string;
   placeholder?: string;
   toolbarItems?: TiptapControls;
 }

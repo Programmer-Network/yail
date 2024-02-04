@@ -17,6 +17,7 @@ export const Default = () => {
   const [editorState, setEditorState] = useState<string>("");
 
   const suggestions = {
+    trigger: "#",
     items: () =>
       Promise.resolve([
         {
@@ -27,8 +28,7 @@ export const Default = () => {
           label: "Baz Label",
           value: "baz"
         }
-      ]),
-    mentionTriggerCharacter: "#"
+      ])
   };
 
   const toolbarItems = [

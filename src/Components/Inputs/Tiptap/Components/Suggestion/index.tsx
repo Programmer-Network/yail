@@ -14,10 +14,10 @@ const Suggestion = ({
   suggestions
 }: {
   suggestions: TiptapSuggestionOptions;
-  mentionTriggerCharacter?: string;
+  trigger?: string;
 }): Partial<SuggestionOptions> => {
   return {
-    char: suggestions.mentionTriggerCharacter || "#",
+    char: suggestions.trigger || "#",
     items: suggestions.items,
     render: () => {
       let Component: ReactRenderer<MentionHandle, MentionOptions>;

@@ -73,7 +73,17 @@ const extensionsMap: IExtensionsMap = {
   [TIPTAP_TOOLBAR_ITEMS.STRIKE_THROUGH]: Strike,
   [TIPTAP_TOOLBAR_ITEMS.CODE_BLOCK]: CodeBlock,
   [TIPTAP_TOOLBAR_ITEMS.BLOCK_QUOTE]: BlockQuote,
-  [TIPTAP_TOOLBAR_ITEMS.LINK]: Link,
+  [TIPTAP_TOOLBAR_ITEMS.LINK]: Link.configure({
+    openOnClick: false,
+    autolink: true,
+    linkOnPaste: true,
+    validate: href => /^https?:\/\//.test(href),
+    HTMLAttributes: {
+      "data-type": "link",
+      class: toolbarItemToClassName[TIPTAP_TOOLBAR_ITEMS.LINK].classes,
+      rel: "noopener noreferrer"
+    }
+  }),
   [TIPTAP_TOOLBAR_ITEMS.MENTION]: Mention,
   [TIPTAP_TOOLBAR_ITEMS.STRIKE]: Strike,
   [TIPTAP_TOOLBAR_ITEMS.YOUTUBE]: Youtube.configure({
@@ -84,30 +94,7 @@ const extensionsMap: IExtensionsMap = {
   [TIPTAP_TOOLBAR_ITEMS.COLOR]: Color,
   [TIPTAP_TOOLBAR_ITEMS.TEXT_STYLE]: TextStyle,
   [TIPTAP_TOOLBAR_ITEMS.PARAGRAPH]: Paragraph,
-  [TIPTAP_TOOLBAR_ITEMS.HEADING_1]: Heading.configure({ levels: [1] }).extend({
-    levels: [1],
-    renderHTML({ node, HTMLAttributes }) {
-      const level: number = this.options.levels.includes(node.attrs.level)
-        ? node.attrs.level
-        : this.options.levels[0];
-
-      const headingClassNames = {
-        1: toolbarItemToClassName[TIPTAP_TOOLBAR_ITEMS.HEADING_1].classes,
-        2: toolbarItemToClassName[TIPTAP_TOOLBAR_ITEMS.HEADING_2].classes,
-        3: toolbarItemToClassName[TIPTAP_TOOLBAR_ITEMS.HEADING_3].classes,
-        4: toolbarItemToClassName[TIPTAP_TOOLBAR_ITEMS.HEADING_4].classes,
-        5: toolbarItemToClassName[TIPTAP_TOOLBAR_ITEMS.HEADING_5].classes,
-        6: toolbarItemToClassName[TIPTAP_TOOLBAR_ITEMS.HEADING_6].classes
-      };
-      return [
-        `h${level}`,
-        mergeAttributes(this.options.HTMLAttributes, HTMLAttributes, {
-          class: `${headingClassNames[level as keyof typeof headingClassNames]}`
-        }),
-        0
-      ];
-    }
-  }),
+  [TIPTAP_TOOLBAR_ITEMS.HEADING_1]: headers,
   [TIPTAP_TOOLBAR_ITEMS.HEADING_2]: headers,
   [TIPTAP_TOOLBAR_ITEMS.HEADING_3]: headers,
   [TIPTAP_TOOLBAR_ITEMS.HEADING_4]: headers,
@@ -143,17 +130,6 @@ const getExtensions = ({
     }),
     History.configure({
       depth: 10
-    }),
-    Link.configure({
-      openOnClick: false,
-      autolink: true,
-      linkOnPaste: true,
-      validate: href => /^https?:\/\//.test(href),
-      HTMLAttributes: {
-        "data-type": "link",
-        class: toolbarItemToClassName[TIPTAP_TOOLBAR_ITEMS.LINK].classes,
-        rel: "noopener noreferrer"
-      }
     })
   ];
 

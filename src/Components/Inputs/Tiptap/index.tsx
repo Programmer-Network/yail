@@ -22,9 +22,9 @@ const Tiptap: FC<TiptapProps> = forwardRef(
   (
     {
       editorContent,
-      onUpdate = () => {},
-      onTransaction = () => {},
-      onSelectionUpdate = () => {},
+      onUpdate,
+      onTransaction,
+      onSelectionUpdate,
       placeholder,
       suggestions,
       toolbarItems,
@@ -39,17 +39,26 @@ const Tiptap: FC<TiptapProps> = forwardRef(
     const isMobile = useMobile();
     const [textSelected, setTextSelected] = useState<string>("");
 
-    const editor = useEditor({
-      ...editorConfig({
-        toolbarItems,
-        editorContent,
-        suggestions,
-        placeholder
-      }),
-      onTransaction,
-      onUpdate,
-      onSelectionUpdate
+    const useEditorConfig = editorConfig({
+      toolbarItems,
+      editorContent,
+      suggestions,
+      placeholder
     });
+
+    if (onTransaction) {
+      useEditorConfig.onTransaction = onTransaction;
+    }
+
+    if (onUpdate) {
+      useEditorConfig.onUpdate = onUpdate;
+    }
+
+    if (onSelectionUpdate) {
+      useEditorConfig.onSelectionUpdate = onSelectionUpdate;
+    }
+
+    const editor = useEditor(useEditorConfig);
 
     useImperativeHandle(
       ref,
