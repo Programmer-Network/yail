@@ -1,7 +1,6 @@
 import { EditorOptions } from "@tiptap/core";
 
 import getExtensions from "./extensions";
-import "./tiptap.css";
 import { IEditorConfig } from "./types";
 
 export const editorConfig = (args: IEditorConfig): Partial<EditorOptions> => {
