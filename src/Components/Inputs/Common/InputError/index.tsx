@@ -4,16 +4,13 @@ import { FC } from "react";
 import { IInputErrorProps } from "./types";
 
 const InputError: FC<IInputErrorProps> = ({ error, className }) => {
+  const baseClassName =
+    "text-rose-500 peer-invalid:visible px-4 mb-4 max-w-[450px]";
+
   if (Array.isArray(error)) {
     return error.map((e, i) => {
       return (
-        <span
-          key={i}
-          className={classNames(
-            "mt-4 text-pink-600 peer-invalid:visible",
-            className
-          )}
-        >
+        <span key={i} className={classNames(baseClassName, className)}>
           {e}
         </span>
       );
@@ -23,29 +20,14 @@ const InputError: FC<IInputErrorProps> = ({ error, className }) => {
   if (typeof error === "object") {
     return Object.keys(error).map((e, i) => {
       return (
-        <span
-          key={i}
-          className={classNames(
-            "mt-4 text-pink-600 peer-invalid:visible",
-            className
-          )}
-        >
+        <span key={i} className={classNames(baseClassName, className)}>
           {error[e]}
         </span>
       );
     });
   }
 
-  return (
-    <span
-      className={classNames(
-        "mt-2 text-pink-600 peer-invalid:visible",
-        className
-      )}
-    >
-      {error}
-    </span>
-  );
+  return <span className={classNames(baseClassName, className)}>{error}</span>;
 };
 
 InputError.defaultProps = {
