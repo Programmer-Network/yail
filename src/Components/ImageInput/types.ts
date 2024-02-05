@@ -11,6 +11,8 @@ export interface IOnFileLoadedArgs {
   file: FileData;
 }
 
+export type TValidationError = { reason: string; message: string };
+
 export interface IImageInputProps {
   id?: string;
   accept: string;
@@ -18,7 +20,7 @@ export interface IImageInputProps {
   maxFileSize: number;
   onFileLoaded: (data: IOnFileLoadedArgs) => void;
   allowedMimeTypes: string[];
-  onValidationError?: (error: { reason: string; message: string }) => void;
+  onValidationError?: (error: TValidationError) => void;
   compression?: { enabled: boolean; maxWidth?: number; quality?: number };
   inputWrapperClassName?: string;
   label?: string;

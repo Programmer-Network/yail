@@ -62,8 +62,13 @@ const ImageInput: FC<IImageInputProps> = ({
   };
 
   return (
-    <div className={classNames(inputWrapperClassName)}>
-      <label>
+    <div
+      className={classNames(
+        "flex flex-col justify-center gap-2",
+        inputWrapperClassName
+      )}
+    >
+      <label className='flex items-center justify-center'>
         <input
           ref={fileInputRef}
           id={id}
@@ -73,7 +78,12 @@ const ImageInput: FC<IImageInputProps> = ({
           className={classNames("hidden", className)}
         />
 
-        <Button type='button' onClick={handleButtonClick} outlined>
+        <Button
+          type='button'
+          onClick={handleButtonClick}
+          outlined
+          className='!shadow-none'
+        >
           <div className='flex items-center justify-center gap-1'>
             <IconImage className='w-6' /> {label}
           </div>
