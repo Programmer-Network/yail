@@ -11,10 +11,11 @@ import {
 
 import { IconName } from "Components/Icons/types";
 
-const Icon: FC<{ iconName: IconName; className?: string }> = ({
-  iconName,
-  className = "w-4 text-indigo-500"
-}) => {
+const Icon: FC<{
+  iconName: IconName;
+  className?: string;
+  onClick?: () => void;
+}> = ({ iconName, className = "w-4 text-indigo-500", onClick }) => {
   const [error, setError] = useState<boolean>(false);
   const [IconComponent, setIconComponent] = useState<LazyExoticComponent<
     ComponentType<SVGProps<SVGSVGElement>>
@@ -36,7 +37,9 @@ const Icon: FC<{ iconName: IconName; className?: string }> = ({
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      {IconComponent && <IconComponent className={className} />}
+      {IconComponent && (
+        <IconComponent className={className} onClick={onClick} />
+      )}
     </Suspense>
   );
 };
