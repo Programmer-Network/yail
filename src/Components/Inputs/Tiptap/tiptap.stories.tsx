@@ -36,7 +36,8 @@ export const Default = () => {
     TIPTAP_TOOLBAR_ITEMS.HEADING_1,
     TIPTAP_TOOLBAR_ITEMS.HEADING_2,
     TIPTAP_TOOLBAR_ITEMS.ITALIC,
-    TIPTAP_TOOLBAR_ITEMS.LINK
+    TIPTAP_TOOLBAR_ITEMS.LINK,
+    TIPTAP_TOOLBAR_ITEMS.IMAGE
   ];
 
   const converter = new TiptapToHTML(toolbarItems, suggestions);
@@ -53,6 +54,12 @@ export const Default = () => {
         label='Content'
         suggestions={suggestions}
         toolbarItems={toolbarItems}
+        onSetImage={(base64: string) => {
+          return new Promise<void>(resolve => {
+            console.log("🚀 ─── base64:", base64);
+            resolve();
+          });
+        }}
         onTransaction={({ editor }) => {
           onEditorStateChange({ editor });
         }}

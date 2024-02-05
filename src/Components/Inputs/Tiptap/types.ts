@@ -14,6 +14,7 @@ export interface TiptapProps {
   onUpdate?: (props: EditorEvents["update"]) => void;
   onSelectionUpdate?: (props: EditorEvents["selectionUpdate"]) => void;
   onTransaction?: (props: EditorEvents["transaction"]) => void;
+  onSetImage?: (base64Image: string) => Promise<void>;
   suggestions?: TiptapSuggestionOptions;
   placeholder?: string;
   toolbarItems: TiptapControls;
@@ -24,11 +25,14 @@ export interface TiptapProps {
 }
 
 export interface TiptapToolbarProps {
+  image: {
+    onSetImage?: (base64Image: string) => Promise<void>;
+    isExtensionActive: boolean;
+  };
   editor: Editor;
   toolbarItems: TiptapControls;
 }
 
-// Define the type for the ref object
 export interface TiptapRef {
   clearContent: () => void;
   getContents: () => string;
@@ -46,15 +50,11 @@ export type TiptapControls = Extensions[];
 
 export interface IToolbarIcons {
   editor: Editor;
-  // hasSelection: boolean;
-  // addYoutubeVideo: () => void;
-  // openLinkModal: () => void;
-  // openDialog: (type: string) => void;
 }
 
 export interface IToolbarIconsReturn {
   id: string;
-  onClick: MouseEventHandler<HTMLButtonElement> | undefined;
+  onClick?: MouseEventHandler<HTMLButtonElement> | undefined;
   isActive?: boolean;
   iconName?: string;
   className?: string;

@@ -128,7 +128,12 @@ const getToolbarIcons = ({ editor }: IToolbarIcons): IToolbarIconsReturn[] => {
       },
       isActive: editor.isActive("blockquote"),
       iconName: "IconQuote"
+    },
+    {
+      id: TIPTAP_TOOLBAR_ITEMS.IMAGE,
+      iconName: "IconImage"
     }
+
     // {
     //   id: TIPTAP_TOOLBAR_ITEMS.HORIZONTAL_RULE,
     //   onClick: () => {
@@ -157,19 +162,6 @@ const getToolbarIcons = ({ editor }: IToolbarIcons): IToolbarIconsReturn[] => {
     //   className: classNames("w-6 cursor-pointer")
     // },
 
-    // {
-    //   id: TIPTAP_TOOLBAR_ITEMS.IMAGE,
-    //   onClick: () => {
-    //     openDialog("image");
-    //     // const url = window.prompt("URL");
-    //     // some async work
-    //     // uplaod this image to the server
-    //     // wait for the api to respond with the url
-    //     // and then do whatever's below
-    //     // if (url) {
-    //     //   editor.chain().focus().setImage({ src: url }).run();
-    //     // }
-    //   },
     //   Icon: IconImage,
     //   className: classNames("w-6 cursor-pointer", {
     //     "fill-primary-text-color": !editor.isActive("link")

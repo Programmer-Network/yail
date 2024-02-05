@@ -25,6 +25,7 @@ const Tiptap: FC<TiptapProps> = forwardRef(
       onUpdate,
       onTransaction,
       onSelectionUpdate,
+      onSetImage,
       placeholder,
       suggestions,
       toolbarItems,
@@ -45,6 +46,18 @@ const Tiptap: FC<TiptapProps> = forwardRef(
       suggestions,
       placeholder
     });
+
+    const image = {
+      isExtensionActive: !!useEditorConfig?.extensions?.some(
+        ({ name }) => name === "image"
+      ),
+      onSetImage
+    };
+
+    if (!image.isExtensionActive && typeof onSetImage === "function") {
+      console.error(`"onSetImage" prop passed but image extension not found`);
+      throw new Error("Image extension not registered in Tiptap editor.");
+    }
 
     if (onTransaction) {
       useEditorConfig.onTransaction = onTransaction;
@@ -116,7 +129,7 @@ const Tiptap: FC<TiptapProps> = forwardRef(
       >
         {label && <InputHeader label={label} hint={hint} required={required} />}
         <div className='border-2 border-primary p-4'>
-          <Toolbar editor={editor} toolbarItems={toolbarItems} />
+          <Toolbar editor={editor} toolbarItems={toolbarItems} image={image} />
           <EditorContent editor={editor} />
         </div>
         {error && <InputError error={error} className='absolute bottom-[-5]' />}
