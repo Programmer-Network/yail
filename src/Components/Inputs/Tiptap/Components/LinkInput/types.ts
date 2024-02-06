@@ -11,5 +11,5 @@ export interface ILinkInputProps {
   error?: string | null;
   onChange?: (value: Record<string, string>) => void;
   onClick?: (target: LinkClickTarget) => void;
-  ref: ForwardedRef<HTMLDivElement>;
+  ref?: ForwardedRef<HTMLDivElement>;
 }
