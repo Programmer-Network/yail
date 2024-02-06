@@ -132,29 +132,13 @@ const getToolbarIcons = ({ editor }: IToolbarIcons): IToolbarIconsReturn[] => {
     {
       id: TIPTAP_TOOLBAR_ITEMS.IMAGE,
       iconName: "IconImage"
+    },
+    {
+      id: TIPTAP_TOOLBAR_ITEMS.LINK,
+      iconName: "IconLink",
+      isActive: editor.isActive("link")
     }
 
-    // {
-    //   id: TIPTAP_TOOLBAR_ITEMS.HORIZONTAL_RULE,
-    //   onClick: () => {
-    //     editor.chain().focus().setHorizontalRule().run();
-    //   },
-    //   iconName: "IconHorizontalRule"
-    // },
-    // {
-    //   id: TIPTAP_TOOLBAR_ITEMS.FORMAT_CLEAR,
-    //   onClick: () => {
-    //     editor.chain().focus().unsetAllMarks().run();
-    //   },
-    //   iconName: "IconFormatClear"
-    // },
-    // {
-    //   id: TIPTAP_TOOLBAR_ITEMS.ERASER,
-    //   onClick: () => {
-    //     editor.chain().focus().clearNodes().run();
-    //   },
-    //   iconName: "IconEraser"
-    // },
     // {
     //   id: TIPTAP_TOOLBAR_ITEMS.YOUTUBE,
     //   onClick: addYoutubeVideo,
@@ -168,15 +152,6 @@ const getToolbarIcons = ({ editor }: IToolbarIcons): IToolbarIconsReturn[] => {
     //   })
     // }
     // {
-    //   id: TIPTAP_TOOLBAR_ITEMS.UNLINK,
-    //   onClick: () => {
-    //     editor.chain().focus().unsetLink().run();
-    //   },
-    //   Icon: IconUnlink,
-    //   className: classNames("w-6 cursor-pointer", {
-    //     "fill-primary-text-color": !editor.isActive("link")
-    //   })
-    // }
   ];
 };
 

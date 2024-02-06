@@ -48,13 +48,13 @@ const Tiptap: FC<TiptapProps> = forwardRef(
     });
 
     const image = {
-      isExtensionActive: !!useEditorConfig?.extensions?.some(
+      isExtensionEnabled: !!useEditorConfig?.extensions?.some(
         ({ name }) => name === "image"
       ),
       onSetImage
     };
 
-    if (!image.isExtensionActive && typeof onSetImage === "function") {
+    if (!image.isExtensionEnabled && typeof onSetImage === "function") {
       console.error(`"onSetImage" prop passed but image extension not found`);
       throw new Error("Image extension not registered in Tiptap editor.");
     }

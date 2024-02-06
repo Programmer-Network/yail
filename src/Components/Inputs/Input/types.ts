@@ -4,7 +4,7 @@ export interface IInputProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, "onChange"> {
   name: string;
   value: string;
-  label: string;
+  label?: string;
   type: string;
   min?: number;
   max?: number;
