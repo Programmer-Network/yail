@@ -9,7 +9,8 @@
       "vitest",
       "node",
       "jest",
-      "@testing-library/jest-dom"
+      "@testing-library/jest-dom",
+      "./.global.d.ts"
     ],
     "baseUrl": "./src",
     "allowJs": true,

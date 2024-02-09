@@ -1,8 +1,10 @@
 import useAJVForm from "@programmer_network/use-ajv-form";
-import { useOnClickOutside } from "Hooks/useClickOutside";
+import { useModalInput } from "Hooks/useModalInput";
 import classNames from "classnames";
-import { useRef, useState } from "react";
+import programmerNetworkAjv from "programmer-network-ajv";
+import { useRef } from "react";
 
+import Button from "Components/Button";
 import Dialog from "Components/Dialog/Dialog";
 import Icon from "Components/Icon";
 import { IconName } from "Components/Icons/types";
@@ -10,16 +12,19 @@ import { IconName } from "Components/Icons/types";
 import { TIPTAP_TOOLBAR_ITEMS } from "../../constants";
 import { TiptapToolbarProps } from "../../types";
 import ImageUpload from "../ImageUpload";
-import { LinkInput } from "../LinkInput";
-import { LinkClickTarget } from "../LinkInput/types";
+import { ModalInput } from "../ModalInput";
+import { LinkClickTarget } from "../ModalInput/types";
 import getToolbarIcons from "./toolbar-icons";
+
+const { keywords } = programmerNetworkAjv;
 
 export const Toolbar = ({
   editor,
   toolbarItems,
-  image
+  image,
+  link
 }: TiptapToolbarProps) => {
-  const form = useAJVForm(
+  const linkInputForm = useAJVForm(
     { link: "" },
     {
       type: "object",
@@ -32,54 +37,69 @@ export const Toolbar = ({
       }
     }
   );
-  const dialogRef = useRef<HTMLDialogElement>(null);
-  const inputWrapperRef = useRef(null);
 
-  useOnClickOutside(inputWrapperRef, () => setIsLinkInputShown(false));
+  const youtubeInputForm = useAJVForm(
+    { youtubeUrl: "" },
+    {
+      type: "object",
+      required: ["youtubeUrl"],
+      properties: {
+        youtubeUrl: {
+          type: "string",
+          "is-youtube-url": true
+        }
+      }
+    },
+    {
+      customKeywords: keywords,
+      debounceTime: 1
+    }
+  );
+
+  const dialogRef = useRef<HTMLDialogElement>(null);
+  const ref = useRef(null);
+  const inputModal = useModalInput({ ref });
 
   const hasSelection = !editor.state.selection.empty;
-
-  const [isLinkInputShown, setIsLinkInputShown] = useState<boolean>(false);
-  const [linkInputPosition, setLinkInputPosition] = useState<{
-    x: number;
-    y: number;
-  }>({
-    x: 0,
-    y: 0
-  });
 
   if (!editor) {
     return null;
   }
 
-  const handleOpenLinkInput = () => {
-    const { left, top } = document
-      .getSelection()
-      ?.getRangeAt(0)
-      .getBoundingClientRect() as DOMRect;
-
-    setLinkInputPosition({ x: left, y: top + 25 });
-    setIsLinkInputShown(!isLinkInputShown);
-    form.set({ link: editor.getAttributes("link").href || "" });
-  };
-
-  const handleInsertLink = (target: LinkClickTarget) => {
-    if (!form.isValid) {
+  const insertLink = (target: LinkClickTarget) => {
+    if (!linkInputForm.isValid) {
       return;
     }
 
     if (target === LinkClickTarget.UnLink) {
       editor.commands.unsetLink();
-      setIsLinkInputShown(false);
+      inputModal.setModalId("");
       return;
     }
 
-    editor.chain().focus().setLink({ href: form.state.link.value }).run();
-    setIsLinkInputShown(false);
+    editor
+      .chain()
+      .focus()
+      .setLink({ href: linkInputForm.state.link.value })
+      .run();
+
+    inputModal.setModalId("");
+  };
+
+  const insertVideo = () => {
+    if (!youtubeInputForm.isValid) {
+      return;
+    }
+
+    editor.commands.setYoutubeVideo({
+      src: youtubeInputForm.state.youtubeUrl.value
+    });
+
+    inputModal.setModalId("");
   };
 
   return (
-    <div className='flex flex-wrap'>
+    <div className='flex flex-wrap gap-3 border-2 border-b-0 border-primary-text-color bg-primary-text-color px-4 py-1'>
       {image.isExtensionEnabled && (
         <Dialog ref={dialogRef}>
           <ImageUpload
@@ -96,18 +116,47 @@ export const Toolbar = ({
         </Dialog>
       )}
 
-      {isLinkInputShown && (
-        <LinkInput
-          position={linkInputPosition}
-          value={form.state.link.value}
-          error={form.state.link.error}
-          onClick={handleInsertLink}
+      {inputModal.modalId === TIPTAP_TOOLBAR_ITEMS.YOUTUBE && (
+        <ModalInput
+          position={inputModal.position}
+          value={youtubeInputForm.state.youtubeUrl.value}
+          error={youtubeInputForm.state.youtubeUrl.error}
           onChange={input => {
-            form.set({ link: input.url });
+            youtubeInputForm.set({ youtubeUrl: input.url });
           }}
-          ref={inputWrapperRef}
-        />
+          ref={ref}
+        >
+          <Button onClick={insertVideo}>
+            <Icon iconName='IconAddYoutube' className='w-6' />
+          </Button>
+        </ModalInput>
       )}
+      {link.isExtensionEnabled &&
+        inputModal.modalId === TIPTAP_TOOLBAR_ITEMS.LINK && (
+          <ModalInput
+            position={inputModal.position}
+            value={linkInputForm.state.link.value}
+            error={linkInputForm.state.link.error}
+            onChange={input => {
+              linkInputForm.set({ link: input.url });
+            }}
+            ref={ref}
+          >
+            <Button onClick={() => insertLink(LinkClickTarget.Link)}>
+              <Icon iconName='IconLink' className='w-6' />
+            </Button>
+
+            {linkInputForm.state.link.value && (
+              <Button
+                outlined
+                onClick={() => insertLink(LinkClickTarget.UnLink)}
+              >
+                <Icon iconName='IconUnlink' className='w-6' />
+              </Button>
+            )}
+          </ModalInput>
+        )}
+
       {getToolbarIcons({
         editor
       })
@@ -132,8 +181,20 @@ export const Toolbar = ({
                   return;
                 }
 
-                if (i.id === TIPTAP_TOOLBAR_ITEMS.LINK) {
-                  handleOpenLinkInput();
+                if (i.id === TIPTAP_TOOLBAR_ITEMS.LINK && hasSelection) {
+                  inputModal.openModal(e, TIPTAP_TOOLBAR_ITEMS.LINK);
+                  linkInputForm.set({
+                    link: editor.getAttributes("link").href || ""
+                  });
+                  return;
+                }
+
+                if (i.id === TIPTAP_TOOLBAR_ITEMS.YOUTUBE) {
+                  youtubeInputForm.set({
+                    youtubeUrl: ""
+                  });
+
+                  inputModal.openModal(e, TIPTAP_TOOLBAR_ITEMS.YOUTUBE);
                   return;
                 }
 
@@ -142,13 +203,18 @@ export const Toolbar = ({
             >
               <Icon
                 iconName={i.iconName as IconName}
-                className={classNames("w-8", {
+                className={classNames("w-10 !text-primary-background-color", {
                   "text-primary-text-color": !i.isActive,
-                  "text-primary": i.isActive || hasSelection,
+                  "!fill-primary !text-primary": i.isActive,
                   "cursor-not-allowed":
                     typeof i.isDisabled === "function" && i.isDisabled(),
                   "cursor-default": !hasSelection,
-                  "fill-primary": i.iconName === "IconLink" && hasSelection
+                  "fill-primary": i.iconName === "IconLink" && hasSelection,
+                  "w-[34px]":
+                    i.iconName === "IconLink" || i.iconName === "IconItalic",
+                  "w-[36px]": i.iconName === "IconBold",
+                  "w-[31px]": i.iconName === "IconImage",
+                  "w-[40px]": i.iconName === "IconLink"
                 })}
               />
             </button>

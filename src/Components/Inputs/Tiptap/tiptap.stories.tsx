@@ -33,11 +33,12 @@ export const Default = () => {
 
   const toolbarItems = [
     TIPTAP_TOOLBAR_ITEMS.BOLD,
-    TIPTAP_TOOLBAR_ITEMS.HEADING_1,
     TIPTAP_TOOLBAR_ITEMS.HEADING_2,
+    TIPTAP_TOOLBAR_ITEMS.HEADING_3,
     TIPTAP_TOOLBAR_ITEMS.ITALIC,
     TIPTAP_TOOLBAR_ITEMS.LINK,
-    TIPTAP_TOOLBAR_ITEMS.IMAGE
+    TIPTAP_TOOLBAR_ITEMS.IMAGE,
+    TIPTAP_TOOLBAR_ITEMS.YOUTUBE
   ];
 
   const converter = new TiptapToHTML(toolbarItems, suggestions);
@@ -67,7 +68,7 @@ export const Default = () => {
       />
 
       <div
-        className='text-indigo-500'
+        className='mt-8 text-indigo-500'
         dangerouslySetInnerHTML={{ __html: editorState }}
       ></div>
     </div>

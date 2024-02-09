@@ -29,6 +29,9 @@ export interface TiptapToolbarProps {
     onSetImage?: (base64Image: string) => Promise<void>;
     isExtensionEnabled: boolean;
   };
+  link: {
+    isExtensionEnabled: boolean;
+  };
   editor: Editor;
   toolbarItems: TiptapControls;
 }

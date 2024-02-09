@@ -115,6 +115,7 @@ export default class TiptapToHTML {
           "mt-2",
           "wordbreak"
         ],
+        a: ["underline,", "text-primary", "cursor-pointer", "font-bold"],
         iframe: ["aspect-video", "w-full", "h-full", "py-4"],
         ...Object.values(toolbarItemToClassName).reduce((acc, tag) => {
           if (!tag.tagName) {

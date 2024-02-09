@@ -130,28 +130,18 @@ const getToolbarIcons = ({ editor }: IToolbarIcons): IToolbarIconsReturn[] => {
       iconName: "IconQuote"
     },
     {
-      id: TIPTAP_TOOLBAR_ITEMS.IMAGE,
-      iconName: "IconImage"
-    },
-    {
       id: TIPTAP_TOOLBAR_ITEMS.LINK,
       iconName: "IconLink",
       isActive: editor.isActive("link")
+    },
+    {
+      id: TIPTAP_TOOLBAR_ITEMS.YOUTUBE,
+      iconName: "IconAddYoutube"
+    },
+    {
+      id: TIPTAP_TOOLBAR_ITEMS.IMAGE,
+      iconName: "IconImage"
     }
-
-    // {
-    //   id: TIPTAP_TOOLBAR_ITEMS.YOUTUBE,
-    //   onClick: addYoutubeVideo,
-    //   iconName: "IconAddYoutube",
-    //   className: classNames("w-6 cursor-pointer")
-    // },
-
-    //   Icon: IconImage,
-    //   className: classNames("w-6 cursor-pointer", {
-    //     "fill-primary-text-color": !editor.isActive("link")
-    //   })
-    // }
-    // {
   ];
 };
 
