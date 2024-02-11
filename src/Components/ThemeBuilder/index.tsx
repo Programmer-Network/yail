@@ -6,9 +6,9 @@ import { HexColorInput, HexColorPicker } from "react-colorful";
 import Button from "Components/Button";
 import Icon from "Components/Icon";
 
+import ThemeBuilderUtils from "./ThemeBuilderUtils";
 import { initialSelected } from "./constants";
 import { IThemeBuilder, IThemeBuilderSetting } from "./types";
-import { RGBToHex, hexToRGB, setCSSVariable } from "./utils";
 
 const ThemeBuilder: FC<IThemeBuilder> = ({ onChange, onReset, settings }) => {
   const [selected, setSelected] = useState<{
@@ -25,6 +25,7 @@ const ThemeBuilder: FC<IThemeBuilder> = ({ onChange, onReset, settings }) => {
   const isDirty = useMemo(() => {
     return localSettings.some((localSetting, index) => {
       const setting = settings[index];
+
       return localSetting.color !== setting.color;
     });
   }, [localSettings, settings]);
@@ -40,7 +41,7 @@ const ThemeBuilder: FC<IThemeBuilder> = ({ onChange, onReset, settings }) => {
 
   const handleReset = () => {
     settings.forEach(button => {
-      setCSSVariable(
+      ThemeBuilderUtils.setCSSVariable(
         button.customCSSProperty,
         settings.find(s => s.type === button.type)?.defaultColor || ""
       );
@@ -53,15 +54,20 @@ const ThemeBuilder: FC<IThemeBuilder> = ({ onChange, onReset, settings }) => {
 
   useEffect(() => {
     settings.forEach(setting => {
-      setCSSVariable(
+      ThemeBuilderUtils.setCSSVariable(
         setting.customCSSProperty,
-        settings.find(s => s.type === setting.type)?.color || ""
+        ThemeBuilderUtils.hexToRGB(
+          settings.find(s => s.type === setting.type)?.color as string
+        ) || ""
       );
     });
   }, [settings]);
 
   useEffect(() => {
-    setCSSVariable(selected.cssVariable, selected.color);
+    ThemeBuilderUtils.setCSSVariable(
+      selected.cssVariable,
+      ThemeBuilderUtils.hexToRGB(selected.color) as string
+    );
     setLocalSettings(
       localSettings.map(s => {
         if (s.type !== selected.type) {
@@ -141,28 +147,14 @@ const ThemeBuilder: FC<IThemeBuilder> = ({ onChange, onReset, settings }) => {
 
             <HexColorInput
               role='presentation'
-              onChange={(color: string) => {
-                const rgb = hexToRGB(color);
-                if (!rgb) {
-                  return;
-                }
-
-                setSelected({ ...selected, color: rgb });
-              }}
-              color={selected?.color || ""}
+              onChange={(color: string) => setSelected({ ...selected, color })}
+              color={selected?.color}
               placeholder='e.g.175ca1'
               className='bg mb-2 rounded-lg border-2 border-primary bg-transparent p-2 text-primary-text-color shadow-md hover:border-primary focus:border-primary focus:shadow-none focus:outline-none focus:ring-transparent dark:text-primary-text-color'
             />
             <HexColorPicker
-              onChange={color => {
-                const rgb = hexToRGB(color);
-                if (!rgb) {
-                  return;
-                }
-
-                return setSelected({ ...selected, color: rgb });
-              }}
-              color={selected?.color ?? (RGBToHex(selected?.color) as string)}
+              onChange={color => setSelected({ ...selected, color })}
+              color={selected?.color}
             />
           </div>
         </div>

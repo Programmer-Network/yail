@@ -14,29 +14,31 @@ export const Default = () => {
       label: "Primary",
       type: "primary",
       customCSSProperty: "--color-primary",
-      color: "79 70 229",
-      defaultColor: "79 70 229"
+      color: "#4f46e5",
+      defaultColor: "#4f46e5"
     },
     {
       label: "Background",
       type: "background",
       customCSSProperty: "--color-bg",
-      color: "27 31 35",
-      defaultColor: "27 31 35"
+      color: "#1b1f23",
+      defaultColor: "#1b1f23"
     },
     {
       label: "Text",
       type: "text",
       customCSSProperty: "--text-color",
-      color: "107 114 128",
-      defaultColor: "107 114 128"
+      color: "#6b7280",
+      defaultColor: "#6b7280"
     }
   ]);
 
   return (
     <div className='m-12'>
       <ThemeBuilder
-        onChange={setSettings}
+        onChange={async settings => {
+          setSettings(settings);
+        }}
         onReset={() => null}
         settings={settings}
       />

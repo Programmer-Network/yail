@@ -25,6 +25,7 @@ export { default as Stars } from "Components/Stars";
 export { default as Tag } from "Components/Tag";
 export { default as TextOverLine } from "Components/TextOverLine";
 export { default as ThemeBuilder } from "Components/ThemeBuilder";
+export { default as ThemeBuilderUtils } from "Components/ThemeBuilder/ThemeBuilderUtils";
 export { default as Tooltip } from "Components/Tooltip";
 
 export * from "Components/Icons";

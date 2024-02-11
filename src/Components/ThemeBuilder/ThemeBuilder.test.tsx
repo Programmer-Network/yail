@@ -2,7 +2,7 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import { vi } from "vitest";
 
 import ThemeBuilder from ".";
-import { RGBToHex, hexToRGB } from "./utils";
+import ThemeBuilderUtils from "./ThemeBuilderUtils";
 
 describe("ThemeBuilder component", () => {
   const mockSettings = [
@@ -129,15 +129,15 @@ describe("ThemeBuilder component", () => {
 
     expect(
       document.documentElement.style.getPropertyValue("--color-primary")
-    ).toBe(mockSettings[0].color);
+    ).toBe("79 70 229");
 
     expect(document.documentElement.style.getPropertyValue("--color-bg")).toBe(
-      mockSettings[1].color
+      "27 31 35"
     );
 
     expect(
       document.documentElement.style.getPropertyValue("--text-color")
-    ).toBe(mockSettings[2].color);
+    ).toBe("107 114 128");
   });
 
   it("updates CSS variables dynamically when a color is changed", () => {
@@ -183,50 +183,60 @@ describe("ThemeBuilder component", () => {
 
 describe("hexToRGB", () => {
   it("converts six-character hex codes to RGB format", () => {
-    expect(hexToRGB("#4f46e5")).toBe("79 70 229");
+    expect(ThemeBuilderUtils.hexToRGB("#4f46e5")).toBe("79 70 229");
   });
 
   it("converts three-character hex codes to RGB format", () => {
-    expect(hexToRGB("#4e2")).toBe("68 238 34");
+    expect(ThemeBuilderUtils.hexToRGB("#4e2")).toBe("68 238 34");
   });
 
   it("returns null for invalid hex codes", () => {
-    expect(hexToRGB("123456")).toBeNull();
-    expect(hexToRGB("#gggggg")).toBeNull();
-    expect(hexToRGB("#1234")).toBeNull();
+    expect(ThemeBuilderUtils.hexToRGB("123456")).toBeNull();
+    expect(ThemeBuilderUtils.hexToRGB("#gggggg")).toBeNull();
+    expect(ThemeBuilderUtils.hexToRGB("#1234")).toBeNull();
   });
 
   it("is case-insensitive", () => {
-    expect(hexToRGB("#4F46E5")).toBe("79 70 229");
-    expect(hexToRGB("#4e2")).toBe("68 238 34");
+    expect(ThemeBuilderUtils.hexToRGB("#4F46E5")).toBe("79 70 229");
+    expect(ThemeBuilderUtils.hexToRGB("#4e2")).toBe("68 238 34");
   });
 
   it("handles edge cases", () => {
-    expect(hexToRGB("#000000")).toBe("0 0 0");
-    expect(hexToRGB("#ffffff")).toBe("255 255 255");
-    expect(hexToRGB("#FFF")).toBe("255 255 255");
+    expect(ThemeBuilderUtils.hexToRGB("#000000")).toBe("0 0 0");
+    expect(ThemeBuilderUtils.hexToRGB("#ffffff")).toBe("255 255 255");
+    expect(ThemeBuilderUtils.hexToRGB("#FFF")).toBe("255 255 255");
   });
 });
 
 describe("RGBToHex", () => {
   it("converts RGB format to six-character hex codes", () => {
-    expect(RGBToHex("79 70 229")).toBe("#4f46e5");
-    expect(RGBToHex("255 255 255")).toBe("#ffffff");
+    expect(ThemeBuilderUtils.RGBToHex("79 70 229")).toBe("#4f46e5");
+    expect(ThemeBuilderUtils.RGBToHex("255 255 255")).toBe("#ffffff");
   });
 
   it("handles values with leading zeros", () => {
-    expect(RGBToHex("0 0 0")).toBe("#000000");
-    expect(RGBToHex("1 2 3")).toBe("#010203");
+    expect(ThemeBuilderUtils.RGBToHex("0 0 0")).toBe("#000000");
+    expect(ThemeBuilderUtils.RGBToHex("1 2 3")).toBe("#010203");
   });
 
   it("is strict about the input format", () => {
-    expect(RGBToHex("255 0 0")).toBe("#ff0000");
-    expect(RGBToHex("0 255 0")).toBe("#00ff00");
-    expect(RGBToHex("0 0 255")).toBe("#0000ff");
+    expect(ThemeBuilderUtils.RGBToHex("255 0 0")).toBe("#ff0000");
+    expect(ThemeBuilderUtils.RGBToHex("0 255 0")).toBe("#00ff00");
+    expect(ThemeBuilderUtils.RGBToHex("0 0 255")).toBe("#0000ff");
   });
 
   it("handles edge cases with single and double digit values", () => {
-    expect(RGBToHex("15 15 15")).toBe("#0f0f0f");
-    expect(RGBToHex("5 5 5")).toBe("#050505");
+    expect(ThemeBuilderUtils.RGBToHex("15 15 15")).toBe("#0f0f0f");
+    expect(ThemeBuilderUtils.RGBToHex("5 5 5")).toBe("#050505");
+  });
+});
+
+describe("RGBToHex and hexToRGB should yield the same values when converted", () => {
+  it("compares if the converted colors are the same", () => {
+    const rgb = ThemeBuilderUtils.hexToRGB("#0f0f0f");
+    const hex = ThemeBuilderUtils.RGBToHex("15 15 15");
+
+    expect(rgb).toBe("15 15 15");
+    expect(hex).toBe("#0f0f0f");
   });
 });
