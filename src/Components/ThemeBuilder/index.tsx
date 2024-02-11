@@ -8,7 +8,7 @@ import Icon from "Components/Icon";
 
 import { initialSelected } from "./constants";
 import { IThemeBuilder, IThemeBuilderSetting } from "./types";
-import { hexToRGB, setCSSVariable } from "./utils";
+import { RGBToHex, hexToRGB, setCSSVariable } from "./utils";
 
 const ThemeBuilder: FC<IThemeBuilder> = ({ onChange, onReset, settings }) => {
   const [selected, setSelected] = useState<{
@@ -74,7 +74,8 @@ const ThemeBuilder: FC<IThemeBuilder> = ({ onChange, onReset, settings }) => {
         };
       })
     );
-  }, [selected.type, selected.color]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selected.type, selected.color, selected.cssVariable]);
 
   return (
     <div ref={ref}>
@@ -140,7 +141,14 @@ const ThemeBuilder: FC<IThemeBuilder> = ({ onChange, onReset, settings }) => {
 
             <HexColorInput
               role='presentation'
-              onChange={(color: string) => setSelected({ ...selected, color })}
+              onChange={(color: string) => {
+                const rgb = hexToRGB(color);
+                if (!rgb) {
+                  return;
+                }
+
+                setSelected({ ...selected, color: rgb });
+              }}
               color={selected?.color || ""}
               placeholder='e.g.175ca1'
               className='bg mb-2 rounded-lg border-2 border-primary bg-transparent p-2 text-primary-text-color shadow-md hover:border-primary focus:border-primary focus:shadow-none focus:outline-none focus:ring-transparent dark:text-primary-text-color'
@@ -154,7 +162,7 @@ const ThemeBuilder: FC<IThemeBuilder> = ({ onChange, onReset, settings }) => {
 
                 return setSelected({ ...selected, color: rgb });
               }}
-              color={selected?.color}
+              color={selected?.color ?? (RGBToHex(selected?.color) as string)}
             />
           </div>
         </div>

@@ -2,7 +2,7 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import { vi } from "vitest";
 
 import ThemeBuilder from ".";
-import { hexToRGB } from "./utils";
+import { RGBToHex, hexToRGB } from "./utils";
 
 describe("ThemeBuilder component", () => {
   const mockSettings = [
@@ -157,7 +157,7 @@ describe("ThemeBuilder component", () => {
 
     expect(
       document.documentElement.style.getPropertyValue("--text-color")
-    ).toBe("#abcdef");
+    ).toBe("171 205 239");
   });
 
   it("updates state and CSS variable on HexColorInput change", () => {
@@ -177,7 +177,7 @@ describe("ThemeBuilder component", () => {
 
     expect(
       document.documentElement.style.getPropertyValue("--text-color")
-    ).toBe("#fedcba");
+    ).toBe("254 220 186");
   });
 });
 
@@ -205,5 +205,28 @@ describe("hexToRGB", () => {
     expect(hexToRGB("#000000")).toBe("0 0 0");
     expect(hexToRGB("#ffffff")).toBe("255 255 255");
     expect(hexToRGB("#FFF")).toBe("255 255 255");
+  });
+});
+
+describe("RGBToHex", () => {
+  it("converts RGB format to six-character hex codes", () => {
+    expect(RGBToHex("79 70 229")).toBe("#4f46e5");
+    expect(RGBToHex("255 255 255")).toBe("#ffffff");
+  });
+
+  it("handles values with leading zeros", () => {
+    expect(RGBToHex("0 0 0")).toBe("#000000");
+    expect(RGBToHex("1 2 3")).toBe("#010203");
+  });
+
+  it("is strict about the input format", () => {
+    expect(RGBToHex("255 0 0")).toBe("#ff0000");
+    expect(RGBToHex("0 255 0")).toBe("#00ff00");
+    expect(RGBToHex("0 0 255")).toBe("#0000ff");
+  });
+
+  it("handles edge cases with single and double digit values", () => {
+    expect(RGBToHex("15 15 15")).toBe("#0f0f0f");
+    expect(RGBToHex("5 5 5")).toBe("#050505");
   });
 });
