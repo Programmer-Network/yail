@@ -14,22 +14,22 @@ export const Default = () => {
       label: "Primary",
       type: "primary",
       customCSSProperty: "--color-primary",
-      color: "#4f46e5",
-      defaultColor: "#4f46e5"
+      color: "79 70 229",
+      defaultColor: "79 70 229"
     },
     {
       label: "Background",
       type: "background",
       customCSSProperty: "--color-bg",
-      color: "#1b1f23",
-      defaultColor: "#1b1f23"
+      color: "27 31 35",
+      defaultColor: "27 31 35"
     },
     {
       label: "Text",
       type: "text",
       customCSSProperty: "--text-color",
-      color: "#6b7280",
-      defaultColor: "#6b7280"
+      color: "107 114 128",
+      defaultColor: "107 114 128"
     }
   ]);
 

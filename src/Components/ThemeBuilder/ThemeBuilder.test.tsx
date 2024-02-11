@@ -2,6 +2,7 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import { vi } from "vitest";
 
 import ThemeBuilder from ".";
+import { hexToRGB } from "./utils";
 
 describe("ThemeBuilder component", () => {
   const mockSettings = [
@@ -177,5 +178,32 @@ describe("ThemeBuilder component", () => {
     expect(
       document.documentElement.style.getPropertyValue("--text-color")
     ).toBe("#fedcba");
+  });
+});
+
+describe("hexToRGB", () => {
+  it("converts six-character hex codes to RGB format", () => {
+    expect(hexToRGB("#4f46e5")).toBe("79 70 229");
+  });
+
+  it("converts three-character hex codes to RGB format", () => {
+    expect(hexToRGB("#4e2")).toBe("68 238 34");
+  });
+
+  it("returns null for invalid hex codes", () => {
+    expect(hexToRGB("123456")).toBeNull();
+    expect(hexToRGB("#gggggg")).toBeNull();
+    expect(hexToRGB("#1234")).toBeNull();
+  });
+
+  it("is case-insensitive", () => {
+    expect(hexToRGB("#4F46E5")).toBe("79 70 229");
+    expect(hexToRGB("#4e2")).toBe("68 238 34");
+  });
+
+  it("handles edge cases", () => {
+    expect(hexToRGB("#000000")).toBe("0 0 0");
+    expect(hexToRGB("#ffffff")).toBe("255 255 255");
+    expect(hexToRGB("#FFF")).toBe("255 255 255");
   });
 });

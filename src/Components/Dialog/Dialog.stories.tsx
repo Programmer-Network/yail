@@ -21,7 +21,7 @@ export const Default = () => {
     <div>
       <div className='m-14'>
         <Dialog ref={dialogRef}>
-          <ImageUpload onFileLoaded={() => null} />
+          <ImageUpload onFileLoaded={() => null} label='Select an image' />
         </Dialog>
       </div>
 

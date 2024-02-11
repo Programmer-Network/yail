@@ -55,11 +55,20 @@ export const OutlinedSpinning: Story = {
   }
 };
 
-export const WithChangedCustomCSSProperty: Story = {
+export const Red: Story = {
   args: {
     children: "Button",
     outlined: true,
     isLoading: true,
-    className: "yail-button--error"
+    className: "button--red"
+  }
+};
+
+export const Gray: Story = {
+  args: {
+    children: "Button",
+    outlined: true,
+    isLoading: true,
+    className: "button--gray"
   }
 };

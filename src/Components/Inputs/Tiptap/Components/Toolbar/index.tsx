@@ -99,10 +99,11 @@ export const Toolbar = ({
   };
 
   return (
-    <div className='flex flex-wrap gap-3 border-2 border-b-0 border-primary-text-color bg-primary-text-color px-4 py-1'>
+    <div className='relative flex flex-wrap items-center gap-4 border-2 border-primary-text-color px-4 py-2'>
       {image.isExtensionEnabled && (
         <Dialog ref={dialogRef}>
           <ImageUpload
+            label='Select an image'
             onFileLoaded={async data => {
               try {
                 await image.onSetImage?.(data.base64);
@@ -203,19 +204,26 @@ export const Toolbar = ({
             >
               <Icon
                 iconName={i.iconName as IconName}
-                className={classNames("w-10 !text-primary-background-color", {
-                  "text-primary-text-color": !i.isActive,
-                  "!fill-primary !text-primary": i.isActive,
-                  "cursor-not-allowed":
-                    typeof i.isDisabled === "function" && i.isDisabled(),
-                  "cursor-default": !hasSelection,
-                  "fill-primary": i.iconName === "IconLink" && hasSelection,
-                  "w-[34px]":
-                    i.iconName === "IconLink" || i.iconName === "IconItalic",
-                  "w-[36px]": i.iconName === "IconBold",
-                  "w-[31px]": i.iconName === "IconImage",
-                  "w-[40px]": i.iconName === "IconLink"
-                })}
+                className={classNames(
+                  "w-8 cursor-pointer border-primary-text-color drop-shadow-md",
+                  {
+                    "text-primary-text-color": !i.isActive,
+                    "!fill-primary !text-primary": i.isActive,
+                    "cursor-not-allowed":
+                      typeof i.isDisabled === "function" && i.isDisabled(),
+                    "cursor-default": !hasSelection,
+                    "fill-primary": i.iconName === "IconLink" && hasSelection,
+                    "w-[27px]": i.iconName === "IconStrikethrough",
+                    "w-[28px]":
+                      i.iconName === "IconLink" || i.iconName === "IconItalic",
+                    "w-[29px]":
+                      i.iconName === "IconBold" ||
+                      i.iconName === "IconListOl" ||
+                      i.iconName === "IconListUl",
+                    "w-[26px]": i.iconName === "IconImage",
+                    "w-[32px]": i.iconName === "IconLink"
+                  }
+                )}
               />
             </button>
           );

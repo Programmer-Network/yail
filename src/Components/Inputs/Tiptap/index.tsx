@@ -140,7 +140,7 @@ const Tiptap: FC<TiptapProps> = forwardRef(
           image={image}
           link={link}
         />
-        <div className='border-2 border-primary-text-color p-4'>
+        <div className='border-2 border-t-0 border-primary-text-color px-4 py-1 shadow-md'>
           <EditorContent editor={editor} />
         </div>
         {error && <InputError error={error} className='absolute bottom-[-5]' />}

@@ -4,14 +4,6 @@ import { IToolbarIcons, IToolbarIconsReturn } from "../../types";
 const getToolbarIcons = ({ editor }: IToolbarIcons): IToolbarIconsReturn[] => {
   return [
     {
-      id: TIPTAP_TOOLBAR_ITEMS.CODE_BLOCK,
-      onClick: () => {
-        editor.chain().focus().toggleCodeBlock().run();
-      },
-      isActive: editor.isActive("codeBlock"),
-      iconName: "IconCodeBlock"
-    },
-    {
       id: TIPTAP_TOOLBAR_ITEMS.HEADING_1,
       onClick: () => {
         editor.chain().focus().toggleHeading({ level: 1 }).run();
@@ -60,6 +52,16 @@ const getToolbarIcons = ({ editor }: IToolbarIcons): IToolbarIconsReturn[] => {
       iconName: "IconH6"
     },
     {
+      id: TIPTAP_TOOLBAR_ITEMS.BOLD,
+      onClick: () => {
+        editor.chain().focus().toggleBold().run();
+      },
+      isActive: editor.isActive("bold"),
+      iconName: "IconBold",
+      className: "text-rose-500",
+      isDisabled: () => !editor.can().chain().focus().toggleBold().run()
+    },
+    {
       id: TIPTAP_TOOLBAR_ITEMS.ITALIC,
       onClick: () => {
         editor.chain().focus().toggleItalic().run();
@@ -76,25 +78,6 @@ const getToolbarIcons = ({ editor }: IToolbarIcons): IToolbarIconsReturn[] => {
       isActive: editor.isActive("strike"),
       iconName: "IconStrikethrough",
       isDisabled: () => !editor.can().chain().focus().toggleStrike().run()
-    },
-    {
-      id: TIPTAP_TOOLBAR_ITEMS.BOLD,
-      onClick: () => {
-        editor.chain().focus().toggleBold().run();
-      },
-      isActive: editor.isActive("bold"),
-      iconName: "IconBold",
-      className: "text-rose-500",
-      isDisabled: () => !editor.can().chain().focus().toggleBold().run()
-    },
-    {
-      id: TIPTAP_TOOLBAR_ITEMS.CODE,
-      onClick: () => {
-        editor.chain().focus().toggleCode().run();
-      },
-      isActive: editor.isActive("code"),
-      iconName: "IconCode",
-      isDisabled: () => !editor.can().chain().focus().toggleCode().run()
     },
     {
       id: TIPTAP_TOOLBAR_ITEMS.PARAGRAPH,
@@ -141,6 +124,23 @@ const getToolbarIcons = ({ editor }: IToolbarIcons): IToolbarIconsReturn[] => {
     {
       id: TIPTAP_TOOLBAR_ITEMS.IMAGE,
       iconName: "IconImage"
+    },
+    {
+      id: TIPTAP_TOOLBAR_ITEMS.CODE,
+      onClick: () => {
+        editor.chain().focus().toggleCode().run();
+      },
+      isActive: editor.isActive("code"),
+      iconName: "IconCode",
+      isDisabled: () => !editor.can().chain().focus().toggleCode().run()
+    },
+    {
+      id: TIPTAP_TOOLBAR_ITEMS.CODE_BLOCK,
+      onClick: () => {
+        editor.chain().focus().toggleCodeBlock().run();
+      },
+      isActive: editor.isActive("codeBlock"),
+      iconName: "IconCodeBlock"
     }
   ];
 };

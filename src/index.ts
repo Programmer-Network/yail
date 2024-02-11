@@ -1,4 +1,3 @@
-import "./custom-properties.css";
 import "./tailwind.css";
 
 export { default as Accordion } from "Components/Accordion";

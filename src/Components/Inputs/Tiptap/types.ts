@@ -2,6 +2,8 @@ import { Editor, EditorEvents, Extension, Mark, Node } from "@tiptap/react";
 import { SuggestionOptions } from "@tiptap/suggestion";
 import { FC, MouseEventHandler } from "react";
 
+import { IconName } from "Components/Icons/types";
+
 import { TIPTAP_TOOLBAR_ITEMS } from "./constants";
 
 export interface TiptapSuggestionOptions {
@@ -59,7 +61,7 @@ export interface IToolbarIconsReturn {
   id: string;
   onClick?: MouseEventHandler<HTMLButtonElement> | undefined;
   isActive?: boolean;
-  iconName?: string;
+  iconName?: IconName;
   className?: string;
   Icon?: FC;
   isDisabled?: () => boolean;

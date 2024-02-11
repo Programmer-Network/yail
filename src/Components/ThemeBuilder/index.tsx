@@ -8,7 +8,7 @@ import Icon from "Components/Icon";
 
 import { initialSelected } from "./constants";
 import { IThemeBuilder, IThemeBuilderSetting } from "./types";
-import { setCSSVariable } from "./utils";
+import { hexToRGB, setCSSVariable } from "./utils";
 
 const ThemeBuilder: FC<IThemeBuilder> = ({ onChange, onReset, settings }) => {
   const [selected, setSelected] = useState<{
@@ -146,7 +146,14 @@ const ThemeBuilder: FC<IThemeBuilder> = ({ onChange, onReset, settings }) => {
               className='bg mb-2 rounded-lg border-2 border-primary bg-transparent p-2 text-primary-text-color shadow-md hover:border-primary focus:border-primary focus:shadow-none focus:outline-none focus:ring-transparent dark:text-primary-text-color'
             />
             <HexColorPicker
-              onChange={color => setSelected({ ...selected, color })}
+              onChange={color => {
+                const rgb = hexToRGB(color);
+                if (!rgb) {
+                  return;
+                }
+
+                return setSelected({ ...selected, color: rgb });
+              }}
               color={selected?.color}
             />
           </div>

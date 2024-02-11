@@ -2,8 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    --color-primary: 79 70 229;
+    --color-bg: 27 31 35;
+    --text-color: 107 114 128;
+  }
+}
+
 @layer utilities {
   .text-stroke {
     -webkit-text-stroke: 0.8px;
   }
+}
+
+.primary {
+  color: var(--color-primary);
+}
+
+.primary-background-color {
+  color: var(--color-bg);
+}
+
+.primary-text-color {
+  color: var(--text-color);
+}
+
+.bg-derived {
+  background-color: var(--color-bg-rgb);
 }

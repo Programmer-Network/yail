@@ -1,3 +1,7 @@
-.yail-button--error {
-  --color-primary: #dc2626;
+.button--red {
+  --color-primary: 220 38 38;
+}
+
+.button--gray {
+  --color-primary: 107 114 128;
 }
