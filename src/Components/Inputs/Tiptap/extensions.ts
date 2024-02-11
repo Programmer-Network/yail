@@ -108,32 +108,36 @@ const extensionsMap: IExtensionsMap = {
   })
 };
 
+export const defaultExtensions = ({
+  placeholder
+}: {
+  placeholder?: string;
+}) => [
+  Document,
+  Text,
+  Code,
+  HardBreak,
+  Dropcursor,
+  Placeholder.configure({
+    emptyEditorClass: "is-editor-empty",
+    placeholder
+  }),
+  Paragraph.configure({
+    HTMLAttributes: {
+      class: toolbarItemToClassName[TIPTAP_TOOLBAR_ITEMS.PARAGRAPH].classes
+    }
+  }),
+  History.configure({
+    depth: 10
+  })
+];
+
 const getExtensions = ({
   toolbarItems,
   placeholder,
   suggestions
 }: IGetExtensions) => {
-  const defaultExtensions = [
-    Document,
-    Text,
-    Code,
-    HardBreak,
-    Dropcursor,
-    Placeholder.configure({
-      emptyEditorClass: "is-editor-empty",
-      placeholder
-    }),
-    Paragraph.configure({
-      HTMLAttributes: {
-        class: toolbarItemToClassName[TIPTAP_TOOLBAR_ITEMS.PARAGRAPH].classes
-      }
-    }),
-    History.configure({
-      depth: 10
-    })
-  ];
-
-  const extensions = defaultExtensions.concat(
+  const extensions = defaultExtensions({ placeholder }).concat(
     toolbarItems?.length
       ? Object.keys(extensionsMap)
           .filter(key =>

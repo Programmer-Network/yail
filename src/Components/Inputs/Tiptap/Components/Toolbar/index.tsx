@@ -162,11 +162,7 @@ export const Toolbar = ({
         editor
       })
         .filter(i => {
-          if (!toolbarItems.length) {
-            return true;
-          }
-
-          return toolbarItems.find(id => id === i.id);
+          return toolbarItems?.find(id => id === i.id);
         })
         .map(i => {
           return (

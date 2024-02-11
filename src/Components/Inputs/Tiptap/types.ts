@@ -19,11 +19,11 @@ export interface TiptapProps {
   onSetImage?: (base64Image: string) => Promise<void>;
   suggestions?: TiptapSuggestionOptions;
   placeholder?: string;
-  toolbarItems: TiptapControls;
+  toolbarItems?: TiptapControls;
   error?: string;
   label?: string;
   hint?: string;
-  required: boolean;
+  required?: boolean;
 }
 
 export interface TiptapToolbarProps {
@@ -35,7 +35,7 @@ export interface TiptapToolbarProps {
     isExtensionEnabled: boolean;
   };
   editor: Editor;
-  toolbarItems: TiptapControls;
+  toolbarItems?: TiptapControls;
 }
 
 export interface TiptapRef {

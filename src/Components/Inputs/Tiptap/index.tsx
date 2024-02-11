@@ -127,6 +127,8 @@ const Tiptap: FC<TiptapProps> = forwardRef(
       return null;
     }
 
+    const hasToolbar = toolbarItems && toolbarItems?.length > 0;
+
     return (
       <div
         className={classNames("relative", {
@@ -134,13 +136,22 @@ const Tiptap: FC<TiptapProps> = forwardRef(
         })}
       >
         {label && <InputHeader label={label} hint={hint} required={required} />}
-        <Toolbar
-          editor={editor}
-          toolbarItems={toolbarItems}
-          image={image}
-          link={link}
-        />
-        <div className='border-2 !border-t-0 border-primary-text-color px-4 py-1 shadow-md'>
+        {hasToolbar && (
+          <Toolbar
+            editor={editor}
+            toolbarItems={toolbarItems}
+            image={image}
+            link={link}
+          />
+        )}
+        <div
+          className={classNames(
+            "border-2 border-primary-text-color px-4 py-1 shadow-md",
+            {
+              "!border-t-0": hasToolbar
+            }
+          )}
+        >
           <EditorContent editor={editor} />
         </div>
         {error && <InputError error={error} className='absolute bottom-[-5]' />}
