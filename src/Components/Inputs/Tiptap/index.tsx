@@ -154,7 +154,7 @@ const Tiptap: FC<TiptapProps> = forwardRef(
         >
           <EditorContent editor={editor} />
         </div>
-        {error && <InputError error={error} className='absolute bottom-[-5]' />}
+        {error && <InputError error={error} />}
       </div>
     );
   }
