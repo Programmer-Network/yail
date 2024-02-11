@@ -1,13 +1,11 @@
 import { Editor } from "@tiptap/react";
 
 class TiptapUtils {
-  constructor() {}
-
-  isEmptySelection(editor: Editor): boolean {
+  public static isEmptySelection(editor: Editor): boolean {
     return editor.state.selection.empty;
   }
 
-  setEmptyContent() {
+  public static setEmptyContent() {
     return JSON.stringify({
       type: "doc",
       content: [
@@ -19,11 +17,11 @@ class TiptapUtils {
     });
   }
 
-  hasSelection(editor: Editor): boolean {
+  public static hasSelection(editor: Editor): boolean {
     return editor.state.selection.from !== editor.state.selection.to;
   }
 
-  startsWithCharAtCursor(editor: Editor, char: string): boolean {
+  public static startsWithCharAtCursor(editor: Editor, char: string): boolean {
     const { doc, selection } = editor.state;
 
     const parent = doc.resolve(selection.from).parent;
@@ -34,10 +32,10 @@ class TiptapUtils {
     return parent.firstChild.textContent.startsWith(char);
   }
 
-  isCursorAtStartOfEmptyLine(editor: Editor): boolean {
+  public static isCursorAtStartOfEmptyLine(editor: Editor): boolean {
     const { doc, selection } = editor.state;
 
-    if (this.hasSelection(editor)) {
+    if (editor.state.selection.from !== editor.state.selection.to) {
       return false;
     }
 
@@ -51,4 +49,4 @@ class TiptapUtils {
   }
 }
 
-export const tiptapUtils = new TiptapUtils();
+export default TiptapUtils;

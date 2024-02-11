@@ -7,3 +7,4 @@ export { default as Select } from "./Select";
 export { default as Textarea } from "./Textarea";
 export { default as Tiptap } from "./Tiptap";
 export { default as TiptapToHTML } from "./Tiptap/TiptapToHTML";
+export { default as TiptapUtils } from "./Tiptap/TiptapUtils";
