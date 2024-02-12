@@ -21,7 +21,7 @@ const ImageUpload: FC<{
     <div>
       <label
         htmlFor={id}
-        className='flex cursor-pointer flex-col items-center justify-center'
+        className='flex cursor-pointer flex-col items-center justify-center py-12'
       >
         <div className='flex flex-col items-center justify-center'>
           <Icon iconName='IconUpload' className='mb-2 w-20 text-primary' />
