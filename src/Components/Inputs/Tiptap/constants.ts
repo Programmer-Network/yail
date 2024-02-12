@@ -59,7 +59,7 @@ export const toolbarItemToClassName = {
   },
   [TIPTAP_TOOLBAR_ITEMS.YOUTUBE]: {
     tagName: null,
-    classes: "mx-auto block p-2 border border-primary-background-color"
+    classes: "aspect-video h-full w-full py-4"
   },
   [TIPTAP_TOOLBAR_ITEMS.IMAGE]: {
     tagName: "img",
