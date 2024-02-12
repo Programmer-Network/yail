@@ -2,13 +2,7 @@ import classNames from "classnames";
 import React, { forwardRef, useEffect, useRef } from "react";
 
 import "./dialog.css";
-
-interface IDialogProps {
-  className?: string;
-  isOpen?: boolean;
-  children?: React.ReactNode;
-  onClose?: () => void;
-}
+import { IDialogProps } from "./types";
 
 const Dialog = forwardRef<HTMLDialogElement, IDialogProps>(
   ({ className, isOpen, children, onClose }, forwardedRef) => {

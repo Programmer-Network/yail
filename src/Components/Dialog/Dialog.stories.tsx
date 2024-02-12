@@ -3,7 +3,7 @@ import { createRef } from "react";
 import Button from "Components/Button";
 import ImageUpload from "Components/Inputs/Tiptap/Components/ImageUpload";
 
-import Dialog from "./Dialog";
+import Dialog from ".";
 
 export default {
   title: "Core / Dialog",

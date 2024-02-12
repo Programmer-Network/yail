@@ -5,7 +5,7 @@ import programmerNetworkAjv from "programmer-network-ajv";
 import { useRef } from "react";
 
 import Button from "Components/Button";
-import Dialog from "Components/Dialog/Dialog";
+import Dialog from "Components/Dialog";
 import Icon from "Components/Icon";
 import { IconName } from "Components/Icons/types";
 
