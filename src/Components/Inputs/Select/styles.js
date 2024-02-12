@@ -2,7 +2,7 @@
  * @url https://react-select.com/styles
  */
 export const styles = () => {
-  const color = "var(--text-color)";
+  const color = "rgb(var(--text-color))";
   return {
     input: styles => {
       return {
@@ -18,12 +18,12 @@ export const styles = () => {
         ...styles,
         backgroundColor: "transparent",
         borderWidth: "2px",
-        borderColor: "var(--text-color)",
+        borderColor: "rgb(var(--text-color))",
         borderRadius: 0,
         boxShadow: "none",
         color,
         "&:hover": {
-          borderColor: "var(--text-color)"
+          borderColor: "rgb(var(--text-color))"
         }
       };
     },
@@ -34,7 +34,7 @@ export const styles = () => {
         color,
         cursor: isDisabled ? "not-allowed" : "default",
         "&:active": {
-          backgroundColor: "var(--color-primary)",
+          backgroundColor: "rgb(var(--color-primary))",
           color: "#fff"
         }
       };
@@ -43,7 +43,7 @@ export const styles = () => {
       return {
         ...styles,
         "&:hover": {
-          backgroundColor: "var(--color-primary)",
+          backgroundColor: "rgb(var(--color-primary))",
           color: "#fff"
         }
       };
@@ -71,7 +71,7 @@ export const styles = () => {
     placeholder: styles => {
       return {
         ...styles,
-        color: "var(--text-color)"
+        color: "rgb(var(--text-color))"
       };
     },
     valueContainer: styles => {
@@ -86,11 +86,11 @@ export const styles = () => {
     menu: styles => {
       return {
         ...styles,
-        backgroundColor: "var(--color-bg)",
+        backgroundColor: "rgb(var(--color-bg))",
         color,
         boxShadow: "none",
         borderWidth: "2px",
-        borderColor: "var(--text-color)",
+        borderColor: "rgb(var(--text-color))",
         borderRadius: 0,
         zIndex: 99999999
       };
@@ -105,15 +105,15 @@ export const styles = () => {
         background: "##"
       },
       "::-webkit-scrollbar-thumb": {
-        background: "var(--text-color)"
+        background: "rgb(var(--text-color))"
       },
       "::-webkit-scrollbar-thumb:hover": {
-        background: "var(--text-color)"
+        background: "rgb(var(--text-color))"
       }
     }),
     groupHeading: base => ({
       ...base,
-      color: "var(--text-color)",
+      color: "rgb(var(--text-color))",
       padding: "5px 10px",
       fontSize: "0.75rem"
     })
