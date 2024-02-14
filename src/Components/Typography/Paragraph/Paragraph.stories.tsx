@@ -9,5 +9,7 @@ export default {
 };
 
 export const Default = () => {
-  return <Paragraph>Hi World</Paragraph>;
+  return (
+    <Paragraph onClick={() => console.log("Hello, world")}>Hi World</Paragraph>
+  );
 };

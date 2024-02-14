@@ -1,14 +1,18 @@
 import classNames from "classnames";
-import { FC, ReactNode } from "react";
+import { FC, MouseEvent, ReactNode } from "react";
 
 import { headingCommonStyles } from "../utils";
 
-const H1: FC<{ children: ReactNode; className?: string }> = ({
-  children,
-  className
-}) => {
+const H1: FC<{
+  children: ReactNode;
+  className?: string;
+  onClick?: (e: MouseEvent<HTMLHeadingElement>) => void;
+}> = ({ children, className, onClick }) => {
   return (
-    <h1 className={classNames("text-4xl", headingCommonStyles, className)}>
+    <h1
+      className={classNames("text-4xl", headingCommonStyles, className)}
+      onClick={onClick}
+    >
       {children}
     </h1>
   );
