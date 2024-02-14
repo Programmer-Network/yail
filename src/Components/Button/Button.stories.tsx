@@ -72,3 +72,12 @@ export const Gray: Story = {
     className: "button--gray"
   }
 };
+
+export const Green: Story = {
+  args: {
+    children: "Button",
+    outlined: true,
+    isLoading: true,
+    className: "button--green"
+  }
+};
