@@ -10,7 +10,11 @@ const H2: FC<{
 }> = ({ children, className, onClick }) => {
   return (
     <h2
-      className={classNames("text-3xl", headingCommonStyles, className)}
+      className={classNames(
+        "text-lg md:text-3xl",
+        headingCommonStyles,
+        className
+      )}
       onClick={onClick}
     >
       {children}
