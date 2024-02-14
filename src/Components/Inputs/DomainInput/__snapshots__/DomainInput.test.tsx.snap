@@ -9,7 +9,7 @@ exports[`DomainInput component > matches snapshot 1`] = `
       class="flex w-full"
     >
       <span
-        class="min-w-max border-2 border-r-0 border-primary-text-color px-4 py-2 uppercase leading-5 tracking-tighter selection:text-primary-text-color group-hover:border-primary"
+        class="min-w-max border-2 border-r-0 border-primary-text-color px-4 py-2 leading-5 tracking-tighter selection:text-primary-text-color group-hover:border-primary"
         data-testid="domain"
       >
         example.com

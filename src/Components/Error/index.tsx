@@ -34,7 +34,7 @@ const Error: React.FC<IErrorProps> = ({
           <div className='text-center'>
             <p
               data-testid='error-text'
-              className='font-semibold uppercase tracking-wide text-primary md:text-6xl'
+              className='font-semibold tracking-wide text-primary md:text-6xl'
             >
               {error}
             </p>

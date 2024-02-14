@@ -26,7 +26,7 @@ const DomainInput: FC<IDomainInputProps> = props => {
         <span
           data-testid='domain'
           className={classNames(
-            "min-w-max border-2 border-r-0 border-primary-text-color px-4 py-2 uppercase leading-5 tracking-tighter selection:text-primary-text-color",
+            "min-w-max border-2 border-r-0 border-primary-text-color px-4 py-2 leading-5 tracking-tighter selection:text-primary-text-color",
             props?.domainClassName,
             {
               "group-hover:border-primary": !props.disabled,

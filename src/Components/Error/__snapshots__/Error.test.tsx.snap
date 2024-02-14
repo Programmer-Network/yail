@@ -21,7 +21,7 @@ exports[`Error component > renders correctly - snapshot test 1`] = `
           class="text-center"
         >
           <p
-            class="font-semibold uppercase tracking-wide text-primary md:text-6xl"
+            class="font-semibold tracking-wide text-primary md:text-6xl"
             data-testid="error-text"
           >
             404 error
