@@ -4,8 +4,7 @@ import { FC } from "react";
 import { IInputErrorProps } from "./types";
 
 const InputError: FC<IInputErrorProps> = ({ error, className }) => {
-  const baseClassName =
-    "text-rose-500 peer-invalid:visible px-4 mb-4 max-w-[450px]";
+  const baseClassName = "text-rose-500 peer-invalid:visible mb-4 max-w-[450px]";
 
   if (Array.isArray(error)) {
     return error.map((e, i) => {
