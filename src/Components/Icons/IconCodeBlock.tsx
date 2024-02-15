@@ -4,7 +4,7 @@ const SvgIconCodeBlock = (props: SVGProps<SVGSVGElement>) => (
   <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' {...props}>
     <path
       fill='currentColor'
-      d='m9.6 14.908.708-.714L8.113 12l2.175-2.175-.707-.713L6.692 12zm4.8 0L17.308 12 14.4 9.092l-.708.714L15.887 12l-2.195 2.194zM4 20V4h16v16zm1-1h14V5H5zm0 0V5z'
+      d='M3 19V5h18v14zm1-1h16V8H4zm3.5-1.712-.688-.688L9.387 13l-2.6-2.6.713-.688L10.788 13zm5 .212v-1h5v1z'
     />
   </svg>
 );
