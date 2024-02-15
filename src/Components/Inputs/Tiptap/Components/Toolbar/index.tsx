@@ -99,7 +99,7 @@ export const Toolbar = ({
   };
 
   return (
-    <div className='relative flex flex-wrap items-center gap-4 border-2 border-primary-text-color px-4 py-2'>
+    <div className='relative flex flex-wrap items-center gap-1 border-2 border-primary-text-color px-2 py-2 md:gap-4 md:px-4'>
       {image.isExtensionEnabled && (
         <Dialog ref={dialogRef}>
           <ImageUpload
