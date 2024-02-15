@@ -1,7 +1,8 @@
 import classNames from "classnames";
-import React, { FC } from "react";
+import { FC } from "react";
 
 import Button from "Components/Button";
+import { H2 } from "Components/Typography";
 
 import { ICTAProps } from "./types";
 
@@ -28,9 +29,7 @@ const CTA: FC<ICTAProps> = ({
               />
             )}
 
-            <h3 className='text-xl font-extrabold text-primary-text-color'>
-              {title}
-            </h3>
+            <H2 className='!mb-0 text-primary-text-color'>{title}</H2>
             <p className='mx-auto max-w-md text-primary-text-color'>
               {subtitle}
             </p>
