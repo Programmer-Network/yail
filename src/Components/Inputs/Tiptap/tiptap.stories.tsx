@@ -57,7 +57,7 @@ export const Default = () => {
   };
 
   return (
-    <div className='w-[768px]'>
+    <div className='w-full md:w-[768px]'>
       <Tiptap
         label='Content'
         suggestions={suggestions}
@@ -75,7 +75,7 @@ export const Default = () => {
       />
 
       <div
-        className='mt-8 text-indigo-500'
+        className='mt-8 break-all text-indigo-500'
         dangerouslySetInnerHTML={{ __html: editorState }}
       ></div>
     </div>

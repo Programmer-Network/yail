@@ -146,7 +146,7 @@ const Tiptap: FC<TiptapProps> = forwardRef(
         )}
         <div
           className={classNames(
-            "border-2 border-primary-text-color px-4 py-1 shadow-md",
+            "break-all border-2 border-primary-text-color px-4 py-1 shadow-md",
             {
               "!border-t-0": hasToolbar
             }
