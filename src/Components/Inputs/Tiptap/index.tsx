@@ -144,17 +144,19 @@ const Tiptap: FC<TiptapProps> = forwardRef(
             link={link}
           />
         )}
-        <div
-          className={classNames(
-            "break-all border-2 border-primary-text-color px-4 py-1 shadow-md",
-            {
-              "!border-t-0": hasToolbar
-            }
-          )}
-        >
-          <EditorContent editor={editor} />
+        <div className='flex flex-col gap-1'>
+          <div
+            className={classNames(
+              "break-all border-2 border-primary-text-color px-4 py-1 shadow-md",
+              {
+                "!border-t-0": hasToolbar
+              }
+            )}
+          >
+            <EditorContent editor={editor} />
+          </div>
+          {error && <InputError error={error} />}
         </div>
-        {error && <InputError error={error} />}
       </div>
     );
   }
