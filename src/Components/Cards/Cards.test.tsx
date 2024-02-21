@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import { BrowserRouter } from "react-router-dom";
 
 import Cards from ".";
 
@@ -28,28 +29,48 @@ describe("Cards component", () => {
   ];
 
   it("renders correctly with cards", () => {
-    render(<Cards cards={mockCards} columns={3} />);
+    render(
+      <BrowserRouter>
+        <Cards cards={mockCards} columns={3} />
+      </BrowserRouter>
+    );
     expect(screen.getByText("Card 1 Title")).toBeInTheDocument();
     expect(screen.getByText("Card 2 Title")).toBeInTheDocument();
   });
 
   it("applies the correct grid column class based on columns prop", () => {
-    const { rerender } = render(<Cards cards={mockCards} columns={3} />);
+    const { rerender } = render(
+      <BrowserRouter>
+        <Cards cards={mockCards} columns={3} />
+      </BrowserRouter>
+    );
     expect(screen.getByTestId("cards")).toHaveClass("grid-cols-3");
 
-    rerender(<Cards cards={mockCards} columns={4} />);
+    rerender(
+      <BrowserRouter>
+        <Cards cards={mockCards} columns={4} />
+      </BrowserRouter>
+    );
     expect(screen.getByTestId("cards")).toHaveClass("grid-cols-4");
   });
 
   it("renders the correct number of Card components", () => {
-    render(<Cards cards={mockCards} columns={3} />);
+    render(
+      <BrowserRouter>
+        <Cards cards={mockCards} columns={3} />
+      </BrowserRouter>
+    );
     const cardElements = screen.getAllByText(/Card \d Title/);
     expect(cardElements).toHaveLength(mockCards.length);
   });
 
   it("applies custom class names correctly", () => {
     const customClassName = "custom-grid-class";
-    render(<Cards cards={mockCards} columns={3} className={customClassName} />);
+    render(
+      <BrowserRouter>
+        <Cards cards={mockCards} columns={3} className={customClassName} />
+      </BrowserRouter>
+    );
     expect(screen.getByTestId("cards")).toHaveClass(customClassName);
   });
 });
