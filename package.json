@@ -1,6 +1,6 @@
 {
   "name": "@programmer_network/yail",
-  "version": "1.0.96",
+  "version": "1.0.97",
   "description": "Programmer Network's official UI library for React",
   "author": "Aleksandar Grbic - (https://programmer.network)",
   "publishConfig": {
@@ -102,9 +102,9 @@
     "postcss": "8.4.31",
     "prettier": "3.0.3",
     "prettier-plugin-tailwindcss": "0.5.6",
-    "react": "^18.2.0",
+    "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-router-dom": "^6.22.1",
+    "react-router-dom": "6.21.1",
     "storybook": "^7.6.13",
     "storybook-addon-react-router-v6": "^2.0.10",
     "tailwindcss": "3.3.5",
