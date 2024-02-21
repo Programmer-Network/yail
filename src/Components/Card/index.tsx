@@ -1,13 +1,12 @@
 import classNames from "classnames";
 import { FC } from "react";
-import { NavLink } from "react-router-dom";
 
 import { H3, Paragraph } from "Components/Typography";
 
 import { ICard } from "./types";
 
-const Card: FC<ICard> = ({ data, className }) => {
-  const { title, description, author, date, tags, titleUrl } = data;
+const Card: FC<ICard> = ({ data, className, NavLink }) => {
+  const { title, description, author, date, tags, titleUrl, authorUrl } = data;
 
   return (
     <div className={classNames("group mb-4", className)}>
@@ -15,9 +14,19 @@ const Card: FC<ICard> = ({ data, className }) => {
         <div className='my-1 flex flex-1 justify-between gap-2'>
           <div className='flex items-center gap-2'>
             {author && (
-              <span className='flex items-center gap-2 text-primary hover:text-primary'>
-                {author}
-              </span>
+              <>
+                {authorUrl ? (
+                  <NavLink to={authorUrl}>
+                    <span className='flex items-center gap-2 text-primary hover:text-primary'>
+                      {author}
+                    </span>
+                  </NavLink>
+                ) : (
+                  <span className='flex items-center gap-2 text-primary hover:text-primary'>
+                    {author}
+                  </span>
+                )}
+              </>
             )}
             {date && <time dateTime={date}>{date}</time>}
           </div>
@@ -28,7 +37,7 @@ const Card: FC<ICard> = ({ data, className }) => {
         <H3 className='!mb-0'>{title}</H3>
       </NavLink>
       <Paragraph>{description}</Paragraph>
-      {tags?.length && (
+      {tags?.length && tags.length > 0 && (
         <div className='mt-2 flex items-center gap-2'>
           {tags.map((tag, index) => (
             <NavLink

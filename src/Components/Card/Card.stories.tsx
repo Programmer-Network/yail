@@ -1,4 +1,5 @@
 import type { Meta } from "@storybook/react";
+import { NavLink } from "react-router-dom";
 import { withRouter } from "storybook-addon-react-router-v6";
 
 import Card from ".";
@@ -16,6 +17,7 @@ export const Default = () => {
   return (
     <div className='m-8'>
       <Card
+        NavLink={NavLink}
         data={{
           title: "Lorem ipsum dolor sit amet",
           titleUrl: "/",

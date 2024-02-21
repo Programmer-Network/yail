@@ -1,14 +1,18 @@
 import classNames from "classnames";
 import { FC } from "react";
+import { NavLinkProps } from "react-router-dom";
 
 import Card from "Components/Card";
 import { ICardData } from "Components/Card/types";
 
 const Cards: FC<{
   cards: ICardData[];
+  NavLink: React.ForwardRefExoticComponent<
+    NavLinkProps & React.RefAttributes<HTMLAnchorElement>
+  >;
   columns: number;
   className?: string;
-}> = ({ className, cards, columns }) => {
+}> = ({ className, cards, columns, NavLink }) => {
   return (
     <div
       data-testid='cards'
@@ -28,7 +32,7 @@ const Cards: FC<{
       })}
     >
       {cards.map((card, index) => {
-        return <Card key={index} data={card} />;
+        return <Card key={index} data={card} NavLink={NavLink} />;
       })}
     </div>
   );

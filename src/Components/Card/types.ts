@@ -1,3 +1,5 @@
+import { NavLinkProps } from "react-router-dom";
+
 export interface ICardData {
   title: string;
   titleUrl: string;
@@ -13,5 +15,8 @@ export interface ICardData {
 
 export interface ICard {
   data: ICardData;
+  NavLink: React.ForwardRefExoticComponent<
+    NavLinkProps & React.RefAttributes<HTMLAnchorElement>
+  >;
   className?: string;
 }

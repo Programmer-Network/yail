@@ -1,10 +1,11 @@
 import { render, screen } from "@testing-library/react";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, NavLink } from "react-router-dom";
 
 import Card from ".";
 
 describe("Card component", () => {
   const mockProps = {
+    NavLink,
     data: {
       title: "Test Title",
       titleUrl: "/",
@@ -24,6 +25,7 @@ describe("Card component", () => {
     render(
       <BrowserRouter>
         <Card
+          NavLink={NavLink}
           data={{
             title: mockProps.data.title,
             titleUrl: "/",
@@ -55,6 +57,7 @@ describe("Card component", () => {
     const { rerender } = render(
       <BrowserRouter>
         <Card
+          NavLink={NavLink}
           data={{
             title: mockProps.data.title,
             titleUrl: "/",
@@ -79,6 +82,7 @@ describe("Card component", () => {
     const { rerender } = render(
       <BrowserRouter>
         <Card
+          NavLink={NavLink}
           data={{
             title: mockProps.data.title,
             titleUrl: "/",

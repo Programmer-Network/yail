@@ -1,4 +1,5 @@
 import type { Meta } from "@storybook/react";
+import { NavLink } from "react-router-dom";
 import { withRouter } from "storybook-addon-react-router-v6";
 
 import Cards from ".";
@@ -51,7 +52,7 @@ export const Default = () => {
 
   return (
     <div className='m-8'>
-      <Cards cards={cards} columns={2} />
+      <Cards cards={cards} columns={2} NavLink={NavLink} />
     </div>
   );
 };
