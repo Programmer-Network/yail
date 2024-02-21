@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, NavLink } from "react-router-dom";
 
 import Cards from ".";
 
@@ -31,7 +31,7 @@ describe("Cards component", () => {
   it("renders correctly with cards", () => {
     render(
       <BrowserRouter>
-        <Cards cards={mockCards} columns={3} />
+        <Cards cards={mockCards} columns={3} NavLink={NavLink} />
       </BrowserRouter>
     );
     expect(screen.getByText("Card 1 Title")).toBeInTheDocument();
@@ -41,14 +41,14 @@ describe("Cards component", () => {
   it("applies the correct grid column class based on columns prop", () => {
     const { rerender } = render(
       <BrowserRouter>
-        <Cards cards={mockCards} columns={3} />
+        <Cards cards={mockCards} columns={3} NavLink={NavLink} />
       </BrowserRouter>
     );
     expect(screen.getByTestId("cards")).toHaveClass("grid-cols-3");
 
     rerender(
       <BrowserRouter>
-        <Cards cards={mockCards} columns={4} />
+        <Cards cards={mockCards} columns={4} NavLink={NavLink} />
       </BrowserRouter>
     );
     expect(screen.getByTestId("cards")).toHaveClass("grid-cols-4");
@@ -57,7 +57,7 @@ describe("Cards component", () => {
   it("renders the correct number of Card components", () => {
     render(
       <BrowserRouter>
-        <Cards cards={mockCards} columns={3} />
+        <Cards cards={mockCards} columns={3} NavLink={NavLink} />
       </BrowserRouter>
     );
     const cardElements = screen.getAllByText(/Card \d Title/);
@@ -68,7 +68,12 @@ describe("Cards component", () => {
     const customClassName = "custom-grid-class";
     render(
       <BrowserRouter>
-        <Cards cards={mockCards} columns={3} className={customClassName} />
+        <Cards
+          cards={mockCards}
+          columns={3}
+          className={customClassName}
+          NavLink={NavLink}
+        />
       </BrowserRouter>
     );
     expect(screen.getByTestId("cards")).toHaveClass(customClassName);
