@@ -1,12 +1,13 @@
 import classNames from "classnames";
 import { FC } from "react";
+import { NavLink } from "react-router-dom";
 
-import { Anchor, H3, Paragraph } from "Components/Typography";
+import { H3, Paragraph } from "Components/Typography";
 
 import { ICard } from "./types";
 
 const Card: FC<ICard> = ({ data, className }) => {
-  const { title, description, author, date, tags } = data;
+  const { title, description, author, date, tags, titleUrl } = data;
 
   return (
     <div className={classNames("group mb-4", className)}>
@@ -23,14 +24,20 @@ const Card: FC<ICard> = ({ data, className }) => {
         </div>
       </div>
 
-      <H3 className='!mb-0'>{title}</H3>
+      <NavLink to={titleUrl}>
+        <H3 className='!mb-0'>{title}</H3>
+      </NavLink>
       <Paragraph>{description}</Paragraph>
       {tags?.length && (
         <div className='mt-2 flex items-center gap-2'>
           {tags.map((tag, index) => (
-            <Anchor key={index} href={`/tags/${tag}`}>
-              {tag}
-            </Anchor>
+            <NavLink
+              key={index}
+              to={tag.tagUrl}
+              className='hover:text-stroke text-primary hover:underline hover:opacity-80 active:opacity-50'
+            >
+              {tag.name}
+            </NavLink>
           ))}
         </div>
       )}

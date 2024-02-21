@@ -1,9 +1,11 @@
 import type { Meta } from "@storybook/react";
+import { withRouter } from "storybook-addon-react-router-v6";
 
 import Card from ".";
 
 const meta = {
   title: "Components/Card",
+  decorators: [withRouter],
   component: Card,
   argTypes: {}
 } satisfies Meta<typeof Card>;
@@ -16,11 +18,15 @@ export const Default = () => {
       <Card
         data={{
           title: "Lorem ipsum dolor sit amet",
+          titleUrl: "/",
           description:
             "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum, nesciunt.",
           author: "John Doe",
           date: "2021-10-10T00:00:00.000Z",
-          tags: ["tag1", "tag2"]
+          tags: [
+            { name: "Tag 1", tagUrl: "/" },
+            { name: "Tag 2", tagUrl: "/" }
+          ]
         }}
       />
     </div>

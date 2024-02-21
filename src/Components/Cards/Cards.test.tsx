@@ -6,17 +6,24 @@ describe("Cards component", () => {
   const mockCards = [
     {
       title: "Card 1 Title",
+      titleUrl: "/",
       description: "Card 1 Description",
       author: "Card 1 Author",
+      authorUrl: "/",
       date: "2021-01-01",
-      tags: ["tag1", "tag2"]
+      tags: [
+        { name: "tag1", tagUrl: "/" },
+        { name: "tag2", tagUrl: "/" }
+      ]
     },
     {
       title: "Card 2 Title",
+      titleUrl: "/",
       description: "Card 2 Description",
       author: "Card 2 Author",
+      authorUrl: "/",
       date: "2021-02-02",
-      tags: ["tag3", "tag4"]
+      tags: [{ name: "tag3", tagUrl: "/" }]
     }
   ];
 
