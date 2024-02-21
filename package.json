@@ -1,6 +1,6 @@
 {
   "name": "@programmer_network/yail",
-  "version": "1.0.95",
+  "version": "1.0.96",
   "description": "Programmer Network's official UI library for React",
   "author": "Aleksandar Grbic - (https://programmer.network)",
   "publishConfig": {
@@ -102,6 +102,9 @@
     "postcss": "8.4.31",
     "prettier": "3.0.3",
     "prettier-plugin-tailwindcss": "0.5.6",
+    "react": "^18.2.0",
+    "react-dom": "18.2.0",
+    "react-router-dom": "^6.22.1",
     "storybook": "^7.6.13",
     "storybook-addon-react-router-v6": "^2.0.10",
     "tailwindcss": "3.3.5",
@@ -146,7 +149,6 @@
     "prosemirror-state": "1.4.3",
     "react-colorful": "5.6.1",
     "react-copy-to-clipboard": "5.1.0",
-    "react-dom": "18.2.0",
     "react-image-crop": "10.1.8",
     "react-select": "5.8.0",
     "react-select-async-paginate": "0.7.3",
@@ -155,8 +157,8 @@
     "tippy.js": "6.3.7"
   },
   "peerDependencies": {
-    "react": ">=18.2.0",
-    "react-dom": ">=18.2.0",
-    "react-router-dom": ">=6.21.1"
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-router-dom": "6.21.1"
   }
 }

@@ -13,8 +13,8 @@ describe("Card component", () => {
       author: "Test Author",
       authorUrl: "/",
       tags: [
-        { name: "tag1", tagUrl: "/" },
-        { name: "tag2", tagUrl: "/" }
+        { name: "tag1", url: "/" },
+        { name: "tag2", url: "/" }
       ]
     },
     className: "custom-class"

@@ -33,7 +33,7 @@ const Card: FC<ICard> = ({ data, className }) => {
           {tags.map((tag, index) => (
             <NavLink
               key={index}
-              to={tag.tagUrl}
+              to={tag.url}
               className='hover:text-stroke text-primary hover:underline hover:opacity-80 active:opacity-50'
             >
               {tag.name}

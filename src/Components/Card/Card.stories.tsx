@@ -24,8 +24,8 @@ export const Default = () => {
           author: "John Doe",
           date: "2021-10-10T00:00:00.000Z",
           tags: [
-            { name: "Tag 1", tagUrl: "/" },
-            { name: "Tag 2", tagUrl: "/" }
+            { name: "Tag 1", url: "/" },
+            { name: "Tag 2", url: "/" }
           ]
         }}
       />

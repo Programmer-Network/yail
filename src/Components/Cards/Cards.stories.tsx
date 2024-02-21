@@ -23,8 +23,8 @@ export const Default = () => {
       authorUrl: "/",
       date: "2021-10-10T00:00:00.000Z",
       tags: [
-        { name: "tag1", tagUrl: "/" },
-        { name: "tag2", tagUrl: "/" }
+        { name: "tag1", tag: "/" },
+        { name: "tag2", tag: "/" }
       ]
     },
     {
@@ -35,7 +35,7 @@ export const Default = () => {
       author: "John Doe",
       authorUrl: "/",
       date: "2021-10-10T00:00:00.000Z",
-      tags: [{ name: "tag1", tagUrl: "/" }]
+      tags: [{ name: "tag1", tag: "/" }]
     },
     {
       title: "Lorem ipsum dolor sit amet",
@@ -45,7 +45,7 @@ export const Default = () => {
       author: "John Doe",
       authorUrl: "/",
       date: "2021-10-10T00:00:00.000Z",
-      tags: [{ name: "tag1", tagUrl: "/" }]
+      tags: [{ name: "tag1", tag: "/" }]
     }
   ];
 

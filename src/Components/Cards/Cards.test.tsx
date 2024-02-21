@@ -13,8 +13,8 @@ describe("Cards component", () => {
       authorUrl: "/",
       date: "2021-01-01",
       tags: [
-        { name: "tag1", tagUrl: "/" },
-        { name: "tag2", tagUrl: "/" }
+        { name: "tag1", url: "/" },
+        { name: "tag2", url: "/" }
       ]
     },
     {
@@ -24,7 +24,7 @@ describe("Cards component", () => {
       author: "Card 2 Author",
       authorUrl: "/",
       date: "2021-02-02",
-      tags: [{ name: "tag3", tagUrl: "/" }]
+      tags: [{ name: "tag3", url: "/" }]
     }
   ];
 
