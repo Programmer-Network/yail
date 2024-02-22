@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import { FC } from "react";
 
-import { H3, Paragraph } from "Components/Typography";
+import { H2, Paragraph } from "Components/Typography";
 
 import { ICard } from "./types";
 
@@ -11,8 +11,8 @@ const Card: FC<ICard> = ({ data, className, NavLink }) => {
   return (
     <div className={classNames("group mb-4", className)}>
       <div className='flex items-center text-primary-text-color'>
-        <div className='my-1 flex flex-1 justify-between gap-2'>
-          <div className='flex items-center gap-2'>
+        <div className='flex flex-1 justify-between gap-2 md:my-1'>
+          <div className='flex flex-col md:flex-row md:items-center md:gap-2'>
             {author && (
               <>
                 {authorUrl ? (
@@ -34,7 +34,7 @@ const Card: FC<ICard> = ({ data, className, NavLink }) => {
       </div>
 
       <NavLink to={titleUrl}>
-        <H3 className='!mb-0'>{title}</H3>
+        <H2 className='!mb-0'>{title}</H2>
       </NavLink>
       <Paragraph>{description}</Paragraph>
       {tags?.length && tags.length > 0 && (

@@ -44,14 +44,19 @@ describe("Cards component", () => {
         <Cards cards={mockCards} columns={3} NavLink={NavLink} />
       </BrowserRouter>
     );
-    expect(screen.getByTestId("cards")).toHaveClass("grid-cols-3");
+
+    expect(screen.getByTestId("cards")).toHaveClass(
+      "grid grid-cols-1 md:grid-cols-3"
+    );
 
     rerender(
       <BrowserRouter>
         <Cards cards={mockCards} columns={4} NavLink={NavLink} />
       </BrowserRouter>
     );
-    expect(screen.getByTestId("cards")).toHaveClass("grid-cols-4");
+    expect(screen.getByTestId("cards")).toHaveClass(
+      "grid grid-cols-1 md:grid-cols-4"
+    );
   });
 
   it("renders the correct number of Card components", () => {
