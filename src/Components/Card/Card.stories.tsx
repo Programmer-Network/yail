@@ -34,3 +34,25 @@ export const Default = () => {
     </div>
   );
 };
+
+export const WithExternalLink = () => {
+  return (
+    <div className='m-8'>
+      <Card
+        NavLink={NavLink}
+        data={{
+          title: "Lorem ipsum dolor sit amet",
+          titleUrl: "https://programmer.network",
+          description:
+            "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum, nesciunt.",
+          author: "John Doe",
+          date: "2021-10-10T00:00:00.000Z",
+          tags: [
+            { name: "Tag 1", url: "/" },
+            { name: "Tag 2", url: "/" }
+          ]
+        }}
+      />
+    </div>
+  );
+};
