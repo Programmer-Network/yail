@@ -1,8 +1,10 @@
+import classNames from "classnames";
 import { FC } from "react";
 
 import { IAnchorProps } from "./types";
 
 const Anchor: FC<IAnchorProps> = ({
+  className,
   target,
   href,
   children,
@@ -10,7 +12,10 @@ const Anchor: FC<IAnchorProps> = ({
 }: IAnchorProps) => (
   <a
     onClick={onClick}
-    className='hover:text-stroke text-primary hover:underline hover:opacity-80 active:opacity-50'
+    className={classNames(
+      "hover:text-stroke text-primary hover:underline hover:opacity-80 active:opacity-50",
+      className
+    )}
     target={target}
     href={href}
     rel='noreferrer'
