@@ -49,7 +49,7 @@ describe("Card component", () => {
     expect(screen.getByText(mockProps.data.author)).toBeInTheDocument();
     expect(screen.getByText(mockProps.data.date)).toBeInTheDocument();
     mockProps.data.tags.forEach(({ name }) => {
-      expect(screen.getByText(name)).toBeInTheDocument();
+      expect(screen.getByText(`#${name}`)).toBeInTheDocument();
     });
   });
 
@@ -99,7 +99,7 @@ describe("Card component", () => {
       </BrowserRouter>
     );
     mockProps.data.tags.forEach(({ name }) => {
-      expect(screen.getByText(name)).toBeInTheDocument();
+      expect(screen.getByText(`#${name}`)).toBeInTheDocument();
     });
   });
 
