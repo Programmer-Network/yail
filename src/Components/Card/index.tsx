@@ -1,6 +1,5 @@
 import classNames from "classnames";
 import { FC } from "react";
-import { NavLink } from "react-router-dom";
 
 import { Anchor, H2, Paragraph } from "Components/Typography";
 
@@ -8,7 +7,7 @@ import URLUtils from "Utils/URL";
 
 import { ICard } from "./types";
 
-const Card: FC<ICard> = ({ data, className }) => {
+const Card: FC<ICard> = ({ data, className, NavLink }) => {
   const { title, description, author, date, tags, titleUrl, authorUrl } = data;
 
   return (
