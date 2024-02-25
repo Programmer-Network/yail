@@ -1,9 +1,10 @@
 import { Editor } from "@tiptap/core";
-import { useState } from "react";
+import { RefObject, useRef, useState } from "react";
 
 import Tiptap from ".";
 import TiptapToHTML from "./TiptapToHTML";
 import { TIPTAP_TOOLBAR_ITEMS } from "./constants";
+import { TiptapRef } from "./types";
 
 export default {
   title: "Rich Text Editing / Tiptap",
@@ -15,6 +16,7 @@ export default {
 
 export const Default = () => {
   const [editorState, setEditorState] = useState<string>("");
+  const tiptapRef = useRef<TiptapRef>();
 
   const suggestions = {
     trigger: "#",
@@ -59,6 +61,7 @@ export const Default = () => {
   return (
     <div className='w-full md:w-[768px]'>
       <Tiptap
+        ref={tiptapRef as RefObject<TiptapRef>}
         label='Content'
         suggestions={suggestions}
         toolbarItems={toolbarItems}

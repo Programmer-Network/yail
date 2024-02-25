@@ -40,7 +40,7 @@ export interface TiptapToolbarProps {
 
 export interface TiptapRef {
   clearContent: () => void;
-  getContents: () => string;
+  getContents: () => string | undefined;
   setContent: (content: string) => void;
   setFocus: () => void;
 }
