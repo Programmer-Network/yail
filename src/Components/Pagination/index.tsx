@@ -1,0 +1,50 @@
+import classNames from "classnames";
+import { FC } from "react";
+
+import Button from "Components/Button";
+
+import { IPaginationProps } from "./types";
+
+const Pagination: FC<IPaginationProps> = ({
+  currentPage,
+  setCurrentPage,
+  totalPages,
+  className
+}) => {
+  const isFirstPage = currentPage === 0;
+  const isLastPage = currentPage === totalPages - 1;
+
+  const handlePrevious = () => {
+    if (isFirstPage) {
+      return;
+    }
+
+    setCurrentPage(currentPage - 1);
+  };
+
+  const handleNext = () => {
+    if (isLastPage) {
+      return;
+    }
+
+    setCurrentPage(currentPage + 1);
+  };
+
+  return (
+    <div className={classNames("flex gap-2", className)} role='group'>
+      <Button
+        className='w-40'
+        outlined
+        disabled={isFirstPage}
+        onClick={handlePrevious}
+      >
+        Previous
+      </Button>
+      <Button className='w-40' disabled={isLastPage} onClick={handleNext}>
+        Next
+      </Button>
+    </div>
+  );
+};
+
+export default Pagination;
