@@ -2,6 +2,7 @@ import {
   ComponentType,
   FC,
   LazyExoticComponent,
+  MouseEvent,
   SVGProps,
   Suspense,
   lazy,
@@ -14,11 +15,13 @@ import { IconName } from "Components/Icons/types";
 const Icon: FC<{
   iconName: IconName;
   className?: string;
-  onClick?: () => void;
-}> = ({ iconName, className = "w-4 text-indigo-500", onClick }) => {
+  onClick: (e: MouseEvent<SVGElement>) => void;
+}> = props => {
+  const { iconName, className, onClick, ...rest } = props;
+
   const [error, setError] = useState<boolean>(false);
   const [IconComponent, setIconComponent] = useState<LazyExoticComponent<
-    ComponentType<SVGProps<SVGSVGElement>>
+    ComponentType<SVGProps<SVGElement>>
   > | null>(null);
 
   useEffect(() => {
@@ -32,13 +35,13 @@ const Icon: FC<{
   }, [iconName]);
 
   if (error) {
-    return;
+    return null;
   }
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
       {IconComponent && (
-        <IconComponent className={className} onClick={onClick} />
+        <IconComponent {...rest} className={className} onClick={onClick} />
       )}
     </Suspense>
   );
