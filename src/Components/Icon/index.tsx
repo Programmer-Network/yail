@@ -15,7 +15,7 @@ import { IconName } from "Components/Icons/types";
 const Icon: FC<{
   iconName: IconName;
   className?: string;
-  onClick: (e: MouseEvent<SVGElement>) => void;
+  onClick?: (e: MouseEvent<SVGElement>) => void;
 }> = props => {
   const { iconName, className, onClick, ...rest } = props;
 
