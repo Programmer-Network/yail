@@ -35,19 +35,19 @@ export const UseAjvForm = () => {
             label='Title'
             type='text'
             value={form.state.title.value}
-            error={form.state.title.error as string}
+            error={form.state.title.error}
             onBlur={() => form.onBlur("title")}
-            onChange={({ title }) => form.set({ title: title as string })}
+            onChange={({ title }) => form.set({ title: title })}
           />
           <Input
             name='description'
             label='Description'
             type='text'
             value={form.state.description.value}
-            error={form.state.description.error as string}
+            error={form.state.description.error}
             onBlur={() => form.onBlur("description")}
             onChange={({ description }) =>
-              form.set({ description: description as string })
+              form.set({ description: description })
             }
           />
         </div>
@@ -55,7 +55,7 @@ export const UseAjvForm = () => {
           name='about'
           label='About'
           value={form.state.about.value}
-          error={form.state.about.error as string}
+          error={form.state.about.error}
           onBlur={() => form.onBlur("about")}
           onChange={({ about }) => form.set({ about })}
         />

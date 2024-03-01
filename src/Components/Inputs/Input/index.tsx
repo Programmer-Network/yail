@@ -38,12 +38,7 @@ const Input: FC<IInputProps> = forwardRef<HTMLInputElement, IInputProps>(
         throw new Error('💣 Input is missing a "name" prop 💣');
       }
 
-      let value: string | number = e.target.value;
-      if (type === "number") {
-        value = Number(value);
-      }
-
-      onChange?.({ [e.target.name]: value });
+      onChange?.({ [e.target.name]: e.target.value });
     };
 
     const getMinValue = () => {
