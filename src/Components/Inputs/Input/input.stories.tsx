@@ -24,3 +24,13 @@ export const Default: Story = {
     max: 10
   }
 };
+
+export const TypeNumber: Story = {
+  args: {
+    name: "username",
+    label: "Username",
+    type: "number",
+    value: 22,
+    max: 10
+  }
+};

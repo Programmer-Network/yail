@@ -3,7 +3,7 @@ import { FocusEvent, InputHTMLAttributes } from "react";
 export interface IInputProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, "onChange"> {
   name: string;
-  value: string;
+  value: string | number;
   label?: string;
   type?: string;
   min?: number;
@@ -16,6 +16,6 @@ export interface IInputProps
   error?: string | string[] | Record<string, string>;
   required?: boolean;
   inputWrapperClassName?: string;
-  onChange?: (value: Record<string, string>) => void;
+  onChange?: (value: Record<string, string | number>) => void;
   onBlur?: (value: FocusEvent<HTMLInputElement, Element>) => void;
 }

@@ -38,7 +38,12 @@ const Input: FC<IInputProps> = forwardRef<HTMLInputElement, IInputProps>(
         throw new Error('💣 Input is missing a "name" prop 💣');
       }
 
-      onChange?.({ [e.target.name]: e.target.value });
+      let value: string | number = e.target.value;
+      if (type === "number") {
+        value = Number(value);
+      }
+
+      onChange?.({ [e.target.name]: value });
     };
 
     const getMinValue = () => {
@@ -79,11 +84,14 @@ const Input: FC<IInputProps> = forwardRef<HTMLInputElement, IInputProps>(
           {children && <div className='input-children'>{children}</div>}
           {error && <InputError error={error} />}
         </div>
-        {typeof min === "number" && value.length < min && (
-          <p className='text-warning mt-2'>
-            {min - value.length} characters to go
-          </p>
-        )}
+        {type === "string" &&
+          typeof value === "string" &&
+          typeof min === "number" &&
+          value.length < min && (
+            <p className='text-warning mt-2'>
+              {min - value.length} characters to go
+            </p>
+          )}
       </div>
     );
   }
