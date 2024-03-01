@@ -1,6 +1,6 @@
 export interface InputHeaderProps {
   name?: string;
-  value?: string;
+  value?: string | number;
   max?: number;
   label?: string;
   hint?: string;

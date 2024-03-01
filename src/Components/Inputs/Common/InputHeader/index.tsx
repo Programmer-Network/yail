@@ -33,7 +33,7 @@ const InputHeader: FC<InputHeaderProps> = ({
         </div>
       </div>
 
-      {!!max && value && type !== "date" && (
+      {typeof value === "string" && !!max && value && type !== "date" && (
         <CharacterCounter text={value} max={max} />
       )}
     </div>
