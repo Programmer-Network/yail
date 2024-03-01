@@ -16,7 +16,9 @@ export default {
 };
 
 export const SingleSelect = (args: ISelectProps) => {
-  const [input, setInput] = useState<Record<string, string[] | string>>({
+  const [input, setInput] = useState<
+    Record<string, string[] | string | number[] | number>
+  >({
     foo: "foo"
   });
 
@@ -39,7 +41,9 @@ SingleSelect.args = {
 };
 
 export const MultiSelect = (args: ISelectProps) => {
-  const [input, setInput] = useState<Record<string, string[] | string>>({
+  const [input, setInput] = useState<
+    Record<string, string[] | string | number[] | number>
+  >({
     foo: ["foo", "bar"]
   });
 
@@ -56,6 +60,7 @@ MultiSelect.args = {
   options: [
     { value: "foo", label: "Foo" },
     { value: "bar", label: "Bar" },
-    { value: "baz", label: "Baz" }
+    { value: "baz", label: "Baz" },
+    { value: 22, label: "Baz" }
   ]
 };
