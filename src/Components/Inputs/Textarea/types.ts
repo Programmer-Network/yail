@@ -11,4 +11,6 @@ export interface ITextareaProps {
   rows?: number;
   className?: string;
   inputWrapperClassName?: string;
+  max?: number;
+  min?: number;
 }
