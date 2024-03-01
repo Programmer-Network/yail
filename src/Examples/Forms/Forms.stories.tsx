@@ -37,7 +37,7 @@ export const UseAjvForm = () => {
             value={form.state.title.value}
             error={form.state.title.error as string}
             onBlur={() => form.onBlur("title")}
-            onChange={({ title }) => form.set({ title })}
+            onChange={({ title }) => form.set({ title: title as string })}
           />
           <Input
             name='description'
@@ -46,7 +46,9 @@ export const UseAjvForm = () => {
             value={form.state.description.value}
             error={form.state.description.error as string}
             onBlur={() => form.onBlur("description")}
-            onChange={({ description }) => form.set({ description })}
+            onChange={({ description }) =>
+              form.set({ description: description as string })
+            }
           />
         </div>
         <Textarea
