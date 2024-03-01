@@ -9,7 +9,7 @@ export interface IModalInputProps {
   position: { x: number; y: number };
   value: string;
   error?: string | null;
-  onChange?: (value: Record<string, string>) => void;
+  onChange?: (value: Record<string, string | number>) => void;
   ref?: ForwardedRef<HTMLDivElement>;
   children?: React.ReactNode;
 }

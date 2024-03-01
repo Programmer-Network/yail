@@ -123,7 +123,7 @@ export const Toolbar = ({
           value={youtubeInputForm.state.youtubeUrl.value}
           error={youtubeInputForm.state.youtubeUrl.error}
           onChange={input => {
-            youtubeInputForm.set({ youtubeUrl: input.url });
+            youtubeInputForm.set({ youtubeUrl: input.url as string });
           }}
           ref={ref}
         >
@@ -139,7 +139,7 @@ export const Toolbar = ({
             value={linkInputForm.state.link.value}
             error={linkInputForm.state.link.error}
             onChange={input => {
-              linkInputForm.set({ link: input.url });
+              linkInputForm.set({ link: input.url as string });
             }}
             ref={ref}
           >
