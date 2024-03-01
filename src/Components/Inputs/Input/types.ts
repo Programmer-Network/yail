@@ -5,7 +5,7 @@ export interface IInputProps
   name: string;
   value: string;
   label?: string;
-  type: string;
+  type?: string;
   min?: number;
   max?: number;
   children?: React.ReactNode;
