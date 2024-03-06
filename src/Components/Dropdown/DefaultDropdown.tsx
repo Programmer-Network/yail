@@ -21,7 +21,11 @@ const DropdownListItem: FC<IDropdownListItem> = ({ icon, value, onClick }) => {
 };
 
 const DefaultDropdown: FC<{
-  options: { icon?: ReactNode; value: string; onClick?: () => void }[];
+  options: {
+    icon?: ReactNode;
+    value: string;
+    onClick?: (e: MouseEvent, value: string) => void;
+  }[];
 }> = ({ options }) => {
   return (
     <ul className='p-2 text-primary-text-color'>

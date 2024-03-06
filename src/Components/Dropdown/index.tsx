@@ -1,7 +1,7 @@
 import { createPopper } from "@popperjs/core";
 import { useOnClickOutside } from "Hooks/useClickOutside";
 import classNames from "classnames";
-import React, { useEffect, useRef, useState } from "react";
+import React, { MouseEvent, useEffect, useRef, useState } from "react";
 
 import DefaultDropdown from "./DefaultDropdown";
 
@@ -10,7 +10,11 @@ interface DropdownProps {
   buttonContent: React.ReactNode;
   buttonClassName?: string;
   dropdownClassName?: string;
-  options?: { icon?: React.ReactNode; value: string }[];
+  options?: {
+    icon?: React.ReactNode;
+    value: string;
+    onClick?: (e: MouseEvent, value: string) => void;
+  }[];
 }
 
 const Dropdown: React.FC<DropdownProps> = ({
