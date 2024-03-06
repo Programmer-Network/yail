@@ -1,8 +1,8 @@
 import { FC, ReactNode } from "react";
 
 interface IDropdownListItem {
-  icon: ReactNode | null;
-  value: string;
+  icon?: ReactNode;
+  value?: string;
 }
 
 const DropdownListItem: FC<IDropdownListItem> = ({ icon, value }) => {
@@ -17,7 +17,7 @@ const DropdownListItem: FC<IDropdownListItem> = ({ icon, value }) => {
 };
 
 const DefaultDropdown: FC<{
-  options: { icon: ReactNode; value: string }[];
+  options: { icon?: ReactNode; value: string }[];
 }> = ({ options }) => {
   return (
     <ul className='p-2 text-primary-text-color'>

@@ -1,7 +1,7 @@
+import { validYouTubeUrl } from "@programmer_network/ajv";
 import useAJVForm from "@programmer_network/use-ajv-form";
 import { useModalInput } from "Hooks/useModalInput";
 import classNames from "classnames";
-import programmerNetworkAjv from "programmer-network-ajv";
 import { useRef } from "react";
 
 import Button from "Components/Button";
@@ -15,8 +15,6 @@ import ImageUpload from "../ImageUpload";
 import { ModalInput } from "../ModalInput";
 import { LinkClickTarget } from "../ModalInput/types";
 import getToolbarIcons from "./toolbar-icons";
-
-const { keywords } = programmerNetworkAjv;
 
 export const Toolbar = ({
   editor,
@@ -51,7 +49,7 @@ export const Toolbar = ({
       }
     },
     {
-      customKeywords: keywords,
+      customKeywords: [validYouTubeUrl],
       debounceTime: 1
     }
   );

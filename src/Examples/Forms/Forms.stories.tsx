@@ -1,3 +1,4 @@
+import { secureString } from "@programmer_network/ajv";
 import useAjvForm from "@programmer_network/use-ajv-form";
 
 import Button from "Components/Button";
@@ -18,12 +19,12 @@ export const UseAjvForm = () => {
       type: "object",
       required: [],
       properties: {
-        title: { type: "string", minLength: 3 },
+        title: { type: "string", minLength: 3, "secure-string": true },
         description: { type: "string", minLength: 5 },
         about: { type: "string", minLength: 5 }
       }
     },
-    { shouldDebounceAndValidate: false }
+    { shouldDebounceAndValidate: false, customKeywords: [secureString] }
   );
 
   return (

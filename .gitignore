@@ -3,3 +3,4 @@ dist
 .vscode
 storybook-static
 .idea
+.todo

@@ -1,5 +1,6 @@
 import { createPopper } from "@popperjs/core";
 import { useOnClickOutside } from "Hooks/useClickOutside";
+import classNames from "classnames";
 import React, { useEffect, useRef, useState } from "react";
 
 import DefaultDropdown from "./DefaultDropdown";
@@ -7,12 +8,16 @@ import DefaultDropdown from "./DefaultDropdown";
 interface DropdownProps {
   children?: React.ReactNode;
   buttonContent: React.ReactNode;
-  options?: { icon: React.ReactNode; value: string }[];
+  buttonClassName?: string;
+  dropdownClassName?: string;
+  options?: { icon?: React.ReactNode; value: string }[];
 }
 
 const Dropdown: React.FC<DropdownProps> = ({
   children,
   buttonContent,
+  buttonClassName,
+  dropdownClassName,
   options
 }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,14 +40,19 @@ const Dropdown: React.FC<DropdownProps> = ({
       <button
         ref={buttonRef}
         onClick={() => setIsOpen(!isOpen)}
-        className='border-2 border-primary-text-color px-4 py-2'
+        className={classNames(buttonClassName, {
+          "border-2 border-primary-text-color px-4 py-2": !children
+        })}
       >
         {buttonContent}
       </button>
       {isOpen && (
         <div
           ref={popperRef}
-          className='absolute z-10 mt-2 w-56 border border-primary-text-color bg-transparent shadow-lg'
+          className={classNames(
+            dropdownClassName,
+            "absolute z-10 mt-2 w-56 border border-primary-text-color bg-primary-background-color shadow-lg"
+          )}
         >
           {children ? children : <DefaultDropdown options={options || []} />}
         </div>
