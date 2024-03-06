@@ -1,13 +1,17 @@
-import { FC, ReactNode } from "react";
+import { FC, MouseEvent, ReactNode } from "react";
 
 interface IDropdownListItem {
   icon?: ReactNode;
   value?: string;
+  onClick?: (e: MouseEvent, value: string) => void;
 }
 
-const DropdownListItem: FC<IDropdownListItem> = ({ icon, value }) => {
+const DropdownListItem: FC<IDropdownListItem> = ({ icon, value, onClick }) => {
   return (
-    <li className='p-2 capitalize text-primary-text-color hover:cursor-pointer hover:bg-primary-text-color/10 hover:text-primary'>
+    <li
+      className='p-2 capitalize text-primary-text-color hover:cursor-pointer hover:bg-primary-text-color/10 hover:text-primary'
+      onClick={e => onClick && onClick(e, value || "")}
+    >
       <div className='flex items-center'>
         {icon && <span className='mr-2'>{icon}</span>}
         {value}
@@ -17,7 +21,7 @@ const DropdownListItem: FC<IDropdownListItem> = ({ icon, value }) => {
 };
 
 const DefaultDropdown: FC<{
-  options: { icon?: ReactNode; value: string }[];
+  options: { icon?: ReactNode; value: string; onClick?: () => void }[];
 }> = ({ options }) => {
   return (
     <ul className='p-2 text-primary-text-color'>
@@ -26,6 +30,7 @@ const DefaultDropdown: FC<{
           icon={option.icon}
           value={option.value}
           key={`${option.value}-${index}`}
+          onClick={option.onClick}
         />
       ))}
     </ul>

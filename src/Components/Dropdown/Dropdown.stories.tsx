@@ -20,7 +20,13 @@ const Template: Story = args => (
 export const DefaultDropdown = Template.bind({});
 DefaultDropdown.args = {
   buttonContent: "Click Me",
-  options: [{ value: "foo", icon: <IconShare className='w-4' /> }]
+  options: [
+    {
+      value: "foo",
+      onClick: () => alert("clicked"),
+      icon: <IconShare className='w-4' />
+    }
+  ]
 };
 
 export const WithChildren = Template.bind({});
