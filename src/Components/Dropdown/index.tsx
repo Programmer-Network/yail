@@ -56,7 +56,11 @@ const Dropdown: React.FC<DropdownProps> = ({
             "absolute z-10 mt-2 w-56 border-2 border-primary-text-color/40 bg-primary-background-color shadow-sm"
           )}
         >
-          {children ? children : <DefaultDropdown options={options || []} />}
+          {children ? (
+            children
+          ) : (
+            <DefaultDropdown options={options || []} setIsOpen={setIsOpen} />
+          )}
         </div>
       )}
     </div>

@@ -23,7 +23,7 @@ DefaultDropdown.args = {
   options: [
     {
       value: "foo",
-      onClick: () => alert("clicked"),
+      onClick: () => console.log("clicked"),
       icon: <IconShare className='w-4' />
     }
   ]
