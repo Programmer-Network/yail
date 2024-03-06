@@ -7,7 +7,7 @@ interface IDropdownListItem {
 
 const DropdownListItem: FC<IDropdownListItem> = ({ icon, value }) => {
   return (
-    <li className='p-2 capitalize text-primary-text-color hover:cursor-pointer hover:bg-primary hover:text-primary-background-color'>
+    <li className='p-2 capitalize text-primary-text-color hover:cursor-pointer hover:bg-primary-text-color/10 hover:text-primary'>
       <div className='flex items-center'>
         {icon && <span className='mr-2'>{icon}</span>}
         {value}

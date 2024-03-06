@@ -40,9 +40,7 @@ const Dropdown: React.FC<DropdownProps> = ({
       <button
         ref={buttonRef}
         onClick={() => setIsOpen(!isOpen)}
-        className={classNames(buttonClassName, {
-          "border-2 border-primary-text-color px-4 py-2": !children
-        })}
+        className={classNames(buttonClassName)}
       >
         {buttonContent}
       </button>
@@ -51,7 +49,7 @@ const Dropdown: React.FC<DropdownProps> = ({
           ref={popperRef}
           className={classNames(
             dropdownClassName,
-            "absolute z-10 mt-2 w-56 border border-primary-text-color bg-primary-background-color shadow-lg"
+            "absolute z-10 mt-2 w-56 border-2 border-primary-text-color/40 bg-primary-background-color shadow-sm"
           )}
         >
           {children ? children : <DefaultDropdown options={options || []} />}
