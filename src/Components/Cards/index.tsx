@@ -31,5 +31,4 @@ const Cards: FC<ICardsProps> = ({ className, cards, columns, NavLink }) => {
   );
 };
 
-export * from "./types";
 export default Cards;

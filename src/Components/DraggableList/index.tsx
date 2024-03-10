@@ -106,5 +106,4 @@ const DraggableList: FC<IDraggableList> = ({
   );
 };
 
-export * from "./types";
 export default DraggableList;

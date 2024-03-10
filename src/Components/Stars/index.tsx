@@ -60,5 +60,4 @@ const Stars: FC<IStarsProps> = ({
   );
 };
 
-export * from "./types";
 export default Stars;

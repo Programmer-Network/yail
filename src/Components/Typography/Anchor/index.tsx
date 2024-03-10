@@ -24,5 +24,4 @@ const Anchor: FC<IAnchorProps> = ({
   </a>
 );
 
-export * from "./types";
 export default Anchor;

@@ -163,5 +163,4 @@ const ThemeBuilder: FC<IThemeBuilder> = ({ onChange, onReset, settings }) => {
   );
 };
 
-export * from "./types";
 export default ThemeBuilder;

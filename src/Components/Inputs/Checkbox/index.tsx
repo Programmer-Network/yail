@@ -33,5 +33,4 @@ Checkbox.defaultProps = {
   onChange: () => null
 };
 
-export * from "./types";
 export default Checkbox;

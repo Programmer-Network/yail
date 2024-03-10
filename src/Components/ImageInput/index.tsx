@@ -94,5 +94,4 @@ const ImageInput: FC<IImageInputProps> = ({
   );
 };
 
-export * from "./types";
 export default ImageInput;

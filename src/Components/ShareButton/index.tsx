@@ -54,5 +54,4 @@ const ShareButton: React.FC<ShareButtonProps> = ({
   );
 };
 
-export * from "./types";
 export default ShareButton;

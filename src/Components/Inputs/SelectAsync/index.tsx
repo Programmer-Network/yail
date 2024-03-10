@@ -39,5 +39,4 @@ const SelectAsync: FC<IAsyncSelectProps> = props => {
   );
 };
 
-export * from "./types";
 export default SelectAsync;

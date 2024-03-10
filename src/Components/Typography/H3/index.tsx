@@ -19,5 +19,4 @@ const H3: FC<IH3Props> = ({ children, className, onClick }) => {
   );
 };
 
-export * from "./types";
 export default H3;

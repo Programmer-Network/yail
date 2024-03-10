@@ -92,5 +92,4 @@ const Input: FC<IInputProps> = forwardRef<HTMLInputElement, IInputProps>(
   }
 );
 
-export * from "./types";
 export default Input;

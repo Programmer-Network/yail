@@ -120,5 +120,4 @@ const Accordion: FC<IAccordionProps> = ({
   );
 };
 
-export * from "./types";
 export default Accordion;

@@ -15,5 +15,4 @@ const H5: FC<IH5Props> = ({ children, className, onClick }) => {
   );
 };
 
-export * from "./types";
 export default H5;

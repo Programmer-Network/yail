@@ -70,5 +70,4 @@ const ImageSelector: FC<IImageSelectorProps> = ({
   );
 };
 
-export * from "./types";
 export default ImageSelector;

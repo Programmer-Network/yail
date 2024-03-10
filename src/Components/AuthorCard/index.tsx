@@ -29,5 +29,4 @@ const AuthorCard: React.FC<IAuthorCardProps> = ({
   );
 };
 
-export * from "./types";
 export default AuthorCard;

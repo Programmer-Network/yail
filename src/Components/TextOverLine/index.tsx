@@ -19,5 +19,4 @@ const TextOverLine: FC<ITextOverLineProps> = ({ children, className }) => {
   );
 };
 
-export * from "./types";
 export default TextOverLine;

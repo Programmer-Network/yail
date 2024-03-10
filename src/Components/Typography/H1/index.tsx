@@ -19,5 +19,4 @@ const H1: FC<IH1Props> = ({ children, className, onClick }) => {
   );
 };
 
-export * from "./types";
 export default H1;

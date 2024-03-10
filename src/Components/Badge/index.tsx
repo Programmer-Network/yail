@@ -16,5 +16,4 @@ const Badge: FC<IBadgeProps> = ({ title, className }) => {
   );
 };
 
-export * from "./types";
 export default Badge;

@@ -8,5 +8,4 @@ const Spinner: FC<ISpinnerProps> = props => {
   return <IconSpinner {...props} />;
 };
 
-export * from "./types";
 export default Spinner;

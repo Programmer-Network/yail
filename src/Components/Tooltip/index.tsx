@@ -22,5 +22,4 @@ const Tooltip: FC<ITooltipProps> = ({ text, children, id, place = "top" }) => {
   );
 };
 
-export * from "./types";
 export default Tooltip;

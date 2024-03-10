@@ -15,5 +15,4 @@ const H6: FC<IH6Props> = ({ children, className, onClick }) => {
   );
 };
 
-export * from "./types";
 export default H6;

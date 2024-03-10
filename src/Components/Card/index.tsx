@@ -64,5 +64,4 @@ const Card: FC<ICard> = ({ data, className, NavLink }) => {
   );
 };
 
-export * from "./types";
 export default Card;

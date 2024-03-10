@@ -42,5 +42,4 @@ const Avatar: FC<IAvatarProps> = ({
   );
 };
 
-export * from "./types";
 export default Avatar;

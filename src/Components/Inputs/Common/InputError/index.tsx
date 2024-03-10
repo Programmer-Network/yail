@@ -34,5 +34,4 @@ InputError.defaultProps = {
   className: ""
 };
 
-export * from "./types";
 export default InputError;

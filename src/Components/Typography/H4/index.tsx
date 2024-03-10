@@ -15,5 +15,4 @@ const H4: FC<IH4Props> = ({ children, className, onClick }) => {
   );
 };
 
-export * from "./types";
 export default H4;

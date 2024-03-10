@@ -70,5 +70,4 @@ DomainInput.defaultProps = {
   onChange: () => null
 };
 
-export * from "./types";
 export default DomainInput;

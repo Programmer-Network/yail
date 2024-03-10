@@ -19,5 +19,4 @@ const H2: FC<IH2Props> = ({ children, className, onClick }) => {
   );
 };
 
-export * from "./types";
 export default H2;

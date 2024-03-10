@@ -25,5 +25,4 @@ const Alert: FC<AlertProps> = ({ type, children, className }) => {
   );
 };
 
-export * from "./types";
 export default Alert;

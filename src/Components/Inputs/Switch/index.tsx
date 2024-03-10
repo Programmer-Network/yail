@@ -37,5 +37,4 @@ const Switch: React.FC<ISwitchProps> = ({
   );
 };
 
-export * from "./types";
 export default Switch;

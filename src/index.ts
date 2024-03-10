@@ -35,3 +35,4 @@ export { default as Tooltip } from "Components/Tooltip";
 export * from "Components/Icons";
 export * from "Components/Inputs";
 export * from "Components/Typography";
+export * from "./types";

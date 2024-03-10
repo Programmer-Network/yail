@@ -70,5 +70,4 @@ Error.defaultProps = {
   description: ""
 };
 
-export * from "./types";
 export default Error;

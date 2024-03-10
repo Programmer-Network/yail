@@ -18,5 +18,4 @@ const Paragraph: FC<IParagraphProps> = ({
   );
 };
 
-export * from "./types";
 export default Paragraph;

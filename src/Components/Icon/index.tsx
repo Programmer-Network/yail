@@ -42,5 +42,4 @@ const Icon: FC<IIconProps> = props => {
   );
 };
 
-export * from "./types";
 export default Icon;
