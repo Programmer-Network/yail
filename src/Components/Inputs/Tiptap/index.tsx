@@ -11,6 +11,8 @@ import {
   useState
 } from "react";
 
+import Icon from "Components/Icon";
+
 import InputError from "../Common/InputError";
 import InputHeader from "../Common/InputHeader";
 import { Toolbar } from "./Components/Toolbar";
@@ -22,6 +24,7 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
   {
     editorContent,
     onUpdate,
+    onCreate,
     onTransaction,
     onSelectionUpdate,
     onSetImage,
@@ -139,16 +142,27 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
           link={link}
         />
       )}
-      <div className='flex flex-col gap-1'>
+      <div className='relative flex flex-col gap-1'>
         <div
           className={classNames(
-            "break-all rounded-bl-md rounded-br-md border-2 border-primary-text-color/40 px-4 py-1",
+            "break-all rounded-bl-md rounded-br-md border-2 border-primary-text-color/40 px-4 pb-8 pt-2",
             {
               "!border-t-0": hasToolbar
             }
           )}
         >
           <EditorContent editor={editor} />
+          {!editor.isEmpty && onCreate && (
+            <div className='flex justify-end'>
+              <div className='absolute bottom-4 right-4 p-1'>
+                <Icon
+                  onClick={() => onCreate(editor.getJSON())}
+                  iconName='IconSend'
+                  className='w-8 cursor-pointer text-primary-text-color/60 hover:text-primary'
+                />
+              </div>
+            </div>
+          )}
         </div>
         {error && <InputError error={error} />}
       </div>

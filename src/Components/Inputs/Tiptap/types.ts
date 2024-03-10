@@ -14,6 +14,7 @@ export interface TiptapSuggestionOptions {
 export interface TiptapProps {
   editorContent?: string;
   onUpdate?: (props: EditorEvents["update"]) => void;
+  onCreate?: (editorState: object) => void;
   onSelectionUpdate?: (props: EditorEvents["selectionUpdate"]) => void;
   onTransaction?: (props: EditorEvents["transaction"]) => void;
   onSetImage?: (base64Image: string) => Promise<void>;

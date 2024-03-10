@@ -14,7 +14,7 @@ exports[`ThemeBuilder component > renders correctly with given props 1`] = `
         </div>
       </div>
       <button
-        class="select-none border-2 border-primary px-3 py-2 font-semibold uppercase tracking-tight bg-transparent text-primary hover:bg-primary hover:text-primary-background-color primary-button h-12 min-w-[120px] border-l-0 shadow-none border-r-0"
+        class="select-none border-2 border-primary px-2 py-1 font-semibold uppercase tracking-tight rounded-md bg-transparent text-primary hover:bg-primary hover:text-primary-background-color primary-button h-12 min-w-[120px] border-l-0 shadow-none border-r-0"
         type="button"
       >
         <div
@@ -31,7 +31,7 @@ exports[`ThemeBuilder component > renders correctly with given props 1`] = `
         </div>
       </button>
       <button
-        class="select-none border-2 border-primary px-3 py-2 font-semibold uppercase tracking-tight bg-transparent text-primary hover:bg-primary hover:text-primary-background-color h-12 min-w-[120px] border-l-0 shadow-none border-r-0"
+        class="select-none border-2 border-primary px-2 py-1 font-semibold uppercase tracking-tight rounded-md bg-transparent text-primary hover:bg-primary hover:text-primary-background-color h-12 min-w-[120px] border-l-0 shadow-none border-r-0"
         type="button"
       >
         <div
@@ -48,7 +48,7 @@ exports[`ThemeBuilder component > renders correctly with given props 1`] = `
         </div>
       </button>
       <button
-        class="select-none border-2 border-primary px-3 py-2 font-semibold uppercase tracking-tight bg-transparent text-primary hover:bg-primary hover:text-primary-background-color h-12 min-w-[120px] border-l-0 shadow-none"
+        class="select-none border-2 border-primary px-2 py-1 font-semibold uppercase tracking-tight rounded-md bg-transparent text-primary hover:bg-primary hover:text-primary-background-color h-12 min-w-[120px] border-l-0 shadow-none"
         type="button"
       >
         <div

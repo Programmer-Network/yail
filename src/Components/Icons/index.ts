@@ -101,6 +101,7 @@ export { default as IconRemoveCircle } from "./IconRemoveCircle";
 export { default as IconSadFace } from "./IconSadFace";
 export { default as IconSave } from "./IconSave";
 export { default as IconSchool } from "./IconSchool";
+export { default as IconSend } from "./IconSend";
 export { default as IconSettings } from "./IconSettings";
 export { default as IconShareArrow } from "./IconShareArrow";
 export { default as IconShare } from "./IconShare";

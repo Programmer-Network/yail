@@ -65,6 +65,7 @@ export const Default = () => {
         label='Content'
         suggestions={suggestions}
         toolbarItems={toolbarItems}
+        onCreate={editorState => console.log("clicked", editorState)}
         onSetImage={(base64: string) => {
           return new Promise<void>(resolve => {
             console.log("🚀 ─── base64:", base64);
