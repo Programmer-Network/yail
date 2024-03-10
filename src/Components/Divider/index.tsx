@@ -34,4 +34,5 @@ Divider.defaultProps = {
   ]
 };
 
+export * from "./types";
 export default Divider;

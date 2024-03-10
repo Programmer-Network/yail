@@ -1,21 +1,10 @@
 import { createPopper } from "@popperjs/core";
 import { useOnClickOutside } from "Hooks/useClickOutside";
 import classNames from "classnames";
-import React, { MouseEvent, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import DefaultDropdown from "./DefaultDropdown";
-
-export interface IDropdownProps {
-  children?: React.ReactNode;
-  buttonContent: React.ReactNode;
-  buttonClassName?: string;
-  dropdownClassName?: string;
-  options?: {
-    icon?: React.ReactNode;
-    value: string;
-    onClick?: (e: MouseEvent, value: string) => void;
-  }[];
-}
+import { IDropdownProps } from "./types";
 
 const Dropdown: React.FC<IDropdownProps> = ({
   children,
@@ -67,4 +56,5 @@ const Dropdown: React.FC<IDropdownProps> = ({
   );
 };
 
+export * from "./types";
 export default Dropdown;

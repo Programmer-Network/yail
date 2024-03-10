@@ -1,13 +1,10 @@
 import classNames from "classnames";
-import { FC, MouseEvent, ReactNode } from "react";
+import { FC } from "react";
 
 import { headingCommonStyles } from "../utils";
+import { IH2Props } from "./types";
 
-const H2: FC<{
-  children: ReactNode;
-  className?: string;
-  onClick?: (e: MouseEvent<HTMLHeadingElement>) => void;
-}> = ({ children, className, onClick }) => {
+const H2: FC<IH2Props> = ({ children, className, onClick }) => {
   return (
     <h2
       className={classNames(
@@ -22,4 +19,5 @@ const H2: FC<{
   );
 };
 
+export * from "./types";
 export default H2;

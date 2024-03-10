@@ -2,7 +2,6 @@ import {
   ComponentType,
   FC,
   LazyExoticComponent,
-  MouseEvent,
   SVGProps,
   Suspense,
   lazy,
@@ -10,13 +9,9 @@ import {
   useState
 } from "react";
 
-import { IconName } from "Components/Icons/types";
+import { IIconProps } from "./types";
 
-const Icon: FC<{
-  iconName: IconName;
-  className?: string;
-  onClick?: (e: MouseEvent<SVGElement>) => void;
-}> = props => {
+const Icon: FC<IIconProps> = props => {
   const { iconName, className, onClick, ...rest } = props;
 
   const [error, setError] = useState<boolean>(false);
@@ -47,4 +42,5 @@ const Icon: FC<{
   );
 };
 
+export * from "./types";
 export default Icon;

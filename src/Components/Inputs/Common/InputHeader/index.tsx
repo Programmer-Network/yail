@@ -50,4 +50,5 @@ InputHeader.defaultProps = {
   required: false
 };
 
+export * from "./types";
 export default InputHeader;

@@ -158,4 +158,5 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
 
 Tiptap.displayName = "Tiptap";
 
+export * from "./types";
 export default forwardRef(Tiptap);

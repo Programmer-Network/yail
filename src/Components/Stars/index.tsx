@@ -4,13 +4,7 @@ import { FC, useState } from "react";
 import { IconStarEmpty, IconStarFilled } from "Components/Icons";
 import { InputError } from "Components/Inputs";
 
-export interface IStarsProps {
-  name: string;
-  stars?: number;
-  onChange?: (value: Record<string, number>) => void;
-  value?: number;
-  error?: string;
-}
+import { IStarsProps } from "./types";
 
 const Stars: FC<IStarsProps> = ({
   name,
@@ -66,4 +60,5 @@ const Stars: FC<IStarsProps> = ({
   );
 };
 
+export * from "./types";
 export default Stars;

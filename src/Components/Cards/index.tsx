@@ -1,18 +1,9 @@
 import classNames from "classnames";
 import { FC } from "react";
-import { NavLinkProps } from "react-router-dom";
 
 import Card from "Components/Card";
-import { ICardData } from "Components/Card/types";
 
-export interface ICardsProps {
-  cards: ICardData[];
-  NavLink: React.ForwardRefExoticComponent<
-    NavLinkProps & React.RefAttributes<HTMLAnchorElement>
-  >;
-  columns: number;
-  className?: string;
-}
+import { ICardsProps } from "./types";
 
 const Cards: FC<ICardsProps> = ({ className, cards, columns, NavLink }) => {
   return (
@@ -40,4 +31,5 @@ const Cards: FC<ICardsProps> = ({ className, cards, columns, NavLink }) => {
   );
 };
 
+export * from "./types";
 export default Cards;

@@ -2,12 +2,7 @@ import { FC } from "react";
 import { Tooltip as ReactTooltip } from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
 
-export interface ITooltipProps {
-  text: string;
-  id: string;
-  children: React.ReactNode;
-  place?: "top" | "bottom" | "left" | "right";
-}
+import { ITooltipProps } from "./types";
 
 const Tooltip: FC<ITooltipProps> = ({ text, children, id, place = "top" }) => {
   if (!text) {
@@ -27,4 +22,5 @@ const Tooltip: FC<ITooltipProps> = ({ text, children, id, place = "top" }) => {
   );
 };
 
+export * from "./types";
 export default Tooltip;

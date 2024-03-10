@@ -61,4 +61,5 @@ CTA.defaultProps = {
   onClick: () => null
 };
 
+export * from "./types";
 export default CTA;

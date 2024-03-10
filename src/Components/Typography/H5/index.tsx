@@ -1,13 +1,10 @@
 import classNames from "classnames";
-import { FC, MouseEvent, ReactNode } from "react";
+import { FC } from "react";
 
 import { headingCommonStyles } from "../utils";
+import { IH5Props } from "./types";
 
-const H5: FC<{
-  children: ReactNode;
-  className?: string;
-  onClick?: (e: MouseEvent<HTMLHeadingElement>) => void;
-}> = ({ children, className, onClick }) => {
+const H5: FC<IH5Props> = ({ children, className, onClick }) => {
   return (
     <h5
       className={classNames("text-sm", headingCommonStyles, className)}
@@ -18,4 +15,5 @@ const H5: FC<{
   );
 };
 
+export * from "./types";
 export default H5;

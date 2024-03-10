@@ -12,6 +12,8 @@ import {
   ReactionType
 } from "./types";
 
+export * from "./types";
+
 const Reactions: FC<IReactionsProps> = ({
   className,
   onReaction,
@@ -98,4 +100,5 @@ const Reactions: FC<IReactionsProps> = ({
   );
 };
 
+export * from "./types";
 export default Reactions;

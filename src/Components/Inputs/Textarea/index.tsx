@@ -36,4 +36,5 @@ const Textarea: FC<ITextareaProps> = props => {
   );
 };
 
+export * from "./types";
 export default Textarea;

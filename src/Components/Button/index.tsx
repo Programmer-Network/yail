@@ -66,4 +66,5 @@ Button.defaultProps = {
   isLoading: false
 };
 
+export * from "./types";
 export default Button;

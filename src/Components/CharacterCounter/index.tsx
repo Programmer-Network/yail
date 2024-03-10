@@ -22,4 +22,5 @@ CharacterCounter.defaultProps = {
   max: 0
 };
 
+export * from "./types";
 export default CharacterCounter;

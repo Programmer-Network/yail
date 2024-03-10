@@ -47,4 +47,5 @@ const Pagination: FC<IPaginationProps> = ({
   );
 };
 
+export * from "./types";
 export default Pagination;

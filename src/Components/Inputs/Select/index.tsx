@@ -76,4 +76,5 @@ const Select: FC<ISelectProps> = props => {
   );
 };
 
+export * from "./types";
 export default Select;

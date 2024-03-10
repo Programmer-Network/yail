@@ -1,13 +1,10 @@
 import classNames from "classnames";
-import { FC, MouseEvent, ReactNode } from "react";
+import { FC } from "react";
 
 import { headingCommonStyles } from "../utils";
+import { IH3Props } from "./types";
 
-const H3: FC<{
-  children: ReactNode;
-  className?: string;
-  onClick?: (e: MouseEvent<HTMLHeadingElement>) => void;
-}> = ({ children, className, onClick }) => {
+const H3: FC<IH3Props> = ({ children, className, onClick }) => {
   return (
     <h3
       className={classNames(
@@ -22,4 +19,5 @@ const H3: FC<{
   );
 };
 
+export * from "./types";
 export default H3;

@@ -1,11 +1,6 @@
-import { FC, MouseEvent, ReactNode } from "react";
+import { FC } from "react";
 
-interface IDropdownListItem {
-  icon?: ReactNode;
-  value?: string;
-  onClick?: (e: MouseEvent, value: string) => void;
-  setIsOpen: (isOpen: boolean) => void;
-}
+import { IDefaultDropdownProps, IDropdownListItem } from "./types";
 
 const DropdownListItem: FC<IDropdownListItem> = ({
   icon,
@@ -29,14 +24,7 @@ const DropdownListItem: FC<IDropdownListItem> = ({
   );
 };
 
-const DefaultDropdown: FC<{
-  setIsOpen: (isOpen: boolean) => void;
-  options: {
-    icon?: ReactNode;
-    value: string;
-    onClick?: (e: MouseEvent, value: string) => void;
-  }[];
-}> = ({ options, setIsOpen }) => {
+const DefaultDropdown: FC<IDefaultDropdownProps> = ({ options, setIsOpen }) => {
   return (
     <ul className='p-2 text-primary-text-color'>
       {options.map((option, index) => (

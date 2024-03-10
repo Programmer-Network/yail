@@ -2,7 +2,8 @@ import type { Meta } from "@storybook/react";
 import { NavLink } from "react-router-dom";
 import { withRouter } from "storybook-addon-react-router-v6";
 
-import Cards, { ICardsProps } from ".";
+import Cards from ".";
+import { ICardsProps } from "./types";
 
 const CardsStories: Meta<ICardsProps> = {
   title: "Components/Cards",

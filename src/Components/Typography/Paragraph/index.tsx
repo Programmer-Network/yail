@@ -1,11 +1,13 @@
 import classNames from "classnames";
-import { FC, MouseEvent, ReactElement, ReactNode } from "react";
+import { FC, ReactElement } from "react";
 
-const Paragraph: FC<{
-  children: ReactNode;
-  className?: string;
-  onClick?: (e: MouseEvent<HTMLParagraphElement>) => void;
-}> = ({ children, className, onClick }): ReactElement => {
+import { IParagraphProps } from "./types";
+
+const Paragraph: FC<IParagraphProps> = ({
+  children,
+  className,
+  onClick
+}): ReactElement => {
   return (
     <p
       className={classNames("mb-2 text-primary-text-color", className)}
@@ -16,4 +18,5 @@ const Paragraph: FC<{
   );
 };
 
+export * from "./types";
 export default Paragraph;

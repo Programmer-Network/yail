@@ -2,7 +2,8 @@ import { Meta, Story } from "@storybook/react";
 
 import { IconShare } from "Components/Icons";
 
-import Dropdown, { IDropdownProps } from "./";
+import Dropdown from "./";
+import { IDropdownProps } from "./types";
 
 const DropdownStories: Meta<IDropdownProps> = {
   title: "Components/Dropdown",

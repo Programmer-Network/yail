@@ -1,4 +1,4 @@
-export interface ISectionItem {
+export interface IAccordionSectionItem {
   id: number;
   title: string;
   order: number;
@@ -9,7 +9,7 @@ export interface ISection {
   description: string;
   title: string;
   order: number;
-  items: ISectionItem[];
+  items: IAccordionSectionItem[];
 }
 
 export interface IAccordionProps {
@@ -17,8 +17,8 @@ export interface IAccordionProps {
   sections: ISection[];
   sectionTitleClassName?: string;
   itemsLabelText?: string;
-  onSectionItemClick?: (item: ISectionItem) => void;
-  onSelected?: (item: ISectionItem) => void;
+  onSectionItemClick?: (item: IAccordionSectionItem) => void;
+  onSelected?: (item: IAccordionSectionItem) => void;
   expanded: number[];
   setExpanded: (sections: number[]) => void;
   selectedId?: number;
