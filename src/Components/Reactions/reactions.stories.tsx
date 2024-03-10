@@ -2,9 +2,13 @@ import { action } from "@storybook/addon-actions";
 import { Meta, Story } from "@storybook/react";
 
 import Reactions from "./";
-import { IReactionsProps } from "./types";
+import {
+  IReactionsProps,
+  ReactionTransitionState,
+  ReactionType
+} from "./types";
 
-export default {
+const ReactionsStories: Meta<IReactionsProps> = {
   title: "Components/Reactions",
   parameters: {
     layout: "centered"
@@ -20,40 +24,44 @@ export default {
 
 const Template: Story<IReactionsProps> = args => <Reactions {...args} />;
 
-export const Default = Template.bind({});
-Default.args = {
-  likesCount: 12,
-  dislikesCount: 22,
-  onLike: action("liked"),
-  onDislike: action("disliked"),
-  isDisliking: false,
-  isLiking: false,
-  hasDisliked: false,
-  hasLiked: true
+const args: IReactionsProps = {
+  reactionsCount: 12,
+  onReaction: action("reaction"),
+  reactionType: ReactionType.NONE,
+  reactionTransition: ReactionTransitionState.IDLE
 };
 
-export const Liked = Template.bind({});
+export const Liked: Meta<IReactionsProps> = Template.bind({});
 Liked.args = {
-  ...Default.args,
-  hasDisliked: false,
-  hasLiked: true
+  ...args,
+  reactionType: ReactionType.LIKE
 };
 
-export const Disliked = Template.bind({});
+export const Disliked: Meta<IReactionsProps> = Template.bind({});
 Disliked.args = {
-  ...Default.args,
-  hasLiked: false,
-  hasDisliked: true
+  ...args,
+  reactionType: ReactionType.DISLIKE
 };
 
-export const LikingInProgress = Template.bind({});
+export const LikingInProgress: Meta<IReactionsProps> = Template.bind({});
 LikingInProgress.args = {
-  ...Default.args,
-  isLiking: true
+  ...args,
+  reactionType: ReactionType.NONE,
+  reactionTransition: ReactionTransitionState.LIKING
 };
 
-export const DislikingInProgress = Template.bind({});
+export const DislikingInProgress: Meta<IReactionsProps> = Template.bind({});
 DislikingInProgress.args = {
-  ...Default.args,
-  isDisliking: true
+  ...args,
+  reactionType: ReactionType.NONE,
+  reactionTransition: ReactionTransitionState.DISLIKING
 };
+
+export const NotReacatable: Meta<IReactionsProps> = Template.bind({});
+NotReacatable.args = {
+  ...args,
+  isReactable: false,
+  isNotReactableText: "You cannot react to your own post."
+};
+
+export default ReactionsStories;

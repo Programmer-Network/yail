@@ -2,79 +2,89 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import { vi } from "vitest";
 
 import Reactions from "./";
+import { ReactionTransitionState, ReactionType } from "./types";
 
 describe("Reactions component", () => {
-  const mockProps = {
-    likesCount: 12,
-    dislikesCount: 22,
-    onLike: vi.fn(),
-    onDislike: vi.fn(),
-    commentCount: 10,
-    isDisliking: false,
-    isLiking: false,
-    hasDisliked: false,
-    hasLiked: true,
-    onShared: vi.fn(),
-    shareUrl: "https://www.google.com"
+  const mockOnReaction = vi.fn();
+  const baseProps = {
+    onReaction: mockOnReaction,
+    reactionsCount: 34,
+    reactionType: ReactionType.NONE,
+    reactionTransition: ReactionTransitionState.IDLE,
+    isReactable: true
   };
 
   beforeEach(() => {
-    mockProps.onLike.mockClear();
-    mockProps.onDislike.mockClear();
-    mockProps.onShared.mockClear();
+    mockOnReaction.mockClear();
   });
 
-  test("renders like and dislike counts", () => {
-    render(<Reactions {...mockProps} />);
-    expect(screen.getByText(mockProps.likesCount)).toBeInTheDocument();
-    expect(screen.getByText(mockProps.dislikesCount)).toBeInTheDocument();
+  test("renders reactions count", () => {
+    render(<Reactions {...baseProps} />);
+    expect(screen.getByText(baseProps.reactionsCount)).toBeInTheDocument();
   });
 
-  test("handles like in case user hasn't liked already", () => {
-    render(<Reactions {...mockProps} hasLiked={false} />);
-
-    const likeIcon = screen.getByTestId("icon-arrow-up");
-    fireEvent.click(likeIcon);
-    expect(mockProps.onLike).toHaveBeenCalled();
+  test("allows liking when reactable and not previously liked", () => {
+    render(<Reactions {...baseProps} reactionType={ReactionType.NONE} />);
+    const likeButton = screen.getByTestId("like-button");
+    fireEvent.click(likeButton);
+    expect(mockOnReaction).toHaveBeenCalledWith(ReactionType.LIKE);
   });
 
-  test("handles like in case user has already liked", () => {
-    render(<Reactions {...mockProps} hasLiked={true} />);
-
-    const likeIcon = screen.getByTestId("icon-arrow-up");
-    fireEvent.click(likeIcon);
-    expect(mockProps.onLike).toHaveBeenCalledTimes(0);
+  test("prevents liking when already liked", () => {
+    render(<Reactions {...baseProps} reactionType={ReactionType.LIKE} />);
+    const likeButton = screen.getByTestId("like-button");
+    fireEvent.click(likeButton);
+    expect(mockOnReaction).not.toHaveBeenCalled();
   });
 
-  test("handles dislike in case user hasn't disliked already", () => {
-    render(<Reactions {...mockProps} hasDisliked={false} />);
-
-    const dislikeIcon = screen.getByTestId("icon-arrow-down");
-    fireEvent.click(dislikeIcon);
-    expect(mockProps.onDislike).toHaveBeenCalled();
+  test("allows disliking when reactable and not previously disliked", () => {
+    render(<Reactions {...baseProps} reactionType={ReactionType.NONE} />);
+    const dislikeButton = screen.getByTestId("dislike-button");
+    fireEvent.click(dislikeButton);
+    expect(mockOnReaction).toHaveBeenCalledWith(ReactionType.DISLIKE);
   });
 
-  test("handles dislike in case user has already disliked", () => {
-    render(<Reactions {...mockProps} hasDisliked={true} />);
-
-    const dislikeIcon = screen.getByTestId("icon-arrow-down");
-    fireEvent.click(dislikeIcon);
-    expect(mockProps.onDislike).toHaveBeenCalledTimes(0);
+  test("prevents disliking when already disliked", () => {
+    render(<Reactions {...baseProps} reactionType={ReactionType.DISLIKE} />);
+    const dislikeButton = screen.getByTestId("dislike-button");
+    fireEvent.click(dislikeButton);
+    expect(mockOnReaction).not.toHaveBeenCalled();
   });
 
-  test("should not be able to like if its currently disliking", () => {
-    render(<Reactions {...mockProps} isDisliking={true} />);
+  test("prevents any reaction when not reactable", () => {
+    render(<Reactions {...baseProps} isReactable={false} />);
+    const likeButton = screen.getByTestId("like-button");
+    const dislikeButton = screen.getByTestId("dislike-button");
 
-    const likeIcon = screen.getByTestId("icon-arrow-up");
-    fireEvent.click(likeIcon);
-    expect(mockProps.onLike).toHaveBeenCalledTimes(0);
+    likeButton && fireEvent.click(likeButton);
+    dislikeButton && fireEvent.click(dislikeButton);
+
+    expect(mockOnReaction).not.toHaveBeenCalled();
   });
 
-  test("should not be able to dislike if its currently liking", () => {
-    render(<Reactions {...mockProps} isLiking={true} />);
+  test("shows loading indicator during liking transition", () => {
+    render(
+      <Reactions
+        {...baseProps}
+        reactionTransition={ReactionTransitionState.LIKING}
+      />
+    );
 
-    const dislikeIcon = screen.getByTestId("icon-arrow-down");
-    fireEvent.click(dislikeIcon);
-    expect(mockProps.onDislike).toHaveBeenCalledTimes(0);
+    const loadingLikeIndicator = screen.getByTestId("like-spinner");
+    expect(loadingLikeIndicator).toBeInTheDocument();
+    expect(screen.queryByTestId("like-button")).not.toBeInTheDocument();
+  });
+
+  test("shows loading indicator during disliking transition", () => {
+    render(
+      <Reactions
+        {...baseProps}
+        reactionTransition={ReactionTransitionState.DISLIKING}
+      />
+    );
+
+    const loadingDislikeIndicator = screen.getByTestId("dislike-spinner");
+    expect(loadingDislikeIndicator).toBeInTheDocument();
+    expect(screen.queryByTestId("dislike-button")).not.toBeInTheDocument();
   });
 });

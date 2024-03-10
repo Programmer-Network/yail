@@ -3,13 +3,24 @@ export enum ShareType {
   SHARED = "SHARED"
 }
 
+export enum ReactionType {
+  NONE = "NONE",
+  LIKE = "LIKE",
+  DISLIKE = "DISLIKE"
+}
+
+export enum ReactionTransitionState {
+  IDLE = "IDLE",
+  LIKING = "LIKING",
+  DISLIKING = "DISLIKING"
+}
+
 export interface IReactionsProps {
-  hasLiked: boolean;
-  hasDisliked: boolean;
-  likesCount: number;
-  dislikesCount: number;
-  onLike: () => void;
-  onDislike: () => void;
-  isLiking: boolean;
-  isDisliking: boolean;
+  className?: string;
+  onReaction: (reactionType: ReactionType) => void;
+  reactionsCount: number;
+  reactionType: ReactionType;
+  reactionTransition: ReactionTransitionState;
+  isNotReactableText?: string;
+  isReactable?: boolean;
 }

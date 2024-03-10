@@ -4,59 +4,97 @@ import { FC } from "react";
 import { IconArrowDown, IconArrowUp } from "Components/Icons";
 import IconSpinner from "Components/Icons/IconSpinner";
 import Spinner from "Components/Spinner";
+import Tooltip from "Components/Tooltip";
 
-import { IReactionsProps } from "./types";
+import {
+  IReactionsProps,
+  ReactionTransitionState,
+  ReactionType
+} from "./types";
 
 const Reactions: FC<IReactionsProps> = ({
-  hasLiked,
-  hasDisliked,
-  likesCount,
-  dislikesCount,
-  onLike,
-  onDislike,
-  isLiking,
-  isDisliking
+  className,
+  onReaction,
+  reactionsCount,
+  reactionType,
+  reactionTransition,
+  isNotReactableText,
+  isReactable = true
 }) => {
+  const isLiking = reactionTransition === ReactionTransitionState.LIKING;
+  const isDisliking = reactionTransition === ReactionTransitionState.DISLIKING;
+  const hasLiked = reactionType === ReactionType.LIKE;
+  const hasDisliked = reactionType === ReactionType.DISLIKE;
+
+  const arrowUpClasses = !isReactable
+    ? "cursor-not-allowed"
+    : {
+        "text-primary": hasLiked,
+        "cursor-not-allowed": hasLiked,
+        "cursor-pointer hover:text-primary": !hasLiked
+      };
+
+  const arrowDownClasses = !isReactable
+    ? "cursor-not-allowed"
+    : {
+        "text-red-500 cursor-not-allowed": hasDisliked,
+        "cursor-pointer hover:text-red-500": !hasDisliked
+      };
+
+  const handleReaction = (reactionType: ReactionType) => {
+    if (isLiking || isDisliking || !isReactable) {
+      return;
+    }
+
+    onReaction(reactionType);
+  };
+
   return (
-    <div className='flex gap-4 text-primary-text-color'>
-      <div className='flex gap-8'>
-        <div className='my-0 flex items-center justify-center gap-2'>
+    <Tooltip id='reactions-tooltip' text={isNotReactableText || ""}>
+      <div
+        className={classNames({
+          "flex items-center gap-8": !className
+        })}
+      >
+        <div className='my-0 flex items-center justify-center gap-2 text-primary-text-color'>
           {isLiking ? (
-            <IconSpinner className='w-5' />
+            <IconSpinner className='w-5' data-testid='like-spinner' />
           ) : (
             <>
               <IconArrowUp
-                className={classNames("w-6", {
-                  "fill-primary-text-color": !hasLiked,
-                  "cursor-not-allowed text-primary": hasLiked || isDisliking,
-                  "cursor-pointer hover:text-primary": !hasLiked
-                })}
-                onClick={!isDisliking && !hasLiked ? onLike : undefined}
+                data-testid='like-button'
+                className={classNames("w-6", arrowUpClasses)}
+                onClick={
+                  !isDisliking && !hasLiked
+                    ? () => handleReaction(ReactionType.LIKE)
+                    : undefined
+                }
               />
-              {likesCount}
             </>
           )}
         </div>
-        <div className='flex items-center justify-center gap-2'>
+        <span className='select-none text-primary-text-color'>
+          {reactionsCount}
+        </span>
+        <div className='flex items-center justify-center gap-2 text-primary-text-color'>
           {isDisliking ? (
-            <Spinner className='w-5' />
+            <Spinner className='w-5' data-testid='dislike-spinner' />
           ) : (
             <>
               <IconArrowDown
-                className={classNames("w-6", {
-                  "fill-primary-text-color": !hasDisliked,
-                  "cursor-not-allowed text-rose-500": hasDisliked || isLiking,
-                  "cursor-pointer hover:text-rose-500":
-                    !hasDisliked && !isLiking
-                })}
-                onClick={!isLiking && !hasDisliked ? onDislike : undefined}
+                data-testid='dislike-button'
+                className={classNames("w-6", arrowDownClasses)}
+                onClick={
+                  !isLiking && !hasDisliked
+                    ? () => handleReaction(ReactionType.DISLIKE)
+                    : undefined
+                }
               />
-              {dislikesCount}
             </>
           )}
         </div>
       </div>
-    </div>
+    </Tooltip>
   );
 };
 
