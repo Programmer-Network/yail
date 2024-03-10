@@ -16,7 +16,7 @@ export default defineConfig({
     lib: {
       entry: "src/index.ts",
       name: "Yail",
-      formats: ["es", "umd"],
+      formats: ["es"],
       fileName: format => `yail.${format}.js`
     },
     rollupOptions: {

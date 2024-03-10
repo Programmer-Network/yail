@@ -3,6 +3,7 @@
   "compilerOptions": {
     "target": "ESNext",
     "declaration": true,
+    "declarationMap": true,
     "outDir": "dist",
     "lib": ["dom", "dom.iterable", "esnext"],
     "types": [
