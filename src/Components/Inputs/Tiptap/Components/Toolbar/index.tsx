@@ -97,7 +97,7 @@ export const Toolbar = ({
   };
 
   return (
-    <div className='relative flex flex-wrap items-center gap-1 border-2 border-primary-text-color px-2 py-2 md:gap-4 md:px-4'>
+    <div className='relative flex flex-wrap items-center gap-1 rounded-tl-md rounded-tr-md border-2 border-primary-text-color/40 bg-primary-text-color/5 px-2 py-2 md:gap-4 md:px-4'>
       {image.isExtensionEnabled && (
         <Dialog ref={dialogRef}>
           <ImageUpload
@@ -199,7 +199,7 @@ export const Toolbar = ({
               <Icon
                 iconName={i.iconName as IconName}
                 className={classNames(
-                  "w-8 cursor-pointer border-primary-text-color drop-shadow-md",
+                  "w-8 cursor-pointer border-primary-text-color",
                   {
                     "text-primary-text-color": !i.isActive,
                     "!fill-primary !text-primary": i.isActive,
