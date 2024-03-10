@@ -1,17 +1,16 @@
-import type { Meta } from "@storybook/react";
+import { Meta } from "@storybook/react";
 import { NavLink } from "react-router-dom";
 import { withRouter } from "storybook-addon-react-router-v6";
 
 import Card from ".";
+import { ICard } from "./types";
 
-const meta = {
+const CardStories: Meta<ICard> = {
   title: "Components/Card",
   decorators: [withRouter],
   component: Card,
   argTypes: {}
-} satisfies Meta<typeof Card>;
-
-export default meta;
+};
 
 export const Default = () => {
   return (
@@ -56,3 +55,5 @@ export const WithExternalLink = () => {
     </div>
   );
 };
+
+export default CardStories;

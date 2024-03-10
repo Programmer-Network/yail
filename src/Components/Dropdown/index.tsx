@@ -5,7 +5,7 @@ import React, { MouseEvent, useEffect, useRef, useState } from "react";
 
 import DefaultDropdown from "./DefaultDropdown";
 
-interface DropdownProps {
+export interface IDropdownProps {
   children?: React.ReactNode;
   buttonContent: React.ReactNode;
   buttonClassName?: string;
@@ -17,7 +17,7 @@ interface DropdownProps {
   }[];
 }
 
-const Dropdown: React.FC<DropdownProps> = ({
+const Dropdown: React.FC<IDropdownProps> = ({
   children,
   buttonContent,
   buttonClassName,

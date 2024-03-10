@@ -2,22 +2,22 @@ import { Meta, Story } from "@storybook/react";
 
 import { IconShare } from "Components/Icons";
 
-import Dropdown from "./";
+import Dropdown, { IDropdownProps } from "./";
 
-export default {
+const DropdownStories: Meta<IDropdownProps> = {
   title: "Components/Dropdown",
   parameters: {
     layout: "centered"
   },
   component: Dropdown
-} as Meta;
+};
 
 const Template: Story = args => (
   // @ts-expect-error - Storybook types are incorrect
   <Dropdown {...args} />
 );
 
-export const DefaultDropdown = Template.bind({});
+export const DefaultDropdown: Meta<IDropdownProps> = Template.bind({});
 DefaultDropdown.args = {
   buttonContent: "Click Me",
   options: [
@@ -29,7 +29,7 @@ DefaultDropdown.args = {
   ]
 };
 
-export const WithChildren = Template.bind({});
+export const WithChildren: Meta<IDropdownProps> = Template.bind({});
 WithChildren.args = {
   buttonContent: "Click Me",
   children: (
@@ -47,7 +47,7 @@ WithChildren.args = {
   )
 };
 
-export const WithLongContent = Template.bind({});
+export const WithLongContent: Meta<IDropdownProps> = Template.bind({});
 WithLongContent.args = {
   buttonContent: "More Options",
   children: (
@@ -63,3 +63,5 @@ WithLongContent.args = {
     </div>
   )
 };
+
+export default DropdownStories;

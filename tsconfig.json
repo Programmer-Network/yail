@@ -2,6 +2,7 @@
   "extends": "./jsconfig.paths.json",
   "compilerOptions": {
     "target": "ESNext",
+    "declaration": true,
     "outDir": "dist",
     "lib": ["dom", "dom.iterable", "esnext"],
     "types": [

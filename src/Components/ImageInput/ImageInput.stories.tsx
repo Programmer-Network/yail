@@ -8,7 +8,7 @@ import ImageCrop from "Components/ImageCrop";
 import ImageInput from ".";
 import { IImageInputProps, IOnFileLoadedArgs } from "./types";
 
-export default {
+const ImageInputStories: Meta<IImageInputProps> = {
   title: "Input/ImageInput",
   component: ImageInput,
   parameters: {
@@ -23,14 +23,13 @@ export default {
   tags: ["autodocs"],
   argTypes: {
     onFileLoaded: { action: "File Loaded" },
-    onChange: { action: "Changed" },
     onValidationError: { action: "Validation Error" }
   }
-} as Meta;
+};
 
 const Template: Story<IImageInputProps> = args => <ImageInput {...args} />;
 
-export const Default = Template.bind({});
+export const Default: Meta<IImageInputProps> = Template.bind({});
 Default.args = {
   accept: "image/*",
   className: "",
@@ -40,13 +39,13 @@ Default.args = {
   label: "Select an image"
 };
 
-export const WithCompression = Template.bind({});
+export const WithCompression: Meta<IImageInputProps> = Template.bind({});
 WithCompression.args = {
   ...Default.args,
   compression: { enabled: true, maxWidth: 800, quality: 0.8 }
 };
 
-export const WithError = Template.bind({});
+export const WithError: Meta<IImageInputProps> = Template.bind({});
 WithError.args = {
   ...Default.args,
   error: "An error occurred"
@@ -115,3 +114,5 @@ export const WithImageCrop = () => {
     </div>
   );
 };
+
+export default ImageInputStories;

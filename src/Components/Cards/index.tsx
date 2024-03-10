@@ -5,14 +5,16 @@ import { NavLinkProps } from "react-router-dom";
 import Card from "Components/Card";
 import { ICardData } from "Components/Card/types";
 
-const Cards: FC<{
+export interface ICardsProps {
   cards: ICardData[];
   NavLink: React.ForwardRefExoticComponent<
     NavLinkProps & React.RefAttributes<HTMLAnchorElement>
   >;
   columns: number;
   className?: string;
-}> = ({ className, cards, columns, NavLink }) => {
+}
+
+const Cards: FC<ICardsProps> = ({ className, cards, columns, NavLink }) => {
   return (
     <div
       data-testid='cards'

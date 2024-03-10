@@ -2,7 +2,7 @@ import { FC } from "react";
 
 import IconSpinner from "Components/Icons/IconSpinner";
 
-interface ISpinnerProps {
+export interface ISpinnerProps {
   className?: string;
 }
 

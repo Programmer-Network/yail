@@ -4,7 +4,7 @@ import { FC, useState } from "react";
 import { IconStarEmpty, IconStarFilled } from "Components/Icons";
 import { InputError } from "Components/Inputs";
 
-interface IStarsProps {
+export interface IStarsProps {
   name: string;
   stars?: number;
   onChange?: (value: Record<string, number>) => void;

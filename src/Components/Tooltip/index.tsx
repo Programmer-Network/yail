@@ -2,7 +2,7 @@ import { FC } from "react";
 import { Tooltip as ReactTooltip } from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
 
-interface ITooltipProps {
+export interface ITooltipProps {
   text: string;
   id: string;
   children: React.ReactNode;

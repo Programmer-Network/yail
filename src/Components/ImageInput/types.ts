@@ -1,4 +1,4 @@
-interface FileData {
+export interface IFileData {
   blob: File;
   fileName: string;
   mimeType: string;
@@ -8,7 +8,7 @@ export interface IOnFileLoadedArgs {
   base64: string;
   fileName: string;
   mimeType: string;
-  file: FileData;
+  file: IFileData;
 }
 
 export type TValidationError = { reason: string; message: string };

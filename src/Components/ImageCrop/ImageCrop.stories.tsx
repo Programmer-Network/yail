@@ -4,11 +4,12 @@ import { Crop } from "react-image-crop";
 
 import image from "../../../assets/images/image-crop.png";
 import ImageCrop from "./";
+import { IImageCropProps } from "./types";
 
-export default {
+const ImageCropStories: Meta<IImageCropProps> = {
   title: "Components/ImageCrop",
   component: ImageCrop
-} as Meta;
+};
 
 export const Default = () => {
   const [crop, setCrop] = useState<Crop>({
@@ -29,3 +30,5 @@ export const Default = () => {
     />
   );
 };
+
+export default ImageCropStories;
