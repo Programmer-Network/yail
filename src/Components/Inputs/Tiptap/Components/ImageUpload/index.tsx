@@ -1,12 +1,12 @@
 import { FC, useState } from "react";
 
 import Icon from "Components/Icon";
-import ImageInput from "Components/ImageInput";
+import InputError from "Components/Inputs/Common/InputError";
+import ImageInput from "Components/Inputs/ImageInput";
 import {
   IOnFileLoadedArgs,
   TValidationError
-} from "Components/ImageInput/types";
-import InputError from "Components/Inputs/Common/InputError";
+} from "Components/Inputs/ImageInput/types";
 import { H4, Paragraph } from "Components/Typography";
 
 const ImageUpload: FC<{

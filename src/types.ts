@@ -16,8 +16,9 @@ import * as DropdownTypes from "./Components/Dropdown/types";
 import * as ErrorTypes from "./Components/Error/types";
 import * as IconTypes from "./Components/Icon/types";
 import * as ImageCropTypes from "./Components/ImageCrop/types";
-import * as ImageInputTypes from "./Components/ImageInput/types";
 import * as ImageSelectorTypes from "./Components/ImageSelector/types";
+import * as ImageInputTypes from "./Components/Inputs/ImageInput/types";
+import * as InputTypes from "./Components/Inputs/types";
 import * as PaginationTypes from "./Components/Pagination/types";
 import * as ReactionsTypes from "./Components/Reactions/types";
 import * as ShareButtonTypes from "./Components/ShareButton/types";
@@ -50,6 +51,7 @@ export {
   ImageCropTypes,
   ImageInputTypes,
   ImageSelectorTypes,
+  InputTypes,
   PaginationTypes,
   ReactionsTypes,
   ShareButtonTypes,
