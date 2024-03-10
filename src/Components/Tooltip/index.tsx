@@ -17,7 +17,12 @@ const Tooltip: FC<ITooltipProps> = ({ text, children, id, place = "top" }) => {
   return (
     <div>
       <div data-tooltip-id={id}>{children}</div>
-      <ReactTooltip id={id} place={place} content={text} />
+      <ReactTooltip
+        id={id}
+        place={place}
+        content={text}
+        className='border border-primary-text-color/40 !bg-transparent !text-primary-text-color'
+      />
     </div>
   );
 };
