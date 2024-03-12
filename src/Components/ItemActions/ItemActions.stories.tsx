@@ -7,7 +7,8 @@ export default {
 export const Default = () => (
   <ItemActions
     item={{ id: "1", name: "Item 1" }}
-    onDelete={() => alert("onDelete")}
-    onEdit={() => alert("onEdit")}
+    onAction={action => {
+      alert(action);
+    }}
   />
 );

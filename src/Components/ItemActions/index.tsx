@@ -1,37 +1,49 @@
+import Dropdown from "Components/Dropdown";
 import Icon from "Components/Icon";
+
+import { ItemActionType } from "./types";
 
 const ItemActions = <T,>({
   item,
-  onEdit,
-  onDelete
+  onAction
 }: {
   item: T;
-  onEdit?: (item: T) => void;
-  onDelete?: (item: T) => void;
+  onAction?: (action: ItemActionType, item: T) => void;
 }): JSX.Element => {
   return (
-    <div className='flex items-center gap-2'>
-      {onEdit && (
+    <Dropdown
+      options={[
+        {
+          icon: (
+            <Icon
+              iconName='IconEdit'
+              className='w-4'
+              data-testid='icon-iconedit'
+            />
+          ),
+          value: "edit",
+          onClick: () => onAction?.(ItemActionType.Edit, item)
+        },
+
+        {
+          icon: (
+            <Icon
+              iconName='IconDeleteBin'
+              className='w-4'
+              data-testid='icon-icondeletebin'
+            />
+          ),
+          value: "delete",
+          onClick: () => onAction?.(ItemActionType.Delete, item)
+        }
+      ]}
+      buttonContent={
         <Icon
-          iconName='IconEdit'
-          className='w-5 cursor-pointer text-primary-text-color hover:text-primary'
-          onClick={e => {
-            e.stopPropagation();
-            onEdit(item);
-          }}
+          iconName='IconSpinner'
+          className='w-4 text-primary-text-color/60 hover:cursor-pointer hover:text-primary'
         />
-      )}
-      {onDelete && (
-        <Icon
-          iconName='IconDeleteBin'
-          className='w-5 cursor-pointer text-primary-text-color hover:text-primary'
-          onClick={e => {
-            e.stopPropagation();
-            onDelete(item);
-          }}
-        />
-      )}
-    </div>
+      }
+    />
   );
 };
 
