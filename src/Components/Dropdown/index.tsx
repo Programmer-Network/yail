@@ -21,12 +21,29 @@ const Dropdown: React.FC<IDropdownProps> = ({
   useOnClickOutside(dropdownRef, () => setIsOpen(false));
 
   useEffect(() => {
-    if (buttonRef.current && popperRef.current) {
-      createPopper(buttonRef.current, popperRef.current, {
-        placement: "auto"
-      });
+    if (!buttonRef.current || !popperRef.current) {
+      return;
     }
-  }, []);
+
+    createPopper(buttonRef.current, popperRef.current, {
+      placement: "bottom-start",
+      modifiers: [
+        {
+          name: "flip",
+          options: {
+            fallbackPlacements: ["top", "right", "left"]
+          }
+        },
+        {
+          name: "preventOverflow",
+          options: {
+            boundary: "clippingParents"
+          }
+        }
+      ]
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [buttonRef.current, popperRef.current]);
 
   return (
     <div className='relative text-primary-text-color' ref={dropdownRef}>
