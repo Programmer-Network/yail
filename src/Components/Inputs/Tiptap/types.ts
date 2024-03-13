@@ -15,6 +15,7 @@ export interface TiptapProps {
   editorContent?: string;
   onUpdate?: (props: EditorEvents["update"]) => void;
   onAction?: (action: TiptapActionsEnum) => void;
+  showActions?: boolean;
   onSelectionUpdate?: (props: EditorEvents["selectionUpdate"]) => void;
   onTransaction?: (props: EditorEvents["transaction"]) => void;
   onSetImage?: (base64Image: string) => Promise<void>;

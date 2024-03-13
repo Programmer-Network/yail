@@ -24,6 +24,7 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
     editorContent,
     onUpdate,
     onAction,
+    showActions,
     onTransaction,
     onSelectionUpdate,
     onSetImage,
@@ -151,7 +152,9 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
           )}
         >
           <EditorContent editor={editor} />
-          {!editor.isEmpty && onAction && <TiptapActions onAction={onAction} />}
+          {onAction && (showActions || !editor.isEmpty) && (
+            <TiptapActions onAction={onAction} />
+          )}
         </div>
         {error && <InputError error={error} />}
       </div>
