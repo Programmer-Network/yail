@@ -11,10 +11,9 @@ import {
   useState
 } from "react";
 
-import Icon from "Components/Icon";
-
 import InputError from "../Common/InputError";
 import InputHeader from "../Common/InputHeader";
+import TiptapActions from "./Components/Actions";
 import { Toolbar } from "./Components/Toolbar";
 import { editorConfig } from "./config";
 import "./tiptap.css";
@@ -24,7 +23,7 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
   {
     editorContent,
     onUpdate,
-    onCreate,
+    onAction,
     onTransaction,
     onSelectionUpdate,
     onSetImage,
@@ -152,17 +151,7 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
           )}
         >
           <EditorContent editor={editor} />
-          {!editor.isEmpty && onCreate && (
-            <div className='flex justify-end'>
-              <div className='absolute bottom-4 right-4 p-1'>
-                <Icon
-                  onClick={() => onCreate(editor.getJSON())}
-                  iconName='IconSend'
-                  className='w-8 cursor-pointer text-primary-text-color/60 hover:text-primary'
-                />
-              </div>
-            </div>
-          )}
+          {!editor.isEmpty && onAction && <TiptapActions onAction={onAction} />}
         </div>
         {error && <InputError error={error} />}
       </div>

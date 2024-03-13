@@ -3,6 +3,7 @@ import { RefObject, useRef, useState } from "react";
 
 import Tiptap from ".";
 import TiptapToHTML from "./TiptapToHTML";
+import TiptapUtils from "./TiptapUtils";
 import { TIPTAP_TOOLBAR_ITEMS } from "./constants";
 import { TiptapRef } from "./types";
 
@@ -63,9 +64,10 @@ export const Default = () => {
       <Tiptap
         ref={tiptapRef as RefObject<TiptapRef>}
         label='Content'
+        editorContent={TiptapUtils.setEmptyContent()}
         suggestions={suggestions}
         toolbarItems={toolbarItems}
-        onCreate={editorState => console.log("clicked", editorState)}
+        onAction={actionType => console.log("clicked", actionType)}
         onSetImage={(base64: string) => {
           return new Promise<void>(resolve => {
             console.log("🚀 ─── base64:", base64);

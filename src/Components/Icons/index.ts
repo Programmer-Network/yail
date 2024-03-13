@@ -25,6 +25,7 @@ export { default as IconCategory } from "./IconCategory";
 export { default as IconChat } from "./IconChat";
 export { default as IconCheck } from "./IconCheck";
 export { default as IconClock } from "./IconClock";
+export { default as IconCloseCircle } from "./IconCloseCircle";
 export { default as IconClose } from "./IconClose";
 export { default as IconCodeBlock } from "./IconCodeBlock";
 export { default as IconCode } from "./IconCode";

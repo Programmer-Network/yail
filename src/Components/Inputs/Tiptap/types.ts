@@ -14,7 +14,7 @@ export interface TiptapSuggestionOptions {
 export interface TiptapProps {
   editorContent?: string;
   onUpdate?: (props: EditorEvents["update"]) => void;
-  onCreate?: (editorState: object) => void;
+  onAction?: (action: TiptapActionsEnum) => void;
   onSelectionUpdate?: (props: EditorEvents["selectionUpdate"]) => void;
   onTransaction?: (props: EditorEvents["transaction"]) => void;
   onSetImage?: (base64Image: string) => Promise<void>;
@@ -96,4 +96,9 @@ export interface IMentionProps {
 
 export interface MentionHandle {
   onKeyDown: ({ event }: { event: KeyboardEvent }) => boolean;
+}
+
+export enum TiptapActionsEnum {
+  CONFIRM = "CONFIRM",
+  CANCEL = "CANCEL"
 }
