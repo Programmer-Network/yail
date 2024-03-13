@@ -1,4 +1,4 @@
-import { Meta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 import { ImageUtils } from "Utils";
 import { useState } from "react";
 import { Crop } from "react-image-crop";
@@ -27,7 +27,7 @@ const ImageInputStories: Meta<IImageInputProps> = {
   }
 };
 
-const Template: Story<IImageInputProps> = args => <ImageInput {...args} />;
+const Template: StoryFn<IImageInputProps> = args => <ImageInput {...args} />;
 
 export const Default: Meta<IImageInputProps> = Template.bind({});
 Default.args = {

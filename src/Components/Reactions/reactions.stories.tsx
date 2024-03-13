@@ -1,5 +1,5 @@
 import { action } from "@storybook/addon-actions";
-import { Meta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import Reactions from "./";
 import {
@@ -22,7 +22,7 @@ const ReactionsStories: Meta<IReactionsProps> = {
   }
 } as Meta;
 
-const Template: Story<IReactionsProps> = args => <Reactions {...args} />;
+const Template: StoryFn<IReactionsProps> = args => <Reactions {...args} />;
 
 const args: IReactionsProps = {
   reactionsCount: 12,

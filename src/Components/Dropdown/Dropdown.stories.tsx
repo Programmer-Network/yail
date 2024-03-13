@@ -1,4 +1,4 @@
-import { Meta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import { IconShare } from "Components/Icons";
 
@@ -13,10 +13,7 @@ const DropdownStories: Meta<IDropdownProps> = {
   component: Dropdown
 };
 
-const Template: Story = args => (
-  // @ts-expect-error - Storybook types are incorrect
-  <Dropdown {...args} />
-);
+const Template: StoryFn<IDropdownProps> = args => <Dropdown {...args} />;
 
 export const DefaultDropdown: Meta<IDropdownProps> = Template.bind({});
 DefaultDropdown.args = {
