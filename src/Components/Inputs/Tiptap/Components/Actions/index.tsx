@@ -8,8 +8,8 @@ const TiptapActions: FC<{
   onAction: (action: TiptapActionsEnum) => void;
 }> = ({ onAction }) => {
   return (
-    <div className='flex justify-end'>
-      <div className='absolute bottom-[-26px] right-4 rounded-md border-2 border-primary-text-color/40 bg-primary-background-color p-1'>
+    <div className='absolute bottom-[-24px] right-3 flex justify-end'>
+      <div className='rounded-md border-2 border-primary-text-color/40 bg-primary-background-color p-1'>
         <div className='flex items-center gap-1 px-1'>
           <Icon
             onClick={() => onAction(TiptapActionsEnum.CONFIRM)}

@@ -142,10 +142,10 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
           link={link}
         />
       )}
-      <div className='relative flex flex-col gap-1'>
+      <div className='flex flex-col gap-1'>
         <div
           className={classNames(
-            "break-all rounded-bl-md rounded-br-md border-2 border-primary-text-color/40 px-4 pb-8 pt-2",
+            "relative break-all rounded-bl-md rounded-br-md border-2 border-primary-text-color/40 px-4 pb-8 pt-2",
             {
               "!border-t-0": hasToolbar
             }

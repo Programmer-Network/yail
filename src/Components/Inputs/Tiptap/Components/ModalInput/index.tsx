@@ -10,7 +10,7 @@ export const ModalInput: FC<IModalInputProps> = forwardRef(
     const { x, y } = position;
 
     return (
-      <div className='fixed z-50 ' style={{ left: x, top: y + 10 }} ref={ref}>
+      <div className='fixed z-50' style={{ left: x, top: y + 10 }} ref={ref}>
         <div className='bg-primary-background-color shadow-md'>
           <div className='flex items-end gap-1'>
             <Input
