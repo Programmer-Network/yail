@@ -5,7 +5,7 @@ import Tiptap from ".";
 import TiptapToHTML from "./TiptapToHTML";
 import TiptapUtils from "./TiptapUtils";
 import { TIPTAP_TOOLBAR_ITEMS } from "./constants";
-import { TiptapRef } from "./types";
+import { TiptapActionsEnum, TiptapRef } from "./types";
 
 export default {
   title: "Rich Text Editing / Tiptap",
@@ -67,7 +67,11 @@ export const Default = () => {
         editorContent={TiptapUtils.setEmptyContent()}
         suggestions={suggestions}
         toolbarItems={toolbarItems}
-        onAction={actionType => console.log("clicked", actionType)}
+        actions={{
+          buttons: [TiptapActionsEnum.CANCEL, TiptapActionsEnum.CONFIRM],
+          onAction: actionType => alert(actionType),
+          isConfirming: false
+        }}
         onSetImage={(base64: string) => {
           return new Promise<void>(resolve => {
             console.log("🚀 ─── base64:", base64);

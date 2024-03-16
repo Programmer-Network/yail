@@ -11,11 +11,18 @@ export interface TiptapSuggestionOptions {
   trigger?: string;
 }
 
+export interface ITiptapActions {
+  onAction: (action: TiptapActionsEnum) => void;
+  isConfirming?: boolean;
+  buttons: TiptapActionsEnum[];
+}
+
 export interface TiptapProps {
   editorContent?: string;
   onUpdate?: (props: EditorEvents["update"]) => void;
   onAction?: (action: TiptapActionsEnum) => void;
-  showActions?: boolean;
+  actionButtons?: TiptapActionsEnum[];
+  actions: ITiptapActions;
   onSelectionUpdate?: (props: EditorEvents["selectionUpdate"]) => void;
   onTransaction?: (props: EditorEvents["transaction"]) => void;
   onSetImage?: (base64Image: string) => Promise<void>;
