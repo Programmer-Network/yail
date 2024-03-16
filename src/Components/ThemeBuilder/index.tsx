@@ -85,55 +85,52 @@ const ThemeBuilder: FC<IThemeBuilder> = ({ onChange, onReset, settings }) => {
 
   return (
     <div ref={ref}>
-      <div className='mb-1 flex h-12 items-center'>
-        <div
-          className={classNames(
-            "relative flex h-full items-center justify-center bg-primary px-3 py-2"
-          )}
-        >
-          <Icon
-            iconName='IconColors'
-            className='w-5 text-primary-background-color'
-          />
+      <div className='mb-1 flex items-center justify-center md:justify-start'>
+        <div className='flex gap-1 flex-col md:flex-row'>
+          {settings.map(setting => {
+            return (
+              <Button
+                key={setting.type}
+                outlined={setting.type !== selected.type}
+                className={classNames(
+                  setting.className,
+                  "h-12 min-w-[120px] shadow-none"
+                )}
+                onClick={() => {
+                  setSelected({
+                    type: setting.type,
+                    cssVariable: setting.customCSSProperty,
+                    color:
+                      localSettings.find(s => s.type === setting.type)?.color ||
+                      ""
+                  });
+                }}
+              >
+                {setting.label}
+              </Button>
+            );
+          })}
         </div>
-        {settings.map((setting, idx) => {
-          return (
-            <Button
-              key={setting.type}
-              outlined={setting.type !== selected.type}
-              className={classNames(
-                setting.className,
-                "h-12 min-w-[120px] border-l-0 shadow-none",
-                {
-                  "border-r-0": idx !== settings.length - 1
-                }
-              )}
-              onClick={() => {
-                setSelected({
-                  type: setting.type,
-                  cssVariable: setting.customCSSProperty,
-                  color:
-                    localSettings.find(s => s.type === setting.type)?.color ||
-                    ""
-                });
-              }}
-            >
-              {setting.label}
-            </Button>
-          );
-        })}
-        {isDirty && (
-          <div className='ml-2 flex gap-1'>
-            <Button className='h-12' onClick={handleSaveColors}>
-              Save
-            </Button>
-
-            <Button className='h-12' outlined onClick={handleReset}>
-              Reset
-            </Button>
-          </div>
-        )}
       </div>
+
+      {isDirty && (
+        <div className='flex gap-1 my-4 justify-center md:justify-start'>
+          <Button
+            className='min-w-[80px] shadow-none'
+            onClick={handleSaveColors}
+          >
+            Save
+          </Button>
+
+          <Button
+            className='min-w-[80px] shadow-none'
+            outlined
+            onClick={handleReset}
+          >
+            Reset
+          </Button>
+        </div>
+      )}
 
       {selected.type && (
         <div className='relative flex items-center justify-start'>
