@@ -25,9 +25,7 @@ class ImageUtils {
         isValidImage: false,
         imageValidationError: {
           reason: "RESOURCE_SIZE_EXCEEDED",
-          message: `The size of an avatar must not exceed ${
-            maxFileSize / 1000
-          } kilobytes.`
+          message: `The size of an avatar must not exceed ${maxFileSize / 1000} kilobytes.`
         }
       };
     }
@@ -37,9 +35,7 @@ class ImageUtils {
       : {
           isValidImage: false,
           imageValidationError: {
-            message: `File type is not allowed. Allowed types: ${allowedMimeTypes.join(
-              ", "
-            )}`,
+            message: `File type is not allowed. Allowed types: ${allowedMimeTypes.join(", ")}`,
             reason: "INVALID_FILE_TYPE"
           }
         };

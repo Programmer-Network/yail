@@ -158,9 +158,7 @@ const getExtensions = ({
           class: toolbarItemToClassName[TIPTAP_TOOLBAR_ITEMS.MENTION].classes
         },
         renderText({ options, node }) {
-          return `${options.suggestion.char}${
-            node.attrs.label || node.attrs.id
-          }`;
+          return `${options.suggestion.char}${node.attrs.label || node.attrs.id}`;
         },
         suggestion: Suggestion({ suggestions })
       })

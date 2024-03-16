@@ -1,5 +1,7 @@
 import { Crop } from "react-image-crop";
 
+export type { Crop as ICrop };
+
 export interface IImageCropProps {
   src: string;
   onComplete?: (file: Blob) => void;

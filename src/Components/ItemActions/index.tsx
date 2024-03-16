@@ -39,8 +39,8 @@ const ItemActions = <T,>({
       ]}
       buttonContent={
         <Icon
-          iconName='IconSpinner'
-          className='w-4 text-primary-text-color/60 hover:cursor-pointer hover:text-primary'
+          iconName='IconDots'
+          className='w-6 text-primary-text-color/60 hover:cursor-pointer hover:text-primary'
         />
       }
     />

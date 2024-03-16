@@ -37,6 +37,7 @@ export { default as IconDeleteBin } from "./IconDeleteBin";
 export { default as IconDevices } from "./IconDevices";
 export { default as IconDiscord } from "./IconDiscord";
 export { default as IconDiscord2 } from "./IconDiscord2";
+export { default as IconDots } from "./IconDots";
 export { default as IconDrag } from "./IconDrag";
 export { default as IconEditAlt } from "./IconEditAlt";
 export { default as IconEdit } from "./IconEdit";
