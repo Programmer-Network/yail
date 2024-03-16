@@ -11,8 +11,7 @@ const config: StorybookConfig = {
     "@storybook/addon-essentials",
     "@storybook/addon-onboarding",
     "@storybook/addon-interactions",
-    "@storybook/addon-actions",
-    "storybook-addon-react-router-v6"
+    "storybook-addon-remix-react-router"
   ],
   framework: {
     name: "@storybook/react-vite",
