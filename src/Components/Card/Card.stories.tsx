@@ -1,6 +1,6 @@
 import { Meta } from "@storybook/react";
 import { NavLink } from "react-router-dom";
-import { withRouter } from "storybook-addon-react-router-v6";
+import { withRouter } from "storybook-addon-remix-react-router";
 
 import Card from ".";
 import { ICard } from "./types";
