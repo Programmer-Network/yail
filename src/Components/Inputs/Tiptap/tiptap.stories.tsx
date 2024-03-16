@@ -3,7 +3,6 @@ import { RefObject, useRef, useState } from "react";
 
 import Tiptap from ".";
 import TiptapToHTML from "./TiptapToHTML";
-import TiptapUtils from "./TiptapUtils";
 import { TIPTAP_TOOLBAR_ITEMS } from "./constants";
 import { TiptapActionsEnum, TiptapRef } from "./types";
 
@@ -64,7 +63,6 @@ export const Default = () => {
       <Tiptap
         ref={tiptapRef as RefObject<TiptapRef>}
         label='Content'
-        editorContent={TiptapUtils.setEmptyContent()}
         suggestions={suggestions}
         toolbarItems={toolbarItems}
         actions={{
