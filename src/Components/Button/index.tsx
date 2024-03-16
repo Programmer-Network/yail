@@ -15,7 +15,7 @@ const Button: React.FC<IButtonProps> = ({
   outlined = false
 }) => {
   let cls =
-    "select-none border-2 border-primary px-3 py-2 font-semibold uppercase tracking-tight ";
+    "select-none border-2 border-primary px-3 py-2 font-semibold uppercase tracking-tight rounded-md ";
 
   if (disabled) {
     cls += "cursor-not-allowed opacity-70 ";
@@ -27,10 +27,10 @@ const Button: React.FC<IButtonProps> = ({
   } else {
     if (outlined) {
       cls +=
-        "bg-transparent text-primary hover:bg-primary hover:text-primary-background-color";
+        "bg-transparent text-primary fill-primary hover:bg-primary hover:fill-primary-background-color hover:text-primary-background-color";
     } else {
       cls +=
-        "bg-primary hover:bg-transparent hover:text-primary text-primary-background-color";
+        "bg-primary hover:bg-transparent hover:text-primary hover:fill-primary text-primary-background-color";
     }
   }
 
