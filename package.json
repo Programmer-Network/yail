@@ -1,6 +1,6 @@
 {
   "name": "@programmer_network/yail",
-  "version": "1.0.135",
+  "version": "1.0.136",
   "description": "Programmer Network's official UI library for React",
   "author": "Aleksandar Grbic - (https://programmer.network)",
   "publishConfig": {
@@ -59,6 +59,7 @@
     "@babel/preset-env": "7.24.0",
     "@babel/preset-react": "7.23.3",
     "@babel/preset-typescript": "7.23.3",
+    "@faker-js/faker": "^8.4.1",
     "@programmer_network/use-ajv-form": "1.0.7",
     "@storybook/addon-actions": "^8.0.0",
     "@storybook/addon-essentials": "^8.0.0",

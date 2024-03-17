@@ -3,11 +3,11 @@
 exports[`Error component > renders correctly - snapshot test 1`] = `
 <DocumentFragment>
   <div
-    class="flex min-h-full flex-col pb-12 pt-16"
+    class="flex min-h-full flex-col"
     data-testid="error-wrapper"
   >
     <div
-      class="mx-auto flex w-full max-w-7xl flex-grow flex-col px-4 lg:px-8"
+      class="mx-auto flex w-full flex-grow flex-col px-4 lg:px-8"
     >
       <div
         class="flex flex-shrink-0 justify-center"
@@ -27,7 +27,7 @@ exports[`Error component > renders correctly - snapshot test 1`] = `
             404 error
           </p>
           <h1
-            class="mt-2 text-4xl font-extrabold tracking-tight text-primary-text-color sm:text-3xl"
+            class="text-4xl font-extrabold tracking-tight text-primary-text-color sm:text-3xl"
           >
             Page not found.
           </h1>

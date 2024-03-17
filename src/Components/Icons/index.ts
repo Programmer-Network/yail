@@ -41,6 +41,7 @@ export { default as IconDots } from "./IconDots";
 export { default as IconDrag } from "./IconDrag";
 export { default as IconEditAlt } from "./IconEditAlt";
 export { default as IconEdit } from "./IconEdit";
+export { default as IconEnter } from "./IconEnter";
 export { default as IconEraser } from "./IconEraser";
 export { default as IconExercism } from "./IconExercism";
 export { default as IconExpandLess } from "./IconExpandLess";

@@ -138,6 +138,9 @@ devDependencies:
   '@babel/preset-typescript':
     specifier: 7.23.3
     version: 7.23.3(@babel/core@7.24.0)
+  '@faker-js/faker':
+    specifier: ^8.4.1
+    version: 8.4.1
   '@programmer_network/use-ajv-form':
     specifier: 1.0.7
     version: 1.0.7(react-dom@18.2.0)(react@18.2.0)
@@ -2237,6 +2240,11 @@ packages:
   /@eslint/js@8.57.0:
     resolution: {integrity: sha512-Ys+3g2TaW7gADOJzPt83SJtCDhMjndcDMFVQ/Tj9iA1BfJzFKD9mAUXT3OenpuPHbI6P/myECxRJrofUsDx/5g==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    dev: true
+
+  /@faker-js/faker@8.4.1:
+    resolution: {integrity: sha512-XQ3cU+Q8Uqmrbf2e0cIC/QN43sTBSC8KF12u29Mb47tWrt2hAgBXSgpZMj4Ao8Uk0iJcU99QsOCaIL8934obCg==}
+    engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0, npm: '>=6.14.13'}
     dev: true
 
   /@fal-works/esbuild-plugin-global-externals@2.1.2:
