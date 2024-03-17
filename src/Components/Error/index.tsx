@@ -17,9 +17,9 @@ const Error: React.FC<IErrorProps> = ({
   return (
     <div
       data-testid='error-wrapper'
-      className={classNames("flex min-h-full flex-col pb-12 pt-16", className)}
+      className={classNames("flex min-h-full flex-col", className)}
     >
-      <div className='mx-auto flex w-full max-w-7xl flex-grow flex-col px-4 lg:px-8'>
+      <div className='mx-auto flex w-full flex-grow flex-col px-4 lg:px-8'>
         <div className='flex flex-shrink-0 justify-center'>
           <a
             onClick={onIconClick}
@@ -38,16 +38,14 @@ const Error: React.FC<IErrorProps> = ({
             >
               {error}
             </p>
-            <h1 className='mt-2 text-4xl font-extrabold tracking-tight text-primary-text-color sm:text-3xl'>
+            <h1 className='text-4xl font-extrabold tracking-tight text-primary-text-color sm:text-3xl'>
               {title}
             </h1>
             {description && (
-              <p className='mt-3 text-xl text-primary-text-color'>
-                {description}
-              </p>
+              <p className='text-xl text-primary-text-color'>{description}</p>
             )}
             {backToText && (
-              <div className='mt-6'>
+              <div className='hover:cursor-pointer'>
                 <div
                   onClick={onBackToClick}
                   className='font-medium text-primary hover:text-primary'
