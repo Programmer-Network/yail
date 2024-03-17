@@ -9,6 +9,7 @@ import * as CTATypes from "./Components/CTA/types";
 import * as CardTypes from "./Components/Card/types";
 import * as CardsTypes from "./Components/Cards/types";
 import * as CharacterCounterTypes from "./Components/CharacterCounter/types";
+import * as ContentWidgetTypes from "./Components/ContentWidget/types";
 import * as DialogTypes from "./Components/Dialog/types";
 import * as DividerTypes from "./Components/Divider/types";
 import * as DraggableListTypes from "./Components/DraggableList/types";
@@ -43,6 +44,7 @@ export {
   CardTypes,
   CardsTypes,
   CharacterCounterTypes,
+  ContentWidgetTypes,
   DialogTypes,
   DividerTypes,
   DraggableListTypes,
