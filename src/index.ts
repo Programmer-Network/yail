@@ -11,6 +11,7 @@ export { default as CTA } from "Components/CTA";
 export { default as Card } from "Components/Card";
 export { default as Cards } from "Components/Cards";
 export { default as CharacterCounter } from "Components/CharacterCounter";
+export { default as ContentWidget } from "Components/ContentWidget";
 export { default as Dialog } from "Components/Dialog";
 export { default as Divider } from "Components/Divider";
 export { default as DraggableList } from "Components/DraggableList";
