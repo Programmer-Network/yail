@@ -16,7 +16,8 @@ const Tooltip: FC<ITooltipProps> = ({ text, children, id, place = "top" }) => {
         id={id}
         place={place}
         content={text}
-        className='border border-primary-text-color/40 !bg-transparent !text-primary-text-color'
+        noArrow
+        className='border border-primary-text-color/40 !bg-primary-background-color !text-primary-text-color'
       />
     </div>
   );
