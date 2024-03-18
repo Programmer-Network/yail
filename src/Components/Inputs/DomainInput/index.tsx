@@ -26,7 +26,7 @@ const DomainInput: FC<IDomainInputProps> = props => {
         <span
           data-testid='domain'
           className={classNames(
-            "min-w-max border-2 border-r-0 border-primary-text-color px-4 py-2 leading-5 tracking-tighter selection:text-primary-text-color",
+            "min-w-max border-2  border-primary-text-color px-4 py-2 leading-5 tracking-tighter selection:text-primary-text-color rounded-tl-md rounded-bl-md",
             props?.domainClassName,
             {
               "group-hover:border-primary": !props.disabled,
@@ -42,7 +42,7 @@ const DomainInput: FC<IDomainInputProps> = props => {
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
           className={classNames(
-            "w-full cursor-pointer border-2 border-primary-text-color bg-transparent p-2 transition-colors focus:border-primary focus:outline-none focus:ring-transparent",
+            "w-full cursor-pointer border-2 border-primary-text-color bg-transparent p-2 transition-colors focus:border-primary focus:outline-none focus:ring-transparent rounded-tr-md rounded-br-md border-l-0",
             props.className,
             {
               "group-hover:border-primary": !props.disabled,

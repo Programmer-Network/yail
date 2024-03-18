@@ -10,16 +10,20 @@ export const styles = () => {
         outline: "none",
         focus: "none",
         padding: "2px",
-        color
+        boxShadow: "none",
+        color,
+        "input:focus": {
+          boxShadow: "none"
+        }
       };
     },
     control: styles => {
       return {
         ...styles,
-        backgroundColor: "transparent",
+        backgroundColor: "rgb(var(--color-bg))",
         borderWidth: "2px",
         borderColor: "rgb(var(--text-color))",
-        borderRadius: 0,
+        borderRadius: 6,
         boxShadow: "none",
         color,
         "&:hover": {
@@ -30,7 +34,7 @@ export const styles = () => {
     option: (styles, { isDisabled }) => {
       return {
         ...styles,
-        backgroundColor: "transparent",
+        backgroundColor: "rgb(var(--color-bg))",
         color,
         cursor: isDisabled ? "not-allowed" : "default",
         "&:active": {
@@ -51,14 +55,14 @@ export const styles = () => {
     multiValue: styles => {
       return {
         ...styles,
-        backgroundColor: "transparent",
+        backgroundColor: "rgb(var(--color-bg))",
         color
       };
     },
     singleValue: styles => {
       return {
         ...styles,
-        backgroundColor: "transparent",
+        backgroundColor: "rgb(var(--color-bg))",
         color
       };
     },
@@ -93,6 +97,33 @@ export const styles = () => {
         borderColor: "rgb(var(--text-color))",
         borderRadius: 0,
         zIndex: 99999999
+      };
+    },
+    indicatorSeparator: styles => {
+      return {
+        ...styles,
+        backgroundColor: "rgb(var(--text-color))"
+      };
+    },
+    clearIndicator: styles => {
+      return {
+        ...styles,
+        color: "rgb(var(--text-color))",
+        cursor: "pointer",
+        "&:hover": {
+          color: "rgb(var(--color-primary))"
+        }
+      };
+    },
+    multiValueRemove: styles => {
+      return {
+        ...styles,
+        color: "rgb(var(--text-color))",
+        cursor: "pointer",
+        "&:hover": {
+          color: "rgb(var(--color-bg))",
+          backgroundColor: "rgb(var(--text-color))"
+        }
       };
     },
     menuList: base => ({
