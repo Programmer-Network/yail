@@ -66,7 +66,7 @@ const Select: FC<ISelectProps> = props => {
         isMulti={isMulti}
         defaultValue={defaultValue}
         value={getValue()}
-        styles={styles()}
+        styles={styles}
         className='pn-select-container'
         classNamePrefix='pn-select'
         onChange={handleOnChange}

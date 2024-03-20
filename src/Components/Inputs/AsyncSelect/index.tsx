@@ -1,16 +1,22 @@
 import classNames from "classnames";
 import { FC } from "react";
+import { OnChangeValue } from "react-select";
 import { AsyncPaginate } from "react-select-async-paginate";
 
 import InputError from "Components/Inputs/Common/InputError";
 import InputHeader from "Components/Inputs/Common/InputHeader";
 
 import { styles } from "../Select/styles";
+import { Option } from "../Select/types";
 import { IAsyncSelectProps } from "./types";
 
-const SelectAsync: FC<IAsyncSelectProps> = props => {
-  const onChange = (item: unknown) => {
-    console.log("🚀 ─── file: index.tsx:13 ─── onChange ─── item:", item);
+const AsyncSelect: FC<IAsyncSelectProps> = props => {
+  const onChange = (newValue: OnChangeValue<Option, boolean>) => {
+    if (Array.isArray(newValue) && props.isMulti) {
+      return props.onChange({ [props.name]: newValue });
+    }
+
+    return props.onChange({ [props.name]: newValue as Option });
   };
 
   return (
@@ -24,13 +30,21 @@ const SelectAsync: FC<IAsyncSelectProps> = props => {
         required={props.required}
       />
       <AsyncPaginate
+        {...props}
         value={props.value}
-        styles={styles()}
+        isMulti={props.isMulti}
+        styles={styles}
         className='pn-select-container'
         classNamePrefix='pn-select'
-        onChange={onChange}
+        onChange={newValue => {
+          if (props.isMulti) {
+            onChange(newValue as Option[]);
+          } else {
+            onChange(newValue as Option);
+          }
+        }}
         debounceTimeout={1000}
-        loadOptionsOnMenuOpen={false}
+        loadOptionsOnMenuOpen={true}
         openMenuOnClick={false}
         loadOptions={props.loadOptions}
       />
@@ -39,4 +53,4 @@ const SelectAsync: FC<IAsyncSelectProps> = props => {
   );
 };
 
-export default SelectAsync;
+export default AsyncSelect;
