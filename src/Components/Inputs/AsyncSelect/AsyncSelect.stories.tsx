@@ -44,7 +44,7 @@ export const MultiSelect = () => {
       };
     },
     isMulti: true,
-    value: input as Option
+    value: input as Option[]
   };
 
   return <AsyncSelect {...args} />;
@@ -64,6 +64,9 @@ export const SingleSelect = () => {
   const args: IAsyncSelectProps = {
     name: "example",
     label: "Example",
+    placeholder: "Select an option",
+    noOptionsMessage: () => "No options",
+    loadingMessage: () => "Loading...",
     required: true,
     onChange: (value: Record<string, Option | Option[]>) => {
       setInput(value.value);

@@ -16,7 +16,7 @@ export type Response<Option, Group extends GroupBase<Option>, Additional> = {
 export interface IAsyncSelectProps<IsMulti extends boolean = false> {
   name: string;
   type?: string;
-  value: IsMulti extends true ? Option[] : Option;
+  value: Option[] | Option;
   defaultValue?: IsMulti extends true ? Option[] : Option | null;
   error?: string | string[] | Record<string, string>;
   hint?: string;
@@ -32,4 +32,7 @@ export interface IAsyncSelectProps<IsMulti extends boolean = false> {
   required?: boolean;
   optionLabel?: string;
   optionValue?: string;
+  placeholder?: string;
+  noOptionsMessage?: (obj: { inputValue: string }) => string;
+  loadingMessage?: () => string;
 }
