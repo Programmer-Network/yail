@@ -153,7 +153,9 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
           <EditorContent editor={editor} />
           {actions &&
             typeof actions?.onAction === "function" &&
-            actions.buttons?.length && <TiptapActions actions={actions} />}
+            actions.buttons?.length && (
+              <TiptapActions actions={actions} isEditorEmpty={editor.isEmpty} />
+            )}
         </div>
         {error && <InputError error={error} />}
       </div>
