@@ -17,12 +17,7 @@ exports[`DomainInput component > matches snapshot 1`] = `
       <input
         class="w-full cursor-pointer border-t-2 border-b-2 border-r-2 border-primary-text-color bg-transparent p-2 transition-colors focus:border-primary focus:outline-none focus:ring-transparent rounded-tr-md rounded-br-md group-hover:border-primary"
         data-testid="input"
-        domain="example.com"
-        error=""
-        hint=""
-        max="0"
         name="domainInput"
-        type="string"
         value="test"
       />
     </div>
