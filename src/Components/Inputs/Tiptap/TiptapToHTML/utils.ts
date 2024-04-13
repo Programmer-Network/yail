@@ -17,7 +17,8 @@ const tiptapToSanitizeHtmlTags: Record<string, string[]> = {
   [TIPTAP_TOOLBAR_ITEMS.HEADING_4]: ["h4"],
   [TIPTAP_TOOLBAR_ITEMS.HEADING_5]: ["h5"],
   [TIPTAP_TOOLBAR_ITEMS.HEADING_6]: ["h6"],
-  [TIPTAP_TOOLBAR_ITEMS.BLOCK_QUOTE]: ["blockquote"]
+  [TIPTAP_TOOLBAR_ITEMS.BLOCK_QUOTE]: ["blockquote"],
+  [TIPTAP_TOOLBAR_ITEMS.YOUTUBE]: ["iframe"]
 };
 
 export const getAllowedTags = (data: TiptapControls) => {
