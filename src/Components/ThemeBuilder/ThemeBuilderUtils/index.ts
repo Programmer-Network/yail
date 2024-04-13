@@ -1,3 +1,5 @@
+import { IThemeBuilderSetting } from "../types";
+
 /**
  * Utility class for theme building operations.
  */
@@ -12,13 +14,29 @@ class ThemeBuilderUtils {
   };
 
   /**
+   * Sets the CSS variables for a given set of theme builder settings.
+   * @param {IThemeBuilderSetting[]} settings The settings to use to set the CSS variables.
+   * @returns {void}
+   */
+  public static setCSSVariables = (settings: IThemeBuilderSetting[]) => {
+    settings.forEach(setting => {
+      ThemeBuilderUtils.setCSSVariable(
+        setting.customCSSProperty,
+        ThemeBuilderUtils.hexToRGB(
+          settings.find(s => s.type === setting.type)?.color as string
+        ) || ""
+      );
+    });
+  };
+
+  /**
    * Converts a hex color code to its RGB representation.
    * @param {string} hex The hex color code to convert (e.g., `#ff0000`).
    * @returns {string | null} The RGB representation of the provided hex color code as a string ("r g b"), or null if the input is invalid.
    */
   public static hexToRGB = (hex: string): string | null => {
     if (!/^#([0-9A-F]{3}){1,2}$/i.test(hex)) {
-      console.error("Invalid hex color format");
+      console.error("Invalid hex color format", hex);
       return null;
     }
 

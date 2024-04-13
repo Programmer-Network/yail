@@ -11,4 +11,5 @@ export interface IThemeBuilder {
   onChange: (settings: IThemeBuilderSetting[]) => void;
   onReset: () => void;
   settings: IThemeBuilderSetting[];
+  defaultSettings: IThemeBuilderSetting[];
 }

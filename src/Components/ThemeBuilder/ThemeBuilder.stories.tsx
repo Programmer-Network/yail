@@ -9,7 +9,7 @@ export default {
 };
 
 export const Default = () => {
-  const [settings, setSettings] = useState([
+  const defaultSettings = [
     {
       label: "Primary",
       type: "primary",
@@ -31,7 +31,9 @@ export const Default = () => {
       color: "#6b7280",
       defaultColor: "#6b7280"
     }
-  ]);
+  ];
+
+  const [settings, setSettings] = useState(defaultSettings);
 
   return (
     <div className='m-12'>
@@ -39,8 +41,9 @@ export const Default = () => {
         onChange={async settings => {
           setSettings(settings);
         }}
-        onReset={() => null}
+        onReset={() => setSettings(defaultSettings)}
         settings={settings}
+        defaultSettings={defaultSettings}
       />
 
       <section className='bg-primary-background-color'>
