@@ -72,9 +72,9 @@ const ContentWidget = <T extends IContentWidgetBaseItem>({
                 className='m-width-0 flex-1'
                 onClick={() => onClick(item)}
               >
-                <Paragraph className='truncate hover:text-primary hover:cursor-pointer'>
+                <span className='truncate hover:text-primary hover:cursor-pointer'>
                   {item.title}
-                </Paragraph>
+                </span>
               </Paragraph>
             </div>
           );
