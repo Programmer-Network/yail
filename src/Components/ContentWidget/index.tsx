@@ -69,10 +69,10 @@ const ContentWidget = <T extends IContentWidgetBaseItem>({
           return (
             <div className='mb-4 group' key={index}>
               <Paragraph
-                className='m-width-0 flex-1'
+                className='m-width-0 flex-1 break-words'
                 onClick={() => onClick(item)}
               >
-                <span className='truncate hover:text-primary hover:cursor-pointer'>
+                <span className='hover:text-primary hover:cursor-pointer break-words'>
                   {item.title}
                 </span>
               </Paragraph>
