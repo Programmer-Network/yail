@@ -22,7 +22,12 @@ const ItemActions = <T,>({
             />
           ),
           value: "edit",
-          onClick: () => onAction?.(ItemActionType.Edit, item)
+          onClick: e => {
+            e.stopPropagation();
+            e.preventDefault();
+
+            onAction?.(ItemActionType.Edit, item);
+          }
         },
 
         {
@@ -34,7 +39,12 @@ const ItemActions = <T,>({
             />
           ),
           value: "delete",
-          onClick: () => onAction?.(ItemActionType.Delete, item)
+          onClick: e => {
+            e.stopPropagation();
+            e.preventDefault();
+
+            onAction?.(ItemActionType.Delete, item);
+          }
         }
       ]}
       buttonContent={
