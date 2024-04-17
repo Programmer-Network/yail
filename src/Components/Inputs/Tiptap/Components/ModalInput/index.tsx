@@ -12,14 +12,8 @@ export const ModalInput: FC<IModalInputProps> = forwardRef(
     return (
       <div className='fixed z-50' style={{ left: x, top: y + 10 }} ref={ref}>
         <div className='bg-primary-background-color shadow-md'>
-          <div className='flex items-end gap-1'>
-            <Input
-              name='url'
-              type='text'
-              value={value}
-              onChange={onChange}
-              className='!rounded-none !bg-primary-background-color'
-            />
+          <div className='flex items-center gap-1'>
+            <Input name='url' type='text' value={value} onChange={onChange} />
             {children}
           </div>
         </div>

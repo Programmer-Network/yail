@@ -125,9 +125,15 @@ export const Toolbar = ({
           }}
           ref={ref}
         >
-          <Button onClick={insertVideo}>
-            <Icon iconName='IconAddYoutube' className='w-6' />
-          </Button>
+          <Button
+            outlined
+            icon={{
+              iconName: "IconAddYoutube",
+              iconPosition: "right",
+              iconClassName: "w-6"
+            }}
+            onClick={insertVideo}
+          />
         </ModalInput>
       )}
       {link.isExtensionEnabled &&
@@ -141,9 +147,15 @@ export const Toolbar = ({
             }}
             ref={ref}
           >
-            <Button onClick={() => insertLink(LinkClickTarget.Link)}>
-              <Icon iconName='IconLink' className='w-6' />
-            </Button>
+            <Button
+              outlined
+              icon={{
+                iconName: "IconLink",
+                iconPosition: "right",
+                iconClassName: "w-6"
+              }}
+              onClick={() => insertLink(LinkClickTarget.Link)}
+            />
 
             {linkInputForm.state.link.value && (
               <Button

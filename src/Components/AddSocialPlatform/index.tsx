@@ -2,7 +2,6 @@ import useAJVForm from "@programmer_network/use-ajv-form";
 import { FC } from "react";
 
 import Button from "Components/Button";
-import { IconAdd } from "Components/Icons";
 import { Input, Select } from "Components/Inputs";
 import { Paragraph } from "Components/Typography";
 
@@ -71,7 +70,7 @@ const AddSocialPlatform: FC<IAddSocialPlatformProps> = ({
       </div>
       <Button
         outlined
-        className='col-span-2 mt-8'
+        className='col-span-1 mt-8'
         onClick={() => {
           if (!form.validate().isValid) {
             return;
@@ -84,9 +83,7 @@ const AddSocialPlatform: FC<IAddSocialPlatformProps> = ({
           form.reset();
         }}
       >
-        <div className='flex gap-1 items-center'>
-          <IconAdd className='w-6' />
-        </div>
+        Add
       </Button>
     </div>
   );

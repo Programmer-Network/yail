@@ -56,9 +56,9 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
   };
 
   const link = {
-    isExtensionEnabled: !!useEditorConfig?.extensions?.some(
-      ({ name }) => name === "image"
-    )
+    isExtensionEnabled: !!useEditorConfig?.extensions?.some(({ name }) => {
+      return name === "link";
+    })
   };
 
   if (!image.isExtensionEnabled && typeof onSetImage === "function") {
