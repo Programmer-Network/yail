@@ -7,7 +7,7 @@ import InputHeader from "Components/Inputs/Common/InputHeader";
 import { IDomainInputProps } from "./types";
 
 const DomainInput: FC<IDomainInputProps> = props => {
-  const { domain } = props;
+  const { domain, name, value, disabled } = props;
   const [isFocused, setIsFocused] = useState(false);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -27,7 +27,7 @@ const DomainInput: FC<IDomainInputProps> = props => {
           data-testid='domain'
           className={classNames(
             "min-w-max border-2 border-primary-text-color px-4 py-2 leading-5 tracking-tighter selection:text-primary-text-color rounded-tl-md rounded-bl-md",
-            props?.domainClassName,
+            props.domainClassName,
             {
               "group-hover:border-primary": !props.disabled,
               "!border-primary !ring-transparent": isFocused
@@ -37,8 +37,10 @@ const DomainInput: FC<IDomainInputProps> = props => {
           {domain}
         </span>
         <input
-          {...props}
           data-testid='input'
+          name={name}
+          value={value}
+          disabled={disabled}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
           className={classNames(
@@ -63,6 +65,8 @@ DomainInput.defaultProps = {
   value: "",
   hint: "",
   className: "",
+  domainClassName: "",
+  inputWrapperClassName: "",
   type: "string",
   max: 0,
   error: "",

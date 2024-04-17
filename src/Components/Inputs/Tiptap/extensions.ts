@@ -41,6 +41,7 @@ const headers = Heading.configure({ levels: [1, 2, 3, 4, 5, 6] }).extend({
       5: toolbarItemToClassName[TIPTAP_TOOLBAR_ITEMS.HEADING_5].classes,
       6: toolbarItemToClassName[TIPTAP_TOOLBAR_ITEMS.HEADING_6].classes
     };
+
     return [
       `h${level}`,
       mergeAttributes(this.options.HTMLAttributes, HTMLAttributes, {

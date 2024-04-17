@@ -7,15 +7,24 @@ import Button from "Components/Button";
 import Icon from "Components/Icon";
 
 import ThemeBuilderUtils from "./ThemeBuilderUtils";
-import { initialSelected } from "./constants";
 import { IThemeBuilder, IThemeBuilderSetting } from "./types";
 
-const ThemeBuilder: FC<IThemeBuilder> = ({ onChange, onReset, settings }) => {
+const ThemeBuilder: FC<IThemeBuilder> = ({
+  onChange,
+  onReset,
+  settings,
+  defaultSettings
+}) => {
+  const initialState = {
+    color: "",
+    cssVariable: "",
+    type: ""
+  };
   const [selected, setSelected] = useState<{
     type: string;
     color: string;
     cssVariable: string;
-  }>(initialSelected);
+  }>(initialState);
 
   const [localSettings, setLocalSettings] =
     useState<IThemeBuilderSetting[]>(settings);
@@ -31,43 +40,35 @@ const ThemeBuilder: FC<IThemeBuilder> = ({ onChange, onReset, settings }) => {
   }, [localSettings, settings]);
 
   useOnClickOutside(ref, () => {
-    setSelected(initialSelected);
+    setSelected(initialState);
   });
 
   const handleSaveColors = () => {
     onChange(localSettings);
-    setSelected(initialSelected);
+    setSelected(initialState);
   };
 
   const handleReset = () => {
-    settings.forEach(button => {
-      ThemeBuilderUtils.setCSSVariable(
-        button.customCSSProperty,
-        settings.find(s => s.type === button.type)?.defaultColor || ""
-      );
-    });
-
-    setLocalSettings(settings);
-    setSelected(initialSelected);
+    ThemeBuilderUtils.setCSSVariables(defaultSettings);
+    setLocalSettings(defaultSettings);
+    setSelected(initialState);
     onReset();
   };
 
   useEffect(() => {
-    settings.forEach(setting => {
-      ThemeBuilderUtils.setCSSVariable(
-        setting.customCSSProperty,
-        ThemeBuilderUtils.hexToRGB(
-          settings.find(s => s.type === setting.type)?.color as string
-        ) || ""
-      );
-    });
+    ThemeBuilderUtils.setCSSVariables(settings);
   }, [settings]);
 
   useEffect(() => {
+    if (!selected.color) {
+      return;
+    }
+
     ThemeBuilderUtils.setCSSVariable(
       selected.cssVariable,
       ThemeBuilderUtils.hexToRGB(selected.color) as string
     );
+
     setLocalSettings(
       localSettings.map(s => {
         if (s.type !== selected.type) {
@@ -135,7 +136,7 @@ const ThemeBuilder: FC<IThemeBuilder> = ({ onChange, onReset, settings }) => {
       {selected.type && (
         <div className='relative flex items-center justify-start'>
           <div className='relative mt-2'>
-            <div onClick={() => setSelected(initialSelected)}>
+            <div onClick={() => setSelected(initialState)}>
               <Icon
                 iconName='IconClose'
                 className='absolute right-[-5px] top-[-5px] z-50 w-4 cursor-pointer rounded-lg border-2 border-primary bg-primary-background-color text-primary hover:bg-primary hover:text-primary-background-color'

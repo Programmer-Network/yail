@@ -30,6 +30,30 @@ describe("ThemeBuilder component", () => {
     }
   ];
 
+  const defaultSettings = [
+    {
+      label: "Primary",
+      type: "primary",
+      customCSSProperty: "--color-primary",
+      color: "#4f46e5",
+      defaultColor: "#4f46e5"
+    },
+    {
+      label: "Background",
+      type: "background",
+      customCSSProperty: "--color-bg",
+      color: "#1b1f23",
+      defaultColor: "#1b1f23"
+    },
+    {
+      label: "Text",
+      type: "text",
+      customCSSProperty: "--text-color",
+      color: "#6b7280",
+      defaultColor: "#6b7280"
+    }
+  ];
+
   const mockOnColorsChange = vi.fn();
   const mockOnReset = vi.fn();
 
@@ -37,6 +61,7 @@ describe("ThemeBuilder component", () => {
     const { asFragment } = render(
       <ThemeBuilder
         settings={mockSettings}
+        defaultSettings={defaultSettings}
         onChange={mockOnColorsChange}
         onReset={mockOnReset}
       />
@@ -48,6 +73,7 @@ describe("ThemeBuilder component", () => {
     render(
       <ThemeBuilder
         settings={mockSettings}
+        defaultSettings={defaultSettings}
         onChange={mockOnColorsChange}
         onReset={mockOnReset}
       />
@@ -67,6 +93,7 @@ describe("ThemeBuilder component", () => {
     render(
       <ThemeBuilder
         settings={mockSettings}
+        defaultSettings={defaultSettings}
         onChange={mockOnColorsChange}
         onReset={mockOnReset}
       />
@@ -82,6 +109,7 @@ describe("ThemeBuilder component", () => {
     render(
       <ThemeBuilder
         settings={mockSettings}
+        defaultSettings={defaultSettings}
         onChange={mockOnColorsChange}
         onReset={mockOnReset}
       />
@@ -102,6 +130,7 @@ describe("ThemeBuilder component", () => {
     render(
       <ThemeBuilder
         settings={mockSettings}
+        defaultSettings={defaultSettings}
         onChange={mockOnColorsChange}
         onReset={mockOnReset}
       />
@@ -122,6 +151,7 @@ describe("ThemeBuilder component", () => {
     render(
       <ThemeBuilder
         settings={mockSettings}
+        defaultSettings={defaultSettings}
         onChange={mockOnColorsChange}
         onReset={mockOnReset}
       />
@@ -144,6 +174,7 @@ describe("ThemeBuilder component", () => {
     render(
       <ThemeBuilder
         settings={mockSettings}
+        defaultSettings={defaultSettings}
         onChange={mockOnColorsChange}
         onReset={mockOnReset}
       />
@@ -164,6 +195,7 @@ describe("ThemeBuilder component", () => {
     render(
       <ThemeBuilder
         settings={mockSettings}
+        defaultSettings={defaultSettings}
         onChange={mockOnColorsChange}
         onReset={mockOnReset}
       />

@@ -71,35 +71,37 @@ export const EmptyState = () => {
 
 export const WithCustomItems = () => {
   return (
-    <ContentWidget<{
-      id: number;
-      title: string;
-      description: string;
-      author: string;
-    }>
-      title='Featured articles'
-      className='min-w-[300px]'
-      isLoading={false}
-      items={Array(5)
-        .fill(0)
-        .map((_, index) => ({
-          onClick: item => {
-            alert(`Item clicked: ${item.title}, id ${item.id}`);
-          },
-          item: {
-            id: index,
-            title: faker.lorem.words(5),
-            description: faker.lorem.sentence(),
-            author: faker.person.fullName()
+    <div className='w-[400px]'>
+      <ContentWidget<{
+        id: number;
+        title: string;
+        description: string;
+        author: string;
+      }>
+        title='Featured articles'
+        className='min-w-[300px]'
+        isLoading={false}
+        items={Array(5)
+          .fill(0)
+          .map((_, index) => ({
+            onClick: item => {
+              alert(`Item clicked: ${item.title}, id ${item.id}`);
+            },
+            item: {
+              id: index,
+              title: faker.lorem.words(7),
+              description: faker.lorem.sentence(),
+              author: faker.person.fullName()
+            }
+          }))}
+        more={{
+          tooltipText: "See more articles",
+          iconClassName: "w-4",
+          onClick: () => {
+            alert("More articles clicked");
           }
-        }))}
-      more={{
-        tooltipText: "See more articles",
-        iconClassName: "w-4",
-        onClick: () => {
-          alert("More articles clicked");
-        }
-      }}
-    />
+        }}
+      />
+    </div>
   );
 };

@@ -141,7 +141,7 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
           link={link}
         />
       )}
-      <div className='flex flex-col gap-1'>
+      <div className='flex flex-col'>
         <div
           className={classNames(
             "relative break-all rounded-bl-md rounded-br-md border-2 border-primary-text-color/40 px-4 pb-2 pt-2",
@@ -153,7 +153,9 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
           <EditorContent editor={editor} />
           {actions &&
             typeof actions?.onAction === "function" &&
-            actions.buttons?.length && <TiptapActions actions={actions} />}
+            actions.buttons?.length && (
+              <TiptapActions actions={actions} isEditorEmpty={editor.isEmpty} />
+            )}
         </div>
         {error && <InputError error={error} />}
       </div>

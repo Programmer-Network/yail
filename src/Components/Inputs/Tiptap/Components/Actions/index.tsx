@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import { FC } from "react";
 
 import Icon from "Components/Icon";
@@ -5,8 +6,9 @@ import Icon from "Components/Icon";
 import { ITiptapActions, TiptapActionsEnum } from "../../types";
 
 const TiptapActions: FC<{
+  isEditorEmpty: boolean;
   actions: ITiptapActions;
-}> = ({ actions }) => {
+}> = ({ isEditorEmpty, actions }) => {
   const { isConfirming, buttons, onAction } = actions;
 
   return (
@@ -15,9 +17,16 @@ const TiptapActions: FC<{
         <div className='flex items-center gap-1 px-1'>
           {buttons.includes(TiptapActionsEnum.CONFIRM) && (
             <Icon
-              onClick={() => onAction(TiptapActionsEnum.CONFIRM)}
+              onClick={
+                !isEditorEmpty
+                  ? () => onAction(TiptapActionsEnum.CONFIRM)
+                  : () => null
+              }
               iconName={!isConfirming ? "IconCheck" : "IconSpinner"}
-              className='w-8 cursor-pointer fill-primary text-primary hover:text-primary/90'
+              className={classNames("w-8 cursor-pointer fill-primary", {
+                "text-primary-text-color/60": isEditorEmpty,
+                "text-primary": !isEditorEmpty
+              })}
             />
           )}
           {buttons.includes(TiptapActionsEnum.CANCEL) && (

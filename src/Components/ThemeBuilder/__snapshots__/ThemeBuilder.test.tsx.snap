@@ -10,7 +10,7 @@ exports[`ThemeBuilder component > renders correctly with given props 1`] = `
         class="flex gap-1 flex-col md:flex-row"
       >
         <button
-          class="select-none border-2 border-primary px-3 py-2 font-semibold uppercase tracking-tight rounded-md bg-transparent text-primary fill-primary hover:bg-primary hover:fill-primary-background-color hover:text-primary-background-color primary-button h-12 min-w-[120px] shadow-none"
+          class="select-none border-2 border-primary px-3 py-2 font-semibold tracking-tight rounded-md bg-transparent text-primary fill-primary hover:bg-primary hover:fill-primary-background-color hover:text-primary-background-color primary-button h-12 min-w-[120px] shadow-none"
           type="button"
         >
           <div
@@ -27,7 +27,7 @@ exports[`ThemeBuilder component > renders correctly with given props 1`] = `
           </div>
         </button>
         <button
-          class="select-none border-2 border-primary px-3 py-2 font-semibold uppercase tracking-tight rounded-md bg-transparent text-primary fill-primary hover:bg-primary hover:fill-primary-background-color hover:text-primary-background-color h-12 min-w-[120px] shadow-none"
+          class="select-none border-2 border-primary px-3 py-2 font-semibold tracking-tight rounded-md bg-transparent text-primary fill-primary hover:bg-primary hover:fill-primary-background-color hover:text-primary-background-color h-12 min-w-[120px] shadow-none"
           type="button"
         >
           <div
@@ -44,7 +44,7 @@ exports[`ThemeBuilder component > renders correctly with given props 1`] = `
           </div>
         </button>
         <button
-          class="select-none border-2 border-primary px-3 py-2 font-semibold uppercase tracking-tight rounded-md bg-transparent text-primary fill-primary hover:bg-primary hover:fill-primary-background-color hover:text-primary-background-color h-12 min-w-[120px] shadow-none"
+          class="select-none border-2 border-primary px-3 py-2 font-semibold tracking-tight rounded-md bg-transparent text-primary fill-primary hover:bg-primary hover:fill-primary-background-color hover:text-primary-background-color h-12 min-w-[120px] shadow-none"
           type="button"
         >
           <div

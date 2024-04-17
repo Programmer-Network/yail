@@ -32,7 +32,7 @@ const ContentWidget = <T extends IContentWidgetBaseItem>({
     >
       <div>
         <div className='group rounded-md'>
-          <Paragraph
+          <div
             className={classNames("items-center gap-2 flex justify-between")}
           >
             {more && more.iconName && (
@@ -43,7 +43,7 @@ const ContentWidget = <T extends IContentWidgetBaseItem>({
                 })}
               />
             )}
-            <span className='font-bold'>{title}</span>
+            <span className='font-bold text-primary-text-color'>{title}</span>
             {more && (
               <Tooltip id='see-more-tooltip' text={more.tooltipText}>
                 <IconEnter
@@ -52,7 +52,7 @@ const ContentWidget = <T extends IContentWidgetBaseItem>({
                 />
               </Tooltip>
             )}
-          </Paragraph>
+          </div>
         </div>
         <Divider
           className='pt-2 pb-3'
@@ -69,12 +69,12 @@ const ContentWidget = <T extends IContentWidgetBaseItem>({
           return (
             <div className='mb-4 group' key={index}>
               <Paragraph
-                className='m-width-0 flex-1'
+                className='m-width-0 flex-1 break-words'
                 onClick={() => onClick(item)}
               >
-                <Paragraph className='truncate hover:text-primary hover:cursor-pointer'>
+                <span className='hover:text-primary hover:cursor-pointer break-words'>
                   {item.title}
-                </Paragraph>
+                </span>
               </Paragraph>
             </div>
           );
