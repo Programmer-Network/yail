@@ -1,5 +1,6 @@
 import classNames from "classnames";
 
+import Icon from "Components/Icon";
 import Spinner from "Components/Spinner";
 
 import "./button-style.css";
@@ -11,6 +12,7 @@ const Button: React.FC<IButtonProps> = ({
   className,
   disabled = false,
   type = "button",
+  icon,
   isLoading = false,
   outlined = false
 }) => {
@@ -44,10 +46,33 @@ const Button: React.FC<IButtonProps> = ({
       <div className='relative flex items-center justify-center'>
         <span
           className={classNames({
+            "flex gap-1 items-center": icon?.iconName,
             invisible: isLoading
           })}
         >
+          {!isLoading && icon?.iconName && icon.iconPosition === "left" && (
+            <Icon
+              className={classNames(
+                {
+                  "w-5": !icon?.iconClassName
+                },
+                icon?.iconClassName
+              )}
+              iconName={icon.iconName}
+            />
+          )}
           {children}
+          {!isLoading && icon?.iconName && icon.iconPosition === "right" && (
+            <Icon
+              className={classNames(
+                {
+                  "w-5": !icon?.iconClassName
+                },
+                icon?.iconClassName
+              )}
+              iconName={icon.iconName}
+            />
+          )}
         </span>
         <span className='absolute'>
           {isLoading && <Spinner className={classNames("h-8 w-8")} />}

@@ -55,6 +55,38 @@ export const OutlinedSpinning: Story = {
   }
 };
 
+export const WithLeftIcon: Story = {
+  args: {
+    children: "Button",
+    outlined: true,
+    icon: {
+      iconName: "IconBomb",
+      iconPosition: "left"
+    }
+  }
+};
+
+export const WithRightIcon: Story = {
+  args: {
+    children: "Button",
+    icon: {
+      iconName: "IconBomb",
+      iconPosition: "right"
+    }
+  }
+};
+
+export const WithIconClassName: Story = {
+  args: {
+    children: "Button",
+    icon: {
+      iconName: "IconBrain",
+      iconPosition: "right",
+      iconClassName: "text-violet-800 w-5"
+    }
+  }
+};
+
 export const Red: Story = {
   args: {
     children: "Button",
