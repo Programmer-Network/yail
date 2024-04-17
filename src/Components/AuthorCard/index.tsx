@@ -1,7 +1,8 @@
+import classNames from "classnames";
 import React from "react";
 
 import Avatar from "Components/Avatar";
-import { H3, Paragraph } from "Components/Typography";
+import { H2, Paragraph } from "Components/Typography";
 
 import { IAuthorCardProps } from "./types";
 
@@ -9,11 +10,15 @@ const AuthorCard: React.FC<IAuthorCardProps> = ({
   name,
   avatar,
   about,
+  className,
   onClick
 }) => {
   return (
     <div
-      className='border border-primary-text-color p-6'
+      className={classNames(
+        "border-2 border-primary-text-color/20 p-6 rounded-lg",
+        className
+      )}
       onClick={() => (onClick ? onClick({ name, avatar, about }) : undefined)}
     >
       <div className='flex flex-col items-center gap-4 md:flex-row'>
@@ -21,8 +26,8 @@ const AuthorCard: React.FC<IAuthorCardProps> = ({
           <Avatar src={avatar} size={75} />
         </div>
         <div>
-          <H3 className='!mb-0'>{name}</H3>
-          <Paragraph className='!text-base'>{about}</Paragraph>
+          <H2 className='!mb-0'>{name}</H2>
+          <Paragraph className='!text-lg'>{about}</Paragraph>
         </div>
       </div>
     </div>

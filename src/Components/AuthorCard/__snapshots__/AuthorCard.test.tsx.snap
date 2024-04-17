@@ -3,7 +3,7 @@
 exports[`AuthorCard component > renders correctly 1`] = `
 <DocumentFragment>
   <div
-    class="border border-primary-text-color p-6"
+    class="border-2 border-primary-text-color/20 p-6 rounded-lg"
   >
     <div
       class="flex flex-col items-center gap-4 md:flex-row"
@@ -24,13 +24,13 @@ exports[`AuthorCard component > renders correctly 1`] = `
         </div>
       </div>
       <div>
-        <h3
-          class="text-xs md:text-2xl font-bold text-primary mb-4 !mb-0"
+        <h2
+          class="text-lg md:text-3xl font-bold text-primary mb-4 !mb-0"
         >
           John Doe
-        </h3>
+        </h2>
         <p
-          class="mb-2 text-primary-text-color !text-base"
+          class="mb-2 text-primary-text-color !text-lg"
         >
           An expert in the field.
         </p>
