@@ -1,6 +1,7 @@
 import "./tailwind.css";
 
 export { default as Accordion } from "Components/Accordion";
+export { default as AddSocialPlatform } from "Components/AddSocialPlatform";
 export { default as Alert } from "Components/Alert";
 export { default as AuthorCard } from "Components/AuthorCard";
 export { default as Avatar } from "Components/Avatar";

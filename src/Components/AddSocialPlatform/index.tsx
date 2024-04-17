@@ -6,10 +6,12 @@ import { IconAdd } from "Components/Icons";
 import { Input, Select } from "Components/Inputs";
 import { Paragraph } from "Components/Typography";
 
-const AddSocialPlatform: FC<{
-  platforms: { name: string; url: string }[];
-  onAdd: (data: Record<string, string>) => void;
-}> = ({ onAdd, platforms }) => {
+import { IAddSocialPlatformProps } from "./types";
+
+const AddSocialPlatform: FC<IAddSocialPlatformProps> = ({
+  onAdd,
+  platforms
+}) => {
   const form = useAJVForm(
     {
       platform: "",

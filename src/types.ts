@@ -1,4 +1,5 @@
 import * as AccordionTypes from "./Components/Accordion/types";
+import * as AddSocialPlatformTypes from "./Components/AddSocialPlatform/types";
 import * as AlertTypes from "./Components/Alert/types";
 import * as AuthorCardTypes from "./Components/AuthorCard/types";
 import * as AvatarTypes from "./Components/Avatar/types";
@@ -34,6 +35,7 @@ import * as TypographyTypes from "./Components/Typography/types";
 
 export {
   AccordionTypes,
+  AddSocialPlatformTypes,
   AlertTypes,
   AuthorCardTypes,
   AvatarTypes,
