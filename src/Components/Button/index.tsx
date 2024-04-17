@@ -15,7 +15,7 @@ const Button: React.FC<IButtonProps> = ({
   outlined = false
 }) => {
   let cls =
-    "select-none border-2 border-primary px-3 py-2 font-semibold uppercase tracking-tight rounded-md ";
+    "select-none border-2 border-primary px-3 py-2 font-semibold tracking-tight rounded-md ";
 
   if (disabled) {
     cls += "cursor-not-allowed opacity-70 ";

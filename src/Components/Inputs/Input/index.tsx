@@ -56,7 +56,7 @@ const Input: FC<IInputProps> = forwardRef<HTMLInputElement, IInputProps>(
     return (
       <div className={classNames(inputWrapperClassName)}>
         <InputHeader {...inputHeaderProps} />
-        <div className='flex flex-col gap-1'>
+        <div className='flex flex-col'>
           <input
             ref={ref}
             {...rest}

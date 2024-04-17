@@ -13,6 +13,7 @@ export const styles: StylesConfig<Option | undefined, false | true> = {
     ...base,
     outline: "none",
     boxShadow: "none",
+    padding: "4px 0",
     color,
     "input:focus": {
       boxShadow: "none"

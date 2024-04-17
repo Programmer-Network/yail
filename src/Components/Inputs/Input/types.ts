@@ -10,7 +10,7 @@ export interface IInputProps
   max?: number;
   children?: React.ReactNode;
   minDate?: string;
-  hint?: string;
+  hint?: string | React.ReactNode;
   className?: string;
   disabled?: boolean;
   error?: string | string[] | Record<string, string>;

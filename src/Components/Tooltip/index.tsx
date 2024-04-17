@@ -15,9 +15,10 @@ const Tooltip: FC<ITooltipProps> = ({ text, children, id, place = "top" }) => {
       <ReactTooltip
         id={id}
         place={place}
-        content={text}
+        content={text as string}
         noArrow
-        className='border-2 border-primary-text-color/40 !bg-primary-background-color !text-primary-text-color'
+        opacity={1}
+        className='border-2 border-primary-text-color/40 !bg-primary-background-color !text-primary-text-color z-50'
       />
     </div>
   );

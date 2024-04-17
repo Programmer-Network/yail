@@ -1,7 +1,7 @@
 import { FC } from "react";
 
 import CharacterCounter from "Components/CharacterCounter";
-import { IconQuestionMark } from "Components/Icons";
+import { IconInfo } from "Components/Icons";
 import Tooltip from "Components/Tooltip";
 
 import { InputHeaderProps } from "./types";
@@ -21,10 +21,10 @@ const InputHeader: FC<InputHeaderProps> = ({
 
   return (
     <div className='mb-2 flex items-center justify-between'>
-      <div className='flex items-center gap-1'>
+      <div className='flex items-center gap-0.5'>
         {hint && name && (
           <Tooltip text={hint} id={name} place='right'>
-            <IconQuestionMark className='w-4 text-primary-text-color' />
+            <IconInfo className='w-4 text-primary-text-color relative top-[1px] cursor-pointer' />
           </Tooltip>
         )}
         <div className='text-primary-text-color'>
