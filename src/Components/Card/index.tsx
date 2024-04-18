@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import { FC } from "react";
 
-import { Anchor, H2, Paragraph } from "Components/Typography";
+import { Anchor, H3, Paragraph } from "Components/Typography";
 
 import URLUtils from "Utils/URL";
 
@@ -37,13 +37,13 @@ const Card: FC<ICard> = ({ data, className, NavLink }) => {
 
       {URLUtils.isExternalLink(titleUrl) ? (
         <Anchor href={titleUrl} target='_blank'>
-          <H2 margin='none' className='flex items-center justify-start gap-2'>
+          <H3 margin='none' className='flex items-center justify-start gap-2'>
             {title}
-          </H2>
+          </H3>
         </Anchor>
       ) : (
         <NavLink to={titleUrl}>
-          <H2 margin='none'>{title}</H2>
+          <H3 margin='none'>{title}</H3>
         </NavLink>
       )}
       <Paragraph>{description}</Paragraph>

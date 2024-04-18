@@ -25,7 +25,7 @@ exports[`AuthorCard component > renders correctly 1`] = `
       </div>
       <div>
         <h2
-          class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl my-4 text-primary wordbreak font-bold !my-0"
+          class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl my-4 text-primary break-words overflow-hidden font-bold !my-0"
         >
           John Doe
         </h2>
