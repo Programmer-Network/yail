@@ -46,7 +46,7 @@ const Card: FC<ICard> = ({ data, className, NavLink }) => {
           <H3 margin='none'>{title}</H3>
         </NavLink>
       )}
-      <Paragraph>{description}</Paragraph>
+      <Paragraph margin='none'>{description}</Paragraph>
       {tags && tags.length > 0 && (
         <div className='mt-2 flex items-center gap-2'>
           {tags.map((tag, index) => (

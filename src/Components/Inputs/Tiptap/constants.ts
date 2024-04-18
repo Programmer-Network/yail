@@ -75,7 +75,7 @@ export const toolbarItemToClassName = {
   },
   [TIPTAP_TOOLBAR_ITEMS.PARAGRAPH]: {
     tagName: "p",
-    classes: "my-4 text-primary-text-color"
+    classes: "my-4 text-primary-text-color break-words overflow-hidden"
   },
   [TIPTAP_TOOLBAR_ITEMS.LINK]: {
     tagName: "a",
