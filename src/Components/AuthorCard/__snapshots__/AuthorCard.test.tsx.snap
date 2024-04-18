@@ -25,12 +25,12 @@ exports[`AuthorCard component > renders correctly 1`] = `
       </div>
       <div>
         <h2
-          class="text-lg md:text-3xl font-bold text-primary mb-4 !mb-0"
+          class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl my-4 text-primary wordbreak font-bold !my-0"
         >
           John Doe
         </h2>
         <p
-          class="mb-2 text-primary-text-color !text-lg"
+          class="my-4 text-primary-text-color !my-0"
         >
           An expert in the field.
         </p>

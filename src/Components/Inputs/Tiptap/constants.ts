@@ -27,35 +27,43 @@ export const TIPTAP_TOOLBAR_ITEMS = {
 export const toolbarItemToClassName = {
   [TIPTAP_TOOLBAR_ITEMS.HEADING_1]: {
     tagName: "h1",
-    classes: "text-6xl my-4 text-primary wordbreak"
+    classes:
+      "text-3xl sm:text-4xl md:text-5xl lg:text-6xl my-4 text-primary wordbreak font-bold"
   },
   [TIPTAP_TOOLBAR_ITEMS.HEADING_2]: {
     tagName: "h2",
-    classes: "text-5xl my-4 text-primary wordbreak"
+    classes:
+      "text-2xl sm:text-3xl md:text-4xl lg:text-5xl my-4 text-primary wordbreak font-bold"
   },
   [TIPTAP_TOOLBAR_ITEMS.HEADING_3]: {
     tagName: "h3",
-    classes: "text-4xl my-4 text-primary wordbreak"
+    classes:
+      "text-xl sm:text-2xl md:text-3xl lg:text-4xl my-4 text-primary wordbreak font-bold"
   },
   [TIPTAP_TOOLBAR_ITEMS.HEADING_4]: {
     tagName: "h4",
-    classes: "text-3xl my-4 text-primary wordbreak"
+    classes:
+      "text-lg sm:text-xl md:text-2xl lg:text-3xl my-4 text-primary wordbreak font-bold"
   },
   [TIPTAP_TOOLBAR_ITEMS.HEADING_5]: {
     tagName: "h5",
-    classes: "text-2xl my-4 text-primary wordbreak"
+    classes:
+      "text-md sm:text-lg md:text-xl lg:text-2xl my-4 text-primary wordbreak font-bold"
   },
   [TIPTAP_TOOLBAR_ITEMS.HEADING_6]: {
     tagName: "h6",
-    classes: "text-xl my-4 text-primary wordbreak"
+    classes:
+      "text-sm sm:text-md md:text-lg lg:text-xl my-4 text-primary wordbreak font-bold"
   },
   [TIPTAP_TOOLBAR_ITEMS.UNORDERED_LIST]: {
     tagName: "ul",
-    classes: "list-disc my-4 text-primary-text-color"
+    classes:
+      "list-disc my-4 text-primary-text-color marker:text-primary marker:text-xl pl-4"
   },
   [TIPTAP_TOOLBAR_ITEMS.ORDERED_LIST]: {
     tagName: "ol",
-    classes: "list-decimal my-4 text-primary-text-color"
+    classes:
+      "list-decimal my-4 text-primary-text-color marker:text-primary marker:text-xl pl-4"
   },
   [TIPTAP_TOOLBAR_ITEMS.YOUTUBE]: {
     tagName: null,

@@ -37,13 +37,13 @@ const Card: FC<ICard> = ({ data, className, NavLink }) => {
 
       {URLUtils.isExternalLink(titleUrl) ? (
         <Anchor href={titleUrl} target='_blank'>
-          <H2 className='!mb-0 flex items-center justify-start gap-2'>
+          <H2 margin='none' className='flex items-center justify-start gap-2'>
             {title}
           </H2>
         </Anchor>
       ) : (
         <NavLink to={titleUrl}>
-          <H2 className='!mb-0'>{title}</H2>
+          <H2 margin='none'>{title}</H2>
         </NavLink>
       )}
       <Paragraph>{description}</Paragraph>

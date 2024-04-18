@@ -1,6 +1,8 @@
 import { MouseEvent, ReactNode } from "react";
 
-export interface IParagraphProps {
+import { ITypographyMargin } from "../common";
+
+export interface IParagraphProps extends ITypographyMargin {
   children: ReactNode;
   className?: string;
   onClick?: (e: MouseEvent<HTMLParagraphElement>) => void;
