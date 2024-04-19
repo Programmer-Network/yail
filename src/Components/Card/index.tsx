@@ -11,20 +11,20 @@ const Card: FC<ICard> = ({ data, className, NavLink }) => {
   const { title, description, author, date, tags, titleUrl, authorUrl } = data;
 
   return (
-    <div className={classNames("group mb-4", className)}>
-      <div className='flex items-center text-primary-text-color'>
-        <div className='flex flex-1 justify-between gap-2 md:my-1'>
-          <div className='flex flex-col md:flex-row md:items-center md:gap-2'>
+    <div className={classNames("group yl-mb-4", className)}>
+      <div className='yl-flex yl-items-center yl-text-primary-text-color'>
+        <div className='yl-flex yl-flex-1 yl-justify-between yl-gap-2 md:yl-my-1'>
+          <div className='yl-flex yl-flex-col md:yl-flex-row md:yl-items-center md:yl-gap-2'>
             {author && (
               <>
                 {authorUrl ? (
                   <NavLink to={authorUrl}>
-                    <span className='flex items-center gap-2 text-primary hover:text-primary'>
+                    <span className='yl-flex yl-items-center yl-gap-2 yl-text-primary hover:yl-text-primary'>
                       {author}
                     </span>
                   </NavLink>
                 ) : (
-                  <span className='flex items-center gap-2 text-primary hover:text-primary'>
+                  <span className='yl-flex yl-items-center yl-gap-2 yl-text-primary hover:yl-text-primary'>
                     {author}
                   </span>
                 )}
@@ -37,7 +37,10 @@ const Card: FC<ICard> = ({ data, className, NavLink }) => {
 
       {URLUtils.isExternalLink(titleUrl) ? (
         <Anchor href={titleUrl} target='_blank'>
-          <H3 margin='none' className='flex items-center justify-start gap-2'>
+          <H3
+            margin='none'
+            className='yl-flex yl-items-center yl-justify-start yl-gap-2'
+          >
             {title}
           </H3>
         </Anchor>
@@ -48,12 +51,12 @@ const Card: FC<ICard> = ({ data, className, NavLink }) => {
       )}
       <Paragraph margin='none'>{description}</Paragraph>
       {tags && tags.length > 0 && (
-        <div className='mt-2 flex items-center gap-2'>
+        <div className='yl-mt-2 yl-flex yl-items-center yl-gap-2'>
           {tags.map((tag, index) => (
             <NavLink
               key={index}
               to={tag.url}
-              className='hover:text-stroke text-primary hover:underline hover:opacity-80 active:opacity-50'
+              className='hover:yl-text-stroke yl-text-primary hover:yl-underline hover:yl-opacity-80 active:yl-opacity-50'
             >
               #{tag.name}
             </NavLink>

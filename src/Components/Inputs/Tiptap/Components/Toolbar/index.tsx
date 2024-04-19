@@ -97,7 +97,7 @@ export const Toolbar = ({
   };
 
   return (
-    <div className='relative flex flex-wrap items-center gap-1 rounded-tl-md rounded-tr-md border-2 border-primary-text-color/40 bg-primary-text-color/5 px-2 py-2 md:gap-4 md:px-4'>
+    <div className='yl-relative yl-flex flex-wrap yl-items-center yl-gap-1 yl-rounded-tl-md yl-rounded-tr-md yl-border-2 yl-border-primary-text-color/40 yl-bg-primary-text-color/5 yl-px-2 yl-py-2 md:yl-gap-4 md:yl-px-4'>
       {image.isExtensionEnabled && (
         <Dialog ref={dialogRef}>
           <ImageUpload
@@ -130,7 +130,7 @@ export const Toolbar = ({
             icon={{
               iconName: "IconAddYoutube",
               iconPosition: "right",
-              iconClassName: "w-6"
+              iconClassName: "yl-w-6"
             }}
             onClick={insertVideo}
           />
@@ -152,7 +152,7 @@ export const Toolbar = ({
               icon={{
                 iconName: "IconLink",
                 iconPosition: "right",
-                iconClassName: "w-6"
+                iconClassName: "yl-w-6"
               }}
               onClick={() => insertLink(LinkClickTarget.Link)}
             />
@@ -162,7 +162,7 @@ export const Toolbar = ({
                 outlined
                 onClick={() => insertLink(LinkClickTarget.UnLink)}
               >
-                <Icon iconName='IconUnlink' className='w-6' />
+                <Icon iconName='IconUnlink' className='yl-w-6' />
               </Button>
             )}
           </ModalInput>
@@ -211,23 +211,24 @@ export const Toolbar = ({
               <Icon
                 iconName={i.iconName as IconName}
                 className={classNames(
-                  "w-8 cursor-pointer border-primary-text-color",
+                  "yl-w-8 yl-cursor-pointer yl-border-primary-text-color",
                   {
-                    "text-primary-text-color": !i.isActive,
-                    "!fill-primary !text-primary": i.isActive,
-                    "cursor-not-allowed":
+                    "yl-text-primary-text-color": !i.isActive,
+                    "!yl-fill-primary !yl-text-primary": i.isActive,
+                    "yl-cursor-not-allowed":
                       typeof i.isDisabled === "function" && i.isDisabled(),
-                    "cursor-default": !hasSelection,
-                    "fill-primary": i.iconName === "IconLink" && hasSelection,
-                    "w-[27px]": i.iconName === "IconStrikethrough",
-                    "w-[28px]":
+                    "yl-cursor-default": !hasSelection,
+                    "yl-fill-primary":
+                      i.iconName === "IconLink" && hasSelection,
+                    "yl-w-[27px]": i.iconName === "IconStrikethrough",
+                    "yl-w-[28px]":
                       i.iconName === "IconLink" || i.iconName === "IconItalic",
-                    "w-[29px]":
+                    "yl-w-[29px]":
                       i.iconName === "IconBold" ||
                       i.iconName === "IconListOl" ||
                       i.iconName === "IconListUl",
-                    "w-[26px]": i.iconName === "IconImage",
-                    "w-[32px]": i.iconName === "IconLink"
+                    "yl-w-[26px]": i.iconName === "IconImage",
+                    "yl-w-[32px]": i.iconName === "IconLink"
                   }
                 )}
               />

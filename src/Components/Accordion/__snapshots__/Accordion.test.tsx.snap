@@ -6,20 +6,20 @@ exports[`Accordion component > renders correctly 1`] = `
     class=""
   >
     <div
-      class="mb-4 border-b-0"
+      class="yl-mb-4 yl-border-b-0"
       role="presentation"
     >
       <h3
         aria-expanded="true"
-        class="relative flex cursor-pointer select-none items-center justify-between font-semibold capitalize text-primary-text-color"
+        class="yl-relative yl-flex yl-cursor-pointer yl-select-none yl-items-center yl-justify-between yl-font-semibold yl-capitalize yl-text-primary-text-color"
         role="button"
         tabindex="0"
       >
         <div
-          class="flex items-center gap-1 overflow-hidden text-ellipsis whitespace-nowrap text-base"
+          class="yl-flex yl-items-center yl-gap-1 yl-overflow-hidden yl-text-ellipsis yl-whitespace-nowrap yl-text-base"
         >
           <svg
-            class="absolute right-0 w-6 cursor-pointer fill-primary-text-color hover:fill-primary"
+            class="yl-absolute yl-right-0 yl-w-6 yl-cursor-pointer yl-fill-primary-text-color hover:yl-fill-primary"
             data-testid="icon-expand-less"
             fill="currentColor"
             viewBox="0 0 24 24"
@@ -38,14 +38,14 @@ exports[`Accordion component > renders correctly 1`] = `
       </h3>
       <ul
         aria-labelledby="1"
-        class="animate-height-animation leading-8"
+        class="animate-height-animation yl-leading-8"
         role="region"
       >
         <li
-          class="text-primary-text-color cursor-pointer"
+          class="yl-text-primary-text-color yl-cursor-pointer"
         >
           <div
-            class="flex break-all"
+            class="yl-flex yl-break-all"
           >
             <span
               class=""
@@ -55,10 +55,10 @@ exports[`Accordion component > renders correctly 1`] = `
           </div>
         </li>
         <li
-          class="text-primary-text-color cursor-pointer"
+          class="yl-text-primary-text-color yl-cursor-pointer"
         >
           <div
-            class="flex break-all"
+            class="yl-flex yl-break-all"
           >
             <span
               class=""
@@ -75,15 +75,15 @@ exports[`Accordion component > renders correctly 1`] = `
     >
       <h3
         aria-expanded="false"
-        class="relative flex cursor-pointer select-none items-center justify-between font-semibold capitalize text-primary-text-color"
+        class="yl-relative yl-flex yl-cursor-pointer yl-select-none yl-items-center yl-justify-between yl-font-semibold yl-capitalize yl-text-primary-text-color"
         role="button"
         tabindex="0"
       >
         <div
-          class="flex items-center gap-1 overflow-hidden text-ellipsis whitespace-nowrap text-base"
+          class="yl-flex yl-items-center yl-gap-1 yl-overflow-hidden yl-text-ellipsis yl-whitespace-nowrap yl-text-base"
         >
           <svg
-            class="absolute right-0 w-6 cursor-pointer fill-primary-text-color hover:fill-primary"
+            class="yl-absolute yl-right-0 yl-w-6 yl-cursor-pointer yl-fill-primary-text-color hover:yl-fill-primary"
             data-testid="icon-expand-more"
             fill="currentColor"
             viewBox="0 0 24 24"

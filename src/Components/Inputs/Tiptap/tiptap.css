@@ -55,7 +55,7 @@
   margin: 2rem 0;
 }
 .tiptap p.is-editor-empty:first-child::before {
-  @apply text-primary-text-color;
+  @apply yl-text-primary-text-color;
   content: attr(data-placeholder);
   float: left;
   height: 0;

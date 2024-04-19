@@ -21,6 +21,6 @@ export const Default: Story = {
 
 export const WithClassesProperty: Story = {
   args: {
-    classes: ["bg-violet-300", "bg-violet-400", "bg-violet-500"]
+    classes: ["yl-bg-violet-300", "yl-bg-violet-400", "yl-bg-violet-500"]
   }
 };

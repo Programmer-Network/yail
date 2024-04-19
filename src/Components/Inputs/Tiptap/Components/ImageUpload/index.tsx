@@ -21,11 +21,14 @@ const ImageUpload: FC<{
     <div>
       <label
         htmlFor={id}
-        className='flex cursor-pointer flex-col items-center justify-center py-12'
+        className='yl-flex yl-cursor-pointer yl-flex-col yl-items-center yl-justify-center yl-py-12'
       >
-        <div className='flex flex-col items-center justify-center'>
-          <Icon iconName='IconUpload' className='mb-2 w-20 text-primary' />
-          <H4 className='!mb-0 !text-primary-text-color'>{label}</H4>
+        <div className='yl-flex yl-flex-col yl-items-center yl-justify-center'>
+          <Icon
+            iconName='IconUpload'
+            className='yl-mb-2 yl-w-20 text-primary'
+          />
+          <H4 className='!yl-mb-0 !yl-text-primary-text-color'>{label}</H4>
           <Paragraph>png, jpg</Paragraph>
         </div>
         <div className='hidden'>

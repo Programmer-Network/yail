@@ -18,7 +18,7 @@ const Tooltip: FC<ITooltipProps> = ({ text, children, id, place = "top" }) => {
         content={text as string}
         noArrow
         opacity={1}
-        className='border-2 border-primary-text-color/40 !bg-primary-background-color !text-primary-text-color z-50'
+        className='yl-border-2 yl-border-primary-text-color/40 !yl-bg-primary-background-color !yl-text-primary-text-color yl-z-50'
       />
     </div>
   );

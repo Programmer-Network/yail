@@ -17,20 +17,20 @@ const DomainInput: FC<IDomainInputProps> = props => {
   return (
     <div
       className={classNames(
-        "group text-primary-text-color",
+        "group yl-text-primary-text-color",
         props.inputWrapperClassName
       )}
     >
       <InputHeader {...props} />
-      <div className='flex w-full'>
+      <div className='yl-flex yl-w-full'>
         <span
           data-testid='domain'
           className={classNames(
-            "min-w-max border-2 border-primary-text-color px-4 py-2 leading-5 tracking-tighter selection:text-primary-text-color rounded-tl-md rounded-bl-md",
+            "yl-min-w-max yl-border-2 yl-border-primary-text-color yl-px-4 yl-py-2 yl-leading-5 yl-tracking-tighter selection:yl-text-primary-text-color yl-rounded-tl-md yl-rounded-bl-md",
             props.domainClassName,
             {
-              "group-hover:border-primary": !props.disabled,
-              "!border-primary !ring-transparent": isFocused
+              "group-hover:yl-border-primary": !props.disabled,
+              "!yl-border-primary !ring-transparent": isFocused
             }
           )}
         >
@@ -44,11 +44,11 @@ const DomainInput: FC<IDomainInputProps> = props => {
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
           className={classNames(
-            "w-full cursor-pointer border-t-2 border-b-2 border-r-2 border-primary-text-color bg-transparent p-2 transition-colors focus:border-primary focus:outline-none focus:ring-transparent rounded-tr-md rounded-br-md",
+            "yl-w-full yl-cursor-pointer yl-border-t-2 yl-border-b-2 yl-border-r-2 yl-border-primary-text-color yl-bg-transparent yl-p-2 transition-colors focus:yl-border-primary focus:yl-outline-none focus:yl-ring-transparent yl-rounded-tr-md yl-rounded-br-md",
             props.className,
             {
-              "group-hover:border-primary": !props.disabled,
-              "hover:cursor-not-allowed": props.disabled
+              "group-hover:yl-border-primary": !props.disabled,
+              "hover:yl-cursor-not-allowed": props.disabled
             }
           )}
           onChange={handleChange}

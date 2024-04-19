@@ -27,18 +27,18 @@ const Reactions: FC<IReactionsProps> = ({
   const hasDisliked = reactionType === ReactionType.DISLIKE;
 
   const arrowUpClasses = !isReactable
-    ? "cursor-not-allowed"
+    ? "yl-cursor-not-allowed"
     : {
-        "text-primary": hasLiked,
-        "cursor-not-allowed": hasLiked,
-        "cursor-pointer hover:text-primary": !hasLiked
+        "yl-text-primary": hasLiked,
+        "yl-cursor-not-allowed": hasLiked,
+        "yl-cursor-pointer hover:yl-text-primary": !hasLiked
       };
 
   const arrowDownClasses = !isReactable
-    ? "cursor-not-allowed"
+    ? "yl-cursor-not-allowed"
     : {
-        "text-red-500 cursor-not-allowed": hasDisliked,
-        "cursor-pointer hover:text-red-500": !hasDisliked
+        "yl-text-red-500 yl-cursor-not-allowed": hasDisliked,
+        "yl-cursor-pointer hover:yl-text-red-500": !hasDisliked
       };
 
   const handleReaction = (reactionType: ReactionType) => {
@@ -53,17 +53,17 @@ const Reactions: FC<IReactionsProps> = ({
     <Tooltip id='reactions-tooltip' text={isNotReactableText || ""}>
       <div
         className={classNames({
-          "flex items-center gap-8": !className
+          "yl-flex yl-items-center yl-gap-8": !className
         })}
       >
-        <div className='my-0 flex items-center justify-center gap-2 text-primary-text-color'>
+        <div className='yl-my-0 yl-flex yl-items-center yl-justify-center yl-gap-2 yl-text-primary-text-color'>
           {isLiking ? (
-            <IconSpinner className='w-5' data-testid='like-spinner' />
+            <IconSpinner className='yl-w-5' data-testid='like-spinner' />
           ) : (
             <>
               <IconArrowUp
                 data-testid='like-button'
-                className={classNames("w-6", arrowUpClasses)}
+                className={classNames("yl-w-6", arrowUpClasses)}
                 onClick={
                   !isDisliking && !hasLiked
                     ? () => handleReaction(ReactionType.LIKE)
@@ -73,17 +73,17 @@ const Reactions: FC<IReactionsProps> = ({
             </>
           )}
         </div>
-        <span className='select-none text-primary-text-color'>
+        <span className='yl-select-none yl-text-primary-text-color'>
           {reactionsCount}
         </span>
-        <div className='flex items-center justify-center gap-2 text-primary-text-color'>
+        <div className='yl-flex yl-items-center yl-justify-center yl-gap-2 yl-text-primary-text-color'>
           {isDisliking ? (
-            <Spinner className='w-5' data-testid='dislike-spinner' />
+            <Spinner className='yl-w-5' data-testid='dislike-spinner' />
           ) : (
             <>
               <IconArrowDown
                 data-testid='dislike-button'
-                className={classNames("w-6", arrowDownClasses)}
+                className={classNames("yl-w-6", arrowDownClasses)}
                 onClick={
                   !isLiking && !hasDisliked
                     ? () => handleReaction(ReactionType.DISLIKE)

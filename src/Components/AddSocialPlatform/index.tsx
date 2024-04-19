@@ -35,12 +35,12 @@ const AddSocialPlatform: FC<IAddSocialPlatformProps> = ({
   );
 
   return (
-    <div className='grid grid-cols-12 items-start gap-2 my-4'>
+    <div className='yl-grid yl-grid-cols-12 yl-items-start yl-gap-2 my-4'>
       <Select
         name='platform'
         label='Platform'
         onChange={form.set}
-        inputWrapperClassName='col-span-5'
+        inputWrapperClassName='yl-col-span-5'
         value={form.state.platform.value}
         error={form.state.platform.error}
         options={platforms.map(({ name }) => ({
@@ -48,7 +48,7 @@ const AddSocialPlatform: FC<IAddSocialPlatformProps> = ({
           value: name
         }))}
       />
-      <div className='col-span-5'>
+      <div className='yl-col-span-5'>
         <Input
           name='url'
           label='Username'
@@ -58,8 +58,9 @@ const AddSocialPlatform: FC<IAddSocialPlatformProps> = ({
                 Username, a slug or a handle. Different platforms call it
                 differently.
               </Paragraph>
-              <Paragraph className='text-red-500'>
-                <span className='font-bold'>Do not</span> include the base URL.
+              <Paragraph className='yl-text-red-500'>
+                <span className='yl-font-bold'>Do not</span> include the base
+                URL.
               </Paragraph>
             </div>
           }
@@ -70,7 +71,7 @@ const AddSocialPlatform: FC<IAddSocialPlatformProps> = ({
       </div>
       <Button
         outlined
-        className='col-span-1 mt-8'
+        className='yl-col-span-1 yl-mt-8'
         onClick={() => {
           if (!form.validate().isValid) {
             return;

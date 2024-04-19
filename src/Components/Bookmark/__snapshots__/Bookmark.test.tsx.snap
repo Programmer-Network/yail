@@ -3,13 +3,13 @@
 exports[`Bookmark component > renders correctly - snapshot test 1`] = `
 <DocumentFragment>
   <div
-    class="flex items-start gap-2"
+    class="yl-flex yl-items-start yl-gap-2"
   >
     <div
-      class="flex gap-2"
+      class="yl-flex yl-gap-2"
     >
       <svg
-        class="relative top-[-1px] w-5 cursor-pointer fill-primary hover:fill-primary"
+        class="yl-relative yl-top-[-1px] yl-w-5 yl-cursor-pointer yl-fill-primary hover:yl-fill-primary"
         data-testid="icon-bookmarked"
         fill="currentColor"
         viewBox="0 0 16 16"

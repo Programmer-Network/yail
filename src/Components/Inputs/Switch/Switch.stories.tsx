@@ -9,6 +9,8 @@ export default {
 export const Default = () => {
   const [isChecked, setIsChecked] = useState(false);
 
+  console.log("🚀 ─── Default ─── isChecked:", isChecked);
+
   return (
     <Switch
       isChecked={isChecked}

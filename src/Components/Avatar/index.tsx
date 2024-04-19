@@ -11,7 +11,7 @@ const Avatar: FC<IAvatarProps> = ({
   size = 50,
   colors = ["#6366f1", "#bae6fd"]
 }) => {
-  const className = classNames("sm:m-0 rounded-full overflow-hidden");
+  const className = classNames("sm:yl-mt-0 yl-rounded-full yl-overflow-hidden");
 
   src && StringUtils.validateURL(src);
 

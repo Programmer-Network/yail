@@ -104,19 +104,19 @@ export default class TiptapToHTML {
       selfClosing: ["img"],
       allowedClasses: {
         "*": [
-          "text-primary",
+          "yl-text-primary",
           "text-xl",
           "text-2xl",
           "text-3xl",
           "text-4xl",
           "text-6xl",
           "my-4",
-          "mb-2",
-          "mt-2",
+          "yl-mb-2",
+          "yl-mt-2",
           "wordbreak"
         ],
-        a: ["underline,", "text-primary", "cursor-pointer", "font-bold"],
-        iframe: ["aspect-video", "w-full", "h-full", "py-4"],
+        a: ["underline,", "yl-text-primary", "yl-cursor-pointer", "font-bold"],
+        iframe: ["aspect-video", "yl-w-full", "yl-h-full", "yl-py-4"],
         ...Object.values(toolbarItemToClassName).reduce((acc, tag) => {
           if (!tag.tagName) {
             return acc;

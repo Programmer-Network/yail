@@ -12,13 +12,16 @@ const Divider: FC<IDividerProps> = ({ className, classes }) => {
   return (
     <div
       data-testid='divider'
-      className={classNames("mx-auto flex justify-center gap-1", className)}
+      className={classNames(
+        "yl-mx-auto yl-flex yl-justify-center yl-gap-1",
+        className
+      )}
     >
       {Array.isArray(classes) &&
         ArrayUtils.shuffle(classes).map((bg, index) => (
           <div
             key={index}
-            className={classNames("block h-[2px] w-28", bg)}
+            className={classNames("yl-block yl-h-[2px] yl-w-28", bg)}
             data-testid={`divider-child-${index}`}
           />
         ))}
@@ -28,9 +31,9 @@ const Divider: FC<IDividerProps> = ({ className, classes }) => {
 
 Divider.defaultProps = {
   classes: [
-    "bg-primary-text-color",
-    "bg-primary-text-color",
-    "bg-primary-text-color"
+    "yl-bg-primary-text-color",
+    "yl-bg-primary-text-color",
+    "yl-bg-primary-text-color"
   ]
 };
 

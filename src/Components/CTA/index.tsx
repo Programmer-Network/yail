@@ -16,23 +16,23 @@ const CTA: FC<ICTAProps> = ({
   onClick
 }) => {
   return (
-    <div className='flex items-center justify-center'>
-      <div className='flex flex-col items-center text-center'>
-        <div className='flex flex-col items-center justify-center gap-4'>
-          <div className='flex flex-col gap-2'>
+    <div className='yl-flex yl-items-center yl-justify-center'>
+      <div className='yl-flex yl-flex-col yl-items-center yl-text-center'>
+        <div className='yl-flex yl-flex-col yl-items-center yl-justify-center yl-gap-4'>
+          <div className='yl-flex yl-flex-col yl-gap-2'>
             {Icon && (
               <Icon
                 className={classNames(
-                  "mx-auto w-14 text-primary md:w-28",
+                  "yl-mx-auto yl-w-14 yl-text-primary md:yl-w-28",
                   iconClassName
                 )}
               />
             )}
 
-            <H2 className='text-primary-text-color'>{title}</H2>
+            <H2 className='yl-text-primary-text-color'>{title}</H2>
             <Paragraph
               margin='none'
-              className='mx-auto max-w-md text-primary-text-color text-center'
+              className='yl-mx-auto yl-max-w-md yl-text-primary-text-color yl-text-center'
             >
               {subtitle}
             </Paragraph>
@@ -40,9 +40,9 @@ const CTA: FC<ICTAProps> = ({
 
           {buttonText && onClick && (
             <Button onClick={onClick}>
-              <span className='flex items-center gap-2'>
+              <span className='yl-flex yl-items-center yl-gap-2'>
                 {ButtonIcon && (
-                  <ButtonIcon className='w-4' aria-hidden='true' />
+                  <ButtonIcon className='yl-w-4' aria-hidden='true' />
                 )}
                 {buttonText}
               </span>

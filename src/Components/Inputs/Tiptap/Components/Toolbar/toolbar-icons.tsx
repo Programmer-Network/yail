@@ -58,7 +58,7 @@ const getToolbarIcons = ({ editor }: IToolbarIcons): IToolbarIconsReturn[] => {
       },
       isActive: editor.isActive("bold"),
       iconName: "IconBold",
-      className: "text-rose-500",
+      className: "yl-text-rose-500",
       isDisabled: () => !editor.can().chain().focus().toggleBold().run()
     },
     {

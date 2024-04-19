@@ -205,7 +205,7 @@ export const Default = () => {
   }));
 
   return (
-    <div className='m-8'>
+    <div className='yl-mt-8'>
       <Cards cards={cards} columns={2} NavLink={NavLink} />
     </div>
   );

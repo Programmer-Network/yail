@@ -18,8 +18,8 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    draggedClassName: "bg-primary",
-    draggedOverClassName: "bg-rose-500",
+    draggedClassName: "yl-bg-primary",
+    draggedOverClassName: "yl-bg-rose-500",
     onSorted: (items: IDraggableListItem[]) => {
       return new Promise(resolve => {
         setTimeout(() => {

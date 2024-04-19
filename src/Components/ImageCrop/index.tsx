@@ -119,12 +119,12 @@ const ImageCrop: FC<IImageCropProps> = ({
         >
           <div
             className={classNames(imgCropWrapperClassName, {
-              "relative h-[350px] w-[350px]": !imgCropWrapperClassName
+              "yl-relative yl-h-[350px] yl-w-[350px]": !imgCropWrapperClassName
             })}
           >
             <img
               className={classNames(imgCropClassName, {
-                "absolute h-full w-full bg-left-top object-cover":
+                "yl-absolute yl-h-full yl-w-full bg-yl-left-top object-cover":
                   !imgCropClassName
               })}
               ref={imgRef}

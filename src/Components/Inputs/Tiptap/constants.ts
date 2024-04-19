@@ -28,61 +28,63 @@ export const toolbarItemToClassName = {
   [TIPTAP_TOOLBAR_ITEMS.HEADING_1]: {
     tagName: "h1",
     classes:
-      "text-3xl sm:text-4xl md:text-5xl lg:text-6xl my-4 text-primary break-words overflow-hidden font-bold"
+      "yl-text-3xl sm:yl-text-4xl md:yl-text-5xl lg:yl-text-6xl yl-my-4 yl-text-primary yl-break-words yl-overflow-hidden yl-font-bold"
   },
   [TIPTAP_TOOLBAR_ITEMS.HEADING_2]: {
     tagName: "h2",
     classes:
-      "text-2xl sm:text-3xl md:text-4xl lg:text-5xl my-4 text-primary break-words overflow-hidden font-bold"
+      "yl-text-2xl sm:yl-text-3xl md:yl-text-4xl lg:yl-text-5xl yl-my-4 yl-text-primary yl-break-words yl-overflow-hidden yl-font-bold"
   },
   [TIPTAP_TOOLBAR_ITEMS.HEADING_3]: {
     tagName: "h3",
     classes:
-      "text-xl sm:text-2xl md:text-3xl lg:text-4xl my-4 text-primary break-words overflow-hidden font-bold"
+      "yl-text-xl sm:yl-text-2xl md:yl-text-3xl lg:yl-text-4xl yl-my-4 yl-text-primary yl-break-words yl-overflow-hidden yl-font-bold"
   },
   [TIPTAP_TOOLBAR_ITEMS.HEADING_4]: {
     tagName: "h4",
     classes:
-      "text-lg sm:text-xl md:text-2xl lg:text-3xl my-4 text-primary break-words overflow-hidden font-bold"
+      "text-lg sm:yl-text-xl md:yl-text-2xl lg:yl-text-3xl yl-my-4 yl-text-primary yl-break-words yl-overflow-hidden yl-font-bold"
   },
   [TIPTAP_TOOLBAR_ITEMS.HEADING_5]: {
     tagName: "h5",
     classes:
-      "text-md sm:text-lg md:text-xl lg:text-2xl my-4 text-primary break-words overflow-hidden font-bold"
+      "yl-text-md sm:yl-text-lg md:yl-text-xl lg:yl-text-2xl yl-my-4 yl-text-primary yl-break-words yl-overflow-hidden yl-font-bold"
   },
   [TIPTAP_TOOLBAR_ITEMS.HEADING_6]: {
     tagName: "h6",
     classes:
-      "text-sm sm:text-md md:text-lg lg:text-xl my-4 text-primary break-words overflow-hidden font-bold"
+      "yl-text-sm sm:yl-text-md md:yl-text-lg lg:yl-text-xl yl-my-4 yl-text-primary yl-break-words yl-overflow-hidden yl-font-bold"
   },
   [TIPTAP_TOOLBAR_ITEMS.UNORDERED_LIST]: {
     tagName: "ul",
     classes:
-      "list-disc my-4 text-primary-text-color marker:text-primary marker:text-xl pl-4"
+      "yl-list-disc yl-my-4 yl-text-primary-text-color marker:yl-text-primary marker:yl-text-xl yl-pl-4"
   },
   [TIPTAP_TOOLBAR_ITEMS.ORDERED_LIST]: {
     tagName: "ol",
     classes:
-      "list-decimal my-4 text-primary-text-color marker:text-primary marker:text-xl pl-4"
+      "yl-list-decimal yl-my-4 yl-text-primary-text-color marker:yl-text-primary marker:yl-text-xl yl-pl-4"
   },
   [TIPTAP_TOOLBAR_ITEMS.YOUTUBE]: {
     tagName: null,
-    classes: "aspect-video h-full w-full py-4"
+    classes: "yl-aspect-video yl-h-full yl-w-full yl-py-4"
   },
   [TIPTAP_TOOLBAR_ITEMS.IMAGE]: {
     tagName: "img",
-    classes: "mx-auto block p-2 border border-primary-background-color"
+    classes:
+      "yl-mx-auto yl-block yl-p-2 yl-border yl-border-primary-background-color"
   },
   [TIPTAP_TOOLBAR_ITEMS.PARAGRAPH]: {
     tagName: "p",
-    classes: "my-4 text-primary-text-color break-words overflow-hidden"
+    classes:
+      "yl-my-4 yl-text-primary-text-color yl-break-words yl-overflow-hidden"
   },
   [TIPTAP_TOOLBAR_ITEMS.LINK]: {
     tagName: "a",
-    classes: "underline text-primary cursor-pointer font-bold"
+    classes: "yl-underline yl-text-primary yl-cursor-pointer yl-font-bold"
   },
   [TIPTAP_TOOLBAR_ITEMS.MENTION]: {
     tagName: null,
-    classes: "text-primary cursor-pointer font-bold"
+    classes: "yl-text-primary yl-cursor-pointer yl-font-bold"
   }
 };

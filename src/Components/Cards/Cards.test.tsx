@@ -46,7 +46,7 @@ describe("Cards component", () => {
     );
 
     expect(screen.getByTestId("cards")).toHaveClass(
-      "grid grid-cols-1 md:grid-cols-3"
+      "yl-grid yl-grid-cols-1 md:yl-grid-cols-3"
     );
 
     rerender(
@@ -55,7 +55,7 @@ describe("Cards component", () => {
       </BrowserRouter>
     );
     expect(screen.getByTestId("cards")).toHaveClass(
-      "grid grid-cols-1 md:grid-cols-4"
+      "yl-grid yl-grid-cols-1 md:yl-grid-cols-4"
     );
   });
 

@@ -17,8 +17,8 @@ const ContentWidget = <T extends IContentWidgetBaseItem>({
 }: IContentWidgetProps<T>): JSX.Element => {
   if (isLoading) {
     return (
-      <div className='flex items-center justify-center'>
-        <IconSpinner className='w-12 fill-primary' />
+      <div className='yl-flex yl-items-center yl-justify-center'>
+        <IconSpinner className='yl-w-12 yl-fill-primary' />
       </div>
     );
   }
@@ -26,40 +26,44 @@ const ContentWidget = <T extends IContentWidgetBaseItem>({
   return (
     <div
       className={classNames(
-        "border-2 border-primary-text-color/40 rounded-md px-8 pt-4 relative",
+        "yl-border-2 yl-border-primary-text-color/40 yl-rounded-md yl-px-8 yl-pt-4 yl-relative",
         className
       )}
     >
       <div>
-        <div className='group rounded-md'>
+        <div className='group yl-rounded-md'>
           <div
-            className={classNames("items-center gap-2 flex justify-between")}
+            className={classNames(
+              "yl-items-center yl-gap-2 yl-flex yl-justify-between"
+            )}
           >
             {more && more.iconName && (
               <Icon
                 iconName={more.iconName}
                 className={classNames(more.iconClassName, {
-                  "w-4": !more.iconClassName
+                  "yl-w-4": !more.iconClassName
                 })}
               />
             )}
-            <span className='font-bold text-primary-text-color'>{title}</span>
+            <span className='yl-font-bold yl-text-primary-text-color'>
+              {title}
+            </span>
             {more && (
               <Tooltip id='see-more-tooltip' text={more.tooltipText}>
                 <IconEnter
                   onClick={more.onClick}
-                  className='w-8 absolute top-2 right-2 text-primary-text-color cursor-pointer hover:text-primary'
+                  className='yl-w-8 yl-absolute yl-top-2 yl-right-2 yl-text-primary-text-color yl-cursor-pointer hover:yl-text-primary'
                 />
               </Tooltip>
             )}
           </div>
         </div>
         <Divider
-          className='pt-2 pb-3'
+          className='yl-pt-2 yl-pb-3'
           classes={[
-            "bg-primary-text-color/20",
-            "bg-primary-text-color/30",
-            "bg-primary-text-color/40"
+            "yl-bg-primary-text-color/20",
+            "yl-bg-primary-text-color/30",
+            "yl-bg-primary-text-color/40"
           ]}
         />
       </div>
@@ -67,12 +71,12 @@ const ContentWidget = <T extends IContentWidgetBaseItem>({
       <div>
         {items.map(({ item, onClick }, index) => {
           return (
-            <div className='mb-4 group' key={index}>
+            <div className='yl-mb-4 group' key={index}>
               <Paragraph
-                className='m-width-0 flex-1 break-words'
+                className='yl-mt-width-0 yl-flex-1 yl-break-words'
                 onClick={() => onClick(item)}
               >
-                <span className='hover:text-primary hover:cursor-pointer break-words'>
+                <span className='hover:yl-text-primary hover:yl-cursor-pointer yl-break-words'>
                   {item.title}
                 </span>
               </Paragraph>

@@ -6,8 +6,8 @@ import { ICharacterCounterProps } from "./types";
 const CharacterCounter: FC<ICharacterCounterProps> = ({ text, max }) => {
   return (
     <div
-      className={classNames("flex gap-1 text-primary-text-color", {
-        "!text-rose-500": text.length > max
+      className={classNames("yl-flex yl-gap-1 yl-text-primary-text-color", {
+        "!yl-text-rose-500": text.length > max
       })}
     >
       <span data-testid='current-length'>{text.length}</span>

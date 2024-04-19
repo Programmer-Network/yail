@@ -209,7 +209,7 @@ export const Primary = () => {
   return (
     <div>
       <Accordion
-        className='w-[500px]'
+        className='yl-w-[500px]'
         selectedId={2}
         sections={sections}
         expanded={expandedSections}

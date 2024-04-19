@@ -18,6 +18,6 @@ type Story = StoryObj<typeof meta>;
 export const Filled: Story = {
   args: {
     title: "Badge",
-    className: "bg-primary-500"
+    className: "yl-bg-primary-500"
   }
 };

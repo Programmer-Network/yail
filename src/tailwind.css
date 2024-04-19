@@ -16,18 +16,18 @@
   }
 }
 
-.primary {
+.yl-primary {
   color: var(--color-primary);
 }
 
-.primary-background-color {
+.yl-primary-background-color {
   color: var(--color-bg);
 }
 
-.primary-text-color {
+.yl-primary-text-color {
   color: var(--text-color);
 }
 
-.bg-derived {
+.yl-bg-derived {
   background-color: var(--color-bg-rgb);
 }

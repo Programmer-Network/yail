@@ -17,7 +17,7 @@ const Switch: React.FC<ISwitchProps> = ({
   return (
     <label
       className={classNames(
-        "inline-flex cursor-pointer items-center",
+        "yl-inline-flex yl-cursor-pointer yl-items-center",
         className
       )}
     >
@@ -25,11 +25,11 @@ const Switch: React.FC<ISwitchProps> = ({
         type='checkbox'
         checked={isChecked}
         onChange={handleChange}
-        className='peer sr-only'
+        className='peer sr-only yl-hidden'
       />
-      <div className="peer relative h-6 w-11 rounded-full bg-primary-text-color after:absolute after:start-[2px] after:top-[2px] after:h-5 after:w-5 after:rounded-full  after:bg-primary-background-color after:transition-all after:content-[''] peer-checked:bg-primary peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full" />
+      <div className="peer yl-relative yl-h-6 yl-w-12 yl-rounded-full yl-bg-primary-text-color after:yl-absolute after:yl-start-[2px] after:yl-top-[2px] after:yl-h-5 after:yl-w-5 after:yl-rounded-full after:yl-bg-primary-background-color after:yl-transition-all after:yl-content-[''] peer-checked:yl-bg-primary peer-checked:after:yl-translate-x-full rtl:peer-checked:after:-yl-translate-x-full" />
       {label && (
-        <span className='ms-3 text-sm font-medium text-primary-text-color'>
+        <span className='yl-ms-3 yl-text-sm yl-font-medium yl-text-primary-text-color'>
           {label}
         </span>
       )}

@@ -17,22 +17,22 @@ const Button: React.FC<IButtonProps> = ({
   outlined = false
 }) => {
   let cls =
-    "select-none border-2 border-primary px-3 py-2 font-semibold tracking-tight rounded-md ";
+    "yl-select-none yl-border-2 yl-border-primary yl-px-3 yl-py-2 yl-font-semibold yl-tracking-tight yl-rounded-md ";
 
   if (disabled) {
-    cls += "cursor-not-allowed opacity-70 ";
+    cls += "yl-cursor-not-allowed yl-opacity-70 ";
     if (outlined) {
-      cls += "text-primary ";
+      cls += "yl-text-primary ";
     } else {
-      cls += "text-primary-background-color bg-primary ";
+      cls += "yl-text-primary-background-color yl-bg-primary ";
     }
   } else {
     if (outlined) {
       cls +=
-        "bg-transparent text-primary fill-primary hover:bg-primary hover:fill-primary-background-color hover:text-primary-background-color";
+        "yl-bg-transparent yl-text-primary yl-fill-primary hover:yl-bg-primary hover:yl-fill-primary-background-color hover:yl-text-primary-background-color";
     } else {
       cls +=
-        "bg-primary hover:bg-transparent hover:text-primary hover:fill-primary text-primary-background-color";
+        "yl-bg-primary hover:yl-bg-transparent hover:yl-text-primary hover:yl-fill-primary yl-text-primary-background-color";
     }
   }
 
@@ -43,10 +43,10 @@ const Button: React.FC<IButtonProps> = ({
       type={type}
       className={classNames(cls, className)}
     >
-      <div className='relative flex items-center justify-center'>
+      <div className='yl-relative yl-flex yl-items-center yl-justify-center'>
         <span
           className={classNames({
-            "flex gap-1 items-center": icon?.iconName,
+            "yl-flex yl-gap-1 yl-items-center": icon?.iconName,
             invisible: isLoading
           })}
         >
@@ -54,7 +54,7 @@ const Button: React.FC<IButtonProps> = ({
             <Icon
               className={classNames(
                 {
-                  "w-5": !icon?.iconClassName
+                  "yl-w-5": !icon?.iconClassName
                 },
                 icon?.iconClassName
               )}
@@ -66,7 +66,7 @@ const Button: React.FC<IButtonProps> = ({
             <Icon
               className={classNames(
                 {
-                  "w-5": !icon?.iconClassName
+                  "yl-w-5": !icon?.iconClassName
                 },
                 icon?.iconClassName
               )}
@@ -74,8 +74,8 @@ const Button: React.FC<IButtonProps> = ({
             />
           )}
         </span>
-        <span className='absolute'>
-          {isLoading && <Spinner className={classNames("h-8 w-8")} />}
+        <span className='yl-absolute'>
+          {isLoading && <Spinner className={classNames("yl-h-8 yl-w-8")} />}
         </span>
       </div>
     </button>

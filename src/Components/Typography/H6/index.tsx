@@ -15,10 +15,10 @@ const H6: FC<IH6Props> = ({ children, className, onClick, margin }) => {
         toolbarItemToClassName[TIPTAP_TOOLBAR_ITEMS.HEADING_6].classes,
         className,
         {
-          "!my-0": margin === "none",
-          "mb-4 !mt-0": margin === "bottom",
-          "mt-4 !mb-0": margin === "top",
-          "!my-4": margin === "both"
+          "!yl-my-0": margin === "none",
+          "yl-mb-4 !yl-mt-0": margin === "bottom",
+          "yl-mt-4 !yl-mb-0": margin === "top",
+          "!yl-my-4": margin === "both"
         }
       )}
       onClick={onClick}

@@ -45,13 +45,13 @@ const Accordion: FC<IAccordionProps> = ({
         <div
           key={section.id}
           className={classNames({
-            "mb-4 border-b-0": idx !== sections.length - 1
+            "yl-mb-4 yl-border-b-0": idx !== sections.length - 1
           })}
           role='presentation'
         >
           <h3
             className={classNames(
-              "relative flex cursor-pointer select-none items-center justify-between font-semibold capitalize text-primary-text-color",
+              "yl-relative yl-flex yl-cursor-pointer yl-select-none yl-items-center yl-justify-between yl-font-semibold yl-capitalize yl-text-primary-text-color",
               sectionTitleClassName
             )}
             onClick={() => toggleExpand(section.id)}
@@ -64,31 +64,31 @@ const Accordion: FC<IAccordionProps> = ({
             role='button'
             aria-expanded={expanded.includes(section.id)}
           >
-            <div className='flex items-center gap-1 overflow-hidden text-ellipsis whitespace-nowrap text-base'>
+            <div className='yl-flex yl-items-center yl-gap-1 yl-overflow-hidden yl-text-ellipsis yl-whitespace-nowrap yl-text-base'>
               {expanded.includes(section.id) ? (
-                <IconExpandLess className='absolute right-0 w-6 cursor-pointer fill-primary-text-color hover:fill-primary' />
+                <IconExpandLess className='yl-absolute yl-right-0 yl-w-6 yl-cursor-pointer yl-fill-primary-text-color hover:yl-fill-primary' />
               ) : (
-                <IconExpandMore className='absolute right-0 w-6 cursor-pointer fill-primary-text-color hover:fill-primary' />
+                <IconExpandMore className='yl-absolute yl-right-0 yl-w-6 yl-cursor-pointer yl-fill-primary-text-color hover:yl-fill-primary' />
               )}
               {section.title}
             </div>
             {itemsLabelText && (
-              <span className='whitespace-nowrap pr-6 lowercase text-primary-text-color'>
+              <span className='yl-whitespace-nowrap yl-pr-6 yl-lowercase yl-text-primary-text-color'>
                 {getItemsLabelText(section.items.length)}
               </span>
             )}
           </h3>
           {expanded.includes(section.id) && (
             <ul
-              className='animate-height-animation leading-8'
+              className='animate-height-animation yl-leading-8'
               role='region'
               aria-labelledby={section.id.toString()}
             >
               {section.items.map(item => (
                 <li
-                  className={classNames("text-primary-text-color", {
-                    "cursor-pointer": onSectionItemClick,
-                    "text-primary": selectedItemId === item.id
+                  className={classNames("yl-text-primary-text-color", {
+                    "yl-cursor-pointer": onSectionItemClick,
+                    "yl-text-primary": selectedItemId === item.id
                   })}
                   key={item.id}
                   onClick={() => {
@@ -101,10 +101,10 @@ const Accordion: FC<IAccordionProps> = ({
                     setSelectedItemId(item.id);
                   }}
                 >
-                  <div className='flex break-all'>
+                  <div className='yl-flex yl-break-all'>
                     <span
                       className={classNames({
-                        "text-primary": selectedItemId === item.id
+                        "yl-text-primary": selectedItemId === item.id
                       })}
                     >
                       {item.title}

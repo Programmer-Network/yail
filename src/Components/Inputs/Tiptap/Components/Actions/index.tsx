@@ -12,9 +12,9 @@ const TiptapActions: FC<{
   const { isConfirming, buttons, onAction } = actions;
 
   return (
-    <div className='flex justify-end relative -right-2'>
-      <div className='rounded-md border-2 border-primary-text-color/40 bg-primary-background-color p-1'>
-        <div className='flex items-center gap-1 px-1'>
+    <div className='yl-flex justify-end yl-relative -yl-right-2'>
+      <div className='yl-rounded-md yl-border-2 yl-border-primary-text-color/40 yl-bg-primary-background-color yl-p-1'>
+        <div className='yl-flex yl-items-center yl-gap-1 yl-px-1'>
           {buttons.includes(TiptapActionsEnum.CONFIRM) && (
             <Icon
               onClick={
@@ -23,17 +23,20 @@ const TiptapActions: FC<{
                   : () => null
               }
               iconName={!isConfirming ? "IconCheck" : "IconSpinner"}
-              className={classNames("w-8 cursor-pointer fill-primary", {
-                "text-primary-text-color/60": isEditorEmpty,
-                "text-primary": !isEditorEmpty
-              })}
+              className={classNames(
+                "yl-w-8 yl-cursor-pointer yl-fill-primary",
+                {
+                  "yl-text-primary-text-color/60": isEditorEmpty,
+                  "yl-text-primary": !isEditorEmpty
+                }
+              )}
             />
           )}
           {buttons.includes(TiptapActionsEnum.CANCEL) && (
             <Icon
               onClick={() => onAction(TiptapActionsEnum.CANCEL)}
               iconName='IconCloseCircle'
-              className='w-8 cursor-pointer text-primary-text-color/60 hover:text-primary-text-color'
+              className='yl-w-8 yl-cursor-pointer yl-text-primary-text-color/60 hover:yl-text-primary-text-color'
             />
           )}
         </div>

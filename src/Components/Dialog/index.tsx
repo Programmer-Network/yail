@@ -65,14 +65,14 @@ const Dialog = forwardRef<HTMLDialogElement, IDialogProps>(
       <dialog
         ref={ref}
         className={classNames(
-          "z-50 rounded-lg bg-primary-background-color shadow-md ring-1 ring-primary-text-color ring-opacity-30 md:w-2/12",
+          "yl-z-50 yl-rounded-lg yl-bg-primary-background-color yl-shadow-md yl-ring-1 yl-ring-primary-text-color yl-ring-opacity-30 md:yl-w-2/12",
           className
         )}
         onClick={e => e.stopPropagation()}
       >
         <div
           onClick={e => e.stopPropagation()}
-          className='flex items-center justify-center'
+          className='yl-flex yl-items-center yl-justify-center'
         >
           {children}
         </div>

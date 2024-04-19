@@ -27,7 +27,7 @@ const Textarea: FC<ITextareaProps> = props => {
         rows={rows}
         onChange={onChange}
         className={classNames(
-          "bg w-full rounded-md border-2 border-primary-text-color bg-transparent p-4 text-primary-text-color hover:border-primary focus:border-primary focus:shadow-none focus:outline-none focus:ring-transparent dark:text-primary-text-color",
+          "bg yl-w-full yl-rounded-md yl-border-2 yl-border-primary-text-color yl-bg-transparent yl-p-4 yl-text-primary-text-color hover:yl-border-primary focus:yl-border-primary focus:yl-shadow-none focus:yl-outline-none focus:yl-ring-transparent",
           className
         )}
       />

@@ -36,7 +36,7 @@ export const Default = () => {
   const converter = new TiptapToHTML(toolbar);
 
   return (
-    <div className='mx-auto my-6 w-full px-4 sm:max-w-5xl md:max-w-4xl lg:max-w-5xl pb-16 md:pb-0 lg:px-8 leading-loose text-lg'>
+    <div className='yl-mx-auto my-6 yl-w-full yl-px-4 sm:yl-max-w-5xl md:yl-max-w-4xl lg:yl-max-w-5xl yl-pb-16 md:yl-py-0 lg:yl-px-8 yl-leading-loose text-lg'>
       <HTMLRendering html={converter.generateSanitizedHTML(getDocument())} />
     </div>
   );

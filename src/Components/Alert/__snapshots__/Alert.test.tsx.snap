@@ -3,13 +3,13 @@
 exports[`Alert component > renders correctly with children 1`] = `
 <DocumentFragment>
   <div
-    class="flex min-h-screen max-w-screen-sm items-center justify-center"
+    class="yl-flex yl-min-h-screen yl-max-w-screen-sm yl-items-center yl-justify-center"
   >
     <div
-      class="bg-gradient-to-r p-[1px] from-green-400 via-green-500 to-green-900 text-green-500"
+      class="yl-bg-gradient-to-r yl-p[1px] from-green-400 via-green-500 to-green-900 text-green-500"
     >
       <div
-        class="back flex h-full w-full items-center justify-center bg-primary-background-color p-4"
+        class="back yl-flex yl-h-full yl-w-full yl-items-center yl-justify-center yl-bg-primary-background-color yl-p-4"
       >
         <span>
           Success Message

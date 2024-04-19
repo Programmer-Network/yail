@@ -17,7 +17,7 @@ const ItemActions = <T,>({
           icon: (
             <Icon
               iconName='IconEdit'
-              className='w-4'
+              className='yl-w-4'
               data-testid='icon-iconedit'
             />
           ),
@@ -34,7 +34,7 @@ const ItemActions = <T,>({
           icon: (
             <Icon
               iconName='IconDeleteBin'
-              className='w-4'
+              className='yl-w-4'
               data-testid='icon-icondeletebin'
             />
           ),
@@ -50,7 +50,7 @@ const ItemActions = <T,>({
       buttonContent={
         <Icon
           iconName='IconDots'
-          className='w-6 text-primary-text-color/60 hover:cursor-pointer hover:text-primary'
+          className='yl-w-6 yl-text-primary-text-color/60 hover:yl-cursor-pointer hover:yl-text-primary'
         />
       }
     />

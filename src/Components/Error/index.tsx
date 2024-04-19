@@ -17,38 +17,40 @@ const Error: React.FC<IErrorProps> = ({
   return (
     <div
       data-testid='error-wrapper'
-      className={classNames("flex min-h-full flex-col", className)}
+      className={classNames("yl-flex yl-min-h-full yl-flex-col", className)}
     >
-      <div className='mx-auto flex w-full flex-grow flex-col px-4 lg:px-8'>
-        <div className='flex flex-shrink-0 justify-center'>
+      <div className='yl-mx-auto yl-flex yl-w-full yl-flex-grow yl-flex-col yl-px-4 lg:yl-px-8'>
+        <div className='yl-flex yl-flex-shrink-0 yl-justify-center'>
           <a
             onClick={onIconClick}
-            className={classNames("inline-flex", {
-              "cursor-pointer": onIconClick
+            className={classNames("yl-inline-flex", {
+              "yl-cursor-pointer": onIconClick
             })}
           >
             {Icon && <Icon {...IconProps} />}
           </a>
         </div>
         <div>
-          <div className='text-center'>
+          <div className='yl-text-center'>
             <p
               data-testid='error-text'
-              className='font-semibold tracking-wide text-primary md:text-6xl'
+              className='yl-font-semibold yl-tracking-wide yl-text-primary md:yl-text-6xl'
             >
               {error}
             </p>
-            <h1 className='text-4xl font-extrabold tracking-tight text-primary-text-color sm:text-3xl'>
+            <h1 className='yl-text-4xl yl-font-extrabold yl-tracking-tight yl-text-primary-text-color sm:yl-text-3xl'>
               {title}
             </h1>
             {description && (
-              <p className='text-xl text-primary-text-color'>{description}</p>
+              <p className='yl-text-xl yl-text-primary-text-color'>
+                {description}
+              </p>
             )}
             {backToText && (
-              <div className='hover:cursor-pointer'>
+              <div className='hover:yl-cursor-pointer'>
                 <div
                   onClick={onBackToClick}
-                  className='font-medium text-primary hover:text-primary'
+                  className='yl-font-medium yl-text-primary hover:yl-text-primary'
                 >
                   {backToText}
                   <span aria-hidden='true'> &rarr;</span>

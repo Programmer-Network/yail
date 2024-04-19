@@ -128,8 +128,8 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
 
   return (
     <div
-      className={classNames("relative", {
-        "mb-8": error
+      className={classNames("yl-relative", {
+        "yl-mb-8": error
       })}
     >
       {label && <InputHeader label={label} hint={hint} required={required} />}
@@ -141,12 +141,12 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
           link={link}
         />
       )}
-      <div className='flex flex-col'>
+      <div className='yl-flex yl-flex-col'>
         <div
           className={classNames(
-            "relative break-all rounded-bl-md rounded-br-md border-2 border-primary-text-color/40 px-4 pb-2 pt-2",
+            "yl-relative yl-break-all yl-rounded-bl-md yl-rounded-br-md yl-border-2 yl-border-primary-text-color/40 yl-px-4 yl-pb-2 yl-pt-2",
             {
-              "!border-t-0": hasToolbar
+              "!yl-border-t-0": hasToolbar
             }
           )}
         >

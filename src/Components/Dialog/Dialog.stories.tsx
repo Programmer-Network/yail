@@ -20,7 +20,7 @@ export const SelectAnImage = () => {
 
   return (
     <div>
-      <div className='m-14'>
+      <div className='yl-mt-14'>
         <Dialog ref={dialogRef}>
           <ImageUpload onFileLoaded={() => null} label='Select an image' />
         </Dialog>
@@ -40,9 +40,9 @@ export const Default = () => {
 
   return (
     <div>
-      <div className='m-14'>
+      <div className='yl-mt-14'>
         <Dialog ref={dialogRef}>
-          <H1 className='!mb-0'>Hello, world</H1>
+          <H1 className='!yl-mb-0'>Hello, world</H1>
         </Dialog>
       </div>
 

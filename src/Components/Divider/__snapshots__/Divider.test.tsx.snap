@@ -3,19 +3,19 @@
 exports[`Divider component > renders correctly - snapshot test 1`] = `
 <DocumentFragment>
   <div
-    class="mx-auto flex justify-center gap-1"
+    class="yl-mx-auto yl-flex yl-justify-center yl-gap-1"
     data-testid="divider"
   >
     <div
-      class="block h-[2px] w-28 bg-primary-text-color"
+      class="yl-block yl-h-[2px] yl-w-28 yl-bg-primary-text-color"
       data-testid="divider-child-0"
     />
     <div
-      class="block h-[2px] w-28 bg-primary-text-color"
+      class="yl-block yl-h-[2px] yl-w-28 yl-bg-primary-text-color"
       data-testid="divider-child-1"
     />
     <div
-      class="block h-[2px] w-28 bg-primary-text-color"
+      class="yl-block yl-h-[2px] yl-w-28 yl-bg-primary-text-color"
       data-testid="divider-child-2"
     />
   </div>

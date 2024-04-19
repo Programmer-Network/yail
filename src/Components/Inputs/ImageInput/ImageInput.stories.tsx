@@ -86,7 +86,7 @@ export const WithImageCrop = () => {
 
   return (
     <div>
-      <div className='flex items-start gap-2'>
+      <div className='yl-flex yl-items-start yl-gap-2'>
         {image && (
           <ImageCrop
             setCrop={setCrop}
@@ -97,9 +97,9 @@ export const WithImageCrop = () => {
           />
         )}
         {croppedImage && (
-          <div className='relative h-[150px] w-[150px]'>
+          <div className='yl-relative yl-h-[150px] yl-w-[150px]'>
             <img
-              className='absolute h-full w-full bg-left-top object-cover'
+              className='yl-absolute yl-h-full yl-w-full bg-yl-left-top object-cover'
               src={croppedImage}
             />
           </div>

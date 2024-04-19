@@ -14,7 +14,7 @@ const CardStories: Meta<ICard> = {
 
 export const Default = () => {
   return (
-    <div className='m-8'>
+    <div className='yl-mt-8'>
       <Card
         NavLink={NavLink}
         data={{
@@ -36,7 +36,7 @@ export const Default = () => {
 
 export const WithExternalLink = () => {
   return (
-    <div className='m-8'>
+    <div className='yl-mt-8'>
       <Card
         NavLink={NavLink}
         data={{

@@ -3,19 +3,19 @@
 exports[`DomainInput component > matches snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="group text-primary-text-color"
+    class="group yl-text-primary-text-color"
   >
     <div
-      class="flex w-full"
+      class="yl-flex yl-w-full"
     >
       <span
-        class="min-w-max border-2 border-primary-text-color px-4 py-2 leading-5 tracking-tighter selection:text-primary-text-color rounded-tl-md rounded-bl-md group-hover:border-primary"
+        class="yl-min-w-max yl-border-2 yl-border-primary-text-color yl-px-4 yl-py-2 yl-leading-5 yl-tracking-tighter selection:yl-text-primary-text-color yl-rounded-tl-md yl-rounded-bl-md group-hover:yl-border-primary"
         data-testid="domain"
       >
         example.com
       </span>
       <input
-        class="w-full cursor-pointer border-t-2 border-b-2 border-r-2 border-primary-text-color bg-transparent p-2 transition-colors focus:border-primary focus:outline-none focus:ring-transparent rounded-tr-md rounded-br-md group-hover:border-primary"
+        class="yl-w-full yl-cursor-pointer yl-border-t-2 yl-border-b-2 yl-border-r-2 yl-border-primary-text-color yl-bg-transparent yl-p-2 transition-colors focus:yl-border-primary focus:yl-outline-none focus:yl-ring-transparent yl-rounded-tr-md yl-rounded-br-md group-hover:yl-border-primary"
         data-testid="input"
         name="domainInput"
         value="test"

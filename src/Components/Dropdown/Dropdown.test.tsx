@@ -34,7 +34,7 @@ describe("Dropdown Component", () => {
     const { getByText, queryByText } = render(
       <Dropdown
         buttonContent='Click Me'
-        options={[{ value: "foo", icon: <IconShare className='w-4' /> }]}
+        options={[{ value: "foo", icon: <IconShare className='yl-w-4' /> }]}
       />
     );
 

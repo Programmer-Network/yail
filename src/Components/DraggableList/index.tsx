@@ -66,23 +66,26 @@ const DraggableList: FC<IDraggableList> = ({
 
   return (
     <ul
-      className={classNames("relative text-primary-text-color", className)}
+      className={classNames(
+        "yl-relative yl-text-primary-text-color",
+        className
+      )}
       onDragEnd={handleDrop}
     >
       {isSorting && (
-        <IconSpinner2 className='absolute left-1/2 top-1/2 w-12 -translate-x-1/2 -translate-y-1/2 transform text-primary-text-color' />
+        <IconSpinner2 className='yl-absolute yl-left-1/2 yl-top-1/2 yl-w-12 -yl-translate-x-1/2 -yl-translate-y-1/2 yl-transform yl-text-primary-text-color' />
       )}
       {listItems.map(item => {
         return (
           <li
             className={classNames(
-              "relative flex cursor-pointer items-center",
+              "yl-relative yl-flex yl-cursor-pointer yl-items-center",
               liClassName,
               {
                 [draggedClassName ?? ""]: !isSorting && draggedId === item.id,
                 [draggedOverClassName ?? ""]:
                   !isSorting && draggedOverId === item.id,
-                "opacity-30": isSorting && draggedId !== item.id
+                "yl-opacity-30": isSorting && draggedId !== item.id
               }
             )}
             draggable={true}
@@ -94,9 +97,12 @@ const DraggableList: FC<IDraggableList> = ({
             onClick={() => onClick?.(item)}
           >
             <IconDrag
-              className={classNames("absolute -left-7 w-6 opacity-50", {
-                "cursor-move opacity-100": hoveredId === item.id
-              })}
+              className={classNames(
+                "yl-absolute -yl-left-7 yl-w-6 yl-opacity-50",
+                {
+                  "yl-cursor-move yl-opacity-100": hoveredId === item.id
+                }
+              )}
             />
             {item.title}
           </li>

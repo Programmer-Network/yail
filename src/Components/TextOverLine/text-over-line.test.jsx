@@ -27,10 +27,10 @@ describe("TextOverLine component", () => {
   test("has default styles", () => {
     render(<TextOverLine>Test</TextOverLine>);
     const lineElement = screen.getByRole("separator");
-    expect(lineElement).toHaveClass("bg-primary-text-color");
-    expect(lineElement).toHaveClass("h-[1px]");
+    expect(lineElement).toHaveClass("yl-bg-primary-text-color");
+    expect(lineElement).toHaveClass("yl-h-[1px]");
     const textElement = screen.getByText("Test");
-    expect(textElement).toHaveClass("bg-primary-background-color");
-    expect(textElement).toHaveClass("text-primary-text-color");
+    expect(textElement).toHaveClass("yl-bg-primary-background-color");
+    expect(textElement).toHaveClass("yl-text-primary-text-color");
   });
 });

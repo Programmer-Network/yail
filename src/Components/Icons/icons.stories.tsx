@@ -14,7 +14,7 @@ const Template = () => {
 
   return (
     <div>
-      <div className='grid grid-cols-4 gap-4'>
+      <div className='yl-grid yl-grid-cols-4 yl-gap-4'>
         {Object.keys(AllIcons)
           .sort()
           .map((iconName: string) => {
@@ -22,10 +22,10 @@ const Template = () => {
             return (
               <div
                 key={iconName}
-                className='flex flex-col items-center justify-center gap-2 p-8'
+                className='yl-flex yl-flex-col yl-items-center yl-justify-center yl-gap-2 yl-p8'
               >
-                <Icon className='h-16 w-16 text-white' />
-                <span className='font-bold text-primary-text-color'>
+                <Icon className='yl-h-16 yl-w-16 yl-text-white' />
+                <span className='yl-font-bold yl-text-primary-text-color'>
                   {iconName}
                 </span>
               </div>

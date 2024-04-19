@@ -12,14 +12,14 @@ const Checkbox: FC<ICheckboxProps> = props => {
     <div className={classNames(inputWrapperClassName)}>
       <InputHeader {...props} />
       <div className='form-control items-start'>
-        <label className='label flex cursor-pointer items-center gap-2'>
+        <label className='label yl-flex yl-cursor-pointer yl-items-center yl-gap-2'>
           <input
             type='checkbox'
             checked={checked}
-            className='checkbox checkbox-primary cursor-pointer rounded-none text-primary focus:outline-primary'
+            className='checkbox checkbox-primary yl-cursor-pointer yl-rounded-none yl-text-primary focus:outline-primary'
             onChange={onChange}
           />
-          {text && <span className='text-primary-text-color'>{text}</span>}
+          {text && <span className='yl-text-primary-text-color'>{text}</span>}
         </label>
       </div>
       {props.error && <InputError error={props.error} />}

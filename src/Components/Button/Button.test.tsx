@@ -28,9 +28,9 @@ describe("Button component", () => {
   test("has outlined styles when outlined prop is true", () => {
     render(<Button outlined>Click me</Button>);
     const button = screen.getByRole("button");
-    expect(button).toHaveClass("border-2");
-    expect(button).toHaveClass("text-primary");
-    expect(button).toHaveClass("border-primary");
+    expect(button).toHaveClass("yl-border-2");
+    expect(button).toHaveClass("yl-text-primary");
+    expect(button).toHaveClass("yl-border-primary");
   });
 
   test("handles click events", () => {
@@ -44,7 +44,7 @@ describe("Button component", () => {
     render(<Button disabled>Disabled Button</Button>);
     const button = screen.getByRole("button");
     expect(button).toHaveClass("text-primary-background-color");
-    expect(button).toHaveClass("bg-primary");
+    expect(button).toHaveClass("yl-bg-primary");
   });
 
   test("has correct styles when loading and filled", () => {
@@ -56,9 +56,9 @@ describe("Button component", () => {
   test("has correct styles when not disabled, not loading, and filled", () => {
     render(<Button>Button</Button>);
     const button = screen.getByRole("button");
-    expect(button).toHaveClass("bg-primary");
+    expect(button).toHaveClass("yl-bg-primary");
     expect(button).toHaveClass("hover:bg-transparent");
-    expect(button).toHaveClass("hover:text-primary");
+    expect(button).toHaveClass("hover:yl-text-primary");
   });
 
   test("has correct styles when disabled and outlined", () => {
@@ -68,6 +68,6 @@ describe("Button component", () => {
       </Button>
     );
     const button = screen.getByRole("button");
-    expect(button).toHaveClass("text-primary");
+    expect(button).toHaveClass("yl-text-primary");
   });
 });

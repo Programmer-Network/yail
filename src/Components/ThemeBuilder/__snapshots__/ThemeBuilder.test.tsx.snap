@@ -4,17 +4,17 @@ exports[`ThemeBuilder component > renders correctly with given props 1`] = `
 <DocumentFragment>
   <div>
     <div
-      class="mb-1 flex items-center justify-center md:justify-start"
+      class="yl-mb-1 yl-flex yl-items-center yl-justify-center md:yl-justify-start"
     >
       <div
-        class="flex gap-1 flex-col md:flex-row"
+        class="yl-flex yl-gap-1 yl-flex-col md:yl-flex-row"
       >
         <button
-          class="select-none border-2 border-primary px-3 py-2 font-semibold tracking-tight rounded-md bg-transparent text-primary fill-primary hover:bg-primary hover:fill-primary-background-color hover:text-primary-background-color primary-button h-12 min-w-[120px] shadow-none"
+          class="yl-select-none yl-border-2 yl-border-primary yl-px-3 yl-py-2 yl-font-semibold yl-tracking-tight yl-rounded-md yl-bg-transparent yl-text-primary yl-fill-primary hover:yl-bg-primary hover:yl-fill-primary-background-color hover:yl-text-primary-background-color primary-button yl-h-12 yl-min-w-[120px] yl-shadow-none"
           type="button"
         >
           <div
-            class="relative flex items-center justify-center"
+            class="yl-relative yl-flex yl-items-center yl-justify-center"
           >
             <span
               class=""
@@ -22,16 +22,16 @@ exports[`ThemeBuilder component > renders correctly with given props 1`] = `
               Primary Color
             </span>
             <span
-              class="absolute"
+              class="yl-absolute"
             />
           </div>
         </button>
         <button
-          class="select-none border-2 border-primary px-3 py-2 font-semibold tracking-tight rounded-md bg-transparent text-primary fill-primary hover:bg-primary hover:fill-primary-background-color hover:text-primary-background-color h-12 min-w-[120px] shadow-none"
+          class="yl-select-none yl-border-2 yl-border-primary yl-px-3 yl-py-2 yl-font-semibold yl-tracking-tight yl-rounded-md yl-bg-transparent yl-text-primary yl-fill-primary hover:yl-bg-primary hover:yl-fill-primary-background-color hover:yl-text-primary-background-color yl-h-12 yl-min-w-[120px] yl-shadow-none"
           type="button"
         >
           <div
-            class="relative flex items-center justify-center"
+            class="yl-relative yl-flex yl-items-center yl-justify-center"
           >
             <span
               class=""
@@ -39,16 +39,16 @@ exports[`ThemeBuilder component > renders correctly with given props 1`] = `
               Background
             </span>
             <span
-              class="absolute"
+              class="yl-absolute"
             />
           </div>
         </button>
         <button
-          class="select-none border-2 border-primary px-3 py-2 font-semibold tracking-tight rounded-md bg-transparent text-primary fill-primary hover:bg-primary hover:fill-primary-background-color hover:text-primary-background-color h-12 min-w-[120px] shadow-none"
+          class="yl-select-none yl-border-2 yl-border-primary yl-px-3 yl-py-2 yl-font-semibold yl-tracking-tight yl-rounded-md yl-bg-transparent yl-text-primary yl-fill-primary hover:yl-bg-primary hover:yl-fill-primary-background-color hover:yl-text-primary-background-color yl-h-12 yl-min-w-[120px] yl-shadow-none"
           type="button"
         >
           <div
-            class="relative flex items-center justify-center"
+            class="yl-relative yl-flex yl-items-center yl-justify-center"
           >
             <span
               class=""
@@ -56,7 +56,7 @@ exports[`ThemeBuilder component > renders correctly with given props 1`] = `
               Text Color
             </span>
             <span
-              class="absolute"
+              class="yl-absolute"
             />
           </div>
         </button>

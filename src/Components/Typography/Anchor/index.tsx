@@ -13,7 +13,7 @@ const Anchor: FC<IAnchorProps> = ({
   <a
     onClick={onClick}
     className={classNames(
-      "hover:text-stroke text-primary hover:underline hover:opacity-80 active:opacity-50",
+      "hover:yl-text-stroke yl-text-primary hover:yl-underline hover:yl-opacity-80 active:yl-opacity-50",
       className
     )}
     target={target}

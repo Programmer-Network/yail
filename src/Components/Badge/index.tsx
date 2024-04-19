@@ -7,7 +7,7 @@ const Badge: FC<IBadgeProps> = ({ title, className }) => {
   return (
     <span
       className={classNames(
-        "rounded border border-primary-text-color px-1 pb-[2px] pt-[1px] text-[10px] text-primary-text-color",
+        "yl-rounded yl-border yl-border-primary-text-color yl-px-1 yl-pb-[2px] yl-pt-[1px] yl-text-[10px] yl-text-primary-text-color",
         className
       )}
     >

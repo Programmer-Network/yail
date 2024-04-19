@@ -12,8 +12,7 @@ export default {
 export const Default = () => {
   return (
     <div>
-      <Icon iconName='IconItalic' />
-      <Icon iconName='IconAddBookmark' />
+      <Icon iconName='IconItalic' className='yl-w-36 yl-text-primary' />
     </div>
   );
 };
