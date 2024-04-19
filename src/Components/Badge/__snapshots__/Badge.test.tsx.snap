@@ -3,7 +3,7 @@
 exports[`Badge component > renders correctly - snapshot test 1`] = `
 <DocumentFragment>
   <span
-    class="yl-rounded yl-border yl-border-primary-text-color yl-px-1 yl-pb-[2px] yl-pt-[1px] text-[10px] yl-text-primary-text-color"
+    class="yl-rounded yl-border yl-border-primary-text-color yl-px-1 yl-pb-[2px] yl-pt-[1px] yl-text-[10px] yl-text-primary-text-color"
   >
     Test Badge
   </span>

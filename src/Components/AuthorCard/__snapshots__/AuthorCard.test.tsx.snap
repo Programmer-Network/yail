@@ -9,7 +9,7 @@ exports[`AuthorCard component > renders correctly 1`] = `
       class="yl-flex yl-flex-col yl-items-center yl-gap-4 md:yl-flex-row"
     >
       <div
-        class="hidden md:yl-block"
+        class="yl-hidden md:yl-block"
       >
         <div
           class="sm:yl-mt-0 yl-rounded-full yl-overflow-hidden"
@@ -25,12 +25,12 @@ exports[`AuthorCard component > renders correctly 1`] = `
       </div>
       <div>
         <h2
-          class="text-2xl sm:yl-text-3xl md:yl-text-4xl lg:yl-text-5xl yl-my-4 yl-text-primary yl-break-words yl-overflow-hidden yl-font-bold !yl-my-0"
+          class="yl-text-2xl sm:yl-text-3xl md:yl-text-4xl yl-my-4 yl-text-primary yl-break-words yl-overflow-hidden yl-font-bold !yl-my-0"
         >
           John Doe
         </h2>
         <p
-          class="my-4 yl-text-primary-text-color yl-break-words yl-overflow-hidden !yl-my-0"
+          class="yl-my-4 yl-text-primary-text-color yl-break-words yl-overflow-hidden !yl-my-0"
         >
           An expert in the field.
         </p>

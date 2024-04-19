@@ -37,19 +37,16 @@ const Card: FC<ICard> = ({ data, className, NavLink }) => {
 
       {URLUtils.isExternalLink(titleUrl) ? (
         <Anchor href={titleUrl} target='_blank'>
-          <H3
-            margin='none'
-            className='yl-flex yl-items-center yl-justify-start yl-gap-2'
-          >
+          <H3 className='yl-flex yl-items-center yl-justify-start yl-gap-2'>
             {title}
           </H3>
         </Anchor>
       ) : (
         <NavLink to={titleUrl}>
-          <H3 margin='none'>{title}</H3>
+          <H3>{title}</H3>
         </NavLink>
       )}
-      <Paragraph margin='none'>{description}</Paragraph>
+      <Paragraph>{description}</Paragraph>
       {tags && tags.length > 0 && (
         <div className='yl-mt-2 yl-flex yl-items-center yl-gap-2'>
           {tags.map((tag, index) => (

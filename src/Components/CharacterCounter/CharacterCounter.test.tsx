@@ -1,5 +1,4 @@
 import { render, screen } from "@testing-library/react";
-import React from "react";
 
 import CharacterCounter from "./";
 
@@ -27,13 +26,13 @@ describe("CharacterCounter component", () => {
     expect(screen.getByTestId("separator")).toHaveTextContent("/");
     expect(screen.getByTestId("max-length")).toHaveTextContent(max.toString());
     expect(screen.getByTestId("current-length").parentNode).toHaveClass(
-      "!text-rose-500"
+      "!yl-text-rose-500"
     );
   });
 
   test("text color does not change when within maximum characters", () => {
     render(<CharacterCounter text='Hello' max={10} />);
     const counterElement = screen.getByText("Hello".length);
-    expect(counterElement).not.toHaveClass("!text-rose-500");
+    expect(counterElement).not.toHaveClass("!lg-text-rose-500");
   });
 });

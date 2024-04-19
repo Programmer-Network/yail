@@ -15,12 +15,12 @@ exports[`CTA component > renders correctly - snapshot test 1`] = `
           class="yl-flex yl-flex-col yl-gap-2"
         >
           <h2
-            class="text-2xl sm:yl-text-3xl md:yl-text-4xl lg:yl-text-5xl yl-my-4 yl-text-primary yl-break-words yl-overflow-hidden yl-font-bold yl-text-primary-text-color"
+            class="yl-text-2xl sm:yl-text-3xl md:yl-text-4xl yl-my-4 yl-text-primary yl-break-words yl-overflow-hidden yl-font-bold yl-text-primary-text-color"
           >
             Test Title
           </h2>
           <p
-            class="my-4 yl-text-primary-text-color yl-break-words yl-overflow-hidden yl-mx-auto yl-max-w-md yl-text-primary-text-color yl-text-center !yl-my-0"
+            class="yl-my-4 yl-text-primary-text-color yl-break-words yl-overflow-hidden yl-mx-auto yl-max-w-md yl-text-primary-text-color yl-text-center !yl-my-0"
           >
             Test Subtitle
           </p>

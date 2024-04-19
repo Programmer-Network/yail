@@ -28,32 +28,32 @@ export const toolbarItemToClassName = {
   [TIPTAP_TOOLBAR_ITEMS.HEADING_1]: {
     tagName: "h1",
     classes:
-      "yl-text-3xl sm:yl-text-4xl md:yl-text-5xl lg:yl-text-6xl yl-my-4 yl-text-primary yl-break-words yl-overflow-hidden yl-font-bold"
+      "yl-text-3xl sm:yl-text-4xl md:yl-text-5xl yl-my-4 yl-text-primary yl-break-words yl-overflow-hidden yl-font-bold"
   },
   [TIPTAP_TOOLBAR_ITEMS.HEADING_2]: {
     tagName: "h2",
     classes:
-      "yl-text-2xl sm:yl-text-3xl md:yl-text-4xl lg:yl-text-5xl yl-my-4 yl-text-primary yl-break-words yl-overflow-hidden yl-font-bold"
+      "yl-text-2xl sm:yl-text-3xl md:yl-text-4xl yl-my-4 yl-text-primary yl-break-words yl-overflow-hidden yl-font-bold"
   },
   [TIPTAP_TOOLBAR_ITEMS.HEADING_3]: {
     tagName: "h3",
     classes:
-      "yl-text-xl sm:yl-text-2xl md:yl-text-3xl lg:yl-text-4xl yl-my-4 yl-text-primary yl-break-words yl-overflow-hidden yl-font-bold"
+      "yl-text-xl sm:yl-text-2xl md:yl-text-3xl yl-my-4 yl-text-primary yl-break-words yl-overflow-hidden yl-font-bold"
   },
   [TIPTAP_TOOLBAR_ITEMS.HEADING_4]: {
     tagName: "h4",
     classes:
-      "text-lg sm:yl-text-xl md:yl-text-2xl lg:yl-text-3xl yl-my-4 yl-text-primary yl-break-words yl-overflow-hidden yl-font-bold"
+      "text-lg sm:yl-text-xl md:yl-text-2xl yl-my-4 yl-text-primary yl-break-words yl-overflow-hidden yl-font-bold"
   },
   [TIPTAP_TOOLBAR_ITEMS.HEADING_5]: {
     tagName: "h5",
     classes:
-      "yl-text-md sm:yl-text-lg md:yl-text-xl lg:yl-text-2xl yl-my-4 yl-text-primary yl-break-words yl-overflow-hidden yl-font-bold"
+      "yl-text-md sm:yl-text-lg md:yl-text-xl yl-my-4 yl-text-primary yl-break-words yl-overflow-hidden yl-font-bold"
   },
   [TIPTAP_TOOLBAR_ITEMS.HEADING_6]: {
     tagName: "h6",
     classes:
-      "yl-text-sm sm:yl-text-md md:yl-text-lg lg:yl-text-xl yl-my-4 yl-text-primary yl-break-words yl-overflow-hidden yl-font-bold"
+      "yl-text-sm sm:yl-text-md md:yl-text-lg yl-my-4 yl-text-primary yl-break-words yl-overflow-hidden yl-font-bold"
   },
   [TIPTAP_TOOLBAR_ITEMS.UNORDERED_LIST]: {
     tagName: "ul",
