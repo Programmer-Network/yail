@@ -1,5 +1,6 @@
 module.exports = {
   prefix: "yl-",
+  important: true,
   plugins: [require("@tailwindcss/typography"), require("@tailwindcss/forms")],
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
