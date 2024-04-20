@@ -1,3 +1,5 @@
+import classNames from "classnames";
+
 export const TIPTAP_TOOLBAR_ITEMS = {
   BOLD: "BOLD",
   ITALIC: "ITALIC",
@@ -24,36 +26,91 @@ export const TIPTAP_TOOLBAR_ITEMS = {
   STRIKE: "STRIKE"
 } as const;
 
+export const typograyClassNames = {
+  h1: (className?: string) =>
+    classNames(
+      "yl-text-3xl sm:yl-text-4xl md:yl-text-5xl yl-text-primary yl-break-words yl-overflow-hidden yl-font-bold",
+      className
+    ),
+  h2: (className?: string) =>
+    classNames(
+      "yl-text-2xl sm:yl-text-3xl md:yl-text-4xl yl-text-primary yl-break-words yl-overflow-hidden yl-font-bold",
+      className
+    ),
+  h3: (className?: string) =>
+    classNames(
+      "yl-text-xl sm:yl-text-2xl md:yl-text-3xl yl-text-primary yl-break-words yl-overflow-hidden yl-font-bold",
+      className
+    ),
+  h4: (className?: string) =>
+    classNames(
+      "text-lg sm:yl-text-xl md:yl-text-2xl yl-text-primary yl-break-words yl-overflow-hidden yl-font-bold",
+      className
+    ),
+  h5: (className?: string) =>
+    classNames(
+      "yl-text-md sm:yl-text-lg md:yl-text-xl yl-text-primary yl-break-words yl-overflow-hidden yl-font-bold",
+      className
+    ),
+  h6: (className?: string) =>
+    classNames(
+      "yl-text-sm sm:yl-text-md md:yl-text-lg yl-text-primary yl-break-words yl-overflow-hidden yl-font-bold",
+      className
+    ),
+  p: (className?: string) =>
+    classNames(
+      "yl-text-primary-text-color yl-break-words yl-overflow-hidden",
+      className
+    ),
+  a: (className?: string) =>
+    classNames(
+      "hover:yl-text-stroke yl-text-primary hover:yl-underline hover:yl-opacity-80 active:yl-opacity-50",
+      className
+    ),
+  ul: (className?: string) =>
+    classNames(
+      "yl-list-disc yl-text-primary-text-color marker:yl-text-primary marker:yl-text-xl yl-pl-4",
+      className
+    ),
+  ol: (className?: string) =>
+    classNames(
+      "yl-list-decimal yl-text-primary-text-color marker:yl-text-primary marker:yl-text-xl yl-pl-4",
+      className
+    )
+};
+
 export const toolbarItemToClassName = {
   [TIPTAP_TOOLBAR_ITEMS.HEADING_1]: {
     tagName: "h1",
-    classes:
-      "yl-text-3xl sm:yl-text-4xl md:yl-text-5xl yl-text-primary yl-break-words yl-overflow-hidden yl-font-bold"
+    classes: typograyClassNames.h1("yl-my-4")
   },
   [TIPTAP_TOOLBAR_ITEMS.HEADING_2]: {
     tagName: "h2",
-    classes:
-      "yl-text-2xl sm:yl-text-3xl md:yl-text-4xl yl-text-primary yl-break-words yl-overflow-hidden yl-font-bold"
+    classes: typograyClassNames.h2("yl-my-4")
   },
   [TIPTAP_TOOLBAR_ITEMS.HEADING_3]: {
     tagName: "h3",
-    classes:
-      "yl-text-xl sm:yl-text-2xl md:yl-text-3xl yl-text-primary yl-break-words yl-overflow-hidden yl-font-bold"
+    classes: typograyClassNames.h3("yl-my-4")
   },
   [TIPTAP_TOOLBAR_ITEMS.HEADING_4]: {
     tagName: "h4",
-    classes:
-      "text-lg sm:yl-text-xl md:yl-text-2xl yl-text-primary yl-break-words yl-overflow-hidden yl-font-bold"
+    classes: typograyClassNames.h4("yl-my-4")
   },
   [TIPTAP_TOOLBAR_ITEMS.HEADING_5]: {
     tagName: "h5",
-    classes:
-      "yl-text-md sm:yl-text-lg md:yl-text-xl yl-text-primary yl-break-words yl-overflow-hidden yl-font-bold"
+    classes: typograyClassNames.h5("yl-my-4")
   },
   [TIPTAP_TOOLBAR_ITEMS.HEADING_6]: {
     tagName: "h6",
-    classes:
-      "yl-text-sm sm:yl-text-md md:yl-text-lg yl-text-primary yl-break-words yl-overflow-hidden yl-font-bold"
+    classes: typograyClassNames.h6("yl-my-4")
+  },
+  [TIPTAP_TOOLBAR_ITEMS.PARAGRAPH]: {
+    tagName: "p",
+    classes: typograyClassNames.p("yl-my-4")
+  },
+  [TIPTAP_TOOLBAR_ITEMS.LINK]: {
+    tagName: "a",
+    classes: "yl-underline yl-text-primary yl-cursor-pointer yl-font-bold"
   },
   [TIPTAP_TOOLBAR_ITEMS.UNORDERED_LIST]: {
     tagName: "ul",
@@ -73,14 +130,6 @@ export const toolbarItemToClassName = {
     tagName: "img",
     classes:
       "yl-mx-auto yl-block yl-p-2 yl-border yl-border-primary-background-color"
-  },
-  [TIPTAP_TOOLBAR_ITEMS.PARAGRAPH]: {
-    tagName: "p",
-    classes: "yl-text-primary-text-color yl-break-words yl-overflow-hidden"
-  },
-  [TIPTAP_TOOLBAR_ITEMS.LINK]: {
-    tagName: "a",
-    classes: "yl-underline yl-text-primary yl-cursor-pointer yl-font-bold"
   },
   [TIPTAP_TOOLBAR_ITEMS.MENTION]: {
     tagName: null,

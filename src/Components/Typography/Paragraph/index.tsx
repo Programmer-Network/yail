@@ -1,10 +1,7 @@
 import classNames from "classnames";
 import { FC, ReactElement } from "react";
 
-import {
-  TIPTAP_TOOLBAR_ITEMS,
-  toolbarItemToClassName
-} from "Components/Inputs/Tiptap/constants";
+import { typograyClassNames } from "Components/Inputs/Tiptap/constants";
 
 import { IParagraphProps } from "./types";
 
@@ -15,10 +12,7 @@ const Paragraph: FC<IParagraphProps> = ({
 }): ReactElement => {
   return (
     <p
-      className={classNames(
-        toolbarItemToClassName[TIPTAP_TOOLBAR_ITEMS.PARAGRAPH].classes,
-        className
-      )}
+      className={classNames(typograyClassNames.p(className))}
       onClick={onClick}
     >
       {children}

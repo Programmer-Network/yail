@@ -1,20 +1,14 @@
 import classNames from "classnames";
 import { FC } from "react";
 
-import {
-  TIPTAP_TOOLBAR_ITEMS,
-  toolbarItemToClassName
-} from "Components/Inputs/Tiptap/constants";
+import { typograyClassNames } from "Components/Inputs/Tiptap/constants";
 
 import { IH1Props } from "./types";
 
 const H1: FC<IH1Props> = ({ children, className, onClick }) => {
   return (
     <h1
-      className={classNames(
-        toolbarItemToClassName[TIPTAP_TOOLBAR_ITEMS.HEADING_1].classes,
-        className
-      )}
+      className={classNames(typograyClassNames.h1(className))}
       onClick={onClick}
     >
       {children}
