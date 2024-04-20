@@ -2,7 +2,7 @@ import classNames from "classnames";
 import React from "react";
 
 import Avatar from "Components/Avatar";
-import { H2, Paragraph } from "Components/Typography";
+import { H3, Paragraph } from "Components/Typography";
 
 import { IAuthorCardProps } from "./types";
 
@@ -26,7 +26,7 @@ const AuthorCard: React.FC<IAuthorCardProps> = ({
           <Avatar src={avatar} size={75} />
         </div>
         <div>
-          <H2>{name}</H2>
+          <H3>{name}</H3>
           <Paragraph>{about}</Paragraph>
         </div>
       </div>

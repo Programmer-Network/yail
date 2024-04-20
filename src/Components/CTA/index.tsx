@@ -2,7 +2,7 @@ import classNames from "classnames";
 import { FC } from "react";
 
 import Button from "Components/Button";
-import { H2, Paragraph } from "Components/Typography";
+import { H3, Paragraph } from "Components/Typography";
 
 import { ICTAProps } from "./types";
 
@@ -29,7 +29,7 @@ const CTA: FC<ICTAProps> = ({
               />
             )}
 
-            <H2 className='yl-text-primary-text-color'>{title}</H2>
+            <H3 className='yl-text-primary-text-color'>{title}</H3>
             <Paragraph className='yl-mx-auto yl-max-w-md yl-text-primary-text-color yl-text-center'>
               {subtitle}
             </Paragraph>
