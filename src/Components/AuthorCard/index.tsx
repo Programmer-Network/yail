@@ -26,8 +26,8 @@ const AuthorCard: React.FC<IAuthorCardProps> = ({
           <Avatar src={avatar} size={75} />
         </div>
         <div>
-          <H2 margin='none'>{name}</H2>
-          <Paragraph margin='none'>{about}</Paragraph>
+          <H2>{name}</H2>
+          <Paragraph>{about}</Paragraph>
         </div>
       </div>
     </div>

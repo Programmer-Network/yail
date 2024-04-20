@@ -1,8 +1,6 @@
 import { MouseEvent, ReactNode } from "react";
 
-import { ITypographyMargin } from "../common";
-
-export interface IH1Props extends ITypographyMargin {
+export interface IH1Props {
   children: ReactNode;
   className?: string;
   onClick?: (e: MouseEvent<HTMLHeadingElement>) => void;

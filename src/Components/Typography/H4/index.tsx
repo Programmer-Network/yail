@@ -8,18 +8,12 @@ import {
 
 import { IH4Props } from "./types";
 
-const H4: FC<IH4Props> = ({ children, className, onClick, margin }) => {
+const H4: FC<IH4Props> = ({ children, className, onClick }) => {
   return (
     <h4
       className={classNames(
         toolbarItemToClassName[TIPTAP_TOOLBAR_ITEMS.HEADING_4].classes,
-        className,
-        {
-          "!yl-my-0": margin === "none",
-          "yl-mb-4 !yl-mt-0": margin === "bottom",
-          "yl-mt-4 !yl-mb-0": margin === "top",
-          "!yl-my-4": margin === "both"
-        }
+        className
       )}
       onClick={onClick}
     >

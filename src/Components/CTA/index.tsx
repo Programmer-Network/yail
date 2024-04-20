@@ -30,10 +30,7 @@ const CTA: FC<ICTAProps> = ({
             )}
 
             <H2 className='yl-text-primary-text-color'>{title}</H2>
-            <Paragraph
-              margin='none'
-              className='yl-mx-auto yl-max-w-md yl-text-primary-text-color yl-text-center'
-            >
+            <Paragraph className='yl-mx-auto yl-max-w-md yl-text-primary-text-color yl-text-center'>
               {subtitle}
             </Paragraph>
           </div>
