@@ -2,6 +2,7 @@ import classNames from "classnames";
 import { FC, useEffect, useState } from "react";
 
 import { IconExpandLess, IconExpandMore } from "Components/Icons";
+import { Paragraph } from "Components/Typography";
 
 import { IAccordionProps } from "./types";
 
@@ -9,7 +10,6 @@ const Accordion: FC<IAccordionProps> = ({
   className,
   sections,
   sectionTitleClassName,
-  itemsLabelText,
   onSectionItemClick,
   onSelected,
   expanded,
@@ -28,9 +28,6 @@ const Accordion: FC<IAccordionProps> = ({
     }
   };
 
-  const getItemsLabelText = (items: number) =>
-    `${items} ${items === 1 ? itemsLabelText : `${itemsLabelText}s`}`;
-
   useEffect(() => {
     if (!selectedId) {
       return;
@@ -44,15 +41,20 @@ const Accordion: FC<IAccordionProps> = ({
       {sections.map((section, idx) => (
         <div
           key={section.id}
-          className={classNames({
-            "yl-mb-4 yl-border-b-0": idx !== sections.length - 1
+          className={classNames("yl-border-2 yl-border-primary-text-color/20", {
+            "yl-border-b-0": idx !== sections.length - 1,
+            "yl-rounded-tl-md yl-rounded-tr-md": idx === 0,
+            "yl-rounded-bl-md yl-rounded-br-md": idx === sections.length - 1
           })}
           role='presentation'
         >
           <h3
             className={classNames(
-              "yl-relative yl-flex yl-cursor-pointer yl-select-none yl-items-center yl-justify-between yl-font-semibold yl-capitalize yl-text-primary-text-color",
-              sectionTitleClassName
+              "yl-relative yl-flex yl-cursor-pointer yl-select-none yl-items-center yl-justify-between yl-font-semibold yl-capitalize yl-text-primary-text-color  yl-p-4",
+              sectionTitleClassName,
+              {
+                "yl-bg-primary-text-color/5": expanded.includes(section.id)
+              }
             )}
             onClick={() => toggleExpand(section.id)}
             onKeyDown={e => {
@@ -64,19 +66,19 @@ const Accordion: FC<IAccordionProps> = ({
             role='button'
             aria-expanded={expanded.includes(section.id)}
           >
-            <div className='yl-flex yl-items-center yl-gap-1 yl-overflow-hidden yl-text-ellipsis yl-whitespace-nowrap yl-text-base'>
+            <div className='yl-flex yl-flex-col yl-gap-1 yl-overflow-hidden yl-text-ellipsis yl-whitespace-nowrap yl-text-base'>
               {expanded.includes(section.id) ? (
                 <IconExpandLess className='yl-absolute yl-right-0 yl-w-6 yl-cursor-pointer yl-fill-primary-text-color hover:yl-fill-primary' />
               ) : (
                 <IconExpandMore className='yl-absolute yl-right-0 yl-w-6 yl-cursor-pointer yl-fill-primary-text-color hover:yl-fill-primary' />
               )}
               {section.title}
+              {section.description && (
+                <Paragraph className='yl-text-xs yl-text-primary-text-color/70'>
+                  {section.description}
+                </Paragraph>
+              )}
             </div>
-            {itemsLabelText && (
-              <span className='yl-whitespace-nowrap yl-pr-6 yl-lowercase yl-text-primary-text-color'>
-                {getItemsLabelText(section.items.length)}
-              </span>
-            )}
           </h3>
           {expanded.includes(section.id) && (
             <ul
@@ -101,7 +103,7 @@ const Accordion: FC<IAccordionProps> = ({
                     setSelectedItemId(item.id);
                   }}
                 >
-                  <div className='yl-flex yl-break-all'>
+                  <div className='yl-flex yl-break-all yl-px-4 yl-py-2'>
                     <span
                       className={classNames({
                         "yl-text-primary": selectedItemId === item.id
