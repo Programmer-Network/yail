@@ -1,4 +1,5 @@
-import { createPopper } from "@popperjs/core";
+import { OptionsGeneric, createPopper } from "@popperjs/core";
+import { PopperOffsetsModifier } from "@popperjs/core/lib/modifiers/popperOffsets";
 import { useOnClickOutside } from "Hooks/useClickOutside";
 import classNames from "classnames";
 import React, { useEffect, useRef, useState } from "react";
@@ -11,7 +12,8 @@ const Dropdown: React.FC<IDropdownProps> = ({
   buttonContent,
   buttonClassName,
   dropdownClassName,
-  options
+  options,
+  popperOptions
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -25,25 +27,17 @@ const Dropdown: React.FC<IDropdownProps> = ({
       return;
     }
 
-    createPopper(buttonRef.current, popperRef.current, {
-      placement: "bottom-start",
-      modifiers: [
-        {
-          name: "flip",
-          options: {
-            fallbackPlacements: ["top", "right", "left"]
-          }
-        },
-        {
-          name: "preventOverflow",
-          options: {
-            boundary: "clippingParents"
-          }
-        }
-      ]
-    });
+    const defaultOptions = {
+      placement: "auto"
+    } as Partial<OptionsGeneric<PopperOffsetsModifier>> | undefined;
+
+    createPopper(
+      buttonRef.current,
+      popperRef.current,
+      popperOptions || defaultOptions
+    );
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [buttonRef.current, popperRef.current]);
+  }, [buttonRef.current, popperRef.current, popperOptions]);
 
   return (
     <div className='yl-relative yl-text-primary-text-color' ref={dropdownRef}>
