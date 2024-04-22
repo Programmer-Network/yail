@@ -20,6 +20,7 @@ export const Default: Story = {
   args: {
     draggedClassName: "yl-bg-primary",
     draggedOverClassName: "yl-bg-rose-500",
+    isDraggable: true,
     onSorted: (items: IDraggableListItem[]) => {
       return new Promise(resolve => {
         setTimeout(() => {
@@ -47,6 +48,28 @@ export const Default: Story = {
         id: 4,
         title: "Item 4",
         description: "Description 4"
+      }
+    ]
+  }
+};
+
+export const WithOneItem: Story = {
+  args: {
+    draggedClassName: "yl-bg-primary",
+    draggedOverClassName: "yl-bg-rose-500",
+    isDraggable: true,
+    onSorted: (items: IDraggableListItem[]) => {
+      return new Promise(resolve => {
+        setTimeout(() => {
+          resolve(items);
+        }, 2000);
+      });
+    },
+    items: [
+      {
+        id: 1,
+        title: "Item 1",
+        description: "Description 1"
       }
     ]
   }

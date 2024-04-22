@@ -7,6 +7,7 @@ import { IDraggableList, IDraggableListItem } from "./types";
 
 const DraggableList: FC<IDraggableList> = ({
   items,
+  isDraggable,
   className,
   draggedClassName,
   draggedOverClassName,
@@ -19,6 +20,9 @@ const DraggableList: FC<IDraggableList> = ({
   const [hoveredId, setHoveredId] = useState<number | null>(null);
   const [listItems, setListItems] = useState<IDraggableListItem[]>(items);
   const [isSorting, setIsSorting] = useState<boolean>(false);
+  const [activeId, setActiveId] = useState<number | null>(null);
+
+  const canDrag = isDraggable && !isSorting && items.length > 1;
 
   const reorder = (
     list: IDraggableListItem[],
@@ -85,25 +89,31 @@ const DraggableList: FC<IDraggableList> = ({
                 [draggedClassName ?? ""]: !isSorting && draggedId === item.id,
                 [draggedOverClassName ?? ""]:
                   !isSorting && draggedOverId === item.id,
-                "yl-opacity-30": isSorting && draggedId !== item.id
+                "yl-opacity-30": isSorting && draggedId !== item.id,
+                "yl-text-primary": activeId === item.id
               }
             )}
-            draggable={true}
+            draggable={canDrag}
             key={item.id}
-            onDrag={e => handleDrag(e, item)}
-            onDragOver={() => setDraggedOverId(item.id)}
-            onMouseOver={() => setHoveredId(item.id)}
-            onMouseLeave={() => setHoveredId(null)}
-            onClick={() => onClick?.(item)}
+            onDrag={e => (canDrag ? handleDrag(e, item) : null)}
+            onDragOver={() => (canDrag ? setDraggedOverId(item.id) : null)}
+            onMouseOver={() => (canDrag ? setHoveredId(item.id) : null)}
+            onMouseLeave={() => (canDrag ? setHoveredId(null) : null)}
+            onClick={() => {
+              setActiveId(item.id);
+              onClick?.(item);
+            }}
           >
-            <IconDrag
-              className={classNames(
-                "yl-absolute -yl-left-7 yl-w-6 yl-opacity-50",
-                {
-                  "yl-cursor-move yl-opacity-100": hoveredId === item.id
-                }
-              )}
-            />
+            {canDrag && (
+              <IconDrag
+                className={classNames(
+                  "yl-absolute -yl-left-7 yl-w-6 yl-opacity-50",
+                  {
+                    "yl-cursor-move yl-opacity-100": hoveredId === item.id
+                  }
+                )}
+              />
+            )}
             {item.title}
           </li>
         );

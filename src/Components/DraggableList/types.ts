@@ -9,6 +9,7 @@ export interface IDraggableList {
   draggedClassName?: string;
   draggedOverClassName?: string;
   liClassName?: string;
+  isDraggable?: boolean;
   items: IDraggableListItem[];
   onSorted?: (items: IDraggableListItem[]) => Promise<unknown>;
   onClick?: (item: IDraggableListItem) => void;
