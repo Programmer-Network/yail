@@ -109,7 +109,10 @@ describe("Card component", () => {
         <Card {...mockProps} />
       </BrowserRouter>
     );
-    const cardElement = screen.getByText(mockProps.data.title).closest("div");
+    const cardElement = screen
+      .getByText(mockProps.data.title)
+      .closest("div")?.parentElement;
+
     expect(cardElement).toHaveClass("custom-class");
   });
 });

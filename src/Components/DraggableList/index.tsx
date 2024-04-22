@@ -62,7 +62,7 @@ const DraggableList: FC<IDraggableList> = ({
 
   useEffect(() => {
     setListItems(items);
-  }, [items.length]);
+  }, [items]);
 
   return (
     <ul

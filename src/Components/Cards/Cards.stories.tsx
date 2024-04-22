@@ -8,6 +8,9 @@ import { ICardsProps } from "./types";
 const CardsStories: Meta<ICardsProps> = {
   title: "Components/Cards",
   decorators: [withRouter],
+  parameters: {
+    layout: "centered"
+  },
   component: Cards,
   argTypes: {}
 } satisfies Meta<typeof Cards>;
@@ -205,8 +208,8 @@ export const Default = () => {
   }));
 
   return (
-    <div className='yl-mt-8'>
-      <Cards cards={cards} columns={2} NavLink={NavLink} />
+    <div className='yl-max-w-5xl'>
+      <Cards cards={cards} columns={2} NavLink={NavLink} className='yl-gap-4' />
     </div>
   );
 };

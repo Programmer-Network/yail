@@ -9,7 +9,9 @@ const CardStories: Meta<ICard> = {
   title: "Components/Card",
   decorators: [withRouter],
   component: Card,
-  argTypes: {}
+  parameters: {
+    layout: "centered"
+  }
 };
 
 export const Default = () => {
