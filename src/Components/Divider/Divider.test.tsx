@@ -4,13 +4,30 @@ import Divider from "./";
 
 describe("Divider component", () => {
   test("renders correctly - snapshot test", () => {
-    const { asFragment } = render(<Divider />);
+    const { asFragment } = render(
+      <Divider
+        classes={[
+          "yl-bg-primary-text-color",
+          "yl-bg-primary-text-color",
+          "yl-bg-primary-text-color"
+        ]}
+      />
+    );
     expect(asFragment()).toMatchSnapshot();
   });
 
   test("applies custom class name", () => {
     const customClass = "custom-class";
-    render(<Divider className={customClass} />);
+    render(
+      <Divider
+        className={customClass}
+        classes={[
+          "yl-bg-primary-text-color",
+          "yl-bg-primary-text-color",
+          "yl-bg-primary-text-color"
+        ]}
+      />
+    );
     const divider = screen.getByTestId("divider");
     expect(divider).toHaveClass(customClass);
   });
