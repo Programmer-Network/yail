@@ -4,7 +4,15 @@ import { FC } from "react";
 
 import { IDividerProps } from "./types";
 
-const Divider: FC<IDividerProps> = ({ className, classes }) => {
+const Divider: FC<IDividerProps> = (
+  { className, classes } = {
+    classes: [
+      "yl-bg-primary-text-color",
+      "yl-bg-primary-text-color",
+      "yl-bg-primary-text-color"
+    ]
+  }
+) => {
   if (classes && !Array.isArray(classes)) {
     throw new Error('💣 Divider: "classes" must be an array 💣 of class names');
   }
@@ -27,14 +35,6 @@ const Divider: FC<IDividerProps> = ({ className, classes }) => {
         ))}
     </div>
   );
-};
-
-Divider.defaultProps = {
-  classes: [
-    "yl-bg-primary-text-color",
-    "yl-bg-primary-text-color",
-    "yl-bg-primary-text-color"
-  ]
 };
 
 export default Divider;

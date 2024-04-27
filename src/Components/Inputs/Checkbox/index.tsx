@@ -6,7 +6,13 @@ import InputHeader from "Components/Inputs/Common/InputHeader";
 
 import { ICheckboxProps } from "./types";
 
-const Checkbox: FC<ICheckboxProps> = props => {
+const Checkbox: FC<ICheckboxProps> = (
+  props = {
+    checked: false,
+    text: "",
+    onChange: () => null
+  }
+) => {
   const { checked, onChange, text, inputWrapperClassName } = props;
   return (
     <div className={classNames(inputWrapperClassName)}>
@@ -25,12 +31,6 @@ const Checkbox: FC<ICheckboxProps> = props => {
       {props.error && <InputError error={props.error} />}
     </div>
   );
-};
-
-Checkbox.defaultProps = {
-  checked: false,
-  text: "",
-  onChange: () => null
 };
 
 export default Checkbox;

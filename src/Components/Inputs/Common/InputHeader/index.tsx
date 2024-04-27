@@ -6,15 +6,17 @@ import Tooltip from "Components/Tooltip";
 
 import { InputHeaderProps } from "./types";
 
-const InputHeader: FC<InputHeaderProps> = ({
-  name,
-  value,
-  max,
-  label,
-  hint,
-  type,
-  required
-}) => {
+const InputHeader: FC<InputHeaderProps> = (
+  { name, value, max, label, hint, type, required } = {
+    name: "",
+    value: "",
+    max: 0,
+    label: "",
+    hint: "",
+    type: "",
+    required: false
+  }
+) => {
   if (!hint && !max && !label) {
     return null;
   }
@@ -38,16 +40,6 @@ const InputHeader: FC<InputHeaderProps> = ({
       )}
     </div>
   );
-};
-
-InputHeader.defaultProps = {
-  name: "",
-  value: "",
-  max: 0,
-  label: "",
-  hint: "",
-  type: "",
-  required: false
 };
 
 export default InputHeader;

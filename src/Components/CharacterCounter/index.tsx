@@ -3,7 +3,12 @@ import { FC } from "react";
 
 import { ICharacterCounterProps } from "./types";
 
-const CharacterCounter: FC<ICharacterCounterProps> = ({ text, max }) => {
+const CharacterCounter: FC<ICharacterCounterProps> = (
+  { text, max } = {
+    text: "",
+    max: 0
+  }
+) => {
   return (
     <div
       className={classNames("yl-flex yl-gap-1 yl-text-primary-text-color", {
@@ -15,11 +20,6 @@ const CharacterCounter: FC<ICharacterCounterProps> = ({ text, max }) => {
       <span data-testid='max-length'>{max}</span>
     </div>
   );
-};
-
-CharacterCounter.defaultProps = {
-  text: "",
-  max: 0
 };
 
 export default CharacterCounter;

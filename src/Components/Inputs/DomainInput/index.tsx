@@ -6,7 +6,22 @@ import InputHeader from "Components/Inputs/Common/InputHeader";
 
 import { IDomainInputProps } from "./types";
 
-const DomainInput: FC<IDomainInputProps> = props => {
+const DomainInput: FC<IDomainInputProps> = (
+  props = {
+    domain: "",
+    name: "",
+    value: "",
+    hint: "",
+    className: "",
+    domainClassName: "",
+    inputWrapperClassName: "",
+    type: "string",
+    max: 0,
+    error: "",
+    disabled: false,
+    onChange: () => null
+  }
+) => {
   const { domain, name, value, disabled } = props;
   const [isFocused, setIsFocused] = useState(false);
 
@@ -57,21 +72,6 @@ const DomainInput: FC<IDomainInputProps> = props => {
       {props.error && <InputError error={props.error} />}
     </div>
   );
-};
-
-DomainInput.defaultProps = {
-  domain: "",
-  name: "",
-  value: "",
-  hint: "",
-  className: "",
-  domainClassName: "",
-  inputWrapperClassName: "",
-  type: "string",
-  max: 0,
-  error: "",
-  disabled: false,
-  onChange: () => null
 };
 
 export default DomainInput;

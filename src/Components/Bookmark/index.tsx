@@ -5,12 +5,14 @@ import Spinner from "Components/Spinner";
 
 import { IBookmarkProps } from "./types";
 
-const Bookmark: React.FC<IBookmarkProps> = ({
-  isBookmarked,
-  handleDelete,
-  handleAdd,
-  isLoading
-}) => {
+const Bookmark: React.FC<IBookmarkProps> = (
+  { isBookmarked, handleDelete, handleAdd, isLoading } = {
+    isBookmarked: false,
+    handleDelete: () => null,
+    handleAdd: () => null,
+    isLoading: false
+  }
+) => {
   return (
     <div className='yl-flex yl-items-start yl-gap-2'>
       <div className='yl-flex yl-gap-2'>
@@ -36,13 +38,6 @@ const Bookmark: React.FC<IBookmarkProps> = ({
       </div>
     </div>
   );
-};
-
-Bookmark.defaultProps = {
-  isBookmarked: false,
-  handleDelete: () => null,
-  handleAdd: () => null,
-  isLoading: false
 };
 
 export default Bookmark;

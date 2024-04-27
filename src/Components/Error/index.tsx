@@ -3,17 +3,23 @@ import React from "react";
 
 import { IErrorProps } from "./types";
 
-const Error: React.FC<IErrorProps> = ({
-  error,
-  title,
-  description,
-  backToText,
-  className,
-  onBackToClick,
-  Icon,
-  IconProps,
-  onIconClick
-}) => {
+const Error: React.FC<IErrorProps> = (
+  {
+    error,
+    title,
+    description,
+    backToText,
+    className,
+    onBackToClick,
+    Icon,
+    IconProps,
+    onIconClick
+  } = {
+    error: "404 error",
+    title: "Page not found.",
+    description: ""
+  }
+) => {
   return (
     <div
       data-testid='error-wrapper'
@@ -62,12 +68,6 @@ const Error: React.FC<IErrorProps> = ({
       </div>
     </div>
   );
-};
-
-Error.defaultProps = {
-  error: "404 error",
-  title: "Page not found.",
-  description: ""
 };
 
 export default Error;

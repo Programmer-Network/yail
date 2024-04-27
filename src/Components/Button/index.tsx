@@ -6,16 +6,25 @@ import Spinner from "Components/Spinner";
 import "./button-style.css";
 import { IButtonProps } from "./types";
 
-const Button: React.FC<IButtonProps> = ({
-  onClick,
-  children,
-  className,
-  disabled = false,
-  type = "button",
-  icon,
-  isLoading = false,
-  outlined = false
-}) => {
+const Button: React.FC<IButtonProps> = (
+  {
+    onClick,
+    children,
+    className,
+    disabled = false,
+    type = "button",
+    icon,
+    isLoading = false,
+    outlined = false
+  } = {
+    onClick: () => null,
+    children: null,
+    className: "",
+    disabled: false,
+    outlined: false,
+    isLoading: false
+  }
+) => {
   let cls =
     "yl-select-none yl-border-2 yl-border-primary yl-px-3 yl-py-2 yl-font-semibold yl-tracking-tight yl-rounded-md ";
 
@@ -80,15 +89,6 @@ const Button: React.FC<IButtonProps> = ({
       </div>
     </button>
   );
-};
-
-Button.defaultProps = {
-  onClick: () => null,
-  children: null,
-  className: "",
-  disabled: false,
-  outlined: false,
-  isLoading: false
 };
 
 export default Button;

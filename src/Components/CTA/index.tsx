@@ -6,15 +6,17 @@ import { H3, Paragraph } from "Components/Typography";
 
 import { ICTAProps } from "./types";
 
-const CTA: FC<ICTAProps> = ({
-  Icon,
-  ButtonIcon,
-  iconClassName,
-  title,
-  subtitle,
-  buttonText,
-  onClick
-}) => {
+const CTA: FC<ICTAProps> = (
+  { Icon, ButtonIcon, iconClassName, title, subtitle, buttonText, onClick } = {
+    iconClassName: "",
+    Icon: undefined,
+    ButtonIcon: undefined,
+    title: "",
+    subtitle: "",
+    buttonText: "",
+    onClick: () => null
+  }
+) => {
   return (
     <div className='yl-flex yl-items-center yl-justify-center'>
       <div className='yl-flex yl-flex-col yl-items-center yl-text-center'>
@@ -49,16 +51,6 @@ const CTA: FC<ICTAProps> = ({
       </div>
     </div>
   );
-};
-
-CTA.defaultProps = {
-  iconClassName: "",
-  Icon: undefined,
-  ButtonIcon: undefined,
-  title: "",
-  subtitle: "",
-  buttonText: "",
-  onClick: () => null
 };
 
 export default CTA;
