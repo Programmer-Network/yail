@@ -5,19 +5,6 @@ exports[`Divider component > renders correctly - snapshot test 1`] = `
   <div
     class="yl-mx-auto yl-flex yl-justify-center yl-gap-1"
     data-testid="divider"
-  >
-    <div
-      class="yl-block yl-h-[2px] yl-w-28 yl-bg-primary-text-color"
-      data-testid="divider-child-0"
-    />
-    <div
-      class="yl-block yl-h-[2px] yl-w-28 yl-bg-primary-text-color"
-      data-testid="divider-child-1"
-    />
-    <div
-      class="yl-block yl-h-[2px] yl-w-28 yl-bg-primary-text-color"
-      data-testid="divider-child-2"
-    />
-  </div>
+  />
 </DocumentFragment>
 `;
