@@ -50,7 +50,7 @@ const Accordion: FC<IAccordionProps> = ({
         >
           <h3
             className={classNames(
-              "yl-relative yl-flex yl-cursor-pointer yl-select-none yl-items-center yl-justify-between yl-font-semibold yl-capitalize yl-text-primary-text-color  yl-p-4",
+              "yl-relative yl-flex yl-cursor-pointer yl-select-none yl-items-center yl-justify-between yl-font-semibold yl-capitalize yl-text-primary-text-color  yl-py-4 yl-pl-4 yl-pr-8",
               sectionTitleClassName,
               {
                 "yl-bg-primary-text-color/5": expanded.includes(section.id)
@@ -68,9 +68,9 @@ const Accordion: FC<IAccordionProps> = ({
           >
             <div className='yl-flex yl-flex-col yl-gap-1 yl-overflow-hidden yl-text-ellipsis yl-whitespace-nowrap yl-text-base'>
               {expanded.includes(section.id) ? (
-                <IconExpandLess className='yl-absolute yl-right-0 yl-w-6 yl-cursor-pointer yl-fill-primary-text-color hover:yl-fill-primary' />
+                <IconExpandLess className='yl-absolute yl-right-2 yl-w-6 yl-cursor-pointer yl-fill-primary-text-color hover:yl-fill-primary' />
               ) : (
-                <IconExpandMore className='yl-absolute yl-right-0 yl-w-6 yl-cursor-pointer yl-fill-primary-text-color hover:yl-fill-primary' />
+                <IconExpandMore className='yl-absolute yl-right-2 yl-w-6 yl-cursor-pointer yl-fill-primary-text-color hover:yl-fill-primary' />
               )}
               {section.title}
               {section.description && (

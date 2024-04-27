@@ -11,7 +11,7 @@ exports[`Accordion component > renders correctly 1`] = `
     >
       <h3
         aria-expanded="true"
-        class="yl-relative yl-flex yl-cursor-pointer yl-select-none yl-items-center yl-justify-between yl-font-semibold yl-capitalize yl-text-primary-text-color  yl-p-4 yl-bg-primary-text-color/5"
+        class="yl-relative yl-flex yl-cursor-pointer yl-select-none yl-items-center yl-justify-between yl-font-semibold yl-capitalize yl-text-primary-text-color  yl-py-4 yl-pl-4 yl-pr-8 yl-bg-primary-text-color/5"
         role="button"
         tabindex="0"
       >
@@ -19,7 +19,7 @@ exports[`Accordion component > renders correctly 1`] = `
           class="yl-flex yl-flex-col yl-gap-1 yl-overflow-hidden yl-text-ellipsis yl-whitespace-nowrap yl-text-base"
         >
           <svg
-            class="yl-absolute yl-right-0 yl-w-6 yl-cursor-pointer yl-fill-primary-text-color hover:yl-fill-primary"
+            class="yl-absolute yl-right-2 yl-w-6 yl-cursor-pointer yl-fill-primary-text-color hover:yl-fill-primary"
             data-testid="icon-expand-less"
             fill="currentColor"
             viewBox="0 0 24 24"
@@ -80,7 +80,7 @@ exports[`Accordion component > renders correctly 1`] = `
     >
       <h3
         aria-expanded="false"
-        class="yl-relative yl-flex yl-cursor-pointer yl-select-none yl-items-center yl-justify-between yl-font-semibold yl-capitalize yl-text-primary-text-color  yl-p-4"
+        class="yl-relative yl-flex yl-cursor-pointer yl-select-none yl-items-center yl-justify-between yl-font-semibold yl-capitalize yl-text-primary-text-color  yl-py-4 yl-pl-4 yl-pr-8"
         role="button"
         tabindex="0"
       >
@@ -88,7 +88,7 @@ exports[`Accordion component > renders correctly 1`] = `
           class="yl-flex yl-flex-col yl-gap-1 yl-overflow-hidden yl-text-ellipsis yl-whitespace-nowrap yl-text-base"
         >
           <svg
-            class="yl-absolute yl-right-0 yl-w-6 yl-cursor-pointer yl-fill-primary-text-color hover:yl-fill-primary"
+            class="yl-absolute yl-right-2 yl-w-6 yl-cursor-pointer yl-fill-primary-text-color hover:yl-fill-primary"
             data-testid="icon-expand-more"
             fill="currentColor"
             viewBox="0 0 24 24"
