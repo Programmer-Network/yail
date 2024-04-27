@@ -1,16 +1,20 @@
-import { FC, ForwardedRef, forwardRef } from "react";
+import { forwardRef } from "react";
 
 import InputError from "../../../Common/InputError";
 import Input from "../../../Input";
 import { IModalInputProps } from "./types";
 
-export const ModalInput: FC<IModalInputProps> = forwardRef(
-  (props, ref: ForwardedRef<HTMLDivElement>) => {
+export const ModalInput = forwardRef<HTMLDivElement, IModalInputProps>(
+  (props, ref) => {
     const { position, value = "", error, onChange, children } = props;
     const { x, y } = position;
 
     return (
-      <div className='fixed yl-z-50' style={{ left: x, top: y + 10 }} ref={ref}>
+      <div
+        className='yl-fixed yl-z-50'
+        style={{ left: x, top: y + 10 }}
+        ref={ref}
+      >
         <div className='yl-bg-primary-background-color yl-shadow-md'>
           <div className='yl-flex yl-items-center yl-gap-1'>
             <Input name='url' type='text' value={value} onChange={onChange} />
