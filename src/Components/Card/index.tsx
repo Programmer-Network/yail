@@ -13,7 +13,7 @@ const Card: FC<ICard> = ({ data, className, NavLink }) => {
   return (
     <div
       className={classNames(
-        "group yl-bg-primary-text-color/5 yl-p-4 yl-rounded-md yl-border yl-border-primary-text-color/20 yl-flex yl-flex-col yl-justify-between",
+        "group yl-flex yl-flex-col yl-justify-between",
         className
       )}
     >
