@@ -20,6 +20,7 @@ export const Default: Story = {
     name: "username",
     label: "Username",
     value: "John Doe",
-    onChange: (e: Record<string, string>) => console.log(e)
+    onChange: (e: Record<string, string>) => console.log(e),
+    required: true
   }
 };

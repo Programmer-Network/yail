@@ -13,4 +13,5 @@ export interface ITextareaProps {
   inputWrapperClassName?: string;
   max?: number;
   min?: number;
+  required?: boolean;
 }
