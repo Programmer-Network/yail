@@ -13,5 +13,6 @@ export interface IDraggableList {
   items: IDraggableListItem[];
   onSorted?: (items: IDraggableListItem[]) => Promise<unknown>;
   onClick?: (item: IDraggableListItem) => void;
+  activeItemId?: number;
   ListItemComponent?: React.FC<IDraggableListItem>;
 }

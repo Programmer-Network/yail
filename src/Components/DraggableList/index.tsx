@@ -12,6 +12,7 @@ const DraggableList: FC<IDraggableList> = ({
   draggedClassName,
   draggedOverClassName,
   liClassName,
+  activeItemId,
   onSorted,
   onClick
 }) => {
@@ -20,7 +21,6 @@ const DraggableList: FC<IDraggableList> = ({
   const [hoveredId, setHoveredId] = useState<number | null>(null);
   const [listItems, setListItems] = useState<IDraggableListItem[]>(items);
   const [isSorting, setIsSorting] = useState<boolean>(false);
-  const [activeId, setActiveId] = useState<number | null>(null);
 
   const canDrag = isDraggable && !isSorting && items.length > 1;
 
@@ -90,7 +90,7 @@ const DraggableList: FC<IDraggableList> = ({
                 [draggedOverClassName ?? ""]:
                   !isSorting && draggedOverId === item.id,
                 "yl-opacity-30": isSorting && draggedId !== item.id,
-                "yl-text-primary": activeId === item.id
+                "yl-text-primary": activeItemId === item.id
               }
             )}
             draggable={canDrag}
@@ -100,7 +100,6 @@ const DraggableList: FC<IDraggableList> = ({
             onMouseOver={() => (canDrag ? setHoveredId(item.id) : null)}
             onMouseLeave={() => (canDrag ? setHoveredId(null) : null)}
             onClick={() => {
-              setActiveId(item.id);
               onClick?.(item);
             }}
           >
