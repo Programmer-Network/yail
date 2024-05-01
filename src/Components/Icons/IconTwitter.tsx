@@ -5,7 +5,7 @@ const SvgIconTwitter = (props: SVGProps<SVGSVGElement>) => (
     xmlns='http://www.w3.org/2000/svg'
     fill='currentColor'
     aria-hidden='true'
-    className='icon-twitter_svg__StyledIconBase-ea9ulj-0 icon-twitter_svg__lbJwfL icon-twitter_svg__w-6 icon-twitter_svg__fill-[#2e9bf0] icon-twitter_svg__border-none'
+    className='icon-twitter_svg__StyledIconBase-ea9ulj-0 icon-twitter_svg__lbJwfL icon-twitter_svg__yl-w-6 icon-twitter_svg__fill-[#2e9bf0] icon-twitter_svg__yl-border-none'
     viewBox='0 32 448 448'
     {...props}
   >

@@ -19,6 +19,7 @@ export { default as IconBookmarked } from "./IconBookmarked";
 export { default as IconBrain } from "./IconBrain";
 export { default as IconBrokenHeart } from "./IconBrokenHeart";
 export { default as IconBug } from "./IconBug";
+export { default as IconCalendarAdd } from "./IconCalendarAdd";
 export { default as IconCalendar } from "./IconCalendar";
 export { default as IconCancelPresentation } from "./IconCancelPresentation";
 export { default as IconCategory } from "./IconCategory";

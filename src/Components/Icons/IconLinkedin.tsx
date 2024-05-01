@@ -5,7 +5,7 @@ const SvgIconLinkedin = (props: SVGProps<SVGSVGElement>) => (
     xmlns='http://www.w3.org/2000/svg'
     fill='currentColor'
     aria-hidden='true'
-    className='icon-linkedin_svg__StyledIconBase-ea9ulj-0 icon-linkedin_svg__lbJwfL icon-linkedin_svg__w-6 icon-linkedin_svg__fill-[#1f74b3] icon-linkedin_svg__mr-4'
+    className='icon-linkedin_svg__StyledIconBase-ea9ulj-0 icon-linkedin_svg__lbJwfL icon-linkedin_svg__yl-w-6 icon-linkedin_svg__fill-[#1f74b3] icon-linkedin_svg__mr-4'
     viewBox='0 0 448 512'
     {...props}
   >
