@@ -1,63 +1,46 @@
 import classNames from "classnames";
 import { DragEvent, FC, useEffect, useState } from "react";
 
-import { IconDrag, IconSpinner2 } from "Components/Icons";
+import { IconDrag } from "Components/Icons";
+
+import ArrayUtils from "Utils/Array";
 
 import { IDraggableList, IDraggableListItem } from "./types";
 
 const DraggableList: FC<IDraggableList> = ({
   items,
+  onDragged,
   isDraggable,
   className,
   draggedClassName,
   draggedOverClassName,
   liClassName,
   activeItemId,
-  onSorted,
   onClick
 }) => {
   const [draggedId, setDraggedId] = useState<number | null>(null);
   const [draggedOverId, setDraggedOverId] = useState<number | null>(null);
   const [hoveredId, setHoveredId] = useState<number | null>(null);
-  const [listItems, setListItems] = useState<IDraggableListItem[]>(items);
-  const [isSorting, setIsSorting] = useState<boolean>(false);
+  const [localItems, setLocalItems] = useState<IDraggableListItem[]>(
+    items || []
+  );
 
-  const canDrag = isDraggable && !isSorting && items.length > 1;
-
-  const reorder = (
-    list: IDraggableListItem[],
-    startIndex: number,
-    endIndex: number
-  ) => {
-    const result = Array.from(list);
-    const [removed] = result.splice(startIndex, 1);
-    result.splice(endIndex, 0, removed);
-    return result;
-  };
+  const canDrag = isDraggable && items.length > 1;
 
   const handleDrag = (_: DragEvent<Element>, item: IDraggableListItem) => {
     setDraggedId(item.id);
   };
 
-  const handleDrop = async (e: DragEvent<Element>) => {
+  const handleDrop = (e: DragEvent<Element>) => {
     e.preventDefault();
 
     if (draggedId != null && draggedOverId != null) {
-      const draggedIndex = listItems.findIndex(item => item.id === draggedId);
-      const draggedOverIndex = listItems.findIndex(
+      const draggedIndex = items.findIndex(item => item.id === draggedId);
+      const draggedOverIndex = items.findIndex(
         item => item.id === draggedOverId
       );
 
-      const reordered = reorder(listItems, draggedIndex, draggedOverIndex);
-
-      setIsSorting(true);
-
-      try {
-        await onSorted?.(reordered);
-        setListItems(reordered);
-      } finally {
-        setIsSorting(false);
-      }
+      setLocalItems(ArrayUtils.reorder(items, draggedIndex, draggedOverIndex));
     }
 
     setDraggedId(null);
@@ -65,8 +48,12 @@ const DraggableList: FC<IDraggableList> = ({
   };
 
   useEffect(() => {
-    setListItems(items);
-  }, [items]);
+    setLocalItems(items || []);
+  }, []);
+
+  useEffect(() => {
+    onDragged?.(localItems);
+  }, [localItems]);
 
   return (
     <ul
@@ -76,25 +63,20 @@ const DraggableList: FC<IDraggableList> = ({
       )}
       onDragEnd={handleDrop}
     >
-      {isSorting && (
-        <IconSpinner2 className='yl-absolute yl-left-1/2 yl-top-1/2 yl-w-12 -yl-translate-x-1/2 -yl-translate-y-1/2 yl-transform yl-text-primary-text-color' />
-      )}
-      {listItems.map(item => {
+      {localItems.map((item, index) => {
         return (
           <li
             className={classNames(
               "yl-relative yl-flex yl-cursor-pointer yl-items-center",
-              liClassName,
+              liClassName?.(item, index),
               {
-                [draggedClassName ?? ""]: !isSorting && draggedId === item.id,
-                [draggedOverClassName ?? ""]:
-                  !isSorting && draggedOverId === item.id,
-                "yl-opacity-30": isSorting && draggedId !== item.id,
+                [draggedClassName ?? ""]: draggedId === item.id,
+                [draggedOverClassName ?? ""]: draggedOverId === item.id,
                 "yl-text-primary": activeItemId === item.id
               }
             )}
             draggable={canDrag}
-            key={item.id}
+            key={item.order}
             onDrag={e => (canDrag ? handleDrag(e, item) : null)}
             onDragOver={() => (canDrag ? setDraggedOverId(item.id) : null)}
             onMouseOver={() => (canDrag ? setHoveredId(item.id) : null)}
@@ -104,14 +86,13 @@ const DraggableList: FC<IDraggableList> = ({
             }}
           >
             {canDrag && (
-              <IconDrag
-                className={classNames(
-                  "yl-absolute -yl-left-7 yl-w-6 yl-opacity-50",
-                  {
+              <div>
+                <IconDrag
+                  className={classNames("yl-w-6 yl-opacity-50 yl-mr-1", {
                     "yl-cursor-move yl-opacity-100": hoveredId === item.id
-                  }
-                )}
-              />
+                  })}
+                />
+              </div>
             )}
             {item.title}
           </li>

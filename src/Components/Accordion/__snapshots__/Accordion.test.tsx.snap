@@ -11,7 +11,7 @@ exports[`Accordion component > renders correctly 1`] = `
     >
       <h3
         aria-expanded="true"
-        class="yl-relative yl-flex yl-cursor-pointer yl-select-none yl-items-center yl-justify-between yl-font-semibold yl-capitalize yl-text-primary-text-color  yl-py-4 yl-pl-4 yl-pr-8 yl-bg-primary-text-color/5"
+        class="yl-relative yl-flex yl-cursor-pointer yl-select-none yl-items-center yl-font-semibold yl-capitalize yl-text-primary-text-color yl-py-2 yl-pl-2 yl-pr-8 yl-bg-primary-text-color/5"
         role="button"
         tabindex="0"
       >
@@ -42,35 +42,17 @@ exports[`Accordion component > renders correctly 1`] = `
         </div>
       </h3>
       <ul
-        aria-labelledby="1"
-        class="animate-height-animation yl-leading-8"
-        role="region"
+        class="yl-relative yl-text-primary-text-color yl-gap-4 yl-flex yl-flex-col yl-py-4"
       >
         <li
-          class="yl-text-primary-text-color yl-cursor-pointer"
+          class="yl-relative yl-flex yl-cursor-pointer yl-items-center hover:text-primary cursor-pointer break-all leading-normal yl-px-2 yl-cursor-pointer yl-text-primary-text-color"
         >
-          <div
-            class="yl-flex yl-break-all yl-px-4 yl-py-2"
-          >
-            <span
-              class=""
-            >
-              Item A
-            </span>
-          </div>
+          Item A
         </li>
         <li
-          class="yl-text-primary-text-color yl-cursor-pointer"
+          class="yl-relative yl-flex yl-cursor-pointer yl-items-center hover:text-primary cursor-pointer break-all leading-normal yl-px-2 yl-cursor-pointer yl-text-primary-text-color"
         >
-          <div
-            class="yl-flex yl-break-all yl-px-4 yl-py-2"
-          >
-            <span
-              class=""
-            >
-              Item B
-            </span>
-          </div>
+          Item B
         </li>
       </ul>
     </div>
@@ -80,7 +62,7 @@ exports[`Accordion component > renders correctly 1`] = `
     >
       <h3
         aria-expanded="false"
-        class="yl-relative yl-flex yl-cursor-pointer yl-select-none yl-items-center yl-justify-between yl-font-semibold yl-capitalize yl-text-primary-text-color  yl-py-4 yl-pl-4 yl-pr-8"
+        class="yl-relative yl-flex yl-cursor-pointer yl-select-none yl-items-center yl-font-semibold yl-capitalize yl-text-primary-text-color yl-py-2 yl-pl-2 yl-pr-8"
         role="button"
         tabindex="0"
       >
