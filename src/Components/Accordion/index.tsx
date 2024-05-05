@@ -1,71 +1,116 @@
 import classNames from "classnames";
 import { FC, useEffect, useState } from "react";
 
-import { IconExpandLess, IconExpandMore } from "Components/Icons";
+import DraggableList from "Components/DraggableList";
+import { IDraggableListItem } from "Components/DraggableList/types";
+import { IconDrag, IconExpandLess, IconExpandMore } from "Components/Icons";
 import { Paragraph } from "Components/Typography";
+
+import ArrayUtils from "Utils/Array";
 
 import { IAccordionProps } from "./types";
 
 const Accordion: FC<IAccordionProps> = ({
   className,
   sections,
+  setSections,
   sectionTitleClassName,
   onSectionItemClick,
   onSelected,
   expanded,
   setExpanded,
-  selectedId
+  selectedId,
+  hasDraggableSections,
+  hasDraggableSetionItems
 }) => {
-  const [selectedItemId, setSelectedItemId] = useState<number | null>(
-    selectedId || null
-  );
+  const [selectedItemId, setSelectedItemId] = useState<
+    number | null | undefined
+  >(selectedId);
+  const [draggedId, setDraggedId] = useState<number | null>(null);
+  const [draggedOverId, setDraggedOverId] = useState<number | null>(null);
+  const [hoveredId, setHoveredId] = useState<number | null>(null);
 
   const toggleExpand = (sectionId: number) => {
-    if (expanded.includes(sectionId)) {
-      setExpanded(expanded.filter(id => id !== sectionId));
-    } else {
-      setExpanded([...expanded, sectionId]);
+    setExpanded(
+      expanded.includes(sectionId)
+        ? expanded.filter(id => id !== sectionId)
+        : [...expanded, sectionId]
+    );
+  };
+
+  useEffect(() => setSelectedItemId(selectedId), [selectedId]);
+
+  const handleDrag = (
+    e: React.DragEvent<Element>,
+    item: IDraggableListItem
+  ) => {
+    if (hasDraggableSections) {
+      setDraggedId(item.id);
     }
   };
 
-  useEffect(() => {
-    if (!selectedId) {
-      return;
+  const handleSectionDrop = (e: React.DragEvent<Element>) => {
+    e.preventDefault();
+    if (draggedId != null && draggedOverId != null) {
+      setSections(
+        ArrayUtils.reorder(
+          sections,
+          sections.findIndex(item => item.id === draggedId),
+          sections.findIndex(item => item.id === draggedOverId)
+        )
+      );
     }
 
-    setSelectedItemId(selectedId);
-  }, [selectedId]);
+    setDraggedId(null);
+    setDraggedOverId(null);
+  };
 
   return (
-    <section className={classNames(className)}>
+    <section onDragEnd={handleSectionDrop} className={classNames(className)}>
       {sections.map((section, idx) => (
         <div
           key={section.id}
-          className={classNames("yl-border-2 yl-border-primary-text-color/20", {
-            "yl-border-b-0": idx !== sections.length - 1,
-            "yl-rounded-tl-md yl-rounded-tr-md": idx === 0,
-            "yl-rounded-bl-md yl-rounded-br-md": idx === sections.length - 1
-          })}
+          draggable={hasDraggableSections && sections.length > 1}
+          onDrag={e => handleDrag(e, section)}
+          onDragOver={() =>
+            hasDraggableSections && setDraggedOverId(section.id)
+          }
+          onMouseOver={() => hasDraggableSections && setHoveredId(section.id)}
+          onMouseLeave={() => hasDraggableSections && setHoveredId(null)}
+          className={classNames(
+            "yl-border-2 yl-border-primary-text-color/20",
+            {
+              "yl-border-b-0": idx !== sections.length - 1,
+              "yl-rounded-tl-md yl-rounded-tr-md": idx === 0,
+              "yl-rounded-bl-md yl-rounded-br-md": idx === sections.length - 1
+            },
+            {
+              "yl-bg-primary-text-color/5": draggedOverId === section.id,
+              "yl-bg-primary-text-color/10":
+                draggedId && hoveredId === section.id
+            }
+          )}
           role='presentation'
         >
           <h3
             className={classNames(
-              "yl-relative yl-flex yl-cursor-pointer yl-select-none yl-items-center yl-justify-between yl-font-semibold yl-capitalize yl-text-primary-text-color  yl-py-4 yl-pl-4 yl-pr-8",
+              "yl-relative yl-flex yl-cursor-pointer yl-select-none yl-items-center yl-font-semibold yl-capitalize yl-text-primary-text-color yl-py-2 yl-pl-2 yl-pr-8",
               sectionTitleClassName,
-              {
-                "yl-bg-primary-text-color/5": expanded.includes(section.id)
-              }
+              { "yl-bg-primary-text-color/5": expanded.includes(section.id) }
             )}
             onClick={() => toggleExpand(section.id)}
-            onKeyDown={e => {
-              if (e.key === "Enter" || e.key === " ") {
-                toggleExpand(section.id);
-              }
-            }}
+            onKeyDown={e =>
+              ["Enter", " "].includes(e.key) && toggleExpand(section.id)
+            }
             tabIndex={0}
             role='button'
             aria-expanded={expanded.includes(section.id)}
           >
+            {hasDraggableSetionItems && (
+              <div>
+                <IconDrag className='yl-w-6 yl-opacity-50 yl-mr-1' />
+              </div>
+            )}
             <div className='yl-flex yl-flex-col yl-gap-1 yl-overflow-hidden yl-text-ellipsis yl-whitespace-nowrap yl-text-base'>
               {expanded.includes(section.id) ? (
                 <IconExpandLess className='yl-absolute yl-right-2 yl-w-6 yl-cursor-pointer yl-fill-primary-text-color hover:yl-fill-primary' />
@@ -80,41 +125,37 @@ const Accordion: FC<IAccordionProps> = ({
               )}
             </div>
           </h3>
-          {expanded.includes(section.id) && (
-            <ul
-              className='animate-height-animation yl-leading-8'
-              role='region'
-              aria-labelledby={section.id.toString()}
-            >
-              {section.items.map(item => (
-                <li
-                  className={classNames("yl-text-primary-text-color", {
-                    "yl-cursor-pointer": onSectionItemClick,
-                    "yl-text-primary": selectedItemId === item.id
-                  })}
-                  key={item.id}
-                  onClick={() => {
-                    if (typeof onSectionItemClick !== "function") {
-                      return;
-                    }
 
-                    onSectionItemClick(item);
-                    onSelected ? onSelected(item) : null;
-                    setSelectedItemId(item.id);
-                  }}
-                >
-                  <div className='yl-flex yl-break-all yl-px-4 yl-py-2'>
-                    <span
-                      className={classNames({
-                        "yl-text-primary": selectedItemId === item.id
-                      })}
-                    >
-                      {item.title}
-                    </span>
-                  </div>
-                </li>
-              ))}
-            </ul>
+          {expanded.includes(section.id) && (
+            <DraggableList
+              items={section.items}
+              onDragged={(items: IDraggableListItem[]) => {
+                setSections([
+                  ...sections.map(s =>
+                    s.id === section.id ? { ...s, items } : s
+                  )
+                ]);
+              }}
+              isDraggable={hasDraggableSetionItems}
+              className='yl-gap-4 yl-flex yl-flex-col yl-py-4'
+              draggedOverClassName='yl-border-t-2 yl-border-primary'
+              liClassName={(item: IDraggableListItem) =>
+                classNames(
+                  "hover:text-primary cursor-pointer break-all leading-normal yl-px-2",
+                  {
+                    "yl-cursor-pointer": onSectionItemClick,
+                    "yl-text-primary-text-color": selectedItemId !== item.id,
+                    "yl-text-primary": selectedItemId === item.id,
+                    "yl-pl-9": section.items.length === 1
+                  }
+                )
+              }
+              onClick={(item: IDraggableListItem) => {
+                onSectionItemClick?.(item);
+                onSelected?.(item);
+                setSelectedItemId(item.id);
+              }}
+            />
           )}
         </div>
       ))}
