@@ -67,12 +67,13 @@ const DraggableList: FC<IDraggableList> = ({
         return (
           <li
             className={classNames(
-              "yl-relative yl-flex yl-cursor-pointer yl-items-center",
+              "yl-relative yl-flex yl-items-center",
               liClassName?.(item, index),
               {
                 [draggedClassName ?? ""]: draggedId === item.id,
                 [draggedOverClassName ?? ""]: draggedOverId === item.id,
-                "yl-text-primary": activeItemId === item.id
+                "yl-text-primary yl-cursor-pointer":
+                  onClick && activeItemId === item.id
               }
             )}
             draggable={canDrag}
