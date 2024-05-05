@@ -67,7 +67,7 @@ export const Primary = () => {
         setSections={setSections}
         expanded={expandedSections}
         hasDraggableSections={true}
-        hasDraggableSetionItems={true}
+        hasDraggableSectionItems={true}
         setExpanded={(expanded: number[]) => {
           setExpandedSections(expanded);
         }}
@@ -76,6 +76,86 @@ export const Primary = () => {
         }}
         onSectionItemClick={sectionItem => {
           action("onSectionItemClick")(sectionItem);
+        }}
+      />
+    </div>
+  );
+};
+
+export const NonInteractive = () => {
+  const [sections, setSections] = useState<ISection[]>([]);
+  const [expandedSections, setExpandedSections] = useState<number[]>([1]);
+
+  useEffect(() => {
+    if (sections.length) {
+      return;
+    }
+
+    setSections(dummySections);
+  }, []);
+
+  useEffect(() => {
+    console.log("Changed", sections);
+  }, [sections]);
+
+  if (!sections.length) {
+    return <div>Loading...</div>;
+  }
+
+  return (
+    <div>
+      <Accordion
+        className='yl-w-[500px]'
+        selectedId={2}
+        sections={sections}
+        setSections={setSections}
+        expanded={expandedSections}
+        hasDraggableSections={true}
+        hasDraggableSectionItems={true}
+        setExpanded={(expanded: number[]) => {
+          setExpandedSections(expanded);
+        }}
+        onSelected={item => {
+          action("onSelected")(item);
+        }}
+      />
+    </div>
+  );
+};
+
+export const WithoutDragAndDrop = () => {
+  const [sections, setSections] = useState<ISection[]>([]);
+  const [expandedSections, setExpandedSections] = useState<number[]>([1]);
+
+  useEffect(() => {
+    if (sections.length) {
+      return;
+    }
+
+    setSections(dummySections);
+  }, []);
+
+  useEffect(() => {
+    console.log("Changed", sections);
+  }, [sections]);
+
+  if (!sections.length) {
+    return <div>Loading...</div>;
+  }
+
+  return (
+    <div>
+      <Accordion
+        className='yl-w-[500px]'
+        selectedId={2}
+        sections={sections}
+        setSections={setSections}
+        expanded={expandedSections}
+        setExpanded={(expanded: number[]) => {
+          setExpandedSections(expanded);
+        }}
+        onSelected={item => {
+          action("onSelected")(item);
         }}
       />
     </div>

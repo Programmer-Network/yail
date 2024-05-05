@@ -16,12 +16,13 @@ const Accordion: FC<IAccordionProps> = ({
   setSections,
   sectionTitleClassName,
   onSectionItemClick,
+  onSectionClick,
   onSelected,
   expanded,
   setExpanded,
   selectedId,
   hasDraggableSections,
-  hasDraggableSetionItems
+  hasDraggableSectionItems
 }) => {
   const [selectedItemId, setSelectedItemId] = useState<
     number | null | undefined
@@ -70,7 +71,8 @@ const Accordion: FC<IAccordionProps> = ({
       {sections.map((section, idx) => (
         <div
           key={section.id}
-          draggable={hasDraggableSections && sections.length > 1}
+          onClick={() => onSectionClick?.(section)}
+          draggable={hasDraggableSections}
           onDrag={e => handleDrag(e, section)}
           onDragOver={() =>
             hasDraggableSections && setDraggedOverId(section.id)
@@ -94,7 +96,7 @@ const Accordion: FC<IAccordionProps> = ({
         >
           <h3
             className={classNames(
-              "yl-relative yl-flex yl-cursor-pointer yl-select-none yl-items-center yl-font-semibold yl-capitalize yl-text-primary-text-color yl-py-2 yl-pl-2 yl-pr-8",
+              "yl-relative yl-flex yl-cursor-pointer yl-select-none yl-items-center yl-font-semibold yl-capitalize yl-text-primary-text-color yl-p-4",
               sectionTitleClassName,
               { "yl-bg-primary-text-color/5": expanded.includes(section.id) }
             )}
@@ -106,7 +108,7 @@ const Accordion: FC<IAccordionProps> = ({
             role='button'
             aria-expanded={expanded.includes(section.id)}
           >
-            {hasDraggableSetionItems && (
+            {hasDraggableSections && (
               <div>
                 <IconDrag className='yl-w-6 yl-opacity-50 yl-mr-1' />
               </div>
@@ -136,16 +138,17 @@ const Accordion: FC<IAccordionProps> = ({
                   )
                 ]);
               }}
-              isDraggable={hasDraggableSetionItems}
+              isDraggable={hasDraggableSectionItems}
               className='yl-gap-4 yl-flex yl-flex-col yl-py-4'
               draggedOverClassName='yl-border-t-2 yl-border-primary'
               liClassName={(item: IDraggableListItem) =>
                 classNames(
-                  "hover:text-primary cursor-pointer break-all leading-normal yl-px-2",
+                  "yl-cursor-default hover:text-primary break-all leading-normal yl-px-4",
                   {
                     "yl-cursor-pointer": onSectionItemClick,
                     "yl-text-primary-text-color": selectedItemId !== item.id,
-                    "yl-text-primary": selectedItemId === item.id,
+                    "yl-text-primary":
+                      onSectionItemClick && selectedItemId === item.id,
                     "yl-pl-9": section.items.length === 1
                   }
                 )
