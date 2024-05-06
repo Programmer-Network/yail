@@ -58,7 +58,8 @@ const Accordion: FC<IAccordionProps> = ({
           sections,
           sections.findIndex(item => item.id === draggedId),
           sections.findIndex(item => item.id === draggedOverId)
-        )
+        ),
+        { sectionId: draggedId, items: [] }
       );
     }
 
@@ -132,11 +133,14 @@ const Accordion: FC<IAccordionProps> = ({
             <DraggableList
               items={section.items}
               onDragged={(items: IDraggableListItem[]) => {
-                setSections([
-                  ...sections.map(s =>
-                    s.id === section.id ? { ...s, items } : s
-                  )
-                ]);
+                setSections(
+                  [
+                    ...sections.map(s =>
+                      s.id === section.id ? { ...s, items } : s
+                    )
+                  ],
+                  { sectionId: section.id, items }
+                );
               }}
               isDraggable={hasDraggableSectionItems}
               className='yl-gap-4 yl-flex yl-flex-col yl-py-4'
