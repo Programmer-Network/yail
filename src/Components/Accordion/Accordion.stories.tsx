@@ -21,7 +21,7 @@ export default meta;
 const dummySections = Array(5)
   .fill(0)
   .map((_, index) => ({
-    id: index,
+    id: Math.floor(Math.random() * 1000000),
     title: faker.lorem.words(Math.floor(Math.random() * 10) + 1),
     description:
       index % 2 === 0
@@ -32,7 +32,7 @@ const dummySections = Array(5)
     items: Array(Math.floor(Math.random() * 5) + 1)
       .fill(0)
       .map((__, index) => ({
-        id: index,
+        id: Math.floor(Math.random() * 1000000),
         title: faker.lorem.words(Math.floor(Math.random() * 10) + 1),
         order: index
       }))

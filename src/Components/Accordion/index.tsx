@@ -27,6 +27,11 @@ const Accordion: FC<IAccordionProps> = ({
   const [selectedItemId, setSelectedItemId] = useState<
     number | null | undefined
   >(selectedId);
+
+  const [selectedSectionId, setSelectedSectionId] = useState<
+    number | null | undefined
+  >(selectedId);
+
   const [draggedId, setDraggedId] = useState<number | null>(null);
   const [draggedOverId, setDraggedOverId] = useState<number | null>(null);
   const [hoveredId, setHoveredId] = useState<number | null>(null);
@@ -98,10 +103,18 @@ const Accordion: FC<IAccordionProps> = ({
             role='presentation'
           >
             <h3
+              onClick={() => {
+                setSelectedSectionId(section.id);
+              }}
               className={classNames(
-                "yl-relative yl-flex yl-cursor-pointer yl-select-none yl-items-center yl-font-semibold yl-capitalize yl-text-primary-text-color yl-p-4",
+                "yl-relative yl-flex yl-cursor-pointer yl-select-none yl-items-center yl-font-semibold yl-capitalize yl-p-4",
                 sectionTitleClassName,
-                { "yl-bg-primary-text-color/5": expanded.includes(section.id) }
+                {
+                  "yl-bg-primary-text-color/5": expanded.includes(section.id),
+                  "yl-text-primary-text-color":
+                    selectedSectionId !== section.id,
+                  "yl-text-primary": selectedSectionId === section.id
+                }
               )}
               onKeyDown={e =>
                 ["Enter", " "].includes(e.key) && toggleExpand(section.id)
@@ -118,13 +131,21 @@ const Accordion: FC<IAccordionProps> = ({
               <div className='yl-flex yl-flex-col yl-gap-1 yl-overflow-hidden yl-text-ellipsis yl-whitespace-nowrap yl-text-base'>
                 {expanded.includes(section.id) ? (
                   <IconExpandLess
-                    onClick={() => toggleExpand(section.id)}
-                    className='yl-absolute yl-right-2 yl-w-6 yl-cursor-pointer yl-fill-primary-text-color hover:yl-fill-primary'
+                    onClick={e => {
+                      e.stopPropagation();
+                      e.preventDefault();
+                      toggleExpand(section.id);
+                    }}
+                    className='yl-absolute yl-right-2 yl-w-6 yl-cursor-pointer yl-fill-primary hover:yl-fill-primary'
                   />
                 ) : (
                   <IconExpandMore
-                    onClick={() => toggleExpand(section.id)}
-                    className='yl-absolute yl-right-2 yl-w-6 yl-cursor-pointer yl-fill-primary-text-color hover:yl-fill-primary'
+                    onClick={e => {
+                      e.stopPropagation();
+                      e.preventDefault();
+                      toggleExpand(section.id);
+                    }}
+                    className='yl-absolute yl-right-2 yl-w-6 yl-cursor-pointer yl-fill-primary hover:yl-fill-primary'
                   />
                 )}
                 {section.title}
@@ -168,6 +189,7 @@ const Accordion: FC<IAccordionProps> = ({
                   onSectionItemClick?.(item);
                   onSelected?.(item);
                   setSelectedItemId(item.id);
+                  setSelectedSectionId(section.id);
                 }}
               />
             )}
