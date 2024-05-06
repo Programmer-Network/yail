@@ -68,7 +68,7 @@ describe("Accordion component", () => {
       />
     );
 
-    fireEvent.click(screen.getByText("Section 1"));
+    fireEvent.click(screen.getByTestId("icon-expand-less"));
     expect(setExpanded).toHaveBeenCalledWith([]);
   });
 
