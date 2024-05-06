@@ -18,7 +18,7 @@ const meta = {
 
 export default meta;
 
-const dummySections = Array(2)
+const dummySections = Array(5)
   .fill(0)
   .map((_, index) => ({
     id: index,

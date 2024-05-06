@@ -103,7 +103,6 @@ const Accordion: FC<IAccordionProps> = ({
                 sectionTitleClassName,
                 { "yl-bg-primary-text-color/5": expanded.includes(section.id) }
               )}
-              onClick={() => toggleExpand(section.id)}
               onKeyDown={e =>
                 ["Enter", " "].includes(e.key) && toggleExpand(section.id)
               }
@@ -118,9 +117,15 @@ const Accordion: FC<IAccordionProps> = ({
               )}
               <div className='yl-flex yl-flex-col yl-gap-1 yl-overflow-hidden yl-text-ellipsis yl-whitespace-nowrap yl-text-base'>
                 {expanded.includes(section.id) ? (
-                  <IconExpandLess className='yl-absolute yl-right-2 yl-w-6 yl-cursor-pointer yl-fill-primary-text-color hover:yl-fill-primary' />
+                  <IconExpandLess
+                    onClick={() => toggleExpand(section.id)}
+                    className='yl-absolute yl-right-2 yl-w-6 yl-cursor-pointer yl-fill-primary-text-color hover:yl-fill-primary'
+                  />
                 ) : (
-                  <IconExpandMore className='yl-absolute yl-right-2 yl-w-6 yl-cursor-pointer yl-fill-primary-text-color hover:yl-fill-primary' />
+                  <IconExpandMore
+                    onClick={() => toggleExpand(section.id)}
+                    className='yl-absolute yl-right-2 yl-w-6 yl-cursor-pointer yl-fill-primary-text-color hover:yl-fill-primary'
+                  />
                 )}
                 {section.title}
                 {section.description && (
