@@ -103,17 +103,21 @@ const Accordion: FC<IAccordionProps> = ({
             role='presentation'
           >
             <h3
-              onClick={() => {
+              onClick={e => {
+                e.stopPropagation();
+                e.preventDefault();
                 setSelectedSectionId(section.id);
               }}
               className={classNames(
-                "yl-relative yl-flex yl-cursor-pointer yl-select-none yl-items-center yl-font-semibold yl-capitalize yl-p-4",
+                "yl-relative yl-flex yl-cursor-default yl-select-none yl-items-center yl-font-semibold yl-capitalize yl-p-4",
                 sectionTitleClassName,
                 {
                   "yl-bg-primary-text-color/5": expanded.includes(section.id),
+                  "yl-cursor-pointer": onSectionItemClick,
                   "yl-text-primary-text-color":
-                    selectedSectionId !== section.id,
-                  "yl-text-primary": selectedSectionId === section.id
+                    selectedSectionId !== section.id || !onSectionItemClick,
+                  "yl-text-primary":
+                    onSectionItemClick && selectedSectionId === section.id
                 }
               )}
               onKeyDown={e =>
@@ -160,6 +164,11 @@ const Accordion: FC<IAccordionProps> = ({
             {expanded.includes(section.id) && (
               <DraggableList
                 items={section.items}
+                onClick={(item: IDraggableListItem) => {
+                  onSectionItemClick?.(item);
+                  onSelected?.(item);
+                  setSelectedItemId(item.id);
+                }}
                 onDragged={(items: IDraggableListItem[]) => {
                   setSections(
                     [
@@ -185,12 +194,6 @@ const Accordion: FC<IAccordionProps> = ({
                     }
                   )
                 }
-                onClick={(item: IDraggableListItem) => {
-                  onSectionItemClick?.(item);
-                  onSelected?.(item);
-                  setSelectedItemId(item.id);
-                  setSelectedSectionId(section.id);
-                }}
               />
             )}
           </div>
