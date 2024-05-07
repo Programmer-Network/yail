@@ -79,7 +79,6 @@ const Accordion: FC<IAccordionProps> = ({
         .map((section, idx) => (
           <div
             key={section.id}
-            onClick={() => onSectionClick?.(section)}
             draggable={hasDraggableSections}
             onDrag={e => handleDrag(e, section)}
             onDragOver={() =>
@@ -106,6 +105,7 @@ const Accordion: FC<IAccordionProps> = ({
               onClick={e => {
                 e.stopPropagation();
                 e.preventDefault();
+                onSectionClick?.(section);
                 setSelectedSectionId(section.id);
               }}
               className={classNames(
