@@ -30,6 +30,8 @@ export interface IAccordionProps {
   onSectionItemClick?: (item: IDraggableListItem) => void;
   onSectionClick?: (item: IDraggableListItem) => void;
   onSelected?: (item: IDraggableListItem) => void;
+  onAddSection?: () => void;
+  onAddSectionItem?: (item: ISection) => void;
   expanded: number[];
   setExpanded: (sections: number[]) => void;
   selectedId?: number;
