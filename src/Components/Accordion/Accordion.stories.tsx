@@ -110,8 +110,6 @@ export const NonInteractive = () => {
         sections={sections}
         setSections={setSections}
         expanded={expandedSections}
-        hasDraggableSections={true}
-        hasDraggableSectionItems={true}
         setExpanded={(expanded: number[]) => {
           setExpandedSections(expanded);
         }}
