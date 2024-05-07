@@ -50,10 +50,6 @@ export const Primary = () => {
     setSections(dummySections);
   }, []);
 
-  useEffect(() => {
-    console.log("Changed", sections);
-  }, [sections]);
-
   if (!sections.length) {
     return <div>Loading...</div>;
   }
@@ -94,10 +90,6 @@ export const NonInteractive = () => {
     setSections(dummySections);
   }, []);
 
-  useEffect(() => {
-    console.log("Changed", sections);
-  }, [sections]);
-
   if (!sections.length) {
     return <div>Loading...</div>;
   }
@@ -133,10 +125,6 @@ export const WithoutDragAndDrop = () => {
     setSections(dummySections);
   }, []);
 
-  useEffect(() => {
-    console.log("Changed", sections);
-  }, [sections]);
-
   if (!sections.length) {
     return <div>Loading...</div>;
   }
@@ -151,6 +139,48 @@ export const WithoutDragAndDrop = () => {
         expanded={expandedSections}
         setExpanded={(expanded: number[]) => {
           setExpandedSections(expanded);
+        }}
+        onSelected={item => {
+          action("onSelected")(item);
+        }}
+      />
+    </div>
+  );
+};
+
+export const AddSectionAndSectionItem = () => {
+  const [sections, setSections] = useState<ISection[]>([]);
+  const [expandedSections, setExpandedSections] = useState<number[]>([1]);
+
+  useEffect(() => {
+    if (sections.length) {
+      return;
+    }
+
+    setSections(dummySections);
+  }, []);
+
+  if (!sections.length) {
+    return <div>Loading...</div>;
+  }
+
+  return (
+    <div>
+      <Accordion
+        className='yl-w-[500px]'
+        selectedId={2}
+        sections={sections}
+        setSections={setSections}
+        expanded={expandedSections}
+        onAddSection={() => {
+          action("onAddSection")();
+        }}
+        onAddSectionItem={section => {
+          action("onAddSectionItem")(section);
+        }}
+        setExpanded={(expanded: number[]) => {
+          setExpandedSections(expanded);
+          action("setExpanded")(expanded);
         }}
         onSelected={item => {
           action("onSelected")(item);

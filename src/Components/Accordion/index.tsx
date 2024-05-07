@@ -3,7 +3,12 @@ import { FC, useEffect, useState } from "react";
 
 import DraggableList from "Components/DraggableList";
 import { IDraggableListItem } from "Components/DraggableList/types";
-import { IconDrag, IconExpandLess, IconExpandMore } from "Components/Icons";
+import {
+  IconAddCircle,
+  IconDrag,
+  IconExpandLess,
+  IconExpandMore
+} from "Components/Icons";
 import { Paragraph } from "Components/Typography";
 
 import ArrayUtils from "Utils/Array";
@@ -18,6 +23,8 @@ const Accordion: FC<IAccordionProps> = ({
   onSectionItemClick,
   onSectionClick,
   onSelected,
+  onAddSection,
+  onAddSectionItem,
   expanded,
   setExpanded,
   selectedId,
@@ -91,7 +98,8 @@ const Accordion: FC<IAccordionProps> = ({
               {
                 "yl-border-b-0": idx !== sections.length - 1,
                 "yl-rounded-tl-md yl-rounded-tr-md": idx === 0,
-                "yl-rounded-bl-md yl-rounded-br-md": idx === sections.length - 1
+                "yl-rounded-bl-md yl-rounded-br-md":
+                  idx === sections.length - 1 && !onAddSection
               },
               {
                 "yl-bg-primary-text-color/5": draggedOverId === section.id,
@@ -162,42 +170,75 @@ const Accordion: FC<IAccordionProps> = ({
             </h3>
 
             {expanded.includes(section.id) && (
-              <DraggableList
-                items={section.items}
-                onClick={(item: IDraggableListItem) => {
-                  onSectionItemClick?.(item);
-                  onSelected?.(item);
-                  setSelectedItemId(item.id);
-                }}
-                onDragged={(items: IDraggableListItem[]) => {
-                  setSections(
-                    [
-                      ...sections.map(s =>
-                        s.id === section.id ? { ...s, items } : s
-                      )
-                    ],
-                    { sectionId: section.id, items }
-                  );
-                }}
-                isDraggable={hasDraggableSectionItems}
-                className='yl-gap-4 yl-flex yl-flex-col yl-py-4'
-                draggedOverClassName='yl-border-t-2 yl-border-primary'
-                liClassName={(item: IDraggableListItem) =>
-                  classNames(
-                    "yl-cursor-default hover:text-primary break-all leading-normal yl-px-4",
-                    {
-                      "yl-cursor-pointer": onSectionItemClick,
-                      "yl-text-primary-text-color": selectedItemId !== item.id,
-                      "yl-text-primary":
-                        onSectionItemClick && selectedItemId === item.id,
-                      "yl-pl-9": section.items.length === 1
-                    }
-                  )
-                }
-              />
+              <>
+                <DraggableList
+                  items={section.items}
+                  onClick={(item: IDraggableListItem) => {
+                    onSectionItemClick?.(item);
+                    onSelected?.(item);
+                    setSelectedItemId(item.id);
+                  }}
+                  onDragged={(items: IDraggableListItem[]) => {
+                    setSections(
+                      [
+                        ...sections.map(s =>
+                          s.id === section.id ? { ...s, items } : s
+                        )
+                      ],
+                      { sectionId: section.id, items }
+                    );
+                  }}
+                  isDraggable={hasDraggableSectionItems}
+                  className='yl-gap-4 yl-flex yl-flex-col yl-py-4'
+                  draggedOverClassName='yl-border-t-2 yl-border-primary'
+                  liClassName={(item: IDraggableListItem) =>
+                    classNames(
+                      "yl-cursor-default hover:text-primary break-all leading-normal yl-px-4",
+                      {
+                        "yl-cursor-pointer": onSectionItemClick,
+                        "yl-text-primary-text-color":
+                          selectedItemId !== item.id,
+                        "yl-text-primary":
+                          onSectionItemClick && selectedItemId === item.id,
+                        "yl-pl-9": section.items.length === 1
+                      }
+                    )
+                  }
+                />
+                {onAddSectionItem && (
+                  <div
+                    onClick={() => onAddSectionItem(section)}
+                    className={classNames(
+                      "yl-cursor-pointer hover:yl-text-primary yl-pb-4 yl-text-primary-text-color yl-text-center yl-flex yl-items-center yl-justify-center yl-gap-1"
+                    )}
+                  >
+                    <IconAddCircle className='yl-w-6' />
+                  </div>
+                )}
+              </>
             )}
           </div>
         ))}
+      {onAddSection && (
+        <div
+          onClick={onAddSection}
+          className={classNames(
+            "yl-group yl-border-2 yl-border-t-0 yl-border-primary-text-color/20 hover:yl-bg-primary-text-color/5 yl-rounded-bl-md yl-rounded-br-md yl-cursor-pointer"
+          )}
+          role='presentation'
+        >
+          <h3
+            className={classNames(
+              "yl-flex yl-flex-col yl-items-center yl-justify-center yl-select-none yl-font-semibold yl-p-4 yl-text-center"
+            )}
+            role='button'
+          >
+            <Paragraph className='yl-text-primary-text-color/70 group-hover:yl-text-primary yl-flex yl-items-center yl-gap-1'>
+              <IconAddCircle className='yl-w-6 group-hover:yl-text-primary' />
+            </Paragraph>
+          </h3>
+        </div>
+      )}
     </section>
   );
 };
