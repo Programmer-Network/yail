@@ -74,7 +74,7 @@ const Accordion: FC<IAccordionProps> = ({
               )}
               {section.title}
               {section.description && (
-                <Paragraph className='yl-text-xs yl-text-primary-text-color/70'>
+                <Paragraph className='yl-text-xs yl-text-primary-text-color/70 yl-w-full yl-truncate'>
                   {section.description}
                 </Paragraph>
               )}
