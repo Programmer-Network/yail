@@ -63,42 +63,44 @@ const DraggableList: FC<IDraggableList> = ({
       )}
       onDragEnd={handleDrop}
     >
-      {localItems.map((item, index) => {
-        return (
-          <li
-            className={classNames(
-              "yl-relative yl-flex yl-items-center",
-              liClassName?.(item, index),
-              {
-                [draggedClassName ?? ""]: draggedId === item.id,
-                [draggedOverClassName ?? ""]: draggedOverId === item.id,
-                "yl-text-primary yl-cursor-pointer":
-                  onClick && activeItemId === item.id
-              }
-            )}
-            draggable={canDrag}
-            key={item.order}
-            onDrag={e => (canDrag ? handleDrag(e, item) : null)}
-            onDragOver={() => (canDrag ? setDraggedOverId(item.id) : null)}
-            onMouseOver={() => (canDrag ? setHoveredId(item.id) : null)}
-            onMouseLeave={() => (canDrag ? setHoveredId(null) : null)}
-            onClick={() => {
-              onClick?.(item);
-            }}
-          >
-            {canDrag && (
-              <div>
-                <IconDrag
-                  className={classNames("yl-w-6 yl-opacity-50 yl-mr-1", {
-                    "yl-cursor-move yl-opacity-100": hoveredId === item.id
-                  })}
-                />
-              </div>
-            )}
-            {item.title}
-          </li>
-        );
-      })}
+      {localItems
+        .toSorted((a, b) => a.order - b.order)
+        .map((item, index) => {
+          return (
+            <li
+              className={classNames(
+                "yl-relative yl-flex yl-items-center",
+                liClassName?.(item, index),
+                {
+                  [draggedClassName ?? ""]: draggedId === item.id,
+                  [draggedOverClassName ?? ""]: draggedOverId === item.id,
+                  "yl-text-primary yl-cursor-pointer":
+                    onClick && activeItemId === item.id
+                }
+              )}
+              draggable={canDrag}
+              key={item.order}
+              onDrag={e => (canDrag ? handleDrag(e, item) : null)}
+              onDragOver={() => (canDrag ? setDraggedOverId(item.id) : null)}
+              onMouseOver={() => (canDrag ? setHoveredId(item.id) : null)}
+              onMouseLeave={() => (canDrag ? setHoveredId(null) : null)}
+              onClick={() => {
+                onClick?.(item);
+              }}
+            >
+              {canDrag && (
+                <div>
+                  <IconDrag
+                    className={classNames("yl-w-6 yl-opacity-50 yl-mr-1", {
+                      "yl-cursor-move yl-opacity-100": hoveredId === item.id
+                    })}
+                  />
+                </div>
+              )}
+              {item.title}
+            </li>
+          );
+        })}
     </ul>
   );
 };

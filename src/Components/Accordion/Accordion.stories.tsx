@@ -18,10 +18,10 @@ const meta = {
 
 export default meta;
 
-const dummySections = Array(2)
+const dummySections = Array(5)
   .fill(0)
   .map((_, index) => ({
-    id: index,
+    id: Math.floor(Math.random() * 1000000),
     title: faker.lorem.words(Math.floor(Math.random() * 10) + 1),
     description:
       index % 2 === 0
@@ -32,7 +32,7 @@ const dummySections = Array(2)
     items: Array(Math.floor(Math.random() * 5) + 1)
       .fill(0)
       .map((__, index) => ({
-        id: index,
+        id: Math.floor(Math.random() * 1000000),
         title: faker.lorem.words(Math.floor(Math.random() * 10) + 1),
         order: index
       }))
@@ -49,10 +49,6 @@ export const Primary = () => {
 
     setSections(dummySections);
   }, []);
-
-  useEffect(() => {
-    console.log("Changed", sections);
-  }, [sections]);
 
   if (!sections.length) {
     return <div>Loading...</div>;
@@ -94,10 +90,6 @@ export const NonInteractive = () => {
     setSections(dummySections);
   }, []);
 
-  useEffect(() => {
-    console.log("Changed", sections);
-  }, [sections]);
-
   if (!sections.length) {
     return <div>Loading...</div>;
   }
@@ -110,8 +102,6 @@ export const NonInteractive = () => {
         sections={sections}
         setSections={setSections}
         expanded={expandedSections}
-        hasDraggableSections={true}
-        hasDraggableSectionItems={true}
         setExpanded={(expanded: number[]) => {
           setExpandedSections(expanded);
         }}
@@ -135,10 +125,6 @@ export const WithoutDragAndDrop = () => {
     setSections(dummySections);
   }, []);
 
-  useEffect(() => {
-    console.log("Changed", sections);
-  }, [sections]);
-
   if (!sections.length) {
     return <div>Loading...</div>;
   }
@@ -153,6 +139,48 @@ export const WithoutDragAndDrop = () => {
         expanded={expandedSections}
         setExpanded={(expanded: number[]) => {
           setExpandedSections(expanded);
+        }}
+        onSelected={item => {
+          action("onSelected")(item);
+        }}
+      />
+    </div>
+  );
+};
+
+export const AddSectionAndSectionItem = () => {
+  const [sections, setSections] = useState<ISection[]>([]);
+  const [expandedSections, setExpandedSections] = useState<number[]>([1]);
+
+  useEffect(() => {
+    if (sections.length) {
+      return;
+    }
+
+    setSections(dummySections);
+  }, []);
+
+  if (!sections.length) {
+    return <div>Loading...</div>;
+  }
+
+  return (
+    <div>
+      <Accordion
+        className='yl-w-[500px]'
+        selectedId={2}
+        sections={sections}
+        setSections={setSections}
+        expanded={expandedSections}
+        onAddSection={() => {
+          action("onAddSection")();
+        }}
+        onAddSectionItem={section => {
+          action("onAddSectionItem")(section);
+        }}
+        setExpanded={(expanded: number[]) => {
+          setExpandedSections(expanded);
+          action("setExpanded")(expanded);
         }}
         onSelected={item => {
           action("onSelected")(item);
