@@ -105,18 +105,23 @@ export default class TiptapToHTML {
       allowedClasses: {
         "*": [
           "yl-text-primary",
-          "text-xl",
-          "text-2xl",
-          "text-3xl",
-          "text-4xl",
-          "text-6xl",
-          "my-4",
+          "yl-text-xl",
+          "yl-text-2xl",
+          "yl-text-3xl",
+          "yl-text-4xl",
+          "yl-text-6xl",
+          "yl-my-4",
           "yl-mb-2",
           "yl-mt-2",
-          "wordbreak"
+          "yl-break-words"
         ],
-        a: ["underline,", "yl-text-primary", "yl-cursor-pointer", "font-bold"],
-        iframe: ["aspect-video", "yl-w-full", "yl-h-full", "yl-py-4"],
+        a: [
+          "yl-underline,",
+          "yl-text-primary",
+          "yl-cursor-pointer",
+          "yl-font-bold"
+        ],
+        iframe: ["yl-aspect-video", "yl-w-full", "yl-h-full", "yl-py-4"],
         ...Object.values(toolbarItemToClassName).reduce((acc, tag) => {
           if (!tag.tagName) {
             return acc;
