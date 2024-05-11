@@ -28,7 +28,7 @@ describe("Accordion component", () => {
     const { asFragment } = render(
       <Accordion
         sections={mockSections}
-        setSections={vi.fn()}
+        onSorted={vi.fn()}
         setExpanded={() => null}
         expanded={[1]}
         onSectionItemClick={vi.fn()}
@@ -42,7 +42,7 @@ describe("Accordion component", () => {
     render(
       <Accordion
         sections={mockSections}
-        setSections={vi.fn()}
+        onSorted={vi.fn()}
         setExpanded={setExpanded}
         expanded={[1]}
         onSectionItemClick={vi.fn()}
@@ -61,7 +61,7 @@ describe("Accordion component", () => {
     render(
       <Accordion
         sections={mockSections}
-        setSections={vi.fn()}
+        onSorted={vi.fn()}
         setExpanded={setExpanded}
         expanded={[mockSections[0].id]}
         onSectionItemClick={vi.fn()}
@@ -77,7 +77,7 @@ describe("Accordion component", () => {
     render(
       <Accordion
         sections={mockSections}
-        setSections={vi.fn()}
+        onSorted={vi.fn()}
         setExpanded={vi.fn()}
         onSectionItemClick={onSectionItemClick}
         expanded={[1]}
@@ -92,7 +92,7 @@ describe("Accordion component", () => {
     render(
       <Accordion
         sections={mockSections}
-        setSections={vi.fn()}
+        onSorted={vi.fn()}
         className='custom-class'
         sectionTitleClassName='custom-title-class'
         setExpanded={vi.fn()}
@@ -110,7 +110,7 @@ describe("Accordion component", () => {
     render(
       <Accordion
         sections={mockSections}
-        setSections={vi.fn()}
+        onSorted={vi.fn()}
         className='custom-class'
         sectionTitleClassName='custom-title-class'
         setExpanded={vi.fn()}
