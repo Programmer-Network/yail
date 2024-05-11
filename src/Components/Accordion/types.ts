@@ -22,16 +22,19 @@ export enum AccordionOrderType {
 export interface IAccordionProps {
   className?: string;
   sections: ISection[];
-  setSections: (
+  sectionTitleClassName?: string;
+  onSorted: (
+    type: AccordionOrderType,
     sections: ISection[],
     section: { sectionId: number; items: IDraggableListItem[] }
   ) => void;
-  sectionTitleClassName?: string;
   onSectionItemClick?: (item: IDraggableListItem) => void;
   onSectionClick?: (item: IDraggableListItem) => void;
   onSelected?: (item: IDraggableListItem) => void;
   onAddSection?: () => void;
+  addSectionItemLabel?: string;
   onAddSectionItem?: (item: ISection) => void;
+  addSectionLabel?: string;
   expanded: number[];
   setExpanded: (sections: number[]) => void;
   selectedId?: number;

@@ -13,18 +13,20 @@ import { Paragraph } from "Components/Typography";
 
 import ArrayUtils from "Utils/Array";
 
-import { IAccordionProps } from "./types";
+import { AccordionOrderType, IAccordionProps } from "./types";
 
 const Accordion: FC<IAccordionProps> = ({
   className,
   sections,
-  setSections,
+  onSorted,
   sectionTitleClassName,
   onSectionItemClick,
   onSectionClick,
   onSelected,
   onAddSection,
+  addSectionLabel,
   onAddSectionItem,
+  addSectionItemLabel,
   expanded,
   setExpanded,
   selectedId,
@@ -64,8 +66,10 @@ const Accordion: FC<IAccordionProps> = ({
 
   const handleSectionDrop = (e: React.DragEvent<Element>) => {
     e.preventDefault();
+    e.stopPropagation();
     if (draggedId != null && draggedOverId != null) {
-      setSections(
+      onSorted(
+        AccordionOrderType.SECTIONS,
         ArrayUtils.reorder(
           sections,
           sections.findIndex(item => item.id === draggedId),
@@ -179,7 +183,8 @@ const Accordion: FC<IAccordionProps> = ({
                     setSelectedItemId(item.id);
                   }}
                   onDragged={(items: IDraggableListItem[]) => {
-                    setSections(
+                    onSorted(
+                      AccordionOrderType.LECTURES,
                       [
                         ...sections.map(s =>
                           s.id === section.id ? { ...s, items } : s
@@ -200,7 +205,7 @@ const Accordion: FC<IAccordionProps> = ({
                           selectedItemId !== item.id,
                         "yl-text-primary":
                           onSectionItemClick && selectedItemId === item.id,
-                        "yl-pl-9": section.items.length === 1
+                        "yl-pl-5": section.items.length === 1
                       }
                     )
                   }
@@ -213,6 +218,9 @@ const Accordion: FC<IAccordionProps> = ({
                     )}
                   >
                     <IconAddCircle className='yl-w-6' />
+                    {addSectionItemLabel && (
+                      <span className='yl-text-sm'>{addSectionItemLabel}</span>
+                    )}
                   </div>
                 )}
               </>
@@ -235,6 +243,9 @@ const Accordion: FC<IAccordionProps> = ({
           >
             <Paragraph className='yl-text-primary-text-color/70 group-hover:yl-text-primary yl-flex yl-items-center yl-gap-1'>
               <IconAddCircle className='yl-w-6 group-hover:yl-text-primary' />
+              {addSectionLabel && (
+                <span className='yl-text-sm'>{addSectionLabel}</span>
+              )}
             </Paragraph>
           </h3>
         </div>

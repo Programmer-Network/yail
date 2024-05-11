@@ -33,6 +33,7 @@ const DraggableList: FC<IDraggableList> = ({
 
   const handleDrop = (e: DragEvent<Element>) => {
     e.preventDefault();
+    e.stopPropagation();
 
     if (draggedId != null && draggedOverId != null) {
       const draggedIndex = items.findIndex(item => item.id === draggedId);
@@ -40,7 +41,14 @@ const DraggableList: FC<IDraggableList> = ({
         item => item.id === draggedOverId
       );
 
-      setLocalItems(ArrayUtils.reorder(items, draggedIndex, draggedOverIndex));
+      const withNewOrder = ArrayUtils.reorder(
+        items,
+        draggedIndex,
+        draggedOverIndex
+      );
+
+      setLocalItems(withNewOrder);
+      onDragged?.(withNewOrder);
     }
 
     setDraggedId(null);
@@ -49,11 +57,7 @@ const DraggableList: FC<IDraggableList> = ({
 
   useEffect(() => {
     setLocalItems(items || []);
-  }, []);
-
-  useEffect(() => {
-    onDragged?.(localItems);
-  }, [localItems]);
+  }, [items]);
 
   return (
     <ul
