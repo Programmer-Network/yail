@@ -49,7 +49,7 @@ const DraggableList: FC<IDraggableList> = ({
 
   useEffect(() => {
     setLocalItems(items || []);
-  }, []);
+  }, [items]);
 
   useEffect(() => {
     onDragged?.(localItems);
