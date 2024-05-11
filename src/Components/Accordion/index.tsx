@@ -13,7 +13,7 @@ import { Paragraph } from "Components/Typography";
 
 import ArrayUtils from "Utils/Array";
 
-import { IAccordionProps } from "./types";
+import { AccordionOrderType, IAccordionProps } from "./types";
 
 const Accordion: FC<IAccordionProps> = ({
   className,
@@ -66,8 +66,10 @@ const Accordion: FC<IAccordionProps> = ({
 
   const handleSectionDrop = (e: React.DragEvent<Element>) => {
     e.preventDefault();
+    e.stopPropagation();
     if (draggedId != null && draggedOverId != null) {
       onSorted(
+        AccordionOrderType.SECTIONS,
         ArrayUtils.reorder(
           sections,
           sections.findIndex(item => item.id === draggedId),
@@ -182,6 +184,7 @@ const Accordion: FC<IAccordionProps> = ({
                   }}
                   onDragged={(items: IDraggableListItem[]) => {
                     onSorted(
+                      AccordionOrderType.LECTURES,
                       [
                         ...sections.map(s =>
                           s.id === section.id ? { ...s, items } : s

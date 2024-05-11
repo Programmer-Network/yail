@@ -24,6 +24,7 @@ export interface IAccordionProps {
   sections: ISection[];
   sectionTitleClassName?: string;
   onSorted: (
+    type: AccordionOrderType,
     sections: ISection[],
     section: { sectionId: number; items: IDraggableListItem[] }
   ) => void;

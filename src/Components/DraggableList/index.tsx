@@ -33,6 +33,7 @@ const DraggableList: FC<IDraggableList> = ({
 
   const handleDrop = (e: DragEvent<Element>) => {
     e.preventDefault();
+    e.stopPropagation();
 
     if (draggedId != null && draggedOverId != null) {
       const draggedIndex = items.findIndex(item => item.id === draggedId);

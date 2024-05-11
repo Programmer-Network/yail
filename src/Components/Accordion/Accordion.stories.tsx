@@ -62,7 +62,9 @@ export const Primary = () => {
         className='yl-w-[500px]'
         selectedId={2}
         sections={sections}
-        onSorted={setSections}
+        onSorted={(type, data) => {
+          setSections(data);
+        }}
         expanded={expandedSections}
         hasDraggableSections={true}
         hasDraggableSectionItems={true}
@@ -102,7 +104,9 @@ export const NonInteractive = () => {
         className='yl-w-[500px]'
         selectedId={2}
         sections={sections}
-        onSorted={setSections}
+        onSorted={(type, sections) => {
+          setSections(sections);
+        }}
         expanded={expandedSections}
         setExpanded={(expanded: number[]) => {
           setExpandedSections(expanded);
@@ -137,7 +141,9 @@ export const WithoutDragAndDrop = () => {
         className='yl-w-[500px]'
         selectedId={2}
         sections={sections}
-        onSorted={setSections}
+        onSorted={(type, sections) => {
+          setSections(sections);
+        }}
         expanded={expandedSections}
         setExpanded={(expanded: number[]) => {
           setExpandedSections(expanded);
@@ -204,7 +210,9 @@ export const AddSectionAndSectionItem = () => {
 
           setSections([newSection]);
         }}
-        onSorted={setSections}
+        onSorted={(type, sections) => {
+          setSections(sections);
+        }}
         onAddSection={() => {
           action("onAddSection")();
         }}
@@ -246,7 +254,9 @@ export const WithAddLabels = () => {
         selectedId={2}
         sections={sections}
         expanded={expandedSections}
-        onSorted={setSections}
+        onSorted={(type, sections) => {
+          setSections(sections);
+        }}
         onAddSection={() => {
           action("onAddSection")();
         }}
