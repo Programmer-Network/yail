@@ -153,7 +153,7 @@ export const WithoutDragAndDrop = () => {
 export const AddSectionAndSectionItem = () => {
   const [sections, setSections] = useState<ISection[]>([
     {
-      id: 236163,
+      id: 1,
       title: "velum constans brevis canis corrumpo magni attollo",
       description:
         "Creber aeneus versus itaque alioqui abeo crux sperno. Atrox subseco ater tenetur libero absum quidem thymum degusto allatus. Venia in carbo cibus desolo contego suffragium. Vero civitas tredecim ventosus dapifer quas. Animadverto spiculum velut.",
@@ -195,6 +195,15 @@ export const AddSectionAndSectionItem = () => {
         selectedId={2}
         sections={sections}
         expanded={expandedSections}
+        hasDraggableSectionItems={true}
+        onSectionItemClick={sectionItem => {
+          const newSection = sections[0];
+          newSection.items = newSection.items.filter(
+            item => item.id !== sectionItem.id
+          );
+
+          setSections([newSection]);
+        }}
         onSorted={setSections}
         onAddSection={() => {
           action("onAddSection")();
