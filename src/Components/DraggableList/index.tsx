@@ -40,7 +40,14 @@ const DraggableList: FC<IDraggableList> = ({
         item => item.id === draggedOverId
       );
 
-      setLocalItems(ArrayUtils.reorder(items, draggedIndex, draggedOverIndex));
+      const withNewOrder = ArrayUtils.reorder(
+        items,
+        draggedIndex,
+        draggedOverIndex
+      );
+
+      setLocalItems(withNewOrder);
+      onDragged?.(withNewOrder);
     }
 
     setDraggedId(null);
@@ -50,10 +57,6 @@ const DraggableList: FC<IDraggableList> = ({
   useEffect(() => {
     setLocalItems(items || []);
   }, [items]);
-
-  useEffect(() => {
-    onDragged?.(localItems);
-  }, [localItems]);
 
   return (
     <ul
