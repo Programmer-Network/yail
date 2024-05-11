@@ -87,6 +87,19 @@ export const WithIconClassName: Story = {
   }
 };
 
+export const LoadingWithIcon: Story = {
+  args: {
+    children: "Button",
+    outlined: true,
+    isLoading: true,
+    className: "button--green",
+    icon: {
+      iconName: "IconBomb",
+      iconPosition: "left"
+    }
+  }
+};
+
 export const Red: Story = {
   args: {
     children: "Button",

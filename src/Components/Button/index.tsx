@@ -56,7 +56,7 @@ const Button: React.FC<IButtonProps> = (
         <span
           className={classNames({
             "yl-flex yl-gap-1 yl-items-center": icon?.iconName,
-            invisible: isLoading
+            "yl-invisible": isLoading
           })}
         >
           {!isLoading && icon?.iconName && icon.iconPosition === "left" && (

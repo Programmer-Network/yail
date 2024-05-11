@@ -18,10 +18,10 @@ import { AccordionOrderType, IAccordionProps } from "./types";
 const Accordion: FC<IAccordionProps> = ({
   className,
   sections,
-  onSorted,
   sectionTitleClassName,
   onSectionItemClick,
   onSectionClick,
+  onSorted,
   onSelected,
   onAddSection,
   addSectionLabel,
@@ -68,7 +68,7 @@ const Accordion: FC<IAccordionProps> = ({
     e.preventDefault();
     e.stopPropagation();
     if (draggedId != null && draggedOverId != null) {
-      onSorted(
+      onSorted?.(
         AccordionOrderType.SECTIONS,
         ArrayUtils.reorder(
           sections,
@@ -183,7 +183,7 @@ const Accordion: FC<IAccordionProps> = ({
                     setSelectedItemId(item.id);
                   }}
                   onDragged={(items: IDraggableListItem[]) => {
-                    onSorted(
+                    onSorted?.(
                       AccordionOrderType.LECTURES,
                       [
                         ...sections.map(s =>
