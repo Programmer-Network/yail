@@ -1,0 +1,99 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Accordion component > renders correctly 1`] = `
+<DocumentFragment>
+  <section
+    class=""
+  >
+    <div
+      class="yl-border-2 yl-border-primary-text-color/20 yl-border-b-0 yl-rounded-tl-md yl-rounded-tr-md"
+      role="presentation"
+    >
+      <h3
+        aria-expanded="true"
+        class="yl-relative yl-flex yl-cursor-default yl-select-none yl-items-center yl-font-semibold yl-capitalize yl-p-4 yl-bg-primary-text-color/5 yl-cursor-pointer yl-text-primary-text-color"
+        role="button"
+        tabindex="0"
+      >
+        <div
+          class="yl-flex yl-flex-col yl-gap-1 yl-overflow-hidden yl-text-ellipsis yl-whitespace-nowrap yl-text-base"
+        >
+          <svg
+            class="yl-absolute yl-right-2 yl-w-6 yl-cursor-pointer yl-fill-primary hover:yl-fill-primary"
+            data-testid="icon-expand-less"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0 0h24v24H0z"
+              fill="none"
+            />
+            <path
+              d="m7.71 15.29 3.88-3.88 3.88 3.88a.996.996 0 1 0 1.41-1.41l-4.59-4.59a.996.996 0 0 0-1.41 0l-4.59 4.59a.996.996 0 0 0 0 1.41c.39.38 1.03.39 1.42 0"
+            />
+          </svg>
+          Section 1
+          <p
+            class="yl-text-primary-text-color yl-break-words yl-overflow-hidden yl-text-xs yl-text-primary-text-color/70"
+          >
+            Description 1
+          </p>
+        </div>
+      </h3>
+      <ul
+        class="yl-relative yl-text-primary-text-color yl-gap-4 yl-flex yl-flex-col yl-py-4"
+      >
+        <li
+          class="yl-relative yl-flex yl-items-center yl-cursor-default hover:text-primary break-all leading-normal yl-px-4 yl-cursor-pointer yl-text-primary-text-color"
+        >
+          Item A
+        </li>
+        <li
+          class="yl-relative yl-flex yl-items-center yl-cursor-default hover:text-primary break-all leading-normal yl-px-4 yl-cursor-pointer yl-text-primary-text-color"
+        >
+          Item B
+        </li>
+      </ul>
+    </div>
+    <div
+      class="yl-border-2 yl-border-primary-text-color/20 yl-rounded-bl-md yl-rounded-br-md"
+      role="presentation"
+    >
+      <h3
+        aria-expanded="false"
+        class="yl-relative yl-flex yl-cursor-default yl-select-none yl-items-center yl-font-semibold yl-capitalize yl-p-4 yl-cursor-pointer yl-text-primary-text-color"
+        role="button"
+        tabindex="0"
+      >
+        <div
+          class="yl-flex yl-flex-col yl-gap-1 yl-overflow-hidden yl-text-ellipsis yl-whitespace-nowrap yl-text-base"
+        >
+          <svg
+            class="yl-absolute yl-right-2 yl-w-6 yl-cursor-pointer yl-fill-primary hover:yl-fill-primary"
+            data-testid="icon-expand-more"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M24 24H0V0h24z"
+              fill="none"
+              opacity="0.87"
+            />
+            <path
+              d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+            />
+          </svg>
+          Section 2
+          <p
+            class="yl-text-primary-text-color yl-break-words yl-overflow-hidden yl-text-xs yl-text-primary-text-color/70"
+          >
+            Description 2
+          </p>
+        </div>
+      </h3>
+    </div>
+  </section>
+</DocumentFragment>
+`;

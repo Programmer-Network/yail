@@ -1,4 +1,3 @@
-import { ErrorObject } from "ajv";
 import { useState } from "react";
 
 import Onboarding from ".";
@@ -10,7 +9,7 @@ export default {
 };
 
 export const Default = () => {
-  const [serverErrors, setServerErrors] = useState<ErrorObject[]>([]);
+  const [serverErrors, setServerErrors] = useState<unknown[]>([]);
 
   const handleSubmit = async (form: IUserProfile | null) => {
     console.log("🚀 ─── handleSubmit ─── form:", form, setServerErrors);

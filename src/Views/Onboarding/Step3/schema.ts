@@ -1,8 +1,4 @@
-import { JSONSchemaType } from "ajv";
-
-import { IUserProfile } from "../types";
-
-export const schema: JSONSchemaType<IUserProfile> = {
+export const schema = {
   type: "object",
   additionalProperties: false,
   required: ["username", "tags"] as const,
