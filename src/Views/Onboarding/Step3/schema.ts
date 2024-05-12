@@ -1,4 +1,8 @@
-export const schema = {
+import { JSONSchemaType } from "ajv";
+
+import { IUserProfile } from "../types";
+
+export const schema: JSONSchemaType<IUserProfile> = {
   type: "object",
   additionalProperties: false,
   required: ["username", "tags"] as const,
@@ -18,16 +22,14 @@ export const schema = {
       errorMessage: {
         type: "should be a string",
         format: "Please provide a valid first name"
-      },
-      nullable: true
+      }
     },
     lastName: {
       type: "string",
       "secure-string": true,
       errorMessage: {
         type: "should be a string"
-      },
-      nullable: true
+      }
     },
     about: {
       type: "string",
@@ -35,13 +37,11 @@ export const schema = {
       maxLength: 500,
       errorMessage: {
         maxLength: "The text is too long. Please limit it to 500 characters."
-      },
-      nullable: true
+      }
     },
     country: {
       type: "string",
-      "secure-string": true,
-      nullable: true
+      "secure-string": true
     },
     tags: {
       type: "array",
