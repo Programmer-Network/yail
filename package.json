@@ -1,6 +1,6 @@
 {
   "name": "@programmer_network/yail",
-  "version": "1.0.187",
+  "version": "1.0.188",
   "description": "Programmer Network's official UI library for React",
   "author": "Aleksandar Grbic - (https://programmer.network)",
   "publishConfig": {
@@ -86,6 +86,7 @@
     "@typescript-eslint/parser": "7.2.0",
     "@vitejs/plugin-react": "4.1.1",
     "@vitest/ui": "1.4.0",
+    "ajv": "^8.13.0",
     "autoprefixer": "10.4.18",
     "client": "link:@types/vite-plugin-svgr/client",
     "core": "link:@types/@popperjs/core",
@@ -152,6 +153,7 @@
     "react-image-crop": "11.0.5",
     "react-select": "5.8.0",
     "react-select-async-paginate": "0.7.3",
+    "react-step-wizard": "^5.3.11",
     "react-tooltip": "5.26.3",
     "sanitize-html": "2.12.1",
     "tippy.js": "6.3.7"
