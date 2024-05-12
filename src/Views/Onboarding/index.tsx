@@ -1,4 +1,3 @@
-import { ErrorObject } from "ajv";
 import { FC, createContext } from "react";
 import StepWizard from "react-step-wizard";
 
@@ -11,7 +10,7 @@ export const OnboardingContext = createContext<{
   onSubmit: (form: IUserProfile | null) => void;
   tags: ITag[];
   countries: string[];
-  serverErrors: ErrorObject[];
+  serverErrors: unknown[];
 }>({
   onSubmit: () => {},
   tags: [],
@@ -23,7 +22,7 @@ const Onboarding: FC<{
   onSubmit: (form: IUserProfile | null) => void;
   tags: ITag[];
   countries: string[];
-  serverErrors: ErrorObject[];
+  serverErrors: unknown[];
 }> = ({ tags, countries, onSubmit, serverErrors }) => {
   return (
     <OnboardingContext.Provider
