@@ -2,7 +2,8 @@
   "compilerOptions": {
     "paths": {
       "Components/*": ["Components/*"],
-      "Utils/*": ["Utils/*"]
+      "Utils/*": ["Utils/*"],
+      "Views/*": ["Views/*"]
     }
   }
 }
