@@ -28,6 +28,7 @@ describe("Accordion component", () => {
     const { asFragment } = render(
       <Accordion
         sections={mockSections}
+        onSorted={vi.fn()}
         setExpanded={() => null}
         expanded={[1]}
         onSectionItemClick={vi.fn()}
@@ -41,6 +42,7 @@ describe("Accordion component", () => {
     render(
       <Accordion
         sections={mockSections}
+        onSorted={vi.fn()}
         setExpanded={setExpanded}
         expanded={[1]}
         onSectionItemClick={vi.fn()}
@@ -59,13 +61,14 @@ describe("Accordion component", () => {
     render(
       <Accordion
         sections={mockSections}
+        onSorted={vi.fn()}
         setExpanded={setExpanded}
         expanded={[mockSections[0].id]}
         onSectionItemClick={vi.fn()}
       />
     );
 
-    fireEvent.click(screen.getByText("Section 1"));
+    fireEvent.click(screen.getByTestId("icon-expand-less"));
     expect(setExpanded).toHaveBeenCalledWith([]);
   });
 
@@ -74,6 +77,7 @@ describe("Accordion component", () => {
     render(
       <Accordion
         sections={mockSections}
+        onSorted={vi.fn()}
         setExpanded={vi.fn()}
         onSectionItemClick={onSectionItemClick}
         expanded={[1]}
@@ -88,6 +92,25 @@ describe("Accordion component", () => {
     render(
       <Accordion
         sections={mockSections}
+        onSorted={vi.fn()}
+        className='custom-class'
+        sectionTitleClassName='custom-title-class'
+        setExpanded={vi.fn()}
+        expanded={[]}
+        onSectionItemClick={vi.fn()}
+      />
+    );
+
+    expect(screen.getByText("Section 1").parentNode).toHaveClass(
+      "custom-title-class"
+    );
+  });
+
+  test("applies custom class names", () => {
+    render(
+      <Accordion
+        sections={mockSections}
+        onSorted={vi.fn()}
         className='custom-class'
         sectionTitleClassName='custom-title-class'
         setExpanded={vi.fn()}

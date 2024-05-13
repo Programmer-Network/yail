@@ -166,7 +166,7 @@ Once you've made your changes:
 1. Fork the repository.
 2. Create a new branch for your changes.
 3. Commit your changes and push them to your fork.
-4. Open a pull request against the `main` branch of the
+4. Open a pull request against the `master` branch of the
    `Programmer-Network/yail` repository.
 
 Please provide a clear description of the changes in your pull request.
