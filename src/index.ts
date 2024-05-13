@@ -37,3 +37,4 @@ export * from "Components/Icons";
 export * from "Components/Inputs";
 export * from "Components/Typography";
 export * from "./types";
+export * from "Views";
