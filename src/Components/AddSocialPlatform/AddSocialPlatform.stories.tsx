@@ -10,6 +10,10 @@ export default {
 
 const SOCIAL_PLATFORMS = [
   {
+    name: "Website",
+    url: ""
+  },
+  {
     name: "Github",
     url: "github.com/"
   },
@@ -73,11 +77,6 @@ export const Default = () => {
       <AddSocialPlatform
         platforms={SOCIAL_PLATFORMS}
         onAdd={data => console.log(data)}
-        valueProps={{
-          name: "cool",
-          label: "Story",
-          hint: "Username, a slug or a handle. Different platforms call it differently. Do not include the base URL."
-        }}
       />
     </div>
   );

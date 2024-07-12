@@ -4,38 +4,20 @@ import { FC } from "react";
 import Button from "Components/Button";
 import { Input, Select } from "Components/Inputs";
 
+import { schema } from "./constant";
 import { IAddSocialPlatformProps } from "./types";
+import { getValueHint, getValueLabel } from "./utils";
 
 const AddSocialPlatform: FC<IAddSocialPlatformProps> = ({
   onAdd,
-  platforms,
-  valueProps = {
-    name: "",
-    label: "",
-    hint: ""
-  }
+  platforms
 }) => {
   const form = useAJVForm(
     {
       platform: "",
       url: ""
     },
-    {
-      type: "object",
-      properties: {
-        platform: {
-          type: "string",
-          minLength: 1,
-          errorMessage: "Please select a platform"
-        },
-        url: {
-          type: "string",
-          minLength: 1,
-          errorMessage: "Please enter a username"
-        }
-      },
-      required: ["platform", "url"]
-    }
+    schema
   );
 
   return (
@@ -54,7 +36,9 @@ const AddSocialPlatform: FC<IAddSocialPlatformProps> = ({
       />
       <div className='yl-col-span-5'>
         <Input
-          {...valueProps}
+          name='url'
+          label={getValueLabel(form.state.platform.value)}
+          hint={getValueHint(form.state.platform.value)}
           value={form.state.url.value}
           error={form.state.url.error}
           onChange={form.set}
