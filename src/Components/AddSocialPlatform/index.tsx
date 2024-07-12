@@ -3,13 +3,17 @@ import { FC } from "react";
 
 import Button from "Components/Button";
 import { Input, Select } from "Components/Inputs";
-import { Paragraph } from "Components/Typography";
 
 import { IAddSocialPlatformProps } from "./types";
 
 const AddSocialPlatform: FC<IAddSocialPlatformProps> = ({
   onAdd,
-  platforms
+  platforms,
+  valueProps = {
+    name: "",
+    label: "",
+    hint: ""
+  }
 }) => {
   const form = useAJVForm(
     {
@@ -50,20 +54,7 @@ const AddSocialPlatform: FC<IAddSocialPlatformProps> = ({
       />
       <div className='yl-col-span-5'>
         <Input
-          name='url'
-          label='Username'
-          hint={
-            <div>
-              <Paragraph>
-                Username, a slug or a handle. Different platforms call it
-                differently.
-              </Paragraph>
-              <Paragraph className='yl-text-red-500'>
-                <span className='yl-font-bold'>Do not</span> include the base
-                URL.
-              </Paragraph>
-            </div>
-          }
+          {...valueProps}
           value={form.state.url.value}
           error={form.state.url.error}
           onChange={form.set}
