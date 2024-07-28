@@ -30,7 +30,7 @@ const ImageCrop: FC<IImageCropProps> = ({
   const [scale] = useState(1);
   const [rotate] = useState(0);
 
-  const onImageLoad = (e: React.SyntheticEvent<HTMLImageElement>) => {
+  const onImageLoad = async (e: React.SyntheticEvent<HTMLImageElement>) => {
     if (!aspect) {
       return;
     }
@@ -52,6 +52,23 @@ const ImageCrop: FC<IImageCropProps> = ({
         mediaHeight
       )
     );
+
+    if (!imgRef.current) {
+      return;
+    }
+
+    const { croppedImage, cropError } = await CanvasUtils.getCroppedImg(
+      imgRef.current,
+      crop
+    );
+
+    if (cropError) {
+      onError?.(cropError);
+
+      return;
+    }
+
+    onComplete?.(croppedImage as Blob);
   };
 
   const handleChange = (_: PixelCrop, percentCrop: PercentCrop) => {
