@@ -1,6 +1,6 @@
 {
   "name": "@programmer_network/yail",
-  "version": "1.0.194",
+  "version": "1.0.195",
   "description": "Programmer Network's official UI library for React",
   "author": "Aleksandar Grbic - (https://programmer.network)",
   "publishConfig": {
@@ -86,7 +86,7 @@
     "@typescript-eslint/parser": "7.2.0",
     "@vitejs/plugin-react": "4.2.1",
     "@vitest/ui": "1.4.0",
-    "ajv": "^8.13.0",
+    "ajv": "8.13.0",
     "autoprefixer": "10.4.18",
     "client": "link:@types/vite-plugin-svgr/client",
     "core": "link:@types/@popperjs/core",
