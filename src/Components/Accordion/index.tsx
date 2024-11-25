@@ -144,7 +144,13 @@ const Accordion: FC<IAccordionProps> = ({
                   <IconDrag className='yl-w-6 yl-opacity-50 yl-mr-1' />
                 </div>
               )}
-              <div className='yl-flex yl-flex-col yl-gap-1 yl-overflow-hidden yl-text-ellipsis yl-whitespace-nowrap yl-text-base'>
+              <div className='yl-flex yl-flex-col yl-gap-1 yl-overflow-hidden yl-text-ellipsis yl-whitespace-nowrap yl-text-base yl-w-[90%]'>
+                {section.title}
+                {section.description && (
+                  <Paragraph className='yl-text-xs yl-text-primary-text-color/70 yl-truncate'>
+                    {section.description}
+                  </Paragraph>
+                )}
                 {expanded.includes(section.id) ? (
                   <IconExpandLess
                     onClick={e => {
@@ -163,12 +169,6 @@ const Accordion: FC<IAccordionProps> = ({
                     }}
                     className='yl-absolute yl-right-2 yl-w-6 yl-cursor-pointer yl-fill-primary hover:yl-fill-primary'
                   />
-                )}
-                {section.title}
-                {section.description && (
-                  <Paragraph className='yl-text-xs yl-text-primary-text-color/70'>
-                    {section.description}
-                  </Paragraph>
                 )}
               </div>
             </h3>
