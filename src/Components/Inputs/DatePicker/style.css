@@ -1,0 +1,94 @@
+/* Global Rules -- Avoid Declaring These Globally */
+.react-datepicker * {
+  /* 
+    This degrades the performance and accessibility of the date picker.
+    TODO: Remove this line and explicitly target specific elements for hover, focus, etc.
+  */
+  @apply yl-outline-none !important;
+}
+
+/* Main Datepicker Container */
+.react-datepicker {
+  @apply yl-select-none yl-border-2 yl-border-primary-text-color/20 yl-bg-primary-background-color yl-font-sans yl-shadow-lg !important;
+}
+
+.react-datepicker,
+.react-datepicker__day {
+  @apply yl-text-primary-text-color !important;
+}
+
+/* Header Section */
+.react-datepicker__header {
+  @apply yl-border-0 yl-bg-primary-background-color !important;
+}
+
+.react-datepicker__current-month,
+.react-datepicker__day-name,
+.react-datepicker-time__header {
+  @apply yl-text-primary-text-color !important;
+}
+
+/* Month Container */
+.react-datepicker__month-container {
+  @apply yl-bg-primary-background-color !important;
+}
+
+/* Day Cell Styles */
+.react-datepicker__day:not([aria-disabled="true"]):hover {
+  @apply yl-bg-primary yl-text-white !important;
+}
+
+.react-datepicker__day--selected {
+  @apply yl-bg-primary yl-text-white !important;
+}
+
+.react-datepicker__day--keyboard-selected {
+  @apply yl-bg-primary/70 yl-text-white !important;
+}
+
+.react-datepicker__day--keyboard-selected:focus-visible {
+  @apply yl-text-white yl-outline-primary-text-color !important;
+}
+
+/* Time Picker Section */
+.react-datepicker__time-container {
+  @apply yl-border-l-primary-text-color/20 yl-px-0 !important;
+}
+
+.react-datepicker__time-container .react-datepicker__time {
+  @apply yl-bg-primary-background-color !important;
+}
+
+.react-datepicker__time-box {
+  @apply yl-pl-1 !important;
+}
+
+.react-datepicker__time-list-item--selected {
+  @apply yl-bg-primary yl-font-normal yl-text-white !important;
+}
+
+li.react-datepicker__time-list-item {
+  @apply hover:yl-bg-primary hover:yl-text-white !important;
+}
+
+/* Scrollbar Styles */
+.react-datepicker__time-list::-webkit-scrollbar {
+  width: 5px;
+}
+
+.react-datepicker__time-list::-webkit-scrollbar-track {
+  background: "##";
+}
+
+.react-datepicker__time-list::-webkit-scrollbar-thumb {
+  background: rgb(var(--text-color));
+}
+
+.react-datepicker__time-list::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--text-color));
+}
+
+/* Input Styles */
+.react-datepicker__input-container input {
+  @apply yl-w-full yl-appearance-none yl-rounded-md yl-border-2 yl-border-primary-text-color yl-bg-transparent yl-p-2 yl-text-primary-text-color hover:yl-cursor-pointer hover:yl-border-primary focus:yl-border-primary focus:yl-outline-none focus:yl-ring-transparent !important;
+}

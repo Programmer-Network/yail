@@ -1,6 +1,7 @@
 import * as AsyncSelectTypes from "./AsyncSelect/types";
 import * as CheckboxTypes from "./Checkbox/types";
 import * as CommonTypes from "./Common/types";
+import * as DatePickerTypes from "./DatePicker/types";
 import * as DomainInputTypes from "./DomainInput/types";
 import * as InputTypes from "./Input/types";
 import * as SelectTypes from "./Select/types";
@@ -17,5 +18,6 @@ export {
   SelectTypes,
   SwitchTypes,
   TextareaTypes,
-  TiptapTypes
+  TiptapTypes,
+  DatePickerTypes
 };

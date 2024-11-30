@@ -11,3 +11,4 @@ export { default as Textarea } from "./Textarea";
 export { default as Tiptap } from "./Tiptap";
 export { default as TiptapToHTML } from "./Tiptap/TiptapToHTML";
 export { default as TiptapUtils } from "./Tiptap/TiptapUtils";
+export { default as DatePicker } from "./DatePicker";
