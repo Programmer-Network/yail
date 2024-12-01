@@ -1,7 +1,9 @@
-import { InputHeaderProps } from "../Common/InputHeader/types";
-
-export interface IDatePickerProps extends InputHeaderProps {
-  selected?: Date;
+export interface IDatePickerProps {
+  name?: string;
+  label?: string;
+  value?: Date;
+  selected?: Date | null;
+  required?: boolean;
   onChange: (value: Record<string, Date | null>) => void;
   timeFormat?: string;
   timeIntervals?: number;
@@ -10,4 +12,5 @@ export interface IDatePickerProps extends InputHeaderProps {
   showTimeSelect?: boolean;
   minDate?: Date;
   maxDate?: Date;
+  error?: string | string[] | Record<string, string>;
 }

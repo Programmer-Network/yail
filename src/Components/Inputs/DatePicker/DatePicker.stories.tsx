@@ -19,7 +19,7 @@ export const Default = () => {
   return (
     <DatePicker
       name='datetime'
-      selected={date}
+      value={date}
       showTimeSelect
       timeCaption='Time'
       onChange={input => {
@@ -41,10 +41,36 @@ export const WithMinAndMaxDate = () => {
       name='datetime'
       minDate={new Date()}
       maxDate={new Date(new Date().setDate(new Date().getDate() + 7))}
-      selected={date}
+      value={date}
       timeIntervals={60}
       showTimeSelect
       timeCaption='Time'
+      onChange={input => {
+        if (!input.datetime) {
+          return;
+        }
+
+        setDate(input.datetime);
+      }}
+    />
+  );
+};
+
+export const WithAHeaderAndError = () => {
+  const [date, setDate] = useState(new Date());
+
+  return (
+    <DatePicker
+      name='datetime'
+      label='Select a date and time'
+      required
+      minDate={new Date()}
+      maxDate={new Date(new Date().setDate(new Date().getDate() + 7))}
+      value={date}
+      timeIntervals={60}
+      showTimeSelect
+      timeCaption='Time'
+      error='Invalid date and time'
       onChange={input => {
         if (!input.datetime) {
           return;

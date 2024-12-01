@@ -1,6 +1,6 @@
 export interface InputHeaderProps {
   name?: string;
-  value?: string | number;
+  value?: string | number | Date;
   max?: number;
   label?: string;
   hint?: string | React.ReactNode;

@@ -2,13 +2,15 @@ import { FC } from "react";
 import BaseDatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
+import InputError from "../Common/InputError";
 import InputHeader from "../Common/InputHeader";
 import "./style.css";
 import { IDatePickerProps } from "./types";
 
 const DatePicker: FC<IDatePickerProps> = props => {
   const {
-    selected = undefined,
+    value = undefined,
+    required,
     onChange,
     name,
     showTimeSelect,
@@ -17,7 +19,8 @@ const DatePicker: FC<IDatePickerProps> = props => {
     timeIntervals = 15,
     dateFormat = "MMMM d, yyyy h:mm aa",
     minDate,
-    maxDate
+    maxDate,
+    error
   } = props;
 
   const handleChange = (date: Date | null) => {
@@ -36,7 +39,8 @@ const DatePicker: FC<IDatePickerProps> = props => {
     <div className='yl-bg-primary-background-color'>
       <InputHeader {...props} />
       <BaseDatePicker
-        selected={selected}
+        selected={value}
+        required={required}
         onChange={handleChange}
         showTimeSelect={showTimeSelect}
         timeFormat={timeFormat}
@@ -47,6 +51,7 @@ const DatePicker: FC<IDatePickerProps> = props => {
         minDate={minDate}
         maxDate={maxDate}
       />
+      {error && <InputError error={error} />}
     </div>
   );
 };
