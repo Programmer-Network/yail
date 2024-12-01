@@ -17,19 +17,21 @@ export const Default = () => {
   const [date, setDate] = useState(new Date());
 
   return (
-    <DatePicker
-      name='datetime'
-      value={date}
-      showTimeSelect
-      timeCaption='Time'
-      onChange={input => {
-        if (!input.datetime) {
-          return;
-        }
+    <div className='yl-w-[500px]'>
+      <DatePicker
+        name='datetime'
+        value={date}
+        showTimeSelect
+        timeCaption='Time'
+        onChange={input => {
+          if (!input.datetime) {
+            return;
+          }
 
-        setDate(input.datetime);
-      }}
-    />
+          setDate(input.datetime);
+        }}
+      />
+    </div>
   );
 };
 

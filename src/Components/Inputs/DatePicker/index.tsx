@@ -36,7 +36,7 @@ const DatePicker: FC<IDatePickerProps> = props => {
   };
 
   return (
-    <div className='yl-bg-primary-background-color'>
+    <div>
       <InputHeader {...props} />
       <BaseDatePicker
         selected={value}
