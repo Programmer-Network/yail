@@ -8,4 +8,6 @@ export interface IDatePickerProps extends InputHeaderProps {
   timeCaption?: string;
   dateFormat?: string;
   showTimeSelect?: boolean;
+  minDate?: Date;
+  maxDate?: Date;
 }

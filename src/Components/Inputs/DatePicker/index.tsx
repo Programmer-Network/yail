@@ -15,7 +15,9 @@ const DatePicker: FC<IDatePickerProps> = props => {
     timeFormat = "HH:mm",
     timeCaption = "time",
     timeIntervals = 15,
-    dateFormat = "MMMM d, yyyy h:mm aa"
+    dateFormat = "MMMM d, yyyy h:mm aa",
+    minDate,
+    maxDate
   } = props;
 
   const handleChange = (date: Date | null) => {
@@ -42,6 +44,8 @@ const DatePicker: FC<IDatePickerProps> = props => {
         timeCaption={timeCaption}
         dateFormat={dateFormat}
         showPopperArrow={false}
+        minDate={minDate}
+        maxDate={maxDate}
       />
     </div>
   );

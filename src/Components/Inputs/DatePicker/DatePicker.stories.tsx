@@ -32,3 +32,26 @@ export const Default = () => {
     />
   );
 };
+
+export const WithMinAndMaxDate = () => {
+  const [date, setDate] = useState(new Date());
+
+  return (
+    <DatePicker
+      name='datetime'
+      minDate={new Date()}
+      maxDate={new Date(new Date().setDate(new Date().getDate() + 7))}
+      selected={date}
+      timeIntervals={60}
+      showTimeSelect
+      timeCaption='Time'
+      onChange={input => {
+        if (!input.datetime) {
+          return;
+        }
+
+        setDate(input.datetime);
+      }}
+    />
+  );
+};

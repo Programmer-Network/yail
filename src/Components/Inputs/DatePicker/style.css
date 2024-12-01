@@ -92,3 +92,7 @@ li.react-datepicker__time-list-item {
 .react-datepicker__input-container input {
   @apply yl-w-full yl-appearance-none yl-rounded-md yl-border-2 yl-border-primary-text-color yl-bg-transparent yl-p-2 yl-text-primary-text-color hover:yl-cursor-pointer hover:yl-border-primary focus:yl-border-primary focus:yl-outline-none focus:yl-ring-transparent !important;
 }
+
+.react-datepicker__day--disabled {
+  @apply yl-cursor-not-allowed yl-text-primary-text-color/40 !important;
+}
