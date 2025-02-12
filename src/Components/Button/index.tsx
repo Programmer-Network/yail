@@ -15,33 +15,39 @@ const Button: React.FC<IButtonProps> = (
     type = "button",
     icon,
     isLoading = false,
-    outlined = false
+    variant = "filled"
   } = {
     onClick: () => null,
     children: null,
     className: "",
     disabled: false,
-    outlined: false,
+    variant: "filled",
     isLoading: false
   }
 ) => {
   let cls =
-    "yl-select-none yl-border-2 yl-border-primary yl-px-3 yl-py-2 yl-font-semibold yl-tracking-tight yl-rounded-md ";
+    "yl-select-none yl-border-2 yl-px-3 yl-py-2 yl-font-semibold yl-tracking-tight yl-rounded-md ";
 
   if (disabled) {
     cls += "yl-cursor-not-allowed yl-opacity-70 ";
-    if (outlined) {
-      cls += "yl-text-primary ";
+    if (variant === "outlined") {
+      cls += "yl-text-primary yl-border-primary ";
+    } else if (variant === "text") {
+      cls += "yl-text-primary yl-border-transparent ";
     } else {
-      cls += "yl-text-primary-background-color yl-bg-primary ";
+      cls +=
+        "yl-text-primary-background-color yl-bg-primary yl-border-primary ";
     }
   } else {
-    if (outlined) {
+    if (variant === "outlined") {
       cls +=
-        "yl-bg-transparent yl-text-primary yl-fill-primary hover:yl-bg-primary hover:yl-fill-primary-background-color hover:yl-text-primary-background-color";
+        "yl-bg-transparent yl-text-primary yl-fill-primary yl-border-primary hover:yl-bg-primary hover:yl-fill-primary-background-color hover:yl-text-primary-background-color ";
+    } else if (variant === "text") {
+      cls +=
+        "yl-bg-transparent yl-text-primary yl-fill-primary yl-border-transparent hover:yl-bg-primary/10 ";
     } else {
       cls +=
-        "yl-bg-primary hover:yl-bg-transparent hover:yl-text-primary hover:yl-fill-primary yl-text-primary-background-color";
+        "yl-bg-primary yl-border-primary hover:yl-bg-transparent hover:yl-text-primary hover:yl-fill-primary yl-text-primary-background-color ";
     }
   }
 

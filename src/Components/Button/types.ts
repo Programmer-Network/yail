@@ -9,7 +9,7 @@ export interface IButtonProps {
   disabled?: boolean;
   type?: "button" | "submit" | "reset";
   isLoading?: boolean;
-  outlined?: boolean;
+  variant?: "filled" | "outlined" | "text";
   icon?: {
     iconName?: IconName;
     iconClassName?: string;
