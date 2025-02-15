@@ -17,7 +17,7 @@ const Bookmark: React.FC<IBookmarkProps> = (
     <div className='yl-flex yl-items-start yl-gap-2'>
       <div className='yl-flex yl-gap-2'>
         {isLoading ? (
-          <Spinner className='yl-w-5 yl-fill-primary-text-color' />
+          <Spinner className='yl-w-5 yl-fill-text' />
         ) : (
           <>
             {isBookmarked ? (
@@ -29,7 +29,7 @@ const Bookmark: React.FC<IBookmarkProps> = (
             ) : (
               <IconBookmark
                 data-testid='icon-bookmark'
-                className='yl-relative yl-top-[-1px] yl-w-5 yl-cursor-pointer yl-fill-primary-text-color hover:yl-fill-primary'
+                className='yl-relative yl-top-[-1px] yl-w-5 yl-cursor-pointer yl-fill-text hover:yl-fill-primary'
                 onClick={handleAdd}
               />
             )}

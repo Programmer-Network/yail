@@ -6,11 +6,7 @@ import { IDividerProps } from "./types";
 
 const Divider: FC<IDividerProps> = (
   { className, classes } = {
-    classes: [
-      "yl-bg-primary-text-color",
-      "yl-bg-primary-text-color",
-      "yl-bg-primary-text-color"
-    ]
+    classes: ["yl-bg-text", "yl-bg-text", "yl-bg-text"]
   }
 ) => {
   if (classes && !Array.isArray(classes)) {

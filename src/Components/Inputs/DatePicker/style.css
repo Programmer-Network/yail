@@ -13,28 +13,28 @@
 
 /* Main Datepicker Container */
 .react-datepicker {
-  @apply yl-select-none yl-border-2 yl-border-primary-text-color/20 yl-bg-primary-background-color yl-font-sans yl-shadow-lg !important;
+  @apply yl-select-none yl-border-2 yl-border-border yl-bg-background yl-font-sans yl-shadow-lg !important;
 }
 
 .react-datepicker,
 .react-datepicker__day {
-  @apply yl-text-primary-text-color !important;
+  @apply yl-text-text !important;
 }
 
 /* Header Section */
 .react-datepicker__header {
-  @apply yl-border-0 yl-bg-primary-background-color !important;
+  @apply yl-border-0 yl-bg-background !important;
 }
 
 .react-datepicker__current-month,
 .react-datepicker__day-name,
 .react-datepicker-time__header {
-  @apply yl-text-primary-text-color !important;
+  @apply yl-text-text !important;
 }
 
 /* Month Container */
 .react-datepicker__month-container {
-  @apply yl-bg-primary-background-color !important;
+  @apply yl-bg-background !important;
 }
 
 /* Day Cell Styles */
@@ -51,16 +51,16 @@
 }
 
 .react-datepicker__day--keyboard-selected:focus-visible {
-  @apply yl-text-white yl-outline-primary-text-color !important;
+  @apply yl-text-white yl-outline-border !important;
 }
 
 /* Time Picker Section */
 .react-datepicker__time-container {
-  @apply yl-border-l-primary-text-color/20 yl-px-0 !important;
+  @apply yl-border-l-border/20 yl-px-0 !important;
 }
 
 .react-datepicker__time-container .react-datepicker__time {
-  @apply yl-bg-primary-background-color !important;
+  @apply yl-bg-background !important;
 }
 
 .react-datepicker__time-box {
@@ -94,9 +94,9 @@ li.react-datepicker__time-list-item {
 
 /* Input Styles */
 .react-datepicker__input-container input {
-  @apply yl-w-full yl-min-w-max yl-appearance-none yl-rounded-md yl-border-2 yl-border-primary-text-color yl-bg-transparent yl-p-2 yl-text-primary-text-color hover:yl-cursor-pointer hover:yl-border-primary focus:yl-border-primary focus:yl-outline-none focus:yl-ring-transparent !important;
+  @apply yl-w-full yl-min-w-max yl-appearance-none yl-rounded-md yl-border-2 yl-border-border yl-bg-transparent yl-p-2 yl-text-text hover:yl-cursor-pointer hover:yl-border-border focus:yl-border-border focus:yl-outline-none focus:yl-ring-transparent !important;
 }
 
 .react-datepicker__day--disabled {
-  @apply yl-cursor-not-allowed yl-text-primary-text-color/40 !important;
+  @apply yl-cursor-not-allowed yl-text-text/40 !important;
 }

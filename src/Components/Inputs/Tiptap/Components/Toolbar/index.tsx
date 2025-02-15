@@ -97,7 +97,7 @@ export const Toolbar = ({
   };
 
   return (
-    <div className='yl-relative yl-flex flex-wrap yl-items-center yl-gap-1 yl-rounded-tl-md yl-rounded-tr-md yl-border-2 yl-border-primary-text-color/40 yl-bg-primary-text-color/5 yl-px-2 yl-py-2 md:yl-gap-4 md:yl-px-4'>
+    <div className='yl-relative yl-flex flex-wrap yl-items-center yl-gap-1 yl-rounded-tl-md yl-rounded-tr-md yl-border-2 yl-border-border/40 yl-bg-text/5 yl-px-2 yl-py-2 md:yl-gap-4 md:yl-px-4'>
       {image.isExtensionEnabled && (
         <Dialog ref={dialogRef}>
           <ImageUpload
@@ -211,10 +211,10 @@ export const Toolbar = ({
               <Icon
                 iconName={i.iconName as IconName}
                 className={classNames(
-                  "yl-w-8 yl-cursor-pointer yl-border-primary-text-color",
+                  "yl-w-8 yl-cursor-pointer yl-border-border",
                   {
-                    "yl-text-primary-text-color": !i.isActive,
-                    "!yl-fill-primary !yl-text-primary": i.isActive,
+                    "yl-text-text": !i.isActive,
+                    "!yl-fill-primary !yl-text-text": i.isActive,
                     "yl-cursor-not-allowed":
                       typeof i.isDisabled === "function" && i.isDisabled(),
                     "yl-cursor-default": !hasSelection,

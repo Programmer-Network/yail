@@ -4,9 +4,20 @@
 
 @layer base {
   :root {
-    --color-primary: 79 70 229;
-    --color-bg: 27 31 35;
-    --text-color: 107 114 128;
+    --color-primary: 79 57 246;
+    --color-secondary: 156 163 175;
+    --color-background: 18 20 22;
+    --color-text: 212 212 212;
+    --color-border: 67 67 67;
+    --color-muted: 100 116 139;
+
+    --color-accent: 59 130 246;
+    --color-accent-hover: 37 99 235;
+
+    --color-success: 34 197 94;
+    --color-warning: 234 179 8;
+    --color-error: 220 38 38;
+    --color-info: 14 165 233;
   }
 }
 
@@ -14,20 +25,4 @@
   .text-stroke {
     -webkit-text-stroke: 0.8px;
   }
-}
-
-.yl-primary {
-  color: var(--color-primary);
-}
-
-.yl-primary-background-color {
-  color: var(--color-bg);
-}
-
-.yl-primary-text-color {
-  color: var(--text-color);
-}
-
-.yl-bg-derived {
-  background-color: var(--color-bg-rgb);
 }

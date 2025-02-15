@@ -1,6 +1,7 @@
 import { OptionsGeneric } from "@popperjs/core";
 import { PopperOffsetsModifier } from "@popperjs/core/lib/modifiers/popperOffsets";
 import { MouseEvent, ReactNode } from "react";
+import { Placement } from "tippy.js";
 
 export interface IDropdownListItem {
   icon?: ReactNode;
@@ -15,6 +16,7 @@ export interface IDropdownProps {
   buttonClassName?: string;
   dropdownClassName?: string;
   popperOptions?: Partial<OptionsGeneric<PopperOffsetsModifier>>;
+  placement?: Placement;
   options?: {
     icon?: React.ReactNode;
     value: string;

@@ -13,30 +13,35 @@ const Card: FC<ICard> = ({ data, className, NavLink }) => {
   return (
     <div
       className={classNames(
-        "group yl-flex yl-flex-col yl-justify-between",
+        "group yl-flex yl-flex-col yl-justify-between yl-border-2 yl-border-border yl-rounded-lg yl-p-6",
         className
       )}
     >
       <div>
-        <div className='yl-flex yl-items-center yl-text-primary-text-color'>
+        <div className='yl-flex yl-items-center'>
           <div className='yl-flex yl-flex-1 yl-justify-between yl-gap-2 md:yl-my-1'>
             <div className='yl-flex yl-flex-col md:yl-flex-row md:yl-items-center md:yl-gap-2'>
               {author && (
                 <>
                   {authorUrl ? (
                     <NavLink to={authorUrl}>
-                      <span className='yl-flex yl-items-center yl-gap-2 yl-text-primary hover:yl-text-primary'>
+                      <span className='yl-flex yl-items-center yl-gap-2 yl-text-secondary hover:yl-text-primary yl-cursor-pointer'>
                         {author}
                       </span>
                     </NavLink>
                   ) : (
-                    <span className='yl-flex yl-items-center yl-gap-2 yl-text-primary hover:yl-text-primary'>
+                    <span className='yl-flex yl-items-center yl-gap-2 yl-text-secondary hover:yl-text-primary'>
                       {author}
                     </span>
                   )}
                 </>
               )}
-              {date && <time dateTime={date}>{date}</time>}
+
+              {date && (
+                <time className='yl-text-secondary' dateTime={date}>
+                  {date}
+                </time>
+              )}
             </div>
           </div>
         </div>
@@ -60,7 +65,7 @@ const Card: FC<ICard> = ({ data, className, NavLink }) => {
             <NavLink
               key={index}
               to={tag.url}
-              className='hover:yl-text-stroke yl-text-primary hover:yl-underline hover:yl-opacity-80 active:yl-opacity-50'
+              className='hover:yl-text-stroke yl-text-secondary hover:yl-underline hover:yl-opacity-80 active:yl-opacity-50'
             >
               #{tag.name}
             </NavLink>

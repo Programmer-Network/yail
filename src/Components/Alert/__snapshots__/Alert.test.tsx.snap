@@ -9,7 +9,7 @@ exports[`Alert component > renders correctly with children 1`] = `
       class="yl-bg-gradient-to-r yl-p[1px] from-green-400 via-green-500 to-green-900 text-green-500"
     >
       <div
-        class="back yl-flex yl-h-full yl-w-full yl-items-center yl-justify-center yl-bg-primary-background-color yl-p-4"
+        class="back yl-flex yl-h-full yl-w-full yl-items-center yl-justify-center yl-bg-background yl-p-4"
       >
         <span>
           Success Message

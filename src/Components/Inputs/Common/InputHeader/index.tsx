@@ -26,12 +26,12 @@ const InputHeader: FC<InputHeaderProps> = (
       <div className='yl-flex yl-items-center yl-gap-0.5'>
         {hint && name && (
           <Tooltip text={hint} id={name} place='right'>
-            <IconInfo className='yl-w-4 yl-text-primary-text-color yl-relative yl-top-[1px] yl-cursor-pointer' />
+            <IconInfo className='yl-w-4 yl-text-secondary yl-relative yl-top-[1px] yl-cursor-pointer' />
           </Tooltip>
         )}
-        <div className='yl-text-primary-text-color'>
+        <div className='yl-text-secondary'>
           {label}
-          {required && <span className='yl-ml-1 yl-text-red-500'>*</span>}
+          {required && <span className='yl-ml-1 yl-text-error'>*</span>}
         </div>
       </div>
 

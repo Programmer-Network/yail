@@ -1,8 +1,7 @@
-import { OptionsGeneric, createPopper } from "@popperjs/core";
-import { PopperOffsetsModifier } from "@popperjs/core/lib/modifiers/popperOffsets";
-import { useOnClickOutside } from "Hooks/useClickOutside";
+import { Options, createPopper } from "@popperjs/core";
 import classNames from "classnames";
 import React, { useEffect, useRef, useState } from "react";
+import ReactDOM from "react-dom";
 
 import DefaultDropdown from "./DefaultDropdown";
 import { IDropdownProps } from "./types";
@@ -13,34 +12,96 @@ const Dropdown: React.FC<IDropdownProps> = ({
   buttonClassName,
   dropdownClassName,
   options,
-  popperOptions
+  popperOptions,
+  placement
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const popperRef = useRef<HTMLDivElement>(null);
 
-  useOnClickOutside(dropdownRef, () => setIsOpen(false));
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (!isOpen) return;
+
+      const target = event.target as Node;
+      const button = buttonRef.current;
+      const dropdown = popperRef.current;
+
+      if (!button?.contains(target) && !dropdown?.contains(target)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isOpen]);
 
   useEffect(() => {
-    if (!buttonRef.current || !popperRef.current) {
+    if (!buttonRef.current || !popperRef.current || !isOpen) {
       return;
     }
 
-    const defaultOptions = {
-      placement: "auto"
-    } as Partial<OptionsGeneric<PopperOffsetsModifier>> | undefined;
+    const defaultOptions: Partial<Options> = {
+      placement: placement || "bottom-start",
+      modifiers: [
+        {
+          name: "preventOverflow",
+          options: {
+            boundary: window,
+            padding: 8
+          }
+        },
+        {
+          name: "flip",
+          options: {
+            fallbackPlacements: ["top-start", "bottom-end", "top-end"]
+          }
+        },
+        {
+          name: "offset",
+          options: {
+            offset: [0, 8]
+          }
+        }
+      ]
+    };
 
-    createPopper(
+    const popper = createPopper(
       buttonRef.current,
       popperRef.current,
       popperOptions || defaultOptions
     );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [buttonRef.current, popperRef.current, popperOptions]);
+
+    return () => {
+      popper.destroy();
+    };
+  }, [isOpen, popperOptions]);
+
+  const renderDropdown = () => {
+    if (!isOpen) return null;
+
+    const dropdown = (
+      <div
+        ref={popperRef}
+        className={classNames(
+          dropdownClassName,
+          "yl-absolute yl-z-50 yl-mt-2 yl-w-56 yl-border-2 yl-border-border/40 yl-bg-background yl-shadow-md"
+        )}
+      >
+        {children ? (
+          children
+        ) : (
+          <DefaultDropdown options={options || []} setIsOpen={setIsOpen} />
+        )}
+      </div>
+    );
+
+    return ReactDOM.createPortal(dropdown, document.body);
+  };
 
   return (
-    <div className='yl-relative yl-text-primary-text-color' ref={dropdownRef}>
+    <div className='yl-relative yl-text-text' ref={dropdownRef}>
       <button
         ref={buttonRef}
         onClick={() => setIsOpen(!isOpen)}
@@ -48,21 +109,7 @@ const Dropdown: React.FC<IDropdownProps> = ({
       >
         {buttonContent}
       </button>
-      {isOpen && (
-        <div
-          ref={popperRef}
-          className={classNames(
-            dropdownClassName,
-            "yl-absolute yl-z-50 yl-mt-2 yl-w-56 yl-border-2 yl-border-primary-text-color/40 yl-bg-primary-background-color yl-shadow-md"
-          )}
-        >
-          {children ? (
-            children
-          ) : (
-            <DefaultDropdown options={options || []} setIsOpen={setIsOpen} />
-          )}
-        </div>
-      )}
+      {renderDropdown()}
     </div>
   );
 };

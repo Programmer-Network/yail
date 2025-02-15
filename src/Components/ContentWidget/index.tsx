@@ -26,7 +26,7 @@ const ContentWidget = <T extends IContentWidgetBaseItem>({
   return (
     <div
       className={classNames(
-        "yl-border-2 yl-border-primary-text-color/40 yl-rounded-md yl-px-8 yl-pt-4 yl-relative",
+        "yl-border-2 yl-border-border/40 yl-rounded-md yl-px-8 yl-pt-4 yl-relative",
         className
       )}
     >
@@ -45,14 +45,12 @@ const ContentWidget = <T extends IContentWidgetBaseItem>({
                 })}
               />
             )}
-            <span className='yl-font-bold yl-text-primary-text-color'>
-              {title}
-            </span>
+            <span className='yl-font-bold yl-text-text'>{title}</span>
             {more && (
               <Tooltip id='see-more-tooltip' text={more.tooltipText}>
                 <IconEnter
                   onClick={more.onClick}
-                  className='yl-w-8 yl-absolute yl-top-2 yl-right-2 yl-text-primary-text-color yl-cursor-pointer hover:yl-text-primary'
+                  className='yl-w-8 yl-absolute yl-top-2 yl-right-2 yl-text-text yl-cursor-pointer hover:yl-text-text'
                 />
               </Tooltip>
             )}
@@ -60,11 +58,7 @@ const ContentWidget = <T extends IContentWidgetBaseItem>({
         </div>
         <Divider
           className='yl-pt-2 yl-pb-3'
-          classes={[
-            "yl-bg-primary-text-color/20",
-            "yl-bg-primary-text-color/30",
-            "yl-bg-primary-text-color/40"
-          ]}
+          classes={["yl-bg-text/20", "yl-bg-text/30", "yl-bg-text/40"]}
         />
       </div>
 
@@ -76,7 +70,7 @@ const ContentWidget = <T extends IContentWidgetBaseItem>({
                 className='yl-mt-width-0 yl-flex-1 yl-break-words'
                 onClick={() => onClick(item)}
               >
-                <span className='hover:yl-text-primary hover:yl-cursor-pointer yl-break-words'>
+                <span className='hover:yl-text-text hover:yl-cursor-pointer yl-break-words'>
                   {item.title}
                 </span>
               </Paragraph>

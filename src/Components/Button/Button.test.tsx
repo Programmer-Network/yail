@@ -43,7 +43,7 @@ describe("Button component", () => {
   test("has correct styles when disabled and filled", () => {
     render(<Button disabled>Disabled Button</Button>);
     const button = screen.getByRole("button");
-    expect(button).toHaveClass("yl-text-primary-background-color");
+    expect(button).toHaveClass("yl-text-background");
     expect(button).toHaveClass("yl-bg-primary");
   });
 

@@ -1,3 +1,5 @@
+import { Placement } from "tippy.js";
+
 import Dropdown from "Components/Dropdown";
 import Icon from "Components/Icon";
 
@@ -5,13 +7,16 @@ import { ItemActionType } from "./types";
 
 const ItemActions = <T,>({
   item,
-  onAction
+  onAction,
+  placement
 }: {
   item: T;
   onAction?: (action: ItemActionType, item: T) => void;
+  placement?: Placement;
 }): JSX.Element => {
   return (
     <Dropdown
+      placement={placement}
       options={[
         {
           icon: (
@@ -50,7 +55,7 @@ const ItemActions = <T,>({
       buttonContent={
         <Icon
           iconName='IconDots'
-          className='yl-w-6 yl-text-primary-text-color/60 hover:yl-cursor-pointer hover:yl-text-primary'
+          className='yl-w-6 yl-text-text/60 hover:yl-cursor-pointer hover:yl-text-text'
         />
       }
     />

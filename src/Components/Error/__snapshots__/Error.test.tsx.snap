@@ -27,7 +27,7 @@ exports[`Error component > renders correctly - snapshot test 1`] = `
             404 error
           </p>
           <h1
-            class="yl-text-4xl yl-font-extrabold yl-tracking-tight yl-text-primary-text-color sm:yl-text-3xl"
+            class="yl-text-4xl yl-font-extrabold yl-tracking-tight yl-text-text sm:yl-text-3xl"
           >
             Page not found.
           </h1>

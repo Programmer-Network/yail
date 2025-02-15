@@ -54,12 +54,12 @@ const Mention: React.ForwardRefRenderFunction<MentionHandle, IMentionProps> = (
   }));
 
   return (
-    <ul className='yl-flex max-yl-h-60 yl-min-w-[150px] yl-flex-col yl-gap-2 overflow-y-auto yl-bg-primary-background-color yl-py-2 yl-pl-4 yl-text-primary-text-color shadow-lg'>
+    <ul className='yl-flex max-yl-h-60 yl-min-w-[150px] yl-flex-col yl-gap-2 overflow-y-auto yl-bg-background yl-py-2 yl-pl-4 yl-text-text shadow-lg'>
       {props.items.map((item, index) => (
         <li
           data-label={item.label}
           className={classNames({
-            "yl-text-primary": index === selectedIndex
+            "yl-text-text": index === selectedIndex
           })}
           key={index}
           onClick={() => selectItem(index)}

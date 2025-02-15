@@ -1,4 +1,5 @@
 import useAJVForm from "@programmer_network/use-ajv-form";
+import classNames from "classnames";
 import { FC } from "react";
 
 import Button from "Components/Button";
@@ -9,6 +10,7 @@ import { IAddSocialPlatformProps } from "./types";
 import { getValueHint, getValueLabel } from "./utils";
 
 const AddSocialPlatform: FC<IAddSocialPlatformProps> = ({
+  className,
   onAdd,
   platforms
 }) => {
@@ -21,7 +23,12 @@ const AddSocialPlatform: FC<IAddSocialPlatformProps> = ({
   );
 
   return (
-    <div className='yl-grid yl-grid-cols-12 yl-items-start yl-gap-2 my-4'>
+    <div
+      className={classNames(
+        "yl-grid md:yl-grid-cols-12 yl-items-end yl-gap-2",
+        className
+      )}
+    >
       <Select
         name='platform'
         label='Platform'
@@ -44,23 +51,25 @@ const AddSocialPlatform: FC<IAddSocialPlatformProps> = ({
           onChange={form.set}
         />
       </div>
-      <Button
-        outlined
-        className='yl-col-span-1 yl-mt-8'
-        onClick={() => {
-          if (!form.validate().isValid) {
-            return;
-          }
+      <div>
+        <Button
+          outlined
+          className='yl-col-span-1 yl-mt-2 md:yl-mt-0'
+          onClick={() => {
+            if (!form.validate().isValid) {
+              return;
+            }
 
-          onAdd?.({
-            [form.state.platform.value]: form.state.url.value
-          });
+            onAdd?.({
+              [form.state.platform.value]: form.state.url.value
+            });
 
-          form.reset();
-        }}
-      >
-        Add
-      </Button>
+            form.reset();
+          }}
+        >
+          Add
+        </Button>
+      </div>
     </div>
   );
 };

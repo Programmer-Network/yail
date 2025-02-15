@@ -20,7 +20,7 @@ export const Top: Story = {
     id: "tooltip",
     place: "top",
     text: "Hi, World",
-    children: <div>Hover Me</div>
+    children: <div className='yl-text-text'>Hover Me</div>
   }
 };
 
@@ -29,7 +29,7 @@ export const Left: Story = {
     id: "tooltip",
     place: "left",
     text: "Hi, World",
-    children: <div>Hover Me</div>
+    children: <div className='yl-text-text'>Hover Me</div>
   }
 };
 
@@ -38,7 +38,7 @@ export const Bottom: Story = {
     id: "tooltip",
     place: "bottom",
     text: "Hi, World",
-    children: <div>Hover Me</div>
+    children: <div className='yl-text-text'>Hover Me</div>
   }
 };
 
@@ -47,6 +47,6 @@ export const Right: Story = {
     id: "tooltip",
     place: "right",
     text: "Hi, World",
-    children: <div>Hover Me</div>
+    children: <div className='yl-text-text'>Hover Me</div>
   }
 };

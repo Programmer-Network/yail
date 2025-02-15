@@ -44,7 +44,7 @@ const ImageSelector: FC<IImageSelectorProps> = ({
             )}
           >
             {itemToDelete?.url === image.url && (
-              <Spinner className='!yl-w-24 yl-text-red-500' />
+              <Spinner className='!yl-w-24 yl-text-error' />
             )}
 
             {!itemToDelete && hoveredImage?.url === image.url && (
@@ -60,7 +60,7 @@ const ImageSelector: FC<IImageSelectorProps> = ({
                     setItemToDelete(null);
                   }
                 }}
-                className='yl-absolute yl-right-1 yl-top-1 yl-w-4 yl-cursor-pointer yl-text-primary-text-color transition duration-200 ease-in hover:yl-text-rose-700'
+                className='yl-absolute yl-right-1 yl-top-1 yl-w-4 yl-cursor-pointer yl-text-text transition duration-200 ease-in hover:yl-text-error'
               />
             )}
           </div>

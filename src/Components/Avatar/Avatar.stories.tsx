@@ -27,3 +27,18 @@ export const WithURL: Story = {
     size: 150
   }
 };
+
+export const WithClassName: Story = {
+  args: {
+    src: "https://avatars.githubusercontent.com/u/2085263?v=4",
+    size: 150,
+    className: "yl-border-4 yl-border-white"
+  }
+};
+
+export const WithClassNameBoringAvatars: Story = {
+  args: {
+    size: 150,
+    className: "yl-border-4 yl-border-white"
+  }
+};

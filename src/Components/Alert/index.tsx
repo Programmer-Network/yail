@@ -10,7 +10,7 @@ const Alert: FC<AlertProps> = ({ type, children, className }) => {
         className={classNames("yl-bg-gradient-to-r yl-p-[1px]", className, {
           "yl-from-green-400 yl-via-green-500 yl-to-green-900 yl-text-green-500":
             type === "success",
-          "yl-from-red-400 yl-via-red-500 yl-to-red-900 yl-text-red-500":
+          "yl-from-red-400 yl-via-error yl-to-red-900 yl-text-error":
             type === "error",
           "yl-from-yellow-400 yl-via-yellow-500 yl-to-yellow-900 yl-text-yellow-500":
             type === "warning",
@@ -18,7 +18,7 @@ const Alert: FC<AlertProps> = ({ type, children, className }) => {
             type === "info"
         })}
       >
-        <div className='back yl-flex yl-h-full yl-w-full yl-items-center yl-justify-center yl-bg-primary-background-color yl-p-4'>
+        <div className='back yl-flex yl-h-full yl-w-full yl-items-center yl-justify-center yl-bg-background yl-p-4'>
           <span>{children}</span>
         </div>
       </div>

@@ -61,10 +61,7 @@ const DraggableList: FC<IDraggableList> = ({
 
   return (
     <ul
-      className={classNames(
-        "yl-relative yl-text-primary-text-color",
-        className
-      )}
+      className={classNames("yl-relative yl-text-text", className)}
       onDragEnd={handleDrop}
     >
       {localItems
@@ -78,7 +75,7 @@ const DraggableList: FC<IDraggableList> = ({
                 {
                   [draggedClassName ?? ""]: draggedId === item.id,
                   [draggedOverClassName ?? ""]: draggedOverId === item.id,
-                  "yl-text-primary yl-cursor-pointer":
+                  "yl-text-text yl-cursor-pointer":
                     onClick && activeItemId === item.id
                 }
               )}

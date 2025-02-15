@@ -104,7 +104,7 @@ export default class TiptapToHTML {
       selfClosing: ["img"],
       allowedClasses: {
         "*": [
-          "yl-text-primary",
+          "yl-text-text",
           "yl-text-xl",
           "yl-text-2xl",
           "yl-text-3xl",
@@ -117,7 +117,7 @@ export default class TiptapToHTML {
         ],
         a: [
           "yl-underline,",
-          "yl-text-primary",
+          "yl-text-text",
           "yl-cursor-pointer",
           "yl-font-bold"
         ],

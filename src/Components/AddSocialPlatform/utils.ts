@@ -11,5 +11,5 @@ export const getValueLabel = (platform: string): string => {
     return "URL";
   }
 
-  return "Username";
+  return "Handle";
 };

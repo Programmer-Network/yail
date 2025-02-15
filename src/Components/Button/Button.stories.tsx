@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import Button from ".";
+import { ButtonVariantEnum } from "./types";
 
 const meta = {
   title: "Core/Button",
@@ -124,5 +125,46 @@ export const Green: Story = {
     outlined: true,
     isLoading: true,
     className: "button--green"
+  }
+};
+
+export const Secondary: Story = {
+  args: {
+    children: "Cancel",
+    variant: ButtonVariantEnum.SECONDARY
+  }
+};
+
+export const SecondaryDisabled: Story = {
+  args: {
+    children: "Cancel",
+    variant: ButtonVariantEnum.SECONDARY,
+    disabled: true
+  }
+};
+
+export const SecondaryWithIcon: Story = {
+  args: {
+    children: "Cancel",
+    variant: ButtonVariantEnum.SECONDARY,
+    icon: {
+      iconName: "IconAddCircle",
+      iconPosition: "left"
+    }
+  }
+};
+
+export const SecondaryLoading: Story = {
+  args: {
+    children: "Cancel",
+    variant: ButtonVariantEnum.SECONDARY,
+    isLoading: true
+  }
+};
+
+export const Primary: Story = {
+  args: {
+    children: "Submit",
+    variant: ButtonVariantEnum.PRIMARY
   }
 };

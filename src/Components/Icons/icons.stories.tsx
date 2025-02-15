@@ -25,9 +25,7 @@ const Template = () => {
                 className='yl-flex yl-flex-col yl-items-center yl-justify-center yl-gap-2 yl-p8'
               >
                 <Icon className='yl-h-16 yl-w-16 yl-text-white' />
-                <span className='yl-font-bold yl-text-primary-text-color'>
-                  {iconName}
-                </span>
+                <span className='yl-font-bold yl-text-text'>{iconName}</span>
               </div>
             );
           })}

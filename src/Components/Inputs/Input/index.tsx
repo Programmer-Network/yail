@@ -65,7 +65,7 @@ const Input: FC<IInputProps> = forwardRef<HTMLInputElement, IInputProps>(
             type={type}
             onChange={handleChange}
             className={classNames(
-              "yl-w-full yl-appearance-none yl-rounded-md yl-border-2 yl-border-primary-text-color yl-bg-transparent yl-p-2 yl-text-primary-text-color transition-colors hover:yl-border-primary focus:yl-border-primary focus:yl-outline-none focus:yl-ring-transparent",
+              "yl-w-full yl-appearance-none yl-rounded-md yl-border-2 yl-border-border yl-bg-transparent yl-p-2 yl-text-text transition-colors hover:yl-border-border focus:yl-border-border focus:yl-outline-none focus:yl-ring-transparent",
               className,
               {
                 "input-disabled": disabled

@@ -144,7 +144,7 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
       <div className='yl-flex yl-flex-col'>
         <div
           className={classNames(
-            "yl-relative yl-break-all yl-rounded-bl-md yl-rounded-br-md yl-border-2 yl-border-primary-text-color/40 yl-px-4 yl-pb-2 yl-pt-2",
+            "yl-relative yl-break-words yl-rounded-bl-md yl-rounded-br-md yl-border-2 yl-border-border/40 yl-px-4 yl-pb-2 yl-pt-2",
             {
               "!yl-border-t-0": hasToolbar
             }

@@ -31,8 +31,8 @@ const CTA: FC<ICTAProps> = (
               />
             )}
 
-            <H3 className='yl-text-primary-text-color'>{title}</H3>
-            <Paragraph className='yl-mx-auto yl-max-w-md yl-text-primary-text-color yl-text-center'>
+            <H3>{title}</H3>
+            <Paragraph className='yl-mx-auto yl-max-w-md yl-text-secondary yl-text-center'>
               {subtitle}
             </Paragraph>
           </div>

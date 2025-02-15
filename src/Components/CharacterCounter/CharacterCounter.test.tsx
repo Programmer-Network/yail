@@ -26,13 +26,13 @@ describe("CharacterCounter component", () => {
     expect(screen.getByTestId("separator")).toHaveTextContent("/");
     expect(screen.getByTestId("max-length")).toHaveTextContent(max.toString());
     expect(screen.getByTestId("current-length").parentNode).toHaveClass(
-      "!yl-text-rose-500"
+      "yl-text-error"
     );
   });
 
   test("text color does not change when within maximum characters", () => {
     render(<CharacterCounter text='Hello' max={10} />);
     const counterElement = screen.getByText("Hello".length);
-    expect(counterElement).not.toHaveClass("!lg-text-rose-500");
+    expect(counterElement).not.toHaveClass("!lg-text-error");
   });
 });

@@ -9,9 +9,13 @@ const Avatar: FC<IAvatarProps> = ({
   src,
   alt = "John Doe",
   size = 50,
-  colors = ["#6366f1", "#bae6fd"]
+  colors = ["#6366f1", "#bae6fd"],
+  className
 }) => {
-  const className = classNames("sm:yl-mt-0 yl-rounded-full yl-overflow-hidden");
+  const classes = classNames(
+    "sm:yl-mt-0 yl-rounded-full yl-overflow-hidden",
+    className
+  );
 
   src && StringUtils.validateURL(src);
 
@@ -19,7 +23,7 @@ const Avatar: FC<IAvatarProps> = ({
     return (
       <div
         data-testid='svg-avatar-parent'
-        className={className}
+        className={classes}
         style={{ width: `${size}px`, height: `${size}px` }}
       >
         <BoringAvatars size={size} name={alt} variant='beam' colors={colors} />
@@ -29,7 +33,7 @@ const Avatar: FC<IAvatarProps> = ({
 
   return (
     <div
-      className={className}
+      className={classes}
       style={{ width: `${size}px`, height: `${size}px` }}
     >
       <img

@@ -46,7 +46,7 @@ export const Default = () => {
         defaultSettings={defaultSettings}
       />
 
-      <section className='yl-bg-primary-background-color'>
+      <section className='yl-bg-background'>
         <H1>Lorem ipsum dolor sit amet.</H1>
         <Paragraph>
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum beatae

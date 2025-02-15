@@ -6,7 +6,7 @@ import { Option } from "./types";
  * @url https://react-select.com/styles
  */
 
-const color = "rgb(var(--text-color))";
+const color = "rgb(var(--color-secondary))";
 
 export const styles: StylesConfig<Option | undefined, false | true> = {
   input: (base: CSSObjectWithLabel) => ({
@@ -24,12 +24,12 @@ export const styles: StylesConfig<Option | undefined, false | true> = {
       ...base,
       backgroundColor: "rgb(var(--color-bg))",
       borderWidth: "2px",
-      borderColor: "rgb(var(--text-color))",
+      borderColor: "rgb(var(--color-border))",
       borderRadius: 6,
       boxShadow: "none",
       color,
       "&:hover": {
-        borderColor: "rgb(var(--text-color))"
+        borderColor: "rgb(var(--color-border))"
       }
     };
   },
@@ -41,23 +41,21 @@ export const styles: StylesConfig<Option | undefined, false | true> = {
     backgroundColor: props.isDisabled
       ? "rgba(var(--color-bg), 0.5)"
       : "rgb(var(--color-bg))",
-    color: props.isDisabled ? "rgba(var(--text-color), 0.5)" : color,
+    color: props.isDisabled ? "rgba(var(--color-secondary), 0.5)" : color,
     cursor: props.isDisabled ? "not-allowed" : "default",
     "&:active": {
-      backgroundColor: !props.isDisabled
-        ? "rgb(var(--color-primary))"
-        : undefined,
+      backgroundColor: !props.isDisabled ? "rgb(var(--color-bg))" : undefined,
       color: !props.isDisabled ? "#fff" : undefined
     }
   }),
   multiValueRemove: (base: CSSObjectWithLabel) => {
     return {
       ...base,
-      color: "rgb(var(--text-color))",
+      color: "rgb(var(--color-secondary))",
       cursor: "pointer",
       "&:hover": {
-        color: "rgb(var(--color-bg))",
-        backgroundColor: "rgb(var(--text-color))"
+        color: "rgb(var(--color-text))",
+        backgroundColor: "rgb(var(--color-error))"
       }
     };
   },
@@ -84,7 +82,7 @@ export const styles: StylesConfig<Option | undefined, false | true> = {
   placeholder: (base: CSSObjectWithLabel) => {
     return {
       ...base,
-      color: "rgb(var(--text-color))"
+      color: "rgb(var(--color-secondary))"
     };
   },
   valueContainer: (base: CSSObjectWithLabel) => {
@@ -103,7 +101,7 @@ export const styles: StylesConfig<Option | undefined, false | true> = {
       color,
       boxShadow: "none",
       borderWidth: "2px",
-      borderColor: "rgb(var(--text-color))",
+      borderColor: "rgb(var(--color-border))",
       borderRadius: 0,
       zIndex: 99999999
     };
@@ -111,16 +109,16 @@ export const styles: StylesConfig<Option | undefined, false | true> = {
   indicatorSeparator: (base: CSSObjectWithLabel) => {
     return {
       ...base,
-      backgroundColor: "rgb(var(--text-color))"
+      backgroundColor: "rgb(var(--color-secondary))"
     };
   },
   clearIndicator: (base: CSSObjectWithLabel) => {
     return {
       ...base,
-      color: "rgb(var(--text-color))",
+      color: "rgb(var(--color-secondary))",
       cursor: "pointer",
       "&:hover": {
-        color: "rgb(var(--color-primary))"
+        color: "rgb(var(--color-error))"
       }
     };
   },
@@ -131,18 +129,18 @@ export const styles: StylesConfig<Option | undefined, false | true> = {
       width: "10px"
     },
     "::-webkit-scrollbar-track": {
-      background: "##"
+      background: "rgb(var(--color-background))"
     },
     "::-webkit-scrollbar-thumb": {
-      background: "rgb(var(--text-color))"
+      background: "rgb(var(--color-border))"
     },
     "::-webkit-scrollbar-thumb:hover": {
-      background: "rgb(var(--text-color))"
+      background: "rgb(var(--color-border))"
     }
   }),
   groupHeading: (base: CSSObjectWithLabel) => ({
     ...base,
-    color: "rgb(var(--text-color))",
+    color: "rgb(var(--color-border))",
     padding: "5px 10px",
     fontSize: "0.75rem"
   })

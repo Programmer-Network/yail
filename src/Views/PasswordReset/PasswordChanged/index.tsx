@@ -9,7 +9,7 @@ const PasswordChanged: FC<{
 }> = ({ onButtonClick }) => {
   return (
     <div className='yl-text-center yl-flex yl-flex-col yl-justify-center yl-items-center'>
-      <IconCheck className='yl-w-36 yl-text-primary' />
+      <IconCheck className='yl-w-36 yl-text-secondary' />
       <div className='yl-flex yl-flex-col yl-gap-2'>
         <H3>Password has been successfully changed</H3>
         <Paragraph className='yl-text-2xl'>

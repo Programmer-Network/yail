@@ -44,19 +44,17 @@ const Error: React.FC<IErrorProps> = (
             >
               {error}
             </p>
-            <h1 className='yl-text-4xl yl-font-extrabold yl-tracking-tight yl-text-primary-text-color sm:yl-text-3xl'>
+            <h1 className='yl-text-4xl yl-font-extrabold yl-tracking-tight yl-text-text sm:yl-text-3xl'>
               {title}
             </h1>
             {description && (
-              <p className='yl-text-xl yl-text-primary-text-color'>
-                {description}
-              </p>
+              <p className='yl-text-xl yl-text-secondary'>{description}</p>
             )}
             {backToText && (
               <div className='hover:yl-cursor-pointer'>
                 <div
                   onClick={onBackToClick}
-                  className='yl-font-medium yl-text-primary hover:yl-text-primary'
+                  className='yl-font-medium yl-text-text hover:yl-text-text'
                 >
                   {backToText}
                   <span aria-hidden='true'> &rarr;</span>

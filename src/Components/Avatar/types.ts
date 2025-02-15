@@ -3,4 +3,5 @@ export interface IAvatarProps {
   alt?: string;
   size?: number;
   colors?: string[];
+  className?: string;
 }

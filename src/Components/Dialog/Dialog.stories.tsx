@@ -21,7 +21,7 @@ export const SelectAnImage = () => {
   return (
     <div>
       <div className='yl-mt-14'>
-        <Dialog ref={dialogRef}>
+        <Dialog ref={dialogRef} className='yl-px-4 yl-py-2'>
           <ImageUpload onFileLoaded={() => null} label='Select an image' />
         </Dialog>
       </div>

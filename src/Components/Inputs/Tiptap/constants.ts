@@ -29,37 +29,37 @@ export const TIPTAP_TOOLBAR_ITEMS = {
 export const typograyClassNames = {
   h1: (className?: string) =>
     classNames(
-      "yl-text-3xl sm:yl-text-4xl md:yl-text-5xl yl-text-primary yl-break-words yl-overflow-hidden yl-font-bold",
+      "yl-text-3xl sm:yl-text-4xl md:yl-text-5xl yl-text-text yl-break-words yl-overflow-hidden yl-font-bold",
       className
     ),
   h2: (className?: string) =>
     classNames(
-      "yl-text-2xl sm:yl-text-3xl md:yl-text-4xl yl-text-primary yl-break-words yl-overflow-hidden yl-font-bold",
+      "yl-text-2xl sm:yl-text-3xl md:yl-text-4xl yl-text-text yl-break-words yl-overflow-hidden yl-font-bold",
       className
     ),
   h3: (className?: string) =>
     classNames(
-      "yl-text-xl sm:yl-text-2xl md:yl-text-3xl yl-text-primary yl-break-words yl-overflow-hidden yl-font-bold",
+      "yl-text-xl sm:yl-text-2xl md:yl-text-3xl yl-text-text yl-break-words yl-overflow-hidden yl-font-bold",
       className
     ),
   h4: (className?: string) =>
     classNames(
-      "text-lg sm:yl-text-xl md:yl-text-2xl yl-text-primary yl-break-words yl-overflow-hidden yl-font-bold",
+      "text-lg sm:yl-text-xl md:yl-text-2xl yl-text-text yl-break-words yl-overflow-hidden yl-font-bold",
       className
     ),
   h5: (className?: string) =>
     classNames(
-      "yl-text-md sm:yl-text-lg md:yl-text-xl yl-text-primary yl-break-words yl-overflow-hidden yl-font-bold",
+      "yl-text-md sm:yl-text-lg md:yl-text-xl yl-text-text yl-break-words yl-overflow-hidden yl-font-bold",
       className
     ),
   h6: (className?: string) =>
     classNames(
-      "yl-text-sm sm:yl-text-md md:yl-text-lg yl-text-primary yl-break-words yl-overflow-hidden yl-font-bold",
+      "yl-text-sm sm:yl-text-md md:yl-text-lg yl-text-text yl-break-words yl-overflow-hidden yl-font-bold",
       className
     ),
   p: (className?: string) =>
     classNames(
-      "yl-text-primary-text-color yl-break-words yl-overflow-hidden",
+      "yl-text-secondary yl-break-words yl-overflow-hidden",
       className
     ),
   a: (className?: string) =>
@@ -69,12 +69,12 @@ export const typograyClassNames = {
     ),
   ul: (className?: string) =>
     classNames(
-      "yl-list-disc yl-text-primary-text-color marker:yl-text-primary marker:yl-text-xl yl-pl-4",
+      "yl-list-disc yl-text-secondary marker:yl-text-primary marker:yl-text-xl yl-pl-4",
       className
     ),
   ol: (className?: string) =>
     classNames(
-      "yl-list-decimal yl-text-primary-text-color marker:yl-text-primary marker:yl-text-xl yl-pl-4",
+      "yl-list-decimal yl-text-secondary marker:yl-text-primary marker:yl-text-xl yl-pl-4",
       className
     )
 };
@@ -110,17 +110,17 @@ export const toolbarItemToClassName = {
   },
   [TIPTAP_TOOLBAR_ITEMS.LINK]: {
     tagName: "a",
-    classes: "yl-underline yl-text-primary yl-cursor-pointer yl-font-bold"
+    classes: "yl-underline yl-text-text yl-cursor-pointer yl-font-bold"
   },
   [TIPTAP_TOOLBAR_ITEMS.UNORDERED_LIST]: {
     tagName: "ul",
     classes:
-      "yl-list-disc yl-text-primary-text-color marker:yl-text-primary marker:yl-text-xl yl-pl-4"
+      "yl-list-disc yl-text-text marker:yl-text-text marker:yl-text-xl yl-pl-4"
   },
   [TIPTAP_TOOLBAR_ITEMS.ORDERED_LIST]: {
     tagName: "ol",
     classes:
-      "yl-list-decimal yl-text-primary-text-color marker:yl-text-primary marker:yl-text-xl yl-pl-4"
+      "yl-list-decimal yl-text-text marker:yl-text-text marker:yl-text-xl yl-pl-4"
   },
   [TIPTAP_TOOLBAR_ITEMS.YOUTUBE]: {
     tagName: null,
@@ -128,11 +128,10 @@ export const toolbarItemToClassName = {
   },
   [TIPTAP_TOOLBAR_ITEMS.IMAGE]: {
     tagName: "img",
-    classes:
-      "yl-mx-auto yl-block yl-p-2 yl-border yl-border-primary-background-color"
+    classes: "yl-mx-auto yl-block yl-p-2 yl-border yl-border-background"
   },
   [TIPTAP_TOOLBAR_ITEMS.MENTION]: {
     tagName: null,
-    classes: "yl-text-primary yl-cursor-pointer yl-font-bold"
+    classes: "yl-text-text yl-cursor-pointer yl-font-bold"
   }
 };
