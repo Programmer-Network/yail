@@ -47,7 +47,12 @@ export const MultiSelect = () => {
     value: input as Option[]
   };
 
-  return <AsyncSelect {...args} />;
+  return (
+    <div>
+      <AsyncSelect {...args} />
+      <div>Hello, World!</div>
+    </div>
+  );
 };
 
 export const SingleSelect = () => {

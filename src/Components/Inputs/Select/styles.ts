@@ -22,7 +22,7 @@ export const styles: StylesConfig<Option | undefined, false | true> = {
   control: (base: CSSObjectWithLabel) => {
     return {
       ...base,
-      backgroundColor: "rgb(var(--color-bg))",
+      backgroundColor: "rgb(var(--color-background))",
       borderWidth: "2px",
       borderColor: "rgb(var(--color-border))",
       borderRadius: 6,
@@ -39,12 +39,14 @@ export const styles: StylesConfig<Option | undefined, false | true> = {
   ) => ({
     ...base,
     backgroundColor: props.isDisabled
-      ? "rgba(var(--color-bg), 0.5)"
-      : "rgb(var(--color-bg))",
+      ? "rgba(var(--color-background), 0.5)"
+      : "rgb(var(--color-background))",
     color: props.isDisabled ? "rgba(var(--color-secondary), 0.5)" : color,
     cursor: props.isDisabled ? "not-allowed" : "default",
     "&:active": {
-      backgroundColor: !props.isDisabled ? "rgb(var(--color-bg))" : undefined,
+      backgroundColor: !props.isDisabled
+        ? "rgb(var(--color-background))"
+        : undefined,
       color: !props.isDisabled ? "#fff" : undefined
     }
   }),
@@ -62,14 +64,14 @@ export const styles: StylesConfig<Option | undefined, false | true> = {
   multiValue: (base: CSSObjectWithLabel) => {
     return {
       ...base,
-      backgroundColor: "rgb(var(--color-bg))",
+      backgroundColor: "rgb(var(--color-background))",
       color
     };
   },
   singleValue: (base: CSSObjectWithLabel) => {
     return {
       ...base,
-      backgroundColor: "rgb(var(--color-bg))",
+      backgroundColor: "rgb(var(--color-background))",
       color
     };
   },
@@ -97,7 +99,7 @@ export const styles: StylesConfig<Option | undefined, false | true> = {
   menu: (base: CSSObjectWithLabel) => {
     return {
       ...base,
-      backgroundColor: "rgb(var(--color-bg))",
+      backgroundColor: "rgb(var(--color-background))",
       color,
       boxShadow: "none",
       borderWidth: "2px",
@@ -109,13 +111,13 @@ export const styles: StylesConfig<Option | undefined, false | true> = {
   indicatorSeparator: (base: CSSObjectWithLabel) => {
     return {
       ...base,
-      backgroundColor: "rgb(var(--color-secondary))"
+      backgroundColor: "rgb(var(--color-border))"
     };
   },
   clearIndicator: (base: CSSObjectWithLabel) => {
     return {
       ...base,
-      color: "rgb(var(--color-secondary))",
+      color: "rgb(var(--color-border))",
       cursor: "pointer",
       "&:hover": {
         color: "rgb(var(--color-error))"
