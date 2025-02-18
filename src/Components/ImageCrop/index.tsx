@@ -20,7 +20,7 @@ const ImageCrop: FC<IImageCropProps> = ({
   setCrop,
   circularCrop,
   locked,
-  aspect = 1,
+  aspect = undefined,
   imgCropWrapperClassName,
   imgCropClassName
 }) => {
@@ -41,6 +41,7 @@ const ImageCrop: FC<IImageCropProps> = ({
       centerCrop(
         makeAspectCrop(
           {
+            height: crop.height,
             unit: crop.unit as PixelCrop["unit"],
             width: crop.width
           },
