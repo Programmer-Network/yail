@@ -34,12 +34,12 @@ exports[`Avatar component > renders correctly - snapshot test 1`] = `
         mask="url(#:r2:)"
       >
         <rect
-          fill="#6366f1"
+          fill="#ad46ff"
           height="36"
           width="36"
         />
         <rect
-          fill="#bae6fd"
+          fill="#ffb900"
           height="36"
           rx="6"
           transform="translate(7 1) rotate(73 18 18) scale(1.1)"

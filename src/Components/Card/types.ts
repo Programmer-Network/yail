@@ -11,6 +11,7 @@ export interface ICardData {
     name: string;
     url: string;
   }[];
+  image?: string;
 }
 
 export interface ICard {

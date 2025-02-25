@@ -9,7 +9,7 @@ const Avatar: FC<IAvatarProps> = ({
   src,
   alt = "John Doe",
   size = 50,
-  colors = ["#6366f1", "#bae6fd"],
+  colors = ["#ad46ff", "#ffb900"],
   className
 }) => {
   const classes = classNames(

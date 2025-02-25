@@ -64,7 +64,7 @@ export const typograyClassNames = {
     ),
   a: (className?: string) =>
     classNames(
-      "hover:yl-text-stroke yl-text-primary hover:yl-underline hover:yl-opacity-80 active:yl-opacity-50",
+      "yl-break-all hover:yl-text-stroke yl-text-primary hover:yl-underline hover:yl-opacity-80 active:yl-opacity-50",
       className
     ),
   ul: (className?: string) =>

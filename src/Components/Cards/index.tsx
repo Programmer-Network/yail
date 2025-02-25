@@ -5,7 +5,13 @@ import Card from "Components/Card";
 
 import { ICardsProps } from "./types";
 
-const Cards: FC<ICardsProps> = ({ className, cards, columns, NavLink }) => {
+const Cards: FC<ICardsProps> = ({
+  className,
+  cardClassName,
+  cards,
+  columns,
+  NavLink
+}) => {
   return (
     <div
       data-testid='cards'
@@ -25,7 +31,14 @@ const Cards: FC<ICardsProps> = ({ className, cards, columns, NavLink }) => {
       })}
     >
       {cards.map((card, index) => {
-        return <Card key={index} data={card} NavLink={NavLink} />;
+        return (
+          <Card
+            key={index}
+            data={card}
+            NavLink={NavLink}
+            className={cardClassName}
+          />
+        );
       })}
     </div>
   );

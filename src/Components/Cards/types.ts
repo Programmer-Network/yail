@@ -9,4 +9,5 @@ export interface ICardsProps {
   >;
   columns: number;
   className?: string;
+  cardClassName?: string;
 }

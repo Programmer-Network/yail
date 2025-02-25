@@ -10,12 +10,12 @@ export default create({
   appBg: "#1b1f23",
   appContentBg: "#1b1f23",
   appBorderColor: "#1b1f23",
-  colorPrimary: "#4f46e5",
+  colorPrimary: "#ffb900",
   textColor: "#9ca3af",
   barBg: "#1b1f23",
-  barTextColor: "#4f46e5",
+  barTextColor: "#ffb900",
   barSelectedColor: "#4338ca",
   barHoverColor: "#4338ca",
   appBorderRadius: 0,
-  colorSecondary: "#4f46e5"
+  colorSecondary: "#ffb900"
 });
