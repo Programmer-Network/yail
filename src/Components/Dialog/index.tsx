@@ -5,7 +5,10 @@ import "./dialog.css";
 import { IDialogProps } from "./types";
 
 const Dialog = forwardRef<HTMLDialogElement, IDialogProps>(
-  ({ className, isOpen, children, onClose }, forwardedRef) => {
+  (
+    { className, isOpen, children, onClose, shouldCloseOnClickOutside = true },
+    forwardedRef
+  ) => {
     const internalRef = useRef<HTMLDialogElement>(null);
     const ref = (forwardedRef ||
       internalRef) as React.MutableRefObject<HTMLDialogElement>;
@@ -15,12 +18,16 @@ const Dialog = forwardRef<HTMLDialogElement, IDialogProps>(
      * and reset it when dialog is closed
      */
     useEffect(() => {
+      if (!shouldCloseOnClickOutside) {
+        return;
+      }
+
       if (isOpen) {
         document.body.style.overflow = "hidden";
       } else {
         document.body.style.overflow = "";
       }
-    }, [isOpen]);
+    }, [isOpen, shouldCloseOnClickOutside]);
 
     /**
      * Handle dialog close on click outside
@@ -28,6 +35,10 @@ const Dialog = forwardRef<HTMLDialogElement, IDialogProps>(
      */
     useEffect(() => {
       const handleDialogClick = (event: MouseEvent) => {
+        if (!shouldCloseOnClickOutside) {
+          return;
+        }
+
         if (event.target === ref.current) {
           onClose?.();
           ref.current?.close();
@@ -52,7 +63,6 @@ const Dialog = forwardRef<HTMLDialogElement, IDialogProps>(
         document.removeEventListener("keydown", handleKeyDown);
       };
     }, [onClose, ref]);
-
     useEffect(() => {
       if (isOpen) {
         ref.current?.showModal();
@@ -65,7 +75,7 @@ const Dialog = forwardRef<HTMLDialogElement, IDialogProps>(
       <dialog
         ref={ref}
         className={classNames(
-          "yl-z-50 yl-rounded-lg yl-bg-background yl-shadow-md yl-ring-1 yl-ring-text yl-ring-opacity-30 md:yl-w-2/12",
+          "yl-z-50 yl-rounded-lg yl-bg-background yl-shadow-md yl-ring-1 yl-ring-text yl-ring-opacity-30",
           className
         )}
         onClick={e => e.stopPropagation()}

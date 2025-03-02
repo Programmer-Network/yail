@@ -1,11 +1,9 @@
-import { useDebounceEffect } from "Hooks/useDebounceEffect";
 import { CanvasUtils } from "Utils";
 import classNames from "classnames";
-import { FC, useRef, useState } from "react";
+import { FC, useMemo, useRef } from "react";
 import ReactCrop, {
   PercentCrop,
   PixelCrop,
-  centerCrop,
   makeAspectCrop
 } from "react-image-crop";
 import "react-image-crop/dist/ReactCrop.css";
@@ -21,14 +19,16 @@ const ImageCrop: FC<IImageCropProps> = ({
   circularCrop,
   locked,
   aspect = undefined,
-  imgCropWrapperClassName,
-  imgCropClassName
+  imgCropWrapperClassName
 }) => {
-  const previewCanvasRef = useRef(null);
   const imgRef = useRef(null);
+  const imageSrc = useMemo(() => {
+    if (!src) {
+      return "";
+    }
 
-  const [scale] = useState(1);
-  const [rotate] = useState(0);
+    return URL.createObjectURL(src);
+  }, [src]);
 
   const onImageLoad = async (e: React.SyntheticEvent<HTMLImageElement>) => {
     if (!aspect) {
@@ -38,17 +38,13 @@ const ImageCrop: FC<IImageCropProps> = ({
     const { width: mediaWidth, height: mediaHeight } = e.currentTarget;
 
     setCrop(
-      centerCrop(
-        makeAspectCrop(
-          {
-            height: crop.height,
-            unit: crop.unit as PixelCrop["unit"],
-            width: crop.width
-          },
-          aspect,
-          mediaWidth,
-          mediaHeight
-        ),
+      makeAspectCrop(
+        {
+          height: crop.height,
+          unit: crop.unit as PercentCrop["unit"],
+          width: crop.width
+        },
+        aspect,
         mediaWidth,
         mediaHeight
       )
@@ -58,22 +54,7 @@ const ImageCrop: FC<IImageCropProps> = ({
       return;
     }
 
-    const { croppedImage, cropError } = await CanvasUtils.getCroppedImg(
-      imgRef.current,
-      crop
-    );
-
-    if (cropError) {
-      onError?.(cropError);
-
-      return;
-    }
-
-    onComplete?.(croppedImage as Blob);
-  };
-
-  const handleChange = (_: PixelCrop, percentCrop: PercentCrop) => {
-    setCrop(percentCrop);
+    onComplete?.(imgRef.current);
   };
 
   const handleComplete = async (crop: PixelCrop) => {
@@ -88,66 +69,41 @@ const ImageCrop: FC<IImageCropProps> = ({
 
     if (cropError) {
       onError?.(cropError);
+
       return;
     }
-
-    setCrop({ ...crop, width: crop.width, height: crop.height });
 
     onComplete?.(croppedImage as Blob);
   };
 
-  useDebounceEffect(
-    () => {
-      if (
-        !crop?.width ||
-        !crop?.height ||
-        !imgRef.current ||
-        !previewCanvasRef.current
-      ) {
-        return;
-      }
-
-      try {
-        CanvasUtils.canvasPreview(
-          imgRef.current,
-          previewCanvasRef.current,
-          crop,
-          scale,
-          rotate
-        );
-      } catch (error) {
-        onError?.((error as Error)?.message || "An error occurred");
-      }
-    },
-    100,
-    [crop, scale, rotate]
-  );
-
   return (
-    <div>
+    <div className='yl-w-full yl-h-full yl-flex yl-items-center yl-justify-center'>
       {Boolean(src) && (
         <ReactCrop
           locked={locked}
           crop={crop}
-          onChange={handleChange}
-          onComplete={onComplete ? handleComplete : undefined}
+          onChange={setCrop}
+          onComplete={handleComplete}
           aspect={aspect}
           keepSelection
           circularCrop={circularCrop}
+          className='yl-w-full yl-h-full'
         >
           <div
             className={classNames(imgCropWrapperClassName, {
-              "yl-relative yl-h-[350px] yl-w-[350px]": !imgCropWrapperClassName
+              "yl-relative yl-w-full yl-h-full yl-overflow-hidden yl-flex yl-items-center yl-justify-center":
+                !imgCropWrapperClassName
             })}
           >
             <img
-              className={classNames(imgCropClassName, {
-                "yl-absolute yl-h-full yl-w-full bg-yl-left-top object-cover":
-                  !imgCropClassName
-              })}
+              style={{
+                objectFit: "cover",
+                minWidth: "100%",
+                minHeight: "100%"
+              }}
               ref={imgRef}
               alt='Crop me'
-              src={src}
+              src={imageSrc}
               onLoad={onImageLoad}
             />
           </div>

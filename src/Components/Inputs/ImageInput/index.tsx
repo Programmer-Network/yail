@@ -25,6 +25,17 @@ const ImageInput: FC<IImageInputProps> = ({
 }) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
+  /**
+   * Resets the file input value to an empty string.
+   * This allows the same file to be selected multiple times in a row,
+   * as the browser will detect a change in the input value and trigger the onChange event.
+   */
+  const resetFileInput = () => {
+    if (fileInputRef.current) {
+      fileInputRef.current.value = "";
+    }
+  };
+
   const handleSelect = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files || e.target.files.length === 0) {
       return;
@@ -40,7 +51,7 @@ const ImageInput: FC<IImageInputProps> = ({
 
     if (!isValidImage) {
       onValidationError?.(imageValidationError);
-
+      resetFileInput();
       return;
     }
 
@@ -55,6 +66,8 @@ const ImageInput: FC<IImageInputProps> = ({
       fileName,
       mimeType
     });
+
+    resetFileInput();
   };
 
   const handleButtonClick = () => {
