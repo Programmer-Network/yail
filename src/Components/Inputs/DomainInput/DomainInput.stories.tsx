@@ -18,8 +18,9 @@ export const Default = () => {
   const [input, setInput] = useState<Record<string, string>>({ url: "" });
 
   useEffect(() => {
-    action("onChange")(input["url"]);
-  }, [input["url"]]);
+    const url = input["url"];
+    action("onChange")(url);
+  }, [input]);
 
   return (
     <DomainInput

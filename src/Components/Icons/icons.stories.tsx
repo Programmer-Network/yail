@@ -1,37 +1,35 @@
-import Icon from "Components/Icon";
+import React from "react";
 
-import { IconName } from "./types";
+import * as Icons from "./";
 
 export default {
   title: "Core/Icons"
 };
 
 const Template = () => {
-  // const AllIcons = Icons as Record<string, React.FC<IIconProps>>;
+  const AllIcons = Icons as Record<
+    string,
+    React.FC<React.SVGProps<SVGSVGElement>>
+  >;
 
   return (
-    <div>
+    <div className='yl:flex yl:flex-col yl:gap-4'>
       <div className='yl:grid yl:grid-cols-4 yl:gap-4'>
-        {["IconAdd"].sort().map((iconName: string) => {
-          // const Icon = AllIcons[iconName];
-
-          // if (!Icon) {
-          //   return null;
-          // }
-
-          return (
-            <div
-              key={iconName}
-              className='yl:flex yl:flex-col yl:items-center yl:justify-center yl:gap-2 yl:p-8'
-            >
-              <Icon
-                iconName={iconName as IconName}
-                className='yl:h-16 yl:w-16 yl:text-white'
-              />
-              <span className='yl:font-bold yl:text-text'>{iconName}</span>
-            </div>
-          );
-        })}
+        {Object.keys(AllIcons)
+          .sort()
+          .map((iconName: string) => {
+            const Icon = AllIcons[iconName];
+            return (
+              <div
+                key={iconName}
+                className='yl:flex yl:flex-col yl:items-center yl:justify-center yl:gap-2 yl:p8'
+              >
+                {/* @ts-ignore */}
+                <Icon className='yl:h-16 yl:w-16 yl:text-white' />
+                <span className='yl:font-bold yl:text-text'>{iconName}</span>
+              </div>
+            );
+          })}
       </div>
     </div>
   );
