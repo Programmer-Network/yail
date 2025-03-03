@@ -18,7 +18,7 @@ import { IImageDialogProps } from "./types";
 
 const ImageDialog = forwardRef<HTMLDialogElement, IImageDialogProps>(
   (
-    { className, isOpen, onClose, onOpen, onSave, aspect = 1 },
+    { className, isOpen, onClose, onOpen, onSave, aspect = 1, buttonText },
     forwardedRef
   ) => {
     const [validationError, setValidationError] =
@@ -39,77 +39,91 @@ const ImageDialog = forwardRef<HTMLDialogElement, IImageDialogProps>(
         <Dialog
           shouldCloseOnClickOutside={false}
           ref={forwardedRef}
-          className={classNames(className, "yl-w-[500px] yl-overflow-hidden")}
+          className={classNames(
+            className,
+            "yl-w-[500px] yl-overflow-hidden yl-p-2"
+          )}
           isOpen={isOpen}
           onClose={onClose}
         >
-          <div className='yl-relative yl-w-full yl-overflow-hidden yl-flex yl-items-center yl-justify-center'>
-            <ImageCrop
-              aspect={aspect}
-              src={imageInputSelection?.file.blob ?? null}
-              setCrop={setCrop}
-              onComplete={blob => {
-                setCroppedImage(blob);
-              }}
-              crop={crop}
-            />
-          </div>
+          {imageInputSelection?.file.blob && (
+            <div className=' yl-flex yl-flex-col'>
+              <div className='yl-relative yl-w-full yl-overflow-hidden yl-flex yl-items-center yl-justify-center'>
+                <ImageCrop
+                  aspect={aspect}
+                  src={imageInputSelection?.file.blob ?? null}
+                  setCrop={setCrop}
+                  onComplete={blob => {
+                    setCroppedImage(blob);
+                  }}
+                  crop={crop}
+                />
+              </div>
+              <div className='yl-mt-4'>
+                <div className='yl-flex yl-gap-2'>
+                  <Button
+                    type='button'
+                    className='yl-flex-1'
+                    onClick={async () => {
+                      try {
+                        if (!croppedImage) {
+                          return;
+                        }
 
-          <div className='yl-absolute yl-bottom-3 yl-left-3 yl-right-3 yl-top-auto !yl-p-4'>
-            <div className='yl-flex yl-gap-2'>
-              <Button
-                type='button'
-                className='yl-flex-1'
-                onClick={async () => {
-                  try {
-                    if (!croppedImage) {
-                      return;
-                    }
+                        await onSave?.(croppedImage);
+                        setImageInputSelection(null);
+                        setCroppedImage(null);
+                        setCrop({
+                          x: 0,
+                          y: 0,
+                          width: 100,
+                          height: 100,
+                          unit: "%" as const
+                        });
 
-                    await onSave?.(croppedImage);
-                    setImageInputSelection(null);
-                    setCroppedImage(null);
-                    setCrop({
-                      x: 0,
-                      y: 0,
-                      width: 100,
-                      height: 100,
-                      unit: "%" as const
-                    });
-
-                    onClose?.();
-                  } catch (error) {
-                    console.error(error);
-                  }
-                }}
-                // isLoading={isUploadingImage}
-                // disabled={isUploadingImage}
-              >
-                Set new profile picture
-              </Button>
-              <Button
-                outlined
-                type='button'
-                onClick={() => {
-                  setImageInputSelection(null);
-                  setCroppedImage(null);
-                  setCrop({
-                    x: 0,
-                    y: 0,
-                    width: 100,
-                    height: 100,
-                    unit: "%" as const
-                  });
-                  onClose?.();
-                }}
-                icon={{
-                  iconName: "IconClose",
-                  iconClassName: "yl-size-6",
-                  iconPosition: "right"
-                }}
-              />
+                        onClose?.();
+                      } catch (error) {
+                        console.error(error);
+                      }
+                    }}
+                    icon={{
+                      iconName: "IconImage",
+                      iconClassName: "yl-size-6",
+                      iconPosition: "left"
+                    }}
+                    // isLoading={isUploadingImage}
+                    // disabled={isUploadingImage}
+                  >
+                    {buttonText}
+                  </Button>
+                  <Button
+                    outlined
+                    type='button'
+                    className='yl-text-secondary yl-fill-secondary yl-border-secondary hover:yl-bg-secondary/5 hover:yl-text-secondary hover:yl-fill-secondary hover:yl-border-secondary'
+                    onClick={() => {
+                      setImageInputSelection(null);
+                      setCroppedImage(null);
+                      setCrop({
+                        x: 0,
+                        y: 0,
+                        width: 100,
+                        height: 100,
+                        unit: "%" as const
+                      });
+                      onClose?.();
+                    }}
+                    icon={{
+                      iconName: "IconClose",
+                      iconClassName: "yl-size-5",
+                      iconPosition: "left"
+                    }}
+                  >
+                    Cancel
+                  </Button>
+                </div>
+              </div>
             </div>
-          </div>
+          )}
         </Dialog>
 
         <ImageInput
@@ -124,7 +138,7 @@ const ImageDialog = forwardRef<HTMLDialogElement, IImageDialogProps>(
           error={validationError?.message}
           label='Select an image'
           accept='image/*'
-          maxFileSize={1024 * 1024 * 0.5} // 500KB
+          // maxFileSize={1024 * 1024 * 0.5} // 500KB
           allowedMimeTypes={["image/jpeg", "image/png", "image/gif"]}
           compression={{ enabled: true, quality: 0.8 }}
         />

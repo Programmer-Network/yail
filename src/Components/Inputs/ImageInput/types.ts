@@ -17,7 +17,7 @@ export interface IImageInputProps {
   id?: string;
   accept: string;
   className?: string;
-  maxFileSize: number;
+  maxFileSize?: number;
   onFileLoaded: (data: IOnFileLoadedArgs) => void;
   allowedMimeTypes: string[];
   onValidationError?: (error: TValidationError) => void;

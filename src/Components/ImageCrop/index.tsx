@@ -16,8 +16,8 @@ const ImageCrop: FC<IImageCropProps> = ({
   onError,
   crop,
   setCrop,
-  circularCrop,
-  locked,
+  circularCrop = false,
+  locked = false,
   aspect = undefined,
   imgCropWrapperClassName
 }) => {
@@ -84,7 +84,7 @@ const ImageCrop: FC<IImageCropProps> = ({
           crop={crop}
           onChange={setCrop}
           onComplete={handleComplete}
-          aspect={aspect}
+          {...(aspect !== undefined ? { aspect } : {})}
           keepSelection
           circularCrop={circularCrop}
           className='yl-w-full yl-h-full'

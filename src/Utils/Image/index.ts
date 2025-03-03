@@ -120,7 +120,13 @@ class ImageUtils {
   }
 
   public static base64ToBlob = (base64: string, mimeType: string): Blob => {
-    const byteCharacters = atob(base64.split(",")[1]);
+    const parts = base64.split(",");
+    if (parts.length < 2) {
+      throw new Error("Invalid base64 string format");
+    }
+
+    const base64Data = parts[1] as string;
+    const byteCharacters = atob(base64Data);
     const byteArrays = [];
 
     for (let offset = 0; offset < byteCharacters.length; offset += 512) {

@@ -185,13 +185,15 @@ export const AddSectionAndSectionItem = () => {
       <Button
         onClick={() => {
           const newSection = sections[0];
-          newSection.items.push({
-            id: Math.floor(Math.random() * 1000000),
-            title: faker.lorem.words(Math.floor(Math.random() * 10) + 1),
-            order: newSection.items.length
-          });
+          if (newSection) {
+            newSection.items.push({
+              id: Math.floor(Math.random() * 1000000),
+              title: faker.lorem.words(Math.floor(Math.random() * 10) + 1),
+              order: newSection.items.length
+            });
+          }
 
-          setSections([newSection]);
+          setSections([newSection as ISection]);
         }}
       >
         Add Section
@@ -204,13 +206,15 @@ export const AddSectionAndSectionItem = () => {
         hasDraggableSectionItems={true}
         onSectionItemClick={sectionItem => {
           const newSection = sections[0];
-          newSection.items = newSection.items.filter(
-            item => item.id !== sectionItem.id
-          );
+          if (newSection) {
+            newSection.items = newSection.items.filter(
+              item => item.id !== sectionItem.id
+            );
+          }
 
-          setSections([newSection]);
+          setSections([newSection as ISection]);
         }}
-        onSorted={(type, sections) => {
+        onSorted={(_, sections) => {
           setSections(sections);
         }}
         onAddSection={() => {
@@ -254,7 +258,7 @@ export const WithAddLabels = () => {
         selectedId={2}
         sections={sections}
         expanded={expandedSections}
-        onSorted={(type, sections) => {
+        onSorted={(_, sections) => {
           setSections(sections);
         }}
         onAddSection={() => {

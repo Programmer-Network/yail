@@ -45,7 +45,7 @@ const ImageInput: FC<IImageInputProps> = ({
     const { name: fileName, type: mimeType } = file;
     const { imageValidationError, isValidImage } = await ImageUtils.validate(
       file,
-      maxFileSize,
+      maxFileSize ?? Number.MAX_SAFE_INTEGER,
       allowedMimeTypes
     );
 
