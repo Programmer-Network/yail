@@ -1,6 +1,6 @@
 import React from "react";
 
-import { IconBookmark, IconBookmarked } from "Components/Icons";
+import Icon from "Components/Icon";
 import Spinner from "Components/Spinner";
 
 import { IBookmarkProps } from "./types";
@@ -14,22 +14,24 @@ const Bookmark: React.FC<IBookmarkProps> = (
   }
 ) => {
   return (
-    <div className='yl-flex yl-items-start yl-gap-2'>
-      <div className='yl-flex yl-gap-2'>
+    <div className='yl:flex yl:items-start yl:gap-2'>
+      <div className='yl:flex yl:gap-2'>
         {isLoading ? (
-          <Spinner className='yl-w-5 yl-fill-text' />
+          <Spinner className='yl:w-5 yl:fill-text' />
         ) : (
           <>
             {isBookmarked ? (
-              <IconBookmarked
+              <Icon
+                iconName='IconBookmarked'
                 data-testid='icon-bookmarked'
-                className='yl-relative yl-top-[-1px] yl-w-5 yl-cursor-pointer yl-fill-primary hover:yl-fill-primary'
+                className='yl:relative yl:top-[-1px] yl:w-5 yl:cursor-pointer yl:fill-primary yl:hover:fill-primary'
                 onClick={handleDelete}
               />
             ) : (
-              <IconBookmark
+              <Icon
+                iconName='IconBookmark'
                 data-testid='icon-bookmark'
-                className='yl-relative yl-top-[-1px] yl-w-5 yl-cursor-pointer yl-fill-text hover:yl-fill-primary'
+                className='yl:relative yl:top-[-1px] yl:w-5 yl:cursor-pointer yl:fill-text yl:hover:fill-primary'
                 onClick={handleAdd}
               />
             )}

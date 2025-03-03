@@ -1,10 +1,10 @@
 import "@testing-library/jest-dom";
 import { fireEvent, render } from "@testing-library/react";
 import { useOnClickOutside } from "Hooks/useClickOutside";
-import { useRef } from "react";
+import { RefObject, useRef } from "react";
 import { vi } from "vitest";
 
-import { IconShare } from "Components/Icons";
+import Icon from "Components/Icon";
 
 import Dropdown from "./";
 
@@ -15,7 +15,7 @@ describe("Dropdown Component", () => {
     const TestComponent = () => {
       const ref = useRef<HTMLDivElement>(null);
 
-      useOnClickOutside(ref, callback);
+      useOnClickOutside(ref as RefObject<HTMLElement>, callback);
 
       return <div ref={ref}>Test Div</div>;
     };
@@ -34,7 +34,12 @@ describe("Dropdown Component", () => {
     const { getByText, queryByText } = render(
       <Dropdown
         buttonContent='Click Me'
-        options={[{ value: "foo", icon: <IconShare className='yl-w-4' /> }]}
+        options={[
+          {
+            value: "foo",
+            icon: <Icon iconName='IconShare' className='yl:w-4' />
+          }
+        ]}
       />
     );
 

@@ -1,4 +1,3 @@
-import { MentionOptions } from "@tiptap/extension-mention";
 import { ReactRenderer } from "@tiptap/react";
 import {
   SuggestionKeyDownProps,
@@ -7,8 +6,12 @@ import {
 } from "@tiptap/suggestion";
 import tippy, { GetReferenceClientRect, Instance, Props } from "tippy.js";
 
-import { MentionHandle, TiptapSuggestionOptions } from "../../types";
+import { TiptapSuggestionOptions } from "../../types";
 import Mention from "../Mention";
+
+interface MentionRef {
+  onKeyDown: (props: SuggestionKeyDownProps) => boolean;
+}
 
 const Suggestion = ({
   suggestions
@@ -20,7 +23,7 @@ const Suggestion = ({
     char: suggestions.trigger || "#",
     items: suggestions.items,
     render: () => {
-      let Component: ReactRenderer<MentionHandle, MentionOptions>;
+      let Component: ReactRenderer<MentionRef>;
       let tippyInstance: Instance;
 
       return {

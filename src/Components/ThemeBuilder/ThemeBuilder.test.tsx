@@ -18,8 +18,8 @@ describe("ThemeBuilder component", () => {
       label: "Background",
       type: "background",
       customCSSProperty: "--color-bg",
-      color: "#1b1f23",
-      defaultColor: "#1b1f23"
+      color: "#ffb900",
+      defaultColor: "#ffb900"
     },
     {
       label: "Text Color",
@@ -42,8 +42,8 @@ describe("ThemeBuilder component", () => {
       label: "Background",
       type: "background",
       customCSSProperty: "--color-bg",
-      color: "#1b1f23",
-      defaultColor: "#1b1f23"
+      color: "#ffb900",
+      defaultColor: "#ffb900"
     },
     {
       label: "Text",

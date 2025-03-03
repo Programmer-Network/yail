@@ -5,7 +5,7 @@ import Divider from "./";
 describe("Divider component", () => {
   test("renders correctly - snapshot test", () => {
     const { asFragment } = render(
-      <Divider classes={["yl-bg-text", "yl-bg-text", "yl-bg-text"]} />
+      <Divider classes={["yl:bg-text", "yl:bg-text", "yl:bg-text"]} />
     );
     expect(asFragment()).toMatchSnapshot();
   });
@@ -15,7 +15,7 @@ describe("Divider component", () => {
     render(
       <Divider
         className={customClass}
-        classes={["yl-bg-text", "yl-bg-text", "yl-bg-text"]}
+        classes={["yl:bg-text", "yl:bg-text", "yl:bg-text"]}
       />
     );
     const divider = screen.getByTestId("divider");

@@ -21,8 +21,8 @@ export const Default = () => {
       label: "Background",
       type: "background",
       customCSSProperty: "--color-bg",
-      color: "#1b1f23",
-      defaultColor: "#1b1f23"
+      color: "#ffb900",
+      defaultColor: "#ffb900"
     },
     {
       label: "Text",
@@ -36,7 +36,7 @@ export const Default = () => {
   const [settings, setSettings] = useState(defaultSettings);
 
   return (
-    <div className='yl-mt-12'>
+    <div className='yl:mt-12'>
       <ThemeBuilder
         onChange={async settings => {
           setSettings(settings);
@@ -46,7 +46,7 @@ export const Default = () => {
         defaultSettings={defaultSettings}
       />
 
-      <section className='yl-bg-background'>
+      <section className='yl:bg-background'>
         <H1>Lorem ipsum dolor sit amet.</H1>
         <Paragraph>
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum beatae

@@ -1,3 +1,4 @@
+import { type ReactElement } from "react";
 import { Placement } from "tippy.js";
 
 import Dropdown from "Components/Dropdown";
@@ -13,7 +14,7 @@ const ItemActions = <T,>({
   item: T;
   onAction?: (action: ItemActionType, item: T) => void;
   placement?: Placement;
-}): JSX.Element => {
+}): ReactElement => {
   return (
     <Dropdown
       placement={placement}
@@ -22,7 +23,7 @@ const ItemActions = <T,>({
           icon: (
             <Icon
               iconName='IconEdit'
-              className='yl-w-4'
+              className='yl:w-4'
               data-testid='icon-iconedit'
             />
           ),
@@ -39,7 +40,7 @@ const ItemActions = <T,>({
           icon: (
             <Icon
               iconName='IconDeleteBin'
-              className='yl-w-4'
+              className='yl:w-4'
               data-testid='icon-icondeletebin'
             />
           ),
@@ -55,7 +56,7 @@ const ItemActions = <T,>({
       buttonContent={
         <Icon
           iconName='IconDots'
-          className='yl-w-6 yl-text-text/60 hover:yl-cursor-pointer hover:yl-text-text'
+          className='yl:w-6 yl:text-text/60 yl:hover:cursor-pointer yl:hover:text-text'
         />
       }
     />

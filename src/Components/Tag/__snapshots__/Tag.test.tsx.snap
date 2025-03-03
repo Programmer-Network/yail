@@ -3,7 +3,7 @@
 exports[`Tag component > renders correctly - snapshot test 1`] = `
 <DocumentFragment>
   <div
-    class="yl-rounded-md yl-bg-transparent yl-text-base yl-text-primary last:yl-mr-0 hover:yl-border-border hover:yl-text-text"
+    class="yl:rounded-md yl:bg-transparent yl:text-base yl:text-primary yl:last:mr-0 yl:hover:border-border yl:hover:text-text"
   >
     <span>
       #example

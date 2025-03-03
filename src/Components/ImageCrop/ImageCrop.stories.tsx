@@ -1,5 +1,5 @@
 import { Meta } from "@storybook/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Crop } from "react-image-crop";
 
 import image from "../../../assets/images/image-crop.png";
@@ -19,15 +19,33 @@ export const Default = () => {
     x: 0,
     y: 0
   });
+  const [imageBlob, setImageBlob] = useState<Blob | null>(null);
+
+  useEffect(() => {
+    const fetchImage = async () => {
+      try {
+        const response = await fetch(image);
+        const blob = await response.blob();
+        setImageBlob(blob);
+      } catch (error) {
+        console.error("Error loading image:", error);
+      }
+    };
+
+    fetchImage();
+  }, []);
+
   return (
-    <ImageCrop
-      src={image}
-      crop={crop}
-      circularCrop={false}
-      aspect={1}
-      locked={false}
-      setCrop={setCrop}
-    />
+    <div className='yl:max-w-[500px]'>
+      <ImageCrop
+        src={imageBlob}
+        crop={crop}
+        circularCrop={false}
+        aspect={1}
+        locked={false}
+        setCrop={setCrop}
+      />
+    </div>
   );
 };
 

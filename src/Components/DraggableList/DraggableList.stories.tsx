@@ -18,8 +18,8 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    draggedClassName: "yl-bg-primary",
-    draggedOverClassName: "yl-bg-error",
+    draggedClassName: "yl:bg-primary",
+    draggedOverClassName: "yl:bg-error",
     isDraggable: true,
     onDragged: (items: IDraggableListItem[]) => {
       return new Promise(resolve => {
@@ -59,8 +59,8 @@ export const Default: Story = {
 
 export const WithOneItem: Story = {
   args: {
-    draggedClassName: "yl-bg-primary",
-    draggedOverClassName: "yl-bg-error",
+    draggedClassName: "yl:bg-primary",
+    draggedOverClassName: "yl:bg-error",
     isDraggable: true,
     onDragged: (items: IDraggableListItem[]) => {
       return new Promise(resolve => {

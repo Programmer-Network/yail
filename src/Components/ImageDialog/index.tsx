@@ -35,20 +35,20 @@ const ImageDialog = forwardRef<HTMLDialogElement, IImageDialogProps>(
     });
 
     return (
-      <div className='yl-w-full yl-h-full'>
+      <div className='yl:w-full yl:h-full'>
         <Dialog
           shouldCloseOnClickOutside={false}
           ref={forwardedRef}
           className={classNames(
             className,
-            "yl-w-[500px] yl-overflow-hidden yl-p-2"
+            "yl:w-[500px] yl:overflow-hidden yl:p-2"
           )}
           isOpen={isOpen}
           onClose={onClose}
         >
           {imageInputSelection?.file.blob && (
-            <div className=' yl-flex yl-flex-col'>
-              <div className='yl-relative yl-w-full yl-overflow-hidden yl-flex yl-items-center yl-justify-center'>
+            <div className=' yl:flex yl:flex-col'>
+              <div className='yl:relative yl:w-full yl:overflow-hidden yl:flex yl:items-center yl:justify-center'>
                 <ImageCrop
                   aspect={aspect}
                   src={imageInputSelection?.file.blob ?? null}
@@ -59,11 +59,11 @@ const ImageDialog = forwardRef<HTMLDialogElement, IImageDialogProps>(
                   crop={crop}
                 />
               </div>
-              <div className='yl-mt-4'>
-                <div className='yl-flex yl-gap-2'>
+              <div className='yl:mt-4'>
+                <div className='yl:flex yl:gap-2'>
                   <Button
                     type='button'
-                    className='yl-flex-1'
+                    className='yl:flex-1'
                     onClick={async () => {
                       try {
                         if (!croppedImage) {
@@ -88,7 +88,7 @@ const ImageDialog = forwardRef<HTMLDialogElement, IImageDialogProps>(
                     }}
                     icon={{
                       iconName: "IconImage",
-                      iconClassName: "yl-size-6",
+                      iconClassName: "yl:size-6",
                       iconPosition: "left"
                     }}
                     // isLoading={isUploadingImage}
@@ -99,7 +99,7 @@ const ImageDialog = forwardRef<HTMLDialogElement, IImageDialogProps>(
                   <Button
                     outlined
                     type='button'
-                    className='yl-text-secondary yl-fill-secondary yl-border-secondary hover:yl-bg-secondary/5 hover:yl-text-secondary hover:yl-fill-secondary hover:yl-border-secondary'
+                    className='yl:text-secondary yl:fill-secondary yl:border-secondary yl:hover:bg-secondary/5 yl:hover:text-secondary yl:hover:fill-secondary yl:hover:border-secondary'
                     onClick={() => {
                       setImageInputSelection(null);
                       setCroppedImage(null);
@@ -114,7 +114,7 @@ const ImageDialog = forwardRef<HTMLDialogElement, IImageDialogProps>(
                     }}
                     icon={{
                       iconName: "IconClose",
-                      iconClassName: "yl-size-5",
+                      iconClassName: "yl:size-5",
                       iconPosition: "left"
                     }}
                   >

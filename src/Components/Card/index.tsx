@@ -14,34 +14,34 @@ const Card: FC<ICard> = ({ data, className, NavLink }) => {
   return (
     <div
       className={classNames(
-        "yl-flex yl-flex-col yl-justify-between yl-border yl-border-border/30 yl-rounded-lg yl-overflow-hidden",
+        "yl:flex yl:flex-col yl:justify-between yl:border yl:border-border/30 yl:rounded-lg yl:overflow-hidden",
         className
       )}
     >
       {image && (
-        <div className='yl-w-full yl-h-48 yl-relative'>
+        <div className='yl:w-full yl:h-48 yl:relative'>
           <img
             src={image}
             alt={title}
-            className='yl-w-full yl-h-full yl-object-cover'
+            className='yl:w-full yl:h-full yl:object-cover'
           />
         </div>
       )}
-      <div className='yl-p-6'>
-        <div className='yl-flex yl-items-center'>
-          <div className='yl-flex yl-flex-1 yl-justify-between yl-gap-2 md:yl-my-1'>
-            <div className='yl-flex yl-flex-col md:yl-flex-row md:yl-items-center md:yl-gap-2'>
+      <div className='yl:p-6'>
+        <div className='yl:flex yl:items-center'>
+          <div className='yl:flex yl:flex-1 yl:justify-between yl:gap-2 yl:md:my-1'>
+            <div className='yl:flex yl:flex-col yl:md:flex-row yl:md:items-center yl:md:gap-2'>
               {author && (
                 <>
                   {authorUrl ? (
                     <NavLink
                       to={authorUrl}
-                      className='yl-flex yl-items-center yl-gap-2 yl-text-primary yl-cursor-pointer'
+                      className='yl:flex yl:items-center yl:gap-2 yl:text-primary yl:cursor-pointer'
                     >
                       {author}
                     </NavLink>
                   ) : (
-                    <span className='yl-flex yl-items-center yl-gap-2 yl-text-primary hover:yl-text-primary'>
+                    <span className='yl:flex yl:items-center yl:gap-2 yl:text-primary yl:hover:text-primary'>
                       {author}
                     </span>
                   )}
@@ -49,7 +49,7 @@ const Card: FC<ICard> = ({ data, className, NavLink }) => {
               )}
 
               {date && (
-                <time className='yl-text-secondary' dateTime={date}>
+                <time className='yl:text-secondary' dateTime={date}>
                   {date}
                 </time>
               )}
@@ -58,7 +58,7 @@ const Card: FC<ICard> = ({ data, className, NavLink }) => {
         </div>
         {URLUtils.isExternalLink(titleUrl) ? (
           <Anchor href={titleUrl} target='_blank'>
-            <H3 className='yl-flex yl-items-center yl-justify-start yl-gap-2'>
+            <H3 className='yl:flex yl:items-center yl:justify-start yl:gap-2'>
               {title}
             </H3>
           </Anchor>
@@ -68,15 +68,15 @@ const Card: FC<ICard> = ({ data, className, NavLink }) => {
           </NavLink>
         )}
 
-        <Paragraph className='yl-py-4'>{description}</Paragraph>
+        <Paragraph className='yl:py-4'>{description}</Paragraph>
       </div>
       {tags && tags.length > 0 && (
-        <div className='yl-mt-2 yl-flex yl-items-center yl-gap-2 !yl-px-6 yl-pb-4 yl-flex-wrap'>
+        <div className='yl:mt-2 yl:flex yl:items-center yl:gap-2 yl:px-6! yl:pb-4 yl:flex-wrap'>
           {tags.map((tag, index) => (
             <NavLink
               key={index}
               to={tag.url}
-              className='hover:yl-text-stroke yl-text-primary hover:yl-underline hover:yl-opacity-80 active:yl-opacity-50'
+              className='yl:hover:text-stroke yl:text-primary yl:hover:underline yl:hover:opacity-80 yl:active:opacity-50'
             >
               #{tag.name}
             </NavLink>

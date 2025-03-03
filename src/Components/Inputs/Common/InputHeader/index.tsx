@@ -1,7 +1,7 @@
 import { FC } from "react";
 
 import CharacterCounter from "Components/CharacterCounter";
-import { IconInfo } from "Components/Icons";
+import Icon from "Components/Icon";
 import Tooltip from "Components/Tooltip";
 
 import { InputHeaderProps } from "./types";
@@ -22,16 +22,19 @@ const InputHeader: FC<InputHeaderProps> = (
   }
 
   return (
-    <div className='yl-mb-2 yl-flex yl-items-center yl-justify-between'>
-      <div className='yl-flex yl-items-center yl-gap-0.5'>
+    <div className='yl:mb-2 yl:flex yl:items-center yl:justify-between'>
+      <div className='yl:flex yl:items-center yl:gap-0.5'>
         {hint && name && (
           <Tooltip text={hint} id={name} place='right'>
-            <IconInfo className='yl-w-4 yl-text-secondary yl-relative yl-top-[1px] yl-cursor-pointer' />
+            <Icon
+              iconName='IconInfo'
+              className='yl:w-4 yl:text-secondary yl:relative yl:top-[1px] yl:cursor-pointer'
+            />
           </Tooltip>
         )}
-        <div className='yl-text-secondary'>
+        <div className='yl:text-secondary'>
           {label}
-          {required && <span className='yl-ml-1 yl-text-error'>*</span>}
+          {required && <span className='yl:ml-1 yl:text-error'>*</span>}
         </div>
       </div>
 

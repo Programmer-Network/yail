@@ -2,7 +2,7 @@ import { validYouTubeUrl } from "@programmer_network/ajv";
 import useAJVForm from "@programmer_network/use-ajv-form";
 import { useModalInput } from "Hooks/useModalInput";
 import classNames from "classnames";
-import { useRef } from "react";
+import { RefObject, useRef } from "react";
 
 import Button from "Components/Button";
 import Dialog from "Components/Dialog";
@@ -55,8 +55,8 @@ export const Toolbar = ({
   );
 
   const dialogRef = useRef<HTMLDialogElement>(null);
-  const ref = useRef(null);
-  const inputModal = useModalInput({ ref });
+  const ref = useRef<HTMLDivElement>(null);
+  const inputModal = useModalInput({ ref: ref as RefObject<HTMLDivElement> });
 
   const hasSelection = !editor.state.selection.empty;
 
@@ -97,7 +97,7 @@ export const Toolbar = ({
   };
 
   return (
-    <div className='yl-relative yl-flex flex-wrap yl-items-center yl-gap-1 yl-rounded-tl-md yl-rounded-tr-md yl-border-2 yl-border-border/40 yl-bg-text/5 yl-px-2 yl-py-2 md:yl-gap-4 md:yl-px-4'>
+    <div className='yl:relative yl:flex flex-wrap yl:items-center yl:gap-1 yl:rounded-tl-md yl:rounded-tr-md yl:border-2 yl:border-border/40 yl:bg-text/5 yl:px-2 yl:py-2 yl:md:gap-4 yl:md:px-4'>
       {image.isExtensionEnabled && (
         <Dialog ref={dialogRef}>
           <ImageUpload
@@ -121,7 +121,7 @@ export const Toolbar = ({
           value={youtubeInputForm.state.youtubeUrl.value}
           error={youtubeInputForm.state.youtubeUrl.error}
           onChange={input => {
-            youtubeInputForm.set({ youtubeUrl: input.url as string });
+            youtubeInputForm.set({ youtubeUrl: input["url"] as string });
           }}
           ref={ref}
         >
@@ -130,7 +130,7 @@ export const Toolbar = ({
             icon={{
               iconName: "IconAddYoutube",
               iconPosition: "right",
-              iconClassName: "yl-w-6"
+              iconClassName: "yl:w-6"
             }}
             onClick={insertVideo}
           />
@@ -143,7 +143,7 @@ export const Toolbar = ({
             value={linkInputForm.state.link.value}
             error={linkInputForm.state.link.error}
             onChange={input => {
-              linkInputForm.set({ link: input.url as string });
+              linkInputForm.set({ link: input["url"] as string });
             }}
             ref={ref}
           >
@@ -152,7 +152,7 @@ export const Toolbar = ({
               icon={{
                 iconName: "IconLink",
                 iconPosition: "right",
-                iconClassName: "yl-w-6"
+                iconClassName: "yl:w-6"
               }}
               onClick={() => insertLink(LinkClickTarget.Link)}
             />
@@ -162,7 +162,7 @@ export const Toolbar = ({
                 outlined
                 onClick={() => insertLink(LinkClickTarget.UnLink)}
               >
-                <Icon iconName='IconUnlink' className='yl-w-6' />
+                <Icon iconName='IconUnlink' className='yl:w-6' />
               </Button>
             )}
           </ModalInput>
@@ -177,7 +177,7 @@ export const Toolbar = ({
         .map(i => {
           return (
             <button
-              key={i.iconName}
+              key={i.iconName as string}
               type='button'
               onClick={e => {
                 if (
@@ -191,7 +191,7 @@ export const Toolbar = ({
                 if (i.id === TIPTAP_TOOLBAR_ITEMS.LINK && hasSelection) {
                   inputModal.openModal(e, TIPTAP_TOOLBAR_ITEMS.LINK);
                   linkInputForm.set({
-                    link: editor.getAttributes("link").href || ""
+                    link: editor.getAttributes("link")["href"] || ""
                   });
                   return;
                 }
@@ -211,24 +211,24 @@ export const Toolbar = ({
               <Icon
                 iconName={i.iconName as IconName}
                 className={classNames(
-                  "yl-w-8 yl-cursor-pointer yl-border-border",
+                  "yl:w-8 yl:cursor-pointer yl:border-border",
                   {
-                    "yl-text-text": !i.isActive,
-                    "!yl-fill-primary !yl-text-text": i.isActive,
-                    "yl-cursor-not-allowed":
+                    "yl:text-text": !i.isActive,
+                    "yl:fill-primary! yl:text-text!": i.isActive,
+                    "yl:cursor-not-allowed":
                       typeof i.isDisabled === "function" && i.isDisabled(),
-                    "yl-cursor-default": !hasSelection,
-                    "yl-fill-primary":
+                    "yl:cursor-default": !hasSelection,
+                    "yl:fill-primary":
                       i.iconName === "IconLink" && hasSelection,
-                    "yl-w-[27px]": i.iconName === "IconStrikethrough",
-                    "yl-w-[28px]":
+                    "yl:w-[27px]": i.iconName === "IconStrikethrough",
+                    "yl:w-[28px]":
                       i.iconName === "IconLink" || i.iconName === "IconItalic",
-                    "yl-w-[29px]":
+                    "yl:w-[29px]":
                       i.iconName === "IconBold" ||
                       i.iconName === "IconListOl" ||
                       i.iconName === "IconListUl",
-                    "yl-w-[26px]": i.iconName === "IconImage",
-                    "yl-w-[32px]": i.iconName === "IconLink"
+                    "yl:w-[26px]": i.iconName === "IconImage",
+                    "yl:w-[32px]": i.iconName === "IconLink"
                   }
                 )}
               />

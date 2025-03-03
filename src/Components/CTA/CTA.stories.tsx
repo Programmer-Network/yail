@@ -1,6 +1,6 @@
 import { action } from "@storybook/addon-actions";
 
-import { IconAddCircle } from "Components/Icons";
+import Icon from "Components/Icon";
 
 import CTA from ".";
 import { ICTAProps } from "./types";
@@ -21,6 +21,6 @@ Default.args = {
     "Adding experience will expose your profile to recruiters and like-minded developers looking to team up for projects",
   buttonText: "Get Started",
   onClick: action("onClick"),
-  Icon: IconAddCircle,
-  ButtonIcon: IconAddCircle
+  Icon: <Icon iconName='IconAddCircle' />,
+  ButtonIcon: <Icon iconName='IconAddCircle' />
 };

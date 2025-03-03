@@ -208,8 +208,8 @@ export const Default = () => {
   }));
 
   return (
-    <div className='yl-max-w-5xl'>
-      <Cards cards={cards} columns={2} NavLink={NavLink} className='yl-gap-4' />
+    <div className='yl:max-w-5xl'>
+      <Cards cards={cards} columns={2} NavLink={NavLink} className='yl:gap-4' />
     </div>
   );
 };

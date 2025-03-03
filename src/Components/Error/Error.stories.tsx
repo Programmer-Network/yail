@@ -1,6 +1,6 @@
 import { action } from "@storybook/addon-actions";
 
-import { IconQuestionMark } from "Components/Icons";
+import Icon from "Components/Icon";
 
 import Error from ".";
 
@@ -36,9 +36,10 @@ export const ErrorWithCustomIcon = () => (
     error='500'
     title='Server Error'
     description='Oops! Something went wrong on our end.'
-    Icon={IconQuestionMark}
+    Icon={Icon}
     IconProps={{
-      className: "yl-text-error yl-w-24 yl-text-text yl-mb-4"
+      iconName: "IconQuestionMark",
+      className: "yl:text-error yl:w-24 yl:text-text yl:mb-4"
     }}
     onIconClick={() => action("Icon clicked")()}
   />

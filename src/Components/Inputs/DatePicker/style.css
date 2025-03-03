@@ -1,9 +1,4 @@
-/* Global Rules -- Avoid Declaring These Globally */
-.react-datepicker * {
-  /* 
-    This degrades the performance and accessibility of the date picker.
-    TODO: Remove this line and explicitly target specific elements for hover, focus, etc.
-  */
+/* .react-datepicker * {
   @apply yl-outline-none !important;
 }
 
@@ -11,7 +6,6 @@
   @apply yl-w-full !important;
 }
 
-/* Main Datepicker Container */
 .react-datepicker {
   @apply yl-select-none yl-border-2 yl-border-border yl-bg-background yl-font-sans yl-shadow-lg !important;
 }
@@ -21,7 +15,6 @@
   @apply yl-text-text !important;
 }
 
-/* Header Section */
 .react-datepicker__header {
   @apply yl-border-0 yl-bg-background !important;
 }
@@ -32,12 +25,10 @@
   @apply yl-text-text !important;
 }
 
-/* Month Container */
 .react-datepicker__month-container {
   @apply yl-bg-background !important;
 }
 
-/* Day Cell Styles */
 .react-datepicker__day:not([aria-disabled="true"]):hover {
   @apply yl-bg-primary yl-text-white !important;
 }
@@ -54,7 +45,6 @@
   @apply yl-text-white yl-outline-border !important;
 }
 
-/* Time Picker Section */
 .react-datepicker__time-container {
   @apply yl-border-l-border/20 yl-px-0 !important;
 }
@@ -75,7 +65,6 @@ li.react-datepicker__time-list-item {
   @apply hover:yl-bg-primary hover:yl-text-white !important;
 }
 
-/* Scrollbar Styles */
 .react-datepicker__time-list::-webkit-scrollbar {
   width: 5px;
 }
@@ -92,11 +81,10 @@ li.react-datepicker__time-list-item {
   background: rgb(var(--text-color));
 }
 
-/* Input Styles */
 .react-datepicker__input-container input {
   @apply yl-w-full yl-min-w-max yl-appearance-none yl-rounded-md yl-border-2 yl-border-border yl-bg-transparent yl-p-2 yl-text-text hover:yl-cursor-pointer hover:yl-border-border focus:yl-border-border focus:yl-outline-none focus:yl-ring-transparent !important;
 }
 
 .react-datepicker__day--disabled {
   @apply yl-cursor-not-allowed yl-text-text/40 !important;
-}
+} */

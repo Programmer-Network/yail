@@ -3,7 +3,7 @@ class StringUtils {
     if (src && typeof src === "string") {
       try {
         new URL(src);
-      } catch (_) {
+      } catch {
         throw new Error("Invalid URL provided");
       }
     }

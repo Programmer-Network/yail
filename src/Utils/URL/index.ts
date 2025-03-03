@@ -14,7 +14,7 @@ class URLUtils {
       return (
         new URL(url, window.location.href).hostname !== window.location.hostname
       );
-    } catch (error) {
+    } catch {
       return false;
     }
   }

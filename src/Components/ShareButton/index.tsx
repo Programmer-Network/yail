@@ -38,9 +38,12 @@ const ShareButton: React.FC<ShareButtonProps> = ({
       return children(onClickHandler);
     }
 
-    return React.cloneElement(children as ReactElement, {
-      onClick: onClickHandler
-    });
+    return React.cloneElement(
+      children as ReactElement<React.HTMLAttributes<HTMLElement>>,
+      {
+        onClick: onClickHandler
+      }
+    );
   };
 
   if (canShare) {

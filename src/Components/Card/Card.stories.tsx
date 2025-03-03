@@ -17,7 +17,7 @@ type Story = StoryObj<typeof Card>;
 
 export const Default = () => {
   return (
-    <div className='yl-mt-8'>
+    <div className='yl:mt-8'>
       <Card
         NavLink={NavLink}
         data={{
@@ -40,7 +40,7 @@ export const Default = () => {
 
 export const WithExternalLink = () => {
   return (
-    <div className='yl-mt-8'>
+    <div className='yl:mt-8'>
       <Card
         NavLink={NavLink}
         data={{

@@ -1,13 +1,21 @@
 /// <reference types="vitest/config" />
+import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
+import eslint from "vite-plugin-eslint";
 import viteTsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
   plugins: [
+    tailwindcss(),
     react(),
     viteTsconfigPaths(),
+    eslint({
+      failOnError: true,
+      failOnWarning: true,
+      include: ["src/**/*.ts", "src/**/*.tsx"]
+    }),
     dts({
       insertTypesEntry: true
     })

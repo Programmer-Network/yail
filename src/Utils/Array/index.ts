@@ -1,14 +1,19 @@
 class ArrayUtils {
-  public static shuffle(array: string[]): string[] {
-    for (let i = array.length - 1; i > 0; i--) {
+  public static shuffle<T>(array: T[]): T[] {
+    const shuffledArray = array.slice();
+
+    for (let i = shuffledArray.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
 
-      if (array[i] && array[j]) {
-        [array[i], array[j]] = [array[j], array[i]];
+      if (shuffledArray[i] !== undefined && shuffledArray[j] !== undefined) {
+        [shuffledArray[i], shuffledArray[j]] = [
+          shuffledArray[j] as T,
+          shuffledArray[i] as T
+        ];
       }
     }
 
-    return array;
+    return shuffledArray;
   }
 
   public static reorder<T>(

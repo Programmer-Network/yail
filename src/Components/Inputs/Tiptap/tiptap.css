@@ -1,4 +1,4 @@
-.ProseMirror > * + * {
+/* .ProseMirror > * + * {
   margin-top: 0.75em;
 }
 .ProseMirror img {
@@ -60,4 +60,4 @@
   float: left;
   height: 0;
   pointer-events: none;
-}
+} */

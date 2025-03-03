@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { vi } from "vitest";
 
-import { IconQuestionMark } from "Components/Icons";
+import Icon from "Components/Icon";
 
 import Error from "./";
 
@@ -37,7 +37,8 @@ describe("Error component", () => {
       <Error
         error={errorText}
         title={titleText}
-        Icon={IconQuestionMark}
+        Icon={Icon}
+        IconProps={{ iconName: "IconQuestionMark" }}
         backToText={backToText}
       />
     );
@@ -52,7 +53,8 @@ describe("Error component", () => {
       <Error
         error={errorText}
         title={titleText}
-        Icon={IconQuestionMark}
+        Icon={Icon}
+        IconProps={{ iconName: "IconQuestionMark" }}
         onIconClick={onIconClick}
         backToText='Go Back'
         onBackToClick={onBackToClick}

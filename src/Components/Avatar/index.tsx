@@ -13,7 +13,7 @@ const Avatar: FC<IAvatarProps> = ({
   className
 }) => {
   const classes = classNames(
-    "sm:yl-mt-0 yl-rounded-full yl-overflow-hidden",
+    "yl:sm:mt-0 yl:rounded-full yl:overflow-hidden",
     className
   );
 

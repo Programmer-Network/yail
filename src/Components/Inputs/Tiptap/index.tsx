@@ -80,29 +80,25 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
 
   const editor = useEditor(useEditorConfig);
 
-  useImperativeHandle(
-    ref,
-    () => {
-      return {
-        clearContent: () => {
-          editorRef?.commands.clearContent(true);
-        },
+  useImperativeHandle(ref, () => {
+    return {
+      clearContent: () => {
+        editorRef?.commands.clearContent(true);
+      },
 
-        getContents() {
-          return editorRef?.getHTML();
-        },
+      getContents() {
+        return editorRef?.getHTML();
+      },
 
-        setContent: (content: string) => {
-          editorRef?.commands.setContent(content);
-        },
+      setContent: (content: string) => {
+        editorRef?.commands.setContent(content);
+      },
 
-        setFocus() {
-          editorRef?.commands.focus("end");
-        }
-      };
-    },
-    [editorRef]
-  );
+      setFocus() {
+        editorRef?.commands.focus("end");
+      }
+    };
+  }, [editorRef]);
 
   useEffect(() => {
     if (textSelected !== "clicked-outside" || !editor) {
@@ -128,8 +124,8 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
 
   return (
     <div
-      className={classNames("yl-relative", {
-        "yl-mb-8": error
+      className={classNames("yl:relative", {
+        "yl:mb-8": error
       })}
     >
       {label && <InputHeader label={label} hint={hint} required={required} />}
@@ -141,12 +137,12 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
           link={link}
         />
       )}
-      <div className='yl-flex yl-flex-col'>
+      <div className='yl:flex yl:flex-col'>
         <div
           className={classNames(
-            "yl-relative yl-break-words yl-rounded-bl-md yl-rounded-br-md yl-border-2 yl-border-border/40 yl-px-4 yl-pb-2 yl-pt-2",
+            "yl:relative yl:break-words yl:rounded-bl-md yl:rounded-br-md yl:border-2 yl:border-border/40 yl:px-4 yl:pb-2 yl:pt-2",
             {
-              "!yl-border-t-0": hasToolbar
+              "yl:border-t-0!": hasToolbar
             }
           )}
         >

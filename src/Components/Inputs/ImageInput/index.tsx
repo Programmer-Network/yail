@@ -3,7 +3,7 @@ import classNames from "classnames";
 import { FC, useRef } from "react";
 
 import Button from "Components/Button";
-import { IconImage } from "Components/Icons";
+import Icon from "Components/Icon";
 import { InputError } from "Components/Inputs";
 
 import { CompressReturnType } from "Utils/Image/types";
@@ -41,8 +41,14 @@ const ImageInput: FC<IImageInputProps> = ({
       return;
     }
 
-    const [file] = e.target.files;
-    const { name: fileName, type: mimeType } = file;
+    const file = e.target.files[0];
+    if (!file) {
+      return;
+    }
+
+    const fileName = file.name;
+    const mimeType = file.type;
+
     const { imageValidationError, isValidImage } = await ImageUtils.validate(
       file,
       maxFileSize ?? Number.MAX_SAFE_INTEGER,
@@ -77,28 +83,28 @@ const ImageInput: FC<IImageInputProps> = ({
   return (
     <div
       className={classNames(
-        "yl-flex yl-flex-col yl-justify-center yl-gap-2",
+        "yl:flex yl:flex-col yl:justify-center yl:gap-2",
         inputWrapperClassName
       )}
     >
-      <label className='yl-flex yl-items-center yl-justify-center'>
+      <label className='yl:flex yl:items-center yl:justify-center'>
         <input
           ref={fileInputRef}
           id={id}
           type='file'
           accept={accept}
           onChange={handleSelect}
-          className={classNames("yl-hidden", className)}
+          className={classNames("yl:hidden", className)}
         />
 
         <Button
           type='button'
           onClick={handleButtonClick}
           outlined
-          className='!yl-shadow-none'
+          className='yl:shadow-none!'
         >
-          <div className='yl-flex yl-items-center yl-justify-center yl-gap-1'>
-            <IconImage className='yl-w-6' /> {label}
+          <div className='yl:flex yl:items-center yl:justify-center yl:gap-1'>
+            <Icon iconName='IconImage' className='yl:w-6' /> {label}
           </div>
         </Button>
       </label>

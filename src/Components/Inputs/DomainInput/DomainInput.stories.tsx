@@ -18,14 +18,14 @@ export const Default = () => {
   const [input, setInput] = useState<Record<string, string>>({ url: "" });
 
   useEffect(() => {
-    action("onChange")(input.url);
-  }, [input.url]);
+    action("onChange")(input["url"]);
+  }, [input["url"]]);
 
   return (
     <DomainInput
       domain='programmer.network'
       name='url'
-      value={input.url}
+      value={input["url"] ?? ""}
       onChange={setInput}
     />
   );

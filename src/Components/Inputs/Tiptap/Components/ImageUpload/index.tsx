@@ -21,17 +21,17 @@ const ImageUpload: FC<{
     <div>
       <label
         htmlFor={id}
-        className='yl-flex yl-cursor-pointer yl-flex-col yl-items-center yl-justify-center yl-py-12'
+        className='yl:flex yl:cursor-pointer yl:flex-col yl:items-center yl:justify-center yl:py-12'
       >
-        <div className='yl-flex yl-flex-col yl-items-center yl-justify-center'>
+        <div className='yl:flex yl:flex-col yl:items-center yl:justify-center'>
           <Icon
             iconName='IconUpload'
-            className='yl-mb-2 yl-w-20 yl-text-primary'
+            className='yl:mb-2 yl:w-20 yl:text-primary'
           />
-          <H4 className='!yl-mb-0 !yl-text-text'>{label}</H4>
+          <H4 className='yl:mb-0! yl:text-text!'>{label}</H4>
           <Paragraph>png, jpg</Paragraph>
         </div>
-        <div className='yl-hidden yl-mt-4'>
+        <div className='yl:hidden yl:mt-4'>
           <ImageInput
             id={id}
             label='Or select a file'

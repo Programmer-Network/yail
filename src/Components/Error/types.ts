@@ -1,3 +1,7 @@
+import { FC } from "react";
+
+import { IIconProps } from "Components/Icon/types";
+
 export interface IErrorProps {
   error: string;
   title: string;
@@ -5,7 +9,7 @@ export interface IErrorProps {
   backToText?: string;
   className?: string;
   onBackToClick?: () => void;
-  Icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
-  IconProps?: React.SVGProps<SVGSVGElement>;
+  Icon?: FC<IIconProps>;
+  IconProps?: IIconProps;
   onIconClick?: () => void;
 }

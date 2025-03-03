@@ -5,10 +5,10 @@ import StepWizard from "react-step-wizard";
 import StepOne from "./Step1";
 import StepTwo from "./Step2";
 import StepThree from "./Step3";
-import { ITag, IUserProfile } from "./types";
+import { ITag } from "./types";
 
 export const OnboardingContext = createContext<{
-  onSubmit: (form: IUserProfile | null) => void;
+  onSubmit: () => void;
   tags: ITag[];
   countries: string[];
   serverErrors: ErrorObject[];
@@ -20,7 +20,7 @@ export const OnboardingContext = createContext<{
 });
 
 const Onboarding: FC<{
-  onSubmit: (form: IUserProfile | null) => void;
+  onSubmit: () => void;
   tags: ITag[];
   countries: string[];
   serverErrors: ErrorObject[];
@@ -29,7 +29,7 @@ const Onboarding: FC<{
     <OnboardingContext.Provider
       value={{ onSubmit, tags, countries, serverErrors }}
     >
-      <div className='yl-mx-auto yl-my-6 yl-w-full yl-px-4 sm:yl-max-w-5xl lg:yl-max-w-2xl lg:yl-px-8'>
+      <div className='yl:mx-auto yl:my-6 yl:w-full yl:px-4 yl:sm:max-w-5xl yl:lg:max-w-2xl yl:lg:px-8'>
         <StepWizard
           transitions={{
             enterRight: "0",

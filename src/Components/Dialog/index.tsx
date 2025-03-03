@@ -62,7 +62,7 @@ const Dialog = forwardRef<HTMLDialogElement, IDialogProps>(
         dialogElement?.removeEventListener("click", handleDialogClick);
         document.removeEventListener("keydown", handleKeyDown);
       };
-    }, [onClose, ref]);
+    }, [onClose, shouldCloseOnClickOutside, ref]);
     useEffect(() => {
       if (isOpen) {
         ref.current?.showModal();
@@ -75,14 +75,14 @@ const Dialog = forwardRef<HTMLDialogElement, IDialogProps>(
       <dialog
         ref={ref}
         className={classNames(
-          "yl-z-50 yl-rounded-lg yl-bg-background yl-shadow-md yl-ring-1 yl-ring-text yl-ring-opacity-30",
+          "yl:z-50 yl:rounded-lg yl:bg-background yl:shadow-md yl:ring-3-1 yl:ring-3-text yl:ring-3-opacity-30",
           className
         )}
         onClick={e => e.stopPropagation()}
       >
         <div
           onClick={e => e.stopPropagation()}
-          className='yl-flex yl-items-center yl-justify-center'
+          className='yl:flex yl:items-center yl:justify-center'
         >
           {children}
         </div>

@@ -50,7 +50,7 @@ export const Primary = () => {
     }
 
     setSections(dummySections);
-  }, []);
+  }, [sections.length]);
 
   if (!sections.length) {
     return <div>Loading...</div>;
@@ -59,10 +59,10 @@ export const Primary = () => {
   return (
     <div>
       <Accordion
-        className='yl-w-[500px]'
+        className='yl:w-[500px]'
         selectedId={2}
         sections={sections}
-        onSorted={(type, data) => {
+        onSorted={(_, data) => {
           setSections(data);
         }}
         expanded={expandedSections}
@@ -92,7 +92,7 @@ export const NonInteractive = () => {
     }
 
     setSections(dummySections);
-  }, []);
+  }, [sections.length]);
 
   if (!sections.length) {
     return <div>Loading...</div>;
@@ -101,10 +101,10 @@ export const NonInteractive = () => {
   return (
     <div>
       <Accordion
-        className='yl-w-[500px]'
+        className='yl:w-[500px]'
         selectedId={2}
         sections={sections}
-        onSorted={(type, sections) => {
+        onSorted={(_, sections) => {
           setSections(sections);
         }}
         expanded={expandedSections}
@@ -129,7 +129,7 @@ export const WithoutDragAndDrop = () => {
     }
 
     setSections(dummySections);
-  }, []);
+  }, [sections.length]);
 
   if (!sections.length) {
     return <div>Loading...</div>;
@@ -138,10 +138,10 @@ export const WithoutDragAndDrop = () => {
   return (
     <div>
       <Accordion
-        className='yl-w-[500px]'
+        className='yl:w-[500px]'
         selectedId={2}
         sections={sections}
-        onSorted={(type, sections) => {
+        onSorted={(_, sections) => {
           setSections(sections);
         }}
         expanded={expandedSections}
@@ -199,7 +199,7 @@ export const AddSectionAndSectionItem = () => {
         Add Section
       </Button>
       <Accordion
-        className='yl-w-[500px]'
+        className='yl:w-[500px]'
         selectedId={2}
         sections={sections}
         expanded={expandedSections}
@@ -245,7 +245,7 @@ export const WithAddLabels = () => {
     }
 
     setSections(dummySections);
-  }, []);
+  }, [sections.length]);
 
   if (!sections.length) {
     return <div>Loading...</div>;
@@ -254,7 +254,7 @@ export const WithAddLabels = () => {
   return (
     <div>
       <Accordion
-        className='yl-w-[500px]'
+        className='yl:w-[500px]'
         selectedId={2}
         sections={sections}
         expanded={expandedSections}

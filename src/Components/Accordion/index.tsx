@@ -3,12 +3,7 @@ import { FC, useEffect, useState } from "react";
 
 import DraggableList from "Components/DraggableList";
 import { IDraggableListItem } from "Components/DraggableList/types";
-import {
-  IconAddCircle,
-  IconDrag,
-  IconExpandLess,
-  IconExpandMore
-} from "Components/Icons";
+import Icon from "Components/Icon";
 import { Paragraph } from "Components/Typography";
 
 import ArrayUtils from "Utils/Array";
@@ -56,7 +51,7 @@ const Accordion: FC<IAccordionProps> = ({
   useEffect(() => setSelectedItemId(selectedId), [selectedId]);
 
   const handleDrag = (
-    e: React.DragEvent<Element>,
+    _: React.DragEvent<Element>,
     item: IDraggableListItem
   ) => {
     if (hasDraggableSections) {
@@ -98,16 +93,16 @@ const Accordion: FC<IAccordionProps> = ({
             onMouseOver={() => hasDraggableSections && setHoveredId(section.id)}
             onMouseLeave={() => hasDraggableSections && setHoveredId(null)}
             className={classNames(
-              "yl-border-2 yl-border-border",
+              "yl:border-2 yl:border-border",
               {
-                "yl-border-b-0": idx !== sections.length - 1,
-                "yl-rounded-tl-md yl-rounded-tr-md": idx === 0,
-                "yl-rounded-bl-md yl-rounded-br-md":
+                "yl:border-b-0": idx !== sections.length - 1,
+                "yl:rounded-tl-md yl:rounded-tr-md": idx === 0,
+                "yl:rounded-bl-md yl:rounded-br-md":
                   idx === sections.length - 1 && !onAddSection
               },
               {
-                "yl-bg-text/5": draggedOverId === section.id,
-                "yl-bg-text/10": draggedId && hoveredId === section.id
+                "yl:bg-text/5": draggedOverId === section.id,
+                "yl:bg-text/10": draggedId && hoveredId === section.id
               }
             )}
             role='presentation'
@@ -120,14 +115,14 @@ const Accordion: FC<IAccordionProps> = ({
                 setSelectedSectionId(section.id);
               }}
               className={classNames(
-                "yl-relative yl-flex yl-cursor-default yl-select-none yl-items-center yl-font-semibold yl-capitalize yl-p-4",
+                "yl:relative yl:flex yl:cursor-default yl:select-none yl:items-center yl:font-semibold yl:capitalize yl:p-4",
                 sectionTitleClassName,
                 {
-                  "yl-bg-text/5": expanded.includes(section.id),
-                  "yl-cursor-pointer": onSectionItemClick,
-                  "yl-text-text":
+                  "yl:bg-text/5": expanded.includes(section.id),
+                  "yl:cursor-pointer": onSectionItemClick,
+                  "yl:text-text":
                     selectedSectionId !== section.id || !onSectionItemClick,
-                  "yl-text-primary":
+                  "yl:text-primary":
                     onSectionItemClick && selectedSectionId === section.id
                 }
               )}
@@ -140,32 +135,37 @@ const Accordion: FC<IAccordionProps> = ({
             >
               {hasDraggableSections && (
                 <div>
-                  <IconDrag className='yl-w-6 yl-opacity-50 yl-mr-1' />
+                  <Icon
+                    iconName='IconDrag'
+                    className='yl:w-6 yl:opacity-50 yl:mr-1'
+                  />
                 </div>
               )}
-              <div className='yl-flex yl-flex-col yl-gap-1 yl-overflow-hidden yl-text-ellipsis yl-whitespace-nowrap yl-text-base'>
+              <div className='yl:flex yl:flex-col yl:gap-1 yl:overflow-hidden yl:text-ellipsis yl:whitespace-nowrap yl:text-base'>
                 {expanded.includes(section.id) ? (
-                  <IconExpandLess
+                  <Icon
+                    iconName='IconExpandLess'
                     onClick={e => {
                       e.stopPropagation();
                       e.preventDefault();
                       toggleExpand(section.id);
                     }}
-                    className='yl-absolute yl-right-2 yl-w-6 yl-cursor-pointer yl-fill-primary hover:yl-fill-primary'
+                    className='yl:absolute yl:right-2 yl:w-6 yl:cursor-pointer yl:fill-primary yl:hover:fill-primary'
                   />
                 ) : (
-                  <IconExpandMore
+                  <Icon
+                    iconName='IconExpandMore'
                     onClick={e => {
                       e.stopPropagation();
                       e.preventDefault();
                       toggleExpand(section.id);
                     }}
-                    className='yl-absolute yl-right-2 yl-w-6 yl-cursor-pointer yl-fill-primary hover:yl-fill-primary'
+                    className='yl:absolute yl:right-2 yl:w-6 yl:cursor-pointer yl:fill-primary yl:hover:fill-primary'
                   />
                 )}
                 {section.title}
                 {section.description && (
-                  <Paragraph className='yl-text-xs yl-text-text/70'>
+                  <Paragraph className='yl:text-xs yl:text-text/70'>
                     {section.description}
                   </Paragraph>
                 )}
@@ -193,17 +193,17 @@ const Accordion: FC<IAccordionProps> = ({
                     );
                   }}
                   isDraggable={hasDraggableSectionItems}
-                  className='yl-gap-4 yl-flex yl-flex-col yl-py-4'
-                  draggedOverClassName='yl-border-t-2 yl-border-border'
+                  className='yl:gap-4 yl:flex yl:flex-col yl:py-4'
+                  draggedOverClassName='yl:border-t-2 yl:border-border'
                   liClassName={(item: IDraggableListItem) =>
                     classNames(
-                      "yl-cursor-default hover:text-text break-words leading-normal yl-px-4",
+                      "yl:cursor-default hover:text-text break-words leading-normal yl:px-4",
                       {
-                        "yl-cursor-pointer": onSectionItemClick,
-                        "yl-text-text": selectedItemId !== item.id,
-                        // "yl-text-text":
+                        "yl:cursor-pointer": onSectionItemClick,
+                        "yl:text-text": selectedItemId !== item.id,
+                        // "yl:text-text":
                         //   onSectionItemClick && selectedItemId === item.id,
-                        "yl-pl-5": section.items.length === 1
+                        "yl:pl-5": section.items.length === 1
                       }
                     )
                   }
@@ -212,12 +212,12 @@ const Accordion: FC<IAccordionProps> = ({
                   <div
                     onClick={() => onAddSectionItem(section)}
                     className={classNames(
-                      "yl-cursor-pointer hover:yl-text-text yl-pb-4 yl-text-text yl-text-center yl-flex yl-items-center yl-justify-center yl-gap-1"
+                      "yl:cursor-pointer yl:hover:text-text yl:pb-4 yl:text-text yl:text-center yl:flex yl:items-center yl:justify-center yl:gap-1"
                     )}
                   >
-                    <IconAddCircle className='yl-w-6' />
+                    <Icon iconName='IconAddCircle' className='yl:w-6' />
                     {addSectionItemLabel && (
-                      <span className='yl-text-sm'>{addSectionItemLabel}</span>
+                      <span className='yl:text-sm'>{addSectionItemLabel}</span>
                     )}
                   </div>
                 )}
@@ -229,20 +229,23 @@ const Accordion: FC<IAccordionProps> = ({
         <div
           onClick={onAddSection}
           className={classNames(
-            "yl-group yl-border-2 yl-border-t-0 yl-border-border hover:yl-bg-text/5 yl-rounded-bl-md yl-rounded-br-md yl-cursor-pointer"
+            "yl:group yl:border-2 yl:border-t-0 yl:border-border yl:hover:bg-text/5 yl:rounded-bl-md yl:rounded-br-md yl:cursor-pointer"
           )}
           role='presentation'
         >
           <h3
             className={classNames(
-              "yl-flex yl-flex-col yl-items-center yl-justify-center yl-select-none yl-font-semibold yl-p-4 yl-text-center"
+              "yl:flex yl:flex-col yl:items-center yl:justify-center yl:select-none yl:font-semibold yl:p-4 yl:text-center"
             )}
             role='button'
           >
-            <Paragraph className='yl-text-text/70 group-hover:yl-text-text yl-flex yl-items-center yl-gap-1'>
-              <IconAddCircle className='yl-w-6 group-hover:yl-text-text' />
+            <Paragraph className='yl:text-text/70 yl:group-hover:text-text yl:flex yl:items-center yl:gap-1'>
+              <Icon
+                iconName='IconAddCircle'
+                className='yl:w-6 yl:group-hover:text-text'
+              />
               {addSectionLabel && (
-                <span className='yl-text-sm'>{addSectionLabel}</span>
+                <span className='yl:text-sm'>{addSectionLabel}</span>
               )}
             </Paragraph>
           </h3>

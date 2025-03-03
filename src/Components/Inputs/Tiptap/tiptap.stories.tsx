@@ -16,7 +16,7 @@ export default {
 
 export const Default = () => {
   const [editorState, setEditorState] = useState<string>("");
-  const tiptapRef = useRef<TiptapRef>();
+  const tiptapRef = useRef<TiptapRef>(null);
 
   const suggestions = {
     trigger: "#",
@@ -59,7 +59,7 @@ export const Default = () => {
   };
 
   return (
-    <div className='yl-w-full md:yl-w-[768px]'>
+    <div className='yl:w-full yl:md:w-[768px]'>
       <Tiptap
         ref={tiptapRef as RefObject<TiptapRef>}
         label='Content'
@@ -83,7 +83,7 @@ export const Default = () => {
       />
 
       <div
-        className='yl-mt-8 yl-break-words text-indigo-500'
+        className='yl:mt-8 yl:break-words text-indigo-500'
         dangerouslySetInnerHTML={{ __html: editorState }}
       ></div>
     </div>
