@@ -6,7 +6,7 @@ import { Option } from "./types";
  * @url https://react-select.com/styles
  */
 
-const color = "rgb(var(--color-secondary))";
+const color = "oklch(0.85 0.02 240)";
 
 export const styles: StylesConfig<Option | undefined, false | true> = {
   input: (base: CSSObjectWithLabel) => ({
@@ -22,14 +22,14 @@ export const styles: StylesConfig<Option | undefined, false | true> = {
   control: (base: CSSObjectWithLabel) => {
     return {
       ...base,
-      backgroundColor: "rgb(var(--color-background))",
+      backgroundColor: "oklch(0.1 0.02 240)",
       borderWidth: "2px",
-      borderColor: "rgb(var(--color-border))",
+      borderColor: "oklch(0.3 0.02 240)",
       borderRadius: 6,
       boxShadow: "none",
       color,
       "&:hover": {
-        borderColor: "rgb(var(--color-border))"
+        borderColor: "oklch(0.3 0.02 240)"
       }
     };
   },
@@ -39,39 +39,37 @@ export const styles: StylesConfig<Option | undefined, false | true> = {
   ) => ({
     ...base,
     backgroundColor: props.isDisabled
-      ? "rgba(var(--color-background), 0.5)"
-      : "rgb(var(--color-background))",
-    color: props.isDisabled ? "rgba(var(--color-secondary), 0.5)" : color,
+      ? "oklch(0.5 0.05 240)"
+      : "oklch(0.1 0.02 240)",
+    color: props.isDisabled ? "oklch(0.5 0.05 240)" : color,
     cursor: props.isDisabled ? "not-allowed" : "default",
     "&:active": {
-      backgroundColor: !props.isDisabled
-        ? "rgb(var(--color-background))"
-        : undefined,
-      color: !props.isDisabled ? "#fff" : undefined
+      backgroundColor: !props.isDisabled ? "oklch(0.6 0.2 250)" : undefined,
+      color: !props.isDisabled ? color : undefined
     }
   }),
   multiValueRemove: (base: CSSObjectWithLabel) => {
     return {
       ...base,
-      color: "rgb(var(--color-secondary))",
+      color: "oklch(0.65 0.05 270)",
       cursor: "pointer",
       "&:hover": {
-        color: "rgb(var(--color-text))",
-        backgroundColor: "rgb(var(--color-error))"
+        color: color,
+        backgroundColor: "oklch(0.6 0.2 30)"
       }
     };
   },
   multiValue: (base: CSSObjectWithLabel) => {
     return {
       ...base,
-      backgroundColor: "rgb(var(--color-background))",
+      backgroundColor: "oklch(0.1 0.02 240)",
       color
     };
   },
   singleValue: (base: CSSObjectWithLabel) => {
     return {
       ...base,
-      backgroundColor: "rgb(var(--color-background))",
+      backgroundColor: "oklch(0.1 0.02 240)",
       color
     };
   },
@@ -84,7 +82,7 @@ export const styles: StylesConfig<Option | undefined, false | true> = {
   placeholder: (base: CSSObjectWithLabel) => {
     return {
       ...base,
-      color: "rgb(var(--color-secondary))"
+      color: "oklch(0.5 0.05 240)"
     };
   },
   valueContainer: (base: CSSObjectWithLabel) => {
@@ -99,11 +97,11 @@ export const styles: StylesConfig<Option | undefined, false | true> = {
   menu: (base: CSSObjectWithLabel) => {
     return {
       ...base,
-      backgroundColor: "rgb(var(--color-background))",
+      backgroundColor: "oklch(0.1 0.02 240)",
       color,
       boxShadow: "none",
       borderWidth: "2px",
-      borderColor: "rgb(var(--color-border))",
+      borderColor: "oklch(0.3 0.02 240)",
       borderRadius: 0,
       zIndex: 99999999
     };
@@ -111,16 +109,16 @@ export const styles: StylesConfig<Option | undefined, false | true> = {
   indicatorSeparator: (base: CSSObjectWithLabel) => {
     return {
       ...base,
-      backgroundColor: "rgb(var(--color-border))"
+      backgroundColor: "oklch(0.3 0.02 240)"
     };
   },
   clearIndicator: (base: CSSObjectWithLabel) => {
     return {
       ...base,
-      color: "rgb(var(--color-border))",
+      color: "oklch(0.3 0.02 240)",
       cursor: "pointer",
       "&:hover": {
-        color: "rgb(var(--color-error))"
+        color: "oklch(0.6 0.2 30)"
       }
     };
   },
@@ -131,18 +129,18 @@ export const styles: StylesConfig<Option | undefined, false | true> = {
       width: "10px"
     },
     "::-webkit-scrollbar-track": {
-      background: "rgb(var(--color-background))"
+      background: "oklch(0.1 0.02 240)"
     },
     "::-webkit-scrollbar-thumb": {
-      background: "rgb(var(--color-border))"
+      background: "oklch(0.3 0.02 240)"
     },
     "::-webkit-scrollbar-thumb:hover": {
-      background: "rgb(var(--color-border))"
+      background: "oklch(0.6 0.2 250)"
     }
   }),
   groupHeading: (base: CSSObjectWithLabel) => ({
     ...base,
-    color: "rgb(var(--color-border))",
+    color: "oklch(0.5 0.05 240)",
     padding: "5px 10px",
     fontSize: "0.75rem"
   })
