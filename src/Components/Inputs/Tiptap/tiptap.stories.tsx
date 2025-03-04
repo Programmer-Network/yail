@@ -70,9 +70,8 @@ export const Default = () => {
           onAction: actionType => alert(actionType),
           isConfirming: false
         }}
-        onSetImage={(base64: string) => {
+        onSetImage={() => {
           return new Promise<void>(resolve => {
-            console.log("🚀 ─── base64:", base64);
             resolve();
           });
         }}

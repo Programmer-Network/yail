@@ -119,6 +119,15 @@ class ImageUtils {
     });
   }
 
+  public static blobToBase64 = (blob: Blob): Promise<string> => {
+    return new Promise(resolve => {
+      const reader = new FileReader();
+
+      reader.readAsDataURL(blob);
+      reader.onloadend = () => resolve(reader.result as string);
+    });
+  };
+
   public static base64ToBlob = (base64: string, mimeType: string): Blob => {
     const parts = base64.split(",");
     if (parts.length < 2) {

@@ -1,7 +1,6 @@
 import { Meta, StoryFn } from "@storybook/react";
 import { ImageUtils } from "Utils";
 import { useState } from "react";
-import { Crop } from "react-image-crop";
 
 import ImageCrop from "Components/ImageCrop";
 
@@ -55,13 +54,6 @@ export const WithImageCrop = () => {
   const [imageBlob, setImageBlob] = useState<Blob | null>(null);
   const [croppedImage, setCroppedImage] = useState<string>("");
   const [error, setError] = useState<string>("");
-  const [crop, setCrop] = useState<Crop>({
-    unit: "%",
-    width: 100,
-    height: 100,
-    x: 0,
-    y: 0
-  });
 
   const args = {
     accept: "image/*",
@@ -89,8 +81,6 @@ export const WithImageCrop = () => {
       <div className='yl:flex yl:items-start yl:gap-2'>
         {imageBlob && (
           <ImageCrop
-            setCrop={setCrop}
-            crop={crop}
             src={imageBlob}
             onComplete={handleCropComplete}
             locked={false}

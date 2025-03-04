@@ -13,6 +13,8 @@ import {
   TValidationError
 } from "Components/Inputs/ImageInput/types";
 
+import ImageUtils from "Utils/Image";
+
 import { IImageDialogProps } from "./types";
 
 const ImageDialog = forwardRef<HTMLDialogElement, IImageDialogProps>(
@@ -34,7 +36,10 @@ const ImageDialog = forwardRef<HTMLDialogElement, IImageDialogProps>(
         }
 
         setIsSaving(true);
-        await onSave?.(croppedImage);
+        await onSave?.({
+          blob: croppedImage,
+          base64: await ImageUtils.blobToBase64(croppedImage)
+        });
         setImageInputSelection(null);
         setCroppedImage(null);
 
@@ -67,7 +72,6 @@ const ImageDialog = forwardRef<HTMLDialogElement, IImageDialogProps>(
                   aspect={aspect}
                   src={imageInputSelection?.file.blob ?? null}
                   onComplete={blob => {
-                    console.log("blob", blob);
                     setCroppedImage(blob);
                   }}
                 />

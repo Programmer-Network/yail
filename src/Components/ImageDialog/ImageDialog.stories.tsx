@@ -10,14 +10,6 @@ export default {
   component: ImageDialog
 };
 
-const blobToBase64 = (blob: Blob) => {
-  return new Promise(resolve => {
-    const reader = new FileReader();
-    reader.readAsDataURL(blob);
-    reader.onloadend = () => resolve(reader.result as string);
-  });
-};
-
 export const Default = () => {
   const dialogRef = createRef<HTMLDialogElement>();
 
@@ -29,12 +21,9 @@ export const Default = () => {
     dialogRef.current?.close();
   };
 
-  const handleSave = async (blob: Blob) => {
-    const base64 = await blobToBase64(blob);
+  const handleSave = async ({ base64 }: { base64: string }) => {
     return new Promise(resolve => {
       setTimeout(() => {
-        console.log("🚀 ~ handleSave ~ base64:", base64);
-
         resolve(base64);
       }, 0);
     });
