@@ -3,7 +3,6 @@ import classNames from "classnames";
 import Icon from "Components/Icon";
 import Spinner from "Components/Spinner";
 
-import "./button-style.css";
 import { ButtonVariantEnum, IButtonProps } from "./types";
 
 const Button: React.FC<IButtonProps> = (

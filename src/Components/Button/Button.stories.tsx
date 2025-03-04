@@ -101,33 +101,6 @@ export const LoadingWithIcon: Story = {
   }
 };
 
-export const Red: Story = {
-  args: {
-    children: "Button",
-    outlined: true,
-    isLoading: true,
-    className: "button--red"
-  }
-};
-
-export const Gray: Story = {
-  args: {
-    children: "Button",
-    outlined: true,
-    isLoading: true,
-    className: "button--gray"
-  }
-};
-
-export const Green: Story = {
-  args: {
-    children: "Button",
-    outlined: true,
-    isLoading: true,
-    className: "button--green"
-  }
-};
-
 export const Secondary: Story = {
   args: {
     children: "Cancel",
