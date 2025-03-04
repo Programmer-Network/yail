@@ -7,7 +7,6 @@ import { forwardRef, useState } from "react";
 import Button from "Components/Button";
 import Dialog from "Components/Dialog";
 import ImageCrop from "Components/ImageCrop";
-import { ICrop } from "Components/ImageCrop/types";
 import { ImageInput } from "Components/Inputs";
 import {
   IOnFileLoadedArgs,
@@ -26,37 +25,51 @@ const ImageDialog = forwardRef<HTMLDialogElement, IImageDialogProps>(
     const [imageInputSelection, setImageInputSelection] =
       useState<IOnFileLoadedArgs | null>(null);
     const [croppedImage, setCroppedImage] = useState<Blob | null>(null);
-    const [crop, setCrop] = useState<ICrop>({
-      x: 0,
-      y: 0,
-      width: 100,
-      height: 100,
-      unit: "%" as const
-    });
+    const [isSaving, setIsSaving] = useState(false);
+
+    const handleSave = async () => {
+      try {
+        if (!croppedImage) {
+          return;
+        }
+
+        setIsSaving(true);
+        await onSave?.(croppedImage);
+        setImageInputSelection(null);
+        setCroppedImage(null);
+
+        onClose?.();
+      } catch (error: unknown) {
+        onClose?.();
+        setValidationError({
+          message:
+            error instanceof Error ? error.message : "Failed to save image",
+          reason: "IMAGE_SAVE_FAILED"
+        });
+      } finally {
+        setIsSaving(false);
+      }
+    };
 
     return (
       <div className='yl:w-full yl:h-full'>
         <Dialog
           shouldCloseOnClickOutside={false}
           ref={forwardedRef}
-          className={classNames(
-            className,
-            "yl:w-[500px] yl:overflow-hidden yl:p-2"
-          )}
+          className={classNames(className)}
           isOpen={isOpen}
           onClose={onClose}
         >
           {imageInputSelection?.file.blob && (
-            <div className=' yl:flex yl:flex-col'>
-              <div className='yl:relative yl:w-full yl:overflow-hidden yl:flex yl:items-center yl:justify-center'>
+            <div>
+              <div className='yl:relative yl:w-full yl:overflow-hidden'>
                 <ImageCrop
                   aspect={aspect}
                   src={imageInputSelection?.file.blob ?? null}
-                  setCrop={setCrop}
                   onComplete={blob => {
+                    console.log("blob", blob);
                     setCroppedImage(blob);
                   }}
-                  crop={crop}
                 />
               </div>
               <div className='yl:mt-4'>
@@ -64,52 +77,25 @@ const ImageDialog = forwardRef<HTMLDialogElement, IImageDialogProps>(
                   <Button
                     type='button'
                     className='yl:flex-1 yl:cursor-pointer'
-                    onClick={async () => {
-                      try {
-                        if (!croppedImage) {
-                          return;
-                        }
-
-                        await onSave?.(croppedImage);
-                        setImageInputSelection(null);
-                        setCroppedImage(null);
-                        setCrop({
-                          x: 0,
-                          y: 0,
-                          width: 100,
-                          height: 100,
-                          unit: "%" as const
-                        });
-
-                        onClose?.();
-                      } catch (error) {
-                        console.error(error);
-                      }
-                    }}
+                    onClick={handleSave}
                     icon={{
                       iconName: "IconImage",
                       iconClassName: "yl:size-6",
                       iconPosition: "left"
                     }}
-                    // isLoading={isUploadingImage}
-                    // disabled={isUploadingImage}
+                    isLoading={isSaving}
+                    disabled={isSaving}
                   >
                     {buttonText}
                   </Button>
                   <Button
                     outlined
+                    disabled={isSaving}
                     type='button'
                     className='yl:text-secondary yl:fill-secondary yl:border-secondary yl:hover:bg-secondary/5 yl:hover:text-secondary yl:hover:fill-secondary yl:hover:border-secondary yl:cursor-pointer'
                     onClick={() => {
                       setImageInputSelection(null);
                       setCroppedImage(null);
-                      setCrop({
-                        x: 0,
-                        y: 0,
-                        width: 100,
-                        height: 100,
-                        unit: "%" as const
-                      });
                       onClose?.();
                     }}
                     icon={{
@@ -138,7 +124,7 @@ const ImageDialog = forwardRef<HTMLDialogElement, IImageDialogProps>(
           error={validationError?.message}
           label='Select an image'
           accept='image/*'
-          // maxFileSize={1024 * 1024 * 0.5} // 500KB
+          maxFileSize={1024 * 1024 * 0.5} // 500KB
           allowedMimeTypes={["image/jpeg", "image/png", "image/gif"]}
           compression={{ enabled: true, quality: 0.8 }}
         />

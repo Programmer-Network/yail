@@ -6,8 +6,6 @@ export interface IImageCropProps {
   src: Blob | null;
   onComplete?: (blob: Blob) => void;
   onError?: (error: string) => void;
-  setCrop: (crop: Crop) => void;
-  crop: Crop;
   locked?: boolean;
   circularCrop?: boolean;
   aspect?: number;

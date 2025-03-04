@@ -1,6 +1,6 @@
 import { CanvasUtils } from "Utils";
 import classNames from "classnames";
-import { FC, useMemo, useRef } from "react";
+import { FC, useCallback, useMemo, useRef, useState } from "react";
 import ReactCrop, {
   PercentCrop,
   PixelCrop,
@@ -8,19 +8,19 @@ import ReactCrop, {
 } from "react-image-crop";
 import "react-image-crop/dist/ReactCrop.css";
 
-import { IImageCropProps } from "./types";
+import { ICrop, IImageCropProps } from "./types";
 
 const ImageCrop: FC<IImageCropProps> = ({
   src,
   onComplete,
   onError,
-  crop,
-  setCrop,
   circularCrop = false,
   locked = false,
   aspect = undefined,
   imgCropWrapperClassName
 }) => {
+  const [crop, setCrop] = useState<ICrop | undefined>(undefined);
+
   const imgRef = useRef(null);
   const imageSrc = useMemo(() => {
     if (!src) {
@@ -40,41 +40,37 @@ const ImageCrop: FC<IImageCropProps> = ({
     setCrop(
       makeAspectCrop(
         {
-          height: crop.height,
-          unit: crop.unit as PercentCrop["unit"],
-          width: crop.width
+          unit: "%" as PercentCrop["unit"],
+          width: 50
         },
         aspect,
         mediaWidth,
         mediaHeight
       )
     );
-
-    if (!imgRef.current) {
-      return;
-    }
-
-    onComplete?.(imgRef.current);
   };
 
-  const handleComplete = async (crop: PixelCrop) => {
-    if (!imgRef.current) {
-      return;
-    }
+  const handleComplete = useCallback(
+    async (crop: PixelCrop) => {
+      if (!imgRef.current) {
+        return;
+      }
 
-    const { croppedImage, cropError } = await CanvasUtils.getCroppedImg(
-      imgRef.current,
-      crop
-    );
+      const { croppedImage, cropError } = await CanvasUtils.getCroppedImg(
+        imgRef.current,
+        crop
+      );
 
-    if (cropError) {
-      onError?.(cropError);
+      if (cropError) {
+        onError?.(cropError);
 
-      return;
-    }
+        return;
+      }
 
-    onComplete?.(croppedImage as Blob);
-  };
+      onComplete?.(croppedImage as Blob);
+    },
+    [onComplete, onError]
+  );
 
   return (
     <div className='yl:w-full yl:h-full yl:flex yl:items-center yl:justify-center'>
