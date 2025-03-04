@@ -2,7 +2,6 @@ import classNames from "classnames";
 import { FC } from "react";
 
 import Icon from "Components/Icon";
-import Spinner from "Components/Spinner";
 import Tooltip from "Components/Tooltip";
 
 import {
@@ -79,7 +78,11 @@ const Reactions: FC<IReactionsProps> = ({
         <span className='yl:select-none yl:text-text'>{reactionsCount}</span>
         <div className='yl:flex yl:items-center yl:justify-center yl:gap-2 yl:text-text'>
           {isDisliking ? (
-            <Spinner className='yl:w-5' data-testid='dislike-spinner' />
+            <Icon
+              iconName='IconSpinner'
+              className='yl:w-5'
+              data-testid='dislike-spinner'
+            />
           ) : (
             <>
               <Icon

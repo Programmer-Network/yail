@@ -7,7 +7,15 @@ exports[`Bookmark component > renders correctly - snapshot test 1`] = `
   >
     <div
       class="yl:flex yl:gap-2"
-    />
+    >
+      <div
+        class="yl:relative yl:top-[-1px] yl:w-5 yl:cursor-pointer yl:fill-primary yl:hover:fill-primary"
+        data-icon="IconBookmarked"
+        data-testid="icon-bookmarked"
+      >
+        [Icon: IconBookmarked]
+      </div>
+    </div>
   </div>
 </DocumentFragment>
 `;

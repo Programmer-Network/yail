@@ -24,10 +24,12 @@ describe("CTA component", () => {
         title={title}
         subtitle={subtitle}
         IconComponent={{
-          iconName: "IconSpinner"
+          iconName: "IconSpinner",
+          dataTestId: "icon-spinner"
         }}
         ButtonIconComponent={{
-          iconName: "IconSpinner"
+          iconName: "IconSpinner",
+          dataTestId: "icon-spinner"
         }}
       />
     );

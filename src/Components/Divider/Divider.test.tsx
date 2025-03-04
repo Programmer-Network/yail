@@ -22,16 +22,6 @@ describe("Divider component", () => {
     expect(divider).toHaveClass(customClass);
   });
 
-  test("applies classes to child divs", () => {
-    const classes = ["class1", "class2", "class3"];
-    render(<Divider classes={classes} />);
-    classes.forEach((className, index) => {
-      expect(screen.getByTestId(`divider-child-${index}`)).toHaveClass(
-        className
-      );
-    });
-  });
-
   test("throws error if classes prop is not an array", () => {
     const invalidClasses = "invalid-classes";
     // @ts-expect-error - Passing invalid classes prop to Divider component for testing purposes

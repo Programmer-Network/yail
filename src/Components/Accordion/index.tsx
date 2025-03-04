@@ -137,6 +137,7 @@ const Accordion: FC<IAccordionProps> = ({
                 <div>
                   <Icon
                     iconName='IconDrag'
+                    dataTestId='icon-drag'
                     className='yl:w-6 yl:opacity-50 yl:mr-1'
                   />
                 </div>
@@ -145,6 +146,7 @@ const Accordion: FC<IAccordionProps> = ({
                 {expanded.includes(section.id) ? (
                   <Icon
                     iconName='IconExpandLess'
+                    dataTestId='icon-expand-less'
                     onClick={e => {
                       e.stopPropagation();
                       e.preventDefault();
@@ -155,6 +157,7 @@ const Accordion: FC<IAccordionProps> = ({
                 ) : (
                   <Icon
                     iconName='IconExpandMore'
+                    dataTestId='icon-expand-more'
                     onClick={e => {
                       e.stopPropagation();
                       e.preventDefault();
@@ -215,7 +218,11 @@ const Accordion: FC<IAccordionProps> = ({
                       "yl:cursor-pointer yl:hover:text-text yl:pb-4 yl:text-text yl:text-center yl:flex yl:items-center yl:justify-center yl:gap-1"
                     )}
                   >
-                    <Icon iconName='IconAddCircle' className='yl:w-6' />
+                    <Icon
+                      iconName='IconAddCircle'
+                      dataTestId='icon-add-circle'
+                      className='yl:w-6'
+                    />
                     {addSectionItemLabel && (
                       <span className='yl:text-sm'>{addSectionItemLabel}</span>
                     )}
@@ -242,6 +249,7 @@ const Accordion: FC<IAccordionProps> = ({
             <Paragraph className='yl:text-text/70 yl:group-hover:text-text yl:flex yl:items-center yl:gap-1'>
               <Icon
                 iconName='IconAddCircle'
+                dataTestId='icon-add-circle'
                 className='yl:w-6 yl:group-hover:text-text'
               />
               {addSectionLabel && (

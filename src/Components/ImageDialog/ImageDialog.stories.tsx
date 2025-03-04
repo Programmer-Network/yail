@@ -31,14 +31,12 @@ export const Default = () => {
   };
 
   return (
-    <div className='yl:w-full yl:h-full'>
-      <ImageDialog
-        buttonText='Save'
-        ref={dialogRef}
-        onClose={handleClose}
-        onOpen={handleOpen}
-        onSave={handleSave}
-      />
-    </div>
+    <ImageDialog
+      buttonText='Save'
+      ref={dialogRef}
+      onClose={handleClose}
+      onOpen={handleOpen}
+      onSave={handleSave}
+    />
   );
 };

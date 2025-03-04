@@ -34,6 +34,7 @@ const CTA: FC<ICTAProps> = (
             {IconComponent && (
               <Icon
                 iconName={IconComponent.iconName}
+                dataTestId={IconComponent.dataTestId}
                 className={classNames(
                   "yl:mx-auto yl:w-14 yl:text-primary yl:md:w-28",
                   iconClassName

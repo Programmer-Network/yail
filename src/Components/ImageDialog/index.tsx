@@ -63,7 +63,7 @@ const ImageDialog = forwardRef<HTMLDialogElement, IImageDialogProps>(
                 <div className='yl:flex yl:gap-2'>
                   <Button
                     type='button'
-                    className='yl:flex-1'
+                    className='yl:flex-1 yl:cursor-pointer'
                     onClick={async () => {
                       try {
                         if (!croppedImage) {
@@ -99,7 +99,7 @@ const ImageDialog = forwardRef<HTMLDialogElement, IImageDialogProps>(
                   <Button
                     outlined
                     type='button'
-                    className='yl:text-secondary yl:fill-secondary yl:border-secondary yl:hover:bg-secondary/5 yl:hover:text-secondary yl:hover:fill-secondary yl:hover:border-secondary'
+                    className='yl:text-secondary yl:fill-secondary yl:border-secondary yl:hover:bg-secondary/5 yl:hover:text-secondary yl:hover:fill-secondary yl:hover:border-secondary yl:cursor-pointer'
                     onClick={() => {
                       setImageInputSelection(null);
                       setCroppedImage(null);

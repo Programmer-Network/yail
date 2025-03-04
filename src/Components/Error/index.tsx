@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import React from "react";
 
+import Icon from "Components/Icon";
 import { IIconProps } from "Components/Icon/types";
 
 import { IErrorProps } from "./types";
@@ -13,7 +14,6 @@ const Error: React.FC<IErrorProps> = (
     backToText,
     className,
     onBackToClick,
-    Icon,
     IconProps,
     onIconClick
   } = {
@@ -35,7 +35,7 @@ const Error: React.FC<IErrorProps> = (
               "yl:cursor-pointer": onIconClick
             })}
           >
-            {Icon && <Icon {...(IconProps as IIconProps)} />}
+            {IconProps && <Icon {...(IconProps as IIconProps)} />}
           </a>
         </div>
         <div>

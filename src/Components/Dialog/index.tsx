@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import React, { forwardRef, useEffect, useRef } from "react";
+import { RefObject, forwardRef, useEffect, useRef } from "react";
 
 import "./dialog.css";
 import { IDialogProps } from "./types";
@@ -10,8 +10,7 @@ const Dialog = forwardRef<HTMLDialogElement, IDialogProps>(
     forwardedRef
   ) => {
     const internalRef = useRef<HTMLDialogElement>(null);
-    const ref = (forwardedRef ||
-      internalRef) as React.MutableRefObject<HTMLDialogElement>;
+    const ref = (forwardedRef || internalRef) as RefObject<HTMLDialogElement>;
 
     /**
      * Handle body overflow when dialog is open
@@ -63,6 +62,7 @@ const Dialog = forwardRef<HTMLDialogElement, IDialogProps>(
         document.removeEventListener("keydown", handleKeyDown);
       };
     }, [onClose, shouldCloseOnClickOutside, ref]);
+
     useEffect(() => {
       if (isOpen) {
         ref.current?.showModal();
@@ -75,7 +75,7 @@ const Dialog = forwardRef<HTMLDialogElement, IDialogProps>(
       <dialog
         ref={ref}
         className={classNames(
-          "yl:z-50 yl:rounded-lg yl:bg-background yl:shadow-md yl:ring-3-1 yl:ring-3-text yl:ring-3-opacity-30",
+          "yl:z-50 yl:rounded-lg yl:bg-background yl:shadow-md yl:border-2 yl:border-border",
           className
         )}
         onClick={e => e.stopPropagation()}

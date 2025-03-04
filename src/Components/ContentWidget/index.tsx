@@ -18,7 +18,11 @@ const ContentWidget = <T extends IContentWidgetBaseItem>({
   if (isLoading) {
     return (
       <div className='yl:flex yl:items-center yl:justify-center'>
-        <Icon iconName='IconSpinner' className='yl:w-12 yl:fill-primary' />
+        <Icon
+          iconName='IconSpinner'
+          className='yl:w-12 yl:fill-primary'
+          dataTestId='icon-spinner'
+        />
       </div>
     );
   }
@@ -50,6 +54,7 @@ const ContentWidget = <T extends IContentWidgetBaseItem>({
               <Tooltip id='see-more-tooltip' text={more.tooltipText}>
                 <Icon
                   iconName='IconEnter'
+                  dataTestId='icon-enter'
                   onClick={more.onClick}
                   className='yl:w-8 yl:absolute yl:top-2 yl:right-2 yl:text-text yl:cursor-pointer yl:hover:text-text'
                 />

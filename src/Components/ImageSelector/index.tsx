@@ -50,7 +50,7 @@ const ImageSelector: FC<IImageSelectorProps> = ({
             {!itemToDelete && hoveredImage?.url === image.url && (
               <Icon
                 iconName='IconRemoveCircle'
-                data-testid={`icon-remove-circle-${image.id}`}
+                dataTestId={`icon-remove-circle-${image.id}`}
                 onClick={async e => {
                   try {
                     e.stopPropagation();

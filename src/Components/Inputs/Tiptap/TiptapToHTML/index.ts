@@ -84,6 +84,7 @@ export default class TiptapToHTML {
         "a",
         "iframe",
         "img",
+        "br",
         ...getAllowedTags(this.toolbarItems)
       ],
       allowedAttributes: {
@@ -101,7 +102,7 @@ export default class TiptapToHTML {
         ],
         span: ["data-id", "data-type"]
       },
-      selfClosing: ["img"],
+      selfClosing: ["img", "br"],
       allowedClasses: {
         "*": [
           "yl:text-text",

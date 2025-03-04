@@ -13,7 +13,7 @@ const TiptapActions: FC<{
 
   return (
     <div className='yl:flex yl:justify-end yl:relative yl:-right-2'>
-      <div className='yl:rounded-md yl:border-2 yl:border-border/40 yl:bg-background yl:p-1'>
+      <div className='yl:rounded-md yl:border-2 yl:border-border yl:p-1'>
         <div className='yl:flex yl:items-center yl:gap-1 yl:px-1'>
           {buttons.includes(TiptapActionsEnum.CONFIRM) && (
             <Icon

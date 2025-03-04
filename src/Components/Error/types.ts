@@ -1,5 +1,3 @@
-import { FC } from "react";
-
 import { IIconProps } from "Components/Icon/types";
 
 export interface IErrorProps {
@@ -9,7 +7,6 @@ export interface IErrorProps {
   backToText?: string;
   className?: string;
   onBackToClick?: () => void;
-  Icon?: FC<IIconProps>;
   IconProps?: IIconProps;
   onIconClick?: () => void;
 }

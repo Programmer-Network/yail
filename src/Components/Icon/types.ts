@@ -6,4 +6,5 @@ export interface IIconProps {
   iconName: IconName;
   className?: string;
   onClick?: (e: MouseEvent<SVGElement>) => void;
+  dataTestId?: string;
 }

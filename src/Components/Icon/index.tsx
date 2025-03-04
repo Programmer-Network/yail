@@ -11,18 +11,16 @@ import {
 
 import { IIconProps } from "./types";
 
-// Create a cache to store loaded icon components
 const iconCache: Record<
   string,
   LazyExoticComponent<ComponentType<SVGProps<SVGElement>>>
 > = {};
 
 const Icon: FC<IIconProps> = props => {
-  const { iconName, className, onClick, ...rest } = props;
+  const { iconName, className, onClick, dataTestId, ...rest } = props;
 
   const [error, setError] = useState<boolean>(false);
 
-  // Memoize the lazy component creation
   const IconComponent = useMemo(() => {
     if (iconCache[iconName]) {
       return iconCache[iconName];
@@ -32,9 +30,8 @@ const Icon: FC<IIconProps> = props => {
       try {
         const module = await import(`../Icons/${String(iconName)}.tsx`);
         return module;
-      } catch (err) {
+      } catch {
         setError(true);
-        console.error(`Failed to load icon: ${iconName}`, err);
         return { default: () => null };
       }
     });
@@ -49,7 +46,12 @@ const Icon: FC<IIconProps> = props => {
 
   return (
     <Suspense>
-      <IconComponent {...rest} className={className} onClick={onClick} />
+      <IconComponent
+        {...rest}
+        className={className}
+        onClick={onClick}
+        data-testid={dataTestId}
+      />
     </Suspense>
   );
 };

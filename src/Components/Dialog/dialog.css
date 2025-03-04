@@ -1,3 +1,14 @@
 dialog::backdrop {
   backdrop-filter: blur(2px);
 }
+
+dialog {
+  margin: auto;
+  border: none;
+  padding: 0;
+}
+
+dialog[open] {
+  display: grid;
+  place-items: center;
+}

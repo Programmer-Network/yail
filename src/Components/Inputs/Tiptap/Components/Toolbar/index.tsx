@@ -214,7 +214,7 @@ export const Toolbar = ({
                   "yl:w-8 yl:cursor-pointer yl:border-border",
                   {
                     "yl:text-text": !i.isActive,
-                    "yl:fill-primary! yl:text-text!": i.isActive,
+                    "yl:fill-primary yl:text-primary": i.isActive,
                     "yl:cursor-not-allowed":
                       typeof i.isDisabled === "function" && i.isDisabled(),
                     "yl:cursor-default": !hasSelection,

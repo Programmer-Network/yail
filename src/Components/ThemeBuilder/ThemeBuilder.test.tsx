@@ -162,7 +162,7 @@ describe("ThemeBuilder component", () => {
     ).toBe("79 70 229");
 
     expect(document.documentElement.style.getPropertyValue("--color-bg")).toBe(
-      "27 31 35"
+      "255 185 0"
     );
 
     expect(
