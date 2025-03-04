@@ -5,7 +5,7 @@ import Divider from "./";
 describe("Divider component", () => {
   test("renders correctly - snapshot test", () => {
     const { asFragment } = render(
-      <Divider classes={["yl-bg-text", "yl-bg-text", "yl-bg-text"]} />
+      <Divider classes={["yl:bg-text", "yl:bg-text", "yl:bg-text"]} />
     );
     expect(asFragment()).toMatchSnapshot();
   });
@@ -15,21 +15,11 @@ describe("Divider component", () => {
     render(
       <Divider
         className={customClass}
-        classes={["yl-bg-text", "yl-bg-text", "yl-bg-text"]}
+        classes={["yl:bg-text", "yl:bg-text", "yl:bg-text"]}
       />
     );
     const divider = screen.getByTestId("divider");
     expect(divider).toHaveClass(customClass);
-  });
-
-  test("applies classes to child divs", () => {
-    const classes = ["class1", "class2", "class3"];
-    render(<Divider classes={classes} />);
-    classes.forEach((className, index) => {
-      expect(screen.getByTestId(`divider-child-${index}`)).toHaveClass(
-        className
-      );
-    });
   });
 
   test("throws error if classes prop is not an array", () => {

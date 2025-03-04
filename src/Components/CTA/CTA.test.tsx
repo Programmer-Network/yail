@@ -1,8 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { vi } from "vitest";
 
-import IconSpinner from "Components/Icons/IconSpinner";
-
 import CTA from "./";
 
 describe("CTA component", () => {
@@ -25,8 +23,14 @@ describe("CTA component", () => {
       <CTA
         title={title}
         subtitle={subtitle}
-        Icon={IconSpinner}
-        ButtonIcon={IconSpinner}
+        IconComponent={{
+          iconName: "IconSpinner",
+          dataTestId: "icon-spinner"
+        }}
+        ButtonIconComponent={{
+          iconName: "IconSpinner",
+          dataTestId: "icon-spinner"
+        }}
       />
     );
 

@@ -13,8 +13,8 @@ const Template = () => {
   >;
 
   return (
-    <div>
-      <div className='yl-grid yl-grid-cols-4 yl-gap-4'>
+    <div className='yl:flex yl:flex-col yl:gap-4'>
+      <div className='yl:grid yl:grid-cols-4 yl:gap-4'>
         {Object.keys(AllIcons)
           .sort()
           .map((iconName: string) => {
@@ -22,10 +22,11 @@ const Template = () => {
             return (
               <div
                 key={iconName}
-                className='yl-flex yl-flex-col yl-items-center yl-justify-center yl-gap-2 yl-p8'
+                className='yl:flex yl:flex-col yl:items-center yl:justify-center yl:gap-2 yl:p8'
               >
-                <Icon className='yl-h-16 yl-w-16 yl-text-white' />
-                <span className='yl-font-bold yl-text-text'>{iconName}</span>
+                {/* @ts-ignore */}
+                <Icon className='yl:h-16 yl:w-16 yl:text-white' />
+                <span className='yl:font-bold yl:text-text'>{iconName}</span>
               </div>
             );
           })}

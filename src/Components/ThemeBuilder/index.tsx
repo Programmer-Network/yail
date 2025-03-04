@@ -1,6 +1,6 @@
 import { useOnClickOutside } from "Hooks/useClickOutside";
 import classNames from "classnames";
-import { FC, useEffect, useMemo, useRef, useState } from "react";
+import { FC, RefObject, useEffect, useMemo, useRef, useState } from "react";
 import { HexColorInput, HexColorPicker } from "react-colorful";
 
 import Button from "Components/Button";
@@ -35,11 +35,11 @@ const ThemeBuilder: FC<IThemeBuilder> = ({
     return localSettings.some((localSetting, index) => {
       const setting = settings[index];
 
-      return localSetting.color !== setting.color;
+      return localSetting.color !== setting?.color;
     });
   }, [localSettings, settings]);
 
-  useOnClickOutside(ref, () => {
+  useOnClickOutside(ref as RefObject<HTMLElement>, () => {
     setSelected(initialState);
   });
 
@@ -86,8 +86,8 @@ const ThemeBuilder: FC<IThemeBuilder> = ({
 
   return (
     <div ref={ref}>
-      <div className='yl-mb-1 yl-flex yl-items-center yl-justify-center md:yl-justify-start'>
-        <div className='yl-flex yl-gap-1 yl-flex-col md:yl-flex-row'>
+      <div className='yl:mb-1 yl:flex yl:items-center yl:justify-center yl:md:justify-start'>
+        <div className='yl:flex yl:gap-1 yl:flex-col yl:md:flex-row'>
           {settings.map(setting => {
             return (
               <Button
@@ -95,7 +95,7 @@ const ThemeBuilder: FC<IThemeBuilder> = ({
                 outlined={setting.type !== selected.type}
                 className={classNames(
                   setting.className,
-                  "yl-h-12 yl-min-w-[120px] yl-shadow-none"
+                  "yl:h-12 yl:min-w-[120px] yl:shadow-none"
                 )}
                 onClick={() => {
                   setSelected({
@@ -115,16 +115,16 @@ const ThemeBuilder: FC<IThemeBuilder> = ({
       </div>
 
       {isDirty && (
-        <div className='yl-flex yl-gap-1 yl-my-4 yl-justify-center md:yl-justify-start'>
+        <div className='yl:flex yl:gap-1 yl:my-4 yl:justify-center yl:md:justify-start'>
           <Button
-            className='yl-min-w-[80px] yl-shadow-none'
+            className='yl:min-w-[80px] yl:shadow-none'
             onClick={handleSaveColors}
           >
             Save
           </Button>
 
           <Button
-            className='yl-min-w-[80px] yl-shadow-none'
+            className='yl:min-w-[80px] yl:shadow-none'
             outlined
             onClick={handleReset}
           >
@@ -134,12 +134,12 @@ const ThemeBuilder: FC<IThemeBuilder> = ({
       )}
 
       {selected.type && (
-        <div className='yl-relative yl-flex yl-items-center yl-justify-start'>
-          <div className='yl-relative yl-mt-2'>
+        <div className='yl:relative yl:flex yl:items-center yl:justify-start'>
+          <div className='yl:relative yl:mt-2'>
             <div onClick={() => setSelected(initialState)}>
               <Icon
                 iconName='IconClose'
-                className='yl-absolute yl-right-[-5px] yl-top-[-5px] yl-z-50 yl-w-4 yl-cursor-pointer yl-rounded-lg yl-border-2 yl-border-border yl-bg-background yl-text-text hover:yl-bg-primary hover:yl-text-background'
+                className='yl:absolute yl:right-[-5px] yl:top-[-5px] yl:z-50 yl:w-4 yl:cursor-pointer yl:rounded-lg yl:border-2 yl:border-border yl:bg-background yl:text-text yl:hover:bg-primary yl:hover:text-background'
               />
             </div>
 
@@ -148,7 +148,7 @@ const ThemeBuilder: FC<IThemeBuilder> = ({
               onChange={(color: string) => setSelected({ ...selected, color })}
               color={selected?.color}
               placeholder='e.g.175ca1'
-              className='yl-mb-2 yl-rounded-lg yl-border-2 yl-border-border yl-bg-transparent yl-p-2 yl-text-text yl-shadow-md hover:yl-border-border focus:yl-border-border focus:yl-shadow-none focus:yl-outline-none focus:yl-ring-transparent'
+              className='yl:mb-2 yl:rounded-lg yl:border-2 yl:border-border yl:bg-transparent yl:p-2 yl:text-text yl:shadow-md yl:hover:border-border yl:focus:border-border yl:focus:shadow-none yl:focus:outline-hidden yl:focus:ring-3-transparent'
             />
             <HexColorPicker
               onChange={color => setSelected({ ...selected, color })}

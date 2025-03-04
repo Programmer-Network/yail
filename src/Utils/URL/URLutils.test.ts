@@ -4,15 +4,21 @@ describe("URLUtils.isExternalLink", () => {
   const originalLocation = window.location;
 
   beforeAll(() => {
-    window.location = {
-      ...originalLocation,
-      href: "http://localhost/",
-      hostname: "localhost"
-    };
+    Object.defineProperty(window, "location", {
+      value: {
+        ...originalLocation,
+        href: "http://localhost/",
+        hostname: "localhost"
+      },
+      writable: true
+    });
   });
 
   afterAll(() => {
-    window.location = originalLocation;
+    Object.defineProperty(window, "location", {
+      value: originalLocation,
+      writable: true
+    });
   });
 
   it("should return false for an internal link", () => {
@@ -25,7 +31,7 @@ describe("URLUtils.isExternalLink", () => {
     expect(URLUtils.isExternalLink(externalUrl)).toBe(true);
   });
 
-  it("should return false for a yl-relative URL", () => {
+  it("should return false for a yl:relative URL", () => {
     const relativeUrl = "../path/to/page";
     expect(URLUtils.isExternalLink(relativeUrl)).toBe(false);
   });

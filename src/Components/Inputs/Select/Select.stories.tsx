@@ -26,7 +26,9 @@ export const SingleSelect = (args: ISelectProps) => {
     console.log(input);
   }, [input]);
 
-  return <Select {...args} name='foo' value={input.foo} onChange={setInput} />;
+  return (
+    <Select {...args} name='foo' value={input["foo"]} onChange={setInput} />
+  );
 };
 
 SingleSelect.args = {
@@ -51,7 +53,7 @@ export const MultiSelect = (args: ISelectProps) => {
     console.log(input);
   }, [input]);
 
-  return <Select {...args} value={input.foo} onChange={setInput} />;
+  return <Select {...args} value={input["foo"]} onChange={setInput} />;
 };
 
 MultiSelect.args = {

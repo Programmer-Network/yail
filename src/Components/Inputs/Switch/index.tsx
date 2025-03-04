@@ -15,31 +15,31 @@ const Switch: React.FC<ISwitchProps> = ({
   };
   return (
     <>
-      <label className='yl-flex yl-cursor-pointer yl-select-none yl-items-center'>
-        <div className={classNames("yl-relative", className)}>
+      <label className='yl:flex yl:cursor-pointer yl:select-none yl:items-center'>
+        <div className={classNames("yl:relative", className)}>
           <input
             type='checkbox'
             checked={isChecked}
             onChange={handleChange}
-            className='yl-sr-only'
+            className='yl:sr-only'
           />
           <div
-            className={classNames("yl-block yl-h-8 yl-w-14 yl-rounded-full", {
-              "yl-bg-primary": isChecked,
-              "yl-bg-text": !isChecked
+            className={classNames("yl:block yl:h-8 yl:w-14 yl:rounded-full", {
+              "yl:bg-primary": isChecked,
+              "yl:bg-text": !isChecked
             })}
           ></div>
           <div
             className={classNames(
-              "yl-dot yl-absolute yl-left-1 yl-top-1 yl-h-6 yl-w-6 yl-rounded-full yl-transition yl-bg-background",
+              "yl:dot yl:absolute yl:left-1 yl:top-1 yl:h-6 yl:w-6 yl:rounded-full yl:transition yl:bg-background",
               {
-                "yl-translate-x-6": isChecked
+                "yl:translate-x-6": isChecked
               }
             )}
           ></div>
         </div>
         {label && (
-          <span className='yl-ms-3 yl-text-sm yl-font-medium yl-text-text'>
+          <span className='yl:ms-3 yl:text-sm yl:font-medium yl:text-text'>
             {label}
           </span>
         )}

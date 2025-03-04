@@ -26,14 +26,14 @@ export const MultiSelect = () => {
     };
   });
 
-  const [input, setInput] = useState<Option | Option[]>(options[0]);
+  const [input, setInput] = useState<Option | Option[]>(options[0]!);
 
   const args: IAsyncSelectProps = {
     name: "example",
     label: "Example",
     required: true,
     onChange: (value: Record<string, Option | Option[]>) => {
-      setInput(value.value);
+      setInput(value["value"] as Option | Option[]);
     },
     loadOptions: async (): Promise<
       Response<Option, GroupBase<Option>, unknown>
@@ -64,7 +64,7 @@ export const SingleSelect = () => {
     };
   });
 
-  const [input, setInput] = useState<Option | Option[]>(options[0]);
+  const [input, setInput] = useState<Option | Option[]>(options[0]!);
 
   const args: IAsyncSelectProps = {
     name: "example",
@@ -74,7 +74,7 @@ export const SingleSelect = () => {
     loadingMessage: () => "Loading...",
     required: true,
     onChange: (value: Record<string, Option | Option[]>) => {
-      setInput(value.value);
+      setInput(value["value"] as Option | Option[]);
     },
     isSearchable: true,
     loadOptions: async (): Promise<

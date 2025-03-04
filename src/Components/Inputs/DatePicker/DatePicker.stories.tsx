@@ -17,18 +17,18 @@ export const Default = () => {
   const [date, setDate] = useState(new Date());
 
   return (
-    <div className='yl-w-[500px]'>
+    <div className='yl:w-[500px]'>
       <DatePicker
         name='datetime'
         value={date}
         showTimeSelect
         timeCaption='Time'
         onChange={input => {
-          if (!input.datetime) {
+          if (!input["datetime"]) {
             return;
           }
 
-          setDate(input.datetime);
+          setDate(input["datetime"]);
         }}
       />
     </div>
@@ -48,11 +48,11 @@ export const WithMinAndMaxDate = () => {
       showTimeSelect
       timeCaption='Time'
       onChange={input => {
-        if (!input.datetime) {
+        if (!input["datetime"]) {
           return;
         }
 
-        setDate(input.datetime);
+        setDate(input["datetime"]);
       }}
     />
   );
@@ -74,11 +74,11 @@ export const WithAHeaderAndError = () => {
       timeCaption='Time'
       error='Invalid date and time'
       onChange={input => {
-        if (!input.datetime) {
+        if (!input["datetime"]) {
           return;
         }
 
-        setDate(input.datetime);
+        setDate(input["datetime"]);
       }}
     />
   );

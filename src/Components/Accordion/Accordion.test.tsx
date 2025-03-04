@@ -63,7 +63,7 @@ describe("Accordion component", () => {
         sections={mockSections}
         onSorted={vi.fn()}
         setExpanded={setExpanded}
-        expanded={[mockSections[0].id]}
+        expanded={[mockSections[0]!.id]}
         onSectionItemClick={vi.fn()}
       />
     );
@@ -85,7 +85,7 @@ describe("Accordion component", () => {
     );
 
     fireEvent.click(screen.getByText("Item A"));
-    expect(onSectionItemClick).toHaveBeenCalledWith(mockSections[0].items[0]);
+    expect(onSectionItemClick).toHaveBeenCalledWith(mockSections[0]!.items[0]);
   });
 
   test("applies custom class names", () => {

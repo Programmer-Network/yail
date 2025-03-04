@@ -28,9 +28,9 @@ describe("Button component", () => {
   test("has outlined styles when outlined prop is true", () => {
     render(<Button outlined>Click me</Button>);
     const button = screen.getByRole("button");
-    expect(button).toHaveClass("yl-border-2");
-    expect(button).toHaveClass("yl-text-primary");
-    expect(button).toHaveClass("yl-border-primary");
+    expect(button).toHaveClass("yl:border-2");
+    expect(button).toHaveClass("yl:text-primary");
+    expect(button).toHaveClass("yl:border-primary");
   });
 
   test("handles click events", () => {
@@ -43,22 +43,22 @@ describe("Button component", () => {
   test("has correct styles when disabled and filled", () => {
     render(<Button disabled>Disabled Button</Button>);
     const button = screen.getByRole("button");
-    expect(button).toHaveClass("yl-text-background");
-    expect(button).toHaveClass("yl-bg-primary");
+    expect(button).toHaveClass("yl:text-background");
+    expect(button).toHaveClass("yl:bg-primary");
   });
 
   test("has correct styles when loading and filled", () => {
     render(<Button isLoading>Button</Button>);
     const button = screen.getByRole("button");
-    expect(button).toHaveClass("hover:yl-bg-transparent");
+    expect(button).toHaveClass("yl:hover:bg-transparent");
   });
 
   test("has correct styles when not disabled, not loading, and filled", () => {
     render(<Button>Button</Button>);
     const button = screen.getByRole("button");
-    expect(button).toHaveClass("yl-bg-primary");
-    expect(button).toHaveClass("hover:yl-bg-transparent");
-    expect(button).toHaveClass("hover:yl-text-primary");
+    expect(button).toHaveClass("yl:bg-primary");
+    expect(button).toHaveClass("yl:hover:bg-transparent");
+    expect(button).toHaveClass("yl:hover:text-primary");
   });
 
   test("has correct styles when disabled and outlined", () => {
@@ -68,6 +68,6 @@ describe("Button component", () => {
       </Button>
     );
     const button = screen.getByRole("button");
-    expect(button).toHaveClass("yl-text-primary");
+    expect(button).toHaveClass("yl:text-primary");
   });
 });

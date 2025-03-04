@@ -3,7 +3,7 @@
 exports[`CharacterCounter component > renders correctly - snapshot test 1`] = `
 <DocumentFragment>
   <div
-    class="yl-flex yl-gap-1 yl-text-text"
+    class="yl:flex yl:gap-1 yl:text-text"
   >
     <span
       data-testid="current-length"

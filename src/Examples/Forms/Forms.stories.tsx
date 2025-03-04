@@ -29,8 +29,8 @@ export const UseAjvForm = () => {
 
   return (
     <div>
-      <div className='yl-flex yl-flex-col yl-gap-4 yl-p8'>
-        <div className='yl-grid yl-grid-cols-2 yl-gap-4'>
+      <div className='yl:flex yl:flex-col yl:gap-4 yl:p-8'>
+        <div className='yl:grid yl:grid-cols-2 yl:gap-4'>
           <Input
             name='title'
             label='Title'
@@ -61,13 +61,13 @@ export const UseAjvForm = () => {
           onChange={({ about }) => form.set({ about })}
         />
         <Button
-          className='yl-max-w-max'
+          className='yl:max-w-max'
           onClick={() => form.validate()}
           disabled={!form.isDirty}
         >
           Save
         </Button>
-        {!form.isValid && <h1 className='yl-text-pink-600'>Invalid Form</h1>}
+        {!form.isValid && <h1 className='yl:text-pink-600'>Invalid Form</h1>}
       </div>
     </div>
   );

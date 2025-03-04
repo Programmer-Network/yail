@@ -1,11 +1,11 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import React from "react";
 import { vi } from "vitest";
 
 import ImageSelector from "./";
+import { IImage } from "./types";
 
 describe("ImageSelector component", () => {
-  const mockImages = [
+  const mockImages: IImage[] = [
     { id: 1, url: "http://example.com/image1.jpg" },
     { id: 2, url: "http://example.com/image2.jpg" }
   ];
@@ -14,7 +14,7 @@ describe("ImageSelector component", () => {
     const { asFragment } = render(
       <ImageSelector
         images={mockImages}
-        value={mockImages[0]}
+        value={mockImages[0]!}
         onSelected={vi.fn()}
         onDelete={vi.fn()}
       />
@@ -26,7 +26,7 @@ describe("ImageSelector component", () => {
     render(
       <ImageSelector
         images={mockImages}
-        value={mockImages[0]}
+        value={mockImages[0]!}
         onSelected={vi.fn()}
         onDelete={vi.fn()}
       />
@@ -41,37 +41,39 @@ describe("ImageSelector component", () => {
     render(
       <ImageSelector
         images={mockImages}
-        value={mockImages[0]}
+        value={mockImages[0]!}
         onSelected={onSelected}
         onDelete={vi.fn()}
       />
     );
-    fireEvent.click(screen.getByTestId(`image-${mockImages[1].id}`));
-    expect(onSelected).toHaveBeenCalledWith(mockImages[1]);
+    const secondImage = mockImages[1]!;
+    fireEvent.click(screen.getByTestId(`image-${secondImage.id}`));
+    expect(onSelected).toHaveBeenCalledWith(secondImage);
   });
 
   test("handles image deletion", async () => {
     const onDelete = vi.fn().mockResolvedValue([]);
+    const firstImage = mockImages[0]!;
     render(
       <ImageSelector
         images={mockImages}
-        value={mockImages[0]}
+        value={firstImage}
         onSelected={vi.fn()}
         onDelete={onDelete}
       />
     );
 
-    const imageElement = screen.getByTestId(`image-${mockImages[0].id}`);
+    const imageElement = screen.getByTestId(`image-${firstImage.id}`);
     fireEvent.mouseEnter(imageElement);
 
     const deleteIcon = screen.getByTestId(
-      `icon-remove-circle-${mockImages[0].id}`
+      `icon-remove-circle-${firstImage.id}`
     );
 
     fireEvent.click(deleteIcon);
 
     await vi.waitFor(() => {
-      expect(onDelete).toHaveBeenCalledWith(mockImages[0]);
+      expect(onDelete).toHaveBeenCalledWith(firstImage);
     });
   });
 
@@ -79,7 +81,7 @@ describe("ImageSelector component", () => {
     const { rerender } = render(
       <ImageSelector
         images={mockImages}
-        value={mockImages[0]}
+        value={mockImages[0]!}
         onSelected={vi.fn()}
         onDelete={vi.fn()}
       />
@@ -87,7 +89,7 @@ describe("ImageSelector component", () => {
     rerender(
       <ImageSelector
         images={mockImages}
-        value={mockImages[1]}
+        value={mockImages[1]!}
         onSelected={vi.fn()}
         onDelete={vi.fn()}
       />

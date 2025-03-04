@@ -5,28 +5,39 @@ import {
   SVGProps,
   Suspense,
   lazy,
-  useEffect,
+  useMemo,
   useState
 } from "react";
 
 import { IIconProps } from "./types";
 
+const iconCache: Record<
+  string,
+  LazyExoticComponent<ComponentType<SVGProps<SVGElement>>>
+> = {};
+
 const Icon: FC<IIconProps> = props => {
-  const { iconName, className, onClick, ...rest } = props;
+  const { iconName, className, onClick, dataTestId, ...rest } = props;
 
   const [error, setError] = useState<boolean>(false);
-  const [IconComponent, setIconComponent] = useState<LazyExoticComponent<
-    ComponentType<SVGProps<SVGElement>>
-  > | null>(null);
 
-  useEffect(() => {
-    const Component = lazy(() => {
-      return import(`../Icons/${iconName}.tsx`).catch(() => {
+  const IconComponent = useMemo(() => {
+    if (iconCache[iconName]) {
+      return iconCache[iconName];
+    }
+
+    const Component = lazy(async () => {
+      try {
+        const module = await import(`../Icons/${String(iconName)}.tsx`);
+        return module;
+      } catch {
         setError(true);
-      });
+        return { default: () => null };
+      }
     });
 
-    setIconComponent(Component);
+    iconCache[iconName] = Component;
+    return Component;
   }, [iconName]);
 
   if (error) {
@@ -34,10 +45,13 @@ const Icon: FC<IIconProps> = props => {
   }
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
-      {IconComponent && (
-        <IconComponent {...rest} className={className} onClick={onClick} />
-      )}
+    <Suspense>
+      <IconComponent
+        {...rest}
+        className={className}
+        onClick={onClick}
+        data-testid={dataTestId}
+      />
     </Suspense>
   );
 };

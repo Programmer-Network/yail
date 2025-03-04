@@ -29,8 +29,8 @@ describe("Tag component", () => {
     expect(handleClick).toHaveBeenCalledTimes(1);
   });
 
-  test("should have yl-cursor-pointer class if onClick is provided", () => {
-    const customClassName = "yl-cursor-pointer";
+  test("should have yl:cursor-pointer class if onClick is provided", () => {
+    const customClassName = "yl:cursor-pointer";
     render(<Tag name='example' onClick={() => null} />);
     const tag = screen.getByText("#example").parentNode;
     expect(tag).toHaveClass(customClassName);

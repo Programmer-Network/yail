@@ -99,6 +99,6 @@ describe("ContentWidget component", () => {
 
     const firstItem = screen.getByText("Item 1");
     fireEvent.click(firstItem);
-    expect(mockItems[0].onClick).toHaveBeenCalledWith(mockItems[0].item);
+    expect(mockItems[0]!.onClick).toHaveBeenCalledWith(mockItems[0]!.item);
   });
 });

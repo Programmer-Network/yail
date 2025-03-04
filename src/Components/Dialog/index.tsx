@@ -1,26 +1,32 @@
 import classNames from "classnames";
-import React, { forwardRef, useEffect, useRef } from "react";
+import { RefObject, forwardRef, useEffect, useRef } from "react";
 
 import "./dialog.css";
 import { IDialogProps } from "./types";
 
 const Dialog = forwardRef<HTMLDialogElement, IDialogProps>(
-  ({ className, isOpen, children, onClose }, forwardedRef) => {
+  (
+    { className, isOpen, children, onClose, shouldCloseOnClickOutside = true },
+    forwardedRef
+  ) => {
     const internalRef = useRef<HTMLDialogElement>(null);
-    const ref = (forwardedRef ||
-      internalRef) as React.MutableRefObject<HTMLDialogElement>;
+    const ref = (forwardedRef || internalRef) as RefObject<HTMLDialogElement>;
 
     /**
      * Handle body overflow when dialog is open
      * and reset it when dialog is closed
      */
     useEffect(() => {
+      if (!shouldCloseOnClickOutside) {
+        return;
+      }
+
       if (isOpen) {
         document.body.style.overflow = "hidden";
       } else {
         document.body.style.overflow = "";
       }
-    }, [isOpen]);
+    }, [isOpen, shouldCloseOnClickOutside]);
 
     /**
      * Handle dialog close on click outside
@@ -28,6 +34,10 @@ const Dialog = forwardRef<HTMLDialogElement, IDialogProps>(
      */
     useEffect(() => {
       const handleDialogClick = (event: MouseEvent) => {
+        if (!shouldCloseOnClickOutside) {
+          return;
+        }
+
         if (event.target === ref.current) {
           onClose?.();
           ref.current?.close();
@@ -51,7 +61,7 @@ const Dialog = forwardRef<HTMLDialogElement, IDialogProps>(
         dialogElement?.removeEventListener("click", handleDialogClick);
         document.removeEventListener("keydown", handleKeyDown);
       };
-    }, [onClose, ref]);
+    }, [onClose, shouldCloseOnClickOutside, ref]);
 
     useEffect(() => {
       if (isOpen) {
@@ -65,14 +75,14 @@ const Dialog = forwardRef<HTMLDialogElement, IDialogProps>(
       <dialog
         ref={ref}
         className={classNames(
-          "yl-z-50 yl-rounded-lg yl-bg-background yl-shadow-md yl-ring-1 yl-ring-text yl-ring-opacity-30 md:yl-w-2/12",
+          "yl:z-50 yl:rounded-lg yl:bg-text/5 yl:shadow-md yl:border-2 yl:border-border",
           className
         )}
         onClick={e => e.stopPropagation()}
       >
         <div
           onClick={e => e.stopPropagation()}
-          className='yl-flex yl-items-center yl-justify-center'
+          className='yl:flex yl:items-center yl:justify-center'
         >
           {children}
         </div>

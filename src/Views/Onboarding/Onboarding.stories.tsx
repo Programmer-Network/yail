@@ -2,7 +2,6 @@ import { ErrorObject } from "ajv";
 import { useState } from "react";
 
 import Onboarding from ".";
-import { IUserProfile } from "./types";
 
 export default {
   title: "Views/Onboarding",
@@ -12,8 +11,8 @@ export default {
 export const Default = () => {
   const [serverErrors, setServerErrors] = useState<ErrorObject[]>([]);
 
-  const handleSubmit = async (form: IUserProfile | null) => {
-    console.log("🚀 ─── handleSubmit ─── form:", form, setServerErrors);
+  const handleSubmit = async () => {
+    console.log("🚀 ─── handleSubmit ─── form:", setServerErrors);
   };
 
   return (

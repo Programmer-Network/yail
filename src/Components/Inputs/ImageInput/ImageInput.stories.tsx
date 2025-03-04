@@ -1,7 +1,6 @@
 import { Meta, StoryFn } from "@storybook/react";
 import { ImageUtils } from "Utils";
 import { useState } from "react";
-import { Crop } from "react-image-crop";
 
 import ImageCrop from "Components/ImageCrop";
 
@@ -52,16 +51,9 @@ WithError.args = {
 };
 
 export const WithImageCrop = () => {
-  const [image, setImage] = useState<string>("");
+  const [imageBlob, setImageBlob] = useState<Blob | null>(null);
   const [croppedImage, setCroppedImage] = useState<string>("");
   const [error, setError] = useState<string>("");
-  const [crop, setCrop] = useState<Crop>({
-    unit: "%",
-    width: 100,
-    height: 100,
-    x: 0,
-    y: 0
-  });
 
   const args = {
     accept: "image/*",
@@ -71,7 +63,7 @@ export const WithImageCrop = () => {
     compression: { enabled: true },
     label: "Select an image",
     onFileLoaded: (file: IOnFileLoadedArgs) => {
-      setImage(file.base64);
+      setImageBlob(file.file.blob);
     }
   };
 
@@ -86,87 +78,18 @@ export const WithImageCrop = () => {
 
   return (
     <div>
-      <div className='yl-flex yl-items-start yl-gap-2'>
-        {image && (
+      <div className='yl:flex yl:items-start yl:gap-2'>
+        {imageBlob && (
           <ImageCrop
-            setCrop={setCrop}
-            crop={crop}
-            src={image}
+            src={imageBlob}
             onComplete={handleCropComplete}
             locked={false}
           />
         )}
         {croppedImage && (
-          <div className='yl-relative yl-h-[150px] yl-w-[150px]'>
+          <div className='yl:relative yl:h-[150px] yl:w-[150px]'>
             <img
-              className='yl-absolute yl-h-full yl-w-full bg-yl-left-top object-cover'
-              src={croppedImage}
-            />
-          </div>
-        )}
-      </div>
-
-      <ImageInput
-        {...args}
-        onValidationError={({ message }) => setError(message)}
-        error={error}
-      />
-    </div>
-  );
-};
-
-export const CoverImage = () => {
-  const [image, setImage] = useState<string>("");
-  const [croppedImage, setCroppedImage] = useState<string>("");
-  const [error, setError] = useState<string>("");
-  const [crop, setCrop] = useState<Crop>({
-    unit: "px",
-    width: 1024,
-    height: 612,
-    x: 0,
-    y: 0
-  });
-
-  const args = {
-    accept: "image/*",
-    className: "",
-    maxFileSize: 5000000,
-    allowedMimeTypes: ["image/jpeg", "image/png"],
-    compression: { enabled: true },
-    label: "Select an image",
-    onFileLoaded: (file: IOnFileLoadedArgs) => {
-      setImage(file.base64);
-    }
-  };
-
-  const handleCropComplete = async (croppedImage: Blob) => {
-    const compressedImage = (await ImageUtils.compress(croppedImage as File, {
-      maxWidth: 1024,
-      quality: 0.7
-    })) as string;
-
-    setCroppedImage(compressedImage);
-  };
-
-  return (
-    <div>
-      <div className='yl-flex yl-flex-col yl-items-start yl-gap-2'>
-        {image && (
-          <ImageCrop
-            setCrop={setCrop}
-            crop={crop}
-            src={image}
-            onComplete={handleCropComplete}
-            locked={false}
-            aspect={undefined}
-            imgCropWrapperClassName='yl-w-[1024px] yl-h-[612px]'
-          />
-        )}
-        <br />
-        {croppedImage && (
-          <div className='yl-relative yl-h-[192px] yl-w-[1024px]'>
-            <img
-              className='yl-absolute yl-h-full yl-w-full bg-yl-left-top object-cover'
+              className='yl:absolute yl:h-full yl:w-full yl:bg-left-top yl:object-cover'
               src={croppedImage}
             />
           </div>

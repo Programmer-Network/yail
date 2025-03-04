@@ -23,46 +23,46 @@ describe("Reactions component", () => {
     expect(screen.getByText(baseProps.reactionsCount)).toBeInTheDocument();
   });
 
-  test("allows liking when reactable and not previously liked", () => {
+  test("allows liking when reactable and not previously liked", async () => {
     render(<Reactions {...baseProps} reactionType={ReactionType.NONE} />);
     const likeButton = screen.getByTestId("like-button");
     fireEvent.click(likeButton);
     expect(mockOnReaction).toHaveBeenCalledWith(ReactionType.LIKE);
   });
 
-  test("prevents liking when already liked", () => {
+  test("prevents liking when already liked", async () => {
     render(<Reactions {...baseProps} reactionType={ReactionType.LIKE} />);
     const likeButton = screen.getByTestId("like-button");
     fireEvent.click(likeButton);
     expect(mockOnReaction).not.toHaveBeenCalled();
   });
 
-  test("allows disliking when reactable and not previously disliked", () => {
+  test("allows disliking when reactable and not previously disliked", async () => {
     render(<Reactions {...baseProps} reactionType={ReactionType.NONE} />);
     const dislikeButton = screen.getByTestId("dislike-button");
     fireEvent.click(dislikeButton);
     expect(mockOnReaction).toHaveBeenCalledWith(ReactionType.DISLIKE);
   });
 
-  test("prevents disliking when already disliked", () => {
+  test("prevents disliking when already disliked", async () => {
     render(<Reactions {...baseProps} reactionType={ReactionType.DISLIKE} />);
     const dislikeButton = screen.getByTestId("dislike-button");
     fireEvent.click(dislikeButton);
     expect(mockOnReaction).not.toHaveBeenCalled();
   });
 
-  test("prevents any reaction when not reactable", () => {
+  test("prevents any reaction when not reactable", async () => {
     render(<Reactions {...baseProps} isReactable={false} />);
     const likeButton = screen.getByTestId("like-button");
     const dislikeButton = screen.getByTestId("dislike-button");
 
-    likeButton && fireEvent.click(likeButton);
-    dislikeButton && fireEvent.click(dislikeButton);
+    fireEvent.click(likeButton);
+    fireEvent.click(dislikeButton);
 
     expect(mockOnReaction).not.toHaveBeenCalled();
   });
 
-  test("shows loading indicator during liking transition", () => {
+  test("shows loading indicator during liking transition", async () => {
     render(
       <Reactions
         {...baseProps}
@@ -75,7 +75,7 @@ describe("Reactions component", () => {
     expect(screen.queryByTestId("like-button")).not.toBeInTheDocument();
   });
 
-  test("shows loading indicator during disliking transition", () => {
+  test("shows loading indicator during disliking transition", async () => {
     render(
       <Reactions
         {...baseProps}

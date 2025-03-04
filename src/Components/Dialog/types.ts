@@ -3,4 +3,6 @@ export interface IDialogProps {
   isOpen?: boolean;
   children?: React.ReactNode;
   onClose?: () => void;
+  onOpen?: () => void;
+  shouldCloseOnClickOutside?: boolean;
 }

@@ -76,7 +76,7 @@ const Dropdown: React.FC<IDropdownProps> = ({
     return () => {
       popper.destroy();
     };
-  }, [isOpen, popperOptions]);
+  }, [isOpen, popperOptions, placement]);
 
   const renderDropdown = () => {
     if (!isOpen) return null;
@@ -86,7 +86,7 @@ const Dropdown: React.FC<IDropdownProps> = ({
         ref={popperRef}
         className={classNames(
           dropdownClassName,
-          "yl-absolute yl-z-50 yl-mt-2 yl-w-56 yl-border-2 yl-border-border/40 yl-bg-background yl-shadow-md"
+          "yl:absolute yl:z-50 yl:mt-2 yl:w-56 yl:border-2 yl:border-border/40 yl:bg-background yl:shadow-md"
         )}
       >
         {children ? (
@@ -101,7 +101,7 @@ const Dropdown: React.FC<IDropdownProps> = ({
   };
 
   return (
-    <div className='yl-relative yl-text-text' ref={dropdownRef}>
+    <div className='yl:relative yl:text-text' ref={dropdownRef}>
       <button
         ref={buttonRef}
         onClick={() => setIsOpen(!isOpen)}

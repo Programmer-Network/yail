@@ -83,7 +83,7 @@ export const WithIconClassName: Story = {
     icon: {
       iconName: "IconBrain",
       iconPosition: "right",
-      iconClassName: "text-violet-800 yl-w-5"
+      iconClassName: "text-violet-800 yl:w-5"
     }
   }
 };
@@ -98,33 +98,6 @@ export const LoadingWithIcon: Story = {
       iconName: "IconBomb",
       iconPosition: "left"
     }
-  }
-};
-
-export const Red: Story = {
-  args: {
-    children: "Button",
-    outlined: true,
-    isLoading: true,
-    className: "button--red"
-  }
-};
-
-export const Gray: Story = {
-  args: {
-    children: "Button",
-    outlined: true,
-    isLoading: true,
-    className: "button--gray"
-  }
-};
-
-export const Green: Story = {
-  args: {
-    children: "Button",
-    outlined: true,
-    isLoading: true,
-    className: "button--green"
   }
 };
 

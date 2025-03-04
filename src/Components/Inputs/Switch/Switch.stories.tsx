@@ -25,7 +25,7 @@ export const IsNotChecked = () => {
       name='isEnabled'
       label='Lorem ipsum'
       isChecked={isChecked}
-      onChange={({ isEnabled }) => setIsChecked(isEnabled)}
+      onChange={({ isEnabled }) => setIsChecked(isEnabled ?? false)}
     />
   );
 };

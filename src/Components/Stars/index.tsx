@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import { FC, useState } from "react";
 
-import { IconStarEmpty, IconStarFilled } from "Components/Icons";
+import Icon from "Components/Icon";
 import { InputError } from "Components/Inputs";
 
 import { IStarsProps } from "./types";
@@ -18,41 +18,43 @@ const Stars: FC<IStarsProps> = ({
 
   return (
     <div>
-      <div className='yl-flex yl-gap-2'>
+      <div className='yl:flex yl:gap-2'>
         {Array(5)
           .fill(null)
           .map((_, index) => {
-            const Star =
-              index < stars || index < selected || (onChange && index < hovered)
-                ? IconStarFilled
-                : IconStarEmpty;
+            const props = {
+              key: index,
+              onMouseEnter: () => setHovered(index + 1),
+              onMouseLeave: () => setHovered(0),
+              onClick: onChange
+                ? () => {
+                    if (selected === index + 1) {
+                      onChange({ [name]: 0 });
+                      return setSelected(0);
+                    }
 
-            return (
-              <Star
-                key={index}
-                onMouseEnter={() => setHovered(index + 1)}
-                onMouseLeave={() => setHovered(0)}
-                onClick={
-                  onChange
-                    ? () => {
-                        if (selected === index + 1) {
-                          onChange({ [name]: 0 });
-                          return setSelected(0);
-                        }
+                    setSelected(index + 1);
+                    onChange({ [name]: index + 1 });
+                  }
+                : undefined,
+              className: classNames("yl:relative yl:right-1 yl:w-4", {
+                "yl:fill-yellow-400 yl:hover:cursor-pointer":
+                  index < stars ||
+                  index < selected ||
+                  (onChange && index < hovered)
+              })
+            };
 
-                        setSelected(index + 1);
-                        onChange({ [name]: index + 1 });
-                      }
-                    : undefined
-                }
-                className={classNames("yl-relative yl-right-1 yl-w-4", {
-                  "yl-fill-yellow-400 hover:yl-cursor-pointer":
-                    index < stars ||
-                    index < selected ||
-                    (onChange && index < hovered)
-                })}
-              />
-            );
+            const Component =
+              index < stars ||
+              index < selected ||
+              (onChange && index < hovered) ? (
+                <Icon iconName='IconStarFilled' {...props} />
+              ) : (
+                <Icon iconName='IconStarEmpty' {...props} />
+              );
+
+            return Component;
           })}
       </div>
       {error && <InputError error={error} />}

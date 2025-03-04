@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import { DragEvent, FC, useEffect, useState } from "react";
 
-import { IconDrag } from "Components/Icons";
+import Icon from "Components/Icon";
 
 import ArrayUtils from "Utils/Array";
 
@@ -61,7 +61,7 @@ const DraggableList: FC<IDraggableList> = ({
 
   return (
     <ul
-      className={classNames("yl-relative yl-text-text", className)}
+      className={classNames("yl:relative yl:text-text", className)}
       onDragEnd={handleDrop}
     >
       {localItems
@@ -70,12 +70,12 @@ const DraggableList: FC<IDraggableList> = ({
           return (
             <li
               className={classNames(
-                "yl-relative yl-flex yl-items-center",
+                "yl:relative yl:flex yl:items-center",
                 liClassName?.(item, index),
                 {
                   [draggedClassName ?? ""]: draggedId === item.id,
                   [draggedOverClassName ?? ""]: draggedOverId === item.id,
-                  "yl-text-text yl-cursor-pointer":
+                  "yl:text-text yl:cursor-pointer":
                     onClick && activeItemId === item.id
                 }
               )}
@@ -91,9 +91,10 @@ const DraggableList: FC<IDraggableList> = ({
             >
               {canDrag && (
                 <div>
-                  <IconDrag
-                    className={classNames("yl-w-6 yl-opacity-50 yl-mr-1", {
-                      "yl-cursor-move yl-opacity-100": hoveredId === item.id
+                  <Icon
+                    iconName='IconDrag'
+                    className={classNames("yl:w-6 yl:opacity-50 yl:mr-1", {
+                      "yl:cursor-move yl:opacity-100": hoveredId === item.id
                     })}
                   />
                 </div>

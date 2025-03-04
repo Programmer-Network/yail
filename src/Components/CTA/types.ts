@@ -1,8 +1,8 @@
-import { ComponentType, SVGProps } from "react";
+import { IIconProps } from "Components/Icon/types";
 
 export interface ICTAProps {
-  Icon?: ComponentType<SVGProps<SVGSVGElement>>;
-  ButtonIcon?: ComponentType<SVGProps<SVGSVGElement>>;
+  IconComponent?: IIconProps;
+  ButtonIconComponent?: IIconProps;
   iconClassName?: string;
   title: string;
   subtitle: string;

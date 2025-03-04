@@ -3,16 +3,16 @@
 exports[`AuthorCard component > renders correctly 1`] = `
 <DocumentFragment>
   <div
-    class="yl-border-2 yl-border-border yl-p-6 yl-rounded-lg"
+    class="yl:border-2 yl:border-border yl:p-6 yl:rounded-lg"
   >
     <div
-      class="yl-flex yl-flex-col yl-items-center yl-gap-4 md:yl-flex-row"
+      class="yl:flex yl:flex-col yl:items-center yl:gap-4 yl:md:flex-row"
     >
       <div
-        class="yl-hidden md:yl-block"
+        class="yl:hidden yl:md:block"
       >
         <div
-          class="sm:yl-mt-0 yl-rounded-full yl-overflow-hidden"
+          class="yl:sm:mt-0 yl:rounded-full yl:overflow-hidden"
           style="width: 75px; height: 75px;"
         >
           <img
@@ -25,12 +25,12 @@ exports[`AuthorCard component > renders correctly 1`] = `
       </div>
       <div>
         <h3
-          class="yl-text-xl sm:yl-text-2xl md:yl-text-3xl yl-text-text yl-break-words yl-overflow-hidden yl-font-bold"
+          class="yl:text-xl yl:sm:text-2xl yl:md:text-3xl yl:text-text yl:break-words yl:overflow-hidden yl:font-bold"
         >
           John Doe
         </h3>
         <p
-          class="yl-text-secondary yl-break-words yl-overflow-hidden"
+          class="yl:text-secondary yl:break-words yl:overflow-hidden"
         >
           An expert in the field.
         </p>

@@ -30,8 +30,8 @@ import { Extensions, IExtensionsMap, IGetExtensions } from "./types";
 const headers = Heading.configure({ levels: [1, 2, 3, 4, 5, 6] }).extend({
   levels: [1, 2, 3, 4, 5, 6],
   renderHTML({ node, HTMLAttributes }) {
-    const level = this.options.levels.includes(node.attrs.level)
-      ? node.attrs.level
+    const level = this.options.levels.includes(node.attrs["level"])
+      ? node.attrs["level"]
       : this.options.levels[0];
     const headingClassNames = {
       1: toolbarItemToClassName[TIPTAP_TOOLBAR_ITEMS.HEADING_1].classes,
@@ -159,7 +159,7 @@ const getExtensions = ({
           class: toolbarItemToClassName[TIPTAP_TOOLBAR_ITEMS.MENTION].classes
         },
         renderText({ options, node }) {
-          return `${options.suggestion.char}${node.attrs.label || node.attrs.id}`;
+          return `${options.suggestion.char}${node.attrs["label"] || node.attrs["id"]}`;
         },
         suggestion: Suggestion({ suggestions })
       })
