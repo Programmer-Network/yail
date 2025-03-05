@@ -19,7 +19,18 @@ import { IImageDialogProps } from "./types";
 
 const ImageDialog = forwardRef<HTMLDialogElement, IImageDialogProps>(
   (
-    { className, isOpen, onClose, onOpen, onSave, aspect = 1, buttonText },
+    {
+      className,
+      isOpen,
+      onClose,
+      onOpen,
+      onSave,
+      cropOptions = {
+        aspect: 1,
+        circularCrop: false
+      },
+      buttonText
+    },
     forwardedRef
   ) => {
     const [validationError, setValidationError] =
@@ -38,8 +49,14 @@ const ImageDialog = forwardRef<HTMLDialogElement, IImageDialogProps>(
         setIsSaving(true);
         await onSave?.({
           blob: croppedImage,
-          base64: await ImageUtils.blobToBase64(croppedImage)
+          base64: await ImageUtils.blobToBase64(croppedImage),
+          formData: ImageUtils.blobToFormData(
+            croppedImage,
+            imageInputSelection?.file.fileName ?? "",
+            imageInputSelection?.file.mimeType ?? ""
+          )
         });
+
         setImageInputSelection(null);
         setCroppedImage(null);
 
@@ -69,7 +86,8 @@ const ImageDialog = forwardRef<HTMLDialogElement, IImageDialogProps>(
             <div>
               <div className='yl:relative yl:w-full yl:overflow-hidden'>
                 <ImageCrop
-                  aspect={aspect}
+                  aspect={cropOptions.aspect}
+                  circularCrop={cropOptions.circularCrop}
                   src={imageInputSelection?.file.blob ?? null}
                   onComplete={blob => {
                     setCroppedImage(blob);

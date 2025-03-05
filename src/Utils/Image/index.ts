@@ -128,6 +128,20 @@ class ImageUtils {
     });
   };
 
+  public static blobToFormData = (
+    blob: Blob,
+    fileName: string,
+    mimeType: string
+  ): FormData => {
+    const formData = new FormData();
+
+    formData.append("fileName", fileName);
+    formData.append("mimeType", mimeType);
+    formData.append("file", blob);
+
+    return formData;
+  };
+
   public static base64ToBlob = (base64: string, mimeType: string): Blob => {
     const parts = base64.split(",");
     if (parts.length < 2) {

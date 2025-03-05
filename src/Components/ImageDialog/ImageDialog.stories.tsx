@@ -1,6 +1,7 @@
 import { createRef } from "react";
 
 import ImageDialog from ".";
+import { IImageDialogOnSaveArgs } from "./types";
 
 export default {
   title: "Components / ImageDialog",
@@ -21,10 +22,12 @@ export const Default = () => {
     dialogRef.current?.close();
   };
 
-  const handleSave = async ({ base64 }: { base64: string }) => {
+  const handleSave = async (args: IImageDialogOnSaveArgs) => {
+    console.log(args);
+
     return new Promise(resolve => {
       setTimeout(() => {
-        resolve(base64);
+        resolve(args.formData);
       }, 0);
     });
   };
@@ -37,6 +40,10 @@ export const Default = () => {
       onClose={handleClose}
       onOpen={handleOpen}
       onSave={handleSave}
+      cropOptions={{
+        aspect: 1,
+        circularCrop: true
+      }}
     />
   );
 };

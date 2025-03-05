@@ -18,6 +18,7 @@ import * as DropdownTypes from "./Components/Dropdown/types";
 import * as ErrorTypes from "./Components/Error/types";
 import * as IconTypes from "./Components/Icon/types";
 import * as ImageCropTypes from "./Components/ImageCrop/types";
+import * as ImageDialogTypes from "./Components/ImageDialog/types";
 import * as ImageSelectorTypes from "./Components/ImageSelector/types";
 import * as ImageInputTypes from "./Components/Inputs/ImageInput/types";
 import * as InputTypes from "./Components/Inputs/types";
@@ -42,11 +43,11 @@ export {
   BadgeTypes,
   BookmarkTypes,
   ButtonTypes,
-  CTATypes,
-  CardTypes,
   CardsTypes,
+  CardTypes,
   CharacterCounterTypes,
   ContentWidgetTypes,
+  CTATypes,
   DialogTypes,
   DividerTypes,
   DraggableListTypes,
@@ -54,6 +55,7 @@ export {
   ErrorTypes,
   IconTypes,
   ImageCropTypes,
+  ImageDialogTypes,
   ImageInputTypes,
   ImageSelectorTypes,
   InputTypes,

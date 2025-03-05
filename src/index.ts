@@ -20,6 +20,7 @@ export { default as Dropdown } from "Components/Dropdown";
 export { default as Error } from "Components/Error";
 export { default as Icon } from "Components/Icon";
 export { default as ImageCrop } from "Components/ImageCrop";
+export { default as ImageDialog } from "Components/ImageDialog";
 export { default as ImageSelector } from "Components/ImageSelector";
 export { default as ItemActions } from "Components/ItemActions";
 export { default as Pagination } from "Components/Pagination";
