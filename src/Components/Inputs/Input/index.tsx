@@ -56,7 +56,6 @@ const Input: FC<IInputProps> = forwardRef<HTMLInputElement, IInputProps>(
     return (
       <div className={classNames(inputWrapperClassName)}>
         <InputHeader {...inputHeaderProps} />
-        dsadsa
         <div className='yl:flex yl:flex-col'>
           <input
             ref={ref}
