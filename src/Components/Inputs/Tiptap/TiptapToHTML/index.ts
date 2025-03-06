@@ -100,7 +100,7 @@ export default class TiptapToHTML {
           "height",
           "loading"
         ],
-        span: ["data-id", "data-type"]
+        span: ["data-id", "data-type", "yl:text-primary"]
       },
       selfClosing: ["img", "br"],
       allowedClasses: {

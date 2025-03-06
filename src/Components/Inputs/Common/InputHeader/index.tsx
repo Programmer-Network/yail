@@ -28,11 +28,11 @@ const InputHeader: FC<InputHeaderProps> = (
           <Tooltip text={hint} id={name} place='right'>
             <Icon
               iconName='IconInfo'
-              className='yl:w-4 yl:text-secondary yl:relative yl:top-[1px] yl:cursor-pointer'
+              className='yl:w-4 yl:text-text yl:relative yl:top-[1px] yl:cursor-pointer'
             />
           </Tooltip>
         )}
-        <div className='yl:text-secondary'>
+        <div className='yl:text-text'>
           {label}
           {required && <span className='yl:ml-1 yl:text-error'>*</span>}
         </div>

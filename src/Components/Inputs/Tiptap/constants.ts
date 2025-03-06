@@ -128,7 +128,7 @@ export const toolbarItemToClassName = {
     classes: "yl:mx-auto yl:block yl:p-2 yl:border yl:border-background"
   },
   [TIPTAP_TOOLBAR_ITEMS.MENTION]: {
-    tagName: null,
+    tagName: "span",
     classes: "yl:text-primary yl:cursor-pointer yl:font-bold"
   }
 };

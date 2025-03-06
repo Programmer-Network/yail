@@ -148,7 +148,6 @@ export const Toolbar = ({
             ref={ref}
           >
             <Button
-              outlined
               icon={{
                 iconName: "IconLink",
                 iconPosition: "right",
