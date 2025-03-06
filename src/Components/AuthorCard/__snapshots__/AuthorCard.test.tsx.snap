@@ -30,7 +30,7 @@ exports[`AuthorCard component > renders correctly 1`] = `
           John Doe
         </h3>
         <p
-          class="yl:text-secondary yl:break-words yl:overflow-hidden"
+          class="yl:text-text yl:break-words yl:overflow-hidden"
         >
           An expert in the field.
         </p>

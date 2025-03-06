@@ -16,7 +16,7 @@ const preview: Preview = {
       values: [
         {
           name: "programmer.network",
-          value: "#000408"
+          value: "#1d1d1d"
         }
       ]
     },

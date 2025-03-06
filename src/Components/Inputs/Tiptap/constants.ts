@@ -58,10 +58,7 @@ export const typograyClassNames = {
       className
     ),
   p: (className?: string) =>
-    classNames(
-      "yl:text-secondary yl:break-words yl:overflow-hidden",
-      className
-    ),
+    classNames("yl:text-text yl:break-words yl:overflow-hidden", className),
   a: (className?: string) =>
     classNames(
       "yl:break-all yl:hover:text-stroke yl:text-primary yl:hover:underline yl:hover:opacity-80 yl:active:opacity-50",
@@ -69,12 +66,12 @@ export const typograyClassNames = {
     ),
   ul: (className?: string) =>
     classNames(
-      "yl:list-disc yl:text-secondary yl:marker:text-primary yl:marker:text-xl yl:pl-4",
+      "yl:list-disc yl:text-text yl:marker:text-primary yl:marker:text-xl yl:pl-4",
       className
     ),
   ol: (className?: string) =>
     classNames(
-      "yl:list-decimal yl:text-secondary yl:marker:text-primary yl:marker:text-xl yl:pl-4",
+      "yl:list-decimal yl:text-text yl:marker:text-primary yl:marker:text-xl yl:pl-4",
       className
     )
 };
@@ -110,7 +107,7 @@ export const toolbarItemToClassName = {
   },
   [TIPTAP_TOOLBAR_ITEMS.LINK]: {
     tagName: "a",
-    classes: "yl:underline yl:text-text yl:cursor-pointer yl:font-bold"
+    classes: "yl:underline yl:text-primary yl:cursor-pointer yl:font-bold"
   },
   [TIPTAP_TOOLBAR_ITEMS.UNORDERED_LIST]: {
     tagName: "ul",
@@ -132,6 +129,6 @@ export const toolbarItemToClassName = {
   },
   [TIPTAP_TOOLBAR_ITEMS.MENTION]: {
     tagName: null,
-    classes: "yl:text-text yl:cursor-pointer yl:font-bold"
+    classes: "yl:text-primary yl:cursor-pointer yl:font-bold"
   }
 };

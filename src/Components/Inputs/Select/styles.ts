@@ -9,7 +9,7 @@ const getCssVar = (varName: string): string => {
 };
 
 const text = getCssVar("--color-text") || "oklch(0.85 0.02 240)";
-const background = getCssVar("--color-background") || "oklch(0.1 0.02 240)";
+const background = getCssVar("--color-background") || "oklch(0.23 0 -0.01)";
 const border = getCssVar("--color-border") || "oklch(0.3 0.02 240)";
 const muted = getCssVar("--color-muted") || "oklch(0.5 0.05 240)";
 const primary = getCssVar("--color-primary") || "oklch(0.8 0.2 80)";
