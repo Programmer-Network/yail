@@ -27,7 +27,7 @@ const Button: React.FC<IButtonProps> = (
   }
 ) => {
   let cls =
-    "yl:select-none yl:px-3 yl:py-2 yl:font-semibold yl:tracking-tight yl:rounded-md ";
+    "yl:select-none yl:px-3 yl:py-2 yl:font-semibold yl:tracking-tight yl:rounded-md yl:cursor-pointer ";
 
   if (variant === ButtonVariantEnum.PRIMARY) {
     cls += "yl:border-2 yl:border-primary ";

@@ -8,6 +8,7 @@ import Button from "Components/Button";
 import Dialog from "Components/Dialog";
 import Icon from "Components/Icon";
 import { IconName } from "Components/Icons/types";
+import Tooltip from "Components/Tooltip";
 
 import { TIPTAP_TOOLBAR_ITEMS } from "../../constants";
 import { TiptapToolbarProps } from "../../types";
@@ -97,7 +98,7 @@ export const Toolbar = ({
   };
 
   return (
-    <div className='yl:relative yl:flex flex-wrap yl:items-center yl:gap-1 yl:rounded-tl-md yl:rounded-tr-md yl:border-2 yl:border-border/40 yl:bg-text/5 yl:px-2 yl:py-2 yl:md:gap-4 yl:md:px-4'>
+    <div className='yl:relative yl:flex yl:flex-wrap yl:items-center yl:gap-1 yl:rounded-tl-md yl:rounded-tr-md yl:border-2 yl:border-border/40 yl:bg-text/1 yl:p-2 yl:md:gap-4 yl:md:px-4 yl:pb-0'>
       {image.isExtensionEnabled && (
         <Dialog ref={dialogRef}>
           <ImageUpload
@@ -175,63 +176,70 @@ export const Toolbar = ({
         })
         .map(i => {
           return (
-            <button
+            <Tooltip
               key={i.iconName as string}
-              type='button'
-              onClick={e => {
-                if (
-                  image.isExtensionEnabled &&
-                  i.id === TIPTAP_TOOLBAR_ITEMS.IMAGE
-                ) {
-                  dialogRef.current?.showModal();
-                  return;
-                }
-
-                if (i.id === TIPTAP_TOOLBAR_ITEMS.LINK && hasSelection) {
-                  inputModal.openModal(e, TIPTAP_TOOLBAR_ITEMS.LINK);
-                  linkInputForm.set({
-                    link: editor.getAttributes("link")["href"] || ""
-                  });
-                  return;
-                }
-
-                if (i.id === TIPTAP_TOOLBAR_ITEMS.YOUTUBE) {
-                  youtubeInputForm.set({
-                    youtubeUrl: ""
-                  });
-
-                  inputModal.openModal(e, TIPTAP_TOOLBAR_ITEMS.YOUTUBE);
-                  return;
-                }
-
-                i.onClick?.(e);
-              }}
+              id={`tooltip-${i.id}`}
+              text={i.description || ""}
+              delayShow={500}
             >
-              <Icon
-                iconName={i.iconName as IconName}
-                className={classNames(
-                  "yl:w-8 yl:cursor-pointer yl:border-border",
-                  {
-                    "yl:text-text": !i.isActive,
-                    "yl:fill-primary yl:text-primary": i.isActive,
-                    "yl:cursor-not-allowed":
-                      typeof i.isDisabled === "function" && i.isDisabled(),
-                    "yl:cursor-default": !hasSelection,
-                    "yl:fill-primary":
-                      i.iconName === "IconLink" && hasSelection,
-                    "yl:w-[27px]": i.iconName === "IconStrikethrough",
-                    "yl:w-[28px]":
-                      i.iconName === "IconLink" || i.iconName === "IconItalic",
-                    "yl:w-[29px]":
-                      i.iconName === "IconBold" ||
-                      i.iconName === "IconListOl" ||
-                      i.iconName === "IconListUl",
-                    "yl:w-[26px]": i.iconName === "IconImage",
-                    "yl:w-[32px]": i.iconName === "IconLink"
+              <button
+                type='button'
+                onClick={e => {
+                  if (
+                    image.isExtensionEnabled &&
+                    i.id === TIPTAP_TOOLBAR_ITEMS.IMAGE
+                  ) {
+                    dialogRef.current?.showModal();
+                    return;
                   }
-                )}
-              />
-            </button>
+
+                  if (i.id === TIPTAP_TOOLBAR_ITEMS.LINK && hasSelection) {
+                    inputModal.openModal(e, TIPTAP_TOOLBAR_ITEMS.LINK);
+                    linkInputForm.set({
+                      link: editor.getAttributes("link")["href"] || ""
+                    });
+                    return;
+                  }
+
+                  if (i.id === TIPTAP_TOOLBAR_ITEMS.YOUTUBE) {
+                    youtubeInputForm.set({
+                      youtubeUrl: ""
+                    });
+
+                    inputModal.openModal(e, TIPTAP_TOOLBAR_ITEMS.YOUTUBE);
+                    return;
+                  }
+
+                  i.onClick?.(e);
+                }}
+              >
+                <Icon
+                  iconName={i.iconName as IconName}
+                  className={classNames(
+                    "yl:w-8 yl:cursor-pointer yl:border-border",
+                    {
+                      "yl:text-text": !i.isActive,
+                      "yl:fill-primary yl:text-primary": i.isActive,
+                      "yl:cursor-not-allowed":
+                        typeof i.isDisabled === "function" && i.isDisabled(),
+                      "yl:cursor-default": !hasSelection,
+                      "yl:fill-primary":
+                        i.iconName === "IconLink" && hasSelection,
+                      "yl:w-[27px]": i.iconName === "IconStrikethrough",
+                      "yl:w-[28px]":
+                        i.iconName === "IconLink" ||
+                        i.iconName === "IconItalic",
+                      "yl:w-[29px]":
+                        i.iconName === "IconBold" ||
+                        i.iconName === "IconListOl" ||
+                        i.iconName === "IconListUl",
+                      "yl:w-[26px]": i.iconName === "IconImage",
+                      "yl:w-[32px]": i.iconName === "IconLink"
+                    }
+                  )}
+                />
+              </button>
+            </Tooltip>
           );
         })}
     </div>

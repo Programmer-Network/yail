@@ -9,7 +9,7 @@ export const editorConfig = (args: IEditorConfig): Partial<EditorOptions> => {
   const config = {
     editorProps: {
       attributes: {
-        class: "yl:mx-auto yl:mt-6 yl:focus:outline-hidden yl:text-text"
+        class: "yl:mx-auto yl:focus:outline-hidden yl:text-text"
       }
     },
     extensions: getExtensions({

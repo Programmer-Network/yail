@@ -1,3 +1,4 @@
+import { useMobile } from "Hooks/useMediaQuery";
 import classNames from "classnames";
 import { FC } from "react";
 
@@ -19,6 +20,7 @@ const Reactions: FC<IReactionsProps> = ({
   isNotReactableText,
   isReactable = true
 }) => {
+  const isMobile = useMobile();
   const isLiking = reactionTransition === ReactionTransitionState.LIKING;
   const isDisliking = reactionTransition === ReactionTransitionState.DISLIKING;
   const hasLiked = reactionType === ReactionType.LIKE;
@@ -28,14 +30,16 @@ const Reactions: FC<IReactionsProps> = ({
     ? "yl:cursor-not-allowed"
     : {
         "yl:text-primary yl:cursor-default": hasLiked,
-        "yl:cursor-pointer yl:hover:text-primary": !hasLiked
+        "yl:cursor-pointer yl:hover:text-primary": !hasLiked,
+        "yl:p-2 yl:box-content": isMobile
       };
 
   const arrowDownClasses = !isReactable
     ? "yl:cursor-not-allowed"
     : {
         "yl:text-error yl:cursor-not-allowed": hasDisliked,
-        "yl:cursor-pointer yl:hover:text-error": !hasDisliked
+        "yl:cursor-pointer yl:hover:text-error": !hasDisliked,
+        "yl:p-2 yl:box-content": isMobile
       };
 
   const handleReaction = (reactionType: ReactionType) => {

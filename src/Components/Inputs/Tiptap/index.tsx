@@ -139,20 +139,22 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
       )}
       <div className='yl:flex yl:flex-col'>
         <div
-          className={classNames(
-            "yl:relative yl:break-words yl:rounded-bl-md yl:rounded-br-md yl:border-2 yl:border-border/40 yl:px-4 yl:pb-2 yl:pt-2",
-            {
-              "yl:border-t-0!": hasToolbar
-            }
-          )}
+          className={classNames("yl:relative yl:break-words", {
+            "yl:border-t-0!": hasToolbar
+          })}
+        ></div>
+        <div
+          className='yl:relative yl:border-2 yl:border-border/40 yl:rounded-bl-md yl:rounded-br-md yl:border-t-0'
+          onClick={() => editor.commands.focus()}
         >
-          <EditorContent editor={editor} />
+          <EditorContent editor={editor} className='yl:p-4' />
           {actions &&
             typeof actions?.onAction === "function" &&
             actions.buttons?.length && (
               <TiptapActions actions={actions} isEditorEmpty={editor.isEmpty} />
             )}
         </div>
+
         {error && <InputError error={error} />}
       </div>
     </div>

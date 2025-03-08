@@ -4,14 +4,22 @@ import "react-tooltip/dist/react-tooltip.css";
 
 import { ITooltipProps } from "./types";
 
-const Tooltip: FC<ITooltipProps> = ({ text, children, id, place = "top" }) => {
+const Tooltip: FC<ITooltipProps> = ({
+  text,
+  children,
+  id,
+  place = "top",
+  delayShow = 0
+}) => {
   if (!text) {
     return children;
   }
 
   return (
     <div>
-      <div data-tooltip-id={id}>{children}</div>
+      <div data-tooltip-id={id} data-tooltip-delay-show={delayShow}>
+        {children}
+      </div>
       <ReactTooltip
         id={id}
         place={place}

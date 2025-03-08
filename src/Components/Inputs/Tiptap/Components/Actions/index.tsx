@@ -11,32 +11,31 @@ const TiptapActions: FC<{
 }> = ({ isEditorEmpty, actions }) => {
   const { isConfirming, buttons, onAction } = actions;
 
+  if (isEditorEmpty) {
+    return null;
+  }
+
   return (
-    <div className='yl:flex yl:justify-end yl:relative yl:-right-2'>
-      <div className='yl:rounded-md yl:border-2 yl:border-border yl:p-1'>
-        <div className='yl:flex yl:items-center yl:gap-1 yl:px-1'>
-          {buttons.includes(TiptapActionsEnum.CONFIRM) && (
-            <Icon
-              onClick={
-                !isEditorEmpty
-                  ? () => onAction(TiptapActionsEnum.CONFIRM)
-                  : () => null
-              }
-              iconName={!isConfirming ? "IconCheck" : "IconSpinner"}
-              className={classNames(
-                "yl:w-8 yl:cursor-pointer yl:fill-primary",
-                {
-                  "yl:text-text/60": isEditorEmpty,
-                  "yl:text-text": !isEditorEmpty
-                }
-              )}
-            />
-          )}
+    <div className='yl:flex yl:justify-end yl:relative yl:top-[2px] yl:right-[-2px]'>
+      <div className='yl:rounded-md yl:rounded-tr-none yl:rounded-bl-none yl:border-2 yl:border-border/40 yl:p-1 yl:border-r-0 yl:border-b-0 yl:bg-text/1'>
+        <div className='yl:flex yl:items-center'>
           {buttons.includes(TiptapActionsEnum.CANCEL) && (
             <Icon
               onClick={() => onAction(TiptapActionsEnum.CANCEL)}
               iconName='IconCloseCircle'
-              className='yl:w-8 yl:cursor-pointer yl:text-text/60 yl:hover:text-text'
+              className='yl:w-10 yl:cursor-pointer yl:text-text/30 yl:hover:text-text'
+            />
+          )}
+          {buttons.includes(TiptapActionsEnum.CONFIRM) && (
+            <Icon
+              onClick={() => onAction(TiptapActionsEnum.CONFIRM)}
+              iconName={!isConfirming ? "IconCheck" : "IconSpinner"}
+              className={classNames(
+                "yl:w-10 yl:cursor-pointer yl:fill-success",
+                {
+                  "yl:text-success": !isEditorEmpty
+                }
+              )}
             />
           )}
         </div>

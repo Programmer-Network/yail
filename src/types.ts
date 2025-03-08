@@ -15,6 +15,7 @@ import * as DialogTypes from "./Components/Dialog/types";
 import * as DividerTypes from "./Components/Divider/types";
 import * as DraggableListTypes from "./Components/DraggableList/types";
 import * as DropdownTypes from "./Components/Dropdown/types";
+import * as ElevatedCardTypes from "./Components/ElevatedCard/types";
 import * as ErrorTypes from "./Components/Error/types";
 import * as IconTypes from "./Components/Icon/types";
 import * as ImageCropTypes from "./Components/ImageCrop/types";
@@ -52,6 +53,7 @@ export {
   DividerTypes,
   DraggableListTypes,
   DropdownTypes,
+  ElevatedCardTypes,
   ErrorTypes,
   IconTypes,
   ImageCropTypes,

@@ -74,6 +74,7 @@ export interface IToolbarIconsReturn {
   className?: string;
   Icon?: FC;
   isDisabled?: () => boolean;
+  description?: string;
 }
 
 export interface IEditorConfig {

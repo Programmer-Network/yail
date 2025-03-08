@@ -1,0 +1,25 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ElevatedCard component > renders correctly - snapshot test 1`] = `
+<DocumentFragment>
+  <div
+    class="yl:flex yl:flex-col yl:rounded-lg yl:p-6 yl:border yl:border-border yl:bg-text/1"
+    data-testid="elevated-card"
+  >
+    <div
+      class="yl:space-y-2"
+    >
+      <h5
+        class="yl:text-md yl:sm:text-lg yl:md:text-xl yl:text-text yl:break-words yl:overflow-hidden yl:font-bold"
+      >
+        Curated Resources
+      </h5>
+      <p
+        class="yl:text-text yl:break-words yl:overflow-hidden"
+      >
+        Explore our collection of tools, libraries, and tutorials to enhance your development workflow.
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;
