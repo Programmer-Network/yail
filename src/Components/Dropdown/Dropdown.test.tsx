@@ -4,8 +4,6 @@ import { useOnClickOutside } from "Hooks/useClickOutside";
 import { RefObject, useRef } from "react";
 import { vi } from "vitest";
 
-import Icon from "Components/Icon";
-
 import Dropdown from "./";
 
 describe("Dropdown Component", () => {
@@ -37,7 +35,10 @@ describe("Dropdown Component", () => {
         options={[
           {
             value: "foo",
-            icon: <Icon iconName='IconShare' className='yl:w-4' />
+            icon: {
+              iconName: "IconShare",
+              className: "yl:w-4"
+            }
           }
         ]}
       />

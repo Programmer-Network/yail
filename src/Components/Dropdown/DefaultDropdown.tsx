@@ -1,5 +1,7 @@
 import { FC } from "react";
 
+import Icon from "Components/Icon";
+
 import { IDefaultDropdownProps, IDropdownListItem } from "./types";
 
 const DropdownListItem: FC<IDropdownListItem> = ({
@@ -17,7 +19,15 @@ const DropdownListItem: FC<IDropdownListItem> = ({
       }}
     >
       <div className='yl:flex yl:items-center'>
-        {icon && <span className='yl:mr-2'>{icon}</span>}
+        {icon && (
+          <span className='yl:mr-2'>
+            <Icon
+              iconName={icon.iconName}
+              className={icon.className}
+              dataTestId={icon.dataTestId}
+            />
+          </span>
+        )}
         {value}
       </div>
     </li>
@@ -29,7 +39,15 @@ const DefaultDropdown: FC<IDefaultDropdownProps> = ({ options, setIsOpen }) => {
     <ul className='yl:p-2 yl:text-text'>
       {options.map((option, index) => (
         <DropdownListItem
-          icon={option.icon}
+          icon={
+            option.icon
+              ? {
+                  iconName: option.icon?.iconName,
+                  className: option.icon?.className,
+                  dataTestId: option.icon?.dataTestId
+                }
+              : undefined
+          }
           value={option.value}
           key={`${option.value}-${index}`}
           onClick={option.onClick}

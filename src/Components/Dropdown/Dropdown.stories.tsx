@@ -1,7 +1,5 @@
 import { Meta, StoryFn } from "@storybook/react";
 
-import Icon from "Components/Icon";
-
 import Dropdown from "./";
 import { IDropdownProps } from "./types";
 
@@ -23,7 +21,10 @@ DefaultDropdown.args = {
     {
       value: "foo",
       onClick: () => console.log("clicked"),
-      icon: <Icon iconName='IconShare' className='yl:w-4' />
+      icon: {
+        iconName: "IconShare",
+        className: "yl:w-4"
+      }
     }
   ]
 };

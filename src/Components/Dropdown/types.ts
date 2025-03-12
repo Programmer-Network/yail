@@ -1,10 +1,16 @@
 import { OptionsGeneric } from "@popperjs/core";
 import { PopperOffsetsModifier } from "@popperjs/core/lib/modifiers/popperOffsets";
-import { MouseEvent, ReactNode } from "react";
+import { MouseEvent } from "react";
 import { Placement } from "tippy.js";
 
+import { IconName } from "Components/Icons/types";
+
 export interface IDropdownListItem {
-  icon?: ReactNode;
+  icon?: {
+    iconName: IconName;
+    className?: string;
+    dataTestId?: string;
+  };
   value?: string;
   onClick?: (e: MouseEvent, value: string) => void;
   setIsOpen: (isOpen: boolean) => void;
@@ -18,7 +24,11 @@ export interface IDropdownProps {
   popperOptions?: Partial<OptionsGeneric<PopperOffsetsModifier>>;
   placement?: Placement;
   options?: {
-    icon?: React.ReactNode;
+    icon?: {
+      iconName: IconName;
+      className?: string;
+      dataTestId?: string;
+    };
     value: string;
     onClick?: (e: MouseEvent, value: string) => void;
   }[];
@@ -27,7 +37,11 @@ export interface IDropdownProps {
 export interface IDefaultDropdownProps {
   setIsOpen: (isOpen: boolean) => void;
   options: {
-    icon?: ReactNode;
+    icon?: {
+      iconName: IconName;
+      className?: string;
+      dataTestId?: string;
+    };
     value: string;
     onClick?: (e: MouseEvent, value: string) => void;
   }[];
