@@ -25,7 +25,7 @@ import Youtube from "@tiptap/extension-youtube";
 
 import Suggestion from "./Components/Suggestion";
 import { TIPTAP_TOOLBAR_ITEMS, toolbarItemToClassName } from "./constants";
-import { Extensions, IExtensionsMap, IGetExtensions } from "./types";
+import { IExtensionsMap, IGetExtensions } from "./types";
 
 const headers = Heading.configure({ levels: [1, 2, 3, 4, 5, 6] }).extend({
   levels: [1, 2, 3, 4, 5, 6],
@@ -138,35 +138,40 @@ const getExtensions = ({
   placeholder,
   suggestions
 }: IGetExtensions) => {
-  const extensions = defaultExtensions({ placeholder }).concat(
-    toolbarItems?.length
-      ? Object.keys(extensionsMap)
-          .filter(key =>
-            toolbarItems.includes(key as keyof typeof extensionsMap)
-          )
-          .map(key => extensionsMap[key as Extensions])
-      : []
-  );
+  const uniqueExtensions = new Map();
+
+  defaultExtensions({ placeholder }).forEach(extension => {
+    uniqueExtensions.set(extension.name, extension);
+  });
+
+  if (toolbarItems?.length) {
+    toolbarItems.forEach(item => {
+      const extension = extensionsMap[item];
+      if (extension) {
+        uniqueExtensions.set(extension.name, extension);
+      }
+    });
+  }
 
   if (suggestions) {
     if (!suggestions.items) {
       throw new Error("Suggestions are enabled but missing required props");
     }
 
-    extensions.push(
-      Mention.configure({
-        HTMLAttributes: {
-          class: toolbarItemToClassName[TIPTAP_TOOLBAR_ITEMS.MENTION].classes
-        },
-        renderText({ options, node }) {
-          return `${options.suggestion.char}${node.attrs["label"] || node.attrs["id"]}`;
-        },
-        suggestion: Suggestion({ suggestions })
-      })
-    );
+    const mentionExtension = Mention.configure({
+      HTMLAttributes: {
+        class: toolbarItemToClassName[TIPTAP_TOOLBAR_ITEMS.MENTION].classes
+      },
+      renderText({ options, node }) {
+        return `${options.suggestion.char}${node.attrs["label"] || node.attrs["id"]}`;
+      },
+      suggestion: Suggestion({ suggestions })
+    });
+
+    uniqueExtensions.set(mentionExtension.name, mentionExtension);
   }
 
-  return extensions;
+  return Array.from(uniqueExtensions.values());
 };
 
 export default getExtensions;
