@@ -33,6 +33,8 @@ export interface TiptapProps {
   label?: string;
   hint?: string;
   required?: boolean;
+  isCreating?: boolean;
+  isUpdating?: boolean;
 }
 
 export interface TiptapToolbarProps {
@@ -45,6 +47,8 @@ export interface TiptapToolbarProps {
   };
   editor: Editor;
   toolbarItems?: TiptapControls;
+  isCreating?: boolean;
+  isUpdating?: boolean;
 }
 
 export interface TiptapRef {

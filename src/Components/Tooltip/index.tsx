@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import { FC } from "react";
 import { Tooltip as ReactTooltip } from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
@@ -9,7 +10,9 @@ const Tooltip: FC<ITooltipProps> = ({
   children,
   id,
   place = "top",
-  delayShow = 0
+  delayShow = 0,
+  childrenClassName,
+  className
 }) => {
   if (!text) {
     return children;
@@ -17,7 +20,11 @@ const Tooltip: FC<ITooltipProps> = ({
 
   return (
     <div>
-      <div data-tooltip-id={id} data-tooltip-delay-show={delayShow}>
+      <div
+        data-tooltip-id={id}
+        data-tooltip-delay-show={delayShow}
+        className={classNames(childrenClassName)}
+      >
         {children}
       </div>
       <ReactTooltip
@@ -26,7 +33,10 @@ const Tooltip: FC<ITooltipProps> = ({
         content={text as string}
         noArrow
         opacity={1}
-        className='yl:border-2 yl:border-primary yl:bg-background yl:text-text yl:z-50'
+        className={classNames(
+          "yl:border-2 yl:border-primary yl:bg-background yl:text-text yl:z-50",
+          className
+        )}
       />
     </div>
   );

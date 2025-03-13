@@ -6,4 +6,6 @@ export interface ITooltipProps {
   children: React.ReactNode;
   place?: "top" | "bottom" | "left" | "right";
   delayShow?: number;
+  childrenClassName?: string;
+  className?: string;
 }

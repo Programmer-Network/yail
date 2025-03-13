@@ -21,21 +21,31 @@ const TiptapActions: FC<{
         <div className='yl:flex yl:items-center'>
           {buttons.includes(TiptapActionsEnum.CANCEL) && (
             <Icon
-              onClick={() => onAction(TiptapActionsEnum.CANCEL)}
+              onClick={
+                !isConfirming
+                  ? () => onAction(TiptapActionsEnum.CANCEL)
+                  : undefined
+              }
               iconName='IconCloseCircle'
-              className='yl:w-10 yl:cursor-pointer yl:text-text/30 yl:hover:text-text'
+              className={classNames("yl:w-10 yl:text-text/20", {
+                "yl:text-text/30 yl:hover:text-text yl:cursor-pointer":
+                  !isConfirming
+              })}
             />
           )}
           {buttons.includes(TiptapActionsEnum.CONFIRM) && (
             <Icon
-              onClick={() => onAction(TiptapActionsEnum.CONFIRM)}
+              onClick={
+                !isConfirming
+                  ? () => onAction(TiptapActionsEnum.CONFIRM)
+                  : undefined
+              }
               iconName={!isConfirming ? "IconCheck" : "IconSpinner"}
-              className={classNames(
-                "yl:w-10 yl:cursor-pointer yl:fill-success",
-                {
-                  "yl:text-success": !isEditorEmpty
-                }
-              )}
+              className={classNames("yl:w-10", {
+                " yl:cursor-pointer": !isConfirming,
+                "yl:text-success": !isEditorEmpty && !isConfirming,
+                "yl:fill-primary yl:w-7 yl:h-7": isConfirming
+              })}
             />
           )}
         </div>
