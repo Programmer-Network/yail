@@ -1,4 +1,3 @@
-import { Editor } from "@tiptap/core";
 import { EditorContent, useEditor } from "@tiptap/react";
 import { useMobile } from "Hooks/useMediaQuery";
 import classNames from "classnames";
@@ -21,6 +20,7 @@ import { TiptapProps, TiptapRef } from "./types";
 
 const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
   {
+    autoFocus = true,
     editorContent,
     onUpdate,
     actions,
@@ -37,7 +37,6 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
   },
   ref
 ) => {
-  const [editorRef, setEditorRef] = useState<Editor | null>(null);
   const isMobile = useMobile();
   const [textSelected, setTextSelected] = useState<string>("");
 
@@ -80,25 +79,40 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
 
   const editor = useEditor(useEditorConfig);
 
-  useImperativeHandle(ref, () => {
-    return {
+  useEffect(() => {
+    if (autoFocus && editor) {
+      editor.commands.focus();
+    }
+  }, [autoFocus, editor]);
+
+  useImperativeHandle(
+    ref,
+    () => ({
       clearContent: () => {
-        editorRef?.commands.clearContent(true);
-      },
+        if (!editor) {
+          return;
+        }
 
-      getContents() {
-        return editorRef?.getHTML();
+        editor.commands.clearContent(true);
       },
-
+      getContents: () => editor?.getHTML() ?? "",
       setContent: (content: string) => {
-        editorRef?.commands.setContent(content);
-      },
+        if (!editor) {
+          return;
+        }
 
-      setFocus() {
-        editorRef?.commands.focus("end");
+        editor.commands.setContent(content);
+      },
+      setFocus: () => {
+        if (!editor) {
+          return;
+        }
+
+        editor.commands.focus("end");
       }
-    };
-  }, [editorRef]);
+    }),
+    [editor]
+  );
 
   useEffect(() => {
     if (textSelected !== "clicked-outside" || !editor) {
@@ -111,10 +125,6 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
     editor.view.dispatch(transaction);
     setTextSelected("");
   }, [textSelected, isMobile, editor]);
-
-  if (!editorRef && editor) {
-    setEditorRef(editor);
-  }
 
   if (!editor) {
     return null;

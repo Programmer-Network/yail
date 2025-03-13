@@ -62,6 +62,7 @@ export const Default = () => {
     <div className='yl:w-full yl:md:w-[768px]'>
       <Tiptap
         ref={tiptapRef as RefObject<TiptapRef>}
+        placeholder='Enter your content here...'
         label='Content'
         suggestions={suggestions}
         toolbarItems={toolbarItems}

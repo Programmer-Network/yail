@@ -18,6 +18,7 @@ export interface ITiptapActions {
 }
 
 export interface TiptapProps {
+  autoFocus?: boolean;
   editorContent?: string;
   onUpdate?: (props: EditorEvents["update"]) => void;
   onAction?: (action: TiptapActionsEnum) => void;
