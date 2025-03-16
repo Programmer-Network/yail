@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 
 import DraggableList from "Components/DraggableList";
 import { IDraggableListItem } from "Components/DraggableList/types";
@@ -26,8 +26,10 @@ const Accordion: FC<IAccordionProps> = ({
   setExpanded,
   selectedId,
   hasDraggableSections,
-  hasDraggableSectionItems
+  hasDraggableSectionItems,
+  defaultExpanded
 }) => {
+  const hasInitialized = useRef(false);
   const [selectedItemId, setSelectedItemId] = useState<
     number | null | undefined
   >(selectedId);
@@ -49,6 +51,13 @@ const Accordion: FC<IAccordionProps> = ({
   };
 
   useEffect(() => setSelectedItemId(selectedId), [selectedId]);
+
+  useEffect(() => {
+    if (defaultExpanded && sections.length > 0 && !hasInitialized.current) {
+      setExpanded(sections.map(section => section.id));
+      hasInitialized.current = true;
+    }
+  }, [defaultExpanded, sections, setExpanded]);
 
   const handleDrag = (
     _: React.DragEvent<Element>,
@@ -113,12 +122,14 @@ const Accordion: FC<IAccordionProps> = ({
                 e.preventDefault();
                 onSectionClick?.(section);
                 setSelectedSectionId(section.id);
+                setSelectedItemId(null);
+                toggleExpand(section.id);
               }}
               className={classNames(
-                "yl:relative yl:flex yl:cursor-default yl:select-none yl:items-center yl:font-semibold yl:capitalize yl:p-4",
+                "yl:relative yl:flex yl:cursor-default yl:select-none yl:items-center yl:font-semibold yl:capitalize yl:p-4 yl:hover:text-primary yl:transition-colors yl:duration-400 yl:ease-in-out yl:hover:cursor-pointer",
                 sectionTitleClassName,
                 {
-                  "yl:bg-text/5": expanded.includes(section.id),
+                  "yl:bg-text/2": expanded.includes(section.id),
                   "yl:cursor-pointer": onSectionItemClick,
                   "yl:text-text":
                     selectedSectionId !== section.id || !onSectionItemClick,
@@ -147,22 +158,12 @@ const Accordion: FC<IAccordionProps> = ({
                   <Icon
                     iconName='IconExpandLess'
                     dataTestId='icon-expand-less'
-                    onClick={e => {
-                      e.stopPropagation();
-                      e.preventDefault();
-                      toggleExpand(section.id);
-                    }}
                     className='yl:absolute yl:right-2 yl:w-6 yl:cursor-pointer yl:fill-primary yl:hover:fill-primary'
                   />
                 ) : (
                   <Icon
                     iconName='IconExpandMore'
                     dataTestId='icon-expand-more'
-                    onClick={e => {
-                      e.stopPropagation();
-                      e.preventDefault();
-                      toggleExpand(section.id);
-                    }}
                     className='yl:absolute yl:right-2 yl:w-6 yl:cursor-pointer yl:fill-primary yl:hover:fill-primary'
                   />
                 )}
@@ -183,6 +184,7 @@ const Accordion: FC<IAccordionProps> = ({
                     onSectionItemClick?.(item);
                     onSelected?.(item);
                     setSelectedItemId(item.id);
+                    setSelectedSectionId(null);
                   }}
                   onDragged={(items: IDraggableListItem[]) => {
                     onSorted?.(
@@ -200,12 +202,12 @@ const Accordion: FC<IAccordionProps> = ({
                   draggedOverClassName='yl:border-t-2 yl:border-border'
                   liClassName={(item: IDraggableListItem) =>
                     classNames(
-                      "yl:cursor-default hover:text-text break-words leading-normal yl:px-4",
+                      "yl:cursor-default yl:break-words yl:leading-normal yl:px-4",
                       {
-                        "yl:cursor-pointer": onSectionItemClick,
-                        "yl:text-text": selectedItemId !== item.id,
-                        // "yl:text-text":
-                        //   onSectionItemClick && selectedItemId === item.id,
+                        "yl:hover:cursor-pointer yl:hover:text-primary":
+                          onSectionItemClick,
+                        "yl:text-primary":
+                          onSectionItemClick && selectedItemId === item.id,
                         "yl:pl-5": section.items.length === 1
                       }
                     )
@@ -215,17 +217,29 @@ const Accordion: FC<IAccordionProps> = ({
                   <div
                     onClick={() => onAddSectionItem(section)}
                     className={classNames(
-                      "yl:cursor-pointer yl:hover:text-text yl:pb-4 yl:text-text yl:text-center yl:flex yl:items-center yl:justify-center yl:gap-1"
+                      "yl:group  yl:border-border yl:hover:bg-text/2 yl:cursor-pointer"
                     )}
+                    role='presentation'
                   >
-                    <Icon
-                      iconName='IconAddCircle'
-                      dataTestId='icon-add-circle'
-                      className='yl:w-6'
-                    />
-                    {addSectionItemLabel && (
-                      <span className='yl:text-sm'>{addSectionItemLabel}</span>
-                    )}
+                    <h3
+                      className={classNames(
+                        "yl:flex yl:flex-col yl:items-center yl:justify-center yl:select-none yl:font-semibold yl:p-4 yl:text-center"
+                      )}
+                      role='button'
+                    >
+                      <Paragraph className='yl:flex yl:items-center yl:gap-1'>
+                        <Icon
+                          iconName='IconAddCircle'
+                          dataTestId='icon-add-circle'
+                          className='yl:w-6 yl:text-primary'
+                        />
+                        {addSectionItemLabel && (
+                          <span className='yl:text-sm yl:text-primary'>
+                            {addSectionItemLabel}
+                          </span>
+                        )}
+                      </Paragraph>
+                    </h3>
                   </div>
                 )}
               </>
@@ -236,7 +250,7 @@ const Accordion: FC<IAccordionProps> = ({
         <div
           onClick={onAddSection}
           className={classNames(
-            "yl:group yl:border-2 yl:border-t-0 yl:border-border yl:hover:bg-text/5 yl:rounded-bl-md yl:rounded-br-md yl:cursor-pointer"
+            "yl:group yl:border-2 yl:border-t-0 yl:border-border yl:hover:bg-text/2 yl:rounded-bl-md yl:rounded-br-md yl:cursor-pointer"
           )}
           role='presentation'
         >
@@ -246,14 +260,16 @@ const Accordion: FC<IAccordionProps> = ({
             )}
             role='button'
           >
-            <Paragraph className='yl:text-text/70 yl:group-hover:text-text yl:flex yl:items-center yl:gap-1'>
+            <Paragraph className='yl:flex yl:items-center yl:gap-1'>
               <Icon
                 iconName='IconAddCircle'
                 dataTestId='icon-add-circle'
-                className='yl:w-6 yl:group-hover:text-text'
+                className='yl:w-6 yl:text-primary'
               />
               {addSectionLabel && (
-                <span className='yl:text-sm'>{addSectionLabel}</span>
+                <span className='yl:text-sm yl:text-primary'>
+                  {addSectionLabel}
+                </span>
               )}
             </Paragraph>
           </h3>

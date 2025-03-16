@@ -11,7 +11,7 @@ exports[`Accordion component > renders correctly 1`] = `
     >
       <h3
         aria-expanded="true"
-        class="yl:relative yl:flex yl:cursor-default yl:select-none yl:items-center yl:font-semibold yl:capitalize yl:p-4 yl:bg-text/5 yl:cursor-pointer yl:text-text"
+        class="yl:relative yl:flex yl:cursor-default yl:select-none yl:items-center yl:font-semibold yl:capitalize yl:p-4 yl:hover:text-primary yl:transition-colors yl:duration-400 yl:ease-in-out yl:hover:cursor-pointer yl:bg-text/2 yl:cursor-pointer yl:text-text"
         role="button"
         tabindex="0"
       >
@@ -37,12 +37,12 @@ exports[`Accordion component > renders correctly 1`] = `
         class="yl:relative yl:text-text yl:gap-4 yl:flex yl:flex-col yl:py-4"
       >
         <li
-          class="yl:relative yl:flex yl:items-center yl:cursor-default hover:text-text break-words leading-normal yl:px-4 yl:cursor-pointer yl:text-text"
+          class="yl:relative yl:flex yl:items-center yl:cursor-default yl:break-words yl:leading-normal yl:px-4 yl:hover:cursor-pointer yl:hover:text-primary"
         >
           Item A
         </li>
         <li
-          class="yl:relative yl:flex yl:items-center yl:cursor-default hover:text-text break-words leading-normal yl:px-4 yl:cursor-pointer yl:text-text"
+          class="yl:relative yl:flex yl:items-center yl:cursor-default yl:break-words yl:leading-normal yl:px-4 yl:hover:cursor-pointer yl:hover:text-primary"
         >
           Item B
         </li>
@@ -54,7 +54,7 @@ exports[`Accordion component > renders correctly 1`] = `
     >
       <h3
         aria-expanded="false"
-        class="yl:relative yl:flex yl:cursor-default yl:select-none yl:items-center yl:font-semibold yl:capitalize yl:p-4 yl:cursor-pointer yl:text-text"
+        class="yl:relative yl:flex yl:cursor-default yl:select-none yl:items-center yl:font-semibold yl:capitalize yl:p-4 yl:hover:text-primary yl:transition-colors yl:duration-400 yl:ease-in-out yl:hover:cursor-pointer yl:cursor-pointer yl:text-text"
         role="button"
         tabindex="0"
       >

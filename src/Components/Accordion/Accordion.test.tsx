@@ -106,21 +106,25 @@ describe("Accordion component", () => {
     );
   });
 
-  test("applies custom class names", () => {
+  test("expands all sections by default when defaultExpanded is true", async () => {
+    const setExpanded = vi.fn();
     render(
       <Accordion
         sections={mockSections}
         onSorted={vi.fn()}
-        className='custom-class'
-        sectionTitleClassName='custom-title-class'
-        setExpanded={vi.fn()}
+        setExpanded={setExpanded}
         expanded={[]}
+        defaultExpanded={true}
         onSectionItemClick={vi.fn()}
       />
     );
 
-    expect(screen.getByText("Section 1").parentNode).toHaveClass(
-      "custom-title-class"
+    expect(setExpanded).toHaveBeenCalledWith(
+      mockSections.map(section => section.id)
     );
+
+    mockSections.forEach(section => {
+      expect(screen.getByText(section.title)).toBeInTheDocument();
+    });
   });
 });
