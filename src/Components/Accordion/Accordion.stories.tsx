@@ -121,7 +121,7 @@ export const Interactive = () => {
   );
 };
 
-export const NonInteractive = () => {
+export const NonInteractiveItems = () => {
   const [sections, setSections] = useState<ISection[]>([]);
   const [expandedSections, setExpandedSections] = useState<number[]>([1]);
 
@@ -180,8 +180,6 @@ export const WithoutDragAndDrop = () => {
         className='yl:w-[500px]'
         selectedId={2}
         sections={sections}
-        hasDraggableSectionItems={true}
-        hasDraggableSections={true}
         onSorted={(_, sections) => {
           setSections(sections);
         }}
@@ -297,6 +295,51 @@ export const WithAddLabels = () => {
       <Accordion
         className='yl:w-[500px]'
         selectedId={2}
+        sections={sections}
+        expanded={expandedSections}
+        onSorted={(_, sections) => {
+          setSections(sections);
+        }}
+        onAddSection={() => {
+          action("onAddSection")();
+        }}
+        addSectionLabel='Add Course Section'
+        addSectionItemLabel='Add Course Lecture'
+        onAddSectionItem={section => {
+          action("onAddSectionItem")(section);
+        }}
+        setExpanded={(expanded: number[]) => {
+          setExpandedSections(expanded);
+          action("setExpanded")(expanded);
+        }}
+        onSelected={item => {
+          action("onSelected")(item);
+        }}
+      />
+    </div>
+  );
+};
+
+export const WithNoItems = () => {
+  const [sections, setSections] = useState<ISection[]>([
+    {
+      id: 1,
+      title: "velum constans brevis canis corrumpo magni attollo",
+      description: "",
+      order: 0,
+      items: []
+    }
+  ]);
+  const [expandedSections, setExpandedSections] = useState<number[]>([]);
+
+  if (!sections.length) {
+    return <div>Loading...</div>;
+  }
+
+  return (
+    <div>
+      <Accordion
+        className='yl:w-[500px]'
         sections={sections}
         expanded={expandedSections}
         onSorted={(_, sections) => {

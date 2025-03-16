@@ -94,7 +94,7 @@ const Accordion: FC<IAccordionProps> = ({
         .map((section, idx) => (
           <div
             key={section.id}
-            draggable={hasDraggableSections}
+            draggable={hasDraggableSections && section.items.length > 0}
             onDrag={e => handleDrag(e, section)}
             onDragOver={() =>
               hasDraggableSections && setDraggedOverId(section.id)
@@ -178,46 +178,52 @@ const Accordion: FC<IAccordionProps> = ({
 
             {expanded.includes(section.id) && (
               <>
-                <DraggableList
-                  items={section.items}
-                  onClick={(item: IDraggableListItem) => {
-                    onSectionItemClick?.(item);
-                    onSelected?.(item);
-                    setSelectedItemId(item.id);
-                    setSelectedSectionId(null);
-                  }}
-                  onDragged={(items: IDraggableListItem[]) => {
-                    onSorted?.(
-                      AccordionOrderType.LECTURES,
-                      [
-                        ...sections.map(s =>
-                          s.id === section.id ? { ...s, items } : s
-                        )
-                      ],
-                      { sectionId: section.id, items }
-                    );
-                  }}
-                  isDraggable={hasDraggableSectionItems}
-                  className='yl:gap-4 yl:flex yl:flex-col yl:py-4'
-                  draggedOverClassName='yl:border-t-2 yl:border-border'
-                  liClassName={(item: IDraggableListItem) =>
-                    classNames(
-                      "yl:cursor-default yl:break-words yl:leading-normal yl:px-4",
-                      {
-                        "yl:hover:cursor-pointer yl:hover:text-primary":
-                          onSectionItemClick,
-                        "yl:text-primary":
-                          onSectionItemClick && selectedItemId === item.id,
-                        "yl:pl-5": section.items.length === 1
-                      }
-                    )
-                  }
-                />
+                {section.items.length > 0 && (
+                  <DraggableList
+                    items={section.items}
+                    onClick={(item: IDraggableListItem) => {
+                      onSectionItemClick?.(item);
+                      onSelected?.(item);
+                      setSelectedItemId(item.id);
+                      setSelectedSectionId(
+                        sections.find(s => s.items.includes(item))?.id ?? null
+                      );
+                    }}
+                    onDragged={(items: IDraggableListItem[]) => {
+                      onSorted?.(
+                        AccordionOrderType.LECTURES,
+                        [
+                          ...sections.map(s =>
+                            s.id === section.id ? { ...s, items } : s
+                          )
+                        ],
+                        { sectionId: section.id, items }
+                      );
+                    }}
+                    isDraggable={
+                      hasDraggableSectionItems && section.items.length > 0
+                    }
+                    className='yl:gap-4 yl:flex yl:flex-col yl:py-4'
+                    draggedOverClassName='yl:border-t-2 yl:border-border'
+                    liClassName={(item: IDraggableListItem) =>
+                      classNames(
+                        "yl:cursor-default yl:break-words yl:leading-normal yl:px-4",
+                        {
+                          "yl:hover:cursor-pointer yl:hover:text-primary":
+                            onSectionItemClick,
+                          "yl:text-primary":
+                            onSectionItemClick && selectedItemId === item.id,
+                          "yl:pl-5": section.items.length === 1
+                        }
+                      )
+                    }
+                  />
+                )}
                 {onAddSectionItem && (
                   <div
                     onClick={() => onAddSectionItem(section)}
                     className={classNames(
-                      "yl:group  yl:border-border yl:hover:bg-text/2 yl:cursor-pointer"
+                      "yl:group yl:border-border yl:hover:bg-text/1 yl:cursor-pointer yl:bg-text/3"
                     )}
                     role='presentation'
                   >
@@ -250,7 +256,7 @@ const Accordion: FC<IAccordionProps> = ({
         <div
           onClick={onAddSection}
           className={classNames(
-            "yl:group yl:border-2 yl:border-t-0 yl:border-border yl:hover:bg-text/2 yl:rounded-bl-md yl:rounded-br-md yl:cursor-pointer"
+            "yl:group yl:border-2 yl:border-t-0 yl:border-border yl:hover:bg-text/2 yl:rounded-bl-md yl:rounded-br-md yl:cursor-pointer yl:bg-text/3"
           )}
           role='presentation'
         >
