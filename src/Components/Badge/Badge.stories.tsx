@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import Badge from ".";
+import { BadgeVariantEnum } from "./types";
 
 const meta = {
   title: "Core/Badge",
@@ -15,9 +16,30 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+export const Empty: Story = {
+  args: {
+    title: "Badge",
+    variant: BadgeVariantEnum.PRIMARY
+  }
+};
+
 export const Filled: Story = {
   args: {
     title: "Badge",
-    className: "yl:bg-primary-500"
+    variant: BadgeVariantEnum.PRIMARY
+  }
+};
+
+export const Beta: Story = {
+  args: {
+    title: "Beta",
+    variant: BadgeVariantEnum.BETA
+  }
+};
+
+export const New: Story = {
+  args: {
+    title: "New",
+    variant: BadgeVariantEnum.NEW
   }
 };

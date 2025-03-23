@@ -1,13 +1,29 @@
 import classNames from "classnames";
 import { FC } from "react";
 
-import { IBadgeProps } from "./types";
+import { BadgeVariantEnum, IBadgeProps } from "./types";
 
-const Badge: FC<IBadgeProps> = ({ title, className }) => {
+const Badge: FC<IBadgeProps> = ({ title, className, variant }) => {
+  const variants = {
+    [BadgeVariantEnum.PRIMARY]: "yl:bg-primary",
+    [BadgeVariantEnum.SECONDARY]: "yl:bg-secondary",
+    [BadgeVariantEnum.SUCCESS]: "yl:bg-success",
+    [BadgeVariantEnum.WARNING]: "yl:bg-warning",
+    [BadgeVariantEnum.ERROR]: "yl:bg-error",
+    [BadgeVariantEnum.BETA]: "yl:bg-violet-500",
+    [BadgeVariantEnum.NEW]: "yl:bg-blue-500"
+  };
+
+  const baseClassNames =
+    "yl:rounded yl:border yl:border-border yl:px-2 yl:py-1 yl:text-[10px]";
+
   return (
     <span
       className={classNames(
-        "yl:rounded yl:border yl:border-border yl:px-1 yl:pb-[2px] yl:pt-[1px] yl:text-[10px] yl:text-text",
+        baseClassNames,
+        {
+          [variants[variant]]: variant
+        },
         className
       )}
     >
