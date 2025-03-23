@@ -6,12 +6,7 @@ import Dialog from "Components/Dialog";
 import Icon from "Components/Icon";
 import { Paragraph } from "Components/Typography";
 
-export interface IFormActionsProps {
-  onSave: () => void;
-  onCancel: () => void;
-  onDelete?: () => void;
-  dialogDeleteText?: string;
-}
+import { IFormActionsProps } from "./types";
 
 const FormActions = ({
   onSave,

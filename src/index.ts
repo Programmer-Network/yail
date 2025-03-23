@@ -19,6 +19,7 @@ export { default as DraggableList } from "Components/DraggableList";
 export { default as Dropdown } from "Components/Dropdown";
 export { default as ElevatedCard } from "Components/ElevatedCard";
 export { default as Error } from "Components/Error";
+export { default as FormActions } from "Components/FormActions";
 export { default as Icon } from "Components/Icon";
 export { default as ImageCrop } from "Components/ImageCrop";
 export { default as ImageDialog } from "Components/ImageDialog";
