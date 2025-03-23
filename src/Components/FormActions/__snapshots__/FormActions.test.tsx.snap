@@ -3,9 +3,7 @@
 exports[`FormActions component > renders correctly - snapshot test 1`] = `
 <DocumentFragment>
   <div>
-    <div
-      class="yl:mt-14"
-    >
+    <div>
       <div
         class="yl:p-8 yl:!border-error/50 yl:!border-2 yl:max-w-[350px]"
         data-testid="mock-dialog"

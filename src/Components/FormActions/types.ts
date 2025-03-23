@@ -3,4 +3,5 @@ export interface IFormActionsProps {
   onCancel: () => void;
   onDelete?: () => void;
   dialogDeleteText?: string;
+  className?: string;
 }

@@ -12,7 +12,8 @@ const FormActions = ({
   onSave,
   onCancel,
   onDelete,
-  dialogDeleteText = "Do you want to put an end to these bits and bytes?"
+  dialogDeleteText = "Do you want to put an end to these bits and bytes?",
+  className
 }: IFormActionsProps) => {
   const dialogRef = createRef<HTMLDialogElement>();
 
@@ -44,8 +45,8 @@ const FormActions = ({
   };
 
   return (
-    <div>
-      <div className='yl:mt-14'>
+    <div className={className}>
+      <div>
         {onDelete && (
           <Dialog
             ref={dialogRef}
