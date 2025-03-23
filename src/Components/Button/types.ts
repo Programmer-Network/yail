@@ -4,7 +4,8 @@ import { IconName } from "Components/Icons/types";
 
 export enum ButtonVariantEnum {
   PRIMARY = "primary",
-  SECONDARY = "secondary"
+  SECONDARY = "secondary",
+  ERROR = "error"
 }
 
 export interface IButtonProps {
@@ -21,4 +22,12 @@ export interface IButtonProps {
     iconPosition?: "left" | "right";
   };
   variant?: ButtonVariantEnum;
+}
+
+export interface IGetButtonClassesArgs {
+  variant: ButtonVariantEnum;
+  disabled: boolean;
+  outlined: boolean;
+  isLoading: boolean;
+  className?: string;
 }

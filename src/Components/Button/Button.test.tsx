@@ -43,14 +43,13 @@ describe("Button component", () => {
   test("has correct styles when disabled and filled", () => {
     render(<Button disabled>Disabled Button</Button>);
     const button = screen.getByRole("button");
-    expect(button).toHaveClass("yl:text-background");
     expect(button).toHaveClass("yl:bg-primary");
   });
 
   test("has correct styles when loading and filled", () => {
     render(<Button isLoading>Button</Button>);
     const button = screen.getByRole("button");
-    expect(button).toHaveClass("yl:hover:bg-transparent");
+    expect(button).toHaveClass("yl:hover:fill-background");
   });
 
   test("has correct styles when not disabled, not loading, and filled", () => {

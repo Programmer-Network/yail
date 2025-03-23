@@ -22,3 +22,46 @@ vi.mock("../src/Components/Icon", () => ({
     );
   }
 }));
+
+/**
+ * Mock dialog implementation for testing
+ */
+vi.mock("../src/Components/Dialog", () => {
+  /**
+   * @typedef {Object} DialogProps
+   * @property {React.ReactNode} [children]
+   * @property {string} [className]
+   * @property {boolean} [isOpen]
+   */
+
+  /**
+   * @type {React.ForwardRefExoticComponent<DialogProps & React.RefAttributes<HTMLDialogElement>>}
+   */
+  const MockDialog = React.forwardRef((props, ref) => {
+    const { children, className, isOpen } = props;
+
+    if (ref) {
+      /** @type {any} - using any to bypass type checking */
+      const mockDialogElement = {
+        showModal: vi.fn(),
+        close: vi.fn()
+      };
+
+      if (typeof ref === "function") {
+        ref(mockDialogElement);
+      } else {
+        ref.current = mockDialogElement;
+      }
+    }
+
+    return React.createElement(
+      "div",
+      { className, "data-testid": "mock-dialog" },
+      isOpen ? children : null
+    );
+  });
+
+  MockDialog.displayName = "MockDialog";
+
+  return { default: MockDialog };
+});

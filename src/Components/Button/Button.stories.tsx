@@ -141,3 +141,56 @@ export const Primary: Story = {
     variant: ButtonVariantEnum.PRIMARY
   }
 };
+
+export const Error: Story = {
+  args: {
+    children: "Delete",
+    variant: ButtonVariantEnum.ERROR
+  }
+};
+
+export const ErrorLoading: Story = {
+  args: {
+    children: "Delete",
+    variant: ButtonVariantEnum.ERROR,
+    isLoading: true
+  }
+};
+
+export const ErrorOutlined: Story = {
+  args: {
+    children: "Delete",
+    variant: ButtonVariantEnum.ERROR,
+    outlined: true
+  }
+};
+
+export const ErrorOutlinedDisabled: Story = {
+  args: {
+    children: "Delete",
+    variant: ButtonVariantEnum.ERROR,
+    outlined: true,
+    disabled: true
+  }
+};
+
+export const ErrorOutlinedLoading: Story = {
+  args: {
+    children: "Delete",
+    variant: ButtonVariantEnum.ERROR,
+    outlined: true,
+    isLoading: true
+  }
+};
+
+export const ErrorOutlinedWithIcon: Story = {
+  args: {
+    children: "Delete",
+    variant: ButtonVariantEnum.ERROR,
+    outlined: true,
+    icon: {
+      iconName: "IconDeleteBin",
+      iconPosition: "left"
+    }
+  }
+};

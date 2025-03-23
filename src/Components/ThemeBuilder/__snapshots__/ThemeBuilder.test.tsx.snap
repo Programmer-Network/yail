@@ -10,7 +10,7 @@ exports[`ThemeBuilder component > renders correctly with given props 1`] = `
         class="yl:flex yl:gap-1 yl:flex-col yl:md:flex-row"
       >
         <button
-          class="yl:select-none yl:px-3 yl:py-2 yl:font-semibold yl:tracking-tight yl:rounded-md yl:cursor-pointer yl:border-2 yl:border-primary yl:bg-transparent yl:text-primary yl:fill-primary yl:hover:bg-primary yl:hover:fill-background yl:hover:text-background primary-button yl:h-12 yl:min-w-[120px] yl:shadow-none"
+          class="yl:select-none yl:px-3 yl:py-2 yl:font-semibold yl:tracking-tight yl:rounded-md yl:border-2 yl:cursor-pointer yl:border-primary yl:bg-transparent yl:text-primary yl:fill-primary yl:hover:bg-primary yl:hover:text-background yl:hover:fill-background primary-button yl:h-12 yl:min-w-[120px] yl:shadow-none"
           type="button"
         >
           <div
@@ -27,7 +27,7 @@ exports[`ThemeBuilder component > renders correctly with given props 1`] = `
           </div>
         </button>
         <button
-          class="yl:select-none yl:px-3 yl:py-2 yl:font-semibold yl:tracking-tight yl:rounded-md yl:cursor-pointer yl:border-2 yl:border-primary yl:bg-transparent yl:text-primary yl:fill-primary yl:hover:bg-primary yl:hover:fill-background yl:hover:text-background yl:h-12 yl:min-w-[120px] yl:shadow-none"
+          class="yl:select-none yl:px-3 yl:py-2 yl:font-semibold yl:tracking-tight yl:rounded-md yl:border-2 yl:cursor-pointer yl:border-primary yl:bg-transparent yl:text-primary yl:fill-primary yl:hover:bg-primary yl:hover:text-background yl:hover:fill-background yl:h-12 yl:min-w-[120px] yl:shadow-none"
           type="button"
         >
           <div
@@ -44,7 +44,7 @@ exports[`ThemeBuilder component > renders correctly with given props 1`] = `
           </div>
         </button>
         <button
-          class="yl:select-none yl:px-3 yl:py-2 yl:font-semibold yl:tracking-tight yl:rounded-md yl:cursor-pointer yl:border-2 yl:border-primary yl:bg-transparent yl:text-primary yl:fill-primary yl:hover:bg-primary yl:hover:fill-background yl:hover:text-background yl:h-12 yl:min-w-[120px] yl:shadow-none"
+          class="yl:select-none yl:px-3 yl:py-2 yl:font-semibold yl:tracking-tight yl:rounded-md yl:border-2 yl:cursor-pointer yl:border-primary yl:bg-transparent yl:text-primary yl:fill-primary yl:hover:bg-primary yl:hover:text-background yl:hover:fill-background yl:h-12 yl:min-w-[120px] yl:shadow-none"
           type="button"
         >
           <div
