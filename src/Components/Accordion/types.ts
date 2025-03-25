@@ -41,4 +41,10 @@ export interface IAccordionProps {
   hasDraggableSections?: boolean;
   hasDraggableSectionItems?: boolean;
   defaultExpanded?: boolean;
+  selected: {
+    sectionId: number;
+    itemId: number;
+  };
+  setSelectedSection: (sectionId: number | null) => void;
+  setSelectedItem: (itemId: number | null) => void;
 }

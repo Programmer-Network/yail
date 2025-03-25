@@ -5,7 +5,8 @@ export enum BadgeVariantEnum {
   WARNING = "warning",
   ERROR = "error",
   BETA = "beta",
-  NEW = "new"
+  NEW = "new",
+  NONE = "none"
 }
 
 export interface IBadgeProps {

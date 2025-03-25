@@ -7,6 +7,7 @@ export interface ICardData {
   date?: string;
   author?: string;
   authorUrl?: string;
+  avatarUrl?: string;
   tags?: {
     name: string;
     url: string;

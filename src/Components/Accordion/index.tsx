@@ -24,23 +24,17 @@ const Accordion: FC<IAccordionProps> = ({
   addSectionItemLabel,
   expanded,
   setExpanded,
-  selectedId,
   hasDraggableSections,
   hasDraggableSectionItems,
-  defaultExpanded
+  defaultExpanded,
+  selected,
+  setSelectedSection,
+  setSelectedItem
 }) => {
   const hasInitialized = useRef(false);
-  const [selectedItemId, setSelectedItemId] = useState<
-    number | null | undefined
-  >(selectedId);
-
-  const [selectedSectionId, setSelectedSectionId] = useState<
-    number | null | undefined
-  >(selectedId);
 
   const [draggedId, setDraggedId] = useState<number | null>(null);
   const [draggedOverId, setDraggedOverId] = useState<number | null>(null);
-  const [hoveredId, setHoveredId] = useState<number | null>(null);
 
   const toggleExpand = (sectionId: number) => {
     setExpanded(
@@ -49,8 +43,6 @@ const Accordion: FC<IAccordionProps> = ({
         : [...expanded, sectionId]
     );
   };
-
-  useEffect(() => setSelectedItemId(selectedId), [selectedId]);
 
   useEffect(() => {
     if (defaultExpanded && sections.length > 0 && !hasInitialized.current) {
@@ -99,8 +91,6 @@ const Accordion: FC<IAccordionProps> = ({
             onDragOver={() =>
               hasDraggableSections && setDraggedOverId(section.id)
             }
-            onMouseOver={() => hasDraggableSections && setHoveredId(section.id)}
-            onMouseLeave={() => hasDraggableSections && setHoveredId(null)}
             className={classNames(
               "yl:border-2 yl:border-border",
               {
@@ -109,10 +99,7 @@ const Accordion: FC<IAccordionProps> = ({
                 "yl:rounded-bl-md yl:rounded-br-md":
                   idx === sections.length - 1 && !onAddSection
               },
-              {
-                "yl:bg-text/5": draggedOverId === section.id,
-                "yl:bg-text/10": draggedId && hoveredId === section.id
-              }
+              {}
             )}
             role='presentation'
           >
@@ -121,8 +108,8 @@ const Accordion: FC<IAccordionProps> = ({
                 e.stopPropagation();
                 e.preventDefault();
                 onSectionClick?.(section);
-                setSelectedSectionId(section.id);
-                setSelectedItemId(null);
+                setSelectedSection(section.id);
+                setSelectedItem(null);
                 toggleExpand(section.id);
               }}
               className={classNames(
@@ -132,9 +119,9 @@ const Accordion: FC<IAccordionProps> = ({
                   "yl:bg-text/2": expanded.includes(section.id),
                   "yl:cursor-pointer": onSectionItemClick,
                   "yl:text-text":
-                    selectedSectionId !== section.id || !onSectionItemClick,
+                    selected.sectionId !== section.id || !onSectionItemClick,
                   "yl:text-primary":
-                    onSectionItemClick && selectedSectionId === section.id
+                    onSectionItemClick && selected.sectionId === section.id
                 }
               )}
               onKeyDown={e =>
@@ -184,8 +171,8 @@ const Accordion: FC<IAccordionProps> = ({
                     onClick={(item: IDraggableListItem) => {
                       onSectionItemClick?.(item);
                       onSelected?.(item);
-                      setSelectedItemId(item.id);
-                      setSelectedSectionId(
+                      setSelectedItem(item.id);
+                      setSelectedSection(
                         sections.find(s => s.items.includes(item))?.id ?? null
                       );
                     }}
@@ -212,7 +199,7 @@ const Accordion: FC<IAccordionProps> = ({
                           "yl:hover:cursor-pointer yl:hover:text-primary":
                             onSectionItemClick,
                           "yl:text-primary":
-                            onSectionItemClick && selectedItemId === item.id,
+                            onSectionItemClick && selected.itemId === item.id,
                           "yl:pl-5": section.items.length === 1
                         }
                       )

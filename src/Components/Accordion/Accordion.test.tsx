@@ -32,6 +32,9 @@ describe("Accordion component", () => {
         setExpanded={() => null}
         expanded={[1]}
         onSectionItemClick={vi.fn()}
+        selected={{ sectionId: 0, itemId: 0 }}
+        setSelectedSection={() => null}
+        setSelectedItem={() => null}
       />
     );
     expect(asFragment()).toMatchSnapshot();
@@ -46,6 +49,9 @@ describe("Accordion component", () => {
         setExpanded={setExpanded}
         expanded={[1]}
         onSectionItemClick={vi.fn()}
+        selected={{ sectionId: 0, itemId: 0 }}
+        setSelectedSection={() => null}
+        setSelectedItem={() => null}
       />
     );
 
@@ -57,6 +63,8 @@ describe("Accordion component", () => {
 
   test("expands and collapses sections on click", () => {
     const setExpanded = vi.fn();
+    const setSelectedSection = vi.fn();
+    const setSelectedItem = vi.fn();
 
     render(
       <Accordion
@@ -65,6 +73,9 @@ describe("Accordion component", () => {
         setExpanded={setExpanded}
         expanded={[mockSections[0]!.id]}
         onSectionItemClick={vi.fn()}
+        selected={{ sectionId: mockSections[0]!.id, itemId: 0 }}
+        setSelectedSection={setSelectedSection}
+        setSelectedItem={setSelectedItem}
       />
     );
 
@@ -74,6 +85,9 @@ describe("Accordion component", () => {
 
   test("handles section item click events", () => {
     const onSectionItemClick = vi.fn();
+    const setSelectedSection = vi.fn();
+    const setSelectedItem = vi.fn();
+
     render(
       <Accordion
         sections={mockSections}
@@ -81,11 +95,16 @@ describe("Accordion component", () => {
         setExpanded={vi.fn()}
         onSectionItemClick={onSectionItemClick}
         expanded={[1]}
+        selected={{ sectionId: 1, itemId: 0 }}
+        setSelectedSection={setSelectedSection}
+        setSelectedItem={setSelectedItem}
       />
     );
 
     fireEvent.click(screen.getByText("Item A"));
-    expect(onSectionItemClick).toHaveBeenCalledWith(mockSections[0]!.items[0]);
+    expect(onSectionItemClick).toHaveBeenCalledWith(mockSections[0]!.items[0]!);
+    expect(setSelectedItem).toHaveBeenCalledWith(mockSections[0]!.items[0]!.id);
+    expect(setSelectedSection).toHaveBeenCalledWith(mockSections[0]!.id);
   });
 
   test("applies custom class names", () => {
@@ -98,6 +117,9 @@ describe("Accordion component", () => {
         setExpanded={vi.fn()}
         expanded={[]}
         onSectionItemClick={vi.fn()}
+        selected={{ sectionId: 0, itemId: 0 }}
+        setSelectedSection={() => null}
+        setSelectedItem={() => null}
       />
     );
 
@@ -116,6 +138,9 @@ describe("Accordion component", () => {
         expanded={[]}
         defaultExpanded={true}
         onSectionItemClick={vi.fn()}
+        selected={{ sectionId: 0, itemId: 0 }}
+        setSelectedSection={() => null}
+        setSelectedItem={() => null}
       />
     );
 

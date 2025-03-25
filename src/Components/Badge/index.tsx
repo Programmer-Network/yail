@@ -11,7 +11,8 @@ const Badge: FC<IBadgeProps> = ({ title, className, variant }) => {
     [BadgeVariantEnum.WARNING]: "yl:bg-warning",
     [BadgeVariantEnum.ERROR]: "yl:bg-error",
     [BadgeVariantEnum.BETA]: "yl:bg-violet-500",
-    [BadgeVariantEnum.NEW]: "yl:bg-blue-500"
+    [BadgeVariantEnum.NEW]: "yl:bg-blue-500",
+    [BadgeVariantEnum.NONE]: ""
   };
 
   const baseClassNames =

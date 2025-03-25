@@ -47,7 +47,7 @@ describe("Card component", () => {
     expect(screen.getByText(mockProps.data.title)).toBeInTheDocument();
     expect(screen.getByText(mockProps.data.description)).toBeInTheDocument();
     expect(screen.getByText(mockProps.data.author)).toBeInTheDocument();
-    expect(screen.getByText(mockProps.data.date)).toBeInTheDocument();
+    expect(screen.getByText(`| ${mockProps.data.date}`)).toBeInTheDocument();
     mockProps.data.tags.forEach(({ name }) => {
       expect(screen.getByText(`#${name}`)).toBeInTheDocument();
     });
@@ -75,7 +75,7 @@ describe("Card component", () => {
       </BrowserRouter>
     );
     expect(screen.getByText(mockProps.data.author)).toBeInTheDocument();
-    expect(screen.getByText(mockProps.data.date)).toBeInTheDocument();
+    expect(screen.getByText(`| ${mockProps.data.date}`)).toBeInTheDocument();
   });
 
   it("conditionally renders tags based on props", () => {

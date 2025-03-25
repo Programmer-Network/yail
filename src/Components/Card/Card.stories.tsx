@@ -27,6 +27,7 @@ export const Default = () => {
             "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum, nesciunt.",
           author: "John Doe",
           authorUrl: "/john-doe",
+          avatarUrl: "https://i.pravatar.cc/300",
           date: "2021-10-10T00:00:00.000Z",
           tags: [
             { name: "Tag 1", url: "/" },

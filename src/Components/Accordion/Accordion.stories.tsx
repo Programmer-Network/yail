@@ -43,6 +43,8 @@ const dummySections = Array(5)
 export const Primary = () => {
   const [sections, setSections] = useState<ISection[]>([]);
   const [expandedSections, setExpandedSections] = useState<number[]>([1]);
+  const [selectedSection, setSelectedSection] = useState<number | null>(null);
+  const [selectedItem, setSelectedItem] = useState<number | null>(null);
 
   useEffect(() => {
     if (sections.length) {
@@ -61,6 +63,16 @@ export const Primary = () => {
       <Accordion
         className='yl:w-[500px]'
         sections={sections}
+        selected={{
+          sectionId: selectedSection ?? 0,
+          itemId: selectedItem ?? 0
+        }}
+        setSelectedSection={sectionId => {
+          setSelectedSection(sectionId);
+        }}
+        setSelectedItem={itemId => {
+          setSelectedItem(itemId);
+        }}
         onSorted={(_, data) => {
           setSections(data);
         }}
@@ -84,7 +96,8 @@ export const Primary = () => {
 export const Interactive = () => {
   const [sections, setSections] = useState<ISection[]>([]);
   const [expandedSections, setExpandedSections] = useState<number[]>([1]);
-  const [selectedSection, setSelectedSection] = useState<number>(2);
+  const [selectedSection, setSelectedSection] = useState<number | null>(null);
+  const [selectedItem, setSelectedItem] = useState<number | null>(null);
 
   useEffect(() => {
     if (sections.length) {
@@ -104,7 +117,16 @@ export const Interactive = () => {
         className='yl:w-[500px]'
         sections={sections}
         expanded={expandedSections}
-        selectedId={selectedSection}
+        selected={{
+          sectionId: selectedSection ?? 0,
+          itemId: selectedItem ?? 0
+        }}
+        setSelectedSection={sectionId => {
+          setSelectedSection(sectionId);
+        }}
+        setSelectedItem={itemId => {
+          setSelectedItem(itemId);
+        }}
         setExpanded={(expanded: number[]) => {
           setExpandedSections(expanded);
         }}
@@ -124,6 +146,8 @@ export const Interactive = () => {
 export const NonInteractiveItems = () => {
   const [sections, setSections] = useState<ISection[]>([]);
   const [expandedSections, setExpandedSections] = useState<number[]>([1]);
+  const [selectedSection, setSelectedSection] = useState<number | null>(null);
+  const [selectedItem, setSelectedItem] = useState<number | null>(null);
 
   useEffect(() => {
     if (sections.length) {
@@ -141,7 +165,16 @@ export const NonInteractiveItems = () => {
     <div>
       <Accordion
         className='yl:w-[500px]'
-        selectedId={2}
+        selected={{
+          sectionId: selectedSection ?? 0,
+          itemId: selectedItem ?? 0
+        }}
+        setSelectedSection={sectionId => {
+          setSelectedSection(sectionId);
+        }}
+        setSelectedItem={itemId => {
+          setSelectedItem(itemId);
+        }}
         sections={sections}
         onSorted={(_, sections) => {
           setSections(sections);
@@ -161,6 +194,8 @@ export const NonInteractiveItems = () => {
 export const WithoutDragAndDrop = () => {
   const [sections, setSections] = useState<ISection[]>([]);
   const [expandedSections, setExpandedSections] = useState<number[]>([1]);
+  const [selectedSection, setSelectedSection] = useState<number | null>(null);
+  const [selectedItem, setSelectedItem] = useState<number | null>(null);
 
   useEffect(() => {
     if (sections.length) {
@@ -178,7 +213,16 @@ export const WithoutDragAndDrop = () => {
     <div>
       <Accordion
         className='yl:w-[500px]'
-        selectedId={2}
+        selected={{
+          sectionId: selectedSection ?? 0,
+          itemId: selectedItem ?? 0
+        }}
+        setSelectedSection={sectionId => {
+          setSelectedSection(sectionId);
+        }}
+        setSelectedItem={itemId => {
+          setSelectedItem(itemId);
+        }}
         sections={sections}
         onSorted={(_, sections) => {
           setSections(sections);
@@ -214,6 +258,8 @@ export const AddSectionAndSectionItem = () => {
   ]);
 
   const [expandedSections, setExpandedSections] = useState<number[]>([1]);
+  const [selectedSection, setSelectedSection] = useState<number | null>(null);
+  const [selectedItem, setSelectedItem] = useState<number | null>(null);
 
   if (!sections.length) {
     return <div>Loading...</div>;
@@ -239,7 +285,16 @@ export const AddSectionAndSectionItem = () => {
       </Button>
       <Accordion
         className='yl:w-[500px]'
-        selectedId={2}
+        selected={{
+          sectionId: selectedSection ?? 0,
+          itemId: selectedItem ?? 0
+        }}
+        setSelectedSection={sectionId => {
+          setSelectedSection(sectionId);
+        }}
+        setSelectedItem={itemId => {
+          setSelectedItem(itemId);
+        }}
         sections={sections}
         expanded={expandedSections}
         hasDraggableSectionItems={true}
@@ -277,6 +332,8 @@ export const AddSectionAndSectionItem = () => {
 export const WithAddLabels = () => {
   const [sections, setSections] = useState<ISection[]>([]);
   const [expandedSections, setExpandedSections] = useState<number[]>([1]);
+  const [selectedSection, setSelectedSection] = useState<number | null>(null);
+  const [selectedItem, setSelectedItem] = useState<number | null>(null);
 
   useEffect(() => {
     if (sections.length) {
@@ -294,7 +351,16 @@ export const WithAddLabels = () => {
     <div>
       <Accordion
         className='yl:w-[500px]'
-        selectedId={2}
+        selected={{
+          sectionId: selectedSection ?? 0,
+          itemId: selectedItem ?? 0
+        }}
+        setSelectedSection={sectionId => {
+          setSelectedSection(sectionId);
+        }}
+        setSelectedItem={itemId => {
+          setSelectedItem(itemId);
+        }}
         sections={sections}
         expanded={expandedSections}
         onSorted={(_, sections) => {
@@ -321,7 +387,7 @@ export const WithAddLabels = () => {
 };
 
 export const WithNoItems = () => {
-  const [sections, setSections] = useState<ISection[]>([
+  const [sections] = useState<ISection[]>([
     {
       id: 1,
       title: "velum constans brevis canis corrumpo magni attollo",
@@ -331,6 +397,8 @@ export const WithNoItems = () => {
     }
   ]);
   const [expandedSections, setExpandedSections] = useState<number[]>([]);
+  const [selectedSection, setSelectedSection] = useState<number | null>(null);
+  const [selectedItem, setSelectedItem] = useState<number | null>(null);
 
   if (!sections.length) {
     return <div>Loading...</div>;
@@ -340,11 +408,18 @@ export const WithNoItems = () => {
     <div>
       <Accordion
         className='yl:w-[500px]'
-        sections={sections}
         expanded={expandedSections}
-        onSorted={(_, sections) => {
-          setSections(sections);
+        selected={{
+          sectionId: selectedSection ?? 0,
+          itemId: selectedItem ?? 0
         }}
+        setSelectedSection={sectionId => {
+          setSelectedSection(sectionId);
+        }}
+        setSelectedItem={itemId => {
+          setSelectedItem(itemId);
+        }}
+        sections={sections}
         onAddSection={() => {
           action("onAddSection")();
         }}
@@ -368,6 +443,8 @@ export const WithNoItems = () => {
 export const DefaultExpanded = () => {
   const [sections, setSections] = useState<ISection[]>([]);
   const [expandedSections, setExpandedSections] = useState<number[]>([]);
+  const [selectedSection, setSelectedSection] = useState<number | null>(null);
+  const [selectedItem, setSelectedItem] = useState<number | null>(null);
 
   useEffect(() => {
     if (sections.length) {
@@ -385,10 +462,18 @@ export const DefaultExpanded = () => {
     <div>
       <Accordion
         className='yl:w-[500px]'
-        selectedId={2}
+        selected={{
+          sectionId: selectedSection ?? 0,
+          itemId: selectedItem ?? 0
+        }}
+        setSelectedSection={sectionId => {
+          setSelectedSection(sectionId);
+        }}
+        setSelectedItem={itemId => {
+          setSelectedItem(itemId);
+        }}
         sections={sections}
         expanded={expandedSections}
-        defaultExpanded={true}
         onSorted={(_, sections) => {
           setSections(sections);
         }}
