@@ -37,14 +37,13 @@ export interface IAccordionProps {
   addSectionLabel?: string;
   expanded: number[];
   setExpanded: (sections: number[]) => void;
-  selectedId?: number;
   hasDraggableSections?: boolean;
   hasDraggableSectionItems?: boolean;
   defaultExpanded?: boolean;
-  selected: {
-    sectionId: number;
-    itemId: number;
+  selected?: {
+    sectionId: number | null;
+    itemId: number | null;
   };
-  setSelectedSection: (sectionId: number | null) => void;
-  setSelectedItem: (itemId: number | null) => void;
+  setSelectedSection?: (sectionId: number | null) => void;
+  setSelectedItem?: (itemId: number | null) => void;
 }

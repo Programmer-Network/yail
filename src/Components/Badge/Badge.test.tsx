@@ -8,15 +8,21 @@ describe("Badge component", () => {
 
   test("renders correctly - snapshot test", () => {
     const { asFragment } = render(
-      <Badge title={testTitle} variant={BadgeVariantEnum.PRIMARY} />
+      <Badge title={testTitle} variant={BadgeVariantEnum.FILLED} />
     );
     expect(asFragment()).toMatchSnapshot();
   });
 
   test("renders the title correctly", () => {
-    render(<Badge title={testTitle} variant={BadgeVariantEnum.PRIMARY} />);
+    render(<Badge title={testTitle} variant={BadgeVariantEnum.FILLED} />);
     const badgeElement = screen.getByText(testTitle);
     expect(badgeElement).toBeInTheDocument();
+  });
+
+  test("applies filled variant", () => {
+    render(<Badge title={testTitle} variant={BadgeVariantEnum.FILLED} />);
+    const badgeElement = screen.getByText(testTitle);
+    expect(badgeElement).toHaveClass("yl:bg-primary");
   });
 
   test("applies custom class name", () => {
@@ -24,11 +30,17 @@ describe("Badge component", () => {
     render(
       <Badge
         title={testTitle}
-        variant={BadgeVariantEnum.PRIMARY}
+        variant={BadgeVariantEnum.FILLED}
         className={customClass}
       />
     );
     const badgeElement = screen.getByText(testTitle);
     expect(badgeElement).toHaveClass(customClass);
+  });
+
+  test("applies outline variant", () => {
+    render(<Badge title={testTitle} variant={BadgeVariantEnum.OUTLINE} />);
+    const badgeElement = screen.getByText(testTitle);
+    expect(badgeElement).toHaveClass("yl:bg-transparent");
   });
 });

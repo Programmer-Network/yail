@@ -5,29 +5,17 @@ import { BadgeVariantEnum, IBadgeProps } from "./types";
 
 const Badge: FC<IBadgeProps> = ({ title, className, variant }) => {
   const variants = {
-    [BadgeVariantEnum.PRIMARY]: "yl:bg-primary",
-    [BadgeVariantEnum.SECONDARY]: "yl:bg-secondary",
-    [BadgeVariantEnum.SUCCESS]: "yl:bg-success",
-    [BadgeVariantEnum.WARNING]: "yl:bg-warning",
-    [BadgeVariantEnum.ERROR]: "yl:bg-error",
-    [BadgeVariantEnum.BETA]: "yl:bg-violet-500",
-    [BadgeVariantEnum.NEW]: "yl:bg-blue-500",
-    [BadgeVariantEnum.NONE]: ""
+    [BadgeVariantEnum.FILLED]: "yl:bg-primary",
+    [BadgeVariantEnum.OUTLINE]: "yl:bg-transparent"
   };
 
   const baseClassNames =
-    "yl:rounded yl:border yl:border-border yl:px-2 yl:py-1 yl:text-[10px]";
+    "yl:rounded yl:border yl:border-border yl:px-[3px] yl:py-[1px] yl:text-[10px] yl:text-inherit";
+
+  const variantClassNames = variant ? variants[variant] : "";
 
   return (
-    <span
-      className={classNames(
-        baseClassNames,
-        {
-          [variants[variant]]: variant
-        },
-        className
-      )}
-    >
+    <span className={classNames(baseClassNames, variantClassNames, className)}>
       {title}
     </span>
   );

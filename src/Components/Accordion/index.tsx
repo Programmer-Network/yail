@@ -32,7 +32,6 @@ const Accordion: FC<IAccordionProps> = ({
   setSelectedItem
 }) => {
   const hasInitialized = useRef(false);
-
   const [draggedId, setDraggedId] = useState<number | null>(null);
   const [draggedOverId, setDraggedOverId] = useState<number | null>(null);
 
@@ -108,8 +107,8 @@ const Accordion: FC<IAccordionProps> = ({
                 e.stopPropagation();
                 e.preventDefault();
                 onSectionClick?.(section);
-                setSelectedSection(section.id);
-                setSelectedItem(null);
+                setSelectedSection?.(section.id);
+                setSelectedItem?.(null);
                 toggleExpand(section.id);
               }}
               className={classNames(
@@ -119,9 +118,9 @@ const Accordion: FC<IAccordionProps> = ({
                   "yl:bg-text/2": expanded.includes(section.id),
                   "yl:cursor-pointer": onSectionItemClick,
                   "yl:text-text":
-                    selected.sectionId !== section.id || !onSectionItemClick,
+                    selected?.sectionId !== section.id || !onSectionItemClick,
                   "yl:text-primary":
-                    onSectionItemClick && selected.sectionId === section.id
+                    onSectionItemClick && selected?.sectionId === section.id
                 }
               )}
               onKeyDown={e =>
@@ -171,8 +170,8 @@ const Accordion: FC<IAccordionProps> = ({
                     onClick={(item: IDraggableListItem) => {
                       onSectionItemClick?.(item);
                       onSelected?.(item);
-                      setSelectedItem(item.id);
-                      setSelectedSection(
+                      setSelectedItem?.(item.id);
+                      setSelectedSection?.(
                         sections.find(s => s.items.includes(item))?.id ?? null
                       );
                     }}
@@ -199,7 +198,7 @@ const Accordion: FC<IAccordionProps> = ({
                           "yl:hover:cursor-pointer yl:hover:text-primary":
                             onSectionItemClick,
                           "yl:text-primary":
-                            onSectionItemClick && selected.itemId === item.id,
+                            onSectionItemClick && selected?.itemId === item.id,
                           "yl:pl-5": section.items.length === 1
                         }
                       )

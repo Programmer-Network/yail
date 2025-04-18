@@ -10,36 +10,35 @@ const meta = {
     layout: "centered"
   },
   tags: ["autodocs"],
-  argTypes: {}
+  argTypes: {
+    variant: {
+      control: "select",
+      options: Object.values(BadgeVariantEnum)
+    }
+  }
 } satisfies Meta<typeof Badge>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Empty: Story = {
-  args: {
-    title: "Badge",
-    variant: BadgeVariantEnum.PRIMARY
-  }
-};
-
 export const Filled: Story = {
   args: {
     title: "Badge",
-    variant: BadgeVariantEnum.PRIMARY
+    variant: BadgeVariantEnum.FILLED
   }
 };
 
-export const Beta: Story = {
+export const Outline: Story = {
   args: {
-    title: "Beta",
-    variant: BadgeVariantEnum.BETA
+    title: "Badge",
+    variant: BadgeVariantEnum.OUTLINE,
+    className: "yl:text-secondary"
   }
 };
 
-export const New: Story = {
+export const Custom: Story = {
   args: {
-    title: "New",
-    variant: BadgeVariantEnum.NEW
+    title: "Badge",
+    className: "yl:text-bg yl:bg-red-500"
   }
 };

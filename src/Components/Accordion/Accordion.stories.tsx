@@ -3,8 +3,6 @@ import { action } from "@storybook/addon-actions";
 import { Meta } from "@storybook/react";
 import { useEffect, useState } from "react";
 
-import Button from "Components/Button";
-
 import Accordion from ".";
 import { ISection } from "./types";
 
@@ -239,96 +237,6 @@ export const WithoutDragAndDrop = () => {
   );
 };
 
-export const AddSectionAndSectionItem = () => {
-  const [sections, setSections] = useState<ISection[]>([
-    {
-      id: 1,
-      title: "velum constans brevis canis corrumpo magni attollo",
-      description:
-        "Creber aeneus versus itaque alioqui abeo crux sperno. Atrox subseco ater tenetur libero absum quidem thymum degusto allatus. Venia in carbo cibus desolo contego suffragium. Vero civitas tredecim ventosus dapifer quas. Animadverto spiculum velut.",
-      order: 0,
-      items: [
-        {
-          id: 597358,
-          title: "officia",
-          order: 0
-        }
-      ]
-    }
-  ]);
-
-  const [expandedSections, setExpandedSections] = useState<number[]>([1]);
-  const [selectedSection, setSelectedSection] = useState<number | null>(null);
-  const [selectedItem, setSelectedItem] = useState<number | null>(null);
-
-  if (!sections.length) {
-    return <div>Loading...</div>;
-  }
-
-  return (
-    <div>
-      <Button
-        onClick={() => {
-          const newSection = sections[0];
-          if (newSection) {
-            newSection.items.push({
-              id: Math.floor(Math.random() * 1000000),
-              title: faker.lorem.words(Math.floor(Math.random() * 10) + 1),
-              order: newSection.items.length
-            });
-          }
-
-          setSections([newSection as ISection]);
-        }}
-      >
-        Add Section
-      </Button>
-      <Accordion
-        className='yl:w-[500px]'
-        selected={{
-          sectionId: selectedSection ?? 0,
-          itemId: selectedItem ?? 0
-        }}
-        setSelectedSection={sectionId => {
-          setSelectedSection(sectionId);
-        }}
-        setSelectedItem={itemId => {
-          setSelectedItem(itemId);
-        }}
-        sections={sections}
-        expanded={expandedSections}
-        hasDraggableSectionItems={true}
-        onSectionItemClick={sectionItem => {
-          const newSection = sections[0];
-          if (newSection) {
-            newSection.items = newSection.items.filter(
-              item => item.id !== sectionItem.id
-            );
-          }
-
-          setSections([newSection as ISection]);
-        }}
-        onSorted={(_, sections) => {
-          setSections(sections);
-        }}
-        onAddSection={() => {
-          action("onAddSection")();
-        }}
-        onAddSectionItem={section => {
-          action("onAddSectionItem")(section);
-        }}
-        setExpanded={(expanded: number[]) => {
-          setExpandedSections(expanded);
-          action("setExpanded")(expanded);
-        }}
-        onSelected={item => {
-          action("onSelected")(item);
-        }}
-      />
-    </div>
-  );
-};
-
 export const WithAddLabels = () => {
   const [sections, setSections] = useState<ISection[]>([]);
   const [expandedSections, setExpandedSections] = useState<number[]>([1]);
@@ -440,7 +348,7 @@ export const WithNoItems = () => {
   );
 };
 
-export const DefaultExpanded = () => {
+export const ExpandedByDefault = () => {
   const [sections, setSections] = useState<ISection[]>([]);
   const [expandedSections, setExpandedSections] = useState<number[]>([]);
   const [selectedSection, setSelectedSection] = useState<number | null>(null);
@@ -461,6 +369,7 @@ export const DefaultExpanded = () => {
   return (
     <div>
       <Accordion
+        defaultExpanded={true}
         className='yl:w-[500px]'
         selected={{
           sectionId: selectedSection ?? 0,
