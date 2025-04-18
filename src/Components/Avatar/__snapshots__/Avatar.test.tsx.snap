@@ -17,7 +17,7 @@ exports[`Avatar component > renders correctly - snapshot test 1`] = `
     >
       <mask
         height="36"
-        id=":r2:"
+        id="«r2»"
         maskUnits="userSpaceOnUse"
         width="36"
         x="0"
@@ -31,7 +31,7 @@ exports[`Avatar component > renders correctly - snapshot test 1`] = `
         />
       </mask>
       <g
-        mask="url(#:r2:)"
+        mask="url(#«r2»)"
       >
         <rect
           fill="#ad46ff"
