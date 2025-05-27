@@ -1,12 +1,10 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { NavLink } from "react-router-dom";
-import { withRouter } from "storybook-addon-remix-react-router";
 
 import Card from ".";
 
 const CardStories: Meta<typeof Card> = {
   title: "Components/Card",
-  decorators: [withRouter],
   component: Card,
   parameters: {
     layout: "centered"

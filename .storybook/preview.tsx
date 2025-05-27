@@ -1,8 +1,17 @@
 import type { Preview } from "@storybook/react";
+import React from "react";
+import { MemoryRouter } from "react-router-dom";
 
 import "../src/tailwind.css";
 
 const preview: Preview = {
+  decorators: [
+    Story => (
+      <MemoryRouter>
+        <Story />
+      </MemoryRouter>
+    )
+  ],
   parameters: {
     actions: { argTypesRegex: "^on[A-Z].*" },
     controls: {
