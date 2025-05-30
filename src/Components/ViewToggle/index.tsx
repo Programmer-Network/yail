@@ -2,6 +2,7 @@ import classNames from "classnames";
 import { FC } from "react";
 
 import Button from "Components/Button";
+import { ButtonVariantEnum } from "Components/Button/types";
 import Icon from "Components/Icon";
 
 import { IViewToggleProps } from "./types";
@@ -12,28 +13,31 @@ const ViewToggle: FC<IViewToggleProps> = ({
   className
 }) => {
   return (
-    <div
-      className={classNames(
-        "yl:flex yl:gap-1 yl:p-1 yl:bg-background yl:border yl:border-border yl:rounded-lg",
-        className
-      )}
-    >
+    <div className={classNames("yl:flex yl:gap-1", className)}>
       <Button
-        outlined={currentView !== "card"}
+        variant={
+          currentView === "card"
+            ? ButtonVariantEnum.PRIMARY
+            : ButtonVariantEnum.SECONDARY
+        }
+        outlined
         onClick={() => onViewChange("card")}
       >
         <div className='yl:flex yl:gap-1 yl:items-center'>
-          <Icon iconName='IconPosts' className='yl:w-4 yl:h-4' />
-          Cards
+          <Icon iconName='IconPosts' className='yl:w-6 yl:h-6' />
         </div>
       </Button>
       <Button
-        outlined={currentView !== "table"}
+        variant={
+          currentView === "table"
+            ? ButtonVariantEnum.PRIMARY
+            : ButtonVariantEnum.SECONDARY
+        }
+        outlined
         onClick={() => onViewChange("table")}
       >
         <div className='yl:flex yl:gap-1 yl:items-center'>
-          <Icon iconName='ListUnorderedOutline' className='yl:w-4 yl:h-4' />
-          Table
+          <Icon iconName='ListUnorderedOutline' className='yl:w-6 yl:h-6' />
         </div>
       </Button>
     </div>

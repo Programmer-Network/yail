@@ -2,20 +2,14 @@ import { CSSObjectWithLabel, OptionProps, StylesConfig } from "react-select";
 
 import { Option } from "./types";
 
-const getCssVar = (varName: string): string => {
-  return getComputedStyle(document.documentElement)
-    .getPropertyValue(varName)
-    .trim();
-};
-
-const text = getCssVar("--color-text") || "oklch(0.85 0.02 240)";
-const background = getCssVar("--color-background") || "oklch(0.23 0 -0.01)";
-const border = getCssVar("--color-border") || "oklch(0.3 0.02 240)";
-const muted = getCssVar("--color-muted") || "oklch(0.5 0.05 240)";
-const primary = getCssVar("--color-primary") || "oklch(0.8 0.2 80)";
-const secondary = getCssVar("--color-secondary") || "oklch(0.65 0.05 270)";
-const error = getCssVar("--color-error") || "oklch(0.6 0.2 30)";
-const accent = getCssVar("--color-accent") || "oklch(0.6 0.2 250)";
+const text = "oklch(85% 0.02 240)";
+const background = "oklch(14.48% 0 0)";
+const border = "oklch(30% 0.02 240)";
+const muted = "oklch(50% 0.05 240)";
+const primary = "oklch(64.94% 0.1982 251.813)";
+const secondary = "oklch(65% 0.05 270)";
+const error = "oklch(60% 0.2 30)";
+const accent = "oklch(60% 0.2 250)";
 
 export const styles: StylesConfig<Option | undefined, false | true> = {
   input: (base: CSSObjectWithLabel) => ({
