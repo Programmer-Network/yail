@@ -1,3 +1,4 @@
+/* eslint-disable */
 @import "tailwindcss" prefix(yl);
 
 @layer base {
@@ -15,18 +16,18 @@
 }
 
 @theme {
-  --color-primary: oklch(0.8 0.2 80);
-  --color-secondary: oklch(0.65 0.05 270);
-  --color-background: oklch(0.23 0 -0.01);
-  --color-text: oklch(0.85 0.02 240);
-  --color-border: oklch(0.3 0.02 240);
-  --color-muted: oklch(0.5 0.05 240);
-  --color-accent: oklch(0.6 0.2 250);
-  --color-accent-hover: oklch(0.5 0.2 250);
-  --color-success: oklch(0.7 0.2 140);
-  --color-warning: oklch(0.8 0.2 80);
-  --color-error: oklch(0.6 0.2 30);
-  --color-info: oklch(0.6 0.2 250);
+  --color-primary: oklch(64.94% 0.1982 251.813); /* Electric violet-blue */
+  --color-secondary: oklch(65% 0.05 270); /* Subtle lavender-blue */
+  --color-background: oklch(14.48% 0 0); /* Near black */
+  --color-text: oklch(85% 0.02 240); /* Soft white-blue */
+  --color-border: oklch(30% 0.02 240); /* Subtle border */
+  --color-muted: oklch(50% 0.05 240); /* Muted bluish-gray */
+  --color-accent: oklch(60% 0.2 250); /* Neon blue accent */
+  --color-accent-hover: oklch(50% 0.2 250); /* Dimmed neon on hover */
+  --color-success: oklch(70% 0.2 140); /* Vivid green */
+  --color-warning: oklch(80% 0.2 80); /* Bright orange-yellow */
+  --color-error: oklch(60% 0.2 30); /* Bold red */
+  --color-info: oklch(60% 0.2 250); /* Bright informative blue */
 
   --animate-height-animation: height-animation 100ms
     cubic-bezier(0.3, 0.31, 0.59, 0.7);
@@ -59,4 +60,46 @@
   float: left;
   height: 0;
   pointer-events: none;
+}
+
+.tiptap img {
+  display: block;
+  height: auto;
+  margin: 1.5rem 0;
+  max-width: 100%;
+  transition:
+    box-shadow 0.2s,
+    outline 0.2s;
+}
+
+.tiptap img.ProseMirror-selectednode,
+.tiptap .ProseMirror-selectednode img {
+  outline: 1px dashed var(--color-accent, #fbad00);
+  box-shadow: 0 0 0 1px var(--color-accent, #fbad00);
+  border-radius: 4px;
+}
+
+.tiptap img:active,
+.tiptap img[draggable="true"]:active {
+  outline: 1px dashed var(--color-warning, #fbad00);
+  opacity: 0.85;
+}
+
+.tiptap .ProseMirror-dropcursor {
+  border-left: 1px dashed var(--color-accent, #fbad00);
+  margin-left: 2px;
+  margin-right: 2px;
+  border-radius: 2px;
+  pointer-events: none;
+  animation: tiptap-drop-blink 1s infinite;
+}
+
+@keyframes tiptap-drop-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
 }
