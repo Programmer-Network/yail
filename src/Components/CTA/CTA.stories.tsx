@@ -1,4 +1,4 @@
-import { action } from "@storybook/addon-actions";
+import { action } from "storybook/actions";
 
 import CTA from ".";
 import { ICTAProps } from "./types";

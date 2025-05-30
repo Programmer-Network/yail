@@ -5,14 +5,12 @@ import classNames from "classnames";
 import { RefObject, useRef } from "react";
 
 import Button from "Components/Button";
-import Dialog from "Components/Dialog";
 import Icon from "Components/Icon";
 import { IconName } from "Components/Icons/types";
 import Tooltip from "Components/Tooltip";
 
 import { TIPTAP_TOOLBAR_ITEMS } from "../../constants";
 import { TiptapToolbarProps } from "../../types";
-import ImageUpload from "../ImageUpload";
 import { ModalInput } from "../ModalInput";
 import { LinkClickTarget } from "../ModalInput/types";
 import getToolbarIcons from "./toolbar-icons";
@@ -21,7 +19,8 @@ export const Toolbar = ({
   editor,
   toolbarItems,
   image,
-  link
+  link,
+  onImageUploadError
 }: TiptapToolbarProps) => {
   const linkInputForm = useAJVForm(
     { link: "" },
@@ -55,9 +54,9 @@ export const Toolbar = ({
     }
   );
 
-  const dialogRef = useRef<HTMLDialogElement>(null);
   const ref = useRef<HTMLDivElement>(null);
   const inputModal = useModalInput({ ref: ref as RefObject<HTMLDivElement> });
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const hasSelection = !editor.state.selection.empty;
 
@@ -100,20 +99,41 @@ export const Toolbar = ({
   return (
     <div className='yl:relative yl:flex yl:flex-wrap yl:items-center yl:gap-1 yl:rounded-tl-md yl:rounded-tr-md yl:border-2 yl:border-border/40 yl:bg-text/1 yl:p-2 yl:md:gap-4 yl:md:px-4 yl:pb-0'>
       {image.isExtensionEnabled && (
-        <Dialog ref={dialogRef}>
-          <ImageUpload
-            label='Select an image'
-            onFileLoaded={async data => {
+        <input
+          type='file'
+          accept='image/*'
+          ref={fileInputRef}
+          style={{ display: "none" }}
+          onChange={async e => {
+            const file = e.target.files?.[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = async event => {
+              const base64 = event.target?.result as string;
               try {
-                await image.onSetImage?.(data.base64);
-                editor.chain().focus().setImage({ src: data.base64 }).run();
-                dialogRef.current?.close();
-              } catch (error) {
-                console.log(error);
+                await image.onSetImage?.(base64);
+                editor
+                  .chain()
+                  .focus()
+                  .insertContent([
+                    { type: "image", attrs: { src: base64 } },
+                    { type: "paragraph" }
+                  ])
+                  .focus("end")
+                  .run();
+              } catch {
+                if (onImageUploadError) {
+                  onImageUploadError(
+                    "Failed to upload image. Please try again."
+                  );
+                }
               }
-            }}
-          />
-        </Dialog>
+            };
+            reader.readAsDataURL(file);
+            // Reset the input value so the same file can be uploaded again if needed
+            e.target.value = "";
+          }}
+        />
       )}
 
       {inputModal.modalId === TIPTAP_TOOLBAR_ITEMS.YOUTUBE && (
@@ -189,7 +209,7 @@ export const Toolbar = ({
                     image.isExtensionEnabled &&
                     i.id === TIPTAP_TOOLBAR_ITEMS.IMAGE
                   ) {
-                    dialogRef.current?.showModal();
+                    fileInputRef.current?.click();
                     return;
                   }
 

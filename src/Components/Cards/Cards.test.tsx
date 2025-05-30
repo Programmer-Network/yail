@@ -9,8 +9,10 @@ describe("Cards component", () => {
       title: "Card 1 Title",
       titleUrl: "/",
       description: "Card 1 Description",
-      author: "Card 1 Author",
-      authorUrl: "/",
+      author: {
+        name: "Card 1 Author",
+        url: "/"
+      },
       date: "2021-01-01",
       tags: [
         { name: "tag1", url: "/" },
@@ -21,8 +23,10 @@ describe("Cards component", () => {
       title: "Card 2 Title",
       titleUrl: "/",
       description: "Card 2 Description",
-      author: "Card 2 Author",
-      authorUrl: "/",
+      author: {
+        name: "Card 2 Author",
+        url: "/"
+      },
       date: "2021-02-02",
       tags: [{ name: "tag3", url: "/" }]
     }

@@ -33,7 +33,8 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
     error = null,
     label,
     hint,
-    required
+    required,
+    onImageUploadError
   },
   ref
 ) => {
@@ -145,6 +146,7 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
           toolbarItems={toolbarItems}
           image={image}
           link={link}
+          onImageUploadError={onImageUploadError}
         />
       )}
       <div className='yl:flex yl:flex-col'>

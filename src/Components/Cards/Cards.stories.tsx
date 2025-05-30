@@ -1,13 +1,11 @@
-import type { Meta } from "@storybook/react";
+import type { Meta } from "@storybook/react-vite";
 import { NavLink } from "react-router-dom";
-import { withRouter } from "storybook-addon-remix-react-router";
 
 import Cards from ".";
 import { ICardsProps } from "./types";
 
 const CardsStories: Meta<ICardsProps> = {
   title: "Components/Cards",
-  decorators: [withRouter],
   parameters: {
     layout: "centered"
   },

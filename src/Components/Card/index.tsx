@@ -1,101 +1,170 @@
 import classNames from "classnames";
-import { FC } from "react";
+import { FC, memo, useId } from "react";
 
-import Avatar from "Components/Avatar";
-import { Anchor, H3, Paragraph } from "Components/Typography";
-
-import URLUtils from "Utils/URL";
-
+import CardImage from "./CardImage";
+import CardSkeleton from "./CardSkeleton";
+import {
+  CardActions,
+  CardAuthor,
+  CardHeader,
+  CardStatusIndicators,
+  CardTags
+} from "./Components";
+import { useCardInteractions, useTagVisibility } from "./Hooks";
 import { ICard } from "./types";
+import { getLineClampClass, getVariantClasses } from "./utils";
 
-const Card: FC<ICard> = ({ data, className, NavLink }) => {
-  const {
-    title,
-    description,
-    author,
-    date,
-    tags,
-    titleUrl,
-    authorUrl,
-    avatarUrl,
-    image
-  } = data;
+const Card: FC<ICard> = memo(
+  ({
+    data,
+    className,
+    NavLink,
+    variant = "default",
+    isLoading = false,
+    maxVisibleTags = 10,
+    maxTitleLines = 2,
+    maxDescriptionLines = 3,
+    showBookmark = false,
+    isBookmarked = false,
+    showShare = false,
+    onCardClick,
+    onAuthorClick,
+    onTagClick,
+    onImageClick,
+    onBookmark,
+    onShare
+  }) => {
+    const cardId = useId();
 
-  return (
-    <div
-      className={classNames(
-        "yl:flex yl:flex-col yl:justify-between yl:border yl:border-border yl:rounded-lg yl:overflow-hidden",
-        className
-      )}
-    >
-      {image && (
-        <div className='yl:w-full yl:h-48 yl:relative'>
-          <img
-            src={image}
-            alt={title}
-            className='yl:w-full yl:h-full yl:object-cover'
-          />
-        </div>
-      )}
-      <div className='yl:p-6'>
-        {URLUtils.isExternalLink(titleUrl) ? (
-          <Anchor href={titleUrl} target='_blank'>
-            <H3 className='yl:flex yl:items-center yl:justify-start yl:gap-2'>
-              {title}
-            </H3>
-          </Anchor>
-        ) : (
-          <NavLink to={titleUrl}>
-            <H3>{title}</H3>
-          </NavLink>
-        )}
+    const {
+      title,
+      description,
+      author,
+      date,
+      tags,
+      titleUrl,
+      image,
+      isRead,
+      isFeatured
+    } = data;
 
-        <div className='yl:flex yl:items-center'>
-          <div className='yl:flex yl:flex-1 yl:justify-between yl:gap-2 yl:md:my-1'>
-            <div className='yl:flex yl:flex-col yl:md:flex-row yl:md:items-center yl:md:gap-2 yl:mt-2'>
-              {author && (
-                <>
-                  {authorUrl ? (
-                    <NavLink
-                      to={authorUrl}
-                      className='yl:flex yl:items-center yl:gap-2 yl:text-primary yl:cursor-pointer'
-                    >
-                      {avatarUrl && <Avatar src={avatarUrl} size={24} />}
-                      {author}
-                    </NavLink>
-                  ) : (
-                    <span className='yl:flex yl:items-center yl:gap-2 yl:text-primary yl:hover:text-primary'>
-                      {author}
-                    </span>
-                  )}
-                </>
+    const interactions = useCardInteractions({
+      onCardClick,
+      onAuthorClick,
+      onTagClick,
+      onImageClick,
+      onBookmark,
+      onShare,
+      normalizedData: data,
+      author
+    });
+
+    const tagVisibility = useTagVisibility({
+      tags,
+      maxVisibleTags
+    });
+
+    if (isLoading) {
+      return <CardSkeleton className={className} variant={variant} />;
+    }
+
+    const cardClasses = classNames(
+      "yl:group yl:flex yl:flex-col yl:justify-center yl:border yl:border-border yl:rounded-lg yl:overflow-hidden yl:transition-all yl:duration-200 yl:relative",
+      "yl:hover:shadow-md yl:hover:-translate-y-1 yl:focus:outline-none yl:focus:ring-2 yl:focus:ring-primary yl:focus:ring-offset-2",
+      getVariantClasses(variant),
+      {
+        "yl:cursor-pointer": onCardClick,
+        "yl:ring-2 yl:ring-blue-500": isRead
+      },
+      className
+    );
+
+    return (
+      <article
+        className={cardClasses}
+        role='article'
+        aria-labelledby={`card-title-${cardId}`}
+        aria-describedby={`card-description-${cardId}`}
+        tabIndex={onCardClick ? 0 : -1}
+        onClick={onCardClick ? interactions.handleCardClick : undefined}
+        onKeyDown={onCardClick ? interactions.handleKeyDown : undefined}
+      >
+        <CardStatusIndicators isRead={isRead} isFeatured={isFeatured} />
+
+        <CardActions
+          showBookmark={showBookmark}
+          isBookmarked={isBookmarked}
+          showShare={showShare}
+          onBookmark={interactions.handleBookmark}
+          onShare={interactions.handleShare}
+        />
+
+        <div className='yl:flex yl:flex-col'>
+          {image && (
+            <CardImage
+              {...image}
+              onImageClick={
+                onImageClick ? interactions.handleImageClick : undefined
+              }
+              className='yl:w-full'
+            />
+          )}
+
+          <div
+            className={classNames(
+              "yl:p-6 yl:flex yl:flex-col yl:justify-start yl:flex-1",
+              (showBookmark || showShare) && !image && "yl:pr-16"
+            )}
+          >
+            <CardHeader
+              cardId={cardId}
+              title={title}
+              titleUrl={titleUrl}
+              maxTitleLines={maxTitleLines}
+              NavLink={NavLink}
+            />
+
+            <CardAuthor
+              author={author}
+              date={date}
+              onAuthorClick={interactions.handleAuthorClick}
+              NavLink={NavLink}
+            />
+
+            <p
+              id={`card-description-${cardId}`}
+              className={classNames(
+                "yl:flex-1 yl:text-muted yl:m-0",
+                getLineClampClass(maxDescriptionLines)
               )}
+            >
+              {description}
+            </p>
 
-              {date && (
-                <time className='yl:text-secondary' dateTime={date}>
-                  | {date}
-                </time>
-              )}
-            </div>
+            <CardTags
+              visibleTags={tagVisibility.visibleTags}
+              remainingTagsCount={tagVisibility.remainingTagsCount}
+              showAllTags={tagVisibility.showAllTags}
+              onTagClick={interactions.handleTagClick}
+              onToggleTagsVisibility={tagVisibility.toggleTagsVisibility}
+              NavLink={NavLink}
+            />
           </div>
         </div>
-        <Paragraph className='yl:py-4'>{description}</Paragraph>
-      </div>
-      {tags && tags.length > 0 && (
-        <div className='yl:mt-2 yl:flex yl:items-center yl:gap-2 yl:px-6! yl:pb-4 yl:flex-wrap'>
-          {tags.map((tag, index) => (
-            <NavLink
-              key={index}
-              to={tag.url}
-              className='yl:hover:text-stroke yl:text-primary yl:hover:underline yl:hover:opacity-80 yl:active:opacity-50'
-            >
-              #{tag.name}
-            </NavLink>
-          ))}
-        </div>
-      )}
-    </div>
-  );
-};
+      </article>
+    );
+  },
+  (prevProps, nextProps) => {
+    return (
+      JSON.stringify(prevProps.data) === JSON.stringify(nextProps.data) &&
+      prevProps.isLoading === nextProps.isLoading &&
+      prevProps.variant === nextProps.variant &&
+      prevProps.className === nextProps.className &&
+      prevProps.isBookmarked === nextProps.isBookmarked
+    );
+  }
+);
+
+Card.displayName = "Card";
 
 export default Card;

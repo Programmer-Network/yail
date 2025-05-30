@@ -1,4 +1,4 @@
-import { create } from "@storybook/theming/create";
+import { create } from "storybook/theming/create";
 
 export default create({
   base: "dark",
@@ -7,15 +7,16 @@ export default create({
   brandImage:
     "https://raw.githubusercontent.com/Programmer-Network/yail/refs/heads/master/assets/images/yail-logo.png",
   brandTarget: "_self",
-  appBg: "#1d1d1d",
-  appContentBg: "#1d1d1d",
-  appBorderColor: "#1d1d1d",
-  colorPrimary: "#ffb900",
+  appBg: "#0a0a0a",
+  appContentBg: "#0a0a0a",
+  appPreviewBg: "#0a0a0a",
+  appBorderColor: "#0a0a0a",
+  colorPrimary: "#0090ff",
   textColor: "#9ca3af",
-  barBg: "#1d1d1d",
-  barTextColor: "#ffb900",
-  barSelectedColor: "#ffb900",
-  barHoverColor: "#ffb900",
+  barBg: "#0a0a0a",
+  barTextColor: "#0090ff",
+  barSelectedColor: "#0090ff",
+  barHoverColor: "#0090ff",
   appBorderRadius: 0,
-  colorSecondary: "#ffb900"
+  colorSecondary: "#0090ff"
 });

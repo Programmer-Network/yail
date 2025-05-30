@@ -35,6 +35,7 @@ import * as TextOverLineTypes from "./Components/TextOverLine/types";
 import * as ThemeBuilderTypes from "./Components/ThemeBuilder/types";
 import * as TooltipTypes from "./Components/Tooltip/types";
 import * as TypographyTypes from "./Components/Typography/types";
+import * as ViewToggleTypes from "./Components/ViewToggle/types";
 
 export {
   AccordionTypes,
@@ -73,5 +74,6 @@ export {
   TextOverLineTypes,
   ThemeBuilderTypes,
   TooltipTypes,
-  TypographyTypes
+  TypographyTypes,
+  ViewToggleTypes
 };

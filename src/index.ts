@@ -24,6 +24,7 @@ export { default as Icon } from "Components/Icon";
 export { default as ImageCrop } from "Components/ImageCrop";
 export { default as ImageDialog } from "Components/ImageDialog";
 export { default as ImageSelector } from "Components/ImageSelector";
+export * from "Components/Inputs";
 export { default as ItemActions } from "Components/ItemActions";
 export { default as Pagination } from "Components/Pagination";
 export { default as Reactions } from "Components/Reactions";
@@ -35,8 +36,7 @@ export { default as TextOverLine } from "Components/TextOverLine";
 export { default as ThemeBuilder } from "Components/ThemeBuilder";
 export { default as ThemeBuilderUtils } from "Components/ThemeBuilder/ThemeBuilderUtils";
 export { default as Tooltip } from "Components/Tooltip";
-
-export * from "Components/Inputs";
 export * from "Components/Typography";
+export { default as ViewToggle } from "Components/ViewToggle";
 export * from "Views";
 export * from "./types";

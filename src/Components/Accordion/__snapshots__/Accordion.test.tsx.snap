@@ -3,7 +3,7 @@
 exports[`Accordion component > renders correctly 1`] = `
 <DocumentFragment>
   <section
-    class=""
+    class="yl:bg-background"
   >
     <div
       class="yl:border-2 yl:border-border yl:border-b-0 yl:rounded-tl-md yl:rounded-tr-md"

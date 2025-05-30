@@ -1,4 +1,4 @@
-import { action } from "@storybook/addon-actions";
+import { action } from "storybook/actions";
 
 import Button from "Components/Button";
 import { ButtonVariantEnum } from "Components/Button/types";
