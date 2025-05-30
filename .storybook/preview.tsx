@@ -1,4 +1,4 @@
-import type { Preview } from "@storybook/react";
+import type { Preview } from "@storybook/react-vite";
 import React from "react";
 import { MemoryRouter } from "react-router-dom";
 
@@ -21,11 +21,15 @@ const preview: Preview = {
       }
     },
     backgrounds: {
-      default: "programmer.network",
+      default: "dark",
       values: [
         {
-          name: "programmer.network",
-          value: "#1d1d1d"
+          name: "dark",
+          value: "oklch(14.48% 0 0)"
+        },
+        {
+          name: "light",
+          value: "#f0f0f0"
         }
       ]
     },
