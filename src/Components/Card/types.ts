@@ -42,6 +42,7 @@ export interface ICard {
   maxTitleLines?: number;
   maxDescriptionLines?: number;
   showBookmark?: boolean;
+  isBookmarked?: boolean;
   showShare?: boolean;
   onCardClick?: (data: ICardData) => void;
   onAuthorClick?: (author: IAuthorProps) => void;

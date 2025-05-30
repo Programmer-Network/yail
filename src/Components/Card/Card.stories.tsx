@@ -51,6 +51,9 @@ const CardStories: Meta<typeof Card> = {
     showBookmark: {
       control: { type: "boolean" }
     },
+    isBookmarked: {
+      control: { type: "boolean" }
+    },
     showShare: {
       control: { type: "boolean" }
     }
@@ -238,6 +241,7 @@ export const InteractiveCard: Story = {
   args: {
     ...Default.args,
     showBookmark: true,
+    isBookmarked: false,
     showShare: true,
     onCardClick: action("card-clicked"),
     onAuthorClick: action("author-clicked"),
@@ -260,6 +264,77 @@ export const SquareImage: Story = {
         lazy: false
       }
     }
+  }
+};
+
+export const BookmarkNotActive: Story = {
+  args: {
+    ...Default.args,
+    showBookmark: true,
+    isBookmarked: false
+  }
+};
+
+export const BookmarkActive: Story = {
+  args: {
+    ...Default.args,
+    showBookmark: true,
+    isBookmarked: true
+  }
+};
+
+export const BookmarkAndShare: Story = {
+  args: {
+    ...Default.args,
+    showBookmark: true,
+    isBookmarked: true,
+    showShare: true
+  }
+};
+
+export const LongTitleWithActions: Story = {
+  args: {
+    ...Default.args,
+    data: {
+      ...defaultData,
+      title:
+        "This is an extremely long title that demonstrates how the new bookmark and share placement doesn't interfere with long content and maintains proper visual hierarchy"
+    },
+    showBookmark: true,
+    isBookmarked: false,
+    showShare: true,
+    maxTitleLines: 3
+  }
+};
+
+export const NoImageWithActions: Story = {
+  args: {
+    ...Default.args,
+    data: {
+      ...defaultData,
+      image: undefined,
+      title: "Card Without Image But With Bookmark and Share Actions"
+    },
+    showBookmark: true,
+    isBookmarked: true,
+    showShare: true
+  }
+};
+
+export const CompactWithActions: Story = {
+  args: {
+    ...Default.args,
+    variant: "compact",
+    data: {
+      ...defaultData,
+      image: undefined,
+      title: "Compact Card With Actions",
+      description:
+        "This compact card shows how actions work in the compact variant without an image."
+    },
+    showBookmark: true,
+    isBookmarked: false,
+    showShare: true
   }
 };
 

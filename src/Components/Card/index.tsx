@@ -4,6 +4,7 @@ import { FC, memo, useId } from "react";
 import CardImage from "./CardImage";
 import CardSkeleton from "./CardSkeleton";
 import {
+  CardActions,
   CardAuthor,
   CardHeader,
   CardStatusIndicators,
@@ -24,6 +25,7 @@ const Card: FC<ICard> = memo(
     maxTitleLines = 2,
     maxDescriptionLines = 3,
     showBookmark = false,
+    isBookmarked = false,
     showShare = false,
     onCardClick,
     onAuthorClick,
@@ -34,7 +36,6 @@ const Card: FC<ICard> = memo(
   }) => {
     const cardId = useId();
 
-    // Destructure clean, normalized data - no transformation needed
     const {
       title,
       description,
@@ -90,6 +91,14 @@ const Card: FC<ICard> = memo(
       >
         <CardStatusIndicators isRead={isRead} isFeatured={isFeatured} />
 
+        <CardActions
+          showBookmark={showBookmark}
+          isBookmarked={isBookmarked}
+          showShare={showShare}
+          onBookmark={interactions.handleBookmark}
+          onShare={interactions.handleShare}
+        />
+
         <div className='yl:flex yl:flex-col'>
           {image && (
             <CardImage
@@ -101,16 +110,17 @@ const Card: FC<ICard> = memo(
             />
           )}
 
-          <div className='yl:p-6 yl:flex yl:flex-col yl:justify-start yl:flex-1'>
+          <div
+            className={classNames(
+              "yl:p-6 yl:flex yl:flex-col yl:justify-start yl:flex-1",
+              (showBookmark || showShare) && !image && "yl:pr-16"
+            )}
+          >
             <CardHeader
               cardId={cardId}
               title={title}
               titleUrl={titleUrl}
               maxTitleLines={maxTitleLines}
-              showBookmark={showBookmark}
-              showShare={showShare}
-              onBookmark={interactions.handleBookmark}
-              onShare={interactions.handleShare}
               NavLink={NavLink}
             />
 
@@ -149,7 +159,8 @@ const Card: FC<ICard> = memo(
       JSON.stringify(prevProps.data) === JSON.stringify(nextProps.data) &&
       prevProps.isLoading === nextProps.isLoading &&
       prevProps.variant === nextProps.variant &&
-      prevProps.className === nextProps.className
+      prevProps.className === nextProps.className &&
+      prevProps.isBookmarked === nextProps.isBookmarked
     );
   }
 );

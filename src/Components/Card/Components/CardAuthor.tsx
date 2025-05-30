@@ -34,16 +34,12 @@ const CardAuthor: FC<ICardAuthor> = ({
                   onClick={onAuthorClick}
                   className='yl:flex yl:items-center yl:gap-2 yl:text-primary yl:hover:text-primary yl:hover:underline yl:transition-colors'
                 >
-                  {author.avatarUrl && (
-                    <Avatar src={author.avatarUrl} size={24} />
-                  )}
+                  <Avatar src={author.avatarUrl} size={24} />
                   {author.name}
                 </NavLink>
               ) : (
                 <span className='yl:flex yl:items-center yl:gap-2 yl:text-muted'>
-                  {author.avatarUrl && (
-                    <Avatar src={author.avatarUrl} size={24} />
-                  )}
+                  <Avatar src={author.avatarUrl} size={24} />
                   {author.name}
                 </span>
               )}
