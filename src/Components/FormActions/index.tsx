@@ -186,49 +186,25 @@ const FormActions = ({
 
       {/* Main Action Buttons */}
       <div className={classNames(getLayoutClasses(), sizeClasses.gap)}>
-        {/* Primary Actions Group */}
-        <div className={classNames("yl:flex", "yl:flex-row", sizeClasses.gap)}>
-          {showSave && onSave && (
-            <Button
-              variant={
-                saveVariant === "secondary"
-                  ? ButtonVariantEnum.SECONDARY
-                  : ButtonVariantEnum.PRIMARY
-              }
-              onClick={handleSave}
-              disabled={disabled || isAnyLoading}
-              isLoading={isSaving || isSaveLoading}
-              className={sizeClasses.buttonWidth}
-              type='submit'
-              icon={{
-                iconName: "Complete",
-                iconPosition: "left",
-                iconClassName: "yl:w-5 yl:h-5"
-              }}
-            >
-              {saveText}
-            </Button>
-          )}
+        {/* Cancel Button (Secondary) */}
+        {showCancel && onCancel && (
+          <Button
+            variant={ButtonVariantEnum.SECONDARY}
+            outlined
+            onClick={handleCancel}
+            disabled={disabled || isAnyLoading}
+            className={sizeClasses.buttonWidth}
+            icon={{
+              iconName: "Incomplete",
+              iconPosition: "left",
+              iconClassName: "yl:w-6 yl:h-6"
+            }}
+          >
+            {size !== "small" && cancelText}
+          </Button>
+        )}
 
-          {showCancel && onCancel && (
-            <Button
-              variant={ButtonVariantEnum.SECONDARY}
-              outlined
-              onClick={handleCancel}
-              disabled={disabled || isAnyLoading}
-              className={sizeClasses.buttonWidth}
-              icon={{
-                iconName: "Incomplete",
-                iconPosition: "left",
-                iconClassName: "yl:w-5 yl:h-5"
-              }}
-            >
-              {size !== "small" && cancelText}
-            </Button>
-          )}
-        </div>
-
-        {/* Delete Action */}
+        {/* Delete Button (Secondary/Destructive) */}
         {showDelete && onDelete && (
           <Button
             variant={ButtonVariantEnum.SECONDARY}
@@ -247,6 +223,29 @@ const FormActions = ({
             aria-label={`${deleteText} - This action cannot be undone`}
           >
             {size !== "small" && deleteText}
+          </Button>
+        )}
+
+        {/* Save Button (Primary) */}
+        {showSave && onSave && (
+          <Button
+            variant={
+              saveVariant === "secondary"
+                ? ButtonVariantEnum.SECONDARY
+                : ButtonVariantEnum.PRIMARY
+            }
+            onClick={handleSave}
+            disabled={disabled || isAnyLoading}
+            isLoading={isSaving || isSaveLoading}
+            className={sizeClasses.buttonWidth}
+            type='submit'
+            icon={{
+              iconName: "Complete",
+              iconPosition: "left",
+              iconClassName: "yl:w-5 yl:h-5"
+            }}
+          >
+            {saveText}
           </Button>
         )}
       </div>

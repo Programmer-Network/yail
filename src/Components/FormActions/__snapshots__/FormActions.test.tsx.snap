@@ -12,58 +12,30 @@ exports[`FormActions component > renders correctly - snapshot test 1`] = `
     <div
       class="yl:flex yl:flex-row yl:justify-start yl:items-center yl:gap-3"
     >
-      <div
-        class="yl:flex yl:flex-row yl:gap-3"
+      <button
+        class="yl:select-none yl:px-3 yl:py-2 yl:font-semibold yl:tracking-tight yl:rounded-md yl:border-2 yl:cursor-pointer yl:border-text/20 yl:text-text/20 yl:fill-text/20 yl:hover:border-text/30 yl:hover:text-text/30 yl:hover:fill-text/30 yl:hover:bg-background/20 yl:min-w-[100px]"
+        type="button"
       >
-        <button
-          class="yl:select-none yl:px-3 yl:py-2 yl:font-semibold yl:tracking-tight yl:rounded-md yl:border-2 yl:cursor-pointer yl:border-primary yl:bg-primary yl:text-background yl:hover:bg-transparent yl:hover:text-primary yl:min-w-[100px]"
-          type="submit"
+        <div
+          class="yl:relative yl:flex yl:items-center yl:justify-center"
         >
-          <div
-            class="yl:relative yl:flex yl:items-center yl:justify-center"
+          <span
+            class="yl:flex yl:gap-1 yl:items-center"
           >
-            <span
-              class="yl:flex yl:gap-1 yl:items-center"
+            <div
+              class="yl:w-6 yl:h-6"
+              data-icon="Incomplete"
+              data-testid="icon-Incomplete"
             >
-              <div
-                class="yl:w-5 yl:h-5"
-                data-icon="Complete"
-                data-testid="icon-Complete"
-              >
-                [Icon: Complete]
-              </div>
-              Save
-            </span>
-            <span
-              class="yl:absolute"
-            />
-          </div>
-        </button>
-        <button
-          class="yl:select-none yl:px-3 yl:py-2 yl:font-semibold yl:tracking-tight yl:rounded-md yl:border-2 yl:cursor-pointer yl:border-text/20 yl:text-text/20 yl:fill-text/20 yl:hover:border-text/30 yl:hover:text-text/30 yl:hover:fill-text/30 yl:hover:bg-background/20 yl:min-w-[100px]"
-          type="button"
-        >
-          <div
-            class="yl:relative yl:flex yl:items-center yl:justify-center"
-          >
-            <span
-              class="yl:flex yl:gap-1 yl:items-center"
-            >
-              <div
-                class="yl:w-5 yl:h-5"
-                data-icon="Incomplete"
-                data-testid="icon-Incomplete"
-              >
-                [Icon: Incomplete]
-              </div>
-              Cancel
-            </span>
-            <span
-              class="yl:absolute"
-            />
-          </div>
-        </button>
-      </div>
+              [Icon: Incomplete]
+            </div>
+            Cancel
+          </span>
+          <span
+            class="yl:absolute"
+          />
+        </div>
+      </button>
       <button
         class="yl:select-none yl:px-3 yl:py-2 yl:font-semibold yl:tracking-tight yl:rounded-md yl:border-2 yl:cursor-pointer yl:border-text/20 yl:text-text/20 yl:fill-text/20 yl:hover:border-text/30 yl:hover:text-text/30 yl:hover:fill-text/30 yl:hover:bg-background/20 yl:min-w-[100px] yl:transition-all yl:duration-200 hover:yl:scale-105"
         type="button"
@@ -82,6 +54,30 @@ exports[`FormActions component > renders correctly - snapshot test 1`] = `
               [Icon: IconBomb]
             </div>
             Delete
+          </span>
+          <span
+            class="yl:absolute"
+          />
+        </div>
+      </button>
+      <button
+        class="yl:select-none yl:px-3 yl:py-2 yl:font-semibold yl:tracking-tight yl:rounded-md yl:border-2 yl:cursor-pointer yl:border-primary yl:bg-primary yl:text-background yl:hover:bg-transparent yl:hover:text-primary yl:min-w-[100px]"
+        type="submit"
+      >
+        <div
+          class="yl:relative yl:flex yl:items-center yl:justify-center"
+        >
+          <span
+            class="yl:flex yl:gap-1 yl:items-center"
+          >
+            <div
+              class="yl:w-5 yl:h-5"
+              data-icon="Complete"
+              data-testid="icon-Complete"
+            >
+              [Icon: Complete]
+            </div>
+            Save
           </span>
           <span
             class="yl:absolute"
