@@ -1,7 +1,7 @@
 import { faker } from "@faker-js/faker";
-import { action } from "@storybook/addon-actions";
-import { Meta } from "@storybook/react";
+import { Meta } from "@storybook/react-vite";
 import { useEffect, useState } from "react";
+import { action } from "storybook/actions";
 
 import Accordion from ".";
 import { ISection } from "./types";

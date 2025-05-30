@@ -79,7 +79,10 @@ const Accordion: FC<IAccordionProps> = ({
   };
 
   return (
-    <section onDragEnd={handleSectionDrop} className={classNames(className)}>
+    <section
+      onDragEnd={handleSectionDrop}
+      className={classNames("yl:bg-background", className)}
+    >
       {sections
         .toSorted((a, b) => a.order - b.order)
         .map((section, idx) => (
