@@ -8,12 +8,12 @@ exports[`ImageSelector component > renders correctly - snapshot test 1`] = `
     <div
       class="yl:relative yl:aspect-square yl:h-full yl:w-full yl:min-w-[150px] yl:cursor-pointer yl:bg-cover yl:bg-center yl:bg-no-repeat opacity-70 !opacity-100"
       data-testid="image-1"
-      style="background-image: url(http://example.com/image1.jpg);"
+      style="background-image: url("http://example.com/image1.jpg");"
     />
     <div
       class="yl:relative yl:aspect-square yl:h-full yl:w-full yl:min-w-[150px] yl:cursor-pointer yl:bg-cover yl:bg-center yl:bg-no-repeat opacity-70"
       data-testid="image-2"
-      style="background-image: url(http://example.com/image2.jpg);"
+      style="background-image: url("http://example.com/image2.jpg");"
     />
   </div>
 </DocumentFragment>

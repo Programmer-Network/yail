@@ -1,5 +1,5 @@
-import { action } from "@storybook/addon-actions";
 import { useEffect, useState } from "react";
+import { action } from "storybook/actions";
 
 import DomainInput from ".";
 

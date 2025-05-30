@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/react";
+import { Meta } from "@storybook/react-vite";
 import { useEffect, useState } from "react";
 
 import image from "../../../assets/images/image-crop.png";

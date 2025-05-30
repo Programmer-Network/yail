@@ -118,7 +118,11 @@ export const defaultExtensions = ({
   Text,
   Code,
   HardBreak,
-  Dropcursor,
+  Dropcursor.configure({
+    color: "var(--color-accent, #fbad00)",
+    width: 1,
+    class: "tiptap-dropcursor"
+  }),
   Placeholder.configure({
     emptyEditorClass: "is-editor-empty",
     placeholder

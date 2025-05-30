@@ -36,6 +36,7 @@ export interface TiptapProps {
   required?: boolean;
   isCreating?: boolean;
   isUpdating?: boolean;
+  onImageUploadError?: (error: string) => void;
 }
 
 export interface TiptapToolbarProps {
@@ -50,6 +51,7 @@ export interface TiptapToolbarProps {
   toolbarItems?: TiptapControls;
   isCreating?: boolean;
   isUpdating?: boolean;
+  onImageUploadError?: (error: string) => void;
 }
 
 export interface TiptapRef {
