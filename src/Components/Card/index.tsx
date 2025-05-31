@@ -6,6 +6,7 @@ import CardSkeleton from "./CardSkeleton";
 import {
   CardActions,
   CardAuthor,
+  CardBadges,
   CardHeader,
   CardStatusIndicators,
   CardTags
@@ -32,6 +33,7 @@ const Card: FC<ICard> = memo(
     onTagClick,
     onImageClick,
     onBookmark,
+    actions,
     onShare
   }) => {
     const cardId = useId();
@@ -42,6 +44,7 @@ const Card: FC<ICard> = memo(
       author,
       date,
       tags,
+      badges,
       titleUrl,
       image,
       isRead,
@@ -69,8 +72,8 @@ const Card: FC<ICard> = memo(
     }
 
     const cardClasses = classNames(
-      "yl:group yl:flex yl:flex-col yl:justify-center yl:border yl:border-border yl:rounded-lg yl:overflow-hidden yl:transition-all yl:duration-200 yl:relative",
-      "yl:hover:shadow-md yl:hover:-translate-y-1 yl:focus:outline-none yl:focus:ring-2 yl:focus:ring-primary yl:focus:ring-offset-2",
+      "yl:group yl:flex yl:flex-col yl:justify-center yl:border-2 yl:border-border yl:rounded-lg yl:overflow-hidden yl:transition-all yl:duration-200 yl:relative",
+      "yl:hover:shadow-md yl:hover:-translate-y-1 yl:focus:outline-none yl:focus:ring-2 yl:focus:ring-primary yl:focus:ring-offset-2 yl:hover:border-primary/50",
       getVariantClasses(variant),
       {
         "yl:cursor-pointer": onCardClick,
@@ -98,6 +101,41 @@ const Card: FC<ICard> = memo(
           onBookmark={interactions.handleBookmark}
           onShare={interactions.handleShare}
         />
+
+        {actions && actions.length > 0 && (
+          <div className='yl:absolute yl:top-3 yl:right-3 yl:flex yl:gap-2 yl:z-20 yl:group-hover:opacity-100 yl:opacity-0 md:opacity-100 md:group-hover:opacity-100 transition-opacity duration-200'>
+            {actions
+              .filter(a => a.show !== false)
+              .map((action, idx) => (
+                <button
+                  key={action.label + idx}
+                  onClick={e => {
+                    e.stopPropagation();
+                    action.onClick(e);
+                  }}
+                  className={classNames(
+                    "yl:flex yl:items-center yl:justify-center yl:gap-1 yl:rounded-sm yl:text-xs yl:font-medium yl:border-2 yl:transition-all yl:duration-200 yl:min-w-[75px] yl:py-1 yl:bg-background/5 yl:cursor-pointer hover:yl:brightness-95 hover:yl:shadow-sm",
+                    {
+                      "yl:border-primary yl:text-primary yl:hover:bg-primary yl:hover:text-background":
+                        action.variant === "primary" || !action.variant,
+                      "yl:border-red-500 yl:text-red-600 yl:hover:bg-red-700 yl:hover:text-background":
+                        action.variant === "danger",
+                      "yl:border-border/20 yl:text-muted yl:hover:bg-background/80":
+                        action.variant === "outlined"
+                    }
+                  )}
+                  type='button'
+                >
+                  <div className='yl:flex yl:items-center yl:justify-center yl:gap-1'>
+                    {action.icon && (
+                      <span className='yl:w-4 yl:h-4'>{action.icon}</span>
+                    )}
+                    <span className='yl:text-center'>{action.label}</span>
+                  </div>
+                </button>
+              ))}
+          </div>
+        )}
 
         <div className='yl:flex yl:flex-col'>
           {image && (
@@ -140,6 +178,8 @@ const Card: FC<ICard> = memo(
             >
               {description}
             </p>
+
+            <CardBadges badges={badges} />
 
             <CardTags
               visibleTags={tagVisibility.visibleTags}

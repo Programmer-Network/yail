@@ -2,6 +2,8 @@ import { Meta, StoryObj } from "@storybook/react-vite";
 import { NavLink } from "react-router-dom";
 
 import Card from ".";
+import { BadgeVariantEnum } from "../Badge/types";
+import Icon from "../Icon";
 import { ICardData } from "./types";
 
 const action =
@@ -79,6 +81,10 @@ const defaultData: ICardData = {
     aspectRatio: "16:9",
     lazy: false
   },
+  badges: [
+    { title: "Premium", variant: BadgeVariantEnum.FILLED },
+    { title: "Editor's Choice", variant: BadgeVariantEnum.OUTLINE }
+  ],
   tags: [
     { name: "nature", url: "/tags/nature" },
     { name: "landscape", url: "/tags/landscape" },
@@ -335,6 +341,171 @@ export const CompactWithActions: Story = {
     showBookmark: true,
     isBookmarked: false,
     showShare: true
+  }
+};
+
+export const WithActions: Story = {
+  args: {
+    ...Default.args,
+    actions: [
+      {
+        label: "Edit",
+        onClick: e => {
+          action("edit-clicked")(e);
+          window.alert("Edit action clicked");
+        },
+        variant: "primary",
+        icon: <Icon iconName='IconEdit' className='w-4 h-4' />
+      },
+      {
+        label: "Delete",
+        onClick: e => {
+          action("delete-clicked")(e);
+          window.alert("Delete action clicked");
+        },
+        variant: "danger",
+        icon: <Icon iconName='IconDeleteBin' className='w-4 h-4' />
+      }
+    ]
+  }
+};
+
+export const EditOnlyAction: Story = {
+  args: {
+    ...Default.args,
+    actions: [
+      {
+        label: "Edit",
+        onClick: e => {
+          action("edit-clicked")(e);
+          window.alert("Edit action clicked");
+        },
+        variant: "primary",
+        icon: <Icon iconName='IconEdit' className='w-4 h-4' />
+      }
+    ]
+  }
+};
+
+export const WithActionsNoImage: Story = {
+  args: {
+    ...Default.args,
+    data: {
+      ...defaultData,
+      image: undefined
+    },
+    actions: [
+      {
+        label: "Edit",
+        onClick: e => {
+          action("edit-clicked")(e);
+          window.alert("Edit action clicked");
+        },
+        variant: "primary",
+        icon: <Icon iconName='IconEdit' className='w-4 h-4' />
+      },
+      {
+        label: "Delete",
+        onClick: e => {
+          action("delete-clicked")(e);
+          window.alert("Delete action clicked");
+        },
+        variant: "danger",
+        icon: <Icon iconName='IconDeleteBin' className='w-4 h-4' />
+      }
+    ]
+  }
+};
+
+export const EditOnlyActionNoImage: Story = {
+  args: {
+    ...Default.args,
+    data: {
+      ...defaultData,
+      image: undefined
+    },
+    actions: [
+      {
+        label: "Edit",
+        onClick: e => {
+          action("edit-clicked")(e);
+          window.alert("Edit action clicked");
+        },
+        variant: "primary",
+        icon: <Icon iconName='IconEdit' className='w-4 h-4' />
+      }
+    ]
+  }
+};
+
+export const WithBadges: Story = {
+  args: {
+    ...Default.args,
+    data: {
+      ...defaultData,
+      badges: [
+        { title: "Premium", variant: BadgeVariantEnum.FILLED },
+        { title: "Editor's Choice", variant: BadgeVariantEnum.OUTLINE },
+        {
+          title: "Trending",
+          variant: BadgeVariantEnum.FILLED,
+          className: "yl:bg-green-500 yl:text-white"
+        }
+      ]
+    }
+  }
+};
+
+export const WithManyBadges: Story = {
+  args: {
+    ...Default.args,
+    data: {
+      ...defaultData,
+      badges: [
+        { title: "Premium", variant: BadgeVariantEnum.FILLED },
+        { title: "Editor's Choice", variant: BadgeVariantEnum.OUTLINE },
+        { title: "Trending", variant: BadgeVariantEnum.FILLED },
+        {
+          title: "New",
+          variant: BadgeVariantEnum.FILLED,
+          className: "yl:bg-blue-500 yl:text-white"
+        },
+        { title: "Popular", variant: BadgeVariantEnum.OUTLINE },
+        {
+          title: "Verified",
+          variant: BadgeVariantEnum.FILLED,
+          className: "yl:bg-green-600 yl:text-white"
+        }
+      ]
+    }
+  }
+};
+
+export const BadgesWithoutImage: Story = {
+  args: {
+    ...Default.args,
+    data: {
+      ...defaultData,
+      image: undefined,
+      badges: [
+        { title: "Featured", variant: BadgeVariantEnum.FILLED },
+        { title: "Staff Pick", variant: BadgeVariantEnum.OUTLINE }
+      ]
+    }
+  }
+};
+
+export const BadgesOnly: Story = {
+  args: {
+    ...Default.args,
+    data: {
+      ...defaultData,
+      tags: undefined,
+      badges: [
+        { title: "Premium", variant: BadgeVariantEnum.FILLED },
+        { title: "Editor's Choice", variant: BadgeVariantEnum.OUTLINE }
+      ]
+    }
   }
 };
 

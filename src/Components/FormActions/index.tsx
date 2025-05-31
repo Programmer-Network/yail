@@ -3,9 +3,7 @@ import { createRef, useState } from "react";
 
 import Button from "Components/Button";
 import { ButtonVariantEnum } from "Components/Button/types";
-import Dialog from "Components/Dialog";
-import Icon from "Components/Icon";
-import { H3, Paragraph } from "Components/Typography";
+import ConfirmDialog from "Components/ConfirmDialog";
 
 import { IFormActionsProps } from "./types";
 
@@ -13,6 +11,8 @@ const FormActions = ({
   onSave,
   onCancel,
   onDelete,
+  onSaveError,
+  onDeleteError,
   saveText = "Save",
   cancelText = "Cancel",
   deleteText = "Delete",
@@ -25,12 +25,12 @@ const FormActions = ({
   showSave = true,
   showCancel = true,
   showDelete = false,
-  saveVariant = "primary",
+  saveVariant = ButtonVariantEnum.PRIMARY,
   className = "",
   size = "medium",
   alignment = "left"
 }: IFormActionsProps) => {
-  const dialogRef = createRef<HTMLDialogElement>();
+  const confirmDialogRef = createRef<HTMLDialogElement>();
   const [isDeleteLoading, setIsDeleteLoading] = useState(false);
   const [isSaveLoading, setIsSaveLoading] = useState(false);
 
@@ -73,13 +73,18 @@ const FormActions = ({
     e.preventDefault();
     e.stopPropagation();
 
-    if (!onSave || disabled || isSaveLoading) return;
+    if (!onSave || disabled || isSaveLoading) {
+      return;
+    }
 
     try {
       setIsSaveLoading(true);
       await onSave();
     } catch (error) {
-      console.error("Save operation failed:", error);
+      const errorObj =
+        error instanceof Error ? error : new Error(String(error));
+
+      onSaveError?.(errorObj);
     } finally {
       setIsSaveLoading(false);
     }
@@ -89,7 +94,10 @@ const FormActions = ({
     e.preventDefault();
     e.stopPropagation();
 
-    if (!onCancel || disabled) return;
+    if (!onCancel || disabled) {
+      return;
+    }
+
     onCancel();
   };
 
@@ -97,27 +105,26 @@ const FormActions = ({
     e.preventDefault();
     e.stopPropagation();
 
-    if (!dialogRef.current || disabled) return;
-    dialogRef.current.showModal();
+    if (!confirmDialogRef.current || disabled) {
+      return;
+    }
+
+    confirmDialogRef.current.showModal();
   };
 
-  const handleDeleteClose = () => {
-    if (!dialogRef.current) return;
-    dialogRef.current.close();
-  };
-
-  const handleDeleteConfirm = async (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-
-    if (!onDelete || isDeleteLoading) return;
+  const handleDeleteConfirm = async () => {
+    if (!onDelete || isDeleteLoading) {
+      return;
+    }
 
     try {
       setIsDeleteLoading(true);
       await onDelete();
-      handleDeleteClose();
     } catch (error) {
-      console.error("Delete operation failed:", error);
+      const errorObj =
+        error instanceof Error ? error : new Error(String(error));
+
+      onDeleteError?.(errorObj);
     } finally {
       setIsDeleteLoading(false);
     }
@@ -129,64 +136,19 @@ const FormActions = ({
 
   return (
     <div className={classNames("yl:w-full", className)}>
-      {/* Enhanced Delete Confirmation Dialog */}
       {showDelete && onDelete && (
-        <Dialog
-          ref={dialogRef}
-          className='yl:p-8 yl:!border-text/20 yl:!border-2 yl:max-w-[480px] yl:rounded-2xl yl:backdrop-blur-sm yl:bg-background/95'
-          shouldCloseOnClickOutside={!isDeleteLoading}
-        >
-          <div className='yl:flex yl:flex-col yl:gap-8'>
-            <div className='yl:flex yl:flex-col yl:items-center yl:gap-6'>
-              <div className='yl:w-20 yl:h-20 yl:rounded-full yl:bg-gradient-to-br yl:from-text/15 yl:to-text/5 yl:flex yl:items-center yl:justify-center yl:border yl:border-text/20'>
-                <Icon
-                  iconName='IconBomb'
-                  className='yl:w-10 yl:h-10 yl:text-text'
-                />
-              </div>
-
-              <div className='yl:text-center yl:space-y-3'>
-                <H3 className='yl:text-xl yl:font-semibold yl:text-text yl:tracking-tight'>
-                  {dialogDeleteTitle}
-                </H3>
-                <Paragraph className='yl:text-text/70 yl:text-base yl:leading-relaxed yl:max-w-sm'>
-                  {dialogDeleteText}
-                </Paragraph>
-              </div>
-            </div>
-
-            <div className='yl:flex yl:gap-3 yl:justify-center'>
-              <Button
-                variant={ButtonVariantEnum.SECONDARY}
-                outlined
-                onClick={handleDeleteClose}
-                disabled={isDeleteLoading}
-                className='yl:w-[100px]'
-              >
-                Cancel
-              </Button>
-              <Button
-                variant={ButtonVariantEnum.ERROR}
-                outlined
-                onClick={handleDeleteConfirm}
-                isLoading={isDeleteLoading}
-                disabled={isDeleteLoading}
-                className='yl:w-[100px]'
-                icon={{
-                  iconName: "IconBomb",
-                  iconPosition: "left"
-                }}
-              >
-                {deleteText}
-              </Button>
-            </div>
-          </div>
-        </Dialog>
+        <ConfirmDialog
+          ref={confirmDialogRef}
+          variant='destructive'
+          title={dialogDeleteTitle}
+          message={dialogDeleteText}
+          confirmText={deleteText}
+          onConfirm={handleDeleteConfirm}
+          isLoading={isDeleteLoading}
+        />
       )}
 
-      {/* Main Action Buttons */}
       <div className={classNames(getLayoutClasses(), sizeClasses.gap)}>
-        {/* Cancel Button (Secondary) */}
         {showCancel && onCancel && (
           <Button
             variant={ButtonVariantEnum.SECONDARY}
@@ -230,7 +192,7 @@ const FormActions = ({
         {showSave && onSave && (
           <Button
             variant={
-              saveVariant === "secondary"
+              saveVariant === ButtonVariantEnum.SECONDARY
                 ? ButtonVariantEnum.SECONDARY
                 : ButtonVariantEnum.PRIMARY
             }

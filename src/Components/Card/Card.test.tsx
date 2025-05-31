@@ -3,6 +3,7 @@ import { BrowserRouter, NavLink } from "react-router-dom";
 import { vi } from "vitest";
 
 import Card from ".";
+import { BadgeVariantEnum } from "../Badge/types";
 import { ICardData } from "./types";
 
 const mockNavLink = NavLink;
@@ -99,6 +100,53 @@ describe("Card component", () => {
       expect(screen.getByText("#react")).toBeInTheDocument();
       expect(screen.getByText("#testing")).toBeInTheDocument();
       expect(screen.getByText("#typescript")).toBeInTheDocument();
+    });
+
+    it("renders badges when provided", () => {
+      const cardWithBadges: ICardData = {
+        ...fullCardData,
+        badges: [
+          { title: "Premium", variant: BadgeVariantEnum.FILLED },
+          { title: "Editor's Choice", variant: BadgeVariantEnum.OUTLINE }
+        ]
+      };
+
+      renderCard({ data: cardWithBadges });
+
+      expect(screen.getByText("Premium")).toBeInTheDocument();
+      expect(screen.getByText("Editor's Choice")).toBeInTheDocument();
+    });
+
+    it("renders multiple badges correctly", () => {
+      const cardWithManyBadges: ICardData = {
+        ...fullCardData,
+        badges: [
+          { title: "Premium", variant: BadgeVariantEnum.FILLED },
+          { title: "Editor's Choice", variant: BadgeVariantEnum.OUTLINE },
+          { title: "Trending", variant: BadgeVariantEnum.FILLED },
+          { title: "New", variant: BadgeVariantEnum.OUTLINE }
+        ]
+      };
+
+      renderCard({ data: cardWithManyBadges });
+
+      expect(screen.getByText("Premium")).toBeInTheDocument();
+      expect(screen.getByText("Editor's Choice")).toBeInTheDocument();
+      expect(screen.getByText("Trending")).toBeInTheDocument();
+      expect(screen.getByText("New")).toBeInTheDocument();
+    });
+
+    it("renders card without badges when none provided", () => {
+      const cardWithoutBadges: ICardData = {
+        ...fullCardData,
+        badges: undefined
+      };
+
+      renderCard({ data: cardWithoutBadges });
+
+      // Should not render any badges
+      expect(screen.queryByText("Premium")).not.toBeInTheDocument();
+      expect(screen.queryByText("Editor's Choice")).not.toBeInTheDocument();
     });
 
     it("renders image when provided", () => {

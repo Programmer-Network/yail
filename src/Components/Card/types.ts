@@ -1,5 +1,7 @@
 import { NavLinkProps } from "react-router-dom";
 
+import { BadgeVariantEnum } from "../Badge/types";
+
 export interface ITag {
   name: string;
   url: string;
@@ -18,6 +20,12 @@ export interface IImageProps {
   lazy?: boolean;
 }
 
+export interface IBadge {
+  title: string;
+  variant?: BadgeVariantEnum;
+  className?: string;
+}
+
 export interface ICardData {
   title: string;
   titleUrl: string;
@@ -25,9 +33,18 @@ export interface ICardData {
   date?: string;
   author?: IAuthorProps;
   tags?: ITag[];
+  badges?: IBadge[];
   image?: IImageProps;
   isRead?: boolean;
   isFeatured?: boolean;
+}
+
+export interface ICardAction {
+  label: string;
+  onClick: (e: React.MouseEvent) => void;
+  variant?: "primary" | "danger" | "outlined";
+  icon?: React.ReactNode;
+  show?: boolean; // for conditional rendering
 }
 
 export interface ICard {
@@ -50,6 +67,7 @@ export interface ICard {
   onImageClick?: () => void;
   onBookmark?: (data: ICardData) => void;
   onShare?: (data: ICardData) => void;
+  actions?: ICardAction[];
 }
 
 export interface ICardSkeletonProps {
