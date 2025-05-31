@@ -1,7 +1,11 @@
+import { ButtonVariantEnum } from "Components/Button/types";
+
 export interface IFormActionsProps {
   onSave?: () => void | Promise<void>;
   onCancel?: () => void;
   onDelete?: () => void | Promise<void>;
+  onSaveError?: (error: Error) => void;
+  onDeleteError?: (error: Error) => void;
   saveText?: string;
   cancelText?: string;
   deleteText?: string;
@@ -14,7 +18,7 @@ export interface IFormActionsProps {
   showSave?: boolean;
   showCancel?: boolean;
   showDelete?: boolean;
-  saveVariant?: "primary" | "secondary";
+  saveVariant?: ButtonVariantEnum;
   className?: string;
   size?: "small" | "medium" | "large";
   alignment?: "left" | "center" | "right" | "space-between";

@@ -169,7 +169,7 @@ importers:
         specifier: 1.0.35
         version: 1.0.35(ajv-errors@3.0.0(ajv@8.17.1))(ajv-formats@3.0.1(ajv@8.17.1))(ajv@8.17.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@storybook/addon-docs':
-        specifier: ^9.0.1
+        specifier: 9.0.1
         version: 9.0.1(@types/react@19.1.6)(storybook@9.0.1(@testing-library/dom@10.4.0)(prettier@3.5.3))
       '@storybook/addon-links':
         specifier: 9.0.1

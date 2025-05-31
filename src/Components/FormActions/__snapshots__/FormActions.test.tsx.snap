@@ -6,10 +6,6 @@ exports[`FormActions component > renders correctly - snapshot test 1`] = `
     class="yl:w-full"
   >
     <div
-      class="yl:p-8 yl:!border-text/20 yl:!border-2 yl:max-w-[480px] yl:rounded-2xl yl:backdrop-blur-sm yl:bg-background/95"
-      data-testid="mock-dialog"
-    />
-    <div
       class="yl:flex yl:flex-row yl:justify-start yl:items-center yl:gap-3"
     >
       <button
