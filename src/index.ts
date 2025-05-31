@@ -11,6 +11,7 @@ export { default as Button } from "Components/Button";
 export { default as Card } from "Components/Card";
 export { default as Cards } from "Components/Cards";
 export { default as CharacterCounter } from "Components/CharacterCounter";
+export { default as ConfirmDialog } from "Components/ConfirmDialog";
 export { default as ContentWidget } from "Components/ContentWidget";
 export { default as CTA } from "Components/CTA";
 export { default as Dialog } from "Components/Dialog";
