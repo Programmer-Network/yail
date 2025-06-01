@@ -172,7 +172,7 @@ const Card: FC<ICard> = memo(
             <p
               id={`card-description-${cardId}`}
               className={classNames(
-                "yl:flex-1 yl:text-muted yl:m-0",
+                "yl:flex-1 yl:text-text/80 yl:m-0",
                 getLineClampClass(maxDescriptionLines)
               )}
             >

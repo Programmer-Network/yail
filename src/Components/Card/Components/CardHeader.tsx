@@ -35,7 +35,7 @@ const CardHeader: FC<ICardHeader> = ({
           <h3
             id={`card-title-${cardId}`}
             className={classNames(
-              "yl:flex yl:items-center yl:justify-start yl:gap-2 yl:text-lg yl:font-semibold yl:m-0 yl:text-text",
+              "yl:flex yl:items-center yl:justify-start yl:gap-2 yl:text-xl yl:md:text-lg yl:font-semibold yl:m-0 yl:text-text",
               getLineClampClass(maxTitleLines)
             )}
           >
@@ -55,7 +55,7 @@ const CardHeader: FC<ICardHeader> = ({
           <h3
             id={`card-title-${cardId}`}
             className={classNames(
-              "yl:text-lg yl:font-semibold yl:m-0 yl:group-hover:text-primary yl:transition-colors yl:text-text",
+              "yl:text-xl yl:md:text-lg yl:font-semibold yl:m-0 yl:group-hover:text-primary yl:transition-colors yl:text-text",
               getLineClampClass(maxTitleLines)
             )}
           >
