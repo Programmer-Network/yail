@@ -8,7 +8,7 @@ const PersonCardSkeleton: FC<IPersonCardSkeletonProps> = ({
   className,
   showTags = true,
   showSocialLinks = true,
-  showDescription = true
+  about = true
 }) => {
   const getSizeClasses = (size: string) => {
     const sizeClasses: Record<string, string> = {
@@ -66,7 +66,7 @@ const PersonCardSkeleton: FC<IPersonCardSkeletonProps> = ({
         </div>
 
         {/* Description Skeleton */}
-        {showDescription && (
+        {about && (
           <div className='yl:space-y-2'>
             <div className='yl:h-4 yl:bg-border yl:rounded yl:w-full' />
             <div className='yl:h-4 yl:bg-border yl:rounded yl:w-3/4 yl:mx-auto' />

@@ -90,4 +90,5 @@ export interface IPersonCardSkeletonProps {
   className?: string;
   showTags?: boolean;
   showSocialLinks?: boolean;
+  about?: boolean;
 }
