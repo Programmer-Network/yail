@@ -3,7 +3,6 @@ import { Placement } from "tippy.js";
 
 import Dropdown from "Components/Dropdown";
 import Icon from "Components/Icon";
-import { IconName } from "Components/Icons/types";
 
 import { ItemActionType } from "./types";
 
@@ -46,7 +45,7 @@ const ItemActions = <T,>({
   item: T;
   options?: {
     icon: {
-      iconName: IconName;
+      iconName: string;
       className?: string;
       dataTestId?: string;
     };

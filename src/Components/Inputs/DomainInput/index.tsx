@@ -31,17 +31,14 @@ const DomainInput: FC<IDomainInputProps> = (
 
   return (
     <div
-      className={classNames(
-        "group yl:text-secondary",
-        props.inputWrapperClassName
-      )}
+      className={classNames("group yl:text-text", props.inputWrapperClassName)}
     >
       <InputHeader {...props} />
       <div className='yl:flex yl:w-full'>
         <span
           data-testid='domain'
           className={classNames(
-            "yl:min-w-max yl:border-2 yl:border-border yl:px-4 yl:py-2 yl:leading-5 yl:tracking-tighter yl:selection:text-secondary yl:rounded-tl-md yl:rounded-bl-md",
+            "yl:min-w-max yl:border-2 yl:border-border yl:px-4 yl:py-2 yl:leading-5 yl:tracking-tighter yl:selection:text-text yl:rounded-tl-md yl:rounded-bl-md",
             props.domainClassName,
             {
               "yl:group-hover:border-border": !props.disabled,

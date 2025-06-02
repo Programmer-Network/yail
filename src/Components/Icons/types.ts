@@ -1,5 +1,7 @@
-import * as Icons from "./";
+// TODO: FIX THIS FILE
 
-type IconName = keyof typeof Icons;
+// import * as Icons from "./";
 
-export type { IconName };
+// type IconName = keyof typeof Icons;
+
+// export type { IconName };

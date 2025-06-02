@@ -1,5 +1,3 @@
-import { IconName } from "Components/Icons/types";
-
 export interface IContentWidgetBaseItem {
   id?: number;
   title: string;
@@ -7,7 +5,7 @@ export interface IContentWidgetBaseItem {
 
 export interface IContentWidgetItemMore {
   tooltipText: string;
-  iconName?: IconName;
+  iconName?: string;
   iconClassName?: string;
   onClick: () => void;
 }

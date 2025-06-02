@@ -5,23 +5,7 @@ import Avatar from "../Avatar";
 import Button from "../Button";
 import { ButtonVariantEnum } from "../Button/types";
 import Pill from "../Core/Pill";
-import {
-  IconCodewars,
-  IconExercism,
-  IconGithub,
-  IconGitlab,
-  IconGlobe,
-  IconHackernews,
-  IconHackerrank,
-  IconLeetcode,
-  IconLinkedin,
-  IconMastodon,
-  IconPatreon,
-  IconReddit,
-  IconStackoverflow,
-  IconTwitter,
-  IconYoutube
-} from "../Icons";
+import Icon from "../Icon";
 import { H4, Paragraph } from "../Typography";
 import { IBadge, IPersonAction, IPersonCardProps, ITag } from "./types";
 
@@ -79,29 +63,30 @@ const PersonCard: FC<IPersonCardProps> = ({
 
   const getSocialIcon = (platform: string): ReactNode => {
     const iconProps = {
-      className: "yl:w-4 yl:h-4",
-      "aria-hidden": true
+      className: "yl:w-4 yl:h-4"
     };
 
-    const iconMapping: Record<string, ReactNode> = {
-      website: <IconGlobe {...iconProps} />,
-      github: <IconGithub {...iconProps} />,
-      gitlab: <IconGitlab {...iconProps} />,
-      linkedin: <IconLinkedin {...iconProps} />,
-      twitter: <IconTwitter {...iconProps} />,
-      mastodon: <IconMastodon {...iconProps} />,
-      youtube: <IconYoutube {...iconProps} />,
-      codewars: <IconCodewars {...iconProps} />,
-      leetcode: <IconLeetcode {...iconProps} />,
-      stackoverflow: <IconStackoverflow {...iconProps} />,
-      patreon: <IconPatreon {...iconProps} />,
-      hackernews: <IconHackernews {...iconProps} />,
-      reddit: <IconReddit {...iconProps} />,
-      hackerrank: <IconHackerrank {...iconProps} />,
-      exercism: <IconExercism {...iconProps} />
+    const iconMapping: Record<string, string> = {
+      website: "IconGlobe",
+      github: "IconGithub",
+      gitlab: "IconGitlab",
+      linkedin: "IconLinkedin",
+      twitter: "IconTwitter",
+      mastodon: "IconMastodon",
+      youtube: "IconYoutube",
+      codewars: "IconCodewars",
+      leetcode: "IconLeetcode",
+      stackoverflow: "IconStackoverflow",
+      patreon: "IconPatreon",
+      hackernews: "IconHackernews",
+      reddit: "IconReddit",
+      hackerrank: "IconHackerrank",
+      exercism: "IconExercism"
     };
 
-    return iconMapping[platform.toLowerCase()] || <IconGlobe {...iconProps} />;
+    const iconName = iconMapping[platform.toLowerCase()] || "IconGlobe";
+
+    return <Icon iconName={iconName as any} {...iconProps} />;
   };
 
   const getLineClampClass = (lines: number) => {

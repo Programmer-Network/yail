@@ -1,9 +1,7 @@
 import { MouseEvent } from "react";
 
-import { IconName } from "Components/Icons/types";
-
 export interface IIconProps {
-  iconName: IconName;
+  iconName: string;
   className?: string;
   onClick?: (e: MouseEvent<SVGElement>) => void;
   dataTestId?: string;

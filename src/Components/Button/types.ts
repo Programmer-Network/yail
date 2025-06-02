@@ -1,7 +1,5 @@
 import { ReactNode } from "react";
 
-import { IconName } from "Components/Icons/types";
-
 export enum ButtonVariantEnum {
   PRIMARY = "primary",
   SECONDARY = "secondary",
@@ -17,7 +15,7 @@ export interface IButtonProps {
   isLoading?: boolean;
   outlined?: boolean;
   icon?: {
-    iconName?: IconName;
+    iconName?: string;
     iconClassName?: string;
     iconPosition?: "left" | "right";
   };

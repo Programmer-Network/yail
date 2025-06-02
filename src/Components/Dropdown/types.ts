@@ -3,11 +3,9 @@ import { PopperOffsetsModifier } from "@popperjs/core/lib/modifiers/popperOffset
 import { MouseEvent } from "react";
 import { Placement } from "tippy.js";
 
-import { IconName } from "Components/Icons/types";
-
 export interface IDropdownListItem {
   icon?: {
-    iconName: IconName;
+    iconName: string;
     className?: string;
     dataTestId?: string;
   };
@@ -25,7 +23,7 @@ export interface IDropdownProps {
   placement?: Placement;
   options?: {
     icon?: {
-      iconName: IconName;
+      iconName: string;
       className?: string;
       dataTestId?: string;
     };
@@ -38,7 +36,7 @@ export interface IDefaultDropdownProps {
   setIsOpen: (isOpen: boolean) => void;
   options: {
     icon?: {
-      iconName: IconName;
+      iconName: string;
       className?: string;
       dataTestId?: string;
     };

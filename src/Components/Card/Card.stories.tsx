@@ -2,7 +2,6 @@ import { Meta, StoryObj } from "@storybook/react-vite";
 import { NavLink } from "react-router-dom";
 
 import Card from ".";
-import { BadgeVariantEnum } from "../Badge/types";
 import Icon from "../Icon";
 import { ICardData } from "./types";
 
@@ -81,9 +80,9 @@ const defaultData: ICardData = {
     aspectRatio: "16:9",
     lazy: false
   },
-  badges: [
-    { title: "Premium", variant: BadgeVariantEnum.FILLED },
-    { title: "Editor's Choice", variant: BadgeVariantEnum.OUTLINE }
+  pills: [
+    { title: "Premium", variant: "primary" },
+    { title: "Editor's Choice", variant: "secondary" }
   ],
   tags: [
     { name: "nature", url: "/tags/nature" },
@@ -438,17 +437,17 @@ export const EditOnlyActionNoImage: Story = {
   }
 };
 
-export const WithBadges: Story = {
+export const WithPills: Story = {
   args: {
     ...Default.args,
     data: {
       ...defaultData,
-      badges: [
-        { title: "Premium", variant: BadgeVariantEnum.FILLED },
-        { title: "Editor's Choice", variant: BadgeVariantEnum.OUTLINE },
+      pills: [
+        { title: "Premium", variant: "primary" },
+        { title: "Editor's Choice", variant: "secondary" },
         {
           title: "Trending",
-          variant: BadgeVariantEnum.FILLED,
+          variant: "success",
           className: "yl:bg-green-500 yl:text-white"
         }
       ]
@@ -456,24 +455,24 @@ export const WithBadges: Story = {
   }
 };
 
-export const WithManyBadges: Story = {
+export const WithManyPills: Story = {
   args: {
     ...Default.args,
     data: {
       ...defaultData,
-      badges: [
-        { title: "Premium", variant: BadgeVariantEnum.FILLED },
-        { title: "Editor's Choice", variant: BadgeVariantEnum.OUTLINE },
-        { title: "Trending", variant: BadgeVariantEnum.FILLED },
+      pills: [
+        { title: "Premium", variant: "primary" },
+        { title: "Editor's Choice", variant: "secondary" },
+        { title: "Trending", variant: "success" },
         {
           title: "New",
-          variant: BadgeVariantEnum.FILLED,
+          variant: "indigo",
           className: "yl:bg-blue-500 yl:text-white"
         },
-        { title: "Popular", variant: BadgeVariantEnum.OUTLINE },
+        { title: "Popular", variant: "warning" },
         {
           title: "Verified",
-          variant: BadgeVariantEnum.FILLED,
+          variant: "success",
           className: "yl:bg-green-600 yl:text-white"
         }
       ]
@@ -481,29 +480,29 @@ export const WithManyBadges: Story = {
   }
 };
 
-export const BadgesWithoutImage: Story = {
+export const PillsWithoutImage: Story = {
   args: {
     ...Default.args,
     data: {
       ...defaultData,
       image: undefined,
-      badges: [
-        { title: "Featured", variant: BadgeVariantEnum.FILLED },
-        { title: "Staff Pick", variant: BadgeVariantEnum.OUTLINE }
+      pills: [
+        { title: "Featured", variant: "primary" },
+        { title: "Staff Pick", variant: "secondary" }
       ]
     }
   }
 };
 
-export const BadgesOnly: Story = {
+export const PillsOnly: Story = {
   args: {
     ...Default.args,
     data: {
       ...defaultData,
       tags: undefined,
-      badges: [
-        { title: "Premium", variant: BadgeVariantEnum.FILLED },
-        { title: "Editor's Choice", variant: BadgeVariantEnum.OUTLINE }
+      pills: [
+        { title: "Premium", variant: "primary" },
+        { title: "Editor's Choice", variant: "secondary" }
       ]
     }
   }

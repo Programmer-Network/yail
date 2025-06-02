@@ -1,6 +1,6 @@
 import { NavLinkProps } from "react-router-dom";
 
-import { BadgeVariantEnum } from "../Badge/types";
+import { PillVariant } from "../Core/Pill";
 
 export interface ITag {
   name: string;
@@ -20,10 +20,13 @@ export interface IImageProps {
   lazy?: boolean;
 }
 
-export interface IBadge {
+export interface IPill {
   title: string;
-  variant?: BadgeVariantEnum;
+  variant?: PillVariant;
   className?: string;
+  size?: "small" | "medium" | "large";
+  clickable?: boolean;
+  onClick?: (e: React.MouseEvent) => void;
 }
 
 export interface ICardData {
@@ -33,7 +36,7 @@ export interface ICardData {
   date?: string;
   author?: IAuthorProps;
   tags?: ITag[];
-  badges?: IBadge[];
+  pills?: IPill[];
   image?: IImageProps;
   isRead?: boolean;
   isFeatured?: boolean;

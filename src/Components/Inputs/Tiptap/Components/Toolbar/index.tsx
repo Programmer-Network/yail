@@ -6,7 +6,6 @@ import { RefObject, useRef } from "react";
 
 import Button from "Components/Button";
 import Icon from "Components/Icon";
-import { IconName } from "Components/Icons/types";
 import Tooltip from "Components/Tooltip";
 
 import { TIPTAP_TOOLBAR_ITEMS } from "../../constants";
@@ -234,7 +233,7 @@ export const Toolbar = ({
                 }}
               >
                 <Icon
-                  iconName={i.iconName as IconName}
+                  iconName={i.iconName || ""}
                   className={classNames(
                     "yl:w-8 yl:cursor-pointer yl:border-border",
                     {

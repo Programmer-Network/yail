@@ -3,7 +3,6 @@ import { BrowserRouter, NavLink } from "react-router-dom";
 import { vi } from "vitest";
 
 import Card from ".";
-import { BadgeVariantEnum } from "../Badge/types";
 import { ICardData } from "./types";
 
 const mockNavLink = NavLink;
@@ -102,33 +101,33 @@ describe("Card component", () => {
       expect(screen.getByText("#typescript")).toBeInTheDocument();
     });
 
-    it("renders badges when provided", () => {
-      const cardWithBadges: ICardData = {
+    it("renders pills when provided", () => {
+      const cardWithPills: ICardData = {
         ...fullCardData,
-        badges: [
-          { title: "Premium", variant: BadgeVariantEnum.FILLED },
-          { title: "Editor's Choice", variant: BadgeVariantEnum.OUTLINE }
+        pills: [
+          { title: "Premium", variant: "primary" },
+          { title: "Editor's Choice", variant: "secondary" }
         ]
       };
 
-      renderCard({ data: cardWithBadges });
+      renderCard({ data: cardWithPills });
 
       expect(screen.getByText("Premium")).toBeInTheDocument();
       expect(screen.getByText("Editor's Choice")).toBeInTheDocument();
     });
 
-    it("renders multiple badges correctly", () => {
-      const cardWithManyBadges: ICardData = {
+    it("renders multiple pills correctly", () => {
+      const cardWithManyPills: ICardData = {
         ...fullCardData,
-        badges: [
-          { title: "Premium", variant: BadgeVariantEnum.FILLED },
-          { title: "Editor's Choice", variant: BadgeVariantEnum.OUTLINE },
-          { title: "Trending", variant: BadgeVariantEnum.FILLED },
-          { title: "New", variant: BadgeVariantEnum.OUTLINE }
+        pills: [
+          { title: "Premium", variant: "primary" },
+          { title: "Editor's Choice", variant: "secondary" },
+          { title: "Trending", variant: "success" },
+          { title: "New", variant: "warning" }
         ]
       };
 
-      renderCard({ data: cardWithManyBadges });
+      renderCard({ data: cardWithManyPills });
 
       expect(screen.getByText("Premium")).toBeInTheDocument();
       expect(screen.getByText("Editor's Choice")).toBeInTheDocument();
@@ -136,15 +135,15 @@ describe("Card component", () => {
       expect(screen.getByText("New")).toBeInTheDocument();
     });
 
-    it("renders card without badges when none provided", () => {
-      const cardWithoutBadges: ICardData = {
+    it("renders card without pills when none provided", () => {
+      const cardWithoutPills: ICardData = {
         ...fullCardData,
-        badges: undefined
+        pills: undefined
       };
 
-      renderCard({ data: cardWithoutBadges });
+      renderCard({ data: cardWithoutPills });
 
-      // Should not render any badges
+      // Should not render any pills
       expect(screen.queryByText("Premium")).not.toBeInTheDocument();
       expect(screen.queryByText("Editor's Choice")).not.toBeInTheDocument();
     });

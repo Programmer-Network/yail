@@ -3,13 +3,13 @@
 exports[`DomainInput component > matches snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="group yl:text-secondary"
+    class="group yl:text-text"
   >
     <div
       class="yl:flex yl:w-full"
     >
       <span
-        class="yl:min-w-max yl:border-2 yl:border-border yl:px-4 yl:py-2 yl:leading-5 yl:tracking-tighter yl:selection:text-secondary yl:rounded-tl-md yl:rounded-bl-md yl:group-hover:border-border"
+        class="yl:min-w-max yl:border-2 yl:border-border yl:px-4 yl:py-2 yl:leading-5 yl:tracking-tighter yl:selection:text-text yl:rounded-tl-md yl:rounded-bl-md yl:group-hover:border-border"
         data-testid="domain"
       >
         example.com

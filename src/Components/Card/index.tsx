@@ -6,8 +6,8 @@ import CardSkeleton from "./CardSkeleton";
 import {
   CardActions,
   CardAuthor,
-  CardBadges,
   CardHeader,
+  CardPills,
   CardStatusIndicators,
   CardTags
 } from "./Components";
@@ -44,7 +44,7 @@ const Card: FC<ICard> = memo(
       author,
       date,
       tags,
-      badges,
+      pills,
       titleUrl,
       image,
       isRead,
@@ -179,7 +179,7 @@ const Card: FC<ICard> = memo(
               {description}
             </p>
 
-            <CardBadges badges={badges} />
+            <CardPills pills={pills} />
 
             <CardTags
               visibleTags={tagVisibility.visibleTags}
