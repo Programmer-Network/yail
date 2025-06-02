@@ -12,6 +12,7 @@ import * as CardsTypes from "./Components/Cards/types";
 import * as CharacterCounterTypes from "./Components/CharacterCounter/types";
 import * as ConfirmDialogTypes from "./Components/ConfirmDialog/ConfirmDialog.types";
 import * as ContentWidgetTypes from "./Components/ContentWidget/types";
+import * as PillTypes from "./Components/Core/Pill/Pill.types";
 import * as DialogTypes from "./Components/Dialog/types";
 import * as DividerTypes from "./Components/Divider/types";
 import * as DraggableListTypes from "./Components/DraggableList/types";
@@ -27,6 +28,7 @@ import * as ImageInputTypes from "./Components/Inputs/ImageInput/types";
 import * as InputTypes from "./Components/Inputs/types";
 import * as ItemActionsTypes from "./Components/ItemActions/types";
 import * as PaginationTypes from "./Components/Pagination/types";
+import * as PersonCardTypes from "./Components/PersonCard/types";
 import * as ReactionsTypes from "./Components/Reactions/types";
 import * as ShareButtonTypes from "./Components/ShareButton/types";
 import * as SpinnerTypes from "./Components/Spinner/types";
@@ -68,6 +70,8 @@ export {
   InputTypes,
   ItemActionsTypes,
   PaginationTypes,
+  PersonCardTypes,
+  PillTypes,
   ReactionsTypes,
   ShareButtonTypes,
   SpinnerTypes,
