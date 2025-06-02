@@ -27,3 +27,17 @@ export const Default = () => {
     />
   );
 };
+
+export const LongText = () => {
+  const [isChecked, setIsChecked] = useState(false);
+  return (
+    <Checkbox
+      text='Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.'
+      checked={isChecked}
+      onChange={e => {
+        setIsChecked(e.target.checked);
+        action("onChange")(e.target.checked);
+      }}
+    />
+  );
+};
