@@ -7,12 +7,11 @@ import { IPerson, IPersonAction } from "./types";
 
 const mockPerson: IPerson = {
   id: 1,
-  firstName: "Ada",
-  lastName: "Lovelace",
+  name: "Ada Lovelace",
   username: "ada_lovelace",
   email: "ada@lovelace.com",
   avatar: "https://example.com/avatar.jpg",
-  description: "Pioneer in computer science and mathematics",
+  about: "Pioneer in computer science and mathematics",
   role: "Software Engineer",
   location: "London, UK",
   badge: {
@@ -183,12 +182,16 @@ describe("PersonCard", () => {
   });
 
   it("hides sections based on props", () => {
+    const personWithoutAbout = {
+      ...mockPerson,
+      about: undefined
+    };
+
     render(
       <PersonCard
-        person={mockPerson}
+        person={personWithoutAbout}
         showTags={false}
         showSocialLinks={false}
-        showDescription={false}
       />
     );
 
@@ -196,6 +199,7 @@ describe("PersonCard", () => {
     expect(
       screen.queryByText("Pioneer in computer science and mathematics")
     ).not.toBeInTheDocument();
+
     expect(screen.queryByTitle("github")).not.toBeInTheDocument();
   });
 
@@ -211,8 +215,7 @@ describe("PersonCard", () => {
   it("handles missing optional fields gracefully", () => {
     const minimalPerson: IPerson = {
       id: 1,
-      firstName: "John",
-      lastName: "Doe"
+      name: "John Doe"
     };
 
     render(<PersonCard person={minimalPerson} />);
@@ -285,7 +288,7 @@ describe("PersonCard", () => {
       "This is a very long description that should be truncated";
     const personWithLongDescription = {
       ...mockPerson,
-      description: longDescription
+      about: longDescription
     };
 
     render(
@@ -319,7 +322,7 @@ describe("PersonCardSkeleton", () => {
       <PersonCardSkeleton
         showTags={false}
         showSocialLinks={false}
-        showDescription={false}
+        about={false}
       />
     );
 

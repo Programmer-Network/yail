@@ -27,7 +27,7 @@ const meta: Meta<typeof PersonCard> = {
     showSocialLinks: {
       control: { type: "boolean" }
     },
-    showDescription: {
+    about: {
       control: { type: "boolean" }
     },
     maxTags: {
