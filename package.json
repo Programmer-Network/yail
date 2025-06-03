@@ -155,6 +155,7 @@
     "react-select": "5.10.1",
     "react-select-async-paginate": "0.7.10",
     "react-step-wizard": "5.3.11",
+    "react-tabs": "6.1.0",
     "react-tooltip": "5.28.1",
     "sanitize-html": "2.17.0",
     "tippy.js": "6.3.7"

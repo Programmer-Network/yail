@@ -23,7 +23,7 @@ export const Default: Story = {
 
 export const WithURL: Story = {
   args: {
-    src: "https://avatars.githubusercontent.com/u/2085263?v=4",
+    src: "https://imagedelivery.net/mG9yIKlH_7CYi04eBXEpYg/47d46959-283a-4d0f-4ff3-6a1fa4686b00/public",
     size: 150
   }
 };

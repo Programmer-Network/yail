@@ -3,7 +3,7 @@
 exports[`Avatar component > renders correctly - snapshot test 1`] = `
 <DocumentFragment>
   <div
-    class="yl:sm:mt-0 yl:rounded-full yl:overflow-hidden"
+    class="yl:sm:mt-0 yl:rounded-full yl:overflow-hidden yl:flex yl:items-center yl:justify-center yl:flex-shrink-0"
     data-testid="svg-avatar-parent"
     style="width: 50px; height: 50px;"
   >

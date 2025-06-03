@@ -380,4 +380,139 @@ describe("Card component", () => {
       expect(screen.queryByText("|")).not.toBeInTheDocument();
     });
   });
+
+  describe("Footer actions", () => {
+    it("renders footer actions when provided", () => {
+      const footerActions = [
+        {
+          label: "View Details",
+          onClick: vi.fn(),
+          variant: "primary" as const
+        },
+        {
+          label: "Share",
+          onClick: vi.fn(),
+          variant: "outlined" as const
+        }
+      ];
+
+      renderCard({
+        data: fullCardData,
+        footerActions
+      });
+
+      expect(screen.getByText("View Details")).toBeInTheDocument();
+      expect(screen.getByText("Share")).toBeInTheDocument();
+    });
+
+    it("does not render footer actions when not provided", () => {
+      renderCard({ data: fullCardData });
+
+      // Should not have any footer action buttons
+      expect(screen.queryByText("View Details")).not.toBeInTheDocument();
+      expect(screen.queryByText("Share")).not.toBeInTheDocument();
+    });
+
+    it("calls footer action onClick when clicked", () => {
+      const mockOnClick = vi.fn();
+      const footerActions = [
+        {
+          label: "Test Footer Action",
+          onClick: mockOnClick,
+          variant: "primary" as const
+        }
+      ];
+
+      renderCard({
+        data: fullCardData,
+        footerActions
+      });
+
+      const footerButton = screen.getByText("Test Footer Action");
+      fireEvent.click(footerButton);
+
+      expect(mockOnClick).toHaveBeenCalledTimes(1);
+    });
+
+    it("renders footer actions with different variants", () => {
+      const footerActions = [
+        {
+          label: "Primary Action",
+          onClick: vi.fn(),
+          variant: "primary" as const
+        },
+        {
+          label: "Danger Action",
+          onClick: vi.fn(),
+          variant: "danger" as const
+        },
+        {
+          label: "Outlined Action",
+          onClick: vi.fn(),
+          variant: "outlined" as const
+        }
+      ];
+
+      renderCard({
+        data: fullCardData,
+        footerActions
+      });
+
+      expect(screen.getByText("Primary Action")).toBeInTheDocument();
+      expect(screen.getByText("Danger Action")).toBeInTheDocument();
+      expect(screen.getByText("Outlined Action")).toBeInTheDocument();
+    });
+
+    it("hides footer actions when show is false", () => {
+      const footerActions = [
+        {
+          label: "Visible Action",
+          onClick: vi.fn(),
+          variant: "primary" as const,
+          show: true
+        },
+        {
+          label: "Hidden Action",
+          onClick: vi.fn(),
+          variant: "primary" as const,
+          show: false
+        }
+      ];
+
+      renderCard({
+        data: fullCardData,
+        footerActions
+      });
+
+      expect(screen.getByText("Visible Action")).toBeInTheDocument();
+      expect(screen.queryByText("Hidden Action")).not.toBeInTheDocument();
+    });
+
+    it("renders both top actions and footer actions", () => {
+      const actions = [
+        {
+          label: "Top Action",
+          onClick: vi.fn(),
+          variant: "primary" as const
+        }
+      ];
+
+      const footerActions = [
+        {
+          label: "Bottom Action",
+          onClick: vi.fn(),
+          variant: "primary" as const
+        }
+      ];
+
+      renderCard({
+        data: fullCardData,
+        actions,
+        footerActions
+      });
+
+      expect(screen.getByText("Top Action")).toBeInTheDocument();
+      expect(screen.getByText("Bottom Action")).toBeInTheDocument();
+    });
+  });
 });

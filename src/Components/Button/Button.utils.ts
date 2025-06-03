@@ -4,7 +4,7 @@ import { ButtonVariantEnum, IGetButtonClassesArgs } from "./types";
 
 export const getStyles = (isLoading: boolean) => {
   return {
-    base: "yl:select-none yl:px-3 yl:py-2 yl:font-semibold yl:tracking-tight yl:rounded-md yl:border-2",
+    base: "yl:select-none yl:px-3 yl:py-2 yl:font-semibold yl:tracking-tight yl:rounded-md yl:border-2 yl:transition-all yl:duration-200 yl:transform yl:hover:scale-105",
     disabled: "yl:cursor-not-allowed yl:opacity-70",
     enabled: classNames({
       "yl:cursor-pointer": !isLoading

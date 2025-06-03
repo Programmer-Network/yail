@@ -12,14 +12,14 @@ exports[`AuthorCard component > renders correctly 1`] = `
         class="yl:hidden yl:md:block"
       >
         <div
-          class="yl:sm:mt-0 yl:rounded-full yl:overflow-hidden"
+          class="yl:sm:mt-0 yl:rounded-full yl:overflow-hidden yl:flex yl:items-center yl:justify-center yl:flex-shrink-0"
           style="width: 75px; height: 75px;"
         >
           <img
             alt="John Doe"
+            class="yl:bg-background yl:object-cover yl:object-center yl:w-full yl:h-full"
             loading="lazy"
             src="https://avatars.githubusercontent.com/u/2085263?v=4"
-            style="width: 75px; height: 75px;"
           />
         </div>
       </div>

@@ -131,6 +131,9 @@ importers:
       react-step-wizard:
         specifier: 5.3.11
         version: 5.3.11(react@19.1.0)
+      react-tabs:
+        specifier: 6.1.0
+        version: 6.1.0(react@19.1.0)
       react-tooltip:
         specifier: 5.28.1
         version: 5.28.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -3728,6 +3731,11 @@ packages:
     resolution: {integrity: sha512-TD3ocUdt4XWvisTNEiATh+cFuh1RK0LgvYqOResTIhLtFmdWnXzFVaNIZJ3qzW5Bm6yeotzZ4KAmRjmsqBXnWQ==}
     peerDependencies:
       react: '>=15.0.1'
+
+  react-tabs@6.1.0:
+    resolution: {integrity: sha512-6QtbTRDKM+jA/MZTTefvigNxo0zz+gnBTVFw2CFVvq+f2BuH0nF0vDLNClL045nuTAdOoK/IL1vTP0ZLX0DAyQ==}
+    peerDependencies:
+      react: ^18.0.0 || ^19.0.0
 
   react-tooltip@5.28.1:
     resolution: {integrity: sha512-ZA4oHwoIIK09TS7PvSLFcRlje1wGZaxw6xHvfrzn6T82UcMEfEmHVCad16Gnr4NDNDh93HyN037VK4HDi5odfQ==}
@@ -8218,6 +8226,12 @@ snapshots:
 
   react-step-wizard@5.3.11(react@19.1.0):
     dependencies:
+      react: 19.1.0
+
+  react-tabs@6.1.0(react@19.1.0):
+    dependencies:
+      clsx: 2.1.1
+      prop-types: 15.8.1
       react: 19.1.0
 
   react-tooltip@5.28.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0):

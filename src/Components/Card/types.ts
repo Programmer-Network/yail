@@ -71,6 +71,7 @@ export interface ICard {
   onBookmark?: (data: ICardData) => void;
   onShare?: (data: ICardData) => void;
   actions?: ICardAction[];
+  footerActions?: ICardAction[];
 }
 
 export interface ICardSkeletonProps {

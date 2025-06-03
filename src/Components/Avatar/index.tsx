@@ -13,7 +13,7 @@ const Avatar: FC<IAvatarProps> = ({
   className
 }) => {
   const classes = classNames(
-    "yl:sm:mt-0 yl:rounded-full yl:overflow-hidden",
+    "yl:sm:mt-0 yl:rounded-full yl:overflow-hidden yl:flex yl:items-center yl:justify-center yl:flex-shrink-0",
     className
   );
 
@@ -37,7 +37,7 @@ const Avatar: FC<IAvatarProps> = ({
       style={{ width: `${size}px`, height: `${size}px` }}
     >
       <img
-        style={{ width: `${size}px`, height: `${size}px` }}
+        className='yl:bg-background yl:object-cover yl:object-center yl:w-full yl:h-full'
         src={src}
         alt={alt}
         loading='lazy'

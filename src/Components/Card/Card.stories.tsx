@@ -508,4 +508,186 @@ export const PillsOnly: Story = {
   }
 };
 
+export const WithFooterActions: Story = {
+  args: {
+    ...Default.args,
+    footerActions: [
+      {
+        label: "View Details",
+        onClick: e => {
+          action("view-details-clicked")(e);
+          window.alert("View Details clicked");
+        },
+        variant: "primary",
+        icon: <Icon iconName='IconEye' className='w-4 h-4' />
+      },
+      {
+        label: "Share",
+        onClick: e => {
+          action("share-clicked")(e);
+          window.alert("Share clicked");
+        },
+        variant: "outlined",
+        icon: <Icon iconName='IconShare' className='w-4 h-4' />
+      }
+    ]
+  }
+};
+
+export const WithSingleFooterAction: Story = {
+  args: {
+    ...Default.args,
+    footerActions: [
+      {
+        label: "Read More",
+        onClick: e => {
+          action("read-more-clicked")(e);
+          window.alert("Read More clicked");
+        },
+        variant: "primary",
+        icon: <Icon iconName='IconArrowRight' className='w-4 h-4' />
+      }
+    ]
+  }
+};
+
+export const WithMultipleFooterActions: Story = {
+  args: {
+    ...Default.args,
+    footerActions: [
+      {
+        label: "Like",
+        onClick: e => {
+          action("like-clicked")(e);
+          window.alert("Like clicked");
+        },
+        variant: "primary",
+        icon: <Icon iconName='IconHeart' className='w-4 h-4' />
+      },
+      {
+        label: "Comment",
+        onClick: e => {
+          action("comment-clicked")(e);
+          window.alert("Comment clicked");
+        },
+        variant: "outlined",
+        icon: <Icon iconName='IconMessage' className='w-4 h-4' />
+      },
+      {
+        label: "Save",
+        onClick: e => {
+          action("save-clicked")(e);
+          window.alert("Save clicked");
+        },
+        variant: "outlined",
+        icon: <Icon iconName='IconBookmark' className='w-4 h-4' />
+      },
+      {
+        label: "Delete",
+        onClick: e => {
+          action("delete-clicked")(e);
+          window.alert("Delete clicked");
+        },
+        variant: "danger",
+        icon: <Icon iconName='IconDeleteBin' className='w-4 h-4' />
+      }
+    ]
+  }
+};
+
+export const WithTopAndBottomActions: Story = {
+  args: {
+    ...Default.args,
+    actions: [
+      {
+        label: "Edit",
+        onClick: e => {
+          action("edit-clicked")(e);
+          window.alert("Edit action clicked");
+        },
+        variant: "primary",
+        icon: <Icon iconName='IconEdit' className='w-4 h-4' />
+      }
+    ],
+    footerActions: [
+      {
+        label: "View Comments",
+        onClick: e => {
+          action("view-comments-clicked")(e);
+          window.alert("View Comments clicked");
+        },
+        variant: "outlined",
+        icon: <Icon iconName='IconMessage' className='w-4 h-4' />
+      },
+      {
+        label: "Share Article",
+        onClick: e => {
+          action("share-article-clicked")(e);
+          window.alert("Share Article clicked");
+        },
+        variant: "primary",
+        icon: <Icon iconName='IconShare' className='w-4 h-4' />
+      }
+    ]
+  }
+};
+
+export const FooterActionsNoImage: Story = {
+  args: {
+    ...Default.args,
+    data: {
+      ...defaultData,
+      image: undefined
+    },
+    footerActions: [
+      {
+        label: "Continue Reading",
+        onClick: e => {
+          action("continue-reading-clicked")(e);
+          window.alert("Continue Reading clicked");
+        },
+        variant: "primary",
+        icon: <Icon iconName='IconArrowRight' className='w-4 h-4' />
+      },
+      {
+        label: "Add to Favorites",
+        onClick: e => {
+          action("add-to-favorites-clicked")(e);
+          window.alert("Add to Favorites clicked");
+        },
+        variant: "outlined",
+        icon: <Icon iconName='IconHeart' className='w-4 h-4' />
+      }
+    ]
+  }
+};
+
+export const ConditionalFooterActions: Story = {
+  args: {
+    ...Default.args,
+    footerActions: [
+      {
+        label: "Visible Action",
+        onClick: e => {
+          action("visible-action-clicked")(e);
+          window.alert("Visible Action clicked");
+        },
+        variant: "primary",
+        show: true,
+        icon: <Icon iconName='IconCheck' className='w-4 h-4' />
+      },
+      {
+        label: "Hidden Action",
+        onClick: e => {
+          action("hidden-action-clicked")(e);
+          window.alert("Hidden Action clicked");
+        },
+        variant: "danger",
+        show: false,
+        icon: <Icon iconName='IconX' className='w-4 h-4' />
+      }
+    ]
+  }
+};
+
 export default CardStories;

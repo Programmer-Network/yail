@@ -33,6 +33,7 @@ import * as ReactionsTypes from "./Components/Reactions/types";
 import * as ShareButtonTypes from "./Components/ShareButton/types";
 import * as SpinnerTypes from "./Components/Spinner/types";
 import * as StarsTypes from "./Components/Stars/types";
+import * as TabsTypes from "./Components/Tabs/types";
 import * as TagTypes from "./Components/Tag/types";
 import * as TextOverLineTypes from "./Components/TextOverLine/types";
 import * as ThemeBuilderTypes from "./Components/ThemeBuilder/types";
@@ -76,6 +77,7 @@ export {
   ShareButtonTypes,
   SpinnerTypes,
   StarsTypes,
+  TabsTypes,
   TagTypes,
   TextOverLineTypes,
   ThemeBuilderTypes,

@@ -6,6 +6,7 @@ import CardSkeleton from "./CardSkeleton";
 import {
   CardActions,
   CardAuthor,
+  CardFooterActions,
   CardHeader,
   CardPills,
   CardStatusIndicators,
@@ -34,6 +35,7 @@ const Card: FC<ICard> = memo(
     onImageClick,
     onBookmark,
     actions,
+    footerActions,
     onShare
   }) => {
     const cardId = useId();
@@ -72,7 +74,7 @@ const Card: FC<ICard> = memo(
     }
 
     const cardClasses = classNames(
-      "yl:group yl:flex yl:flex-col yl:justify-center yl:border-2 yl:border-border yl:rounded-lg yl:overflow-hidden yl:transition-all yl:duration-200 yl:relative",
+      "yl:group yl:flex yl:flex-col yl:justify-start yl:border-2 yl:border-border yl:rounded-lg yl:overflow-hidden yl:transition-all yl:duration-200 yl:relative",
       "yl:hover:shadow-md yl:hover:-translate-y-1 yl:focus:outline-none yl:focus:ring-2 yl:focus:ring-primary yl:focus:ring-offset-2 yl:hover:border-primary/50",
       getVariantClasses(variant),
       {
@@ -189,6 +191,8 @@ const Card: FC<ICard> = memo(
               onToggleTagsVisibility={tagVisibility.toggleTagsVisibility}
               NavLink={NavLink}
             />
+
+            <CardFooterActions footerActions={footerActions} />
           </div>
         </div>
       </article>

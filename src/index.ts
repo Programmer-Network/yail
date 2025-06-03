@@ -35,6 +35,7 @@ export { default as Reactions } from "Components/Reactions";
 export { default as ShareButton } from "Components/ShareButton";
 export { default as Spinner } from "Components/Spinner";
 export { default as Stars } from "Components/Stars";
+export * from "Components/Tabs";
 export { default as Tag } from "Components/Tag";
 export { default as TextOverLine } from "Components/TextOverLine";
 export { default as ThemeBuilder } from "Components/ThemeBuilder";
