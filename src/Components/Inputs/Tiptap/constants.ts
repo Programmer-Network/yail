@@ -125,7 +125,8 @@ export const toolbarItemToClassName = {
   },
   [TIPTAP_TOOLBAR_ITEMS.IMAGE]: {
     tagName: "img",
-    classes: "yl:mx-auto yl:block yl:p-2 yl:border yl:border-background"
+    classes:
+      "yl:mx-auto yl:block yl:p-2 yl:border-2 yl:border-border yl:my-4 yl:rounded-md yl:shadow-md"
   },
   [TIPTAP_TOOLBAR_ITEMS.MENTION]: {
     tagName: "span",

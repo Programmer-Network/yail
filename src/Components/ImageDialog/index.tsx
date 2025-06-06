@@ -29,7 +29,11 @@ const ImageDialog = forwardRef<HTMLDialogElement, IImageDialogProps>(
         aspect: 1,
         circularCrop: false
       },
-      buttonText
+      buttonText,
+      compression = { enabled: true, quality: 0.8 },
+      maxFileSize = 1024 * 1024 * 0.5,
+      allowedMimeTypes = ["image/jpeg", "image/png", "image/gif"],
+      inputLabel = "Select an image"
     },
     forwardedRef
   ) => {
@@ -47,6 +51,7 @@ const ImageDialog = forwardRef<HTMLDialogElement, IImageDialogProps>(
         }
 
         setIsSaving(true);
+
         await onSave?.({
           blob: croppedImage,
           base64: await ImageUtils.blobToBase64(croppedImage),
@@ -144,11 +149,11 @@ const ImageDialog = forwardRef<HTMLDialogElement, IImageDialogProps>(
             setValidationError(error);
           }}
           error={validationError?.message}
-          label='Select an image'
+          label={inputLabel}
           accept='image/*'
-          maxFileSize={1024 * 1024 * 0.5} // 500KB
-          allowedMimeTypes={["image/jpeg", "image/png", "image/gif"]}
-          compression={{ enabled: true, quality: 0.8 }}
+          maxFileSize={maxFileSize}
+          allowedMimeTypes={allowedMimeTypes}
+          compression={compression}
         />
       </div>
     );

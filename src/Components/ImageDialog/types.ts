@@ -16,4 +16,8 @@ export interface IImageDialogProps extends IDialogProps {
   onSave?: (args: IImageDialogOnSaveArgs) => Promise<unknown>;
   cropOptions?: IImageDialogCropOptions;
   buttonText: string;
+  compression?: { enabled: boolean; maxWidth?: number; quality?: number };
+  maxFileSize?: number;
+  allowedMimeTypes?: string[];
+  inputLabel?: string;
 }

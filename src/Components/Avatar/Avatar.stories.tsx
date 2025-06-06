@@ -23,7 +23,7 @@ export const Default: Story = {
 
 export const WithURL: Story = {
   args: {
-    src: "https://imagedelivery.net/mG9yIKlH_7CYi04eBXEpYg/47d46959-283a-4d0f-4ff3-6a1fa4686b00/public",
+    src: "https://images.programmer.network/47d46959-283a-4d0f-4ff3-6a1fa4686b00/public",
     size: 150
   }
 };

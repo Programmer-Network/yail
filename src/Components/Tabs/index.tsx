@@ -5,15 +5,7 @@ import { ITabListProps, ITabPanelProps, ITabProps, ITabsProps } from "./types";
 
 export const Tabs: ReactTabs.ReactTabsFunctionComponent<ITabsProps> = props => {
   return (
-    <ReactTabs.Tabs
-      {...props}
-      selectedTabClassName={classNames(
-        "yl:text-primary yl:border-primary yl:bg-primary/5",
-        "after:yl:opacity-100 after:yl:scale-x-100",
-        "yl:font-semibold",
-        props.selectedTabClassName
-      )}
-    >
+    <ReactTabs.Tabs {...props} className={props.className}>
       {props.children}
     </ReactTabs.Tabs>
   );
@@ -28,9 +20,7 @@ export const TabList: ReactTabs.ReactTabsFunctionComponent<
     <ReactTabs.TabList
       {...props}
       className={classNames(
-        "yl:flex yl:gap-1 yl:my-6 yl:overflow-x-auto yl:select-none yl:text-text",
-        "yl:bg-card yl:rounded-lg yl:p-1 yl:border-2 yl:border-border",
-        "yl:backdrop-blur-sm",
+        "yl:text-text yl:flex yl:gap-6 yl:border-b-2 yl:border-border yl:pb-4",
         props.className
       )}
     >
@@ -48,7 +38,6 @@ export const TabPanel: ReactTabs.ReactTabsFunctionComponent<
     <ReactTabs.TabPanel
       {...props}
       className={classNames(
-        "yl:mt-4 yl:outline-none",
         "yl:animate-in yl:fade-in-0 yl:duration-200",
         props.className
       )}
@@ -64,30 +53,10 @@ export const Tab: ReactTabs.ReactTabsFunctionComponent<ITabProps> = props => {
   return (
     <ReactTabs.Tab
       {...props}
+      selectedClassName='yl:text-primary'
+      disabledClassName='yl:!cursor-not-allowed yl:opacity-50'
       className={classNames(
-        "yl:flex yl:gap-2 yl:items-center yl:justify-center",
-        "yl:cursor-pointer yl:relative yl:transition-all yl:duration-200",
-        "yl:px-4 yl:py-2.5 yl:rounded-md yl:text-sm yl:font-medium",
-        "yl:min-w-0 yl:whitespace-nowrap",
-
-        "yl:text-text-secondary yl:bg-transparent",
-        "yl:border-2 yl:border-transparent",
-
-        "hover:yl:text-text hover:yl:bg-background/50",
-        "hover:yl:border-border/50",
-
-        "focus:yl:outline-none focus:yl:ring-2 focus:yl:ring-primary/20",
-        "focus:yl:border-primary/30",
-
-        "after:yl:content-[''] after:yl:absolute after:yl:bottom-0",
-        "after:yl:left-1/2 after:yl:-translate-x-1/2",
-        "after:yl:w-0 after:yl:h-0.5 after:yl:bg-primary",
-        "after:yl:rounded-full after:yl:transition-all after:yl:duration-300",
-        "after:yl:opacity-0 after:yl:scale-x-0",
-
-        "disabled:yl:cursor-not-allowed disabled:yl:opacity-50",
-        "disabled:hover:yl:text-text-secondary disabled:hover:yl:bg-transparent",
-
+        "yl:hover:cursor-pointer yl:outline-none yl:focus-visible:outline-none yl:flex yl:gap-1 yl:items-center yl:justify-center yl:transition-all yl:duration-200 yl:ease-in-out yl:text-text-secondary",
         props.className
       )}
     >

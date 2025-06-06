@@ -239,3 +239,78 @@ export const Compact: Story = {
     </div>
   )
 };
+
+export const DisabledTabs: Story = {
+  render: () => (
+    <div className='w-[500px] p-6'>
+      <Tabs>
+        <TabList>
+          <Tab>Active</Tab>
+          <Tab disabled>Disabled</Tab>
+          <Tab>Another</Tab>
+        </TabList>
+        <TabPanel>
+          <div className='text-text'>This tab is active and enabled.</div>
+        </TabPanel>
+        <TabPanel>
+          <div className='text-text'>
+            This tab is disabled and cannot be selected.
+          </div>
+        </TabPanel>
+        <TabPanel>
+          <div className='text-text'>Another enabled tab.</div>
+        </TabPanel>
+      </Tabs>
+    </div>
+  )
+};
+
+export const LongLabels: Story = {
+  render: () => (
+    <div className='w-[600px] p-6'>
+      <Tabs>
+        <TabList>
+          <Tab>This is a very long tab label to test overflow</Tab>
+          <Tab>Short</Tab>
+          <Tab>Another extremely long tab label for testing</Tab>
+        </TabList>
+        <TabPanel>
+          <div className='text-text'>Long label tab content.</div>
+        </TabPanel>
+        <TabPanel>
+          <div className='text-text'>Short label tab content.</div>
+        </TabPanel>
+        <TabPanel>
+          <div className='text-text'>Another long label tab content.</div>
+        </TabPanel>
+      </Tabs>
+    </div>
+  )
+};
+
+export const MixedEnabledDisabled: Story = {
+  render: () => (
+    <div className='w-[500px] p-6'>
+      <Tabs>
+        <TabList>
+          <Tab>First</Tab>
+          <Tab disabled>Second (Disabled)</Tab>
+          <Tab>Third</Tab>
+          <Tab disabled>Fourth (Disabled)</Tab>
+        </TabList>
+        <TabPanel>
+          <div className='text-text'>First tab content.</div>
+        </TabPanel>
+        <TabPanel>
+          <div className='text-text'>Second tab is disabled.</div>
+        </TabPanel>
+        <TabPanel>
+          <div className='text-text'>Third tab content.</div>
+        </TabPanel>
+        <TabPanel>
+          <div className='text-text'>Fourth tab is disabled.</div>
+        </TabPanel>
+      </Tabs>
+    </div>
+  )
+};
