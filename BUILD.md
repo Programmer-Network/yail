@@ -40,3 +40,10 @@ pnpm build
 ```
 
 This will create a `dist` folder with the compiled code.
+
+## Running Tests
+
+To run the test suite, use the following command:
+
+```bash
+pnpm test
