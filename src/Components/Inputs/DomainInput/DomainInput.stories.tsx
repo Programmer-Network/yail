@@ -6,9 +6,7 @@ import DomainInput from ".";
 export default {
   title: "Input/DomainInput",
   component: DomainInput,
-  parameters: {
-    layout: "centered"
-  },
+
   argTypes: {
     onChange: { action: "changed" }
   }

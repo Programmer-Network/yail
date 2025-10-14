@@ -4,9 +4,6 @@ import { Alert } from "index";
 const meta = {
   title: "Core / Alert",
   component: Alert,
-  parameters: {
-    layout: "centered"
-  },
   tags: ["autodocs"],
   argTypes: {}
 } satisfies Meta<typeof Alert>;

@@ -5,9 +5,6 @@ import { IDropdownProps } from "./types";
 
 const DropdownStories: Meta<IDropdownProps> = {
   title: "Components/Dropdown",
-  parameters: {
-    layout: "centered"
-  },
   component: Dropdown
 };
 

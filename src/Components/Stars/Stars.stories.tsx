@@ -5,9 +5,7 @@ import Stars from ".";
 const meta = {
   title: "Core/Stars",
   component: Stars,
-  parameters: {
-    layout: "centered"
-  },
+
   tags: ["autodocs"],
   argTypes: {}
 } satisfies Meta<typeof Stars>;

@@ -3,9 +3,7 @@ import Paragraph from "../Paragraph";
 
 export default {
   title: "Typography/H6",
-  parameters: {
-    layout: "centered"
-  },
+
   component: H6
 };
 

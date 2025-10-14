@@ -6,9 +6,7 @@ import { ISelectProps } from "./types";
 
 export default {
   title: "Input/Select",
-  parameters: {
-    layout: "centered"
-  },
+
   component: Select,
   argTypes: {
     onChange: { action: "changed" }

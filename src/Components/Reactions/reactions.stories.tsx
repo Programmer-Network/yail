@@ -10,9 +10,7 @@ import {
 
 const ReactionsStories: Meta<IReactionsProps> = {
   title: "Components/Reactions",
-  parameters: {
-    layout: "centered"
-  },
+
   component: Reactions,
   argTypes: {
     onLike: { action: "liked" },

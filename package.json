@@ -1,6 +1,6 @@
 {
   "name": "@programmer_network/yail",
-  "version": "1.0.236",
+  "version": "1.0.237",
   "description": "Programmer Network's official UI library for React",
   "author": "Aleksandar Grbic - (https://programmer.network)",
   "publishConfig": {
@@ -73,6 +73,7 @@
     "@tailwindcss/typography": "0.5.16",
     "@testing-library/jest-dom": "6.6.3",
     "@testing-library/react": "16.3.0",
+    "@testing-library/user-event": "14.6.1",
     "@trivago/prettier-plugin-sort-imports": "5.2.2",
     "@types/jest": "29.5.14",
     "@types/node": "22.15.21",
@@ -146,6 +147,7 @@
     "boring-avatars": "1.11.2",
     "classnames": "2.5.1",
     "eslint-plugin-import": "2.31.0",
+    "fuse.js": "7.1.0",
     "prosemirror-model": "1.25.1",
     "prosemirror-state": "1.4.3",
     "react-colorful": "5.6.1",

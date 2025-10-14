@@ -5,9 +5,6 @@ import CharacterCounter from ".";
 const meta = {
   title: "Core/CharacterCounter",
   component: CharacterCounter,
-  parameters: {
-    layout: "centered"
-  },
   tags: ["autodocs"],
   argTypes: {}
 } satisfies Meta<typeof CharacterCounter>;

@@ -4,9 +4,6 @@ import ContentWidget from ".";
 
 export default {
   title: "Core/ContentWidget",
-  parameters: {
-    layout: "centered"
-  },
   component: ContentWidget
 };
 

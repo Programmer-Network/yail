@@ -2,9 +2,7 @@ import Paragraph from ".";
 
 export default {
   title: "Typography/Paragraph",
-  parameters: {
-    layout: "centered"
-  },
+
   component: Paragraph
 };
 

@@ -6,9 +6,6 @@ import { ICardsProps } from "./types";
 
 const CardsStories: Meta<ICardsProps> = {
   title: "Components/Cards",
-  parameters: {
-    layout: "centered"
-  },
   component: Cards,
   argTypes: {}
 } satisfies Meta<typeof Cards>;

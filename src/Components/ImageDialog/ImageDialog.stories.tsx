@@ -5,9 +5,7 @@ import { IImageDialogOnSaveArgs } from "./types";
 
 export default {
   title: "Components / ImageDialog",
-  parameters: {
-    layout: "centered"
-  },
+
   component: ImageDialog
 };
 

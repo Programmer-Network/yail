@@ -29,32 +29,32 @@ export const TIPTAP_TOOLBAR_ITEMS = {
 export const typograyClassNames = {
   h1: (className?: string) =>
     classNames(
-      "yl:text-3xl yl:sm:text-4xl yl:md:text-5xl yl:text-text yl:break-words yl:overflow-hidden yl:font-bold",
+      "yl:text-3xl yl:sm:text-4xl yl:md:text-5xl yl:text-text yl:break-words yl:font-bold",
       className
     ),
   h2: (className?: string) =>
     classNames(
-      "yl:text-2xl yl:sm:text-3xl yl:md:text-4xl yl:text-text yl:break-words yl:overflow-hidden yl:font-bold",
+      "yl:text-2xl yl:sm:text-3xl yl:md:text-4xl yl:text-text yl:break-words yl:font-bold",
       className
     ),
   h3: (className?: string) =>
     classNames(
-      "yl:text-xl yl:sm:text-2xl yl:md:text-3xl yl:text-text yl:break-words yl:overflow-hidden yl:font-bold",
+      "yl:text-xl yl:sm:text-2xl yl:md:text-3xl yl:text-text yl:break-words yl:font-bold",
       className
     ),
   h4: (className?: string) =>
     classNames(
-      "text-lg yl:sm:text-xl yl:md:text-2xl yl:text-text yl:break-words yl:overflow-hidden yl:font-bold",
+      "text-lg yl:sm:text-xl yl:md:text-2xl yl:text-text yl:break-words yl:font-bold",
       className
     ),
   h5: (className?: string) =>
     classNames(
-      "yl:text-md yl:sm:text-lg yl:md:text-xl yl:text-text yl:break-words yl:overflow-hidden yl:font-bold",
+      "yl:text-md yl:sm:text-lg yl:md:text-xl yl:text-text yl:break-words yl:font-bold",
       className
     ),
   h6: (className?: string) =>
     classNames(
-      "yl:text-sm yl:sm:text-md yl:md:text-lg yl:text-text yl:break-words yl:overflow-hidden yl:font-bold",
+      "yl:text-sm yl:sm:text-md yl:md:text-lg yl:text-text yl:break-words yl:font-bold",
       className
     ),
   p: (className?: string) =>

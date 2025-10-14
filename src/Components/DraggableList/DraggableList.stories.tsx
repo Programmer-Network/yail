@@ -6,9 +6,6 @@ import { IDraggableListItem } from "./types";
 const meta = {
   title: "Core/DraggableList",
   component: DraggableList,
-  parameters: {
-    layout: "centered"
-  },
   tags: ["autodocs"],
   argTypes: {}
 } satisfies Meta<typeof DraggableList>;

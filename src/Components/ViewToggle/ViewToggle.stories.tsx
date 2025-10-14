@@ -7,9 +7,7 @@ import { ViewType } from "./types";
 const meta: Meta<typeof ViewToggle> = {
   title: "Components/ViewToggle",
   component: ViewToggle,
-  parameters: {
-    layout: "centered"
-  },
+
   tags: ["autodocs"]
 };
 

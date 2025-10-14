@@ -8,9 +8,7 @@ import { IAsyncSelectProps, Response } from "./types";
 
 export default {
   title: "Input/AsyncSelect",
-  parameters: {
-    layout: "centered"
-  },
+
   component: AsyncSelect,
   argTypes: {
     onChange: { action: "changed" }

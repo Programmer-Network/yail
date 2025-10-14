@@ -8,9 +8,7 @@ import { TiptapActionsEnum, TiptapRef } from "./types";
 
 export default {
   title: "Rich Text Editing / Tiptap",
-  parameters: {
-    layout: "centered"
-  },
+
   component: Tiptap
 };
 

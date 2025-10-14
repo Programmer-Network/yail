@@ -8,9 +8,6 @@ import ElevatedCard from ".";
 export default {
   title: "Components/ElevatedCard",
   component: ElevatedCard,
-  parameters: {
-    layout: "centered"
-  },
   tags: ["autodocs"]
 };
 

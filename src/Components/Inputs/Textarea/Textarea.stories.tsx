@@ -5,9 +5,7 @@ import Textrea from ".";
 const meta = {
   title: "Input/Textrea",
   component: Textrea,
-  parameters: {
-    layout: "centered"
-  },
+
   tags: ["autodocs"],
   argTypes: {}
 } satisfies Meta<typeof Textrea>;

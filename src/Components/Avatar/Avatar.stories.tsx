@@ -5,9 +5,6 @@ import Avatar from ".";
 const meta = {
   title: "Core/Avatar",
   component: Avatar,
-  parameters: {
-    layout: "centered"
-  },
   tags: ["autodocs"],
   argTypes: {}
 } satisfies Meta<typeof Avatar>;

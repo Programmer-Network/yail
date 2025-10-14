@@ -19,7 +19,9 @@ import * as DraggableListTypes from "./Components/DraggableList/types";
 import * as DropdownTypes from "./Components/Dropdown/types";
 import * as ElevatedCardTypes from "./Components/ElevatedCard/types";
 import * as ErrorTypes from "./Components/Error/types";
+import * as FiltersTypes from "./Components/Filters/types";
 import * as FormActionsTypes from "./Components/FormActions/types";
+import * as HeroTypes from "./Components/Hero/Hero.types";
 import * as IconTypes from "./Components/Icon/types";
 import * as ImageCropTypes from "./Components/ImageCrop/types";
 import * as ImageDialogTypes from "./Components/ImageDialog/types";
@@ -62,7 +64,9 @@ export {
   DropdownTypes,
   ElevatedCardTypes,
   ErrorTypes,
+  FiltersTypes,
   FormActionsTypes,
+  HeroTypes,
   IconTypes,
   ImageCropTypes,
   ImageDialogTypes,

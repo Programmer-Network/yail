@@ -7,9 +7,11 @@ import "../src/tailwind.css";
 const preview: Preview = {
   decorators: [
     Story => (
-      <MemoryRouter>
-        <Story />
-      </MemoryRouter>
+      <div className='yl:mx-auto yl:my-6 yl:w-full yl:px-4 yl:sm:max-w-5xl yl:md:max-w-4xl yl:lg:max-w-5xl yl:pb-16 yl:md:pb-0 yl:lg:px-0'>
+        <MemoryRouter>
+          <Story />
+        </MemoryRouter>
+      </div>
     )
   ],
   parameters: {

@@ -83,6 +83,7 @@ export const styles: StylesConfig<Option | undefined, false | true> = {
   placeholder: (base: CSSObjectWithLabel) => {
     return {
       ...base,
+      fontSize: "0.875rem",
       color: muted
     };
   },

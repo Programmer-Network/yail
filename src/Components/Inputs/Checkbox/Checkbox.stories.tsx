@@ -5,9 +5,7 @@ import Checkbox from ".";
 
 export default {
   title: "Input/Checkbox",
-  parameters: {
-    layout: "centered"
-  },
+
   component: Checkbox,
   argTypes: {
     onChange: { action: "changed" }

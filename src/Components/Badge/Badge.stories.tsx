@@ -6,9 +6,6 @@ import { BadgeVariantEnum } from "./types";
 const meta = {
   title: "Core/Badge",
   component: Badge,
-  parameters: {
-    layout: "centered"
-  },
   tags: ["autodocs"],
   argTypes: {
     variant: {

@@ -5,9 +5,6 @@ import { ICTAProps } from "./types";
 
 export default {
   title: "Components/CTA",
-  parameters: {
-    layout: "centered"
-  },
   component: CTA
 };
 

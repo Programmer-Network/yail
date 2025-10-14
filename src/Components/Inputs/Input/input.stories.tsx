@@ -5,9 +5,7 @@ import Input from ".";
 const meta = {
   title: "Input/Input",
   component: Input,
-  parameters: {
-    layout: "centered"
-  },
+
   tags: ["autodocs"],
   argTypes: {}
 } satisfies Meta<typeof Input>;

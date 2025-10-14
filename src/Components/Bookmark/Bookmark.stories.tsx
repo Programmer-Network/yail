@@ -2,9 +2,6 @@ import Bookmark from ".";
 
 export default {
   title: "Core / Bookmark",
-  parameters: {
-    layout: "centered"
-  },
   tags: ["autodocs"]
 };
 

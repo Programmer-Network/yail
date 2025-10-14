@@ -22,4 +22,5 @@ export interface ISelectProps {
   ) => void;
   options: Option[];
   inputWrapperClassName?: string;
+  placeholder?: string;
 }

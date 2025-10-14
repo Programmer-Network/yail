@@ -1,10 +1,7 @@
 import AuthorCard from ".";
 
 export default {
-  title: "Components / Author Card",
-  parameters: {
-    layout: "centered"
-  }
+  title: "Components / Author Card"
 };
 
 export const Primary = () => {

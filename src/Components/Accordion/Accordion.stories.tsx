@@ -9,9 +9,6 @@ import { ISection } from "./types";
 const meta = {
   title: "Core / Accordion",
   component: Accordion,
-  parameters: {
-    layout: "centered"
-  },
   tags: ["autodocs"],
   argTypes: {}
 } satisfies Meta<typeof Accordion>;

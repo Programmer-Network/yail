@@ -5,9 +5,7 @@ import { Tab, TabList, TabPanel, Tabs } from "./index";
 const meta: Meta<typeof Tabs> = {
   title: "Components/Tabs",
   component: Tabs,
-  parameters: {
-    layout: "centered"
-  },
+
   tags: ["autodocs"]
 };
 

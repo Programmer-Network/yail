@@ -4,9 +4,6 @@ import FormActions from ".";
 
 export default {
   title: "Components/FormActions",
-  parameters: {
-    layout: "centered"
-  },
   component: FormActions,
   argTypes: {
     size: {

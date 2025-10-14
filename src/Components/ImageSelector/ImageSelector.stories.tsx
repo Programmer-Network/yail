@@ -6,9 +6,7 @@ import { IImage } from "./types";
 
 export default {
   title: "Components / ImageSelector",
-  parameters: {
-    layout: "centered"
-  },
+
   tags: ["autodocs"]
 };
 

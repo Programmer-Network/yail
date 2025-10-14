@@ -15,7 +15,7 @@ exports[`CTA component > renders correctly - snapshot test 1`] = `
           class="yl:flex yl:flex-col yl:gap-2"
         >
           <h3
-            class="yl:text-xl yl:sm:text-2xl yl:md:text-3xl yl:text-text yl:break-words yl:overflow-hidden yl:font-bold"
+            class="yl:text-xl yl:sm:text-2xl yl:md:text-3xl yl:text-text yl:break-words yl:font-bold"
           >
             Test Title
           </h3>

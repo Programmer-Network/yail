@@ -5,9 +5,7 @@ import InputError from ".";
 const meta = {
   title: "Input/Common/InputError",
   component: InputError,
-  parameters: {
-    layout: "centered"
-  },
+
   tags: ["autodocs"],
   argTypes: {}
 } satisfies Meta<typeof InputError>;

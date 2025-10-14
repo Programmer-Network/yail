@@ -5,9 +5,7 @@ import DatePicker from ".";
 export default {
   title: "Input/DatePicker",
   component: DatePicker,
-  parameters: {
-    layout: "centered"
-  },
+
   argTypes: {
     onChange: { action: "changed" }
   }

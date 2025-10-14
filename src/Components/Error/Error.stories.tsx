@@ -5,9 +5,6 @@ import Error from ".";
 export default {
   title: "Components/Error",
   component: Error,
-  parameters: {
-    layout: "centered"
-  },
   tags: ["autodocs"]
 };
 

@@ -2,9 +2,6 @@ import AddSocialPlatform from ".";
 
 export default {
   title: "Components/AddSocialPlatform",
-  parameters: {
-    layout: "centered"
-  },
   component: AddSocialPlatform
 };
 

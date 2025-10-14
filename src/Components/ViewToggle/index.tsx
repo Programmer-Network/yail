@@ -13,14 +13,16 @@ const ViewToggle: FC<IViewToggleProps> = ({
   className
 }) => {
   return (
-    <div className={classNames("yl:flex yl:gap-1", className)}>
+    <div
+      className={classNames("yl:flex yl:gap-1", className)}
+      data-testid='view-toggle'
+    >
       <Button
         variant={
           currentView === "card"
             ? ButtonVariantEnum.PRIMARY
             : ButtonVariantEnum.SECONDARY
         }
-        outlined
         onClick={() => onViewChange("card")}
       >
         <div className='yl:flex yl:gap-1 yl:items-center'>
@@ -33,7 +35,6 @@ const ViewToggle: FC<IViewToggleProps> = ({
             ? ButtonVariantEnum.PRIMARY
             : ButtonVariantEnum.SECONDARY
         }
-        outlined
         onClick={() => onViewChange("table")}
       >
         <div className='yl:flex yl:gap-1 yl:items-center'>

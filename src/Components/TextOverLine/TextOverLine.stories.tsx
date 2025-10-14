@@ -5,9 +5,7 @@ import TextOverLine from ".";
 const meta = {
   title: "Core/TextOverLine",
   component: TextOverLine,
-  parameters: {
-    layout: "centered"
-  },
+
   tags: ["autodocs"],
   argTypes: {}
 } satisfies Meta<typeof TextOverLine>;

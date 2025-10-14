@@ -5,9 +5,7 @@ import Spinner from ".";
 const meta = {
   title: "Core/Spinner",
   component: Spinner,
-  parameters: {
-    layout: "centered"
-  },
+
   tags: ["autodocs"],
   argTypes: {}
 } satisfies Meta<typeof Spinner>;

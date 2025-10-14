@@ -14,9 +14,6 @@ const action =
 const CardStories: Meta<typeof Card> = {
   title: "Components/Card",
   component: Card,
-  parameters: {
-    layout: "centered"
-  },
   decorators: [
     Story => {
       return (

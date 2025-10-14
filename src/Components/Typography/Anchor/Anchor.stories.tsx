@@ -5,9 +5,7 @@ import Anchor from ".";
 const meta = {
   title: "Typography/Anchor",
   component: Anchor,
-  parameters: {
-    layout: "centered"
-  },
+
   tags: ["autodocs"],
   argTypes: {}
 } satisfies Meta<typeof Anchor>;

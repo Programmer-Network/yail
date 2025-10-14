@@ -8,9 +8,6 @@ import ConfirmDialog from "./index";
 export default {
   title: "Components/ConfirmDialog",
   component: ConfirmDialog,
-  parameters: {
-    layout: "centered"
-  },
   tags: ["autodocs"]
 };
 

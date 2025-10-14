@@ -2,9 +2,7 @@ import PasswordChanged from ".";
 
 export default {
   title: "Views/PasswordChanged",
-  parameters: {
-    layout: "centered"
-  },
+
   component: PasswordChanged
 };
 

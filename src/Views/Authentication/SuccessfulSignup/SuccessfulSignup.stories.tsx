@@ -2,9 +2,7 @@ import SuccessfulSignup from ".";
 
 export default {
   title: "Views/SuccessfulSignup",
-  parameters: {
-    layout: "centered"
-  },
+
   component: SuccessfulSignup
 };
 
