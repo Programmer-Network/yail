@@ -11,9 +11,7 @@ export interface IFiltersProps {
   };
   tags: {
     selected: string[];
-    onChange: (
-      option: Record<string, string[] | string | number[] | number>
-    ) => void;
+    onChange: (options: string[]) => void;
     options: { value: string; label: string }[];
     showOutside: boolean;
   };

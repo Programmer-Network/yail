@@ -111,7 +111,13 @@ const Filters: FC<IFiltersProps> = ({
               value={tags.selected}
               isMulti
               isSearchable
-              onChange={tags.onChange}
+              onChange={options => {
+                if (!Array.isArray(options["tags"])) {
+                  throw new Error("Options must be an array");
+                }
+
+                tags.onChange(options["tags"] as string[]);
+              }}
               inputWrapperClassName='yl:min-w-[200px]'
             />
           )}
