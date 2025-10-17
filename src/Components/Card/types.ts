@@ -1,6 +1,6 @@
 import { NavLinkProps } from "react-router-dom";
 
-import { PillVariant } from "../Core/Pill";
+import { PillSize, PillVariant } from "../Core/Pill";
 
 export interface ITag {
   name: string;
@@ -24,7 +24,7 @@ export interface IPill {
   title: string;
   variant?: PillVariant;
   className?: string;
-  size?: "small" | "medium" | "large";
+  size?: PillSize;
   clickable?: boolean;
   onClick?: (e: React.MouseEvent) => void;
 }

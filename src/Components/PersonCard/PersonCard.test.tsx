@@ -1,6 +1,8 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 
+import { PillVariant } from "Components/Core/Pill";
+
 import PersonCardSkeleton from "./PersonCardSkeleton";
 import PersonCard from "./index";
 import { IPerson, IPersonAction } from "./types";
@@ -16,7 +18,7 @@ const mockPerson: IPerson = {
   location: "London, UK",
   badge: {
     text: "Verified",
-    variant: "primary"
+    variant: PillVariant.PRIMARY
   },
   tags: [
     { id: 1, name: "JavaScript" },

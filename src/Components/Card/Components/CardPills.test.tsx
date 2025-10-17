@@ -1,12 +1,14 @@
 import { render, screen } from "@testing-library/react";
 
+import { PillVariant } from "Components/Core/Pill";
+
 import { IPill } from "../types";
 import CardPills from "./CardPills";
 
 describe("CardPills component", () => {
   const mockPills: IPill[] = [
-    { title: "Premium", variant: "primary" },
-    { title: "Editor's Choice", variant: "secondary" },
+    { title: "Premium", variant: PillVariant.PRIMARY },
+    { title: "Editor's Choice", variant: PillVariant.SECONDARY },
     { title: "Custom", className: "custom-class" }
   ];
 
@@ -60,7 +62,9 @@ describe("CardPills component", () => {
   });
 
   it("handles single pill correctly", () => {
-    const singlePill: IPill[] = [{ title: "Single", variant: "primary" }];
+    const singlePill: IPill[] = [
+      { title: "Single", variant: PillVariant.PRIMARY }
+    ];
 
     render(<CardPills pills={singlePill} />);
     expect(screen.getByText("Single")).toBeInTheDocument();

@@ -2,6 +2,8 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import { BrowserRouter, NavLink } from "react-router-dom";
 import { vi } from "vitest";
 
+import { PillVariant } from "Components/Core/Pill";
+
 import Card from ".";
 import { ICardData } from "./types";
 
@@ -105,8 +107,8 @@ describe("Card component", () => {
       const cardWithPills: ICardData = {
         ...fullCardData,
         pills: [
-          { title: "Premium", variant: "primary" },
-          { title: "Editor's Choice", variant: "secondary" }
+          { title: "Premium", variant: PillVariant.PRIMARY },
+          { title: "Editor's Choice", variant: PillVariant.SECONDARY }
         ]
       };
 
@@ -120,10 +122,10 @@ describe("Card component", () => {
       const cardWithManyPills: ICardData = {
         ...fullCardData,
         pills: [
-          { title: "Premium", variant: "primary" },
-          { title: "Editor's Choice", variant: "secondary" },
-          { title: "Trending", variant: "success" },
-          { title: "New", variant: "warning" }
+          { title: "Premium", variant: PillVariant.PRIMARY },
+          { title: "Editor's Choice", variant: PillVariant.SECONDARY },
+          { title: "Trending", variant: PillVariant.SUCCESS },
+          { title: "New", variant: PillVariant.WARNING }
         ]
       };
 

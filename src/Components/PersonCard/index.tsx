@@ -4,7 +4,7 @@ import { FC, ReactNode } from "react";
 import Avatar from "../Avatar";
 import Button from "../Button";
 import { ButtonVariantEnum } from "../Button/types";
-import Pill from "../Core/Pill";
+import Pill, { PillSize, PillVariant } from "../Core/Pill";
 import Icon from "../Icon";
 import { H4, Paragraph } from "../Typography";
 import { IBadge, IPersonAction, IPersonCardProps, ITag } from "./types";
@@ -43,7 +43,7 @@ const PersonCard: FC<IPersonCardProps> = ({
   const getBadgeProps = (badge: IBadge | undefined) => {
     if (!badge) return null;
 
-    return { text: badge.text, variant: badge.variant || "primary" };
+    return { text: badge.text, variant: badge.variant || PillVariant.PRIMARY };
   };
 
   const badgeProps = getBadgeProps(badge);
@@ -143,7 +143,7 @@ const PersonCard: FC<IPersonCardProps> = ({
           {name}
         </H4>
         {badgeProps && (
-          <Pill variant={badgeProps.variant} size='small'>
+          <Pill variant={badgeProps.variant} size={PillSize.SMALL}>
             {badgeProps.text}
           </Pill>
         )}
@@ -213,14 +213,14 @@ const PersonCard: FC<IPersonCardProps> = ({
                   ? (e: React.MouseEvent) => handleTagClick(tag, e)
                   : undefined
               }
-              variant='primary'
-              size='small'
+              variant={PillVariant.PRIMARY}
+              size={PillSize.SMALL}
             >
               {tag.name}
             </Pill>
           ))}
           {tags.length > maxTags && (
-            <Pill variant='secondary' size='small'>
+            <Pill variant={PillVariant.SECONDARY} size={PillSize.SMALL}>
               +{tags.length - maxTags}
             </Pill>
           )}

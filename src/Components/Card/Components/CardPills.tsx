@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import Pill from "../../Core/Pill";
+import Pill, { PillSize, PillVariant } from "../../Core/Pill";
 import { IPill } from "../types";
 
 interface ICardPills {
@@ -17,8 +17,8 @@ const CardPills: FC<ICardPills> = ({ pills }) => {
       {pills.map((pill, index) => (
         <Pill
           key={`${pill.title}-${index}`}
-          variant={pill.variant}
-          size={pill.size}
+          variant={pill.variant || PillVariant.PRIMARY}
+          size={pill.size || PillSize.MEDIUM}
           className={pill.className}
           clickable={pill.clickable}
           onClick={pill.onClick}
