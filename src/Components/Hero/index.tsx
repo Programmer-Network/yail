@@ -63,11 +63,11 @@ const Hero: FC<IHeroProps> = ({
                 <Pill
                   key={idx}
                   variant={pill.variant}
-                  size={pill.size || "large"}
+                  size={pill.size}
                   className={pill.className}
                   icon={pill["icon"]}
                 >
-                  {pill["label"]}
+                  {pill["children"]}
                 </Pill>
               ))}
             </div>

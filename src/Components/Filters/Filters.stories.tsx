@@ -32,7 +32,6 @@ const FiltersWithState = (props: any) => {
         selected,
         onChange: setSelected,
         options: tags.map(tag => ({ value: tag, label: tag })),
-        showOutside: props.showOutside || false,
         ...(props.tags || {})
       }}
       view={{
@@ -57,7 +56,6 @@ export const WithTagsShownOutside: Story = {
   render: () => (
     <FiltersWithState
       tags={{
-        showOutside: true,
         options: tags.map(tag => ({ value: tag, label: tag })),
         selected: ["react", "postgres"]
       }}
@@ -104,8 +102,7 @@ export const OnlySearch: Story = {
         tags={{
           selected: [],
           onChange: () => {},
-          options: [],
-          showOutside: false
+          options: []
         }}
         view={{
           value: "card",
@@ -134,8 +131,7 @@ export const WithSorting: Story = {
         tags={{
           selected: [],
           onChange: () => {},
-          options: [],
-          showOutside: false
+          options: []
         }}
         view={{
           value: "card",

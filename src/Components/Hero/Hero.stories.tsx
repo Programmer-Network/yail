@@ -2,6 +2,7 @@ import { Meta, StoryObj } from "@storybook/react-vite";
 
 import Button from "Components/Button";
 import { ButtonVariantEnum } from "Components/Button/types";
+import { PillSize, PillVariant } from "Components/Core/Pill";
 
 import Hero from "./index";
 
@@ -41,8 +42,16 @@ export const WithPills: Story = {
   args: {
     title: "Event with Pills",
     pills: [
-      { label: "Live", variant: "success", children: "Live" },
-      { label: "Workshop", variant: "indigo", children: "Workshop" }
+      {
+        children: "Live",
+        variant: PillVariant.SUCCESS,
+        size: PillSize.MEDIUM
+      },
+      {
+        children: "Workshop",
+        variant: PillVariant.INDIGO,
+        size: PillSize.MEDIUM
+      }
     ],
     description: "This event has pills for status and type."
   },
@@ -74,8 +83,12 @@ export const FullFeatured: Story = {
     title: "Full Featured Hero",
     description: "This hero has a cover, pills, and actions.",
     pills: [
-      { label: "Upcoming", variant: "primary", children: "Upcoming" },
-      { label: "Online", variant: "indigo", children: "Online" }
+      {
+        children: "Upcoming",
+        variant: PillVariant.PRIMARY,
+        size: PillSize.MEDIUM
+      },
+      { children: "Online", variant: PillVariant.INDIGO, size: PillSize.MEDIUM }
     ],
     actions: [
       <Button key='edit' outlined>

@@ -16,8 +16,7 @@ const baseProps = {
   tags: {
     selected: [],
     onChange: vi.fn(),
-    options: tags.map(tag => ({ value: tag, label: tag })),
-    showOutside: false
+    options: tags.map(tag => ({ value: tag, label: tag }))
   },
   view: {
     value: "card" as ViewType,
@@ -55,25 +54,6 @@ describe("Filters", () => {
       target: { value: "test", name: "search" }
     });
     expect(onChange).toHaveBeenCalledWith("test");
-  });
-
-  it("calls onTagToggle when clicking a tag chip outside", () => {
-    const onTagToggle = vi.fn();
-    render(
-      <Filters
-        {...baseProps}
-        tags={{
-          ...baseProps.tags,
-          showOutside: true,
-          selected: ["react"]
-        }}
-      />
-    );
-    // Open filters
-    const filterButton = screen.getByRole("button", { name: /filter/i });
-    fireEvent.click(filterButton);
-    fireEvent.click(screen.getByText("#react"));
-    expect(onTagToggle).toHaveBeenCalledWith("react");
   });
 
   it("renders and calls onSortChange for sorting buttons", () => {
@@ -121,19 +101,6 @@ describe("Filters", () => {
     expect(screen.queryByTestId("extra-filters")).not.toBeInTheDocument();
   });
 
-  it("renders tag chips outside only if showTagsOutside and tags.selectedTags are true", () => {
-    render(
-      <Filters
-        {...baseProps}
-        tags={{ ...baseProps.tags, showOutside: true, selected: ["react"] }}
-      />
-    );
-    // Open filters
-    const filterButton = screen.getByRole("button", { name: /filter/i });
-    fireEvent.click(filterButton);
-    expect(screen.getByText("#react")).toBeInTheDocument();
-  });
-
   it("is accessible: all controls are focusable", () => {
     render(
       <Filters
@@ -145,7 +112,7 @@ describe("Filters", () => {
             { value: "oldest", label: "Oldest" }
           ]
         }}
-        tags={{ ...baseProps.tags, showOutside: true, selected: ["react"] }}
+        tags={{ ...baseProps.tags, selected: ["react"] }}
       />
     );
     const input = screen.getByPlaceholderText("Search...");
@@ -173,6 +140,6 @@ describe("Filters", () => {
     // The dropdown should now be open, find the option by text
     const option = await screen.findByText("react");
     await userEvent.click(option);
-    expect(onTagToggle).toHaveBeenCalledWith("react");
+    expect(onTagToggle).toHaveBeenCalledWith(["react"]);
   });
 });

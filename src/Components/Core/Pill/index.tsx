@@ -1,22 +1,27 @@
 import classNames from "classnames";
 import { FC, ReactNode } from "react";
 
-export type PillVariant =
-  | "primary"
-  | "secondary"
-  | "success"
-  | "error"
-  | "warning"
-  | "indigo"
-  | "purple"
-  | "pink";
+export enum PillVariant {
+  PRIMARY = "primary",
+  SECONDARY = "secondary",
+  SUCCESS = "success",
+  ERROR = "error",
+  WARNING = "warning",
+  INDIGO = "indigo",
+  PURPLE = "purple",
+  PINK = "pink"
+}
 
-export type PillSize = "small" | "medium" | "large";
+export enum PillSize {
+  SMALL = "small",
+  MEDIUM = "medium",
+  LARGE = "large"
+}
 
 export interface IPillProps {
   children: ReactNode;
-  variant?: PillVariant;
-  size?: PillSize;
+  variant: PillVariant;
+  size: PillSize;
   clickable?: boolean;
   onClick?: (e: React.MouseEvent) => void;
   className?: string;
@@ -26,8 +31,8 @@ export interface IPillProps {
 
 const Pill: FC<IPillProps> = ({
   children,
-  variant = "primary",
-  size = "medium",
+  variant = PillVariant.PRIMARY,
+  size = PillSize.MEDIUM,
   clickable = false,
   onClick,
   className,
@@ -38,9 +43,9 @@ const Pill: FC<IPillProps> = ({
     "yl:inline-flex yl:items-center yl:justify-center yl:font-medium yl:rounded-full yl:transition-colors yl:ring-1 yl:ring-inset";
 
   const sizeClasses: Record<PillSize, string> = {
-    small: "yl:px-2 yl:py-0.5 yl:text-xs",
-    medium: "yl:px-2 yl:py-1 yl:text-xs",
-    large: "yl:px-3 yl:py-1.5 yl:text-sm"
+    [PillSize.SMALL]: "yl:px-2 yl:py-0.5 yl:text-xs",
+    [PillSize.MEDIUM]: "yl:px-2 yl:py-1 yl:text-xs",
+    [PillSize.LARGE]: "yl:px-3 yl:py-1.5 yl:text-sm"
   };
 
   const variantClasses: Record<PillVariant, string> = {

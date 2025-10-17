@@ -2,6 +2,7 @@ import { render, screen } from "@testing-library/react";
 
 import Button from "Components/Button";
 import { ButtonVariantEnum } from "Components/Button/types";
+import { PillSize, PillVariant } from "Components/Core/Pill";
 
 import Hero from "./index";
 
@@ -30,8 +31,18 @@ describe("Hero", () => {
       <Hero
         title='Event with Pills'
         pills={[
-          { label: "Live", variant: "success", children: "Live" },
-          { label: "Workshop", variant: "indigo", children: "Workshop" }
+          {
+            label: "Live",
+            variant: PillVariant.SUCCESS,
+            size: PillSize.MEDIUM,
+            children: "Live"
+          },
+          {
+            label: "Workshop",
+            variant: PillVariant.INDIGO,
+            size: PillSize.MEDIUM,
+            children: "Workshop"
+          }
         ]}
       />
     );
@@ -64,8 +75,18 @@ describe("Hero", () => {
         title='Full Featured Hero'
         description='This hero has a cover, pills, and actions.'
         pills={[
-          { label: "Upcoming", variant: "primary", children: "Upcoming" },
-          { label: "Online", variant: "indigo", children: "Online" }
+          {
+            label: "Upcoming",
+            variant: PillVariant.PRIMARY,
+            size: PillSize.MEDIUM,
+            children: "Upcoming"
+          },
+          {
+            label: "Online",
+            variant: PillVariant.INDIGO,
+            size: PillSize.MEDIUM,
+            children: "Online"
+          }
         ]}
         actions={[
           <Button key='edit'>Edit</Button>,

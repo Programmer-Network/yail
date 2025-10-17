@@ -6,7 +6,6 @@ import { ButtonVariantEnum } from "Components/Button/types";
 
 import Input from "../Inputs/Input";
 import Select from "../Inputs/Select";
-import Tag from "../Tag";
 import ViewToggle from "../ViewToggle";
 import { IFiltersProps } from "./types";
 
@@ -126,17 +125,6 @@ const Filters: FC<IFiltersProps> = ({
           ) : (
             <div>{additional}</div>
           )}
-        </div>
-      )}
-      {showFilters && tags && tags.showOutside && tags.selected.length > 0 && (
-        <div className='yl:flex yl:flex-wrap yl:gap-2 yl:items-center yl:mt-2'>
-          {tags.selected.map((tag: string) => (
-            <Tag
-              key={tag}
-              name={tag}
-              className='yl:bg-primary yl:text-background yl:cursor-pointer'
-            />
-          ))}
         </div>
       )}
     </div>

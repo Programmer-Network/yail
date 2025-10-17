@@ -13,7 +13,6 @@ export interface IFiltersProps {
     selected: string[];
     onChange: (options: string[]) => void;
     options: { value: string; label: string }[];
-    showOutside: boolean;
   };
   view: {
     value: ViewType;
