@@ -1,6 +1,6 @@
 import { NavLinkProps } from "react-router-dom";
 
-import { PillSize, PillVariant } from "../Core/Pill";
+import { PillSize, PillVariant } from "../Pill/Pill.types";
 
 export interface ITag {
   name: string;

@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 
-import { PillVariant } from "Components/Core/Pill";
+import { PillVariant } from "Components/Pill/Pill.types";
 
 import { IPill } from "../types";
 import CardPills from "./CardPills";

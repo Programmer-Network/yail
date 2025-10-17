@@ -1,7 +1,8 @@
 import classNames from "classnames";
 import { FC, ReactNode } from "react";
 
-import Pill, { IPillProps } from "Components/Core/Pill";
+import Pill from "Components/Pill";
+import { IPillProps } from "Components/Pill/Pill.types";
 import { H1, Paragraph } from "Components/Typography";
 
 import { IHeroProps } from "./Hero.types";

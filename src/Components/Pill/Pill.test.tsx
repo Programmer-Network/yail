@@ -1,7 +1,8 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { vi } from "vitest";
 
-import Pill, { PillSize, PillVariant } from "./index";
+import { PillSize, PillVariant } from "./Pill.types";
+import Pill from "./index";
 
 describe("Pill Component", () => {
   it("renders children correctly", () => {

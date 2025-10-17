@@ -2,7 +2,7 @@ import { Meta, StoryObj } from "@storybook/react-vite";
 
 import Button from "Components/Button";
 import { ButtonVariantEnum } from "Components/Button/types";
-import { PillSize, PillVariant } from "Components/Core/Pill";
+import { PillSize, PillVariant } from "Components/Pill/Pill.types";
 
 import Hero from "./index";
 

@@ -2,7 +2,7 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import { BrowserRouter, NavLink } from "react-router-dom";
 import { vi } from "vitest";
 
-import { PillVariant } from "Components/Core/Pill";
+import { PillVariant } from "Components/Pill/Pill.types";
 
 import Card from ".";
 import { ICardData } from "./types";

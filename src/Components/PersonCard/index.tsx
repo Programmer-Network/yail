@@ -4,8 +4,9 @@ import { FC, ReactNode } from "react";
 import Avatar from "../Avatar";
 import Button from "../Button";
 import { ButtonVariantEnum } from "../Button/types";
-import Pill, { PillSize, PillVariant } from "../Core/Pill";
 import Icon from "../Icon";
+import Pill from "../Pill";
+import { PillSize, PillVariant } from "../Pill/Pill.types";
 import { H4, Paragraph } from "../Typography";
 import { IBadge, IPersonAction, IPersonCardProps, ITag } from "./types";
 

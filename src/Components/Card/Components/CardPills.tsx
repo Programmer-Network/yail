@@ -1,6 +1,7 @@
 import { FC } from "react";
 
-import Pill, { PillSize, PillVariant } from "../../Core/Pill";
+import Pill from "../../Pill";
+import { PillSize, PillVariant } from "../../Pill/Pill.types";
 import { IPill } from "../types";
 
 interface ICardPills {

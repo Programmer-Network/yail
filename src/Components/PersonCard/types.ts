@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { NavLinkProps } from "react-router-dom";
 
-import { PillVariant } from "../Core/Pill";
+import { PillVariant } from "../Pill/Pill.types";
 
 export interface ITag {
   id?: string | number;

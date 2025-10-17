@@ -2,7 +2,7 @@ import { Meta, StoryObj } from "@storybook/react-vite";
 import { NavLink } from "react-router-dom";
 
 import { ButtonVariantEnum } from "Components/Button/types";
-import { PillVariant } from "Components/Core/Pill";
+import { PillVariant } from "Components/Pill/Pill.types";
 
 import Card from ".";
 import Icon from "../Icon";

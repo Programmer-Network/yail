@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-import { IPillProps } from "Components/Core/Pill";
+import { IPillProps } from "Components/Pill/Pill.types";
 
 export interface IHeroProps {
   coverImage?: string;
