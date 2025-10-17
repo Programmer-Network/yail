@@ -1,6 +1,9 @@
 import { Meta, StoryObj } from "@storybook/react-vite";
 import { NavLink } from "react-router-dom";
 
+import { ButtonVariantEnum } from "Components/Button/types";
+import { PillVariant } from "Components/Core/Pill";
+
 import Card from ".";
 import Icon from "../Icon";
 import { ICardData } from "./types";
@@ -78,8 +81,8 @@ const defaultData: ICardData = {
     lazy: false
   },
   pills: [
-    { title: "Premium", variant: "primary" },
-    { title: "Editor's Choice", variant: "secondary" }
+    { title: "Premium", variant: PillVariant.PRIMARY },
+    { title: "Editor's Choice", variant: PillVariant.SECONDARY }
   ],
   tags: [
     { name: "nature", url: "/tags/nature" },
@@ -440,11 +443,11 @@ export const WithPills: Story = {
     data: {
       ...defaultData,
       pills: [
-        { title: "Premium", variant: "primary" },
-        { title: "Editor's Choice", variant: "secondary" },
+        { title: "Premium", variant: PillVariant.PRIMARY },
+        { title: "Editor's Choice", variant: PillVariant.SECONDARY },
         {
           title: "Trending",
-          variant: "success",
+          variant: PillVariant.SUCCESS,
           className: "yl:bg-green-500 yl:text-white"
         }
       ]
@@ -458,18 +461,18 @@ export const WithManyPills: Story = {
     data: {
       ...defaultData,
       pills: [
-        { title: "Premium", variant: "primary" },
-        { title: "Editor's Choice", variant: "secondary" },
-        { title: "Trending", variant: "success" },
+        { title: "Premium", variant: PillVariant.PRIMARY },
+        { title: "Editor's Choice", variant: PillVariant.SECONDARY },
+        { title: "Trending", variant: PillVariant.SUCCESS },
         {
           title: "New",
-          variant: "indigo",
+          variant: PillVariant.INDIGO,
           className: "yl:bg-blue-500 yl:text-white"
         },
-        { title: "Popular", variant: "warning" },
+        { title: "Popular", variant: PillVariant.WARNING },
         {
           title: "Verified",
-          variant: "success",
+          variant: PillVariant.SUCCESS,
           className: "yl:bg-green-600 yl:text-white"
         }
       ]
@@ -484,8 +487,8 @@ export const PillsWithoutImage: Story = {
       ...defaultData,
       image: undefined,
       pills: [
-        { title: "Featured", variant: "primary" },
-        { title: "Staff Pick", variant: "secondary" }
+        { title: "Featured", variant: PillVariant.PRIMARY },
+        { title: "Staff Pick", variant: PillVariant.SECONDARY }
       ]
     }
   }
@@ -498,8 +501,8 @@ export const PillsOnly: Story = {
       ...defaultData,
       tags: undefined,
       pills: [
-        { title: "Premium", variant: "primary" },
-        { title: "Editor's Choice", variant: "secondary" }
+        { title: "Premium", variant: PillVariant.PRIMARY },
+        { title: "Editor's Choice", variant: PillVariant.SECONDARY }
       ]
     }
   }
@@ -515,7 +518,7 @@ export const WithFooterActions: Story = {
           action("view-details-clicked")(e);
           window.alert("View Details clicked");
         },
-        variant: "primary",
+        variant: PillVariant.PRIMARY,
         icon: <Icon iconName='IconEye' className='w-4 h-4' />
       },
       {
@@ -541,7 +544,7 @@ export const WithSingleFooterAction: Story = {
           action("read-more-clicked")(e);
           window.alert("Read More clicked");
         },
-        variant: "primary",
+        variant: ButtonVariantEnum.PRIMARY,
         icon: <Icon iconName='IconArrowRight' className='w-4 h-4' />
       }
     ]
@@ -558,7 +561,7 @@ export const WithMultipleFooterActions: Story = {
           action("like-clicked")(e);
           window.alert("Like clicked");
         },
-        variant: "primary",
+        variant: ButtonVariantEnum.PRIMARY,
         icon: <Icon iconName='IconHeart' className='w-4 h-4' />
       },
       {
