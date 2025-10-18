@@ -81,9 +81,11 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
   const editor = useEditor(useEditorConfig);
 
   useEffect(() => {
-    if (autoFocus && editor) {
-      editor.commands.focus();
+    if (!autoFocus || !editor || !editor.view?.dom.isConnected) {
+      return;
     }
+
+    editor.commands.focus();
   }, [autoFocus, editor]);
 
   useImperativeHandle(
