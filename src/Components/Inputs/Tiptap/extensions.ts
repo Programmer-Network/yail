@@ -20,7 +20,7 @@ import Paragraph from "@tiptap/extension-paragraph";
 import Placeholder from "@tiptap/extension-placeholder";
 import Strike from "@tiptap/extension-strike";
 import Text from "@tiptap/extension-text";
-import TextStyle from "@tiptap/extension-text-style";
+import { TextStyle } from "@tiptap/extension-text-style";
 import Youtube from "@tiptap/extension-youtube";
 
 import Suggestion from "./Components/Suggestion";
@@ -29,10 +29,13 @@ import { IExtensionsMap, IGetExtensions } from "./types";
 
 const headers = Heading.configure({ levels: [1, 2, 3, 4, 5, 6] }).extend({
   levels: [1, 2, 3, 4, 5, 6],
-  renderHTML({ node, HTMLAttributes }) {
+  renderHTML(attributes: Record<string, any>) {
+    const { node, HTMLAttributes } = attributes;
+
     const level = this.options.levels.includes(node.attrs["level"])
       ? node.attrs["level"]
       : this.options.levels[0];
+
     const headingClassNames = {
       1: toolbarItemToClassName[TIPTAP_TOOLBAR_ITEMS.HEADING_1].classes,
       2: toolbarItemToClassName[TIPTAP_TOOLBAR_ITEMS.HEADING_2].classes,

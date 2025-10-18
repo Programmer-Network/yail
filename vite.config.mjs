@@ -9,7 +9,6 @@ import viteTsconfigPaths from "vite-tsconfig-paths";
 export default defineConfig(({ command, mode }) => {
   const isWatchMode = command === "build" && process.env.VITE_WATCH === "true";
   const isDev = mode === "development" || isWatchMode;
-  const isCI = process.env.CI === "true" || process.env.GITHUB_ACTIONS === "true";
 
   return {
     plugins: [
@@ -26,12 +25,7 @@ export default defineConfig(({ command, mode }) => {
         include: ["src/**/*.ts", "src/**/*.tsx"]
       }),
       dts({
-        insertTypesEntry: true,
-        /**
-         * Disable rollupTypes in CI environments to avoid API Extractor issues
-         * but keep it enabled for local development builds
-         */
-        rollupTypes: !isCI && !isWatchMode
+        insertTypesEntry: true
       })
     ].filter(Boolean),
 

@@ -14,6 +14,7 @@ const preview: Preview = {
       </div>
     )
   ],
+
   parameters: {
     actions: { argTypesRegex: "^on[A-Z].*" },
     controls: {
@@ -23,19 +24,25 @@ const preview: Preview = {
       }
     },
     backgrounds: {
-      default: "dark",
-      values: [
-        {
+      options: {
+        dark: {
           name: "dark",
           value: "oklch(14.48% 0 0)"
         },
-        {
+
+        light: {
           name: "light",
           value: "#f0f0f0"
         }
-      ]
+      }
     },
     layout: "fullscreen"
+  },
+
+  initialGlobals: {
+    backgrounds: {
+      value: "dark"
+    }
   }
 };
 
