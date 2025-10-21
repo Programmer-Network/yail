@@ -1,10 +1,9 @@
 import classNames from "classnames";
 import { createRef, useState } from "react";
 
-import Button from "Components/Button";
-import { ButtonVariantEnum } from "Components/Button/types";
-import ConfirmDialog from "Components/ConfirmDialog";
-
+import Button from "../Button";
+import { ButtonVariantEnum } from "../Button/types";
+import ConfirmDialog from "../ConfirmDialog";
 import { IFormActionsProps } from "./types";
 
 const FormActions = ({

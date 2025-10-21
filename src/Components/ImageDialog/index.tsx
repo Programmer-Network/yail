@@ -4,17 +4,15 @@
 import classNames from "classnames";
 import { forwardRef, useState } from "react";
 
-import Button from "Components/Button";
-import Dialog from "Components/Dialog";
-import ImageCrop from "Components/ImageCrop";
-import { ImageInput } from "Components/Inputs";
+import ImageUtils from "../../Utils/Image";
+import Button from "../Button";
+import Dialog from "../Dialog";
+import ImageCrop from "../ImageCrop";
+import { ImageInput } from "../Inputs";
 import {
   IOnFileLoadedArgs,
   TValidationError
-} from "Components/Inputs/ImageInput/types";
-
-import ImageUtils from "Utils/Image";
-
+} from "../Inputs/ImageInput/types";
 import { IImageDialogProps } from "./types";
 
 const ImageDialog = forwardRef<HTMLDialogElement, IImageDialogProps>(

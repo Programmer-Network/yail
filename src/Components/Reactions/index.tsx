@@ -1,10 +1,9 @@
-import { useMobile } from "Hooks/useMediaQuery";
 import classNames from "classnames";
 import { FC } from "react";
 
-import Icon from "Components/Icon";
-import Tooltip from "Components/Tooltip";
-
+import { useMobile } from "../../Hooks/useMediaQuery";
+import Icon from "../Icon";
+import Tooltip from "../Tooltip";
 import {
   IReactionsProps,
   ReactionTransitionState,

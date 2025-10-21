@@ -6,6 +6,15 @@ import tseslint from "typescript-eslint";
 
 export default [
   {
+    ignores: [
+      "dist/**",
+      "node_modules/**",
+      "build/**",
+      "storybook-static/**",
+      ".husky/**"
+    ]
+  },
+  {
     files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],
     languageOptions: {
       globals: {

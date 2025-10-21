@@ -3,17 +3,16 @@ import useAJVForm from "@programmer_network/use-ajv-form";
 import { FC, useContext, useState } from "react";
 import { StepWizardChildProps } from "react-step-wizard";
 
-import Button from "Components/Button";
+import { OnboardingContext } from "..";
+import Button from "../../../Components/Button";
 import {
   Checkbox,
   DomainInput,
   Input,
   Select,
   Textarea
-} from "Components/Inputs";
-import { H4, Paragraph } from "Components/Typography";
-
-import { OnboardingContext } from "..";
+} from "../../../Components/Inputs";
+import { H4, Paragraph } from "../../../Components/Typography";
 import { schema } from "./schema";
 
 export const StepThree: FC<Partial<StepWizardChildProps>> = props => {

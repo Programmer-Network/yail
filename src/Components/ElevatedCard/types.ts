@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-import { IIconProps } from "Components/Icon/types";
+import { IIconProps } from "../Icon/types";
 
 export interface IElevatedCardProps {
   title: string;

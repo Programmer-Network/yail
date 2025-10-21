@@ -1,4 +1,4 @@
-import { ButtonVariantEnum } from "Components/Button/types";
+import { ButtonVariantEnum } from "../Button/types";
 
 export interface IFormActionsProps {
   onSave?: () => void | Promise<void>;

@@ -1,9 +1,8 @@
 import classNames from "classnames";
 import { ChangeEvent, FC, useState } from "react";
 
-import InputError from "Components/Inputs/Common/InputError";
-import InputHeader from "Components/Inputs/Common/InputHeader";
-
+import InputError from "../Common/InputError";
+import InputHeader from "../Common/InputHeader";
 import { IDomainInputProps } from "./types";
 
 const DomainInput: FC<IDomainInputProps> = (

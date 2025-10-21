@@ -1,5 +1,5 @@
-import Icon from "Components/Icon";
-import { H3, Paragraph } from "Components/Typography";
+import Icon from "../../../Components/Icon";
+import { H3, Paragraph } from "../../../Components/Typography";
 
 const SuccessfulSignup = () => {
   return (

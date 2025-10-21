@@ -1,7 +1,7 @@
-import { ArrayUtils } from "Utils";
 import classNames from "classnames";
 import { FC } from "react";
 
+import { ArrayUtils } from "../../Utils";
 import { IDividerProps } from "./types";
 
 const Divider: FC<IDividerProps> = (

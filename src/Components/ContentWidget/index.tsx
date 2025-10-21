@@ -1,11 +1,10 @@
 import classNames from "classnames";
 import { type ReactElement } from "react";
 
-import Divider from "Components/Divider";
-import Icon from "Components/Icon";
-import Tooltip from "Components/Tooltip";
-import { Paragraph } from "Components/Typography";
-
+import Divider from "../Divider";
+import Icon from "../Icon";
+import Tooltip from "../Tooltip";
+import { Paragraph } from "../Typography";
 import { IContentWidgetBaseItem, IContentWidgetProps } from "./types";
 
 const ContentWidget = <T extends IContentWidgetBaseItem>({

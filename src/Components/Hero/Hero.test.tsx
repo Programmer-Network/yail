@@ -1,9 +1,8 @@
 import { render, screen } from "@testing-library/react";
 
-import Button from "Components/Button";
-import { ButtonVariantEnum } from "Components/Button/types";
-import { PillSize, PillVariant } from "Components/Pill/Pill.types";
-
+import Button from "../Button";
+import { ButtonVariantEnum } from "../Button/types";
+import { PillSize, PillVariant } from "../Pill/Pill.types";
 import Hero from "./index";
 
 describe("Hero", () => {

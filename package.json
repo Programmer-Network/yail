@@ -25,28 +25,19 @@
     "prepare": "husky",
     "storybook": "storybook dev --ci -p 6006",
     "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "build-storybook": "storybook build",
     "test": "vitest run",
+    "test:run": "vitest run",
     "test:watch": "vitest",
     "test:ui": "vitest --ui",
     "coverage": "vitest run --coverage",
+    "lint": "eslint --cache .",
     "lint:ci": "eslint --cache .",
     "lint:fix": "eslint --cache --fix src",
     "lint:quiet": "eslint --cache --quiet src",
     "test:ci": "vitest",
-    "types:check": "tsc"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "eslint --cache --fix --config eslint.config.mjs",
-      "prettier --write"
-    ],
-    "*.{css,html,md}": "prettier --write"
+    "types:check": "tsc --noEmit"
   },
   "vitest": {
     "test": {
@@ -69,20 +60,20 @@
     "@storybook/addon-links": "9.1.13",
     "@storybook/react-vite": "9.1.13",
     "@tailwindcss/forms": "0.5.10",
-    "@tailwindcss/postcss": "4.1.14",
+    "@tailwindcss/postcss": "4.1.15",
     "@tailwindcss/typography": "0.5.19",
     "@testing-library/jest-dom": "6.9.1",
     "@testing-library/react": "16.3.0",
     "@testing-library/user-event": "14.6.1",
     "@trivago/prettier-plugin-sort-imports": "5.2.2",
     "@types/jest": "30.0.0",
-    "@types/node": "24.8.1",
+    "@types/node": "24.9.1",
     "@types/react": "19.2.2",
     "@types/react-copy-to-clipboard": "5.0.7",
     "@types/react-dom": "19.2.2",
     "@types/sanitize-html": "2.16.0",
-    "@typescript-eslint/eslint-plugin": "8.46.1",
-    "@typescript-eslint/parser": "8.46.1",
+    "@typescript-eslint/eslint-plugin": "8.46.2",
+    "@typescript-eslint/parser": "8.46.2",
     "@vitejs/plugin-react": "5.0.4",
     "@vitest/ui": "3.2.4",
     "ajv": "8.17.1",
@@ -105,10 +96,10 @@
     "react-dom": "19.2.0",
     "react-router-dom": "7.9.4",
     "storybook": "9.1.13",
-    "tailwindcss": "4.1.14",
+    "tailwindcss": "4.1.15",
     "typescript": "5.9.3",
-    "typescript-eslint": "8.46.1",
-    "vite": "7.1.10",
+    "typescript-eslint": "8.46.2",
+    "vite": "7.1.11",
     "vite-plugin-dts": "4.5.4",
     "vite-plugin-eslint": "1.8.1",
     "vite-tsconfig-paths": "5.1.4",
@@ -117,7 +108,7 @@
   "dependencies": {
     "@popperjs/core": "2.11.8",
     "@programmer_network/ajv": "1.0.4",
-    "@tailwindcss/vite": "4.1.14",
+    "@tailwindcss/vite": "4.1.15",
     "@tiptap/core": "3.7.2",
     "@tiptap/extension-blockquote": "3.7.2",
     "@tiptap/extension-bold": "3.7.2",
@@ -148,7 +139,7 @@
     "classnames": "2.5.1",
     "eslint-plugin-import": "2.32.0",
     "fuse.js": "7.1.0",
-    "prosemirror-model": "1.25.3",
+    "prosemirror-model": "1.25.4",
     "prosemirror-state": "1.4.3",
     "react-colorful": "5.6.1",
     "react-copy-to-clipboard": "5.1.0",

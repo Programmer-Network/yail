@@ -1,7 +1,6 @@
 import { FC } from "react";
 
-import Icon from "Components/Icon";
-
+import Icon from "../Icon";
 import { ISpinnerProps } from "./types";
 
 const Spinner: FC<ISpinnerProps> = props => {

@@ -1,9 +1,8 @@
 import classNames from "classnames";
 import { FC, useState } from "react";
 
-import Button from "Components/Button";
-import { ButtonVariantEnum } from "Components/Button/types";
-
+import Button from "../Button";
+import { ButtonVariantEnum } from "../Button/types";
 import Input from "../Inputs/Input";
 import Select from "../Inputs/Select";
 import ViewToggle from "../ViewToggle";

@@ -1,8 +1,8 @@
-import { StringUtils } from "Utils";
 import BoringAvatars from "boring-avatars";
 import classNames from "classnames";
 import { FC } from "react";
 
+import { StringUtils } from "../../Utils";
 import { IAvatarProps } from "./types";
 
 const Avatar: FC<IAvatarProps> = ({

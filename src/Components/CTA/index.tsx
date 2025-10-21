@@ -1,10 +1,9 @@
 import classNames from "classnames";
 import { FC } from "react";
 
-import Button from "Components/Button";
-import Icon from "Components/Icon";
-import { H3, Paragraph } from "Components/Typography";
-
+import Button from "../Button";
+import Icon from "../Icon";
+import { H3, Paragraph } from "../Typography";
 import { ICTAProps } from "./types";
 
 const CTA: FC<ICTAProps> = (

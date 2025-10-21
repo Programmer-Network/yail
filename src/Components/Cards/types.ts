@@ -1,6 +1,6 @@
 import { NavLinkProps } from "react-router-dom";
 
-import { ICardData } from "Components/Card/types";
+import { ICardData } from "../Card/types";
 
 export interface ICardsProps {
   cards: ICardData[];

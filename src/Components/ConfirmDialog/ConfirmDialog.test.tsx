@@ -108,7 +108,7 @@ vi.mock("../Icon", () => {
   return { default: MockIcon };
 });
 
-vi.mock("../Paragraph", () => {
+vi.mock("../Typography/Paragraph", () => {
   const React = require("react");
 
   const MockParagraph = (props: any) => {
@@ -128,7 +128,7 @@ vi.mock("../Paragraph", () => {
 });
 
 // Mock the Button component imports from index
-vi.mock("index", () => {
+vi.mock("../../..", () => {
   const React = require("react");
 
   const MockButton = (props: any) => {
@@ -234,7 +234,7 @@ vi.mock("index", () => {
 });
 
 // Mock the ButtonVariantEnum
-vi.mock("Components/Button/types", () => ({
+vi.mock("../Button/types", () => ({
   ButtonVariantEnum: {
     PRIMARY: "primary",
     SECONDARY: "secondary",

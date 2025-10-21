@@ -1,9 +1,9 @@
 import "@testing-library/jest-dom";
 import { fireEvent, render } from "@testing-library/react";
-import { useOnClickOutside } from "Hooks/useClickOutside";
 import { RefObject, useRef } from "react";
 import { vi } from "vitest";
 
+import { useOnClickOutside } from "../../Hooks/useClickOutside";
 import Dropdown from "./";
 
 describe("Dropdown Component", () => {

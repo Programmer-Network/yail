@@ -1,7 +1,6 @@
 import { useRef } from "react";
 
-import Button from "Components/Button";
-
+import Button from "../Button";
 import { IConfirmDialogProps } from "./ConfirmDialog.types";
 import ConfirmDialog from "./index";
 

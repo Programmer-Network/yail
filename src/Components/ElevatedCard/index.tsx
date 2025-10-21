@@ -1,10 +1,9 @@
 import classNames from "classnames";
 import React from "react";
 
-import Icon from "Components/Icon";
-import { IIconProps } from "Components/Icon/types";
-import { H5, Paragraph } from "Components/Typography";
-
+import Icon from "../Icon";
+import { IIconProps } from "../Icon/types";
+import { H5, Paragraph } from "../Typography";
 import { IElevatedCardProps } from "./types";
 
 const ElevatedCard: React.FC<IElevatedCardProps> = ({

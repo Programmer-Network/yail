@@ -1,8 +1,7 @@
 import { useState } from "react";
 
-import { H1, Paragraph } from "Components/Typography";
-
 import ThemeBuilder from ".";
+import { H1, Paragraph } from "../Typography";
 
 export default {
   title: "Components / Theme Builder"

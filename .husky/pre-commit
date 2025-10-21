@@ -1,1 +1,72 @@
-npx lint-staged
+echo "🔍 Running pre-commit checks..."
+
+# Check if we're in the right directory
+if [ ! -f "package.json" ]; then
+  echo "❌ Error: package.json not found. Please run this from the project root."
+  exit 1
+fi
+
+# 1. ESLint check
+echo "📝 Running ESLint..."
+pnpm lint
+if [ $? -ne 0 ]; then
+  echo "❌ ESLint failed. Please fix the issues above."
+  exit 1
+fi
+echo "✅ ESLint passed"
+
+# 2. TypeScript type check
+echo "🔧 Running TypeScript type check..."
+pnpm exec tsc --noEmit
+if [ $? -ne 0 ]; then
+  echo "❌ TypeScript type check failed. Please fix the type errors above."
+  exit 1
+fi
+echo "✅ TypeScript type check passed"
+
+# 3. Prettier format check
+echo "🎨 Checking Prettier formatting..."
+pnpm format:check
+if [ $? -ne 0 ]; then
+  echo "❌ Prettier formatting check failed. Run 'pnpm format' to fix formatting issues."
+  exit 1
+fi
+echo "✅ Prettier formatting passed"
+
+# 4. Run tests
+echo "🧪 Running tests..."
+pnpm test:run
+if [ $? -ne 0 ]; then
+  echo "❌ Tests failed. Please fix the failing tests above."
+  exit 1
+fi
+echo "✅ Tests passed"
+
+# 5. Check for console.log statements (excluding storybook)
+echo "🚫 Checking for console.log statements..."
+if grep -r "console\.log" src/ --exclude-dir=node_modules --exclude="*.stories.tsx" > /dev/null 2>&1; then
+  echo "❌ Found console.log statements in non-storybook files. Please remove them."
+  grep -r "console\.log" src/ --exclude-dir=node_modules --exclude="*.stories.tsx"
+  exit 1
+fi
+echo "✅ No console.log statements found"
+
+# 6. Check for TODO/FIXME comments
+echo "📋 Checking for TODO/FIXME comments..."
+if grep -r "TODO\|FIXME\|HACK" src/ --exclude-dir=node_modules > /dev/null 2>&1; then
+  echo "❌ Found TODO/FIXME comments. Please address them or remove them."
+  grep -r "TODO\|FIXME\|HACK" src/ --exclude-dir=node_modules
+  exit 1
+fi
+echo "✅ No TODO/FIXME comments found"
+
+# 7. Build check
+echo "🏗️  Running build check..."
+pnpm build
+if [ $? -ne 0 ]; then
+  echo "❌ Build failed. Please fix the build errors above."
+  exit 1
+fi
+echo "✅ Build passed"
+
+echo "🎉 All pre-commit checks passed! You're good to commit."

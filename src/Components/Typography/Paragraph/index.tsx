@@ -1,8 +1,7 @@
 import classNames from "classnames";
 import { FC, ReactElement } from "react";
 
-import { typograyClassNames } from "Components/Inputs/Tiptap/constants";
-
+import { typograyClassNames } from "../../Inputs/Tiptap/constants";
 import { IParagraphProps } from "./types";
 
 const Paragraph: FC<IParagraphProps> = ({

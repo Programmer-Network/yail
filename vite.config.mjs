@@ -19,44 +19,46 @@ export default defineConfig(({ command, mode }) => {
        * Disable ESLint in watch mode for faster builds
        */
       !isWatchMode &&
-      eslint({
-        failOnError: true,
-        failOnWarning: true,
-        include: ["src/**/*.ts", "src/**/*.tsx"]
-      }),
+        eslint({
+          failOnError: true,
+          failOnWarning: true,
+          include: ["src/**/*.ts", "src/**/*.tsx"]
+        }),
       dts({
         insertTypesEntry: true
       })
     ].filter(Boolean),
 
-    optimizeDeps: isWatchMode ? {
-      include: [
-        "react",
-        "react-dom",
-        "react-router-dom",
-        "classnames",
-        "@tiptap/react",
-        "@tiptap/core"
-      ],
-      force: false
-    } : undefined,
+    optimizeDeps: isWatchMode
+      ? {
+          include: [
+            "react",
+            "react-dom",
+            "react-router-dom",
+            "classnames",
+            "@tiptap/react",
+            "@tiptap/core"
+          ],
+          force: false
+        }
+      : undefined,
 
     build: {
       minify: isWatchMode ? false : "terser",
       sourcemap: isDev ? true : false,
       watch: isWatchMode
         ? {
-          // Exclude unnecessary files from watching
-          exclude: [
-            "node_modules/**",
-            "dist/**",
-            "test/**",
-            "**/*.test.*",
-            "**/*.stories.*"
-          ],
-          include: ["src/**/*"], // Optimize file watching
-          clearScreen: false // Reduce watch overhead
-        }
+            // Exclude unnecessary files from watching
+            exclude: [
+              "node_modules/**",
+              "dist/**",
+              "test/**",
+              "**/*.test.*",
+              "**/*.stories.*"
+            ],
+            include: ["src/**/*"], // Optimize file watching
+            clearScreen: false // Reduce watch overhead
+          }
         : null,
 
       lib: {
@@ -78,9 +80,9 @@ export default defineConfig(({ command, mode }) => {
           manualChunks: !isWatchMode
             ? undefined
             : () => {
-              // Keep everything in main chunk for faster watch builds
-              return "index";
-            }
+                // Keep everything in main chunk for faster watch builds
+                return "index";
+              }
         },
         treeshake: isWatchMode ? false : true, // Speed up builds by reducing bundle analysis
         cache: true // Cache directory for faster subsequent builds

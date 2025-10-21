@@ -1,8 +1,7 @@
 import classNames from "classnames";
 import { FC } from "react";
 
-import Card from "Components/Card";
-
+import Card from "../Card";
 import { ICardsProps } from "./types";
 
 const Cards: FC<ICardsProps> = ({

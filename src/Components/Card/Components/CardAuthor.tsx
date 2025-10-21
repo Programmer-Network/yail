@@ -1,8 +1,7 @@
 import { FC } from "react";
 import { NavLinkProps } from "react-router-dom";
 
-import Avatar from "Components/Avatar";
-
+import Avatar from "../../Avatar";
 import { IAuthorProps } from "../types";
 
 interface ICardAuthor {

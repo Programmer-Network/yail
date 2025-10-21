@@ -1,8 +1,7 @@
-import { Button, Dialog, Icon, Paragraph } from "index";
 import { forwardRef } from "react";
 
-import { ButtonVariantEnum } from "Components/Button/types";
-
+import { Button, Dialog, Icon, Paragraph } from "../../..";
+import { ButtonVariantEnum } from "../Button/types";
 import { IConfirmDialogProps } from "./ConfirmDialog.types";
 
 const ConfirmDialog = forwardRef<HTMLDialogElement, IConfirmDialogProps>(

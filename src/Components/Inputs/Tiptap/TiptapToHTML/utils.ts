@@ -1,5 +1,5 @@
-import { TIPTAP_TOOLBAR_ITEMS } from "Components/Inputs/Tiptap/constants";
-import { TiptapControls } from "Components/Inputs/Tiptap/types";
+import { TIPTAP_TOOLBAR_ITEMS } from "../constants";
+import { TiptapControls } from "../types";
 
 const tiptapToSanitizeHtmlTags: Record<string, string[]> = {
   [TIPTAP_TOOLBAR_ITEMS.BOLD]: ["strong"],
@@ -30,14 +30,12 @@ export const getAllowedTags = (data: TiptapControls) => {
   try {
     return data.reduce((acc, control) => {
       if (!tiptapToSanitizeHtmlTags[control]) {
-        console.warn(`No allowed tags for ${control}`);
         return acc;
       }
 
       return [...acc, ...tiptapToSanitizeHtmlTags[control]];
     }, [] as string[]);
-  } catch (error) {
-    console.log(error);
+  } catch {
     return [];
   }
 };

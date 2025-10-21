@@ -1,6 +1,6 @@
-import { useOnClickOutside } from "Hooks/useClickOutside";
 import { MouseEvent, useState } from "react";
 
+import { useOnClickOutside } from "../useClickOutside";
 import { UseLinkInputProps, UseLinkInputReturn } from "./types";
 
 export const useModalInput = ({

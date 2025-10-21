@@ -1,5 +1,4 @@
 import { EditorContent, useEditor } from "@tiptap/react";
-import { useMobile } from "Hooks/useMediaQuery";
 import classNames from "classnames";
 import { TextSelection } from "prosemirror-state";
 import {
@@ -10,6 +9,7 @@ import {
   useState
 } from "react";
 
+import { useMobile } from "../../../Hooks/useMediaQuery";
 import InputError from "../Common/InputError";
 import InputHeader from "../Common/InputHeader";
 import TiptapActions from "./Components/Actions";
