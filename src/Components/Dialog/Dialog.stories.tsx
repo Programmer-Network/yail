@@ -1,10 +1,9 @@
 import { createRef } from "react";
 
-import Button from "Components/Button";
-import ImageUpload from "Components/Inputs/Tiptap/Components/ImageUpload";
-import { H1 } from "Components/Typography";
-
 import Dialog from ".";
+import Button from "../Button";
+import ImageUpload from "../Inputs/Tiptap/Components/ImageUpload";
+import { H1 } from "../Typography";
 
 export default {
   title: "Core / Dialog",

@@ -1,9 +1,8 @@
 import { FC } from "react";
 
-import CharacterCounter from "Components/CharacterCounter";
-import Icon from "Components/Icon";
-import Tooltip from "Components/Tooltip";
-
+import CharacterCounter from "../../../CharacterCounter";
+import Icon from "../../../Icon";
+import Tooltip from "../../../Tooltip";
 import { InputHeaderProps } from "./types";
 
 const InputHeader: FC<InputHeaderProps> = (

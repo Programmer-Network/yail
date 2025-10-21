@@ -1,9 +1,8 @@
 import { MouseEvent, type ReactElement } from "react";
 import { Placement } from "tippy.js";
 
-import Dropdown from "Components/Dropdown";
-import Icon from "Components/Icon";
-
+import Dropdown from "../Dropdown";
+import Icon from "../Icon";
 import { ItemActionType } from "./types";
 
 const ItemActions = <T,>({

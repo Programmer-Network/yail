@@ -1,9 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { useState } from "react";
 
-import { Select } from "Components/Inputs";
-
 import Filters from ".";
+import { Select } from "../Inputs";
 import { ViewType } from "../ViewToggle/types";
 
 const meta: Meta<typeof Filters> = {

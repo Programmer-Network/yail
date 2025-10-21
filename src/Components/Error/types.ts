@@ -1,4 +1,4 @@
-import { IIconProps } from "Components/Icon/types";
+import { IIconProps } from "../Icon/types";
 
 export interface IErrorProps {
   error: string;

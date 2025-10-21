@@ -1,4 +1,4 @@
-import { IDialogProps } from "Components/Dialog/types";
+import { IDialogProps } from "../Dialog/types";
 
 export interface IImageDialogOnSaveArgs {
   blob: Blob;

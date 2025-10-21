@@ -1,8 +1,8 @@
 import { StepWizardChildProps } from "react-step-wizard";
 
-import Button from "Components/Button";
-import Icon from "Components/Icon";
-import { Paragraph } from "Components/Typography";
+import Button from "../../../Components/Button";
+import Icon from "../../../Components/Icon";
+import { Paragraph } from "../../../Components/Typography";
 
 export const StepTwo: React.FC<Partial<StepWizardChildProps>> = props => {
   return (

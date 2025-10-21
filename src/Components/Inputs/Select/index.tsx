@@ -2,9 +2,8 @@ import classNames from "classnames";
 import { FC } from "react";
 import ReactSelect, { MultiValue, SingleValue } from "react-select";
 
-import InputError from "Components/Inputs/Common/InputError";
-import InputHeader from "Components/Inputs/Common/InputHeader";
-
+import InputError from "../Common/InputError";
+import InputHeader from "../Common/InputHeader";
 import { styles } from "./styles";
 import { ISelectProps, Option } from "./types";
 

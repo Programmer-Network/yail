@@ -1,9 +1,8 @@
 import classNames from "classnames";
 import { FC, useState } from "react";
 
-import Icon from "Components/Icon";
-import { InputError } from "Components/Inputs";
-
+import Icon from "../Icon";
+import { InputError } from "../Inputs";
 import { IStarsProps } from "./types";
 
 const Stars: FC<IStarsProps> = ({

@@ -1,10 +1,9 @@
 import classNames from "classnames";
 import { FC } from "react";
 
-import Button from "Components/Button";
-import { ButtonVariantEnum } from "Components/Button/types";
-import Icon from "Components/Icon";
-
+import Button from "../Button";
+import { ButtonVariantEnum } from "../Button/types";
+import Icon from "../Icon";
 import { IViewToggleProps } from "./types";
 
 const ViewToggle: FC<IViewToggleProps> = ({

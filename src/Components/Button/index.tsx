@@ -1,8 +1,7 @@
 import classNames from "classnames";
 
-import Icon from "Components/Icon";
-import Spinner from "Components/Spinner";
-
+import Icon from "../Icon";
+import Spinner from "../Spinner";
 import { getButtonClasses } from "./Button.utils";
 import { ButtonVariantEnum, IButtonProps } from "./types";
 

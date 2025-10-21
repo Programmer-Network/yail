@@ -1,11 +1,10 @@
-import { useOnClickOutside } from "Hooks/useClickOutside";
 import classNames from "classnames";
 import { FC, RefObject, useEffect, useMemo, useRef, useState } from "react";
 import { HexColorInput, HexColorPicker } from "react-colorful";
 
-import Button from "Components/Button";
-import Icon from "Components/Icon";
-
+import { useOnClickOutside } from "../../Hooks/useClickOutside";
+import Button from "../Button";
+import Icon from "../Icon";
 import ThemeBuilderUtils from "./ThemeBuilderUtils";
 import { IThemeBuilder, IThemeBuilderSetting } from "./types";
 

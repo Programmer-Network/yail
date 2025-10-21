@@ -1,8 +1,7 @@
 import classNames from "classnames";
 import { FC } from "react";
 
-import { typograyClassNames } from "Components/Inputs/Tiptap/constants";
-
+import { typograyClassNames } from "../../Inputs/Tiptap/constants";
 import { IH4Props } from "./types";
 
 const H4: FC<IH4Props> = ({ children, className, onClick }) => {

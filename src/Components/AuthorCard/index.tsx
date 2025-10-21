@@ -1,9 +1,8 @@
 import classNames from "classnames";
 import React from "react";
 
-import Avatar from "Components/Avatar";
-import { H3, Paragraph } from "Components/Typography";
-
+import Avatar from "../Avatar";
+import { H3, Paragraph } from "../Typography";
 import { IAuthorCardProps } from "./types";
 
 const AuthorCard: React.FC<IAuthorCardProps> = ({

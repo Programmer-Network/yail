@@ -1,10 +1,8 @@
 import classNames from "classnames";
 import { DragEvent, FC, useEffect, useState } from "react";
 
-import Icon from "Components/Icon";
-
-import ArrayUtils from "Utils/Array";
-
+import ArrayUtils from "../../Utils/Array";
+import Icon from "../Icon";
 import { IDraggableList, IDraggableListItem } from "./types";
 
 const DraggableList: FC<IDraggableList> = ({

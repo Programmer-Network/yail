@@ -1,13 +1,12 @@
 import { validYouTubeUrl } from "@programmer_network/ajv";
 import useAJVForm from "@programmer_network/use-ajv-form";
-import { useModalInput } from "Hooks/useModalInput";
 import classNames from "classnames";
 import { RefObject, useRef } from "react";
 
-import Button from "Components/Button";
-import Icon from "Components/Icon";
-import Tooltip from "Components/Tooltip";
-
+import { useModalInput } from "../../../../../Hooks/useModalInput";
+import Button from "../../../../Button";
+import Icon from "../../../../Icon";
+import Tooltip from "../../../../Tooltip";
 import { TIPTAP_TOOLBAR_ITEMS } from "../../constants";
 import { TiptapToolbarProps } from "../../types";
 import { ModalInput } from "../ModalInput";

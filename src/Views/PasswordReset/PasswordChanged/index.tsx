@@ -1,8 +1,8 @@
 import { FC } from "react";
 
-import Button from "Components/Button";
-import Icon from "Components/Icon";
-import { H3, Paragraph } from "Components/Typography";
+import Button from "../../../Components/Button";
+import Icon from "../../../Components/Icon";
+import { H3, Paragraph } from "../../../Components/Typography";
 
 const PasswordChanged: FC<{
   onButtonClick: () => void;

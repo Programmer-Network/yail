@@ -2,9 +2,8 @@ import useAJVForm from "@programmer_network/use-ajv-form";
 import classNames from "classnames";
 import { FC } from "react";
 
-import Button from "Components/Button";
-import { Input, Select } from "Components/Inputs";
-
+import Button from "../Button";
+import { Input, Select } from "../Inputs";
 import { schema } from "./constant";
 import { IAddSocialPlatformProps } from "./types";
 import { getValueHint, getValueLabel } from "./utils";

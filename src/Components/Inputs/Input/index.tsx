@@ -1,9 +1,8 @@
 import classNames from "classnames";
 import { ChangeEvent, FC, forwardRef } from "react";
 
-import InputError from "Components/Inputs/Common/InputError";
-import InputHeader from "Components/Inputs/Common/InputHeader";
-
+import InputError from "../Common/InputError";
+import InputHeader from "../Common/InputHeader";
 import { IInputProps } from "./types";
 
 const Input: FC<IInputProps> = forwardRef<HTMLInputElement, IInputProps>(

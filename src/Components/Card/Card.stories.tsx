@@ -1,11 +1,10 @@
 import { Meta, StoryObj } from "@storybook/react-vite";
 import { NavLink } from "react-router-dom";
 
-import { ButtonVariantEnum } from "Components/Button/types";
-import { PillVariant } from "Components/Pill/Pill.types";
-
 import Card from ".";
+import { ButtonVariantEnum } from "../Button/types";
 import Icon from "../Icon";
+import { PillVariant } from "../Pill/Pill.types";
 import { ICardData } from "./types";
 
 const action =

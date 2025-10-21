@@ -1,9 +1,8 @@
 import { Meta, StoryObj } from "@storybook/react-vite";
 
-import Button from "Components/Button";
-import { ButtonVariantEnum } from "Components/Button/types";
-import { PillSize, PillVariant } from "Components/Pill/Pill.types";
-
+import Button from "../Button";
+import { ButtonVariantEnum } from "../Button/types";
+import { PillSize, PillVariant } from "../Pill/Pill.types";
 import Hero from "./index";
 
 const meta: Meta<typeof Hero> = {

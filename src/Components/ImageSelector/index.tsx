@@ -1,9 +1,8 @@
 import classNames from "classnames";
 import { FC, useEffect, useState } from "react";
 
-import Icon from "Components/Icon";
-import Spinner from "Components/Spinner";
-
+import Icon from "../Icon";
+import Spinner from "../Spinner";
 import { IImage, IImageSelectorProps } from "./types";
 
 const ImageSelector: FC<IImageSelectorProps> = ({

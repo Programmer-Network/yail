@@ -1,13 +1,11 @@
 import classNames from "classnames";
 import { FC, useEffect, useRef, useState } from "react";
 
-import DraggableList from "Components/DraggableList";
-import { IDraggableListItem } from "Components/DraggableList/types";
-import Icon from "Components/Icon";
-import { Paragraph } from "Components/Typography";
-
-import ArrayUtils from "Utils/Array";
-
+import ArrayUtils from "../../Utils/Array";
+import DraggableList from "../DraggableList";
+import { IDraggableListItem } from "../DraggableList/types";
+import Icon from "../Icon";
+import { Paragraph } from "../Typography";
 import { AccordionOrderType, IAccordionProps } from "./types";
 
 const Accordion: FC<IAccordionProps> = ({

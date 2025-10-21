@@ -1,9 +1,8 @@
 import classNames from "classnames";
 import React from "react";
 
-import Icon from "Components/Icon";
-import { IIconProps } from "Components/Icon/types";
-
+import Icon from "../Icon";
+import { IIconProps } from "../Icon/types";
 import { IErrorProps } from "./types";
 
 const Error: React.FC<IErrorProps> = (

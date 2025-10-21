@@ -1,4 +1,3 @@
-import { CanvasUtils } from "Utils";
 import classNames from "classnames";
 import { FC, useCallback, useMemo, useRef, useState } from "react";
 import ReactCrop, {
@@ -8,6 +7,7 @@ import ReactCrop, {
 } from "react-image-crop";
 import "react-image-crop/dist/ReactCrop.css";
 
+import { CanvasUtils } from "../../Utils";
 import { ICrop, IImageCropProps } from "./types";
 
 const ImageCrop: FC<IImageCropProps> = ({

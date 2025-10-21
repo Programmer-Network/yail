@@ -1,5 +1,4 @@
 {
-  "extends": "./jsconfig.paths.json",
   "compilerOptions": {
     "target": "ESNext",
     "declaration": true,
@@ -14,7 +13,6 @@
       "@testing-library/jest-dom",
       "./.global.d.ts"
     ],
-    "baseUrl": "./src",
     "allowJs": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,

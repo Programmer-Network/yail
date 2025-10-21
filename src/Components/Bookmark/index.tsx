@@ -1,8 +1,7 @@
 import React from "react";
 
-import Icon from "Components/Icon";
-import Spinner from "Components/Spinner";
-
+import Icon from "../Icon";
+import Spinner from "../Spinner";
 import { IBookmarkProps } from "./types";
 
 const Bookmark: React.FC<IBookmarkProps> = (

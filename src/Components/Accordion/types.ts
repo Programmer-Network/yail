@@ -1,4 +1,4 @@
-import { IDraggableListItem } from "Components/DraggableList/types";
+import { IDraggableListItem } from "../DraggableList/types";
 
 export interface IAccordionSectionItem {
   id: number;
