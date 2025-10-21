@@ -21,12 +21,7 @@ describe("Pill Component", () => {
       </Pill>
     );
     const pill = screen.getByText("Default Pill");
-    expect(pill).toHaveClass(
-      "yl:bg-primary/10",
-      "yl:text-primary",
-      "yl:px-2",
-      "yl:py-1"
-    );
+    expect(pill).toHaveClass("bg-primary/10", "text-primary", "px-2", "py-1");
   });
 
   it("applies custom variant correctly", () => {
@@ -36,7 +31,7 @@ describe("Pill Component", () => {
       </Pill>
     );
     const pill = screen.getByText("Error Pill");
-    expect(pill).toHaveClass("yl:bg-red-500/10", "yl:text-red-400");
+    expect(pill).toHaveClass("bg-red-500/10", "text-red-400");
   });
 
   it("applies custom size correctly", () => {
@@ -46,7 +41,7 @@ describe("Pill Component", () => {
       </Pill>
     );
     const pill = screen.getByText("Large Pill");
-    expect(pill).toHaveClass("yl:px-3", "yl:py-1.5", "yl:text-sm");
+    expect(pill).toHaveClass("px-3", "py-1.5", "text-sm");
   });
 
   it("renders as span when not clickable", () => {
@@ -57,7 +52,7 @@ describe("Pill Component", () => {
     );
     const pill = screen.getByText("Non-clickable");
     expect(pill.tagName).toBe("SPAN");
-    expect(pill).not.toHaveClass("yl:cursor-pointer");
+    expect(pill).not.toHaveClass("cursor-pointer");
   });
 
   it("renders as button when clickable", () => {
@@ -74,7 +69,7 @@ describe("Pill Component", () => {
     );
     const pill = screen.getByText("Clickable");
     expect(pill.tagName).toBe("BUTTON");
-    expect(pill).toHaveClass("yl:cursor-pointer");
+    expect(pill).toHaveClass("cursor-pointer");
   });
 
   it("handles click events correctly", () => {
@@ -111,7 +106,7 @@ describe("Pill Component", () => {
     const pill = screen.getByText("Disabled");
 
     expect(pill).toBeDisabled();
-    expect(pill).toHaveClass("yl:cursor-not-allowed", "yl:opacity-50");
+    expect(pill).toHaveClass("cursor-not-allowed", "opacity-50");
 
     fireEvent.click(pill);
     expect(handleClick).not.toHaveBeenCalled();
@@ -138,7 +133,7 @@ describe("Pill Component", () => {
       </Pill>
     );
     const pill = screen.getByText("Hoverable");
-    expect(pill).toHaveClass("yl:hover:bg-green-500/20");
+    expect(pill).toHaveClass("hover:bg-green-500/20");
   });
 
   it("does not apply hover classes when disabled", () => {
@@ -153,50 +148,50 @@ describe("Pill Component", () => {
       </Pill>
     );
     const pill = screen.getByText("Disabled");
-    expect(pill).not.toHaveClass("yl:hover:bg-green-500/20");
+    expect(pill).not.toHaveClass("hover:bg-green-500/20");
   });
 
   describe("All variants render correctly", () => {
     const variants = [
       {
         variant: PillVariant.PRIMARY,
-        bgClass: "yl:bg-primary/10",
-        textClass: "yl:text-primary"
+        bgClass: "bg-primary/10",
+        textClass: "text-primary"
       },
       {
         variant: PillVariant.SECONDARY,
-        bgClass: "yl:bg-muted/10",
-        textClass: "yl:text-muted"
+        bgClass: "bg-muted/10",
+        textClass: "text-muted"
       },
       {
         variant: PillVariant.SUCCESS,
-        bgClass: "yl:bg-green-500/10",
-        textClass: "yl:text-green-400"
+        bgClass: "bg-green-500/10",
+        textClass: "text-green-400"
       },
       {
         variant: PillVariant.ERROR,
-        bgClass: "yl:bg-red-500/10",
-        textClass: "yl:text-red-400"
+        bgClass: "bg-red-500/10",
+        textClass: "text-red-400"
       },
       {
         variant: PillVariant.WARNING,
-        bgClass: "yl:bg-yellow-500/10",
-        textClass: "yl:text-yellow-400"
+        bgClass: "bg-yellow-500/10",
+        textClass: "text-yellow-400"
       },
       {
         variant: PillVariant.INDIGO,
-        bgClass: "yl:bg-indigo-500/10",
-        textClass: "yl:text-indigo-400"
+        bgClass: "bg-indigo-500/10",
+        textClass: "text-indigo-400"
       },
       {
         variant: PillVariant.PURPLE,
-        bgClass: "yl:bg-purple-500/10",
-        textClass: "yl:text-purple-400"
+        bgClass: "bg-purple-500/10",
+        textClass: "text-purple-400"
       },
       {
         variant: PillVariant.PINK,
-        bgClass: "yl:bg-pink-500/10",
-        textClass: "yl:text-pink-400"
+        bgClass: "bg-pink-500/10",
+        textClass: "text-pink-400"
       }
     ] as const;
 
@@ -215,9 +210,9 @@ describe("Pill Component", () => {
 
   describe("All sizes render correctly", () => {
     const sizes = [
-      { size: PillSize.SMALL, classes: ["yl:px-2", "yl:py-0.5", "yl:text-xs"] },
-      { size: PillSize.MEDIUM, classes: ["yl:px-2", "yl:py-1", "yl:text-xs"] },
-      { size: PillSize.LARGE, classes: ["yl:px-3", "yl:py-1.5", "yl:text-sm"] }
+      { size: PillSize.SMALL, classes: ["px-2", "py-0.5", "text-xs"] },
+      { size: PillSize.MEDIUM, classes: ["px-2", "py-1", "text-xs"] },
+      { size: PillSize.LARGE, classes: ["px-3", "py-1.5", "text-sm"] }
     ];
 
     sizes.forEach(({ size, classes }) => {

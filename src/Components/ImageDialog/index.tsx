@@ -77,7 +77,7 @@ const ImageDialog = forwardRef<HTMLDialogElement, IImageDialogProps>(
     };
 
     return (
-      <div className='yl:w-full yl:h-full'>
+      <div className='w-full h-full'>
         <Dialog
           shouldCloseOnClickOutside={false}
           ref={forwardedRef}
@@ -87,7 +87,7 @@ const ImageDialog = forwardRef<HTMLDialogElement, IImageDialogProps>(
         >
           {imageInputSelection?.file.blob && (
             <div>
-              <div className='yl:relative yl:w-full yl:overflow-hidden'>
+              <div className='relative w-full overflow-hidden'>
                 <ImageCrop
                   aspect={cropOptions.aspect}
                   circularCrop={cropOptions.circularCrop}
@@ -97,15 +97,15 @@ const ImageDialog = forwardRef<HTMLDialogElement, IImageDialogProps>(
                   }}
                 />
               </div>
-              <div className='yl:mt-4'>
-                <div className='yl:flex yl:gap-2'>
+              <div className='mt-4'>
+                <div className='flex gap-2'>
                   <Button
                     type='button'
-                    className='yl:flex-1 yl:cursor-pointer'
+                    className='flex-1 cursor-pointer'
                     onClick={handleSave}
                     icon={{
                       iconName: "IconImage",
-                      iconClassName: "yl:size-6",
+                      iconClassName: "size-6",
                       iconPosition: "left"
                     }}
                     isLoading={isSaving}
@@ -117,7 +117,7 @@ const ImageDialog = forwardRef<HTMLDialogElement, IImageDialogProps>(
                     outlined
                     disabled={isSaving}
                     type='button'
-                    className='yl:text-secondary yl:fill-secondary yl:border-secondary yl:hover:bg-secondary/5 yl:hover:text-secondary yl:hover:fill-secondary yl:hover:border-secondary yl:cursor-pointer'
+                    className='text-secondary fill-secondary border-secondary hover:bg-secondary/5 hover:text-secondary hover:fill-secondary hover:border-secondary cursor-pointer'
                     onClick={() => {
                       setImageInputSelection(null);
                       setCroppedImage(null);
@@ -125,7 +125,7 @@ const ImageDialog = forwardRef<HTMLDialogElement, IImageDialogProps>(
                     }}
                     icon={{
                       iconName: "IconClose",
-                      iconClassName: "yl:size-5",
+                      iconClassName: "size-5",
                       iconPosition: "left"
                     }}
                   >

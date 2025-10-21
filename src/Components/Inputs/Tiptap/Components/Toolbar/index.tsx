@@ -95,7 +95,7 @@ export const Toolbar = ({
   };
 
   return (
-    <div className='yl:relative yl:flex yl:flex-wrap yl:items-center yl:gap-1 yl:rounded-tl-md yl:rounded-tr-md yl:border-2 yl:border-border/40 yl:bg-text/1 yl:p-2 yl:md:gap-4 yl:md:px-4 yl:pb-0'>
+    <div className='relative flex flex-wrap items-center gap-1 rounded-tl-md rounded-tr-md border-2 border-border/40 bg-text/1 p-2 md:gap-4 md:px-4 pb-0'>
       {image.isExtensionEnabled && (
         <input
           type='file'
@@ -149,7 +149,7 @@ export const Toolbar = ({
             icon={{
               iconName: "IconAddYoutube",
               iconPosition: "right",
-              iconClassName: "yl:w-6"
+              iconClassName: "w-6"
             }}
             onClick={insertVideo}
           />
@@ -170,7 +170,7 @@ export const Toolbar = ({
               icon={{
                 iconName: "IconLink",
                 iconPosition: "right",
-                iconClassName: "yl:w-6"
+                iconClassName: "w-6"
               }}
               onClick={() => insertLink(LinkClickTarget.Link)}
             />
@@ -180,7 +180,7 @@ export const Toolbar = ({
                 outlined
                 onClick={() => insertLink(LinkClickTarget.UnLink)}
               >
-                <Icon iconName='IconUnlink' className='yl:w-6' />
+                <Icon iconName='IconUnlink' className='w-6' />
               </Button>
             )}
           </ModalInput>
@@ -233,28 +233,23 @@ export const Toolbar = ({
               >
                 <Icon
                   iconName={i.iconName || ""}
-                  className={classNames(
-                    "yl:w-8 yl:cursor-pointer yl:border-border",
-                    {
-                      "yl:text-text": !i.isActive,
-                      "yl:fill-primary yl:text-primary": i.isActive,
-                      "yl:cursor-not-allowed":
-                        typeof i.isDisabled === "function" && i.isDisabled(),
-                      "yl:cursor-default": !hasSelection,
-                      "yl:fill-primary":
-                        i.iconName === "IconLink" && hasSelection,
-                      "yl:w-[27px]": i.iconName === "IconStrikethrough",
-                      "yl:w-[28px]":
-                        i.iconName === "IconLink" ||
-                        i.iconName === "IconItalic",
-                      "yl:w-[29px]":
-                        i.iconName === "IconBold" ||
-                        i.iconName === "IconListOl" ||
-                        i.iconName === "IconListUl",
-                      "yl:w-[26px]": i.iconName === "IconImage",
-                      "yl:w-[32px]": i.iconName === "IconLink"
-                    }
-                  )}
+                  className={classNames("w-8 cursor-pointer border-border", {
+                    "text-text": !i.isActive,
+                    "fill-primary text-primary": i.isActive,
+                    "cursor-not-allowed":
+                      typeof i.isDisabled === "function" && i.isDisabled(),
+                    "cursor-default": !hasSelection,
+                    "fill-primary": i.iconName === "IconLink" && hasSelection,
+                    "w-[27px]": i.iconName === "IconStrikethrough",
+                    "w-[28px]":
+                      i.iconName === "IconLink" || i.iconName === "IconItalic",
+                    "w-[29px]":
+                      i.iconName === "IconBold" ||
+                      i.iconName === "IconListOl" ||
+                      i.iconName === "IconListUl",
+                    "w-[26px]": i.iconName === "IconImage",
+                    "w-[32px]": i.iconName === "IconLink"
+                  })}
                 />
               </button>
             </Tooltip>

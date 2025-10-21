@@ -4,17 +4,17 @@ exports[`ThemeBuilder component > renders correctly with given props 1`] = `
 <DocumentFragment>
   <div>
     <div
-      class="yl:mb-1 yl:flex yl:items-center yl:justify-center yl:md:justify-start"
+      class="mb-1 flex items-center justify-center md:justify-start"
     >
       <div
-        class="yl:flex yl:gap-1 yl:flex-col yl:md:flex-row"
+        class="flex gap-1 flex-col md:flex-row"
       >
         <button
-          class="yl:select-none yl:px-3 yl:py-2 yl:font-semibold yl:tracking-tight yl:rounded-md yl:border-2 yl:transition-all yl:duration-200 yl:transform yl:hover:scale-105 yl:cursor-pointer yl:border-primary yl:bg-transparent yl:text-primary yl:fill-primary yl:hover:bg-primary yl:hover:text-background yl:hover:fill-background primary-button yl:h-12 yl:min-w-[120px] yl:shadow-none"
+          class="select-none px-3 py-2 font-semibold tracking-tight rounded-md border-2 transition-all duration-200 transform hover:scale-105 cursor-pointer border-primary bg-transparent text-primary fill-primary hover:bg-primary hover:text-background hover:fill-background primary-button h-12 min-w-[120px] shadow-none"
           type="button"
         >
           <div
-            class="yl:relative yl:flex yl:items-center yl:justify-center"
+            class="relative flex items-center justify-center"
           >
             <span
               class=""
@@ -22,16 +22,16 @@ exports[`ThemeBuilder component > renders correctly with given props 1`] = `
               Primary Color
             </span>
             <span
-              class="yl:absolute"
+              class="absolute"
             />
           </div>
         </button>
         <button
-          class="yl:select-none yl:px-3 yl:py-2 yl:font-semibold yl:tracking-tight yl:rounded-md yl:border-2 yl:transition-all yl:duration-200 yl:transform yl:hover:scale-105 yl:cursor-pointer yl:border-primary yl:bg-transparent yl:text-primary yl:fill-primary yl:hover:bg-primary yl:hover:text-background yl:hover:fill-background yl:h-12 yl:min-w-[120px] yl:shadow-none"
+          class="select-none px-3 py-2 font-semibold tracking-tight rounded-md border-2 transition-all duration-200 transform hover:scale-105 cursor-pointer border-primary bg-transparent text-primary fill-primary hover:bg-primary hover:text-background hover:fill-background h-12 min-w-[120px] shadow-none"
           type="button"
         >
           <div
-            class="yl:relative yl:flex yl:items-center yl:justify-center"
+            class="relative flex items-center justify-center"
           >
             <span
               class=""
@@ -39,16 +39,16 @@ exports[`ThemeBuilder component > renders correctly with given props 1`] = `
               Background
             </span>
             <span
-              class="yl:absolute"
+              class="absolute"
             />
           </div>
         </button>
         <button
-          class="yl:select-none yl:px-3 yl:py-2 yl:font-semibold yl:tracking-tight yl:rounded-md yl:border-2 yl:transition-all yl:duration-200 yl:transform yl:hover:scale-105 yl:cursor-pointer yl:border-primary yl:bg-transparent yl:text-primary yl:fill-primary yl:hover:bg-primary yl:hover:text-background yl:hover:fill-background yl:h-12 yl:min-w-[120px] yl:shadow-none"
+          class="select-none px-3 py-2 font-semibold tracking-tight rounded-md border-2 transition-all duration-200 transform hover:scale-105 cursor-pointer border-primary bg-transparent text-primary fill-primary hover:bg-primary hover:text-background hover:fill-background h-12 min-w-[120px] shadow-none"
           type="button"
         >
           <div
-            class="yl:relative yl:flex yl:items-center yl:justify-center"
+            class="relative flex items-center justify-center"
           >
             <span
               class=""
@@ -56,7 +56,7 @@ exports[`ThemeBuilder component > renders correctly with given props 1`] = `
               Text Color
             </span>
             <span
-              class="yl:absolute"
+              class="absolute"
             />
           </div>
         </button>

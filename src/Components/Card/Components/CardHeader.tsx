@@ -23,24 +23,24 @@ const CardHeader: FC<ICardHeader> = ({
   NavLink
 }) => {
   return (
-    <div className='yl:mb-2'>
+    <div className='mb-2'>
       {URLUtils.isExternalLink(titleUrl) ? (
         <a
           href={titleUrl}
           target='_blank'
           rel='noopener noreferrer'
-          className='yl:text-inherit yl:no-underline yl:hover:text-primary yl:transition-colors'
+          className='text-inherit no-underline hover:text-primary transition-colors'
         >
           <h3
             id={`card-title-${cardId}`}
             className={classNames(
-              "yl:flex yl:items-center yl:justify-start yl:gap-2 yl:text-xl yl:md:text-lg yl:font-semibold yl:m-0 yl:text-text",
+              "flex items-center justify-start gap-2 text-xl md:text-lg font-semibold m-0 text-text",
               getLineClampClass(maxTitleLines)
             )}
           >
             {title}
             <svg
-              className='yl:w-4 yl:h-4 yl:opacity-70'
+              className='w-4 h-4 opacity-70'
               fill='currentColor'
               viewBox='0 0 20 20'
             >
@@ -50,11 +50,11 @@ const CardHeader: FC<ICardHeader> = ({
           </h3>
         </a>
       ) : (
-        <NavLink to={titleUrl} className='yl:text-inherit yl:no-underline'>
+        <NavLink to={titleUrl} className='text-inherit no-underline'>
           <h3
             id={`card-title-${cardId}`}
             className={classNames(
-              "yl:text-xl yl:md:text-lg yl:font-semibold yl:m-0 yl:group-hover:text-primary yl:transition-colors yl:text-text",
+              "text-xl md:text-lg font-semibold m-0 group-hover:text-primary transition-colors text-text",
               getLineClampClass(maxTitleLines)
             )}
           >

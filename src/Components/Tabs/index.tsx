@@ -20,7 +20,7 @@ export const TabList: ReactTabs.ReactTabsFunctionComponent<
     <ReactTabs.TabList
       {...props}
       className={classNames(
-        "yl:text-text yl:flex yl:gap-6 yl:border-b-2 yl:border-border yl:pb-4",
+        "text-text flex gap-4 border-b-2 border-border pb-4",
         props.className
       )}
     >
@@ -38,7 +38,7 @@ export const TabPanel: ReactTabs.ReactTabsFunctionComponent<
     <ReactTabs.TabPanel
       {...props}
       className={classNames(
-        "yl:animate-in yl:fade-in-0 yl:duration-200",
+        "animate-in fade-in-0 duration-200",
         props.className
       )}
     >
@@ -53,10 +53,10 @@ export const Tab: ReactTabs.ReactTabsFunctionComponent<ITabProps> = props => {
   return (
     <ReactTabs.Tab
       {...props}
-      selectedClassName='yl:text-primary'
-      disabledClassName='yl:!cursor-not-allowed yl:opacity-50'
+      selectedClassName='text-primary'
+      disabledClassName='!cursor-not-allowed opacity-50'
       className={classNames(
-        "yl:hover:cursor-pointer yl:outline-none yl:focus-visible:outline-none yl:flex yl:gap-1 yl:items-center yl:justify-center yl:transition-all yl:duration-200 yl:ease-in-out yl:text-text-secondary",
+        "hover:cursor-pointer outline-none focus-visible:outline-none flex gap-1 items-center justify-center transition-all duration-200 ease-in-out text-text-secondary",
         props.className
       )}
     >

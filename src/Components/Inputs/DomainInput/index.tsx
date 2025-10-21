@@ -29,19 +29,17 @@ const DomainInput: FC<IDomainInputProps> = (
   };
 
   return (
-    <div
-      className={classNames("group yl:text-text", props.inputWrapperClassName)}
-    >
+    <div className={classNames("group text-text", props.inputWrapperClassName)}>
       <InputHeader {...props} />
-      <div className='yl:flex yl:w-full'>
+      <div className='flex w-full'>
         <span
           data-testid='domain'
           className={classNames(
-            "yl:min-w-max yl:border-2 yl:border-border yl:px-4 yl:py-2 yl:leading-5 yl:tracking-tighter yl:selection:text-text yl:rounded-tl-md yl:rounded-bl-md",
+            "min-w-max border-2 border-border px-4 py-2 leading-5 tracking-tighter selection:text-text rounded-tl-md rounded-bl-md",
             props.domainClassName,
             {
-              "yl:group-hover:border-border": !props.disabled,
-              "yl:border-border! !ring-3-transparent": isFocused
+              "group-hover:border-border": !props.disabled,
+              "border-border! !ring-3-transparent": isFocused
             }
           )}
         >
@@ -55,11 +53,11 @@ const DomainInput: FC<IDomainInputProps> = (
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
           className={classNames(
-            "yl:w-full yl:cursor-pointer yl:border-t-2 yl:border-b-2 yl:border-r-2 yl:border-border yl:bg-transparent yl:p-2 transition-colors yl:focus:border-border yl:focus:outline-hidden yl:focus:ring-3-transparent yl:rounded-tr-md yl:rounded-br-md",
+            "w-full cursor-pointer border-t-2 border-b-2 border-r-2 border-border bg-transparent p-2 transition-colors focus:border-border focus:outline-hidden focus:ring-3-transparent rounded-tr-md rounded-br-md",
             props.className,
             {
-              "yl:group-hover:border-border": !props.disabled,
-              "yl:hover:cursor-not-allowed": props.disabled
+              "group-hover:border-border": !props.disabled,
+              "hover:cursor-not-allowed": props.disabled
             }
           )}
           onChange={handleChange}

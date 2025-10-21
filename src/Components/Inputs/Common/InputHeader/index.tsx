@@ -21,19 +21,19 @@ const InputHeader: FC<InputHeaderProps> = (
   }
 
   return (
-    <div className='yl:mb-2 yl:flex yl:items-center yl:justify-between'>
-      <div className='yl:flex yl:items-center yl:gap-0.5'>
+    <div className='mb-2 flex items-center justify-between'>
+      <div className='flex items-center gap-0.5'>
         {hint && name && (
           <Tooltip text={hint} id={name} place='right'>
             <Icon
               iconName='IconInfo'
-              className='yl:w-4 yl:text-text yl:relative yl:top-[1px] yl:cursor-pointer'
+              className='w-4 text-text relative top-[1px] cursor-pointer'
             />
           </Tooltip>
         )}
-        <div className='yl:text-text'>
+        <div className='text-text'>
           {label}
-          {required && <span className='yl:ml-1 yl:text-error'>*</span>}
+          {required && <span className='ml-1 text-error'>*</span>}
         </div>
       </div>
 

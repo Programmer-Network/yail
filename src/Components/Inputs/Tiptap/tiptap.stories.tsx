@@ -57,7 +57,7 @@ export const Default = () => {
   };
 
   return (
-    <div className='yl:w-full yl:md:w-[768px]'>
+    <div className='w-full md:w-[768px]'>
       <Tiptap
         ref={tiptapRef as RefObject<TiptapRef>}
         placeholder='Enter your content here...'
@@ -81,7 +81,7 @@ export const Default = () => {
       />
 
       <div
-        className='yl:mt-8 yl:break-words text-indigo-500'
+        className='mt-8 break-words text-indigo-500'
         dangerouslySetInnerHTML={{ __html: editorState }}
       ></div>
     </div>
@@ -153,7 +153,7 @@ export const Confirming = () => {
   }, []);
 
   return (
-    <div className='yl:w-full yl:md:w-[768px]'>
+    <div className='w-full md:w-[768px]'>
       <Tiptap
         ref={tiptapRef as RefObject<TiptapRef>}
         label='Content'
@@ -176,7 +176,7 @@ export const Confirming = () => {
       />
 
       <div
-        className='yl:mt-8 yl:break-words text-indigo-500'
+        className='mt-8 break-words text-indigo-500'
         dangerouslySetInnerHTML={{ __html: editorState }}
       ></div>
     </div>
@@ -237,7 +237,7 @@ export const Error = () => {
   }, []);
 
   return (
-    <div className='yl:w-full yl:md:w-[768px]'>
+    <div className='w-full md:w-[768px]'>
       <Tiptap
         ref={tiptapRef as RefObject<TiptapRef>}
         label='Content'
@@ -312,7 +312,7 @@ export const ImageUploadError = () => {
   const [error, setError] = useState<string>("");
 
   return (
-    <div className='yl:w-full yl:md:w-[768px]'>
+    <div className='w-full md:w-[768px]'>
       <Tiptap
         ref={tiptapRef as RefObject<TiptapRef>}
         label='Content'
@@ -333,9 +333,7 @@ export const ImageUploadError = () => {
         }}
         required={true}
       />
-      {error && (
-        <div className='yl:text-red-600 yl:mt-2 yl:text-sm'>{error}</div>
-      )}
+      {error && <div className='text-red-600 mt-2 text-sm'>{error}</div>}
     </div>
   );
 };

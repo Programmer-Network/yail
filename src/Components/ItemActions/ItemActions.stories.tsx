@@ -20,7 +20,7 @@ export const WithCustomOptions = () => (
       {
         icon: {
           iconName: "Edit1Solid",
-          className: "yl:w-4"
+          className: "w-4"
         },
         value: "Edit",
         onClick: () => {

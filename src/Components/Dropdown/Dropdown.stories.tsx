@@ -20,7 +20,7 @@ DefaultDropdown.args = {
       onClick: () => console.log("clicked"),
       icon: {
         iconName: "IconShare",
-        className: "yl:w-4"
+        className: "w-4"
       }
     }
   ]
@@ -30,14 +30,14 @@ export const WithChildren: Meta<IDropdownProps> = Template.bind({});
 WithChildren.args = {
   buttonContent: "Click Me",
   children: (
-    <ul className='yl:p-2 yl:text-text'>
-      <li className='yl:p-2 yl:text-text yl:hover:cursor-pointer yl:hover:bg-primary yl:hover:text-background'>
+    <ul className='p-2 text-text'>
+      <li className='p-2 text-text hover:cursor-pointer hover:bg-primary hover:text-background'>
         Option 1
       </li>
-      <li className='yl:p-2 yl:text-text yl:hover:cursor-pointer yl:hover:bg-primary yl:hover:text-background'>
+      <li className='p-2 text-text hover:cursor-pointer hover:bg-primary hover:text-background'>
         Option 2
       </li>
-      <li className='yl:p-2 yl:text-text yl:hover:cursor-pointer yl:hover:bg-primary yl:hover:text-background'>
+      <li className='p-2 text-text hover:cursor-pointer hover:bg-primary hover:text-background'>
         Option 3
       </li>
     </ul>
@@ -48,12 +48,12 @@ export const WithLongContent: Meta<IDropdownProps> = Template.bind({});
 WithLongContent.args = {
   buttonContent: "More Options",
   children: (
-    <div className='yl:p-2 yl:text-text'>
+    <div className='p-2 text-text'>
       <ul>
-        <li className='yl:p-2 yl:text-text yl:hover:cursor-pointer yl:hover:bg-primary yl:hover:text-background'>
+        <li className='p-2 text-text hover:cursor-pointer hover:bg-primary hover:text-background'>
           Extended Option 1
         </li>
-        <li className='yl:p-2 yl:text-text yl:hover:cursor-pointer yl:hover:bg-primary yl:hover:text-background'>
+        <li className='p-2 text-text hover:cursor-pointer hover:bg-primary hover:text-background'>
           Extended Option 2
         </li>
       </ul>

@@ -11,15 +11,15 @@ const DropdownListItem: FC<IDropdownListItem> = ({
 }) => {
   return (
     <li
-      className='yl:p-2 yl:capitalize yl:text-text yl:hover:cursor-pointer yl:hover:bg-text/10 yl:hover:text-text'
+      className='p-2 capitalize text-text hover:cursor-pointer hover:bg-text/10 hover:text-text'
       onClick={e => {
         onClick && onClick(e, value || "");
         setIsOpen(false);
       }}
     >
-      <div className='yl:flex yl:items-center'>
+      <div className='flex items-center'>
         {icon && (
-          <span className='yl:mr-2'>
+          <span className='mr-2'>
             <Icon
               iconName={icon.iconName}
               className={icon.className}
@@ -35,7 +35,7 @@ const DropdownListItem: FC<IDropdownListItem> = ({
 
 const DefaultDropdown: FC<IDefaultDropdownProps> = ({ options, setIsOpen }) => {
   return (
-    <ul className='yl:p-2 yl:text-text'>
+    <ul className='p-2 text-text'>
       {options.map((option, index) => (
         <DropdownListItem
           icon={

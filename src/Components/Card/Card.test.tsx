@@ -69,7 +69,7 @@ describe("Card component", () => {
 
       expect(screen.queryByText("Test Article Title")).not.toBeInTheDocument();
       // Test for skeleton by checking for animate-pulse class
-      const skeletonElement = document.querySelector(".yl\\:animate-pulse");
+      const skeletonElement = document.querySelector(".animate-pulse");
       expect(skeletonElement).toBeInTheDocument();
     });
 
@@ -171,7 +171,7 @@ describe("Card component", () => {
       });
 
       const cardElement = screen.getByRole("article");
-      expect(cardElement).toHaveClass("yl:ring-2", "yl:ring-blue-500");
+      expect(cardElement).toHaveClass("ring-2", "ring-blue-500");
     });
   });
 

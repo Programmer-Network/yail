@@ -29,13 +29,13 @@ export const Outline: Story = {
   args: {
     title: "Badge",
     variant: BadgeVariantEnum.OUTLINE,
-    className: "yl:text-secondary"
+    className: "text-secondary"
   }
 };
 
 export const Custom: Story = {
   args: {
     title: "Badge",
-    className: "yl:text-bg yl:bg-red-500"
+    className: "text-bg bg-red-500"
   }
 };

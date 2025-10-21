@@ -137,8 +137,8 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
 
   return (
     <div
-      className={classNames("yl:relative", {
-        "yl:mb-8": error
+      className={classNames("relative", {
+        "mb-8": error
       })}
     >
       {label && <InputHeader label={label} hint={hint} required={required} />}
@@ -151,17 +151,17 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
           onImageUploadError={onImageUploadError}
         />
       )}
-      <div className='yl:flex yl:flex-col'>
+      <div className='flex flex-col'>
         <div
-          className={classNames("yl:relative yl:break-words", {
-            "yl:border-t-0!": hasToolbar
+          className={classNames("relative break-words", {
+            "border-t-0!": hasToolbar
           })}
         ></div>
         <div
-          className='yl:relative yl:border-2 yl:border-border/40 yl:rounded-bl-md yl:rounded-br-md yl:border-t-0'
+          className='relative border-2 border-border/40 rounded-bl-md rounded-br-md border-t-0'
           onClick={() => editor.commands.focus()}
         >
-          <EditorContent editor={editor} className='yl:p-4' />
+          <EditorContent editor={editor} className='p-4' />
           {actions &&
             typeof actions?.onAction === "function" &&
             actions.buttons?.length && (

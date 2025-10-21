@@ -28,7 +28,7 @@ const CardImage: FC<ICardImage> = ({
   return (
     <div
       className={classNames(
-        "yl:relative yl:overflow-hidden yl:w-full",
+        "relative overflow-hidden w-full",
         getAspectRatioClass(aspectRatio),
         className
       )}
@@ -38,7 +38,7 @@ const CardImage: FC<ICardImage> = ({
         alt={alt || "Card image"}
         loading={lazy ? "lazy" : "eager"}
         onClick={onImageClick ? handleImageClick : undefined}
-        className='yl:w-full yl:h-full yl:object-cover'
+        className='w-full h-full object-cover'
         style={{ display: "block" }}
       />
     </div>

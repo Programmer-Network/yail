@@ -37,7 +37,7 @@ describe("Dropdown Component", () => {
             value: "foo",
             icon: {
               iconName: "IconShare",
-              className: "yl:w-4"
+              className: "w-4"
             }
           }
         ]}

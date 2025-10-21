@@ -15,7 +15,7 @@ export const Default = () => {
   const [date, setDate] = useState(new Date());
 
   return (
-    <div className='yl:w-[500px]'>
+    <div className='w-[500px]'>
       <DatePicker
         name='datetime'
         value={date}

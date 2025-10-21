@@ -9,8 +9,7 @@ const InputError: FC<IInputErrorProps> = (
     className: ""
   }
 ) => {
-  const baseClassName =
-    "yl:text-error yl:peer-invalid:visible yl:my-1 yl:block";
+  const baseClassName = "text-error peer-invalid:visible my-1 block";
 
   if (Array.isArray(error)) {
     return error.map((e, i) => {

@@ -25,16 +25,16 @@ const ConfirmDialog = forwardRef<HTMLDialogElement, IConfirmDialogProps>(
       switch (variant) {
         case "destructive":
           return {
-            iconClass: "yl:text-red-500",
-            messageClass: "yl:text-red-500",
+            iconClass: "text-red-500",
+            messageClass: "text-red-500",
             icon: iconName || "IconBomb",
             buttonVariant: ButtonVariantEnum.ERROR,
             confirmIcon: "IconBomb"
           };
         default:
           return {
-            iconClass: "yl:text-blue-500",
-            messageClass: "yl:text-foreground",
+            iconClass: "text-blue-500",
+            messageClass: "text-foreground",
             icon: iconName || "IconInfo",
             buttonVariant: ButtonVariantEnum.PRIMARY,
             confirmIcon: "Complete"
@@ -53,23 +53,21 @@ const ConfirmDialog = forwardRef<HTMLDialogElement, IConfirmDialogProps>(
     return (
       <Dialog
         ref={ref}
-        className='yl:min-w-[460px] yl:bg-background yl:px-6 yl:py-8 yl:max-w-[480px]'
+        className='min-w-[460px] bg-background px-6 py-8 max-w-[480px]'
       >
-        <div className='yl:flex yl:flex-col yl:gap-6'>
+        <div className='flex flex-col gap-6'>
           {(iconName || variant) && (
-            <div className='yl:flex yl:items-center yl:justify-center yl:rounded-full'>
+            <div className='flex items-center justify-center rounded-full'>
               <Icon
                 iconName={styles.icon as any}
-                className={`yl:h-24 yl:w-24 ${styles.iconClass}`}
+                className={`h-24 w-24 ${styles.iconClass}`}
               />
             </div>
           )}
 
-          <div className='yl:text-center yl:space-y-3'>
+          <div className='text-center space-y-3'>
             {title && (
-              <h3 className='yl:text-lg yl:font-semibold yl:text-text'>
-                {title}
-              </h3>
+              <h3 className='text-lg font-semibold text-text'>{title}</h3>
             )}
 
             <Paragraph className={`${styles.messageClass}`}>
@@ -77,17 +75,17 @@ const ConfirmDialog = forwardRef<HTMLDialogElement, IConfirmDialogProps>(
             </Paragraph>
           </div>
 
-          <div className='yl:flex yl:gap-3 yl:justify-end'>
+          <div className='flex gap-3 justify-end'>
             <Button
               variant={ButtonVariantEnum.SECONDARY}
               outlined
               onClick={handleCancel}
               disabled={isLoading}
-              className='yl:min-w-[100px]'
+              className='min-w-[100px]'
               icon={{
                 iconName: "Incomplete",
                 iconPosition: "left",
-                iconClassName: "yl:w-6 yl:h-6"
+                iconClassName: "w-6 h-6"
               }}
             >
               {cancelText}
@@ -95,15 +93,13 @@ const ConfirmDialog = forwardRef<HTMLDialogElement, IConfirmDialogProps>(
             <Button
               onClick={onConfirm}
               isLoading={isLoading}
-              className='yl:min-w-[100px]'
+              className='min-w-[100px]'
               variant={styles.buttonVariant}
               icon={{
                 iconName: styles.confirmIcon as any,
                 iconPosition: "left",
                 iconClassName:
-                  styles.confirmIcon === "Complete"
-                    ? "yl:w-5 yl:h-5"
-                    : "yl:w-6 yl:h-6"
+                  styles.confirmIcon === "Complete" ? "w-5 h-5" : "w-6 h-6"
               }}
             >
               {confirmText}

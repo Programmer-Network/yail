@@ -20,7 +20,7 @@ const ImageSelector: FC<IImageSelectorProps> = ({
   }, [images.length, value]);
 
   return (
-    <div className='yl:grid yl:grid-cols-4 yl:gap-4'>
+    <div className='grid grid-cols-4 gap-4'>
       {images.map(image => {
         return (
           <div
@@ -34,16 +34,16 @@ const ImageSelector: FC<IImageSelectorProps> = ({
             key={image.id}
             style={{ backgroundImage: `url(${image.url})` }}
             className={classNames(
-              "yl:relative yl:aspect-square yl:h-full yl:w-full yl:min-w-[150px] yl:cursor-pointer yl:bg-cover yl:bg-center yl:bg-no-repeat opacity-70",
+              "relative aspect-square h-full w-full min-w-[150px] cursor-pointer bg-cover bg-center bg-no-repeat opacity-70",
               {
                 "!opacity-100": selected.url === image.url,
-                "yl:flex yl:items-center yl:justify-center yl:border-rose-500 opacity-50":
+                "flex items-center justify-center border-rose-500 opacity-50":
                   itemToDelete?.url === image.url
               }
             )}
           >
             {itemToDelete?.url === image.url && (
-              <Spinner className='yl:w-24! yl:text-error' />
+              <Spinner className='w-24! text-error' />
             )}
 
             {!itemToDelete && hoveredImage?.url === image.url && (
@@ -59,7 +59,7 @@ const ImageSelector: FC<IImageSelectorProps> = ({
                     setItemToDelete(null);
                   }
                 }}
-                className='yl:absolute yl:right-1 yl:top-1 yl:w-4 yl:cursor-pointer yl:text-text transition duration-200 ease-in yl:hover:text-error'
+                className='absolute right-1 top-1 w-4 cursor-pointer text-text transition duration-200 ease-in hover:text-error'
               />
             )}
           </div>

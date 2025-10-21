@@ -29,13 +29,13 @@ export const WithClassName: Story = {
   args: {
     src: "https://avatars.githubusercontent.com/u/2085263?v=4",
     size: 150,
-    className: "yl:border-4 yl:border-white"
+    className: "border-4 border-white"
   }
 };
 
 export const WithClassNameBoringAvatars: Story = {
   args: {
     size: 150,
-    className: "yl:border-4 yl:border-white"
+    className: "border-4 border-white"
   }
 };

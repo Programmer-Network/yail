@@ -35,8 +35,8 @@ describe("CardPills component", () => {
     const premiumPill = screen.getByText("Premium");
     const editorChoicePill = screen.getByText("Editor's Choice");
 
-    expect(premiumPill).toHaveClass("yl:bg-primary/10");
-    expect(editorChoicePill).toHaveClass("yl:bg-muted/10");
+    expect(premiumPill).toHaveClass("bg-primary/10");
+    expect(editorChoicePill).toHaveClass("bg-muted/10");
   });
 
   it("applies custom className to pills", () => {
@@ -51,12 +51,12 @@ describe("CardPills component", () => {
 
     const pillsContainer = container.firstChild as HTMLElement;
     expect(pillsContainer).toHaveClass(
-      "yl:flex",
-      "yl:items-center",
-      "yl:gap-2",
-      "yl:flex-wrap",
-      "yl:mt-3",
-      "yl:mb-1"
+      "flex",
+      "items-center",
+      "gap-2",
+      "flex-wrap",
+      "mt-3",
+      "mb-1"
     );
   });
 

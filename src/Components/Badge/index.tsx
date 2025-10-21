@@ -6,12 +6,12 @@ import { BadgeVariantEnum, IBadgeProps } from "./types";
 const Badge: FC<IBadgeProps> = ({ title, className, variant }) => {
   const variants = {
     [BadgeVariantEnum.FILLED]:
-      "yl:bg-primary yl:text-background yl:border-2 yl:border-background/80",
+      "bg-primary text-background border-2 border-background/80",
     [BadgeVariantEnum.OUTLINE]:
-      "yl:bg-transparent yl:border-primary yl:text-primary yl:border-2 yl:border-primary/80"
+      "bg-transparent border-primary text-primary border-2 border-primary/80"
   };
 
-  const baseClassNames = "yl:rounded yl:px-2 yl:py-1 yl:text-sm yl:font-medium";
+  const baseClassNames = "rounded px-2 py-1 text-sm font-medium";
 
   const variantClassNames = variant ? variants[variant] : "";
 

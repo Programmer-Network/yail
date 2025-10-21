@@ -3,13 +3,13 @@
 exports[`Bookmark component > renders correctly - snapshot test 1`] = `
 <DocumentFragment>
   <div
-    class="yl:flex yl:items-start yl:gap-2"
+    class="flex items-start gap-2"
   >
     <div
-      class="yl:flex yl:gap-2"
+      class="flex gap-2"
     >
       <div
-        class="yl:relative yl:top-[-1px] yl:w-5 yl:cursor-pointer yl:fill-primary yl:hover:fill-primary"
+        class="relative top-[-1px] w-5 cursor-pointer fill-primary hover:fill-primary"
         data-icon="IconBookmarked"
         data-testid="icon-bookmarked"
       >

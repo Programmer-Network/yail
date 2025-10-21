@@ -3,7 +3,7 @@ import { CSSObjectWithLabel, OptionProps, StylesConfig } from "react-select";
 import { Option } from "./types";
 
 const text = "oklch(90% 0.05 80)";
-const background = "oklch(0.15 0 0)";
+const background = "oklch(0.25 0 0)";
 const border = "oklch(35% 0.03 80)";
 const muted = "oklch(55% 0.07 80)";
 const primary = "oklch(80% 0.2 80)";

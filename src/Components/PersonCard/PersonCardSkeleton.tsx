@@ -12,98 +12,89 @@ const PersonCardSkeleton: FC<IPersonCardSkeletonProps> = ({
 }) => {
   const getSizeClasses = (size: string) => {
     const sizeClasses: Record<string, string> = {
-      small: "yl:p-4",
-      medium: "yl:p-6",
-      large: "yl:p-8"
+      small: "p-4",
+      medium: "p-6",
+      large: "p-8"
     };
     return sizeClasses[size] || sizeClasses["medium"];
   };
 
   const getAvatarSize = (size: string) => {
     const avatarSizes: Record<string, string> = {
-      small: "yl:w-12 yl:h-12",
-      medium: "yl:w-16 yl:h-16",
-      large: "yl:w-20 yl:h-20"
+      small: "w-12 h-12",
+      medium: "w-16 h-16",
+      large: "w-20 h-20"
     };
     return avatarSizes[size] || avatarSizes["medium"];
   };
 
   const cardClasses = classNames(
-    "yl:animate-pulse",
-    "yl:bg-background yl:border-2 yl:border-border yl:rounded-lg yl:shadow-sm yl:max-w-sm yl:w-full yl:mx-auto",
+    "animate-pulse",
+    "bg-background border-2 border-border rounded-lg shadow-sm max-w-sm w-full mx-auto",
     getSizeClasses(size),
     className
   );
 
   return (
     <div className={cardClasses}>
-      <div className='yl:flex yl:flex-col yl:gap-4'>
+      <div className='flex flex-col gap-4'>
         {/* Avatar Skeleton */}
-        <div className='yl:relative yl:flex-shrink-0 yl:mx-auto'>
+        <div className='relative flex-shrink-0 mx-auto'>
           <div
             className={classNames(
-              "yl:bg-border yl:rounded-full",
+              "bg-border rounded-full",
               getAvatarSize(size)
             )}
           />
         </div>
 
         {/* Name and Badge Skeleton */}
-        <div className='yl:flex yl:flex-col yl:items-center yl:gap-1 yl:-mt-2'>
-          <div className='yl:h-6 yl:bg-border yl:rounded yl:w-32' />
+        <div className='flex flex-col items-center gap-1 -mt-2'>
+          <div className='h-6 bg-border rounded w-32' />
           {/* Badge skeleton */}
-          <div className='yl:h-5 yl:bg-border yl:rounded-full yl:w-16' />
+          <div className='h-5 bg-border rounded-full w-16' />
         </div>
 
         {/* Username Skeleton */}
-        <div className='yl:-mt-2'>
-          <div className='yl:h-4 yl:bg-border yl:rounded yl:w-20 yl:mx-auto' />
+        <div className='-mt-2'>
+          <div className='h-4 bg-border rounded w-20 mx-auto' />
         </div>
 
         {/* Role and Location Skeleton */}
-        <div className='yl:-mt-2 yl:flex yl:justify-center'>
-          <div className='yl:h-4 yl:bg-border yl:rounded yl:w-28' />
+        <div className='-mt-2 flex justify-center'>
+          <div className='h-4 bg-border rounded w-28' />
         </div>
 
         {/* Description Skeleton */}
         {about && (
-          <div className='yl:space-y-2'>
-            <div className='yl:h-4 yl:bg-border yl:rounded yl:w-full' />
-            <div className='yl:h-4 yl:bg-border yl:rounded yl:w-3/4 yl:mx-auto' />
+          <div className='space-y-2'>
+            <div className='h-4 bg-border rounded w-full' />
+            <div className='h-4 bg-border rounded w-3/4 mx-auto' />
           </div>
         )}
 
         {/* Social Links Skeleton */}
         {showSocialLinks && (
-          <div className='yl:flex yl:gap-2 yl:justify-center'>
+          <div className='flex gap-2 justify-center'>
             {Array.from({ length: 3 }).map((_, index) => (
-              <div
-                key={index}
-                className='yl:w-4 yl:h-4 yl:bg-border yl:rounded'
-              />
+              <div key={index} className='w-4 h-4 bg-border rounded' />
             ))}
           </div>
         )}
 
         {/* Tags Skeleton */}
         {showTags && (
-          <div className='yl:flex yl:flex-wrap yl:gap-2 yl:justify-center'>
+          <div className='flex flex-wrap gap-2 justify-center'>
             {Array.from({ length: 3 }).map((_, index) => (
-              <div
-                key={index}
-                className='yl:h-6 yl:bg-border yl:rounded-full yl:w-16'
-              />
+              <div key={index} className='h-6 bg-border rounded-full w-16' />
             ))}
           </div>
         )}
 
         {/* Actions Skeleton */}
-        <div className='yl:flex yl:gap-2 yl:justify-center yl:flex-wrap'>
+        <div className='flex gap-2 justify-center flex-wrap'>
           {Array.from({ length: 2 }).map((_, index) => (
-            <div
-              key={index}
-              className='yl:h-8 yl:bg-border yl:rounded yl:w-20'
-            />
+            <div key={index} className='h-8 bg-border rounded w-20' />
           ))}
         </div>
       </div>

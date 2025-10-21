@@ -22,24 +22,19 @@ const Filters: FC<IFiltersProps> = ({
   const [showFilters, setShowFilters] = useState(false);
 
   return (
-    <div
-      className={classNames(
-        "yl:flex yl:flex-col yl:gap-2 yl:w-full",
-        className
-      )}
-    >
-      <div className='yl:flex yl:flex-col yl:md:flex-row yl:md:items-center yl:w-full yl:gap-2'>
+    <div className={classNames("flex flex-col gap-2 w-full", className)}>
+      <div className='flex flex-col md:flex-row md:items-center w-full gap-2'>
         <Input
           type='text'
           name='search'
           placeholder='Search...'
           onChange={input => search.onChange(input["search"] ?? "")}
           value={search.value}
-          inputWrapperClassName='yl:flex-1 yl:min-w-0 yl:w-full'
+          inputWrapperClassName='flex-1 min-w-0 w-full'
         />
-        <div className='yl:flex yl:gap-4'>
+        <div className='flex gap-4'>
           {sorting && sorting.options.length > 0 && (
-            <div className='yl:flex yl:items-center yl:gap-1'>
+            <div className='flex items-center gap-1'>
               <Button
                 variant={
                   sorting.value === "newest"
@@ -51,7 +46,7 @@ const Filters: FC<IFiltersProps> = ({
                 }}
                 icon={{
                   iconName: "SortUpSolid",
-                  iconClassName: "yl:w-6 yl:h-6",
+                  iconClassName: "w-6 h-6",
                   iconPosition: "left"
                 }}
               />
@@ -66,7 +61,7 @@ const Filters: FC<IFiltersProps> = ({
                 }}
                 icon={{
                   iconName: "SortDownSolid",
-                  iconClassName: "yl:w-6 yl:h-6",
+                  iconClassName: "w-6 h-6",
                   iconPosition: "left"
                 }}
               />
@@ -74,7 +69,7 @@ const Filters: FC<IFiltersProps> = ({
           )}
 
           {view && (
-            <div className='yl:w-auto'>
+            <div className='w-auto'>
               <ViewToggle
                 data-testid='view-toggle'
                 currentView={view.value}
@@ -92,7 +87,7 @@ const Filters: FC<IFiltersProps> = ({
               onClick={() => setShowFilters(v => !v)}
               icon={{
                 iconName: "FilterSolid",
-                iconClassName: "yl:w-6 yl:h-6",
+                iconClassName: "w-6 h-6",
                 iconPosition: "left"
               }}
             />
@@ -100,7 +95,7 @@ const Filters: FC<IFiltersProps> = ({
         </div>
       </div>
       {showFilters && (
-        <div className='yl:flex yl:gap-2 yl:items-start yl:flex-wrap yl:mt-2'>
+        <div className='flex gap-2 items-start flex-wrap mt-2'>
           {tags && tags?.options?.length > 0 && (
             <Select
               placeholder='Select tags...'
@@ -116,7 +111,7 @@ const Filters: FC<IFiltersProps> = ({
 
                 tags.onChange(options["tags"] as string[]);
               }}
-              inputWrapperClassName='yl:min-w-[200px]'
+              inputWrapperClassName='min-w-[200px]'
             />
           )}
           {Array.isArray(additional) ? (

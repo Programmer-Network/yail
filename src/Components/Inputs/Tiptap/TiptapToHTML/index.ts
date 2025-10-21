@@ -96,29 +96,24 @@ export default class TiptapToHTML {
           "height",
           "loading"
         ],
-        span: ["data-id", "data-type", "yl:text-primary"]
+        span: ["data-id", "data-type", "text-primary"]
       },
       selfClosing: ["img", "br"],
       allowedClasses: {
         "*": [
-          "yl:text-text",
-          "yl:text-xl",
-          "yl:text-2xl",
-          "yl:text-3xl",
-          "yl:text-4xl",
-          "yl:text-6xl",
-          "yl:my-4",
-          "yl:mb-2",
-          "yl:mt-2",
-          "yl:break-words"
+          "text-text",
+          "text-xl",
+          "text-2xl",
+          "text-3xl",
+          "text-4xl",
+          "text-6xl",
+          "my-4",
+          "mb-2",
+          "mt-2",
+          "break-words"
         ],
-        a: [
-          "yl:underline,",
-          "yl:text-text",
-          "yl:cursor-pointer",
-          "yl:font-bold"
-        ],
-        iframe: ["yl:aspect-video", "yl:w-full", "yl:h-full", "yl:py-4"],
+        a: ["underline,", "text-text", "cursor-pointer", "font-bold"],
+        iframe: ["aspect-video", "w-full", "h-full", "py-4"],
         ...Object.values(toolbarItemToClassName).reduce((acc, tag) => {
           if (!tag.tagName) {
             return acc;

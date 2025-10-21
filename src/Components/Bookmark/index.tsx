@@ -13,24 +13,24 @@ const Bookmark: React.FC<IBookmarkProps> = (
   }
 ) => {
   return (
-    <div className='yl:flex yl:items-start yl:gap-2'>
-      <div className='yl:flex yl:gap-2'>
+    <div className='flex items-start gap-2'>
+      <div className='flex gap-2'>
         {isLoading ? (
-          <Spinner className='yl:w-5 yl:fill-text' />
+          <Spinner className='w-5 fill-text' />
         ) : (
           <>
             {isBookmarked ? (
               <Icon
                 iconName='IconBookmarked'
                 data-testid='icon-bookmarked'
-                className='yl:relative yl:top-[-1px] yl:w-5 yl:cursor-pointer yl:fill-primary yl:hover:fill-primary'
+                className='relative top-[-1px] w-5 cursor-pointer fill-primary hover:fill-primary'
                 onClick={handleDelete}
               />
             ) : (
               <Icon
                 iconName='IconBookmark'
                 data-testid='icon-bookmark'
-                className='yl:relative yl:top-[-1px] yl:w-5 yl:cursor-pointer yl:fill-text yl:hover:fill-primary'
+                className='relative top-[-1px] w-5 cursor-pointer fill-text hover:fill-primary'
                 onClick={handleAdd}
               />
             )}

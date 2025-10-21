@@ -6,13 +6,13 @@ import { H2, Paragraph } from "../../../Components/Typography";
 
 export const StepOne: React.FC<Partial<StepWizardChildProps>> = props => {
   return (
-    <div className='yl:flex yl:flex-col yl:justify-center yl:items-center'>
-      <div className='yl:flex yl:flex-col yl:items-center yl:justify-center yl:gap-8'>
-        <Icon iconName='IconProgrammerCoding' className='yl:w-64 yl:md:w-96' />
+    <div className='flex flex-col justify-center items-center'>
+      <div className='flex flex-col items-center justify-center gap-8'>
+        <Icon iconName='IconProgrammerCoding' className='w-64 md:w-96' />
         <header>
-          <H2 className='yl:text-center yl:mb-2'>Hello, Programmer.</H2>
+          <H2 className='text-center mb-2'>Hello, Programmer.</H2>
           <div>
-            <Paragraph className='yl:text-center yl:text-xl'>
+            <Paragraph className='text-center text-xl'>
               Welcome. We are happy to have you here.
             </Paragraph>
           </div>

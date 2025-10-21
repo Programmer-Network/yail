@@ -83,7 +83,7 @@ export const WithIconClassName: Story = {
     icon: {
       iconName: "IconBrain",
       iconPosition: "right",
-      iconClassName: "text-violet-800 yl:w-5"
+      iconClassName: "text-violet-800 w-5"
     }
   }
 };

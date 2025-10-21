@@ -3,23 +3,23 @@
 exports[`Accordion component > renders correctly 1`] = `
 <DocumentFragment>
   <section
-    class="yl:bg-background"
+    class="bg-background"
   >
     <div
-      class="yl:border-2 yl:border-border yl:border-b-0 yl:rounded-tl-md yl:rounded-tr-md"
+      class="border-2 border-border border-b-0 rounded-tl-md rounded-tr-md"
       role="presentation"
     >
       <h3
         aria-expanded="true"
-        class="yl:relative yl:flex yl:cursor-default yl:select-none yl:items-center yl:font-semibold yl:capitalize yl:p-4 yl:hover:text-primary yl:transition-colors yl:duration-400 yl:ease-in-out yl:hover:cursor-pointer yl:bg-text/2 yl:cursor-pointer yl:text-text"
+        class="relative flex cursor-default select-none items-center font-semibold capitalize p-4 hover:text-primary transition-colors duration-400 ease-in-out hover:cursor-pointer bg-text/2 cursor-pointer text-text"
         role="button"
         tabindex="0"
       >
         <div
-          class="yl:flex yl:flex-col yl:gap-1 yl:overflow-hidden yl:text-ellipsis yl:whitespace-nowrap yl:text-base"
+          class="flex flex-col gap-1 overflow-hidden text-ellipsis whitespace-nowrap text-base"
         >
           <div
-            class="yl:absolute yl:right-2 yl:w-6 yl:cursor-pointer yl:fill-primary yl:hover:fill-primary"
+            class="absolute right-2 w-6 cursor-pointer fill-primary hover:fill-primary"
             data-icon="IconExpandLess"
             data-testid="icon-expand-less"
           >
@@ -27,42 +27,42 @@ exports[`Accordion component > renders correctly 1`] = `
           </div>
           Section 1
           <p
-            class="yl:text-text yl:break-words yl:overflow-hidden yl:text-xs yl:text-text/70"
+            class="text-text break-words overflow-hidden text-xs text-text/70"
           >
             Description 1
           </p>
         </div>
       </h3>
       <ul
-        class="yl:relative yl:text-text yl:gap-4 yl:flex yl:flex-col yl:py-4"
+        class="relative text-text gap-4 flex flex-col py-4"
       >
         <li
-          class="yl:relative yl:flex yl:items-center yl:cursor-default yl:break-words yl:leading-normal yl:px-4 yl:hover:cursor-pointer yl:hover:text-primary"
+          class="relative flex items-center cursor-default break-words leading-normal px-4 hover:cursor-pointer hover:text-primary"
         >
           Item A
         </li>
         <li
-          class="yl:relative yl:flex yl:items-center yl:cursor-default yl:break-words yl:leading-normal yl:px-4 yl:hover:cursor-pointer yl:hover:text-primary"
+          class="relative flex items-center cursor-default break-words leading-normal px-4 hover:cursor-pointer hover:text-primary"
         >
           Item B
         </li>
       </ul>
     </div>
     <div
-      class="yl:border-2 yl:border-border yl:rounded-bl-md yl:rounded-br-md"
+      class="border-2 border-border rounded-bl-md rounded-br-md"
       role="presentation"
     >
       <h3
         aria-expanded="false"
-        class="yl:relative yl:flex yl:cursor-default yl:select-none yl:items-center yl:font-semibold yl:capitalize yl:p-4 yl:hover:text-primary yl:transition-colors yl:duration-400 yl:ease-in-out yl:hover:cursor-pointer yl:cursor-pointer yl:text-text"
+        class="relative flex cursor-default select-none items-center font-semibold capitalize p-4 hover:text-primary transition-colors duration-400 ease-in-out hover:cursor-pointer cursor-pointer text-text"
         role="button"
         tabindex="0"
       >
         <div
-          class="yl:flex yl:flex-col yl:gap-1 yl:overflow-hidden yl:text-ellipsis yl:whitespace-nowrap yl:text-base"
+          class="flex flex-col gap-1 overflow-hidden text-ellipsis whitespace-nowrap text-base"
         >
           <div
-            class="yl:absolute yl:right-2 yl:w-6 yl:cursor-pointer yl:fill-primary yl:hover:fill-primary"
+            class="absolute right-2 w-6 cursor-pointer fill-primary hover:fill-primary"
             data-icon="IconExpandMore"
             data-testid="icon-expand-more"
           >
@@ -70,7 +70,7 @@ exports[`Accordion component > renders correctly 1`] = `
           </div>
           Section 2
           <p
-            class="yl:text-text yl:break-words yl:overflow-hidden yl:text-xs yl:text-text/70"
+            class="text-text break-words overflow-hidden text-xs text-text/70"
           >
             Description 2
           </p>

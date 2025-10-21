@@ -3,11 +3,11 @@
 exports[`Button component > renders correctly - snapshot test 1`] = `
 <DocumentFragment>
   <button
-    class="yl:select-none yl:px-3 yl:py-2 yl:font-semibold yl:tracking-tight yl:rounded-md yl:border-2 yl:transition-all yl:duration-200 yl:transform yl:hover:scale-105 yl:cursor-pointer yl:border-primary yl:bg-primary yl:text-background yl:hover:bg-transparent yl:hover:text-primary"
+    class="select-none px-3 py-2 font-semibold tracking-tight rounded-md border-2 transition-all duration-200 transform hover:scale-105 cursor-pointer border-primary bg-primary text-background hover:bg-transparent hover:text-primary"
     type="button"
   >
     <div
-      class="yl:relative yl:flex yl:items-center yl:justify-center"
+      class="relative flex items-center justify-center"
     >
       <span
         class=""
@@ -15,7 +15,7 @@ exports[`Button component > renders correctly - snapshot test 1`] = `
         Snapshot Button
       </span>
       <span
-        class="yl:absolute"
+        class="absolute"
       />
     </div>
   </button>

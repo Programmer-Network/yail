@@ -56,7 +56,7 @@ export const Primary = () => {
   return (
     <div>
       <Accordion
-        className='yl:w-[500px]'
+        className='w-[500px]'
         sections={sections}
         selected={{
           sectionId: selectedSection ?? 0,
@@ -109,7 +109,7 @@ export const Interactive = () => {
   return (
     <div>
       <Accordion
-        className='yl:w-[500px]'
+        className='w-[500px]'
         sections={sections}
         expanded={expandedSections}
         selected={{
@@ -159,7 +159,7 @@ export const NonInteractiveItems = () => {
   return (
     <div>
       <Accordion
-        className='yl:w-[500px]'
+        className='w-[500px]'
         selected={{
           sectionId: selectedSection ?? 0,
           itemId: selectedItem ?? 0
@@ -207,7 +207,7 @@ export const WithoutDragAndDrop = () => {
   return (
     <div>
       <Accordion
-        className='yl:w-[500px]'
+        className='w-[500px]'
         selected={{
           sectionId: selectedSection ?? 0,
           itemId: selectedItem ?? 0
@@ -255,7 +255,7 @@ export const WithAddLabels = () => {
   return (
     <div>
       <Accordion
-        className='yl:w-[500px]'
+        className='w-[500px]'
         selected={{
           sectionId: selectedSection ?? 0,
           itemId: selectedItem ?? 0
@@ -312,7 +312,7 @@ export const WithNoItems = () => {
   return (
     <div>
       <Accordion
-        className='yl:w-[500px]'
+        className='w-[500px]'
         expanded={expandedSections}
         selected={{
           sectionId: selectedSection ?? 0,
@@ -367,7 +367,7 @@ export const ExpandedByDefault = () => {
     <div>
       <Accordion
         defaultExpanded={true}
-        className='yl:w-[500px]'
+        className='w-[500px]'
         selected={{
           sectionId: selectedSection ?? 0,
           itemId: selectedItem ?? 0

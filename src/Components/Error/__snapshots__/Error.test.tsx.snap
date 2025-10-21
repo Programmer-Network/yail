@@ -3,31 +3,31 @@
 exports[`Error component > renders correctly - snapshot test 1`] = `
 <DocumentFragment>
   <div
-    class="yl:flex yl:min-h-full yl:flex-col"
+    class="flex min-h-full flex-col"
     data-testid="error-wrapper"
   >
     <div
-      class="yl:mx-auto yl:flex yl:w-full yl:grow yl:flex-col yl:px-4 yl:lg:px-8"
+      class="mx-auto flex w-full grow flex-col px-4 lg:px-8"
     >
       <div
-        class="yl:flex yl:shrink-0 yl:justify-center"
+        class="flex shrink-0 justify-center"
       >
         <a
-          class="yl:inline-flex"
+          class="inline-flex"
         />
       </div>
       <div>
         <div
-          class="yl:text-center"
+          class="text-center"
         >
           <p
-            class="yl:font-semibold yl:tracking-wide yl:text-primary yl:md:text-6xl"
+            class="font-semibold tracking-wide text-primary md:text-6xl"
             data-testid="error-text"
           >
             404 error
           </p>
           <h1
-            class="yl:text-4xl yl:font-extrabold yl:tracking-tight yl:text-text yl:sm:text-3xl"
+            class="text-4xl font-extrabold tracking-tight text-text sm:text-3xl"
           >
             Page not found.
           </h1>

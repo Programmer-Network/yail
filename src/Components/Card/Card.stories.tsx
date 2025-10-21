@@ -447,7 +447,7 @@ export const WithPills: Story = {
         {
           title: "Trending",
           variant: PillVariant.SUCCESS,
-          className: "yl:bg-green-500 yl:text-white"
+          className: "bg-green-500 text-white"
         }
       ]
     }
@@ -466,13 +466,13 @@ export const WithManyPills: Story = {
         {
           title: "New",
           variant: PillVariant.INDIGO,
-          className: "yl:bg-blue-500 yl:text-white"
+          className: "bg-blue-500 text-white"
         },
         { title: "Popular", variant: PillVariant.WARNING },
         {
           title: "Verified",
           variant: PillVariant.SUCCESS,
-          className: "yl:bg-green-600 yl:text-white"
+          className: "bg-green-600 text-white"
         }
       ]
     }

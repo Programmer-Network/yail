@@ -54,11 +54,11 @@ export const StepThree: FC<Partial<StepWizardChildProps>> = props => {
   };
 
   return (
-    <div className='yl:pb-20 yl:md:pb-0'>
-      <div className='yl:mb-4'>
-        <H4 className='yl:mb-2'>Tell us about you</H4>
+    <div className='pb-20 md:pb-0'>
+      <div className='mb-4'>
+        <H4 className='mb-2'>Tell us about you</H4>
       </div>
-      <div className='yl:flex yl:flex-col yl:gap-4'>
+      <div className='flex flex-col gap-4'>
         <DomainInput
           name='username'
           domain='programmer.network/'
@@ -128,7 +128,7 @@ export const StepThree: FC<Partial<StepWizardChildProps>> = props => {
         />
 
         {!showPersonalFields && (
-          <div className='yl:flex yl:flex-col yl:gap-6 yl:mb-4'>
+          <div className='flex flex-col gap-6 mb-4'>
             <Paragraph>
               Completing your profile with accurate information is highly
               recommended. A detailed and authentic online presence can greatly
@@ -143,9 +143,9 @@ export const StepThree: FC<Partial<StepWizardChildProps>> = props => {
           </div>
         )}
 
-        <div className='yl:flex yl:justify-end yl:gap-2'>
+        <div className='flex justify-end gap-2'>
           <Button
-            className='yl:w-full yl:md:w-auto button--gray'
+            className='w-full md:w-auto button--gray'
             type='button'
             onClick={() => {
               props.previousStep?.();
@@ -158,7 +158,7 @@ export const StepThree: FC<Partial<StepWizardChildProps>> = props => {
           <Button
             type='submit'
             onClick={() => handleSubmit()}
-            className='yl:w-full yl:md:w-auto'
+            className='w-full md:w-auto'
             isLoading={false}
           >
             Complete Profile

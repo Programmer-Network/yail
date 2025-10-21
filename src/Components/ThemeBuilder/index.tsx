@@ -85,8 +85,8 @@ const ThemeBuilder: FC<IThemeBuilder> = ({
 
   return (
     <div ref={ref}>
-      <div className='yl:mb-1 yl:flex yl:items-center yl:justify-center yl:md:justify-start'>
-        <div className='yl:flex yl:gap-1 yl:flex-col yl:md:flex-row'>
+      <div className='mb-1 flex items-center justify-center md:justify-start'>
+        <div className='flex gap-1 flex-col md:flex-row'>
           {settings.map(setting => {
             return (
               <Button
@@ -94,7 +94,7 @@ const ThemeBuilder: FC<IThemeBuilder> = ({
                 outlined={setting.type !== selected.type}
                 className={classNames(
                   setting.className,
-                  "yl:h-12 yl:min-w-[120px] yl:shadow-none"
+                  "h-12 min-w-[120px] shadow-none"
                 )}
                 onClick={() => {
                   setSelected({
@@ -114,16 +114,16 @@ const ThemeBuilder: FC<IThemeBuilder> = ({
       </div>
 
       {isDirty && (
-        <div className='yl:flex yl:gap-1 yl:my-4 yl:justify-center yl:md:justify-start'>
+        <div className='flex gap-1 my-4 justify-center md:justify-start'>
           <Button
-            className='yl:min-w-[80px] yl:shadow-none'
+            className='min-w-[80px] shadow-none'
             onClick={handleSaveColors}
           >
             Save
           </Button>
 
           <Button
-            className='yl:min-w-[80px] yl:shadow-none'
+            className='min-w-[80px] shadow-none'
             outlined
             onClick={handleReset}
           >
@@ -133,12 +133,12 @@ const ThemeBuilder: FC<IThemeBuilder> = ({
       )}
 
       {selected.type && (
-        <div className='yl:relative yl:flex yl:items-center yl:justify-start'>
-          <div className='yl:relative yl:mt-2'>
+        <div className='relative flex items-center justify-start'>
+          <div className='relative mt-2'>
             <div onClick={() => setSelected(initialState)}>
               <Icon
                 iconName='IconClose'
-                className='yl:absolute yl:right-[-5px] yl:top-[-5px] yl:z-50 yl:w-4 yl:cursor-pointer yl:rounded-lg yl:border-2 yl:border-border yl:bg-background yl:text-text yl:hover:bg-primary yl:hover:text-background'
+                className='absolute right-[-5px] top-[-5px] z-50 w-4 cursor-pointer rounded-lg border-2 border-border bg-background text-text hover:bg-primary hover:text-background'
               />
             </div>
 
@@ -147,7 +147,7 @@ const ThemeBuilder: FC<IThemeBuilder> = ({
               onChange={(color: string) => setSelected({ ...selected, color })}
               color={selected?.color}
               placeholder='e.g.175ca1'
-              className='yl:mb-2 yl:rounded-lg yl:border-2 yl:border-border yl:bg-transparent yl:p-2 yl:text-text yl:shadow-md yl:hover:border-border yl:focus:border-border yl:focus:shadow-none yl:focus:outline-hidden yl:focus:ring-3-transparent'
+              className='mb-2 rounded-lg border-2 border-border bg-transparent p-2 text-text shadow-md hover:border-border focus:border-border focus:shadow-none focus:outline-hidden focus:ring-3-transparent'
             />
             <HexColorPicker
               onChange={color => setSelected({ ...selected, color })}

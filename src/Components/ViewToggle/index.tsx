@@ -13,7 +13,7 @@ const ViewToggle: FC<IViewToggleProps> = ({
 }) => {
   return (
     <div
-      className={classNames("yl:flex yl:gap-1", className)}
+      className={classNames("flex gap-1", className)}
       data-testid='view-toggle'
     >
       <Button
@@ -24,8 +24,8 @@ const ViewToggle: FC<IViewToggleProps> = ({
         }
         onClick={() => onViewChange("card")}
       >
-        <div className='yl:flex yl:gap-1 yl:items-center'>
-          <Icon iconName='IconPosts' className='yl:w-6 yl:h-6' />
+        <div className='flex gap-1 items-center'>
+          <Icon iconName='IconPosts' className='w-6 h-6' />
         </div>
       </Button>
       <Button
@@ -36,8 +36,8 @@ const ViewToggle: FC<IViewToggleProps> = ({
         }
         onClick={() => onViewChange("table")}
       >
-        <div className='yl:flex yl:gap-1 yl:items-center'>
-          <Icon iconName='ListUnorderedOutline' className='yl:w-6 yl:h-6' />
+        <div className='flex gap-1 items-center'>
+          <Icon iconName='ListUnorderedOutline' className='w-6 h-6' />
         </div>
       </Button>
     </div>

@@ -81,28 +81,28 @@ const ImageInput: FC<IImageInputProps> = ({
   return (
     <div
       className={classNames(
-        "yl:flex yl:flex-col yl:justify-center yl:gap-2",
+        "flex flex-col justify-center gap-2",
         inputWrapperClassName
       )}
     >
-      <label className='yl:flex yl:items-center yl:justify-center'>
+      <label className='flex items-center justify-center'>
         <input
           ref={fileInputRef}
           id={id}
           type='file'
           accept={accept}
           onChange={handleSelect}
-          className={classNames("yl:hidden", className)}
+          className={classNames("hidden", className)}
         />
 
         <Button
           type='button'
           onClick={handleButtonClick}
           outlined
-          className='yl:shadow-none!'
+          className='shadow-none!'
         >
-          <div className='yl:flex yl:items-center yl:justify-center yl:gap-1'>
-            <Icon iconName='IconImage' className='yl:w-6' /> {label}
+          <div className='flex items-center justify-center gap-1'>
+            <Icon iconName='IconImage' className='w-6' /> {label}
           </div>
         </Button>
       </label>

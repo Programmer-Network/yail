@@ -21,32 +21,28 @@ const CardActions: FC<ICardActions> = ({
   }
 
   return (
-    <div className='yl:absolute yl:top-3 yl:right-3 yl:flex yl:gap-1 yl:z-10'>
+    <div className='absolute top-3 right-3 flex gap-1 z-10'>
       {showBookmark && (
         <button
           onClick={onBookmark}
           className={classNames(
-            "yl:p-2 yl:transition-all yl:duration-200 yl:rounded-full yl:backdrop-blur-sm yl:border yl:border-border/20",
-            "yl:hover:scale-105 yl:active:scale-95",
+            "p-2 transition-all duration-200 rounded-full backdrop-blur-sm border border-border/20",
+            "hover:scale-105 active:scale-95",
             isBookmarked
-              ? "yl:bg-primary/10 yl:text-primary yl:hover:bg-primary/20"
-              : "yl:bg-background/80 yl:text-muted yl:hover:bg-background yl:hover:text-primary"
+              ? "bg-primary/10 text-primary hover:bg-primary/20"
+              : "bg-background/80 text-muted hover:bg-background hover:text-primary"
           )}
           aria-label={isBookmarked ? "Remove bookmark" : "Bookmark this card"}
         >
           {isBookmarked ? (
             // Filled bookmark icon
-            <svg
-              className='yl:w-4 yl:h-4'
-              fill='currentColor'
-              viewBox='0 0 20 20'
-            >
+            <svg className='w-4 h-4' fill='currentColor' viewBox='0 0 20 20'>
               <path d='M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z' />
             </svg>
           ) : (
             // Outline bookmark icon
             <svg
-              className='yl:w-4 yl:h-4'
+              className='w-4 h-4'
               fill='none'
               stroke='currentColor'
               viewBox='0 0 24 24'
@@ -64,11 +60,11 @@ const CardActions: FC<ICardActions> = ({
       {showShare && (
         <button
           onClick={onShare}
-          className='yl:p-2 yl:bg-background/80 yl:text-muted yl:hover:bg-background yl:hover:text-primary yl:transition-all yl:duration-200 yl:rounded-full yl:backdrop-blur-sm yl:border yl:border-border/20 yl:hover:scale-105 yl:active:scale-95'
+          className='p-2 bg-background/80 text-muted hover:bg-background hover:text-primary transition-all duration-200 rounded-full backdrop-blur-sm border border-border/20 hover:scale-105 active:scale-95'
           aria-label='Share this card'
         >
           <svg
-            className='yl:w-4 yl:h-4'
+            className='w-4 h-4'
             fill='none'
             stroke='currentColor'
             viewBox='0 0 24 24'

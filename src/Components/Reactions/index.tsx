@@ -26,19 +26,19 @@ const Reactions: FC<IReactionsProps> = ({
   const hasDisliked = reactionType === ReactionType.DISLIKE;
 
   const arrowUpClasses = !isReactable
-    ? "yl:cursor-not-allowed"
+    ? "cursor-not-allowed"
     : {
-        "yl:text-primary yl:cursor-default": hasLiked,
-        "yl:cursor-pointer yl:hover:text-primary": !hasLiked,
-        "yl:p-2 yl:box-content": isMobile
+        "text-primary cursor-default": hasLiked,
+        "cursor-pointer hover:text-primary": !hasLiked,
+        "p-2 box-content": isMobile
       };
 
   const arrowDownClasses = !isReactable
-    ? "yl:cursor-not-allowed"
+    ? "cursor-not-allowed"
     : {
-        "yl:text-error yl:cursor-not-allowed": hasDisliked,
-        "yl:cursor-pointer yl:hover:text-error": !hasDisliked,
-        "yl:p-2 yl:box-content": isMobile
+        "text-error cursor-not-allowed": hasDisliked,
+        "cursor-pointer hover:text-error": !hasDisliked,
+        "p-2 box-content": isMobile
       };
 
   const handleReaction = (reactionType: ReactionType) => {
@@ -53,14 +53,14 @@ const Reactions: FC<IReactionsProps> = ({
     <Tooltip id='reactions-tooltip' text={isNotReactableText || ""}>
       <div
         className={classNames({
-          "yl:flex yl:items-center yl:gap-8": !className
+          "flex items-center gap-8": !className
         })}
       >
-        <div className='yl:my-0 yl:flex yl:items-center yl:justify-center yl:gap-2 yl:text-text'>
+        <div className='my-0 flex items-center justify-center gap-2 text-text'>
           {isLiking ? (
             <Icon
               iconName='IconSpinner'
-              className='yl:w-5'
+              className='w-5'
               data-testid='like-spinner'
             />
           ) : (
@@ -68,7 +68,7 @@ const Reactions: FC<IReactionsProps> = ({
               <Icon
                 iconName='IconArrowUp'
                 data-testid='like-button'
-                className={classNames("yl:w-6", arrowUpClasses)}
+                className={classNames("w-6", arrowUpClasses)}
                 onClick={
                   !isDisliking && !hasLiked
                     ? () => handleReaction(ReactionType.LIKE)
@@ -78,12 +78,12 @@ const Reactions: FC<IReactionsProps> = ({
             </>
           )}
         </div>
-        <span className='yl:select-none yl:text-text'>{reactionsCount}</span>
-        <div className='yl:flex yl:items-center yl:justify-center yl:gap-2 yl:text-text'>
+        <span className='select-none text-text'>{reactionsCount}</span>
+        <div className='flex items-center justify-center gap-2 text-text'>
           {isDisliking ? (
             <Icon
               iconName='IconSpinner'
-              className='yl:w-5'
+              className='w-5'
               data-testid='dislike-spinner'
             />
           ) : (
@@ -91,7 +91,7 @@ const Reactions: FC<IReactionsProps> = ({
               <Icon
                 iconName='IconArrowDown'
                 data-testid='dislike-button'
-                className={classNames("yl:w-6", arrowDownClasses)}
+                className={classNames("w-6", arrowDownClasses)}
                 onClick={
                   !isLiking && !hasDisliked
                     ? () => handleReaction(ReactionType.DISLIKE)

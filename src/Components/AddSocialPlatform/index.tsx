@@ -23,16 +23,13 @@ const AddSocialPlatform: FC<IAddSocialPlatformProps> = ({
 
   return (
     <div
-      className={classNames(
-        "yl:grid yl:md:grid-cols-12 yl:items-end yl:gap-2",
-        className
-      )}
+      className={classNames("grid md:grid-cols-12 items-end gap-2", className)}
     >
       <Select
         name='platform'
         label='Platform'
         onChange={form.set}
-        inputWrapperClassName='yl:col-span-5'
+        inputWrapperClassName='col-span-5'
         value={form.state.platform.value}
         error={form.state.platform.error}
         options={platforms.map(({ name }) => ({
@@ -40,7 +37,7 @@ const AddSocialPlatform: FC<IAddSocialPlatformProps> = ({
           value: name
         }))}
       />
-      <div className='yl:col-span-5'>
+      <div className='col-span-5'>
         <Input
           name='url'
           label={getValueLabel(form.state.platform.value)}
@@ -53,7 +50,7 @@ const AddSocialPlatform: FC<IAddSocialPlatformProps> = ({
       <div>
         <Button
           outlined
-          className='yl:col-span-1 yl:mt-2 yl:md:mt-0'
+          className='col-span-1 mt-2 md:mt-0'
           onClick={() => {
             if (!form.validate().isValid) {
               return;

@@ -59,7 +59,7 @@ const DraggableList: FC<IDraggableList> = ({
 
   return (
     <ul
-      className={classNames("yl:relative yl:text-text", className)}
+      className={classNames("relative text-text", className)}
       onDragEnd={handleDrop}
     >
       {localItems
@@ -68,12 +68,12 @@ const DraggableList: FC<IDraggableList> = ({
           return (
             <li
               className={classNames(
-                "yl:relative yl:flex yl:items-center",
+                "relative flex items-center",
                 liClassName?.(item, index),
                 {
                   [draggedClassName ?? ""]: draggedId === item.id,
                   [draggedOverClassName ?? ""]: draggedOverId === item.id,
-                  "yl:text-text yl:cursor-pointer":
+                  "text-text cursor-pointer":
                     onClick && activeItemId === item.id
                 }
               )}
@@ -91,8 +91,8 @@ const DraggableList: FC<IDraggableList> = ({
                 <div>
                   <Icon
                     iconName='IconDrag'
-                    className={classNames("yl:w-6 yl:opacity-50 yl:mr-1", {
-                      "yl:cursor-move yl:opacity-100": hoveredId === item.id
+                    className={classNames("w-6 opacity-50 mr-1", {
+                      "cursor-move opacity-100": hoveredId === item.id
                     })}
                   />
                 </div>

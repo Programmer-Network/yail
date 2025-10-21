@@ -31,7 +31,7 @@ describe("URLUtils.isExternalLink", () => {
     expect(URLUtils.isExternalLink(externalUrl)).toBe(true);
   });
 
-  it("should return false for a yl:relative URL", () => {
+  it("should return false for a relative URL", () => {
     const relativeUrl = "../path/to/page";
     expect(URLUtils.isExternalLink(relativeUrl)).toBe(false);
   });

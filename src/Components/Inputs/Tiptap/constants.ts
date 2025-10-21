@@ -29,49 +29,49 @@ export const TIPTAP_TOOLBAR_ITEMS = {
 export const typograyClassNames = {
   h1: (className?: string) =>
     classNames(
-      "yl:text-3xl yl:sm:text-4xl yl:md:text-5xl yl:text-text yl:break-words yl:font-bold",
+      "text-3xl sm:text-4xl md:text-5xl text-text break-words font-bold",
       className
     ),
   h2: (className?: string) =>
     classNames(
-      "yl:text-2xl yl:sm:text-3xl yl:md:text-4xl yl:text-text yl:break-words yl:font-bold",
+      "text-2xl sm:text-3xl md:text-4xl text-text break-words font-bold",
       className
     ),
   h3: (className?: string) =>
     classNames(
-      "yl:text-xl yl:sm:text-2xl yl:md:text-3xl yl:text-text yl:break-words yl:font-bold",
+      "text-xl sm:text-2xl md:text-3xl text-text break-words font-bold",
       className
     ),
   h4: (className?: string) =>
     classNames(
-      "text-lg yl:sm:text-xl yl:md:text-2xl yl:text-text yl:break-words yl:font-bold",
+      "text-lg sm:text-xl md:text-2xl text-text break-words font-bold",
       className
     ),
   h5: (className?: string) =>
     classNames(
-      "yl:text-md yl:sm:text-lg yl:md:text-xl yl:text-text yl:break-words yl:font-bold",
+      "text-md sm:text-lg md:text-xl text-text break-words font-bold",
       className
     ),
   h6: (className?: string) =>
     classNames(
-      "yl:text-sm yl:sm:text-md yl:md:text-lg yl:text-text yl:break-words yl:font-bold",
+      "text-sm sm:text-md md:text-lg text-text break-words font-bold",
       className
     ),
   p: (className?: string) =>
-    classNames("yl:text-text yl:break-words yl:overflow-hidden", className),
+    classNames("text-text break-words overflow-hidden", className),
   a: (className?: string) =>
     classNames(
-      "yl:break-all yl:hover:text-stroke yl:text-primary yl:hover:underline yl:hover:opacity-80 yl:active:opacity-50",
+      "break-all hover:text-stroke text-primary hover:underline hover:opacity-80 active:opacity-50",
       className
     ),
   ul: (className?: string) =>
     classNames(
-      "yl:list-disc yl:text-text yl:marker:text-primary yl:marker:text-xl yl:pl-4",
+      "list-disc text-text marker:text-primary marker:text-xl pl-4",
       className
     ),
   ol: (className?: string) =>
     classNames(
-      "yl:list-decimal yl:text-text yl:marker:text-primary yl:marker:text-xl yl:pl-4",
+      "list-decimal text-text marker:text-primary marker:text-xl pl-4",
       className
     )
 };
@@ -79,57 +79,55 @@ export const typograyClassNames = {
 export const toolbarItemToClassName = {
   [TIPTAP_TOOLBAR_ITEMS.HEADING_1]: {
     tagName: "h1",
-    classes: typograyClassNames.h1("yl:my-4")
+    classes: typograyClassNames.h1("my-4")
   },
   [TIPTAP_TOOLBAR_ITEMS.HEADING_2]: {
     tagName: "h2",
-    classes: typograyClassNames.h2("yl:my-4")
+    classes: typograyClassNames.h2("my-4")
   },
   [TIPTAP_TOOLBAR_ITEMS.HEADING_3]: {
     tagName: "h3",
-    classes: typograyClassNames.h3("yl:my-4")
+    classes: typograyClassNames.h3("my-4")
   },
   [TIPTAP_TOOLBAR_ITEMS.HEADING_4]: {
     tagName: "h4",
-    classes: typograyClassNames.h4("yl:my-4")
+    classes: typograyClassNames.h4("my-4")
   },
   [TIPTAP_TOOLBAR_ITEMS.HEADING_5]: {
     tagName: "h5",
-    classes: typograyClassNames.h5("yl:my-4")
+    classes: typograyClassNames.h5("my-4")
   },
   [TIPTAP_TOOLBAR_ITEMS.HEADING_6]: {
     tagName: "h6",
-    classes: typograyClassNames.h6("yl:my-4")
+    classes: typograyClassNames.h6("my-4")
   },
   [TIPTAP_TOOLBAR_ITEMS.PARAGRAPH]: {
     tagName: "p",
-    classes: typograyClassNames.p("yl:my-4")
+    classes: typograyClassNames.p("my-4")
   },
   [TIPTAP_TOOLBAR_ITEMS.LINK]: {
     tagName: "a",
-    classes: "yl:underline yl:text-primary yl:cursor-pointer yl:font-bold"
+    classes: "underline text-primary cursor-pointer font-bold"
   },
   [TIPTAP_TOOLBAR_ITEMS.UNORDERED_LIST]: {
     tagName: "ul",
-    classes:
-      "yl:list-disc yl:text-text yl:marker:text-text yl:marker:text-xl yl:pl-4"
+    classes: "list-disc text-text marker:text-text marker:text-xl pl-4"
   },
   [TIPTAP_TOOLBAR_ITEMS.ORDERED_LIST]: {
     tagName: "ol",
-    classes:
-      "yl:list-decimal yl:text-text yl:marker:text-text yl:marker:text-xl yl:pl-4"
+    classes: "list-decimal text-text marker:text-text marker:text-xl pl-4"
   },
   [TIPTAP_TOOLBAR_ITEMS.YOUTUBE]: {
     tagName: null,
-    classes: "yl:aspect-video yl:h-full yl:w-full yl:py-4"
+    classes: "aspect-video h-full w-full py-4"
   },
   [TIPTAP_TOOLBAR_ITEMS.IMAGE]: {
     tagName: "img",
     classes:
-      "yl:mx-auto yl:block yl:p-2 yl:border-2 yl:border-border yl:my-4 yl:rounded-md yl:shadow-md"
+      "mx-auto block p-2 border-2 border-border my-4 rounded-md shadow-md"
   },
   [TIPTAP_TOOLBAR_ITEMS.MENTION]: {
     tagName: "span",
-    classes: "yl:text-primary yl:cursor-pointer yl:font-bold"
+    classes: "text-primary cursor-pointer font-bold"
   }
 };

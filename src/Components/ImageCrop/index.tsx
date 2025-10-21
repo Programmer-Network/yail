@@ -73,7 +73,7 @@ const ImageCrop: FC<IImageCropProps> = ({
   );
 
   return (
-    <div className='yl:w-full yl:h-full yl:flex yl:items-center yl:justify-center'>
+    <div className='w-full h-full flex items-center justify-center'>
       {Boolean(src) && (
         <ReactCrop
           locked={locked}
@@ -83,11 +83,11 @@ const ImageCrop: FC<IImageCropProps> = ({
           {...(aspect !== undefined ? { aspect } : {})}
           keepSelection
           circularCrop={circularCrop}
-          className='yl:w-full yl:h-full'
+          className='w-full h-full'
         >
           <div
             className={classNames(imgCropWrapperClassName, {
-              "yl:relative yl:w-full yl:h-full yl:overflow-hidden yl:flex yl:items-center yl:justify-center":
+              "relative w-full h-full overflow-hidden flex items-center justify-center":
                 !imgCropWrapperClassName
             })}
           >

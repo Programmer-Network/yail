@@ -6,7 +6,7 @@ import { IDividerProps } from "./types";
 
 const Divider: FC<IDividerProps> = (
   { className, classes } = {
-    classes: ["yl:bg-text", "yl:bg-text", "yl:bg-text"]
+    classes: ["bg-text", "bg-text", "bg-text"]
   }
 ) => {
   if (classes && !Array.isArray(classes)) {
@@ -16,16 +16,13 @@ const Divider: FC<IDividerProps> = (
   return (
     <div
       data-testid='divider'
-      className={classNames(
-        "yl:mx-auto yl:flex yl:justify-center yl:gap-1",
-        className
-      )}
+      className={classNames("mx-auto flex justify-center gap-1", className)}
     >
       {Array.isArray(classes) &&
         ArrayUtils.shuffle(classes).map((bg, index) => (
           <div
             key={index}
-            className={classNames("yl:block yl:h-[2px] yl:w-28", bg)}
+            className={classNames("block h-[2px] w-28", bg)}
             data-testid={`divider-child-${index}`}
           />
         ))}

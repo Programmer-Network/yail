@@ -14,14 +14,11 @@ const AuthorCard: React.FC<IAuthorCardProps> = ({
 }) => {
   return (
     <div
-      className={classNames(
-        "yl:border-2 yl:border-border yl:p-6 yl:rounded-lg",
-        className
-      )}
+      className={classNames("border-2 border-border p-6 rounded-lg", className)}
       onClick={() => (onClick ? onClick({ name, avatar, about }) : undefined)}
     >
-      <div className='yl:flex yl:flex-col yl:items-center yl:gap-4 yl:md:flex-row'>
-        <div className='yl:hidden yl:md:block'>
+      <div className='flex flex-col items-center gap-4 md:flex-row'>
+        <div className='hidden md:block'>
           <Avatar src={avatar} size={75} />
         </div>
         <div>

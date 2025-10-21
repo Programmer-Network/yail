@@ -17,7 +17,7 @@ const Stars: FC<IStarsProps> = ({
 
   return (
     <div>
-      <div className='yl:flex yl:gap-2'>
+      <div className='flex gap-2'>
         {Array(5)
           .fill(null)
           .map((_, index) => {
@@ -36,8 +36,8 @@ const Stars: FC<IStarsProps> = ({
                     onChange({ [name]: index + 1 });
                   }
                 : undefined,
-              className: classNames("yl:relative yl:right-1 yl:w-4", {
-                "yl:fill-yellow-400 yl:hover:cursor-pointer":
+              className: classNames("relative right-1 w-4", {
+                "fill-yellow-400 hover:cursor-pointer":
                   index < stars ||
                   index < selected ||
                   (onChange && index < hovered)

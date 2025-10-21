@@ -13,7 +13,7 @@ const ItemActions = <T,>({
     {
       icon: {
         iconName: "IconEdit",
-        className: "yl:w-4",
+        className: "w-4",
         dataTestId: "icon-iconedit"
       },
       value: "edit",
@@ -28,7 +28,7 @@ const ItemActions = <T,>({
     {
       icon: {
         iconName: "IconDeleteBin",
-        className: "yl:w-4",
+        className: "w-4",
         dataTestId: "icon-icondeletebin"
       },
       value: "delete",
@@ -61,7 +61,7 @@ const ItemActions = <T,>({
       buttonContent={
         <Icon
           iconName='IconDots'
-          className='yl:w-6 yl:text-text/60 yl:hover:cursor-pointer yl:hover:text-text'
+          className='w-6 text-text/60 hover:cursor-pointer hover:text-text'
         />
       }
     />

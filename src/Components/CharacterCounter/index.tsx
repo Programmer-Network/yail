@@ -11,9 +11,9 @@ const CharacterCounter: FC<ICharacterCounterProps> = (
 ) => {
   return (
     <div
-      className={classNames("yl:flex yl:gap-1", {
-        "yl:text-text": text.length <= max,
-        "yl:text-error": text.length > max
+      className={classNames("flex gap-1", {
+        "text-text": text.length <= max,
+        "text-error": text.length > max
       })}
     >
       <span data-testid='current-length'>{text.length}</span>

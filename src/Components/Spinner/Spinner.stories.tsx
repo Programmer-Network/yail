@@ -15,6 +15,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    className: "yl:w-24 yl:fill-primary"
+    className: "w-24 fill-primary"
   }
 };

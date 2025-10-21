@@ -322,7 +322,7 @@ describe("ConfirmDialog", () => {
     });
 
     const buttonContainer = screen.getByLabelText("Confirm").closest("div");
-    expect(buttonContainer).toHaveClass("yl:justify-end");
+    expect(buttonContainer).toHaveClass("justify-end");
   });
 
   it("renders destructive variant with red styling", () => {
@@ -331,8 +331,8 @@ describe("ConfirmDialog", () => {
     });
 
     const icons = screen.getAllByTestId("icon-IconBomb");
-    const mainIcon = icons.find(icon => icon.className.includes("yl:h-24"));
-    expect(mainIcon).toHaveClass("yl:text-red-500");
+    const mainIcon = icons.find(icon => icon.className.includes("h-24"));
+    expect(mainIcon).toHaveClass("text-red-500");
   });
 
   it("renders info variant with blue styling", () => {
@@ -341,7 +341,7 @@ describe("ConfirmDialog", () => {
     });
 
     const icon = screen.getByTestId("icon-IconInfo");
-    expect(icon).toHaveClass("yl:text-blue-500");
+    expect(icon).toHaveClass("text-blue-500");
   });
 
   it("renders custom icon when provided", () => {

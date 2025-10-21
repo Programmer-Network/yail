@@ -163,10 +163,10 @@ describe("PersonCard", () => {
     const { container, rerender } = render(
       <PersonCard person={mockPerson} size='small' />
     );
-    expect(container.firstChild).toHaveClass("yl:p-4");
+    expect(container.firstChild).toHaveClass("p-4");
 
     rerender(<PersonCard person={mockPerson} size='large' />);
-    expect(container.firstChild).toHaveClass("yl:p-8");
+    expect(container.firstChild).toHaveClass("p-8");
   });
 
   it("handles keyboard navigation", () => {
@@ -297,7 +297,7 @@ describe("PersonCard", () => {
     );
 
     const description = screen.getByText(longDescription);
-    expect(description).toHaveClass("yl:line-clamp-2");
+    expect(description).toHaveClass("line-clamp-2");
   });
 });
 
@@ -312,10 +312,10 @@ describe("PersonCardSkeleton", () => {
 
   it("renders with different sizes", () => {
     const { container, rerender } = render(<PersonCardSkeleton size='small' />);
-    expect(container.firstChild).toHaveClass("yl:p-4");
+    expect(container.firstChild).toHaveClass("p-4");
 
     rerender(<PersonCardSkeleton size='large' />);
-    expect(container.firstChild).toHaveClass("yl:p-8");
+    expect(container.firstChild).toHaveClass("p-8");
   });
 
   it("hides sections based on props", () => {
@@ -343,6 +343,6 @@ describe("PersonCardSkeleton", () => {
   it("has animate-pulse class", () => {
     const { container } = render(<PersonCardSkeleton />);
 
-    expect(container.firstChild).toHaveClass("yl:animate-pulse");
+    expect(container.firstChild).toHaveClass("animate-pulse");
   });
 });

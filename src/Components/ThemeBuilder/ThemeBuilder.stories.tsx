@@ -35,7 +35,7 @@ export const Default = () => {
   const [settings, setSettings] = useState(defaultSettings);
 
   return (
-    <div className='yl:mt-12'>
+    <div className='mt-12'>
       <ThemeBuilder
         onChange={async settings => {
           setSettings(settings);
@@ -45,7 +45,7 @@ export const Default = () => {
         defaultSettings={defaultSettings}
       />
 
-      <section className='yl:bg-background'>
+      <section className='bg-background'>
         <H1>Lorem ipsum dolor sit amet.</H1>
         <Paragraph>
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum beatae

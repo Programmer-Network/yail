@@ -15,9 +15,9 @@ const TiptapActions: FC<{
   }
 
   return (
-    <div className='yl:flex yl:justify-end yl:relative yl:top-[2px] yl:right-[-2px]'>
-      <div className='yl:rounded-md yl:rounded-tr-none yl:rounded-bl-none yl:border-2 yl:border-border/40 yl:p-1 yl:border-r-0 yl:border-b-0 yl:bg-text/1'>
-        <div className='yl:flex yl:items-center'>
+    <div className='flex justify-end relative top-[2px] right-[-2px]'>
+      <div className='rounded-md rounded-tr-none rounded-bl-none border-2 border-border/40 p-1 border-r-0 border-b-0 bg-text/1'>
+        <div className='flex items-center'>
           {buttons.includes(TiptapActionsEnum.CANCEL) && (
             <Icon
               onClick={
@@ -26,9 +26,8 @@ const TiptapActions: FC<{
                   : undefined
               }
               iconName='IconCloseCircle'
-              className={classNames("yl:w-10 yl:text-text/20", {
-                "yl:text-text/30 yl:hover:text-text yl:cursor-pointer":
-                  !isConfirming
+              className={classNames("w-10 text-text/20", {
+                "text-text/30 hover:text-text cursor-pointer": !isConfirming
               })}
             />
           )}
@@ -40,10 +39,10 @@ const TiptapActions: FC<{
                   : undefined
               }
               iconName={!isConfirming ? "IconCheck" : "IconSpinner"}
-              className={classNames("yl:w-10", {
-                " yl:cursor-pointer": !isConfirming,
-                "yl:text-success": !isEditorEmpty && !isConfirming,
-                "yl:fill-primary yl:w-7 yl:h-7": isConfirming
+              className={classNames("w-10", {
+                " cursor-pointer": !isConfirming,
+                "text-success": !isEditorEmpty && !isConfirming,
+                "fill-primary w-7 h-7": isConfirming
               })}
             />
           )}

@@ -29,7 +29,7 @@ const Onboarding: FC<{
     <OnboardingContext.Provider
       value={{ onSubmit, tags, countries, serverErrors }}
     >
-      <div className='yl:mx-auto yl:my-6 yl:w-full yl:px-4 yl:sm:max-w-5xl yl:lg:max-w-2xl yl:lg:px-8'>
+      <div className='mx-auto my-6 w-full px-4 sm:max-w-5xl lg:max-w-2xl lg:px-8'>
         <StepWizard
           transitions={{
             enterRight: "0",

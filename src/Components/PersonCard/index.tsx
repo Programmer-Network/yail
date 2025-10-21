@@ -64,7 +64,7 @@ const PersonCard: FC<IPersonCardProps> = ({
 
   const getSocialIcon = (platform: string): ReactNode => {
     const iconProps = {
-      className: "yl:w-4 yl:h-4"
+      className: "w-4 h-4"
     };
 
     const iconMapping: Record<string, string> = {
@@ -92,21 +92,21 @@ const PersonCard: FC<IPersonCardProps> = ({
 
   const getLineClampClass = (lines: number) => {
     const clampClasses: Record<number, string> = {
-      1: "yl:line-clamp-1",
-      2: "yl:line-clamp-2",
-      3: "yl:line-clamp-3",
-      4: "yl:line-clamp-4",
-      5: "yl:line-clamp-5",
-      6: "yl:line-clamp-6"
+      1: "line-clamp-1",
+      2: "line-clamp-2",
+      3: "line-clamp-3",
+      4: "line-clamp-4",
+      5: "line-clamp-5",
+      6: "line-clamp-6"
     };
-    return clampClasses[lines] || "yl:line-clamp-3";
+    return clampClasses[lines] || "line-clamp-3";
   };
 
   const getSizeClasses = (size: string) => {
     const sizeClasses: Record<string, string> = {
-      small: "yl:p-4",
-      medium: "yl:p-6",
-      large: "yl:p-8"
+      small: "p-4",
+      medium: "p-6",
+      large: "p-8"
     };
     return sizeClasses[size] || sizeClasses["medium"];
   };
@@ -121,26 +121,25 @@ const PersonCard: FC<IPersonCardProps> = ({
   };
 
   const cardClasses = classNames(
-    "yl:group yl:transition-all yl:duration-200 yl:relative",
-    "yl:bg-background yl:border-2 yl:border-border yl:rounded-lg yl:shadow-sm yl:hover:shadow-md yl:hover:-translate-y-1 yl:hover:border-primary/50 yl:max-w-sm yl:w-full yl:mx-auto",
+    "group transition-all duration-200 relative",
+    "bg-background border-2 border-border rounded-lg shadow-sm hover:shadow-md hover:-translate-y-1 hover:border-primary/50 max-w-sm w-full mx-auto",
     {
-      "yl:cursor-pointer yl:focus:outline-none":
-        onClick || onPersonClick || href
+      "cursor-pointer focus:outline-none": onClick || onPersonClick || href
     },
     getSizeClasses(size),
     className
   );
 
   const renderPersonContent = () => (
-    <div className='yl:flex yl:flex-col yl:gap-4'>
+    <div className='flex flex-col gap-4'>
       {/* Avatar and Online Status */}
-      <div className='yl:relative yl:flex-shrink-0 yl:mx-auto'>
+      <div className='relative flex-shrink-0 mx-auto'>
         <Avatar src={avatar} alt={name} size={getAvatarSize(size)} />
       </div>
 
       {/* Name and Badge */}
-      <div className='yl:flex yl:flex-col yl:items-center yl:gap-1 yl:-mt-2'>
-        <H4 className='yl:m-0 yl:text-foreground yl:group-hover:text-primary yl:transition-colors yl:text-center'>
+      <div className='flex flex-col items-center gap-1 -mt-2'>
+        <H4 className='m-0 text-foreground group-hover:text-primary transition-colors text-center'>
           {name}
         </H4>
         {badgeProps && (
@@ -152,8 +151,8 @@ const PersonCard: FC<IPersonCardProps> = ({
 
       {/* Username */}
       {username && (
-        <div className='yl:-mt-2'>
-          <span className='yl:text-sm yl:text-muted yl:text-center yl:block'>
+        <div className='-mt-2'>
+          <span className='text-sm text-muted text-center block'>
             @{username}
           </span>
         </div>
@@ -161,7 +160,7 @@ const PersonCard: FC<IPersonCardProps> = ({
 
       {/* Role and Location */}
       {(role || location) && (
-        <div className='yl:text-sm yl:text-muted yl:text-center yl:-mt-2'>
+        <div className='text-sm text-muted text-center -mt-2'>
           {role && <span>{role}</span>}
           {role && location && <span> • </span>}
           {location && <span>{location}</span>}
@@ -172,7 +171,7 @@ const PersonCard: FC<IPersonCardProps> = ({
       {about && (
         <Paragraph
           className={classNames(
-            "yl:text-sm yl:text-foreground/80 yl:m-0 yl:text-center",
+            "text-sm text-foreground/80 m-0 text-center",
             getLineClampClass(maxDescriptionLines)
           )}
         >
@@ -182,7 +181,7 @@ const PersonCard: FC<IPersonCardProps> = ({
 
       {/* Social Links */}
       {showSocialLinks && Object.keys(socialProfiles).length > 0 && (
-        <div className='yl:flex yl:gap-2 yl:justify-center'>
+        <div className='flex gap-2 justify-center'>
           {Object.entries(socialProfiles)
             .filter(([, url]) => url)
             .slice(0, 5)
@@ -192,7 +191,7 @@ const PersonCard: FC<IPersonCardProps> = ({
                 href={url as string}
                 target='_blank'
                 rel='noopener noreferrer'
-                className='yl:text-muted yl:hover:text-primary yl:transition-colors yl:text-lg'
+                className='text-muted hover:text-primary transition-colors text-lg'
                 onClick={e => e.stopPropagation()}
                 title={platform}
               >
@@ -204,7 +203,7 @@ const PersonCard: FC<IPersonCardProps> = ({
 
       {/* Tags */}
       {showTags && tags.length > 0 && (
-        <div className='yl:flex yl:flex-wrap yl:gap-2 yl:justify-center'>
+        <div className='flex flex-wrap gap-2 justify-center'>
           {tags.slice(0, maxTags).map((tag: ITag, index: number) => (
             <Pill
               key={tag.id || tag.name || index}
@@ -230,7 +229,7 @@ const PersonCard: FC<IPersonCardProps> = ({
 
       {/* Actions */}
       {actions.length > 0 && (
-        <div className='yl:flex yl:gap-2 yl:justify-center yl:flex-wrap'>
+        <div className='flex gap-2 justify-center flex-wrap'>
           {actions
             .filter((action: IPersonAction) => action.show !== false)
             .map((action: IPersonAction, index: number) => {
@@ -259,7 +258,7 @@ const PersonCard: FC<IPersonCardProps> = ({
                   variant={getButtonVariant()}
                   outlined={isOutlined}
                   disabled={action.disabled}
-                  className='yl:text-xs'
+                  className='text-xs'
                   icon={
                     action.iconName
                       ? {
@@ -277,7 +276,7 @@ const PersonCard: FC<IPersonCardProps> = ({
       )}
 
       {/* Custom children */}
-      {children && <div className='yl:mt-2'>{children}</div>}
+      {children && <div className='mt-2'>{children}</div>}
     </div>
   );
 

@@ -39,18 +39,18 @@ const Button: React.FC<IButtonProps> = (
         isLoading
       })}
     >
-      <div className='yl:relative yl:flex yl:items-center yl:justify-center'>
+      <div className='relative flex items-center justify-center'>
         <span
           className={classNames({
-            "yl:flex yl:gap-1 yl:items-center": icon?.iconName,
-            "yl:invisible": isLoading
+            "flex gap-1 items-center": icon?.iconName,
+            invisible: isLoading
           })}
         >
           {!isLoading && icon?.iconName && icon.iconPosition === "left" && (
             <Icon
               className={classNames(
                 {
-                  "yl:w-5": !icon?.iconClassName
+                  "w-5": !icon?.iconClassName
                 },
                 icon?.iconClassName
               )}
@@ -62,7 +62,7 @@ const Button: React.FC<IButtonProps> = (
             <Icon
               className={classNames(
                 {
-                  "yl:w-5": !icon?.iconClassName
+                  "w-5": !icon?.iconClassName
                 },
                 icon?.iconClassName
               )}
@@ -70,8 +70,8 @@ const Button: React.FC<IButtonProps> = (
             />
           )}
         </span>
-        <span className='yl:absolute'>
-          {isLoading && <Spinner className={classNames("yl:h-8 yl:w-8")} />}
+        <span className='absolute'>
+          {isLoading && <Spinner className={classNames("h-8 w-8")} />}
         </span>
       </div>
     </button>

@@ -17,17 +17,17 @@ const Checkbox: FC<ICheckboxProps> = (
     <div className={classNames(inputWrapperClassName)}>
       <InputHeader {...props} />
       <div className='form-control items-start'>
-        <label className='label yl:flex yl:cursor-pointer yl:items-center yl:gap-2'>
-          <div className='yl:relative'>
+        <label className='label flex cursor-pointer items-center gap-2'>
+          <div className='relative'>
             <input
               type='checkbox'
               checked={checked}
-              className='yl:appearance-none yl:cursor-pointer yl:rounded yl:border-2 yl:border-border yl:h-6 yl:w-6 yl:transition-all yl:duration-200 checked:yl:bg-primary checked:yl:border-primary checked:yl:text-background focus:yl:outline-none focus:yl:ring-2 focus:yl:ring-primary focus:yl:ring-opacity-50 hover:yl:border-primary'
+              className='appearance-none cursor-pointer rounded border-2 border-border h-6 w-6 transition-all duration-200 checked:bg-primary checked:border-primary checked:text-background focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 hover:border-primary'
               onChange={onChange}
             />
             {checked && (
               <svg
-                className='yl:absolute yl:left-1 yl:top-1 yl:h-4 yl:w-4 yl:text-primary yl:pointer-events-none'
+                className='absolute left-1 top-1 h-4 w-4 text-primary pointer-events-none'
                 fill='currentColor'
                 viewBox='0 0 20 20'
               >
@@ -40,9 +40,7 @@ const Checkbox: FC<ICheckboxProps> = (
             )}
           </div>
           {text && (
-            <span className='yl:text-primary yl:top-[-2.5px] yl:relative'>
-              {text}
-            </span>
+            <span className='text-primary top-[-2.5px] relative'>{text}</span>
           )}
         </label>
       </div>

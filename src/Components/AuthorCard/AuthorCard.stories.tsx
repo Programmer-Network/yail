@@ -6,7 +6,7 @@ export default {
 
 export const Primary = () => {
   return (
-    <div className='yl:mt-8'>
+    <div className='mt-8'>
       <AuthorCard
         name='John Doe'
         avatar=''

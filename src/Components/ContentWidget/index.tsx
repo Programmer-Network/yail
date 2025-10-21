@@ -16,10 +16,10 @@ const ContentWidget = <T extends IContentWidgetBaseItem>({
 }: IContentWidgetProps<T>): ReactElement => {
   if (isLoading) {
     return (
-      <div className='yl:flex yl:items-center yl:justify-center'>
+      <div className='flex items-center justify-center'>
         <Icon
           iconName='IconSpinner'
-          className='yl:w-12 yl:fill-primary'
+          className='w-12 fill-primary'
           dataTestId='icon-spinner'
         />
       </div>
@@ -29,53 +29,51 @@ const ContentWidget = <T extends IContentWidgetBaseItem>({
   return (
     <div
       className={classNames(
-        "yl:border-2 yl:border-border/40 yl:rounded-md yl:px-8 yl:pt-4 yl:relative",
+        "border-2 border-border/40 rounded-md px-8 pt-4 relative",
         className
       )}
     >
       <div>
-        <div className='group yl:rounded-md'>
+        <div className='group rounded-md'>
           <div
-            className={classNames(
-              "yl:items-center yl:gap-2 yl:flex yl:justify-between"
-            )}
+            className={classNames("items-center gap-2 flex justify-between")}
           >
             {more && more.iconName && (
               <Icon
                 iconName={more.iconName}
                 className={classNames(more.iconClassName, {
-                  "yl:w-4": !more.iconClassName
+                  "w-4": !more.iconClassName
                 })}
               />
             )}
-            <span className='yl:font-bold yl:text-text'>{title}</span>
+            <span className='font-bold text-text'>{title}</span>
             {more && (
               <Tooltip id='see-more-tooltip' text={more.tooltipText}>
                 <Icon
                   iconName='IconEnter'
                   dataTestId='icon-enter'
                   onClick={more.onClick}
-                  className='yl:w-8 yl:absolute yl:top-2 yl:right-2 yl:text-text yl:cursor-pointer yl:hover:text-text'
+                  className='w-8 absolute top-2 right-2 text-text cursor-pointer hover:text-text'
                 />
               </Tooltip>
             )}
           </div>
         </div>
         <Divider
-          className='yl:pt-2 yl:pb-3'
-          classes={["yl:bg-text/20", "yl:bg-text/30", "yl:bg-text/40"]}
+          className='pt-2 pb-3'
+          classes={["bg-text/20", "bg-text/30", "bg-text/40"]}
         />
       </div>
 
       <div>
         {items.map(({ item, onClick }, index) => {
           return (
-            <div className='yl:mb-4 group' key={index}>
+            <div className='mb-4 group' key={index}>
               <Paragraph
-                className='yl:mt-width-0 yl:flex-1 yl:break-words'
+                className='mt-width-0 flex-1 break-words'
                 onClick={() => onClick(item)}
               >
-                <span className='yl:hover:text-text yl:hover:cursor-pointer yl:break-words'>
+                <span className='hover:text-text hover:cursor-pointer break-words'>
                   {item.title}
                 </span>
               </Paragraph>
