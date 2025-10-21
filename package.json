@@ -1,6 +1,6 @@
 {
   "name": "@programmer_network/yail",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "Programmer Network's official UI library for React",
   "author": "Aleksandar Grbic - (https://programmer.network)",
   "publishConfig": {
@@ -33,7 +33,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "build:watch": "VITE_WATCH=true vite build --watch",
-    "build-icons": "npx @svgr/cli --typescript --jsx-runtime=automatic --prettier-config=./.prettierrc -d src/Components/Icons assets/icons",
+    "build-icons": "npx @svgr/cli --typescript --jsx-runtime=automatic --prettier-config=./.prettierrc --out-dir src/Components/Icons assets/icons",
     "prepare": "husky",
     "storybook": "storybook dev --ci -p 6006",
     "format": "prettier --write .",
