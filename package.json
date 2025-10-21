@@ -13,6 +13,17 @@
   "main": "dist/yail.es.js",
   "module": "dist/yail.es.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "development": "./src/index.ts",
+      "default": "./dist/yail.es.js"
+    },
+    "./dist/yail.css": {
+      "development": "./src/tailwind.css",
+      "default": "./dist/yail.css"
+    }
+  },
   "files": [
     "dist",
     "src"
