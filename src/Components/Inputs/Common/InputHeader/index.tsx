@@ -22,12 +22,12 @@ const InputHeader: FC<InputHeaderProps> = (
 
   return (
     <div className='mb-2 flex items-center justify-between'>
-      <div className='flex items-center gap-0.5'>
+      <div className='flex items-center gap-1'>
         {hint && name && (
-          <Tooltip text={hint} id={name} place='right'>
+          <Tooltip text={hint} id={name} place='top'>
             <Icon
               iconName='IconInfo'
-              className='w-4 text-text relative top-[1px] cursor-pointer'
+              className='w-4 text-text relative top-px cursor-pointer'
             />
           </Tooltip>
         )}

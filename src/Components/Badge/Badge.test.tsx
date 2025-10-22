@@ -43,4 +43,17 @@ describe("Badge component", () => {
     const badgeElement = screen.getByText(testTitle);
     expect(badgeElement).toHaveClass("bg-transparent");
   });
+
+  test("applies clickable class name", () => {
+    render(
+      <Badge
+        title={testTitle}
+        variant={BadgeVariantEnum.FILLED}
+        onClick={() => alert("Badge clicked")}
+      />
+    );
+
+    const badgeElement = screen.getByText(testTitle);
+    expect(badgeElement).toHaveClass("cursor-pointer");
+  });
 });

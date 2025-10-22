@@ -24,13 +24,22 @@ const CardTags: FC<ICardTags> = ({
 }) => {
   if (!visibleTags.length) return null;
 
+  const handleTagClick = (tag: ITag) => (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (!onTagClick) {
+      return;
+    }
+
+    onTagClick(tag)(e);
+  };
+
   return (
     <div className='flex items-center gap-2 flex-wrap mt-4'>
       {visibleTags.map((tag, index) => (
         <NavLink
           key={`${tag.name}-${index}`}
           to={tag.url}
-          onClick={onTagClick ? onTagClick(tag) : undefined}
+          onClick={handleTagClick(tag)}
           className='hover:text-stroke text-primary hover:underline hover:opacity-80 active:opacity-50 transition-all'
         >
           #{tag.name}

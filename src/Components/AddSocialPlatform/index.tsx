@@ -23,13 +23,16 @@ const AddSocialPlatform: FC<IAddSocialPlatformProps> = ({
 
   return (
     <div
-      className={classNames("grid md:grid-cols-12 items-end gap-2", className)}
+      className={classNames(
+        "flex flex-col md:flex-row gap-2 items-end",
+        className
+      )}
     >
       <Select
         name='platform'
         label='Platform'
         onChange={form.set}
-        inputWrapperClassName='col-span-5'
+        inputWrapperClassName='w-full'
         value={form.state.platform.value}
         error={form.state.platform.error}
         options={platforms.map(({ name }) => ({
@@ -37,7 +40,7 @@ const AddSocialPlatform: FC<IAddSocialPlatformProps> = ({
           value: name
         }))}
       />
-      <div className='col-span-5'>
+      <div className='w-full'>
         <Input
           name='url'
           label={getValueLabel(form.state.platform.value)}

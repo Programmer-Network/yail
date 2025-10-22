@@ -18,6 +18,14 @@ const Tooltip: FC<ITooltipProps> = ({
     return children;
   }
 
+  const getText = () => {
+    if (typeof text === "string") {
+      return text;
+    }
+
+    return text.toString();
+  };
+
   return (
     <div>
       <div
@@ -30,11 +38,11 @@ const Tooltip: FC<ITooltipProps> = ({
       <ReactTooltip
         id={id}
         place={place}
-        content={text as string}
+        content={getText()}
         noArrow
         opacity={1}
         className={classNames(
-          "!border-2 !border-primary !bg-background !text-text !z-50 !shadow-md shadow-border",
+          "border-2! border-primary! bg-background! text-text! z-50! shadow-md! shadow-border",
           className
         )}
       />

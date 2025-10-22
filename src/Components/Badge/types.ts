@@ -7,4 +7,5 @@ export interface IBadgeProps {
   title: string;
   className?: string;
   variant?: BadgeVariantEnum;
+  onClick?: () => void;
 }

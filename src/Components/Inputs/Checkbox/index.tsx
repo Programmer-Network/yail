@@ -27,7 +27,7 @@ const Checkbox: FC<ICheckboxProps> = (
             />
             {checked && (
               <svg
-                className='absolute left-1 top-1 h-4 w-4 text-primary pointer-events-none'
+                className='absolute left-1 top-1 h-4 w-4 text-background pointer-events-none'
                 fill='currentColor'
                 viewBox='0 0 20 20'
               >

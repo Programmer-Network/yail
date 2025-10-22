@@ -10,16 +10,18 @@ const Anchor: FC<IAnchorProps> = ({
   href,
   children,
   onClick
-}: IAnchorProps) => (
-  <a
-    onClick={onClick}
-    className={classNames(typograyClassNames.a(className))}
-    target={target}
-    href={href}
-    rel='noreferrer'
-  >
-    {children}
-  </a>
-);
+}: IAnchorProps) => {
+  return (
+    <a
+      onClick={onClick}
+      className={classNames(typograyClassNames.a(className))}
+      target={target}
+      href={href}
+      rel='noreferrer'
+    >
+      {children}
+    </a>
+  );
+};
 
 export default Anchor;

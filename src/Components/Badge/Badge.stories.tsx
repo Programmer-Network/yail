@@ -39,3 +39,13 @@ export const Custom: Story = {
     className: "text-bg bg-red-500"
   }
 };
+
+export const Clickable: Story = {
+  args: {
+    title: "Badge",
+    variant: BadgeVariantEnum.FILLED,
+    onClick: () => {
+      alert("Badge clicked");
+    }
+  }
+};
