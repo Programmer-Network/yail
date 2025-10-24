@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/Programmer-Network/yail/compare/v1.2.0...v1.3.0) (2025-10-24)
+
+
+### Features
+
+* Refactor CI workflows to streamline processes and add publish functionality ([ce1790d](https://github.com/Programmer-Network/yail/commit/ce1790da0a886547a2bd73cad76e45e7446bbe55))
+
 ## [1.2.0](https://github.com/Programmer-Network/yail/compare/v1.1.6...v1.2.0) (2025-10-24)
 
 
