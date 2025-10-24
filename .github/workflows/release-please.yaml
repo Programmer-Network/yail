@@ -1,10 +1,7 @@
 name: Release Please
 
 on:
-  workflow_run:
-    workflows: ["Continuous Integration"]
-    types:
-      - completed
+  push:
     branches:
       - master
 
@@ -15,16 +12,11 @@ permissions:
 jobs:
   release-please:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
-    outputs:
-      release_created: ${{ steps.release.outputs.release_created }}
-      tag_name: ${{ steps.release.outputs.tag_name }}
     steps:
       - name: Release Please
         uses: googleapis/release-please-action@v4
         id: release
         with:
-          release-type: node
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Log release info

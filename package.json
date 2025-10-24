@@ -28,7 +28,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "build-icons": "npx @svgr/cli --typescript --jsx-runtime=automatic --prettier-config=./.prettierrc.cjs --out-dir src/Components/Icons assets/icons",
-    "prepare": "husky",
+    "prepare": "husky || true",
     "storybook": "storybook dev --ci -p 6006",
     "build-storybook": "storybook build",
     "format": "prettier --write .",

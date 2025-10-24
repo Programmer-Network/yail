@@ -25,7 +25,7 @@ jobs:
       - name: Install NodeJS
         uses: actions/setup-node@v4
         with:
-          node-version-file: ".nvmrc"
+          node-version: "24"
           cache: "pnpm"
 
       - name: Install dependencies
@@ -54,7 +54,7 @@ jobs:
       - name: Install NodeJS
         uses: actions/setup-node@v4
         with:
-          node-version-file: ".nvmrc"
+          node-version: "24"
 
       - name: Restore node_modules cache
         uses: actions/cache/restore@v4
@@ -82,7 +82,7 @@ jobs:
       - name: Install NodeJS
         uses: actions/setup-node@v4
         with:
-          node-version-file: ".nvmrc"
+          node-version: "24"
 
       - name: Restore node_modules cache
         uses: actions/cache/restore@v4
@@ -110,7 +110,7 @@ jobs:
       - name: Install NodeJS
         uses: actions/setup-node@v4
         with:
-          node-version-file: ".nvmrc"
+          node-version: "24"
 
       - name: Restore node_modules cache
         uses: actions/cache/restore@v4
@@ -138,7 +138,7 @@ jobs:
       - name: Install NodeJS
         uses: actions/setup-node@v4
         with:
-          node-version-file: ".nvmrc"
+          node-version: "24"
 
       - name: Restore node_modules cache
         uses: actions/cache/restore@v4
