@@ -1,23 +1,14 @@
-name: Continuous Integration and Deployment
+name: Continuous Integration
 
 on:
-  release:
-    types: [published]
+  push:
+    branches:
+      - master
+  pull_request:
 
 permissions:
-  contents: write
-  id-token: write
-  pages: write
+  contents: read
   checks: write
-  deployments: write
-  actions: write
-  packages: write
-  statuses: write
-  security-events: write
-  repository-projects: write
-  pull-requests: write
-  issues: write
-  discussions: write
 
 jobs:
   install-deps:
@@ -34,7 +25,7 @@ jobs:
       - name: Install NodeJS
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version-file: ".nvmrc"
           cache: "pnpm"
 
       - name: Install dependencies
@@ -48,7 +39,7 @@ jobs:
             ~/.pnpm-store
           key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
 
-  lint-and-test:
+  lint:
     needs: install-deps
     runs-on: ubuntu-latest
     steps:
@@ -63,7 +54,7 @@ jobs:
       - name: Install NodeJS
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version-file: ".nvmrc"
 
       - name: Restore node_modules cache
         uses: actions/cache/restore@v4
@@ -73,17 +64,67 @@ jobs:
             ~/.pnpm-store
           key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
 
-      - name: Run linting
+      - name: Run ESLint
         run: pnpm check:lint
 
-      - name: Run type check
+  typecheck:
+    needs: install-deps
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Install NodeJS
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: ".nvmrc"
+
+      - name: Restore node_modules cache
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            node_modules
+            ~/.pnpm-store
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+
+      - name: Run TypeScript type check
         run: pnpm check:types
+
+  test:
+    needs: install-deps
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Install NodeJS
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: ".nvmrc"
+
+      - name: Restore node_modules cache
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            node_modules
+            ~/.pnpm-store
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
 
       - name: Run tests
         run: pnpm check:test
 
-  publish-storybook:
-    needs: install-deps
+  build:
+    needs: [lint, typecheck, test]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -97,7 +138,7 @@ jobs:
       - name: Install NodeJS
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version-file: ".nvmrc"
 
       - name: Restore node_modules cache
         uses: actions/cache/restore@v4
@@ -107,54 +148,12 @@ jobs:
             ~/.pnpm-store
           key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
 
-      - name: Build Storybook
-        env:
-          NODE_OPTIONS: "--max_old_space_size=16384"
-        run: pnpm run build-storybook
-
-      - name: Create CNAME record file
-        run: echo "yail.programmer-network" > ./storybook-static/CNAME
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: "./storybook-static"
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
-
-  publish-npm:
-    needs: [lint-and-test, publish-storybook]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 9
-
-      - name: Install NodeJS
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-          registry-url: "https://registry.npmjs.org"
-          scope: "@programmer_network"
-
-      - name: Restore node_modules cache
-        uses: actions/cache/restore@v4
-        with:
-          path: |
-            node_modules
-            ~/.pnpm-store
-          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
-
-      - name: Build the code
+      - name: Build package
         run: pnpm build
 
-      - name: Publish to npm
-        run: npm publish --no-git-checks
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
+          retention-days: 1
