@@ -128,7 +128,7 @@ export const StepThree: FC<Partial<StepWizardChildProps>> = props => {
         />
 
         {!showPersonalFields && (
-          <div className='flex flex-col gap-6 mb-4'>
+          <div className='mb-4 flex flex-col gap-6'>
             <Paragraph>
               Completing your profile with accurate information is highly
               recommended. A detailed and authentic online presence can greatly
@@ -145,7 +145,7 @@ export const StepThree: FC<Partial<StepWizardChildProps>> = props => {
 
         <div className='flex justify-end gap-2'>
           <Button
-            className='w-full md:w-auto button--gray'
+            className='button--gray w-full md:w-auto'
             type='button'
             onClick={() => {
               props.previousStep?.();

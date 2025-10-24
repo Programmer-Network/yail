@@ -1,9 +1,8 @@
 name: Continuous Integration and Deployment
 
 on:
-  push:
-    tags:
-      - "v*"
+  release:
+    types: [published]
 
 permissions:
   contents: write
@@ -75,13 +74,13 @@ jobs:
           key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
 
       - name: Run linting
-        run: pnpm lint:ci
+        run: pnpm check:lint
 
       - name: Run type check
-        run: pnpm types:check
+        run: pnpm check:types
 
       - name: Run tests
-        run: pnpm test:run
+        run: pnpm check:test
 
   publish-storybook:
     needs: install-deps
@@ -154,16 +153,6 @@ jobs:
 
       - name: Build the code
         run: pnpm build
-
-      - name: Set up Git identity
-        run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
-
-      - uses: "marvinpinto/action-automatic-releases@latest"
-        with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          prerelease: false
 
       - name: Publish to npm
         run: npm publish --no-git-checks

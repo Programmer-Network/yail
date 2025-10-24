@@ -6,20 +6,20 @@ exports[`Accordion component > renders correctly 1`] = `
     class="bg-background"
   >
     <div
-      class="border-2 border-border border-b-0 rounded-tl-md rounded-tr-md"
+      class="border-border border-2 border-b-0 rounded-tl-md rounded-tr-md"
       role="presentation"
     >
       <h3
         aria-expanded="true"
-        class="relative flex cursor-default select-none items-center font-semibold capitalize p-4 hover:text-primary transition-colors duration-400 ease-in-out hover:cursor-pointer bg-text/2 cursor-pointer text-text"
+        class="hover:text-primary relative flex cursor-default items-center p-4 font-semibold capitalize transition-colors duration-400 ease-in-out select-none hover:cursor-pointer bg-text/2 cursor-pointer text-text"
         role="button"
         tabindex="0"
       >
         <div
-          class="flex flex-col gap-1 overflow-hidden text-ellipsis whitespace-nowrap text-base"
+          class="flex flex-col gap-1 overflow-hidden text-base text-ellipsis whitespace-nowrap"
         >
           <div
-            class="absolute right-2 w-6 cursor-pointer fill-primary hover:fill-primary"
+            class="fill-primary hover:fill-primary absolute right-2 w-6 cursor-pointer"
             data-icon="IconExpandLess"
             data-testid="icon-expand-less"
           >
@@ -27,14 +27,14 @@ exports[`Accordion component > renders correctly 1`] = `
           </div>
           Section 1
           <p
-            class="text-text break-words overflow-hidden text-xs text-text/70"
+            class="text-text break-words overflow-hidden text-text/70 text-xs"
           >
             Description 1
           </p>
         </div>
       </h3>
       <ul
-        class="relative text-text gap-4 flex flex-col py-4"
+        class="text-text relative flex flex-col gap-4 py-4"
       >
         <li
           class="relative flex items-center cursor-default break-words leading-normal px-4 hover:cursor-pointer hover:text-primary"
@@ -49,20 +49,20 @@ exports[`Accordion component > renders correctly 1`] = `
       </ul>
     </div>
     <div
-      class="border-2 border-border rounded-bl-md rounded-br-md"
+      class="border-border border-2 rounded-br-md rounded-bl-md"
       role="presentation"
     >
       <h3
         aria-expanded="false"
-        class="relative flex cursor-default select-none items-center font-semibold capitalize p-4 hover:text-primary transition-colors duration-400 ease-in-out hover:cursor-pointer cursor-pointer text-text"
+        class="hover:text-primary relative flex cursor-default items-center p-4 font-semibold capitalize transition-colors duration-400 ease-in-out select-none hover:cursor-pointer cursor-pointer text-text"
         role="button"
         tabindex="0"
       >
         <div
-          class="flex flex-col gap-1 overflow-hidden text-ellipsis whitespace-nowrap text-base"
+          class="flex flex-col gap-1 overflow-hidden text-base text-ellipsis whitespace-nowrap"
         >
           <div
-            class="absolute right-2 w-6 cursor-pointer fill-primary hover:fill-primary"
+            class="fill-primary hover:fill-primary absolute right-2 w-6 cursor-pointer"
             data-icon="IconExpandMore"
             data-testid="icon-expand-more"
           >
@@ -70,7 +70,7 @@ exports[`Accordion component > renders correctly 1`] = `
           </div>
           Section 2
           <p
-            class="text-text break-words overflow-hidden text-xs text-text/70"
+            class="text-text break-words overflow-hidden text-text/70 text-xs"
           >
             Description 2
           </p>

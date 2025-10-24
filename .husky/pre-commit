@@ -26,9 +26,9 @@ echo "✅ TypeScript type check passed"
 
 # 3. Prettier format check
 echo "🎨 Checking Prettier formatting..."
-pnpm format:check
+pnpm check:format
 if [ $? -ne 0 ]; then
-  echo "❌ Prettier formatting check failed. Run 'pnpm format' to fix formatting issues."
+  echo "❌ Prettier formatting check failed. Run 'pnpm fix:format' to fix formatting issues."
   exit 1
 fi
 echo "✅ Prettier formatting passed"
@@ -53,9 +53,9 @@ echo "✅ No console.log statements found"
 
 # 6. Check for TODO/FIXME comments
 echo "📋 Checking for TODO/FIXME comments..."
-if grep -r "TODO\|FIXME\|HACK" src/ --exclude-dir=node_modules > /dev/null 2>&1; then
+if grep -rE "//.*\b(TODO|FIXME|HACK)\b|/\*.*\b(TODO|FIXME|HACK)\b" src/ --exclude-dir=node_modules > /dev/null 2>&1; then
   echo "❌ Found TODO/FIXME comments. Please address them or remove them."
-  grep -r "TODO\|FIXME\|HACK" src/ --exclude-dir=node_modules
+  grep -rE "//.*\b(TODO|FIXME|HACK)\b|/\*.*\b(TODO|FIXME|HACK)\b" src/ --exclude-dir=node_modules
   exit 1
 fi
 echo "✅ No TODO/FIXME comments found"

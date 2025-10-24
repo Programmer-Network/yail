@@ -1,5 +1,5 @@
-import { ReactNode } from "react";
 import * as ReactTabs from "react-tabs";
+import { ReactNode } from "react";
 
 export interface ITabsProps extends ReactTabs.TabsProps {
   children: ReactNode;

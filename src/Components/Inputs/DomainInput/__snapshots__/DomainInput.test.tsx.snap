@@ -9,13 +9,13 @@ exports[`DomainInput component > matches snapshot 1`] = `
       class="flex w-full"
     >
       <span
-        class="min-w-max border-2 border-border px-4 py-2 leading-5 tracking-tighter selection:text-text rounded-tl-md rounded-bl-md group-hover:border-border"
+        class="border-border selection:text-text min-w-max rounded-tl-md rounded-bl-md border-2 px-4 py-2 leading-5 tracking-tighter group-hover:border-border"
         data-testid="domain"
       >
         example.com
       </span>
       <input
-        class="w-full cursor-pointer border-t-2 border-b-2 border-r-2 border-border bg-transparent p-2 transition-colors focus:border-border focus:outline-hidden focus:ring-3-transparent rounded-tr-md rounded-br-md group-hover:border-border"
+        class="border-border focus:border-border focus:ring-3-transparent w-full cursor-pointer rounded-tr-md rounded-br-md border-t-2 border-r-2 border-b-2 bg-transparent p-2 transition-colors focus:outline-hidden group-hover:border-border"
         data-testid="input"
         name="domainInput"
         value="test"

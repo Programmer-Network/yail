@@ -57,15 +57,15 @@ describe("DomainInput component", () => {
 
     render(<DomainInput {...props} />);
     const domain = screen.getByTestId("domain");
-    expect(domain).not.toHaveClass("border-border! !ring-3-transparent");
+    expect(domain).not.toHaveClass("border-border! ring-3-transparent!");
 
     const input = screen.getByTestId("input");
     fireEvent.focus(input);
 
-    expect(domain).toHaveClass("border-border! !ring-3-transparent");
+    expect(domain).toHaveClass("border-border! ring-3-transparent!");
 
     fireEvent.blur(input);
-    expect(domain).not.toHaveClass("border-border! !ring-3-transparent");
+    expect(domain).not.toHaveClass("border-border! ring-3-transparent!");
   });
 
   it("displays error when error prop is provided", () => {

@@ -14,7 +14,7 @@ const CardPills: FC<ICardPills> = ({ pills }) => {
   }
 
   return (
-    <div className='flex items-center gap-2 flex-wrap mt-3 mb-1'>
+    <div className='mt-3 mb-1 flex flex-wrap items-center gap-2'>
       {pills.map((pill, index) => (
         <Pill
           key={`${pill.title}-${index}`}

@@ -9,7 +9,7 @@ exports[`Bookmark component > renders correctly - snapshot test 1`] = `
       class="flex gap-2"
     >
       <div
-        class="relative top-[-1px] w-5 cursor-pointer fill-primary hover:fill-primary"
+        class="fill-primary hover:fill-primary relative -top-px w-5 cursor-pointer"
         data-icon="IconBookmarked"
         data-testid="icon-bookmarked"
       >

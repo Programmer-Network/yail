@@ -34,13 +34,13 @@ const CardTags: FC<ICardTags> = ({
   };
 
   return (
-    <div className='flex items-center gap-2 flex-wrap mt-4'>
+    <div className='mt-4 flex flex-wrap items-center gap-2'>
       {visibleTags.map((tag, index) => (
         <NavLink
           key={`${tag.name}-${index}`}
           to={tag.url}
           onClick={handleTagClick(tag)}
-          className='hover:text-stroke text-primary hover:underline hover:opacity-80 active:opacity-50 transition-all'
+          className='hover:text-stroke text-primary transition-all hover:underline hover:opacity-80 active:opacity-50'
         >
           #{tag.name}
         </NavLink>
@@ -48,7 +48,7 @@ const CardTags: FC<ICardTags> = ({
       {remainingTagsCount > 0 && (
         <button
           onClick={onToggleTagsVisibility}
-          className='text-primary text-xs border border-primary px-2 py-1 rounded bg-background hover:bg-primary hover:text-background transition-all duration-200'
+          className='text-primary border-primary bg-background hover:bg-primary hover:text-background rounded border px-2 py-1 text-xs transition-all duration-200'
           aria-label={
             showAllTags
               ? "Show fewer tags"

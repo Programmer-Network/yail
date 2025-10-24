@@ -1,5 +1,4 @@
 import type { Preview } from "@storybook/react-vite";
-import React from "react";
 import { MemoryRouter } from "react-router-dom";
 
 import "../src/tailwind.css";
@@ -7,7 +6,7 @@ import "../src/tailwind.css";
 const preview: Preview = {
   decorators: [
     Story => (
-      <div className='mx-auto my-6 w-full px-4 sm:max-w-5xl md:max-w-4xl lg:max-w-5xl pb-16 md:pb-0 lg:px-0'>
+      <div className='mx-auto my-6 w-full px-4 pb-16 sm:max-w-5xl md:max-w-4xl md:pb-0 lg:max-w-5xl lg:px-0'>
         <MemoryRouter>
           <Story />
         </MemoryRouter>

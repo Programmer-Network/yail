@@ -21,12 +21,12 @@ const CardActions: FC<ICardActions> = ({
   }
 
   return (
-    <div className='absolute top-3 right-3 flex gap-1 z-10'>
+    <div className='absolute top-3 right-3 z-10 flex gap-1'>
       {showBookmark && (
         <button
           onClick={onBookmark}
           className={classNames(
-            "p-2 transition-all duration-200 rounded-full backdrop-blur-sm border border-border/20",
+            "border-border/20 rounded-full border p-2 backdrop-blur-sm transition-all duration-200",
             "hover:scale-105 active:scale-95",
             isBookmarked
               ? "bg-primary/10 text-primary hover:bg-primary/20"
@@ -36,13 +36,13 @@ const CardActions: FC<ICardActions> = ({
         >
           {isBookmarked ? (
             // Filled bookmark icon
-            <svg className='w-4 h-4' fill='currentColor' viewBox='0 0 20 20'>
+            <svg className='h-4 w-4' fill='currentColor' viewBox='0 0 20 20'>
               <path d='M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z' />
             </svg>
           ) : (
             // Outline bookmark icon
             <svg
-              className='w-4 h-4'
+              className='h-4 w-4'
               fill='none'
               stroke='currentColor'
               viewBox='0 0 24 24'
@@ -60,11 +60,11 @@ const CardActions: FC<ICardActions> = ({
       {showShare && (
         <button
           onClick={onShare}
-          className='p-2 bg-background/80 text-muted hover:bg-background hover:text-primary transition-all duration-200 rounded-full backdrop-blur-sm border border-border/20 hover:scale-105 active:scale-95'
+          className='bg-background/80 text-muted hover:bg-background hover:text-primary border-border/20 rounded-full border p-2 backdrop-blur-sm transition-all duration-200 hover:scale-105 active:scale-95'
           aria-label='Share this card'
         >
           <svg
-            className='w-4 h-4'
+            className='h-4 w-4'
             fill='none'
             stroke='currentColor'
             viewBox='0 0 24 24'

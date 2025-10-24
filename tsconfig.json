@@ -1,43 +1,11 @@
 {
-  "compilerOptions": {
-    "target": "ESNext",
-    "declaration": true,
-    "declarationMap": true,
-    "outDir": "dist",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "types": [
-      "vite/client",
-      "vitest",
-      "node",
-      "jest",
-      "@testing-library/jest-dom",
-      "./.global.d.ts"
-    ],
-    "allowJs": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "module": "ESNext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx",
-    "skipLibCheck": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "noUncheckedIndexedAccess": true,
-    "noPropertyAccessFromIndexSignature": true,
-    "noImplicitAny": true,
-    "noImplicitThis": true,
-    "strictNullChecks": true,
-    "strictFunctionTypes": true,
-    "strictBindCallApply": true,
-    "strictPropertyInitialization": true
-  },
-  "include": ["src"],
-  "exclude": ["build", "node_modules", "storybook-static"]
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
 }

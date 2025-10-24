@@ -21,7 +21,7 @@ const CardFooterActions: FC<ICardFooterActions> = ({ footerActions }) => {
   }
 
   return (
-    <div className='flex items-center justify-between gap-2 mt-4 pt-4 border-t border-border/20 flex-wrap'>
+    <div className='border-border/20 mt-4 flex flex-wrap items-center justify-between gap-2 border-t pt-4'>
       {visibleActions.map((action, idx) => (
         <Button
           key={action.label + idx}
@@ -37,7 +37,7 @@ const CardFooterActions: FC<ICardFooterActions> = ({ footerActions }) => {
                 : ButtonVariantEnum.SECONDARY
           }
           outlined={action.variant === "outlined"}
-          className={classNames("text-xs py-1 px-3 min-w-[75px]", {
+          className={classNames("min-w-[75px] px-3 py-1 text-xs", {
             "flex-1": visibleActions.length <= 2,
             "flex-none": visibleActions.length > 2
           })}

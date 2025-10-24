@@ -67,7 +67,7 @@ export const DifferentSizes = () => {
   return (
     <div className='space-y-10 p-8'>
       <div>
-        <h3 className='text-sm font-medium mb-4 text-text/70 uppercase tracking-wider'>
+        <h3 className='text-text/70 mb-4 text-sm font-medium tracking-wider uppercase'>
           Small Size
         </h3>
         <FormActions
@@ -80,7 +80,7 @@ export const DifferentSizes = () => {
       </div>
 
       <div>
-        <h3 className='text-sm font-medium mb-4 text-text/70 uppercase tracking-wider'>
+        <h3 className='text-text/70 mb-4 text-sm font-medium tracking-wider uppercase'>
           Medium Size (Default)
         </h3>
         <FormActions
@@ -93,7 +93,7 @@ export const DifferentSizes = () => {
       </div>
 
       <div>
-        <h3 className='text-sm font-medium mb-4 text-text/70 uppercase tracking-wider'>
+        <h3 className='text-text/70 mb-4 text-sm font-medium tracking-wider uppercase'>
           Large Size
         </h3>
         <FormActions

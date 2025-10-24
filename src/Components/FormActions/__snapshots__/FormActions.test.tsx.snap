@@ -16,7 +16,7 @@ exports[`FormActions component > renders correctly - snapshot test 1`] = `
           class="relative flex items-center justify-center"
         >
           <span
-            class="flex gap-1 items-center"
+            class="flex items-center gap-1"
           >
             <div
               class="w-6 h-6"
@@ -40,7 +40,7 @@ exports[`FormActions component > renders correctly - snapshot test 1`] = `
           class="relative flex items-center justify-center"
         >
           <span
-            class="flex gap-1 items-center"
+            class="flex items-center gap-1"
           >
             <div
               class="w-6 h-6"
@@ -64,7 +64,7 @@ exports[`FormActions component > renders correctly - snapshot test 1`] = `
           class="relative flex items-center justify-center"
         >
           <span
-            class="flex gap-1 items-center"
+            class="flex items-center gap-1"
           >
             <div
               class="w-5 h-5"
