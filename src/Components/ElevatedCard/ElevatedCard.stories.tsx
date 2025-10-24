@@ -64,6 +64,6 @@ export const CustomStyling = () => (
       iconName: "IconSkull",
       className: "w-6 h-6 text-primary"
     }}
-    className='bg-primary-50 border border-primary-100 max-w-sm'
+    className='bg-primary-50 border-primary-100 max-w-sm border'
   />
 );

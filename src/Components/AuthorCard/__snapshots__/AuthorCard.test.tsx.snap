@@ -3,7 +3,7 @@
 exports[`AuthorCard component > renders correctly 1`] = `
 <DocumentFragment>
   <div
-    class="border-2 border-border p-6 rounded-lg"
+    class="border-border rounded-lg border-2 p-6"
   >
     <div
       class="flex flex-col items-center gap-4 md:flex-row"
@@ -17,7 +17,7 @@ exports[`AuthorCard component > renders correctly 1`] = `
         >
           <img
             alt="John Doe"
-            class="bg-background object-cover object-center w-full h-full"
+            class="bg-background h-full w-full object-cover object-center"
             loading="lazy"
             src="https://avatars.githubusercontent.com/u/2085263?v=4"
           />

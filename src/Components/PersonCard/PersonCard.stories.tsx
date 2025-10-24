@@ -1,7 +1,7 @@
-// @ts-nocheck
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import PersonCardSkeleton from "./PersonCardSkeleton";
+import { PillVariant } from "../Pill";
+import PersonCardSkeleton from "./PersonCard.Skeleton";
 import PersonCard from "./index";
 import { IPerson } from "./types";
 
@@ -44,19 +44,13 @@ type Story = StoryObj<typeof PersonCard>;
 
 const mockPerson: IPerson = {
   id: 1,
-  firstName: "Ada",
-  lastName: "Lovelace",
   username: "ada_lovelace",
   email: "ada@lovelace.com",
   avatar: "https://randomuser.me/api/portraits/women/44.jpg",
-  description:
-    "Pioneer in computer science, mathematician, and writer. Loves algorithms, poetry, and innovation.",
-  role: "Software Engineer",
   location: "London, UK",
-  isOnline: true,
   badge: {
     text: "Verified",
-    variant: "primary"
+    variant: PillVariant.PRIMARY
   },
   tags: [
     { id: 1, name: "JavaScript" },
@@ -162,9 +156,7 @@ export const NoSocialLinks: Story = {
 export const LongDescription: Story = {
   args: {
     person: {
-      ...mockPerson,
-      description:
-        "This is a very long description that should be truncated after the specified number of lines. It contains a lot of text to demonstrate how the component handles long content and applies the line clamp classes properly."
+      ...mockPerson
     },
     size: "medium",
     maxDescriptionLines: 2
@@ -222,10 +214,7 @@ export const MultipleCards: Story = {
       }}
     >
       <PersonCard person={mockPerson} size='small' />
-      <PersonCard
-        person={{ ...mockPerson, isOnline: false, lastSeen: "1 hour ago" }}
-        size='medium'
-      />
+      <PersonCard person={{ ...mockPerson }} size='medium' />
       <PersonCard person={{ ...mockPerson, avatar: undefined }} size='large' />
     </div>
   )

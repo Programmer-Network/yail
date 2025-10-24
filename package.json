@@ -10,35 +10,29 @@
     "type": "git",
     "url": "git+https://github.com/Programmer-Network/yail.git"
   },
-  "main": "dist/yail.es.js",
-  "module": "dist/yail.es.js",
-  "types": "dist/index.d.ts",
+  "main": "./dist/yail.es.js",
+  "module": "./dist/yail.es.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "development": "./src/index.ts",
-      "default": "./dist/yail.es.js"
+      "import": "./dist/yail.es.js"
     },
-    "./dist/yail.css": {
-      "development": "./src/tailwind.css",
-      "default": "./dist/yail.css"
-    },
-    "./dist/*": "./dist/*"
+    "./styles": "./dist/yail.css"
   },
   "files": [
     "dist",
-    "src"
+    "README.md"
   ],
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
-    "build:watch": "VITE_WATCH=true vite build --watch",
-    "build-icons": "npx @svgr/cli --typescript --jsx-runtime=automatic --prettier-config=./.prettierrc --out-dir src/Components/Icons assets/icons",
+    "build": "tsc -b && vite build",
+    "build-icons": "npx @svgr/cli --typescript --jsx-runtime=automatic --prettier-config=./.prettierrc.cjs --out-dir src/Components/Icons assets/icons",
     "prepare": "husky",
     "storybook": "storybook dev --ci -p 6006",
+    "build-storybook": "storybook build",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "build-storybook": "storybook build",
     "test": "vitest run",
     "test:run": "vitest run",
     "test:watch": "vitest",
@@ -48,8 +42,14 @@
     "lint:ci": "eslint --cache .",
     "lint:fix": "eslint --cache --fix src",
     "lint:quiet": "eslint --cache --quiet src",
-    "test:ci": "vitest",
-    "types:check": "tsc --noEmit"
+    "types:check": "tsc --noEmit",
+    "check:all": "pnpm lint && pnpm types:check && pnpm format:check && pnpm test:run && pnpm build",
+    "check:lint": "pnpm lint",
+    "check:types": "pnpm types:check",
+    "check:format": "pnpm format:check",
+    "check:test": "pnpm test:run",
+    "check:build": "pnpm build",
+    "fix:format": "pnpm format"
   },
   "vitest": {
     "test": {
@@ -101,6 +101,7 @@
     "globals": "16.4.0",
     "husky": "9.1.7",
     "jsdom": "27.0.1",
+    "lint-staged": "^16.2.6",
     "postcss": "8.5.6",
     "prettier": "3.6.2",
     "prettier-plugin-tailwindcss": "0.7.1",

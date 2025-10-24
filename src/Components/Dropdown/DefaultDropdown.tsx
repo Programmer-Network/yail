@@ -11,7 +11,7 @@ const DropdownListItem: FC<IDropdownListItem> = ({
 }) => {
   return (
     <li
-      className='p-2 capitalize text-text hover:cursor-pointer hover:bg-text/10 hover:text-text'
+      className='text-text hover:bg-text/10 hover:text-text p-2 capitalize hover:cursor-pointer'
       onClick={e => {
         onClick && onClick(e, value || "");
         setIsOpen(false);
@@ -35,7 +35,7 @@ const DropdownListItem: FC<IDropdownListItem> = ({
 
 const DefaultDropdown: FC<IDefaultDropdownProps> = ({ options, setIsOpen }) => {
   return (
-    <ul className='p-2 text-text'>
+    <ul className='text-text p-2'>
       {options.map((option, index) => (
         <DropdownListItem
           icon={

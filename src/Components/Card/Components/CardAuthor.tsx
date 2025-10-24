@@ -22,20 +22,20 @@ const CardAuthor: FC<ICardAuthor> = ({
   if (!author && !date) return null;
 
   return (
-    <div className='flex items-center mb-4 gap-2 flex-wrap'>
+    <div className='mb-4 flex flex-wrap items-center gap-2'>
       {author && (
         <>
           {author.url ? (
             <NavLink
               to={author.url}
               onClick={onAuthorClick}
-              className='flex items-center gap-2 text-primary hover:text-primary hover:underline transition-colors'
+              className='text-primary hover:text-primary flex items-center gap-2 transition-colors hover:underline'
             >
               <Avatar src={author.avatarUrl} size={24} />
               <span className='text-sm md:text-base'>{author.name}</span>
             </NavLink>
           ) : (
-            <span className='flex items-center gap-2 text-muted'>
+            <span className='text-muted flex items-center gap-2'>
               <Avatar src={author.avatarUrl} size={24} />
               <span className='text-sm md:text-base'>{author.name}</span>
             </span>

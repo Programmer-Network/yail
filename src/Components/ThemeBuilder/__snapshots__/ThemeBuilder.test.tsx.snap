@@ -7,7 +7,7 @@ exports[`ThemeBuilder component > renders correctly with given props 1`] = `
       class="mb-1 flex items-center justify-center md:justify-start"
     >
       <div
-        class="flex gap-1 flex-col md:flex-row"
+        class="flex flex-col gap-1 md:flex-row"
       >
         <button
           class="select-none px-3 py-2 font-semibold tracking-tight rounded-md border-2 transition-all duration-200 transform hover:scale-105 cursor-pointer border-primary bg-transparent text-primary fill-primary hover:bg-primary hover:text-background hover:fill-background primary-button h-12 min-w-[120px] shadow-none"

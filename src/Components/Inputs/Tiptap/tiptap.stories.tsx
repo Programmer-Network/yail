@@ -333,7 +333,7 @@ export const ImageUploadError = () => {
         }}
         required={true}
       />
-      {error && <div className='text-red-600 mt-2 text-sm'>{error}</div>}
+      {error && <div className='mt-2 text-sm text-red-600'>{error}</div>}
     </div>
   );
 };

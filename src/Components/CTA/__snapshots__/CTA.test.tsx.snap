@@ -20,7 +20,7 @@ exports[`CTA component > renders correctly - snapshot test 1`] = `
             Test Title
           </h3>
           <p
-            class="text-text break-words overflow-hidden mx-auto max-w-md text-secondary text-center"
+            class="text-text break-words overflow-hidden text-secondary mx-auto max-w-md text-center"
           >
             Test Subtitle
           </p>

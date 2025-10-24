@@ -8,8 +8,8 @@ const PasswordChanged: FC<{
   onButtonClick: () => void;
 }> = ({ onButtonClick }) => {
   return (
-    <div className='text-center flex flex-col justify-center items-center'>
-      <Icon iconName='IconCheck' className='w-36 text-secondary' />
+    <div className='flex flex-col items-center justify-center text-center'>
+      <Icon iconName='IconCheck' className='text-secondary w-36' />
       <div className='flex flex-col gap-2'>
         <H3>Password has been successfully changed</H3>
         <Paragraph className='text-2xl'>

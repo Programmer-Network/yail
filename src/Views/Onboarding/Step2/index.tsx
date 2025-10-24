@@ -6,7 +6,7 @@ import { Paragraph } from "../../../Components/Typography";
 
 export const StepTwo: React.FC<Partial<StepWizardChildProps>> = props => {
   return (
-    <div className='flex flex-col gap-4 md:gap-8 p-4 md:p-0'>
+    <div className='flex flex-col gap-4 p-4 md:gap-8 md:p-0'>
       <div className='flex flex-col items-center gap-8'>
         <Icon iconName='IconProgrammerCoding' className='w-64 md:w-96' />{" "}
         <div>
@@ -23,7 +23,7 @@ export const StepTwo: React.FC<Partial<StepWizardChildProps>> = props => {
       <div className='flex justify-end gap-2'>
         <div>
           <Button
-            className='w-full md:w-auto button--gray'
+            className='button--gray w-full md:w-auto'
             type='button'
             onClick={() => {
               props.previousStep?.();

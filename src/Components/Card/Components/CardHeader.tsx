@@ -29,18 +29,18 @@ const CardHeader: FC<ICardHeader> = ({
           href={titleUrl}
           target='_blank'
           rel='noopener noreferrer'
-          className='text-inherit no-underline hover:text-primary transition-colors'
+          className='hover:text-primary text-inherit no-underline transition-colors'
         >
           <h3
             id={`card-title-${cardId}`}
             className={classNames(
-              "flex items-center justify-start gap-2 text-xl md:text-lg font-semibold m-0 text-text",
+              "text-text m-0 flex items-center justify-start gap-2 text-xl font-semibold md:text-lg",
               getLineClampClass(maxTitleLines)
             )}
           >
             {title}
             <svg
-              className='w-4 h-4 opacity-70'
+              className='h-4 w-4 opacity-70'
               fill='currentColor'
               viewBox='0 0 20 20'
             >
@@ -54,7 +54,7 @@ const CardHeader: FC<ICardHeader> = ({
           <h3
             id={`card-title-${cardId}`}
             className={classNames(
-              "text-xl md:text-lg font-semibold m-0 group-hover:text-primary transition-colors text-text",
+              "group-hover:text-primary text-text m-0 text-xl font-semibold transition-colors md:text-lg",
               getLineClampClass(maxTitleLines)
             )}
           >

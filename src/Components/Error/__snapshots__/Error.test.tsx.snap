@@ -21,13 +21,13 @@ exports[`Error component > renders correctly - snapshot test 1`] = `
           class="text-center"
         >
           <p
-            class="font-semibold tracking-wide text-primary md:text-6xl"
+            class="text-primary font-semibold tracking-wide md:text-6xl"
             data-testid="error-text"
           >
             404 error
           </p>
           <h1
-            class="text-4xl font-extrabold tracking-tight text-text sm:text-3xl"
+            class="text-text text-4xl font-extrabold tracking-tight sm:text-3xl"
           >
             Page not found.
           </h1>
