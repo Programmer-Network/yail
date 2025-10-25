@@ -82,4 +82,4 @@ const CardActions: FC<ICardActions> = ({
   );
 };
 
-export default CardActions;
+export { CardActions };

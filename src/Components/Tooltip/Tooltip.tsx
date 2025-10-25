@@ -50,4 +50,4 @@ const Tooltip: FC<ITooltipProps> = ({
   );
 };
 
-export default Tooltip;
+export { Tooltip };

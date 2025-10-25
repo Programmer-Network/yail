@@ -4,9 +4,9 @@ import classNames from "classnames";
 import { RefObject, useRef } from "react";
 
 import { useModalInput } from "../../../../../Hooks/useModalInput";
-import Button from "../../../../Button";
-import Icon from "../../../../Icon";
-import Tooltip from "../../../../Tooltip";
+import { Button } from "../../../../Button";
+import { Icon } from "../../../../Icon";
+import { Tooltip } from "../../../../Tooltip";
 import { TIPTAP_TOOLBAR_ITEMS } from "../../constants";
 import { TiptapToolbarProps } from "../../types";
 import { ModalInput } from "../ModalInput";

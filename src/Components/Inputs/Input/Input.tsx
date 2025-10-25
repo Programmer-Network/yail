@@ -1,8 +1,8 @@
 import classNames from "classnames";
 import { ChangeEvent, FC, forwardRef } from "react";
 
-import InputError from "../Common/InputError";
-import InputHeader from "../Common/InputHeader";
+import { InputError } from "../Common/InputError";
+import { InputHeader } from "../Common/InputHeader";
 import { IInputProps } from "./types";
 
 const Input: FC<IInputProps> = forwardRef<HTMLInputElement, IInputProps>(
@@ -91,4 +91,4 @@ const Input: FC<IInputProps> = forwardRef<HTMLInputElement, IInputProps>(
   }
 );
 
-export default Input;
+export { Input };

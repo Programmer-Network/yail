@@ -1,2 +1,2 @@
-export { default } from "./ContentWidget";
+export { ContentWidget } from "./ContentWidget";
 export * from "./types";

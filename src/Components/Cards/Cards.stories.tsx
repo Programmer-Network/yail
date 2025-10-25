@@ -1,7 +1,7 @@
 import type { Meta } from "@storybook/react-vite";
 import { NavLink } from "react-router-dom";
 
-import Cards from ".";
+import { Cards } from "./Cards";
 import { ICardsProps } from "./types";
 
 const CardsStories: Meta<ICardsProps> = {

@@ -1,2 +1,2 @@
-export { default } from "./CharacterCounter";
+export { CharacterCounter } from "./CharacterCounter";
 export * from "./types";

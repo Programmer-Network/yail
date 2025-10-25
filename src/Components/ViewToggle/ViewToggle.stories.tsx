@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { useState } from "react";
 
-import ViewToggle from "./index";
+import { ViewToggle } from "./index";
 import { ViewType } from "./types";
 
 const meta: Meta<typeof ViewToggle> = {

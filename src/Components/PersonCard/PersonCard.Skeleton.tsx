@@ -102,4 +102,4 @@ const PersonCardSkeleton: FC<IPersonCardSkeletonProps> = ({
   );
 };
 
-export default PersonCardSkeleton;
+export { PersonCardSkeleton };

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { action } from "storybook/actions";
 
-import Select from ".";
+import { Select } from ".";
 import { ISelectProps } from "./types";
 
 export default {

@@ -109,4 +109,4 @@ const ImageCrop: FC<IImageCropProps> = ({
   );
 };
 
-export default ImageCrop;
+export { ImageCrop };

@@ -1,8 +1,8 @@
 import classNames from "classnames";
 import { FC } from "react";
 
-import InputError from "../Common/InputError";
-import InputHeader from "../Common/InputHeader";
+import { InputError } from "../Common/InputError";
+import { InputHeader } from "../Common/InputHeader";
 import { ICheckboxProps } from "./types";
 
 const Checkbox: FC<ICheckboxProps> = (
@@ -49,4 +49,4 @@ const Checkbox: FC<ICheckboxProps> = (
   );
 };
 
-export default Checkbox;
+export { Checkbox };

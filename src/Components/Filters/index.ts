@@ -1,2 +1,2 @@
-export { default } from "./Filters";
+export { Filters } from "./Filters";
 export * from "./types";

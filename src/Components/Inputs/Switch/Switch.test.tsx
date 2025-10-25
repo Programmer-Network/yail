@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { vi } from "vitest";
 
-import Switch from ".";
+import { Switch } from ".";
 
 describe("Switch component", () => {
   const name = "testSwitch";

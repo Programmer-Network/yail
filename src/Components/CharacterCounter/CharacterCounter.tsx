@@ -23,4 +23,4 @@ const CharacterCounter: FC<ICharacterCounterProps> = (
   );
 };
 
-export default CharacterCounter;
+export { CharacterCounter };

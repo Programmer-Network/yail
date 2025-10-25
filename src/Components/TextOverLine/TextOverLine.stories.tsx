@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import TextOverLine from ".";
+import { TextOverLine } from ".";
 
 const meta = {
   title: "Core/TextOverLine",

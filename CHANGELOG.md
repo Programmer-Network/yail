@@ -2,15 +2,15 @@
 
 ## [1.3.0](https://github.com/Programmer-Network/yail/compare/v1.2.0...v1.3.0) (2025-10-24)
 
-
 ### Features
 
-* Refactor CI workflows to streamline processes and add publish functionality ([ce1790d](https://github.com/Programmer-Network/yail/commit/ce1790da0a886547a2bd73cad76e45e7446bbe55))
-
+- Refactor CI workflows to streamline processes and add publish functionality
+  ([ce1790d](https://github.com/Programmer-Network/yail/commit/ce1790da0a886547a2bd73cad76e45e7446bbe55))
 
 ### Bug Fixes
 
-* Update CHANGELOG and modify GitHub Actions workflow for release process ([f8f83ef](https://github.com/Programmer-Network/yail/commit/f8f83ef5539caa3d8d984a0639dd60b0845683f5))
+- Update CHANGELOG and modify GitHub Actions workflow for release process
+  ([f8f83ef](https://github.com/Programmer-Network/yail/commit/f8f83ef5539caa3d8d984a0639dd60b0845683f5))
 
 ## [1.2.0](https://github.com/Programmer-Network/yail/compare/v1.1.6...v1.2.0) (2025-10-24)
 

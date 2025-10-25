@@ -24,4 +24,4 @@ const CardStatusIndicators: FC<ICardStatusIndicators> = ({
   );
 };
 
-export default CardStatusIndicators;
+export { CardStatusIndicators };

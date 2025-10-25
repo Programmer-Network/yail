@@ -1,6 +1,6 @@
 import { action } from "storybook/actions";
 
-import CTA from ".";
+import { CTA } from ".";
 import { ICTAProps } from "./types";
 
 export default {

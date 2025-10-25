@@ -1,7 +1,7 @@
 import { action } from "storybook/actions";
 
-import ElevatedCard from ".";
-import Button from "../Button";
+import { ElevatedCard } from ".";
+import { Button } from "../Button";
 import { ButtonVariantEnum } from "../Button/types";
 
 export default {

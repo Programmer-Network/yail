@@ -1,8 +1,8 @@
 import classNames from "classnames";
 import { ChangeEvent, FC, useState } from "react";
 
-import InputError from "../Common/InputError";
-import InputHeader from "../Common/InputHeader";
+import { InputError } from "../Common/InputError";
+import { InputHeader } from "../Common/InputHeader";
 import { IDomainInputProps } from "./types";
 
 const DomainInput: FC<IDomainInputProps> = (
@@ -68,4 +68,4 @@ const DomainInput: FC<IDomainInputProps> = (
   );
 };
 
-export default DomainInput;
+export { DomainInput };

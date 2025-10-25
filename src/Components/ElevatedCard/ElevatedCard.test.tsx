@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { vi } from "vitest";
 
-import ElevatedCard from "./";
+import { ElevatedCard } from "./";
 
 describe("ElevatedCard component", () => {
   const title = "Curated Resources";

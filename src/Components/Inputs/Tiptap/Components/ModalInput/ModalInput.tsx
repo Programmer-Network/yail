@@ -1,7 +1,7 @@
 import { forwardRef } from "react";
 
-import InputError from "../../../Common/InputError";
-import Input from "../../../Input";
+import { InputError } from "../../../Common/InputError";
+import { Input } from "../../../Input";
 import { IModalInputProps } from "./types";
 
 export const ModalInput = forwardRef<HTMLDivElement, IModalInputProps>(

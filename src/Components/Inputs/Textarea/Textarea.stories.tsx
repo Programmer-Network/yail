@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import Textrea from ".";
+import { Textarea } from "./Textarea";
 
 const meta = {
-  title: "Input/Textrea",
-  component: Textrea,
+  title: "Input/Textarea",
+  component: Textarea,
 
   tags: ["autodocs"],
   argTypes: {}
-} satisfies Meta<typeof Textrea>;
+} satisfies Meta<typeof Textarea>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

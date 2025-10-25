@@ -1,6 +1,6 @@
 import { createRef } from "react";
 
-import ImageDialog from ".";
+import { ImageDialog } from ".";
 import { IImageDialogOnSaveArgs } from "./types";
 
 export default {

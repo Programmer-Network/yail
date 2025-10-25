@@ -49,4 +49,4 @@ class TiptapUtils {
   }
 }
 
-export default TiptapUtils;
+export { TiptapUtils };

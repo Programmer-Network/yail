@@ -1,2 +1,2 @@
-export { default } from "./AsyncSelect";
+export { AsyncSelect } from "./AsyncSelect";
 export * from "./types";

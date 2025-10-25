@@ -8,7 +8,7 @@ import { vi } from "vitest";
  * the icon SVGs, which is not supported in the test environment.
  */
 vi.mock("../src/Components/Icon", () => ({
-  default: ({ iconName, className, onClick, dataTestId, ...rest }) => {
+  Icon: ({ iconName, className, onClick, dataTestId, ...rest }) => {
     return React.createElement(
       "div",
       {
@@ -63,7 +63,7 @@ vi.mock("../src/Components/Dialog", () => {
 
   MockDialog.displayName = "MockDialog";
 
-  return { default: MockDialog };
+  return { Dialog: MockDialog };
 });
 
 /**
@@ -154,5 +154,5 @@ vi.mock("../src/Components/ConfirmDialog", () => {
 
   MockConfirmDialog.displayName = "MockConfirmDialog";
 
-  return { default: MockConfirmDialog };
+  return { ConfirmDialog: MockConfirmDialog };
 });

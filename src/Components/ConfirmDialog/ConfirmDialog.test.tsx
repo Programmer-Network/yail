@@ -3,7 +3,7 @@ import { createRef } from "react";
 import { vi } from "vitest";
 
 // Import the actual ConfirmDialog
-import ConfirmDialog from "./index";
+import { ConfirmDialog } from "./index";
 
 // Unmock the global ConfirmDialog mock so we can test the actual component
 vi.unmock("../ConfirmDialog");
@@ -46,7 +46,7 @@ vi.mock("../Dialog", () => {
   });
 
   MockDialog.displayName = "MockDialog";
-  return { default: MockDialog };
+  return { Dialog: MockDialog };
 });
 
 vi.mock("../Button", () => {
@@ -89,7 +89,7 @@ vi.mock("../Button", () => {
     );
   };
 
-  return { default: MockButton };
+  return { Button: MockButton };
 });
 
 vi.mock("../Icon", () => {
@@ -105,7 +105,7 @@ vi.mock("../Icon", () => {
     });
   };
 
-  return { default: MockIcon };
+  return { Icon: MockIcon };
 });
 
 vi.mock("../Typography/Paragraph", () => {

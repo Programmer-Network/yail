@@ -1,4 +1,4 @@
-import ItemActions from ".";
+import { ItemActions } from ".";
 
 export default {
   title: "Components / ItemActions"

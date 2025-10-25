@@ -36,4 +36,4 @@ const CardSkeleton: FC<ICardSkeleton> = ({ className }) => {
   );
 };
 
-export default CardSkeleton;
+export { CardSkeleton };

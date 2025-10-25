@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, test, vi } from "vitest";
 
-import Tag from "./";
+import { Tag } from "./Tag";
 
 describe("Tag component", () => {
   test("renders correctly - snapshot test", () => {

@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { BrowserRouter, NavLink } from "react-router-dom";
 
-import Cards from ".";
+import { Cards } from "./Cards";
 
 describe("Cards component", () => {
   const mockCards = [

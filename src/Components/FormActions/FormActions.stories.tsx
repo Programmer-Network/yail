@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import FormActions from ".";
+import { FormActions } from ".";
 
 export default {
   title: "Components/FormActions",

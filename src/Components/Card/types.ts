@@ -2,7 +2,7 @@ import { NavLinkProps } from "react-router-dom";
 
 import { PillSize, PillVariant } from "../Pill/Pill.types";
 
-export interface ITag {
+export interface ICardTag {
   name: string;
   url: string;
 }
@@ -35,7 +35,7 @@ export interface ICardData {
   description: string;
   date?: string;
   author?: IAuthorProps;
-  tags?: ITag[];
+  tags?: ICardTag[];
   pills?: IPill[];
   image?: IImageProps;
   isRead?: boolean;
@@ -66,7 +66,7 @@ export interface ICard {
   showShare?: boolean;
   onCardClick?: (data: ICardData) => void;
   onAuthorClick?: (author: IAuthorProps) => void;
-  onTagClick?: (tag: ITag) => void;
+  onTagClick?: (tag: ICardTag) => void;
   onImageClick?: () => void;
   onBookmark?: (data: ICardData) => void;
   onShare?: (data: ICardData) => void;

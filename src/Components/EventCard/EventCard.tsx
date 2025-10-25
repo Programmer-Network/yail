@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import { FC, memo, useCallback, useId } from "react";
 
-import Avatar from "../Avatar";
+import { Avatar } from "../Avatar";
 import {
   CardActions,
   CardFooterActions,
@@ -10,9 +10,9 @@ import {
   CardTags
 } from "../Card/Components";
 import { useTagVisibility } from "../Card/Hooks";
-import Icon from "../Icon";
+import { Icon } from "../Icon";
 import { EventCardImage } from "./Components";
-import EventCardSkeleton from "./EventCard.Skeleton";
+import { EventCardSkeleton } from "./EventCard.Skeleton";
 import { IEventCard } from "./EventCard.types";
 import { getStatusCardClasses } from "./EventCard.utils";
 
@@ -288,4 +288,4 @@ const EventCard: FC<IEventCard> = memo(
 
 EventCard.displayName = "EventCard";
 
-export default EventCard;
+export { EventCard };

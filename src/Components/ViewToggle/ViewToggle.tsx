@@ -1,9 +1,9 @@
 import classNames from "classnames";
 import { FC } from "react";
 
-import Button from "../Button";
+import { Button } from "../Button";
 import { ButtonVariantEnum } from "../Button/types";
-import Icon from "../Icon";
+import { Icon } from "../Icon";
 import { IViewToggleProps } from "./types";
 
 const ViewToggle: FC<IViewToggleProps> = ({
@@ -44,4 +44,4 @@ const ViewToggle: FC<IViewToggleProps> = ({
   );
 };
 
-export default ViewToggle;
+export { ViewToggle };

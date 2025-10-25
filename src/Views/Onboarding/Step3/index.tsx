@@ -4,7 +4,7 @@ import { FC, useContext, useState } from "react";
 import { StepWizardChildProps } from "react-step-wizard";
 
 import { OnboardingContext } from "..";
-import Button from "../../../Components/Button";
+import { Button } from "../../../Components/Button";
 import {
   Checkbox,
   DomainInput,

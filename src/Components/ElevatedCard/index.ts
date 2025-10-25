@@ -1,2 +1,2 @@
-export { default } from "./ElevatedCard";
+export { ElevatedCard } from "./ElevatedCard";
 export * from "./types";

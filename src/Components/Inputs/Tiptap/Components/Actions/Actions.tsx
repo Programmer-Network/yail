@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import { FC } from "react";
 
-import Icon from "../../../../Icon";
+import { Icon } from "../../../../Icon";
 import { ITiptapActions, TiptapActionsEnum } from "../../types";
 
 const TiptapActions: FC<{

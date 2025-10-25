@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import Pill from "../../Pill";
+import { Pill } from "../../Pill";
 import { PillSize, PillVariant } from "../../Pill/Pill.types";
 import { IPill } from "../types";
 
@@ -31,4 +31,4 @@ const CardPills: FC<ICardPills> = ({ pills }) => {
   );
 };
 
-export default CardPills;
+export { CardPills };

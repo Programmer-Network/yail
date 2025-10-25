@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from "@storybook/react-vite";
 import { NavLink } from "react-router-dom";
 
-import EventCard from ".";
+import { EventCard } from ".";
 import { PillVariant } from "../Pill/Pill.types";
 import { IEventCardData } from "./EventCard.types";
 import { getDefaultEventPills } from "./EventCard.utils";

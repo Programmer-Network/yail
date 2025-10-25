@@ -2,7 +2,7 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import { vi } from "vitest";
 
 import { ICardAction } from "../types";
-import CardFooterActions from "./CardFooterActions";
+import { CardFooterActions } from "./CardFooterActions";
 
 describe("CardFooterActions component", () => {
   const mockFooterActions: ICardAction[] = [

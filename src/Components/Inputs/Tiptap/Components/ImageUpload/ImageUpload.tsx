@@ -1,9 +1,9 @@
 import { FC, useState } from "react";
 
-import Icon from "../../../../Icon";
+import { Icon } from "../../../../Icon";
 import { H4, Paragraph } from "../../../../Typography";
-import InputError from "../../../Common/InputError";
-import ImageInput from "../../../ImageInput";
+import { InputError } from "../../../Common/InputError";
+import { ImageInput } from "../../../ImageInput";
 import { IOnFileLoadedArgs, TValidationError } from "../../../ImageInput/types";
 
 const ImageUpload: FC<{

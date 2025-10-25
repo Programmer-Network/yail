@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import CharacterCounter from ".";
+import { CharacterCounter } from ".";
 
 const meta = {
   title: "Core/CharacterCounter",

@@ -1,2 +1,2 @@
-export { default } from "./InputHeader";
+export { InputHeader } from "./InputHeader";
 export * from "./types";

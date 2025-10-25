@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { vi } from "vitest";
 
-import ContentWidget from ".";
+import { ContentWidget } from ".";
 import { IContentWidgetItemMore } from "./types";
 
 describe("ContentWidget component", () => {

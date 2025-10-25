@@ -1,4 +1,4 @@
-import AuthorCard from ".";
+import { AuthorCard } from ".";
 
 export default {
   title: "Components / Author Card"

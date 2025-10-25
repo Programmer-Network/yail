@@ -2,7 +2,7 @@ import useAJVForm from "@programmer_network/use-ajv-form";
 import classNames from "classnames";
 import { FC } from "react";
 
-import Button from "../Button";
+import { Button } from "../Button";
 import { Input, Select } from "../Inputs";
 import { schema } from "./constant";
 import { IAddSocialPlatformProps } from "./types";
@@ -73,4 +73,4 @@ const AddSocialPlatform: FC<IAddSocialPlatformProps> = ({
   );
 };
 
-export default AddSocialPlatform;
+export { AddSocialPlatform };

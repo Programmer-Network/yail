@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { action } from "storybook/actions";
 
-import DomainInput from ".";
+import { DomainInput } from ".";
 
 export default {
   title: "Input/DomainInput",

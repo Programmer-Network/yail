@@ -78,4 +78,4 @@ const Pill: FC<IPillProps> = ({
   );
 };
 
-export default Pill;
+export { Pill };

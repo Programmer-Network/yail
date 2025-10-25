@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { vi } from "vitest";
 
-import Error from "./";
+import { Error } from "./";
 
 describe("Error component", () => {
   const errorText = "404 error";

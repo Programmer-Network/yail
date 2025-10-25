@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import React from "react";
 
-import Avatar from "../Avatar";
+import { Avatar } from "../Avatar";
 import { H3, Paragraph } from "../Typography";
 import { IAuthorCardProps } from "./types";
 
@@ -30,4 +30,4 @@ const AuthorCard: React.FC<IAuthorCardProps> = ({
   );
 };
 
-export default AuthorCard;
+export { AuthorCard };

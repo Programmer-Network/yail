@@ -3,7 +3,7 @@ import { Meta } from "@storybook/react-vite";
 import { useEffect, useState } from "react";
 import { action } from "storybook/actions";
 
-import Accordion from ".";
+import { Accordion } from ".";
 import { ISection } from "./types";
 
 const meta = {

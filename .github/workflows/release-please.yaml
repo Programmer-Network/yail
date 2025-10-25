@@ -13,6 +13,11 @@ jobs:
   release-please:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
       - name: Release Please
         uses: googleapis/release-please-action@v4
         id: release
@@ -25,3 +30,10 @@ jobs:
           echo "Release created: ${{ steps.release.outputs.release_created }}"
           echo "Tag: ${{ steps.release.outputs.tag_name }}"
           echo "Version: ${{ steps.release.outputs.major }}.${{ steps.release.outputs.minor }}.${{ steps.release.outputs.patch }}"
+          echo "Upload URL: ${{ steps.release.outputs.upload_url }}"
+
+      - name: Check if publish workflow will trigger
+        if: steps.release.outputs.release_created
+        run: |
+          echo "✅ Release published! The 'Publish Package' workflow should trigger now."
+          echo "Check the Actions tab to verify."

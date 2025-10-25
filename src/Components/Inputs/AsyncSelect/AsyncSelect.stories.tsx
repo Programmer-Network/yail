@@ -2,7 +2,7 @@ import { faker } from "@faker-js/faker";
 import { useState } from "react";
 import { GroupBase } from "react-select";
 
-import AsyncSelect from ".";
+import { AsyncSelect } from ".";
 import { Option } from "../Select/types";
 import { IAsyncSelectProps, Response } from "./types";
 

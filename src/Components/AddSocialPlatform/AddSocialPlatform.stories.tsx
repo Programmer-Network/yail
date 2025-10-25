@@ -1,4 +1,4 @@
-import AddSocialPlatform from ".";
+import { AddSocialPlatform } from ".";
 
 export default {
   title: "Components/AddSocialPlatform",

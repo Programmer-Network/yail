@@ -2,7 +2,7 @@ import classNames from "classnames";
 import { DragEvent, FC, useEffect, useState } from "react";
 
 import ArrayUtils from "../../Utils/Array";
-import Icon from "../Icon";
+import { Icon } from "../Icon";
 import { IDraggableList, IDraggableListItem } from "./types";
 
 const DraggableList: FC<IDraggableList> = ({
@@ -107,4 +107,4 @@ const DraggableList: FC<IDraggableList> = ({
   );
 };
 
-export default DraggableList;
+export { DraggableList };

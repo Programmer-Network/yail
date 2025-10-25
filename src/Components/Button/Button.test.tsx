@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { vi } from "vitest";
 
-import Button from ".";
+import { Button } from ".";
 
 describe("Button component", () => {
   test("renders correctly - snapshot test", () => {

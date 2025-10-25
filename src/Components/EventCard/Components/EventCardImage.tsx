@@ -19,4 +19,4 @@ const EventCardImage: FC<IEventCardImage> = ({ src, alt, lazy = true }) => {
   );
 };
 
-export default EventCardImage;
+export { EventCardImage };

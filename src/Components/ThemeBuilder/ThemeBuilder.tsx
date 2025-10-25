@@ -3,8 +3,8 @@ import { FC, RefObject, useEffect, useMemo, useRef, useState } from "react";
 import { HexColorInput, HexColorPicker } from "react-colorful";
 
 import { useOnClickOutside } from "../../Hooks/useClickOutside";
-import Button from "../Button";
-import Icon from "../Icon";
+import { Button } from "../Button";
+import { Icon } from "../Icon";
 import ThemeBuilderUtils from "./ThemeBuilderUtils";
 import { IThemeBuilder, IThemeBuilderSetting } from "./types";
 
@@ -160,4 +160,4 @@ const ThemeBuilder: FC<IThemeBuilder> = ({
   );
 };
 
-export default ThemeBuilder;
+export { ThemeBuilder };

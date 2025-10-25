@@ -30,4 +30,4 @@ const Divider: FC<IDividerProps> = (
   );
 };
 
-export default Divider;
+export { Divider };

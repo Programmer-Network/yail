@@ -1,2 +1,2 @@
-export { default } from "./InputError";
+export { InputError } from "./InputError";
 export * from "./types";

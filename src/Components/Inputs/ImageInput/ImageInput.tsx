@@ -3,8 +3,8 @@ import { FC, useRef } from "react";
 
 import { ImageUtils } from "../../../Utils";
 import { CompressReturnType } from "../../../Utils/Image/types";
-import Button from "../../Button";
-import Icon from "../../Icon";
+import { Button } from "../../Button";
+import { Icon } from "../../Icon";
 import { InputError } from "../../Inputs";
 import { IImageInputProps } from "./types";
 
@@ -111,4 +111,4 @@ const ImageInput: FC<IImageInputProps> = ({
   );
 };
 
-export default ImageInput;
+export { ImageInput };

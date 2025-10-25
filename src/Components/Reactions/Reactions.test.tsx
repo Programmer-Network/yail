@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { vi } from "vitest";
 
-import Reactions from "./";
+import { Reactions } from "./";
 import { ReactionTransitionState, ReactionType } from "./types";
 
 describe("Reactions component", () => {

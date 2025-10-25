@@ -1,9 +1,9 @@
 import { render, screen } from "@testing-library/react";
 
-import Button from "../Button";
+import { Button } from "../Button";
 import { ButtonVariantEnum } from "../Button/types";
 import { PillSize, PillVariant } from "../Pill/Pill.types";
-import Hero from "./index";
+import { Hero } from "./index";
 
 describe("Hero", () => {
   it("renders with cover image", () => {

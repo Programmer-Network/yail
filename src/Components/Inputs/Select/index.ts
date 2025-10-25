@@ -1,2 +1,2 @@
-export { default } from "./Select";
+export { Select } from "./Select";
 export * from "./types";

@@ -34,4 +34,4 @@ const InputError: FC<IInputErrorProps> = (
   return <span className={classNames(baseClassName, className)}>{error}</span>;
 };
 
-export default InputError;
+export { InputError };

@@ -1,2 +1,2 @@
-export { default } from "./AuthorCard";
+export { AuthorCard } from "./AuthorCard";
 export * from "./types";

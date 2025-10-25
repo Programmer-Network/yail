@@ -50,4 +50,4 @@ const EventCardSkeleton: FC<IEventCardSkeletonProps> = ({ className }) => {
   );
 };
 
-export default EventCardSkeleton;
+export { EventCardSkeleton };

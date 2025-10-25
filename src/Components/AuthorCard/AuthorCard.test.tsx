@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { vi } from "vitest";
 
-import AuthorCard from ".";
+import { AuthorCard } from ".";
 
 describe("AuthorCard component", () => {
   const mockProps = {

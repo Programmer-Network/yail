@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { vi } from "vitest";
 
-import Bookmark from "./";
+import { Bookmark } from "./";
 
 describe("Bookmark component", () => {
   const args = {

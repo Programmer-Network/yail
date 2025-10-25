@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { vi } from "vitest";
 
-import ThemeBuilder from ".";
+import { ThemeBuilder } from ".";
 import ThemeBuilderUtils from "./ThemeBuilderUtils";
 
 describe("ThemeBuilder component", () => {

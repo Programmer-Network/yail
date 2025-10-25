@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import { FC, useState } from "react";
 
-import Icon from "../Icon";
+import { Icon } from "../Icon";
 import { InputError } from "../Inputs";
 import { IStarsProps } from "./types";
 
@@ -61,4 +61,4 @@ const Stars: FC<IStarsProps> = ({
   );
 };
 
-export default Stars;
+export { Stars };

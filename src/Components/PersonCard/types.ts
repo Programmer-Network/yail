@@ -3,7 +3,7 @@ import { NavLinkProps } from "react-router-dom";
 
 import { PillVariant } from "../Pill/Pill.types";
 
-export interface ITag {
+export interface IPersonCardTag {
   id?: string | number;
   name: string;
   url?: string;
@@ -41,7 +41,7 @@ export interface IPerson {
   email?: string;
   avatar?: string;
   about?: string;
-  tags?: ITag[];
+  tags?: IPersonCardTag[];
   socialProfiles?: ISocialProfiles;
   badge?: IBadge;
   role?: string;
@@ -69,7 +69,7 @@ export interface IPersonCardProps {
   size?: PersonCardSize;
   onClick?: (person: IPerson, e: React.MouseEvent) => void;
   onPersonClick?: (person: IPerson, e: React.MouseEvent) => void;
-  onTagClick?: (tag: ITag, e: React.MouseEvent) => void;
+  onTagClick?: (tag: IPersonCardTag, e: React.MouseEvent) => void;
   actions?: IPersonAction[];
   showTags?: boolean;
   showSocialLinks?: boolean;

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import Badge from ".";
+import { Badge } from ".";
 import { BadgeVariantEnum } from "./types";
 
 const meta = {

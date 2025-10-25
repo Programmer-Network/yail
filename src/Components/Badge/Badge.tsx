@@ -32,4 +32,4 @@ const Badge: FC<IBadgeProps> = ({ title, className, variant, onClick }) => {
   );
 };
 
-export default Badge;
+export { Badge };

@@ -1,7 +1,7 @@
 import { secureString } from "@programmer_network/ajv";
 import useAjvForm from "@programmer_network/use-ajv-form";
 
-import Button from "../../Components/Button";
+import { Button } from "../../Components/Button";
 import { Input, Textarea } from "../../Components/Inputs";
 
 const meta = {

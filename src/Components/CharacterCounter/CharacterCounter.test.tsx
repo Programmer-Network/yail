@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 
-import CharacterCounter from "./";
+import { CharacterCounter } from "./";
 
 describe("CharacterCounter component", () => {
   test("renders correctly - snapshot test", () => {

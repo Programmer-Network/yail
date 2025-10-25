@@ -1,2 +1,2 @@
-export { default } from "./Stars";
+export { Stars } from "./Stars";
 export * from "./types";

@@ -11,7 +11,7 @@ const TextOverLine: FC<ITextOverLineProps> = ({ children, className }) => {
         className
       )}
     >
-      <hr className='bg-background h-[1px] w-64 rounded border-0' />
+      <hr className='bg-background h-px w-64 rounded border-0' />
       <div className='bg-background text-text absolute left-1/2 -translate-x-1/2 rounded-md px-4'>
         {children}
       </div>
@@ -19,4 +19,4 @@ const TextOverLine: FC<ITextOverLineProps> = ({ children, className }) => {
   );
 };
 
-export default TextOverLine;
+export { TextOverLine };

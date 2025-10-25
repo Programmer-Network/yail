@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from "@storybook/react-vite";
 
-import Dropdown from "./";
+import { Dropdown } from "./";
 import { IDropdownProps } from "./types";
 
 const DropdownStories: Meta<IDropdownProps> = {

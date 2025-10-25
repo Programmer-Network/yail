@@ -66,5 +66,3 @@ export const Tab: ReactTabs.ReactTabsFunctionComponent<ITabProps> = props => {
 };
 
 Tab.tabsRole = "Tab";
-
-export default { Tabs, TabList, TabPanel, Tab };

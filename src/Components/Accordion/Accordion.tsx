@@ -2,9 +2,9 @@ import classNames from "classnames";
 import { FC, useEffect, useRef, useState } from "react";
 
 import ArrayUtils from "../../Utils/Array";
-import DraggableList from "../DraggableList";
+import { DraggableList } from "../DraggableList";
 import { IDraggableListItem } from "../DraggableList/types";
-import Icon from "../Icon";
+import { Icon } from "../Icon";
 import { Paragraph } from "../Typography";
 import { AccordionOrderType, IAccordionProps, ISection } from "./types";
 
@@ -270,4 +270,4 @@ const Accordion: FC<IAccordionProps> = ({
   );
 };
 
-export default Accordion;
+export { Accordion };

@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { vi } from "vitest";
 
-import Pagination from ".";
+import { Pagination } from ".";
 
 describe("Pagination component", () => {
   test("renders with both buttons enabled when not on first or last page", () => {

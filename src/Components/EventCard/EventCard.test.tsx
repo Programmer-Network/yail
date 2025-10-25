@@ -2,7 +2,7 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import { BrowserRouter, NavLink } from "react-router-dom";
 import { vi } from "vitest";
 
-import EventCard from ".";
+import { EventCard } from ".";
 import { IEventCardData } from "./EventCard.types";
 import { getDefaultEventPills } from "./EventCard.utils";
 

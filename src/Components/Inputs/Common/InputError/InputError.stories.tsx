@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import InputError from ".";
+import { InputError } from ".";
 
 const meta = {
   title: "Input/Common/InputError",

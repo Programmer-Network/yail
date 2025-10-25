@@ -1,2 +1,2 @@
-export { default } from "./DraggableList";
+export { DraggableList } from "./DraggableList";
 export * from "./types";

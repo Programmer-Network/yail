@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import React from "react";
 
-import Icon from "../Icon";
+import { Icon } from "../Icon";
 import { IIconProps } from "../Icon/types";
 import { IErrorProps } from "./types";
 
@@ -69,4 +69,4 @@ const Error: React.FC<IErrorProps> = (
   );
 };
 
-export default Error;
+export { Error };

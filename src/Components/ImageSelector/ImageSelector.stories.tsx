@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { action } from "storybook/actions";
 
-import ImageSelector from ".";
+import { ImageSelector } from ".";
 import { IImage } from "./types";
 
 export default {

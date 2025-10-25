@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import Button from ".";
+import { Button } from ".";
 import { ButtonVariantEnum } from "./types";
 
 const meta = {

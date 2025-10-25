@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, test } from "vitest";
 
-import TextOverLine from "./";
+import { TextOverLine } from "./";
 
 describe("TextOverLine component", () => {
   test("renders without crashing", () => {
@@ -28,7 +28,7 @@ describe("TextOverLine component", () => {
     render(<TextOverLine>Test</TextOverLine>);
     const lineElement = screen.getByRole("separator");
     expect(lineElement).toHaveClass("bg-background");
-    expect(lineElement).toHaveClass("h-[1px]");
+    expect(lineElement).toHaveClass("h-px");
     const textElement = screen.getByText("Test");
     expect(textElement).toHaveClass("bg-background");
     expect(textElement).toHaveClass("text-text");

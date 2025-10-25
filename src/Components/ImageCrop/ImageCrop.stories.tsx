@@ -2,7 +2,7 @@ import { Meta } from "@storybook/react-vite";
 import { useEffect, useState } from "react";
 
 import image from "../../../assets/images/image-crop.png";
-import ImageCrop from "./";
+import { ImageCrop } from "./";
 import { IImageCropProps } from "./types";
 
 const ImageCropStories: Meta<IImageCropProps> = {

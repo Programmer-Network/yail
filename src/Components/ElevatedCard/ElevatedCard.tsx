@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import React from "react";
 
-import Icon from "../Icon";
+import { Icon } from "../Icon";
 import { IIconProps } from "../Icon/types";
 import { H5, Paragraph } from "../Typography";
 import { IElevatedCardProps } from "./types";
@@ -43,4 +43,4 @@ const ElevatedCard: React.FC<IElevatedCardProps> = ({
   );
 };
 
-export default ElevatedCard;
+export { ElevatedCard };

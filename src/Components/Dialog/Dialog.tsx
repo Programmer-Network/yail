@@ -93,4 +93,4 @@ const Dialog = forwardRef<HTMLDialogElement, IDialogProps>(
 
 Dialog.displayName = "Dialog";
 
-export default Dialog;
+export { Dialog };

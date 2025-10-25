@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { PillVariant } from "../Pill";
-import PersonCardSkeleton from "./PersonCard.Skeleton";
-import PersonCard from "./index";
+import { PersonCardSkeleton } from "./PersonCard.Skeleton";
+import { PersonCard } from "./index";
 import { IPerson } from "./types";
 
 const meta: Meta<typeof PersonCard> = {

@@ -2,8 +2,8 @@ import classNames from "classnames";
 import { FC } from "react";
 
 import { useMobile } from "../../Hooks/useMediaQuery";
-import Icon from "../Icon";
-import Tooltip from "../Tooltip";
+import { Icon } from "../Icon";
+import { Tooltip } from "../Tooltip";
 import {
   IReactionsProps,
   ReactionTransitionState,
@@ -106,4 +106,4 @@ const Reactions: FC<IReactionsProps> = ({
   );
 };
 
-export default Reactions;
+export { Reactions };

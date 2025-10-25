@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { vi } from "vitest";
 
-import FormActions from ".";
+import { FormActions } from ".";
 
 describe("FormActions component", () => {
   test("renders correctly - snapshot test", () => {

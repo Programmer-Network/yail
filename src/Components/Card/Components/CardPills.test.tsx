@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 
 import { PillVariant } from "../../Pill/Pill.types";
 import { IPill } from "../types";
-import CardPills from "./CardPills";
+import { CardPills } from "./CardPills";
 
 describe("CardPills component", () => {
   const mockPills: IPill[] = [

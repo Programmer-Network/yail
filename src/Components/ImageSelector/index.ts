@@ -1,2 +1,2 @@
-export { default } from "./ImageSelector";
+export { ImageSelector } from "./ImageSelector";
 export * from "./types";

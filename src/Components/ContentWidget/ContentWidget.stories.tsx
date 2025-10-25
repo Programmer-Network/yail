@@ -1,6 +1,6 @@
 import { faker } from "@faker-js/faker";
 
-import ContentWidget from ".";
+import { ContentWidget } from ".";
 
 export default {
   title: "Core/ContentWidget",

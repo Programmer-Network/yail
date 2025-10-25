@@ -1,2 +1,2 @@
-export { default } from "./ShareButton";
+export { ShareButton } from "./ShareButton";
 export * from "./types";

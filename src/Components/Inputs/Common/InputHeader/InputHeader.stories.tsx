@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import InputHeader from ".";
+import { InputHeader } from ".";
 
 const meta = {
   title: "Input/Common/InputHeader",

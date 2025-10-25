@@ -20,4 +20,4 @@ const Tag: FC<ITagProps> = ({ name, className = null, onClick }) => {
   );
 };
 
-export default Tag;
+export { Tag };

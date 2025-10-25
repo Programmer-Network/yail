@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import { FC } from "react";
 
-import Card from "../Card";
+import { Card } from "../Card";
 import { ICardsProps } from "./types";
 
 const Cards: FC<ICardsProps> = ({
@@ -43,4 +43,4 @@ const Cards: FC<ICardsProps> = ({
   );
 };
 
-export default Cards;
+export { Cards };

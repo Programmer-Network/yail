@@ -1,6 +1,6 @@
 import { action } from "storybook/actions";
 
-import Tag from "./index";
+import { Tag } from "./index";
 
 export default {
   title: "Components / Tag",

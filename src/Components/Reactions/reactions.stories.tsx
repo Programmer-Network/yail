@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from "@storybook/react-vite";
 import { action } from "storybook/actions";
 
-import Reactions from "./";
+import { Reactions } from "./";
 import {
   IReactionsProps,
   ReactionTransitionState,

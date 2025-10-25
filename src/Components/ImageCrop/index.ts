@@ -1,2 +1,2 @@
-export { default } from "./ImageCrop";
+export { ImageCrop } from "./ImageCrop";
 export * from "./types";

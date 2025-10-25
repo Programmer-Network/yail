@@ -1,14 +1,19 @@
 import classNames from "classnames";
 import { FC, ReactNode } from "react";
 
-import Avatar from "../Avatar";
-import Button from "../Button";
+import { Avatar } from "../Avatar";
+import { Button } from "../Button";
 import { ButtonVariantEnum } from "../Button/types";
-import Icon from "../Icon";
-import Pill from "../Pill";
+import { Icon } from "../Icon";
+import { Pill } from "../Pill";
 import { PillSize, PillVariant } from "../Pill/Pill.types";
 import { H4, Paragraph } from "../Typography";
-import { IBadge, IPersonAction, IPersonCardProps, ITag } from "./types";
+import {
+  IBadge,
+  IPersonAction,
+  IPersonCardProps,
+  IPersonCardTag
+} from "./types";
 
 const PersonCard: FC<IPersonCardProps> = ({
   person,
@@ -55,7 +60,7 @@ const PersonCard: FC<IPersonCardProps> = ({
     }
   };
 
-  const handleTagClick = (tag: ITag, e: React.MouseEvent) => {
+  const handleTagClick = (tag: IPersonCardTag, e: React.MouseEvent) => {
     e.stopPropagation();
     if (onTagClick) {
       onTagClick(tag, e);
@@ -204,7 +209,7 @@ const PersonCard: FC<IPersonCardProps> = ({
       {/* Tags */}
       {showTags && tags.length > 0 && (
         <div className='flex flex-wrap justify-center gap-2'>
-          {tags.slice(0, maxTags).map((tag: ITag, index: number) => (
+          {tags.slice(0, maxTags).map((tag: IPersonCardTag, index: number) => (
             <Pill
               key={tag.id || tag.name || index}
               clickable={!!onTagClick}
@@ -319,4 +324,4 @@ const PersonCard: FC<IPersonCardProps> = ({
   );
 };
 
-export default PersonCard;
+export { PersonCard };

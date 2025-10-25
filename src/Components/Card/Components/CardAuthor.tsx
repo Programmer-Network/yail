@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { NavLinkProps } from "react-router-dom";
 
-import Avatar from "../../Avatar";
+import { Avatar } from "../../Avatar";
 import { IAuthorProps } from "../types";
 
 interface ICardAuthor {
@@ -52,4 +52,4 @@ const CardAuthor: FC<ICardAuthor> = ({
   );
 };
 
-export default CardAuthor;
+export { CardAuthor };

@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import { FC } from "react";
 
-import Button from "../../Button";
+import { Button } from "../../Button";
 import { ButtonVariantEnum } from "../../Button/types";
 import { ICardAction } from "../types";
 
@@ -57,4 +57,4 @@ const CardFooterActions: FC<ICardFooterActions> = ({ footerActions }) => {
   );
 };
 
-export default CardFooterActions;
+export { CardFooterActions };

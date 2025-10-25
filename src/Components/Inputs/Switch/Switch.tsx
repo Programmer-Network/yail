@@ -46,4 +46,4 @@ const Switch: React.FC<ISwitchProps> = ({
   );
 };
 
-export default Switch;
+export { Switch };

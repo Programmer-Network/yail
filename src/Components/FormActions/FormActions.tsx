@@ -1,9 +1,9 @@
 import classNames from "classnames";
 import { createRef, useState } from "react";
 
-import Button from "../Button";
+import { Button } from "../Button";
 import { ButtonVariantEnum } from "../Button/types";
-import ConfirmDialog from "../ConfirmDialog";
+import { ConfirmDialog } from "../ConfirmDialog";
 import { IFormActionsProps } from "./types";
 
 const FormActions = ({
@@ -214,4 +214,4 @@ const FormActions = ({
   );
 };
 
-export default FormActions;
+export { FormActions };

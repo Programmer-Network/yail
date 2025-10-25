@@ -1,2 +1,2 @@
-export { default } from "./CTA";
+export { CTA } from "./CTA";
 export * from "./types";

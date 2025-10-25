@@ -1,2 +1,2 @@
-export { default } from "./ItemActions";
+export { ItemActions } from "./ItemActions";
 export * from "./types";

@@ -5,9 +5,9 @@ import classNames from "classnames";
 import { forwardRef, useState } from "react";
 
 import ImageUtils from "../../Utils/Image";
-import Button from "../Button";
-import Dialog from "../Dialog";
-import ImageCrop from "../ImageCrop";
+import { Button } from "../Button";
+import { Dialog } from "../Dialog";
+import { ImageCrop } from "../ImageCrop";
 import { ImageInput } from "../Inputs";
 import {
   IOnFileLoadedArgs,
@@ -160,4 +160,4 @@ const ImageDialog = forwardRef<HTMLDialogElement, IImageDialogProps>(
 
 ImageDialog.displayName = "ImageDialog";
 
-export default ImageDialog;
+export { ImageDialog };

@@ -4,7 +4,7 @@ import { RefObject, useRef } from "react";
 import { vi } from "vitest";
 
 import { useOnClickOutside } from "../../Hooks/useClickOutside";
-import Dropdown from "./";
+import { Dropdown } from "./";
 
 describe("Dropdown Component", () => {
   it("should trigger callback when clicking outside the referenced element", () => {

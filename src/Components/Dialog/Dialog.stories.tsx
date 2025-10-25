@@ -1,7 +1,7 @@
 import { createRef } from "react";
 
-import Dialog from ".";
-import Button from "../Button";
+import { Dialog } from ".";
+import { Button } from "../Button";
 import ImageUpload from "../Inputs/Tiptap/Components/ImageUpload";
 import { H1 } from "../Typography";
 

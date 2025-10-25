@@ -1,2 +1,2 @@
-export { default } from "./Error";
+export { Error } from "./Error";
 export * from "./types";

@@ -10,8 +10,8 @@ import {
 } from "react";
 
 import { useMobile } from "../../../Hooks/useMediaQuery";
-import InputError from "../Common/InputError";
-import InputHeader from "../Common/InputHeader";
+import { InputError } from "../Common/InputError";
+import { InputHeader } from "../Common/InputHeader";
 import TiptapActions from "./Components/Actions";
 import { Toolbar } from "./Components/Toolbar";
 import "./Tiptap.css";
@@ -177,4 +177,6 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
 
 Tiptap.displayName = "Tiptap";
 
-export default forwardRef(Tiptap);
+const TiptapForwardRef = forwardRef(Tiptap);
+
+export { TiptapForwardRef as Tiptap };

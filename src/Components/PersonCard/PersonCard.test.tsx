@@ -2,8 +2,8 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 
 import { PillVariant } from "../Pill/Pill.types";
-import PersonCardSkeleton from "./PersonCard.Skeleton";
-import PersonCard from "./index";
+import { PersonCardSkeleton } from "./PersonCard.Skeleton";
+import { PersonCard } from "./index";
 import { IPerson, IPersonAction } from "./types";
 
 const mockPerson: IPerson = {

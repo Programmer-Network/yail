@@ -12,7 +12,7 @@ import { getAllowedTags } from "./utils";
  * from a Tiptap editor's JSON content state. The HTML is then sanitized based on a set of allowed tags,
  * attributes, and classes to ensure safety and compliance with expected content structures.
  */
-export default class TiptapToHTML {
+export class TiptapToHTML {
   suggestions: TiptapSuggestionOptions | undefined;
   toolbarItems: TiptapControls;
 

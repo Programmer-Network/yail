@@ -1,2 +1,2 @@
-export { default } from "./DomainInput";
+export { DomainInput } from "./DomainInput";
 export * from "./types";

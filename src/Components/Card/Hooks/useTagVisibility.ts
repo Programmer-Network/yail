@@ -1,9 +1,9 @@
 import { useCallback, useMemo, useState } from "react";
 
-import { ITag } from "../types";
+import { ICardTag } from "../types";
 
 interface IUseTagVisibilityParams {
-  tags?: ITag[];
+  tags?: ICardTag[];
   maxVisibleTags: number;
   onAnalyticEvent?: (event: string, data: any) => void;
   trackingId?: string;

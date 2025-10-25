@@ -55,4 +55,4 @@ const Icon: FC<IIconProps> = props => {
   );
 };
 
-export default Icon;
+export { Icon };

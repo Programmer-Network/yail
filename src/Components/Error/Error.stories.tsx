@@ -1,6 +1,6 @@
 import { action } from "storybook/actions";
 
-import Error from ".";
+import { Error } from ".";
 
 export default {
   title: "Components/Error",

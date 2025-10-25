@@ -1,2 +1,2 @@
-export { default } from "./Tag";
+export { Tag } from "./Tag";
 export * from "./types";

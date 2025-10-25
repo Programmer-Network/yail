@@ -114,4 +114,4 @@ const Dropdown: React.FC<IDropdownProps> = ({
   );
 };
 
-export default Dropdown;
+export { Dropdown };

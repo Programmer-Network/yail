@@ -1,2 +1,2 @@
-export { default } from "./Pill";
+export { Pill } from "./Pill";
 export * from "./Pill.types";

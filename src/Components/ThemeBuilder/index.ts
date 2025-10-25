@@ -1,2 +1,2 @@
-export { default } from "./ThemeBuilder";
+export { ThemeBuilder } from "./ThemeBuilder";
 export * from "./types";

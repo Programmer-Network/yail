@@ -1,8 +1,8 @@
 import classNames from "classnames";
 import { FC } from "react";
 
-import Button from "../Button";
-import Icon from "../Icon";
+import { Button } from "../Button";
+import { Icon } from "../Icon";
 import { H3, Paragraph } from "../Typography";
 import { ICTAProps } from "./types";
 
@@ -67,4 +67,4 @@ const CTA: FC<ICTAProps> = (
   );
 };
 
-export default CTA;
+export { CTA };

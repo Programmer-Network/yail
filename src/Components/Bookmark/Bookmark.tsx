@@ -1,7 +1,7 @@
 import React from "react";
 
-import Icon from "../Icon";
-import Spinner from "../Spinner";
+import { Icon } from "../Icon";
+import { Spinner } from "../Spinner";
 import { IBookmarkProps } from "./types";
 
 const Bookmark: React.FC<IBookmarkProps> = (
@@ -41,4 +41,4 @@ const Bookmark: React.FC<IBookmarkProps> = (
   );
 };
 
-export default Bookmark;
+export { Bookmark };

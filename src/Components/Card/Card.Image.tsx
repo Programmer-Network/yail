@@ -45,4 +45,4 @@ const CardImage: FC<ICardImage> = ({
   );
 };
 
-export default CardImage;
+export { CardImage };

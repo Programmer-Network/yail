@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import Switch from ".";
+import { Switch } from ".";
 
 export default {
   title: "Input / Switch"

@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import { FC, ReactNode } from "react";
 
-import Pill from "../Pill";
+import { Pill } from "../Pill";
 import { IPillProps } from "../Pill/Pill.types";
 import { H1, Paragraph } from "../Typography";
 import { IHeroProps } from "./Hero.types";
@@ -70,4 +70,4 @@ const Hero: FC<IHeroProps> = ({
   );
 };
 
-export default Hero;
+export { Hero };

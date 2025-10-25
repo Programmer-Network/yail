@@ -2,8 +2,8 @@ import { FC } from "react";
 import BaseDatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-import InputError from "../Common/InputError";
-import InputHeader from "../Common/InputHeader";
+import { InputError } from "../Common/InputError";
+import { InputHeader } from "../Common/InputHeader";
 import "./style.css";
 import { IDatePickerProps } from "./types";
 
@@ -56,4 +56,4 @@ const DatePicker: FC<IDatePickerProps> = props => {
   );
 };
 
-export default DatePicker;
+export { DatePicker };

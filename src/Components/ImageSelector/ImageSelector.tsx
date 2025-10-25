@@ -1,8 +1,8 @@
 import classNames from "classnames";
 import { FC, useEffect, useState } from "react";
 
-import Icon from "../Icon";
-import Spinner from "../Spinner";
+import { Icon } from "../Icon";
+import { Spinner } from "../Spinner";
 import { IImage, IImageSelectorProps } from "./types";
 
 const ImageSelector: FC<IImageSelectorProps> = ({
@@ -36,7 +36,7 @@ const ImageSelector: FC<IImageSelectorProps> = ({
             className={classNames(
               "relative aspect-square h-full w-full min-w-[150px] cursor-pointer bg-cover bg-center bg-no-repeat opacity-70",
               {
-                "!opacity-100": selected.url === image.url,
+                "opacity-100!": selected.url === image.url,
                 "flex items-center justify-center border-rose-500 opacity-50":
                   itemToDelete?.url === image.url
               }
@@ -69,4 +69,4 @@ const ImageSelector: FC<IImageSelectorProps> = ({
   );
 };
 
-export default ImageSelector;
+export { ImageSelector };

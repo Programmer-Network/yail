@@ -1,8 +1,8 @@
 import classNames from "classnames";
 import { FC, memo, useId } from "react";
 
-import CardImage from "./Card.Image";
-import CardSkeleton from "./Card.Skeleton";
+import { CardImage } from "./Card.Image";
+import { CardSkeleton } from "./Card.Skeleton";
 import {
   CardActions,
   CardAuthor,
@@ -211,4 +211,4 @@ const Card: FC<ICard> = memo(
 
 Card.displayName = "Card";
 
-export default Card;
+export { Card };

@@ -1,7 +1,7 @@
 import { action } from "storybook/actions";
 
-import ShareButton from ".";
-import Button from "../Button";
+import { Button } from "../Button";
+import { ShareButton } from "./ShareButton";
 
 export default {
   title: "Components/ShareButton",

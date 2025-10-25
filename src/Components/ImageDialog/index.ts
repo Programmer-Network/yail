@@ -1,2 +1,2 @@
-export { default } from "./ImageDialog";
+export { ImageDialog } from "./ImageDialog";
 export * from "./types";

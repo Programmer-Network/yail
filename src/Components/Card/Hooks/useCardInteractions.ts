@@ -1,11 +1,11 @@
 import { useCallback } from "react";
 
-import { IAuthorProps, ICardData, ITag } from "../types";
+import { IAuthorProps, ICardData, ICardTag } from "../types";
 
 interface IUseCardInteractionsParams {
   onCardClick?: (data: ICardData) => void;
   onAuthorClick?: (author: IAuthorProps) => void;
-  onTagClick?: (tag: ITag) => void;
+  onTagClick?: (tag: ICardTag) => void;
   onImageClick?: () => void;
   onBookmark?: (data: ICardData) => void;
   onShare?: (data: ICardData) => void;
@@ -45,7 +45,7 @@ export const useCardInteractions = ({
   );
 
   const handleTagClick = useCallback(
-    (tag: ITag) => (e: React.MouseEvent) => {
+    (tag: ICardTag) => (e: React.MouseEvent) => {
       if (onTagClick) {
         e.preventDefault();
         e.stopPropagation();

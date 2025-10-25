@@ -1,2 +1,2 @@
-export { default } from "./Reactions";
+export { Reactions } from "./Reactions";
 export * from "./types";

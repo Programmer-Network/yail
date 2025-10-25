@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { useState } from "react";
 
-import Filters from ".";
+import { Filters } from ".";
 import { Select } from "../Inputs";
 import { ViewType } from "../ViewToggle/types";
 

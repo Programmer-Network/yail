@@ -1,8 +1,8 @@
 import { FC } from "react";
 
-import CharacterCounter from "../../../CharacterCounter";
-import Icon from "../../../Icon";
-import Tooltip from "../../../Tooltip";
+import { CharacterCounter } from "../../../CharacterCounter";
+import { Icon } from "../../../Icon";
+import { Tooltip } from "../../../Tooltip";
 import { InputHeaderProps } from "./types";
 
 const InputHeader: FC<InputHeaderProps> = (
@@ -44,4 +44,4 @@ const InputHeader: FC<InputHeaderProps> = (
   );
 };
 
-export default InputHeader;
+export { InputHeader };

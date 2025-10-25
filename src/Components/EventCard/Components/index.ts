@@ -1,1 +1,1 @@
-export { default as EventCardImage } from "./EventCardImage";
+export { EventCardImage } from "./EventCardImage";

@@ -1,2 +1,2 @@
-export { default } from "./ImageInput";
+export { ImageInput } from "./ImageInput";
 export * from "./types";

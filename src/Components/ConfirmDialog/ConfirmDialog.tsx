@@ -1,9 +1,9 @@
 import { forwardRef } from "react";
 
-import Button from "../Button";
+import { Button } from "../Button";
 import { ButtonVariantEnum } from "../Button/types";
-import Dialog from "../Dialog";
-import Icon from "../Icon";
+import { Dialog } from "../Dialog";
+import { Icon } from "../Icon";
 import Paragraph from "../Typography/Paragraph";
 import { IConfirmDialogProps } from "./ConfirmDialog.types";
 
@@ -113,4 +113,4 @@ const ConfirmDialog = forwardRef<HTMLDialogElement, IConfirmDialogProps>(
 
 ConfirmDialog.displayName = "ConfirmDialog";
 
-export default ConfirmDialog;
+export { ConfirmDialog };

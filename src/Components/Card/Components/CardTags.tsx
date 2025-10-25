@@ -1,13 +1,13 @@
 import { FC } from "react";
 import { NavLinkProps } from "react-router-dom";
 
-import { ITag } from "../types";
+import { ICardTag } from "../types";
 
 interface ICardTags {
-  visibleTags: ITag[];
+  visibleTags: ICardTag[];
   remainingTagsCount: number;
   showAllTags: boolean;
-  onTagClick?: (tag: ITag) => (e: React.MouseEvent) => void;
+  onTagClick?: (tag: ICardTag) => (e: React.MouseEvent) => void;
   onToggleTagsVisibility: (e: React.MouseEvent) => void;
   NavLink: React.ForwardRefExoticComponent<
     NavLinkProps & React.RefAttributes<HTMLAnchorElement>
@@ -24,7 +24,7 @@ const CardTags: FC<ICardTags> = ({
 }) => {
   if (!visibleTags.length) return null;
 
-  const handleTagClick = (tag: ITag) => (e: React.MouseEvent) => {
+  const handleTagClick = (tag: ICardTag) => (e: React.MouseEvent) => {
     e.stopPropagation();
     if (!onTagClick) {
       return;
@@ -62,4 +62,4 @@ const CardTags: FC<ICardTags> = ({
   );
 };
 
-export default CardTags;
+export { CardTags };

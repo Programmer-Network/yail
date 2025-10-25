@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import { FC } from "react";
 
-import Button from "../Button";
+import { Button } from "../Button";
 import { IPaginationProps } from "./types";
 
 const Pagination: FC<IPaginationProps> = ({
@@ -46,4 +46,4 @@ const Pagination: FC<IPaginationProps> = ({
   );
 };
 
-export default Pagination;
+export { Pagination };

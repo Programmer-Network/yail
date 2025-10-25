@@ -1,7 +1,7 @@
 import classNames from "classnames";
 
-import Icon from "../Icon";
-import Spinner from "../Spinner";
+import { Icon } from "../Icon";
+import { Spinner } from "../Spinner";
 import { getButtonClasses } from "./Button.utils";
 import { ButtonVariantEnum, IButtonProps } from "./types";
 
@@ -78,4 +78,4 @@ const Button: React.FC<IButtonProps> = (
   );
 };
 
-export default Button;
+export { Button };

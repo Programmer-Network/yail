@@ -1,9 +1,9 @@
 import { Meta, StoryFn } from "@storybook/react-vite";
 import { useState } from "react";
 
-import ImageInput from ".";
+import { ImageInput } from ".";
 import { ImageUtils } from "../../../Utils";
-import ImageCrop from "../../ImageCrop";
+import { ImageCrop } from "../../ImageCrop";
 import { IImageInputProps, IOnFileLoadedArgs } from "./types";
 
 const ImageInputStories: Meta<IImageInputProps> = {

@@ -1,2 +1,2 @@
-export { default } from "./TextOverLine";
+export { TextOverLine } from "./TextOverLine";
 export * from "./types";

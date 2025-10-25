@@ -1,6 +1,6 @@
 import { Meta } from "@storybook/react-vite";
 
-import Alert from "./";
+import { Alert } from "./";
 
 const meta = {
   title: "Core / Alert",

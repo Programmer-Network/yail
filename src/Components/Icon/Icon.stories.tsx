@@ -1,4 +1,4 @@
-import Icon from ".";
+import { Icon } from ".";
 
 export default {
   title: "Core/Icon",

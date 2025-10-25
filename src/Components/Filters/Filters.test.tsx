@@ -2,7 +2,7 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it, vi } from "vitest";
 
-import Filters from ".";
+import { Filters } from ".";
 import { ViewType } from "../ViewToggle/types";
 
 const tags = ["react", "typescript"];

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { PillSize, PillVariant } from "./Pill.types";
-import Pill from "./index";
+import { Pill } from "./index";
 
 const meta: Meta<typeof Pill> = {
   title: "Components/Core/Pill",

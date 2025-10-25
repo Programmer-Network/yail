@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 
-import Badge from "./";
+import { Badge } from "./";
 import { BadgeVariantEnum } from "./types";
 
 describe("Badge component", () => {

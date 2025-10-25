@@ -1,11 +1,11 @@
 import classNames from "classnames";
 import { FC, useState } from "react";
 
-import Button from "../Button";
+import { Button } from "../Button";
 import { ButtonVariantEnum } from "../Button/types";
-import Input from "../Inputs/Input";
-import Select from "../Inputs/Select";
-import ViewToggle from "../ViewToggle";
+import { Input } from "../Inputs/Input";
+import { Select } from "../Inputs/Select";
+import { ViewToggle } from "../ViewToggle";
 import { IFiltersProps } from "./types";
 
 const Filters: FC<IFiltersProps> = ({
@@ -125,4 +125,4 @@ const Filters: FC<IFiltersProps> = ({
   );
 };
 
-export default Filters;
+export { Filters };

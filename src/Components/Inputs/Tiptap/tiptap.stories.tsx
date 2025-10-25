@@ -1,8 +1,8 @@
 import { Editor } from "@tiptap/core";
 import { RefObject, useEffect, useRef, useState } from "react";
 
-import Tiptap from ".";
-import TiptapToHTML from "./TiptapToHTML";
+import { Tiptap } from ".";
+import { TiptapToHTML } from "./TiptapToHTML";
 import { TIPTAP_TOOLBAR_ITEMS } from "./constants";
 import { TiptapActionsEnum, TiptapRef } from "./types";
 
@@ -81,7 +81,7 @@ export const Default = () => {
       />
 
       <div
-        className='mt-8 break-words text-indigo-500'
+        className='mt-8 wrap-break-word text-indigo-500'
         dangerouslySetInnerHTML={{ __html: editorState }}
       ></div>
     </div>
@@ -176,7 +176,7 @@ export const Confirming = () => {
       />
 
       <div
-        className='mt-8 break-words text-indigo-500'
+        className='mt-8 wrap-break-word text-indigo-500'
         dangerouslySetInnerHTML={{ __html: editorState }}
       ></div>
     </div>

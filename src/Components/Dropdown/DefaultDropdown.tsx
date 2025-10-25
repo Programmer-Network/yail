@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import Icon from "../Icon";
+import { Icon } from "../Icon";
 import { IDefaultDropdownProps, IDropdownListItem } from "./types";
 
 const DropdownListItem: FC<IDropdownListItem> = ({

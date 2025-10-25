@@ -1,4 +1,4 @@
-import Bookmark from ".";
+import { Bookmark } from ".";
 
 export default {
   title: "Core / Bookmark",

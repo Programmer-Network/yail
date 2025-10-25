@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { vi } from "vitest";
 
-import CTA from "./";
+import { CTA } from "./";
 
 describe("CTA component", () => {
   const title = "Test Title";

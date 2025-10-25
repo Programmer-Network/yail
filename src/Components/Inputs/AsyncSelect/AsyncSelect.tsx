@@ -3,8 +3,8 @@ import { FC } from "react";
 import { OnChangeValue } from "react-select";
 import { AsyncPaginate } from "react-select-async-paginate";
 
-import InputError from "../Common/InputError";
-import InputHeader from "../Common/InputHeader";
+import { InputError } from "../Common/InputError";
+import { InputHeader } from "../Common/InputHeader";
 import { styles } from "../Select/styles";
 import { Option } from "../Select/types";
 import { IAsyncSelectProps } from "./types";
@@ -52,4 +52,4 @@ const AsyncSelect: FC<IAsyncSelectProps> = props => {
   );
 };
 
-export default AsyncSelect;
+export { AsyncSelect };

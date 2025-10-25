@@ -1,2 +1,2 @@
-export { default } from "./FormActions";
+export { FormActions } from "./FormActions";
 export * from "./types";
