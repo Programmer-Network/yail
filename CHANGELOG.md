@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/Programmer-Network/yail/compare/yail-v1.2.0...yail-v1.3.0) (2025-10-25)
+
+
+### Features
+
+* Update Storybook dependencies to version 9.1.15 in package.json and pnpm-lock.yaml ([3d54466](https://github.com/Programmer-Network/yail/commit/3d54466f7426660e9d4114464f91b8ede7e2d04b))
+
 ## [1.2.0](https://github.com/Programmer-Network/yail/compare/yail-v1.1.6...yail-v1.2.0) (2025-10-24)
 
 ### Features
