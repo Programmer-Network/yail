@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0](https://github.com/Programmer-Network/yail/compare/yail-v1.3.0...yail-v1.4.0) (2025-11-03)
+
+
+### Features
+
+* improved imports and added feed components ([cefe20c](https://github.com/Programmer-Network/yail/commit/cefe20c014c2c3511070a55d57810ae39949d9cd))
+
 ## [1.3.0](https://github.com/Programmer-Network/yail/compare/yail-v1.2.0...yail-v1.3.0) (2025-10-25)
 
 
