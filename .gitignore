@@ -5,3 +5,5 @@ storybook-static
 .idea
 .todo
 .eslintcache
+.yalc
+yalc.lock

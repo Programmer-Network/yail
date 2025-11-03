@@ -1,4 +1,4 @@
-import URLUtils from ".";
+import { URLUtils } from ".";
 
 describe("URLUtils.isExternalLink", () => {
   const originalLocation = window.location;

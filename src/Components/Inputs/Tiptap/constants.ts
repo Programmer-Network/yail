@@ -61,7 +61,7 @@ export const typograyClassNames = {
     classNames("text-text break-words overflow-hidden", className),
   a: (className?: string) =>
     classNames(
-      "break-all hover:text-stroke text-primary hover:underline hover:opacity-80 active:opacity-50",
+      "break-all hover:text-stroke text-primary hover:underline hover:opacity-80 active:opacity-50 cursor-pointer",
       className
     ),
   ul: (className?: string) =>

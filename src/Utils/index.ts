@@ -1,5 +1,5 @@
-export { default as ArrayUtils } from "./Array";
-export { default as CanvasUtils } from "./Canvas";
-export { default as ImageUtils } from "./Image";
-export { default as StringUtils } from "./String";
-export { default as URLUtils } from "./URL";
+export { ArrayUtils } from "./Array";
+export { CanvasUtils } from "./Canvas";
+export { ImageUtils } from "./Image";
+export { StringUtils } from "./String";
+export { URLUtils } from "./URL";

@@ -10,4 +10,4 @@ class StringUtils {
   }
 }
 
-export default StringUtils;
+export { StringUtils };

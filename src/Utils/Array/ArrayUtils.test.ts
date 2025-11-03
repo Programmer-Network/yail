@@ -1,4 +1,4 @@
-import ArrayUtils from ".";
+import { ArrayUtils } from ".";
 
 describe("shuffle", () => {
   it("should return an array", () => {
@@ -28,6 +28,7 @@ describe("shuffle", () => {
         break;
       }
     }
+
     expect(isShuffled).toBe(true);
   });
 });

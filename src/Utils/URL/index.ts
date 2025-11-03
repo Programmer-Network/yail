@@ -20,4 +20,4 @@ class URLUtils {
   }
 }
 
-export default URLUtils;
+export { URLUtils };

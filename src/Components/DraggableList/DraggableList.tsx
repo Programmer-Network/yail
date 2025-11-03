@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import { DragEvent, FC, useEffect, useState } from "react";
 
-import ArrayUtils from "../../Utils/Array";
+import { ArrayUtils } from "../../Utils/Array";
 import { Icon } from "../Icon";
 import { IDraggableList, IDraggableListItem } from "./types";
 

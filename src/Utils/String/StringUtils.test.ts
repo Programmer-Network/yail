@@ -1,4 +1,4 @@
-import StringUtils from "./";
+import { StringUtils } from "./";
 
 describe("StringUtils", () => {
   describe("validateURL method", () => {

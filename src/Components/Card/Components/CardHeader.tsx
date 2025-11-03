@@ -2,7 +2,7 @@ import classNames from "classnames";
 import { FC } from "react";
 import { NavLinkProps } from "react-router-dom";
 
-import URLUtils from "../../../Utils/URL";
+import { URLUtils } from "../../../Utils/URL";
 import { getLineClampClass } from "../utils";
 
 interface ICardHeader {

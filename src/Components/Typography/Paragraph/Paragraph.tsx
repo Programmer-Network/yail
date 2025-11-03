@@ -5,14 +5,18 @@ import { typograyClassNames } from "../../Inputs/Tiptap/constants";
 import { IParagraphProps } from "./types";
 
 const Paragraph: FC<IParagraphProps> = ({
+  id,
   children,
   className,
-  onClick
+  onClick,
+  ariaLabel
 }): ReactElement => {
   return (
     <p
+      id={id}
       className={classNames(typograyClassNames.p(className))}
       onClick={onClick}
+      aria-label={ariaLabel}
     >
       {children}
     </p>

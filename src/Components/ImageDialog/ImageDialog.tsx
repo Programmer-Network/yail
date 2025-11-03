@@ -4,7 +4,7 @@
 import classNames from "classnames";
 import { forwardRef, useState } from "react";
 
-import ImageUtils from "../../Utils/Image";
+import { ImageUtils } from "../../Utils/Image";
 import { Button } from "../Button";
 import { Dialog } from "../Dialog";
 import { ImageCrop } from "../ImageCrop";
