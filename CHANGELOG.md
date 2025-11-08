@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.0](https://github.com/Programmer-Network/yail/compare/yail-v1.4.0...yail-v1.5.0) (2025-11-08)
+
+
+### Features
+
+* trigger ci ([83683e2](https://github.com/Programmer-Network/yail/commit/83683e2455f983294c27a904406ad964b39a6818))
+
 ## [1.4.0](https://github.com/Programmer-Network/yail/compare/yail-v1.3.0...yail-v1.4.0) (2025-11-03)
 
 ### Features
