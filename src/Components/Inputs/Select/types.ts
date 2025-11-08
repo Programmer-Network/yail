@@ -20,6 +20,7 @@ export interface ISelectProps {
   onChange: (
     option: Record<string, string[] | string | number[] | number>
   ) => void;
+  onBlur?: () => void;
   options: Option[];
   inputWrapperClassName?: string;
   placeholder?: string;

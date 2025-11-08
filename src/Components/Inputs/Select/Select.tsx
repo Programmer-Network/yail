@@ -69,6 +69,7 @@ const Select: FC<ISelectProps> = props => {
         className='pn-select-container'
         classNamePrefix='pn-select'
         onChange={handleOnChange}
+        onBlur={props.onBlur}
         placeholder={props.placeholder}
       />
       {props.error && <InputError error={props.error} />}
