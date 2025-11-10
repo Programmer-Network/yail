@@ -29,7 +29,7 @@ const ImageDialog = forwardRef<HTMLDialogElement, IImageDialogProps>(
       },
       buttonText,
       compression = { enabled: true, quality: 0.8 },
-      maxFileSize = 1024 * 1024 * 0.5,
+      maxFileSize,
       allowedMimeTypes = ["image/jpeg", "image/png", "image/gif"],
       inputLabel = "Select an image"
     },

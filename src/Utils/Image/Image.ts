@@ -3,7 +3,7 @@ import { CompressReturnType, ValidationResult } from "./types";
 class ImageUtils {
   public static async validate(
     file: File,
-    maxFileSize: number,
+    maxFileSize: number | undefined,
     allowedMimeTypes: string[]
   ): Promise<ValidationResult> {
     const mimeType = await ImageUtils.getMimeType(file);
