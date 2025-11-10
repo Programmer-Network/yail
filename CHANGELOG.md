@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.0](https://github.com/Programmer-Network/yail/compare/yail-v1.5.0...yail-v1.6.0) (2025-11-10)
+
+
+### Features
+
+* update maxFileSize handling in ImageDialog and ImageInput components ([4ffe502](https://github.com/Programmer-Network/yail/commit/4ffe502a154b18f9769c24941ee5d9c76913bdb3))
+
 ## [1.5.0](https://github.com/Programmer-Network/yail/compare/yail-v1.4.0...yail-v1.5.0) (2025-11-08)
 
 
