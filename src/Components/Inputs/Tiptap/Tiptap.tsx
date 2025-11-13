@@ -6,6 +6,7 @@ import {
   forwardRef,
   useEffect,
   useImperativeHandle,
+  useRef,
   useState
 } from "react";
 
@@ -22,6 +23,7 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
   {
     autoFocus = true,
     editorContent,
+    value,
     onUpdate,
     actions,
     onTransaction,
@@ -40,6 +42,7 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
 ) => {
   const isMobile = useMobile();
   const [textSelected, setTextSelected] = useState<string>("");
+  const hasSetInitialContent = useRef(false);
 
   const useEditorConfig = editorConfig({
     toolbarItems,
@@ -121,6 +124,21 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
     editor.view.dispatch(transaction);
     setTextSelected("");
   }, [textSelected, isMobile, editor]);
+
+  useEffect(() => {
+    const contentToSet = value || editorContent;
+
+    if (contentToSet && editor && !hasSetInitialContent.current) {
+      try {
+        const parsedContent = JSON.parse(contentToSet);
+        editor.commands.setContent(parsedContent);
+        hasSetInitialContent.current = true;
+      } catch {
+        editor.commands.setContent(contentToSet);
+        hasSetInitialContent.current = true;
+      }
+    }
+  }, [value, editorContent, editor]);
 
   if (!editor) {
     return null;

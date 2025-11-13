@@ -1,5 +1,5 @@
 import { Editor } from "@tiptap/core";
-import { RefObject, useEffect, useRef, useState } from "react";
+import { RefObject, useRef, useState } from "react";
 
 import { Tiptap } from ".";
 import { TiptapToHTML } from "./TiptapToHTML";
@@ -127,6 +127,21 @@ export const Confirming = () => {
 
   const tiptapRef = useRef<TiptapRef>(null);
 
+  const initialContent = JSON.stringify({
+    type: "doc",
+    content: [
+      {
+        type: "paragraph",
+        content: [
+          {
+            type: "text",
+            text: "Hello, world!"
+          }
+        ]
+      }
+    ]
+  });
+
   const onEditorStateChange = ({ editor }: { editor: Editor }) => {
     console.log(editor.getJSON());
     setEditorState(
@@ -134,29 +149,12 @@ export const Confirming = () => {
     );
   };
 
-  useEffect(() => {
-    // @ts-ignore
-    tiptapRef.current?.setContent({
-      type: "doc",
-      content: [
-        {
-          type: "paragraph",
-          content: [
-            {
-              type: "text",
-              text: "Hello, world!"
-            }
-          ]
-        }
-      ]
-    });
-  }, []);
-
   return (
     <div className='w-full md:w-[768px]'>
       <Tiptap
         ref={tiptapRef as RefObject<TiptapRef>}
         label='Content'
+        value={initialContent}
         suggestions={suggestions}
         toolbarItems={toolbarItems}
         actions={{
@@ -218,29 +216,27 @@ export const Error = () => {
 
   const tiptapRef = useRef<TiptapRef>(null);
 
-  useEffect(() => {
-    // @ts-ignore
-    tiptapRef.current?.setContent({
-      type: "doc",
-      content: [
-        {
-          type: "paragraph",
-          content: [
-            {
-              type: "text",
-              text: "Hello, world!"
-            }
-          ]
-        }
-      ]
-    });
-  }, []);
+  const initialContent = JSON.stringify({
+    type: "doc",
+    content: [
+      {
+        type: "paragraph",
+        content: [
+          {
+            type: "text",
+            text: "Hello, world!"
+          }
+        ]
+      }
+    ]
+  });
 
   return (
     <div className='w-full md:w-[768px]'>
       <Tiptap
         ref={tiptapRef as RefObject<TiptapRef>}
         label='Content'
+        value={initialContent}
         suggestions={suggestions}
         toolbarItems={toolbarItems}
         error='This is an error'
@@ -248,21 +244,22 @@ export const Error = () => {
           buttons: [TiptapActionsEnum.CANCEL, TiptapActionsEnum.CONFIRM],
           onAction: actionType => {
             if (actionType === TiptapActionsEnum.CONFIRM) {
-              // @ts-ignore
-              tiptapRef.current?.setContent({
-                type: "doc",
-                content: [
-                  {
-                    type: "paragraph",
-                    content: [
-                      {
-                        type: "text",
-                        text: "Content has been set!"
-                      }
-                    ]
-                  }
-                ]
-              });
+              tiptapRef.current?.setContent(
+                JSON.stringify({
+                  type: "doc",
+                  content: [
+                    {
+                      type: "paragraph",
+                      content: [
+                        {
+                          type: "text",
+                          text: "Content has been set!"
+                        }
+                      ]
+                    }
+                  ]
+                })
+              );
             } else {
               tiptapRef.current?.clearContent();
             }
