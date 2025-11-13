@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.0](https://github.com/Programmer-Network/yail/compare/yail-v1.6.0...yail-v1.7.0) (2025-11-13)
+
+
+### Features
+
+* add autoFocus option to Tiptap editor configuration and update related components ([e3e21bf](https://github.com/Programmer-Network/yail/commit/e3e21bfc97e9cfe3318a963e86ba39c2f778ea26))
+
 ## [1.6.0](https://github.com/Programmer-Network/yail/compare/yail-v1.5.0...yail-v1.6.0) (2025-11-10)
 
 ### Features
