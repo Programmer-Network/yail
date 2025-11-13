@@ -83,6 +83,7 @@ export interface IToolbarIconsReturn {
 }
 
 export interface IEditorConfig {
+  autoFocus?: boolean;
   editorContent?: string;
   onUpdate?: (props: EditorEvents["update"]) => void;
   onSelectionUpdate?: (props: EditorEvents["selectionUpdate"]) => void;

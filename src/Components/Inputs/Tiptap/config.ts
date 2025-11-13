@@ -4,9 +4,11 @@ import getExtensions from "./extensions";
 import { IEditorConfig } from "./types";
 
 export const editorConfig = (args: IEditorConfig): Partial<EditorOptions> => {
-  const { toolbarItems, editorContent, placeholder, suggestions } = args;
+  const { toolbarItems, editorContent, placeholder, suggestions, autoFocus } =
+    args;
 
-  const config = {
+  const config: Partial<EditorOptions> = {
+    autofocus: autoFocus,
     editorProps: {
       attributes: {
         class: "mx-auto focus:outline-hidden text-text"

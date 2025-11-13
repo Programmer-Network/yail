@@ -45,7 +45,8 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
     toolbarItems,
     editorContent,
     suggestions,
-    placeholder
+    placeholder,
+    autoFocus
   });
 
   const image = {
@@ -79,14 +80,6 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
   }
 
   const editor = useEditor(useEditorConfig);
-
-  useEffect(() => {
-    if (!autoFocus || !editor || !editor.view?.dom.isConnected) {
-      return;
-    }
-
-    editor.commands.focus();
-  }, [autoFocus, editor]);
 
   useImperativeHandle(
     ref,
@@ -153,7 +146,7 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
       )}
       <div className='flex flex-col'>
         <div
-          className={classNames("relative break-words", {
+          className={classNames("relative wrap-break-word", {
             "border-t-0!": hasToolbar
           })}
         ></div>
