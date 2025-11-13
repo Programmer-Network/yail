@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.0](https://github.com/Programmer-Network/yail/compare/yail-v1.7.0...yail-v1.8.0) (2025-11-13)
+
+
+### Features
+
+* enhance Tiptap editor with initial content handling and value prop support ([5592409](https://github.com/Programmer-Network/yail/commit/5592409509b61163fa7b3cdfa611fb3ec2776c69))
+
 ## [1.7.0](https://github.com/Programmer-Network/yail/compare/yail-v1.6.0...yail-v1.7.0) (2025-11-13)
 
 
