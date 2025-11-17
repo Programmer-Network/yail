@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.9.0](https://github.com/Programmer-Network/yail/compare/yail-v1.8.0...yail-v1.9.0) (2025-11-17)
+
+
+### Features
+
+* update Card component stories with new external link example and add variant without image ([#50](https://github.com/Programmer-Network/yail/issues/50)) ([d0bfd4a](https://github.com/Programmer-Network/yail/commit/d0bfd4a227805abf346d0d983d7af10b3a7e3bd0))
+
 ## [1.8.0](https://github.com/Programmer-Network/yail/compare/yail-v1.7.0...yail-v1.8.0) (2025-11-13)
 
 
