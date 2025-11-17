@@ -157,7 +157,20 @@ export const WithExternalLink: Story = {
     data: {
       ...defaultData,
       titleUrl: "https://programmer.network",
-      title: "External Link Example"
+      title:
+        "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos."
+    }
+  }
+};
+
+export const WithExternalLinkAndNoImage: Story = {
+  args: {
+    ...Default.args,
+    data: {
+      ...defaultData,
+      titleUrl: "https://programmer.network",
+      title: "External Link Example",
+      image: undefined
     }
   }
 };
