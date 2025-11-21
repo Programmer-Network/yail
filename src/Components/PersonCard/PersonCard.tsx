@@ -197,7 +197,7 @@ const PersonCard: FC<IPersonCardProps> = ({
       {about && (
         <Paragraph
           className={classNames(
-            "text-foreground/80 m-0 text-center text-left text-sm",
+            "text-foreground/80 m-0 text-left text-sm",
             getLineClampClass(maxDescriptionLines)
           )}
         >
