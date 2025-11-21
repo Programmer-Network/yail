@@ -8,13 +8,26 @@ import { styles } from "./styles";
 import { ISelectProps, Option } from "./types";
 
 const Select: FC<ISelectProps> = props => {
-  const { hint, label, max, defaultValue, isMulti = false, options } = props;
+  const {
+    hint,
+    label,
+    max,
+    defaultValue,
+    isMulti = false,
+    isClearable = false,
+    options
+  } = props;
 
   const handleOnChange = (
     option: MultiValue<Option | undefined> | SingleValue<Option | undefined>
   ): void => {
     if (Array.isArray(option) && isMulti) {
       return props.onChange({ [props.name]: option.map(o => o?.value) });
+    }
+
+    // Handle clearing (when option is null)
+    if (option === null) {
+      return props.onChange({ [props.name]: "" });
     }
 
     return props.onChange({ [props.name]: (option as Option)?.value });
@@ -61,6 +74,7 @@ const Select: FC<ISelectProps> = props => {
       <ReactSelect
         options={options}
         isSearchable={props.isSearchable}
+        isClearable={isClearable}
         closeMenuOnSelect={isMulti ? false : true}
         isMulti={isMulti}
         defaultValue={defaultValue}

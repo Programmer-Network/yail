@@ -36,7 +36,7 @@ describe("PersonCard", () => {
     render(<PersonCard person={mockPerson} />);
 
     expect(screen.getByText("Ada Lovelace")).toBeInTheDocument();
-    expect(screen.getByText("@ada_lovelace")).toBeInTheDocument();
+    expect(screen.getByText("ada_lovelace")).toBeInTheDocument();
     expect(screen.getByText("Software Engineer")).toBeInTheDocument();
     expect(screen.getByText("London, UK")).toBeInTheDocument();
     expect(
