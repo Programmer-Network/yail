@@ -17,6 +17,7 @@ export interface ISelectProps {
   max?: number;
   isMulti?: boolean;
   isSearchable?: boolean;
+  isClearable?: boolean;
   onChange: (
     option: Record<string, string[] | string | number[] | number>
   ) => void;

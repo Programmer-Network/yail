@@ -42,7 +42,9 @@ const PersonCard: FC<IPersonCardProps> = ({
     socialProfiles = {},
     badge,
     role,
-    location
+    location,
+    followersCount,
+    followingCount
   } = person;
 
   // Helper function to get badge properties
@@ -127,7 +129,7 @@ const PersonCard: FC<IPersonCardProps> = ({
 
   const cardClasses = classNames(
     "group transition-all duration-200 relative",
-    "bg-background border-2 border-border rounded-lg shadow-sm hover:shadow-md hover:-translate-y-1 hover:border-primary/50 max-w-sm w-full mx-auto",
+    "bg-background border-2 border-border rounded-lg shadow-sm hover:shadow-md hover:-translate-y-1 hover:border-primary/50 w-full",
     {
       "cursor-pointer focus:outline-none": onClick || onPersonClick || href
     },
@@ -136,32 +138,51 @@ const PersonCard: FC<IPersonCardProps> = ({
   );
 
   const renderPersonContent = () => (
-    <div className='flex flex-col gap-4'>
-      {/* Avatar and Online Status */}
-      <div className='relative mx-auto shrink-0'>
-        <Avatar src={avatar} alt={name} size={getAvatarSize(size)} />
-      </div>
-
-      {/* Name and Badge */}
-      <div className='-mt-2 flex flex-col items-center gap-1'>
-        <H4 className='text-foreground group-hover:text-primary m-0 text-center transition-colors'>
-          {name}
-        </H4>
-        {badgeProps && (
-          <Pill variant={badgeProps.variant} size={PillSize.SMALL}>
-            {badgeProps.text}
-          </Pill>
-        )}
-      </div>
-
-      {/* Username */}
-      {username && (
-        <div className='-mt-2'>
-          <span className='text-muted block text-center text-sm'>
-            @{username}
-          </span>
+    <div className='flex h-full flex-col gap-4'>
+      {/* Avatar and Name/Username Section */}
+      <div className='flex items-start gap-3'>
+        {/* Avatar */}
+        <div className='relative shrink-0'>
+          <Avatar src={avatar} alt={name} size={getAvatarSize(size)} />
         </div>
-      )}
+
+        {/* Name, Username, and Badge */}
+        <div className='flex min-w-0 flex-1 flex-col'>
+          <H4 className='text-foreground group-hover:text-primary m-0 truncate transition-colors'>
+            {name}
+          </H4>
+          {username && (
+            <span className='text-muted -mt-1 flex items-center truncate text-sm'>
+              <span className='w-4 text-center'>@</span>
+              {username}
+            </span>
+          )}
+          {(followingCount !== undefined || followersCount !== undefined) && (
+            <div className='text-muted ml-1 flex items-center gap-3 text-sm'>
+              {followingCount !== undefined && (
+                <span>
+                  <span className='font-bold'>{followingCount}</span> Following
+                </span>
+              )}
+              {followingCount !== undefined && followersCount !== undefined && (
+                <span>•</span>
+              )}
+              {followersCount !== undefined && (
+                <span>
+                  <span className='font-bold'>{followersCount}</span> Followers
+                </span>
+              )}
+            </div>
+          )}
+          {badgeProps && (
+            <div className='mt-1'>
+              <Pill variant={badgeProps.variant} size={PillSize.SMALL}>
+                {badgeProps.text}
+              </Pill>
+            </div>
+          )}
+        </div>
+      </div>
 
       {/* Role and Location */}
       {(role || location) && (
@@ -176,7 +197,7 @@ const PersonCard: FC<IPersonCardProps> = ({
       {about && (
         <Paragraph
           className={classNames(
-            "text-foreground/80 m-0 text-center text-sm",
+            "text-foreground/80 m-0 text-left text-sm",
             getLineClampClass(maxDescriptionLines)
           )}
         >
@@ -205,33 +226,6 @@ const PersonCard: FC<IPersonCardProps> = ({
             ))}
         </div>
       )}
-
-      {/* Tags */}
-      {showTags && tags.length > 0 && (
-        <div className='flex flex-wrap justify-center gap-2'>
-          {tags.slice(0, maxTags).map((tag: IPersonCardTag, index: number) => (
-            <Pill
-              key={tag.id || tag.name || index}
-              clickable={!!onTagClick}
-              onClick={
-                onTagClick
-                  ? (e: React.MouseEvent) => handleTagClick(tag, e)
-                  : undefined
-              }
-              variant={PillVariant.PRIMARY}
-              size={PillSize.SMALL}
-            >
-              {tag.name}
-            </Pill>
-          ))}
-          {tags.length > maxTags && (
-            <Pill variant={PillVariant.SECONDARY} size={PillSize.SMALL}>
-              +{tags.length - maxTags}
-            </Pill>
-          )}
-        </div>
-      )}
-
       {/* Actions */}
       {actions.length > 0 && (
         <div className='flex flex-wrap justify-center gap-2'>
@@ -282,6 +276,37 @@ const PersonCard: FC<IPersonCardProps> = ({
 
       {/* Custom children */}
       {children && <div className='mt-2'>{children}</div>}
+
+      {/* Following, Followers, Tags, and Country at bottom left */}
+      <div className='mt-auto flex flex-col gap-2'>
+        {/* Tags */}
+        {showTags && tags.length > 0 && (
+          <div className='justify-start flex flex-wrap gap-2'>
+            {tags
+              .slice(0, maxTags)
+              .map((tag: IPersonCardTag, index: number) => (
+                <Pill
+                  key={tag.id || tag.name || index}
+                  clickable={!!onTagClick}
+                  onClick={
+                    onTagClick
+                      ? (e: React.MouseEvent) => handleTagClick(tag, e)
+                      : undefined
+                  }
+                  variant={PillVariant.SECONDARY}
+                  size={PillSize.SMALL}
+                >
+                  {tag.name}
+                </Pill>
+              ))}
+            {tags.length > maxTags && (
+              <Pill variant={PillVariant.SECONDARY} size={PillSize.SMALL}>
+                +{tags.length - maxTags}
+              </Pill>
+            )}
+          </div>
+        )}
+      </div>
     </div>
   );
 

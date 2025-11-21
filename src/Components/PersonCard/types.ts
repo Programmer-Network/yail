@@ -47,6 +47,8 @@ export interface IPerson {
   role?: string;
   location?: string;
   country?: string;
+  followersCount?: number;
+  followingCount?: number;
   createdAt?: string;
   updatedAt?: string;
 }
