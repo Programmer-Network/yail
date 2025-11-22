@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.12.0](https://github.com/Programmer-Network/yail/compare/yail-v1.11.0...yail-v1.12.0) (2025-11-22)
+
+
+### Features
+
+* update various components with new features and improvements, including Tiptap editor enhancements, icon updates, and new utility scripts ([bb421a8](https://github.com/Programmer-Network/yail/commit/bb421a874c055d806b10ed750b2f02538103c182))
+
 ## [1.11.0](https://github.com/Programmer-Network/yail/compare/yail-v1.10.0...yail-v1.11.0) (2025-11-22)
 
 
