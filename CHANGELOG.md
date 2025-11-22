@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.11.0](https://github.com/Programmer-Network/yail/compare/yail-v1.10.0...yail-v1.11.0) (2025-11-22)
+
+
+### Features
+
+* enhance Tiptap editor with table support including toolbar integration and styling ([6b83da1](https://github.com/Programmer-Network/yail/commit/6b83da19379ea1f12b72c687e5bf24cc6843210f))
+
 ## [1.10.0](https://github.com/Programmer-Network/yail/compare/yail-v1.9.0...yail-v1.10.0) (2025-11-21)
 
 ### Features
