@@ -102,7 +102,7 @@ export interface IGetExtensions {
 }
 
 export type IExtensionsMap = {
-  [K in Extensions]: Node | Mark | Extension;
+  [K in Extensions]?: Node | Mark | Extension;
 };
 
 export interface IMentionProps {

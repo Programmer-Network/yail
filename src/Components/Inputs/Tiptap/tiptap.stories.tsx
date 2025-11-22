@@ -334,3 +334,247 @@ export const ImageUploadError = () => {
     </div>
   );
 };
+
+export const WithTable = () => {
+  const [editorState, setEditorState] = useState<string>("");
+  const tiptapRef = useRef<TiptapRef>(null);
+
+  const toolbarItems = [
+    TIPTAP_TOOLBAR_ITEMS.BOLD,
+    TIPTAP_TOOLBAR_ITEMS.ITALIC,
+    TIPTAP_TOOLBAR_ITEMS.HEADING_2,
+    TIPTAP_TOOLBAR_ITEMS.HEADING_3,
+    TIPTAP_TOOLBAR_ITEMS.LIST_ITEM,
+    TIPTAP_TOOLBAR_ITEMS.UNORDERED_LIST,
+    TIPTAP_TOOLBAR_ITEMS.ORDERED_LIST,
+    TIPTAP_TOOLBAR_ITEMS.TABLE
+  ];
+
+  const converter = new TiptapToHTML(toolbarItems);
+
+  const initialContent = JSON.stringify({
+    type: "doc",
+    content: [
+      {
+        type: "paragraph",
+        content: [
+          {
+            type: "text",
+            text: "Click the table icon to insert a table. You can add/delete rows and columns, merge cells, and more using the table controls."
+          }
+        ]
+      }
+    ]
+  });
+
+  const onEditorStateChange = ({ editor }: { editor: Editor }) => {
+    setEditorState(
+      converter.generateSanitizedHTML(JSON.stringify(editor.getJSON()))
+    );
+  };
+
+  return (
+    <div className='w-full md:w-[768px]'>
+      <Tiptap
+        ref={tiptapRef as RefObject<TiptapRef>}
+        placeholder='Try inserting a table...'
+        label='Content with Table Support'
+        value={initialContent}
+        toolbarItems={toolbarItems}
+        actions={{
+          buttons: [TiptapActionsEnum.CANCEL, TiptapActionsEnum.CONFIRM],
+          onAction: actionType => alert(actionType),
+          isConfirming: false
+        }}
+        onTransaction={({ editor }) => {
+          onEditorStateChange({ editor });
+        }}
+        required={true}
+      />
+
+      <div className='mt-4'>
+        <h3 className='mb-2 font-bold'>Table Commands Available:</h3>
+        <ul className='list-disc pl-4 text-sm text-gray-600'>
+          <li>Click the table dropdown button in the toolbar</li>
+          <li>
+            Select &ldquo;Insert Table&rdquo; to create a new 3×3 table with
+            headers
+          </li>
+          <li>
+            Click inside a table cell, then use the dropdown for table
+            operations
+          </li>
+          <li>
+            Operations include: add/delete rows/columns, merge/split cells
+          </li>
+          <li>Tab to move to next cell, Shift+Tab for previous cell</li>
+        </ul>
+      </div>
+
+      <div
+        className='mt-8 wrap-break-word'
+        dangerouslySetInnerHTML={{ __html: editorState }}
+      ></div>
+    </div>
+  );
+};
+
+export const TableWithInitialContent = () => {
+  const [editorState, setEditorState] = useState<string>("");
+  const tiptapRef = useRef<TiptapRef>(null);
+
+  const toolbarItems = [
+    TIPTAP_TOOLBAR_ITEMS.BOLD,
+    TIPTAP_TOOLBAR_ITEMS.ITALIC,
+    TIPTAP_TOOLBAR_ITEMS.TABLE
+  ];
+
+  const converter = new TiptapToHTML(toolbarItems);
+
+  const initialContent = JSON.stringify({
+    type: "doc",
+    content: [
+      {
+        type: "paragraph",
+        content: [
+          {
+            type: "text",
+            text: "This is a table with initial content:"
+          }
+        ]
+      },
+      {
+        type: "table",
+        content: [
+          {
+            type: "tableRow",
+            content: [
+              {
+                type: "tableHeader",
+                content: [
+                  {
+                    type: "paragraph",
+                    content: [{ type: "text", text: "Name" }]
+                  }
+                ]
+              },
+              {
+                type: "tableHeader",
+                content: [
+                  {
+                    type: "paragraph",
+                    content: [{ type: "text", text: "Role" }]
+                  }
+                ]
+              },
+              {
+                type: "tableHeader",
+                content: [
+                  {
+                    type: "paragraph",
+                    content: [{ type: "text", text: "Status" }]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            type: "tableRow",
+            content: [
+              {
+                type: "tableCell",
+                content: [
+                  {
+                    type: "paragraph",
+                    content: [{ type: "text", text: "John Doe" }]
+                  }
+                ]
+              },
+              {
+                type: "tableCell",
+                content: [
+                  {
+                    type: "paragraph",
+                    content: [{ type: "text", text: "Developer" }]
+                  }
+                ]
+              },
+              {
+                type: "tableCell",
+                content: [
+                  {
+                    type: "paragraph",
+                    content: [{ type: "text", text: "Active" }]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            type: "tableRow",
+            content: [
+              {
+                type: "tableCell",
+                content: [
+                  {
+                    type: "paragraph",
+                    content: [{ type: "text", text: "Jane Smith" }]
+                  }
+                ]
+              },
+              {
+                type: "tableCell",
+                content: [
+                  {
+                    type: "paragraph",
+                    content: [{ type: "text", text: "Designer" }]
+                  }
+                ]
+              },
+              {
+                type: "tableCell",
+                content: [
+                  {
+                    type: "paragraph",
+                    content: [{ type: "text", text: "Active" }]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  });
+
+  const onEditorStateChange = ({ editor }: { editor: Editor }) => {
+    setEditorState(
+      converter.generateSanitizedHTML(JSON.stringify(editor.getJSON()))
+    );
+  };
+
+  return (
+    <div className='w-full md:w-[768px]'>
+      <Tiptap
+        ref={tiptapRef as RefObject<TiptapRef>}
+        label='Pre-populated Table'
+        value={initialContent}
+        toolbarItems={toolbarItems}
+        actions={{
+          buttons: [TiptapActionsEnum.CANCEL, TiptapActionsEnum.CONFIRM],
+          onAction: actionType => alert(actionType),
+          isConfirming: false
+        }}
+        onTransaction={({ editor }) => {
+          onEditorStateChange({ editor });
+        }}
+        required={true}
+      />
+
+      <div
+        className='mt-8 rounded border p-4 wrap-break-word'
+        dangerouslySetInnerHTML={{ __html: editorState }}
+      ></div>
+    </div>
+  );
+};

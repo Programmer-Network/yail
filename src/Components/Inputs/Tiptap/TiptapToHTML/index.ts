@@ -96,7 +96,9 @@ export class TiptapToHTML {
           "height",
           "loading"
         ],
-        span: ["data-id", "data-type", "text-primary"]
+        span: ["data-id", "data-type", "text-primary"],
+        td: ["colspan", "rowspan", "colwidth"],
+        th: ["colspan", "rowspan", "colwidth"]
       },
       selfClosing: ["img", "br"],
       allowedClasses: {

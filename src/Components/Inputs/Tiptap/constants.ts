@@ -23,7 +23,17 @@ export const TIPTAP_TOOLBAR_ITEMS = {
   TEXT_STYLE: "TEXT_STYLE",
   COLOR: "COLOR",
   MENTION: "MENTION",
-  STRIKE: "STRIKE"
+  STRIKE: "STRIKE",
+  TABLE: "TABLE",
+  TABLE_ADD_ROW_BEFORE: "TABLE_ADD_ROW_BEFORE",
+  TABLE_ADD_ROW_AFTER: "TABLE_ADD_ROW_AFTER",
+  TABLE_DELETE_ROW: "TABLE_DELETE_ROW",
+  TABLE_ADD_COLUMN_BEFORE: "TABLE_ADD_COLUMN_BEFORE",
+  TABLE_ADD_COLUMN_AFTER: "TABLE_ADD_COLUMN_AFTER",
+  TABLE_DELETE_COLUMN: "TABLE_DELETE_COLUMN",
+  TABLE_DELETE_TABLE: "TABLE_DELETE_TABLE",
+  TABLE_MERGE_CELLS: "TABLE_MERGE_CELLS",
+  TABLE_SPLIT_CELL: "TABLE_SPLIT_CELL"
 } as const;
 
 export const typograyClassNames = {
@@ -129,5 +139,9 @@ export const toolbarItemToClassName = {
   [TIPTAP_TOOLBAR_ITEMS.MENTION]: {
     tagName: "span",
     classes: "text-primary cursor-pointer font-bold"
+  },
+  [TIPTAP_TOOLBAR_ITEMS.TABLE]: {
+    tagName: "table",
+    classes: "border-collapse w-full my-4"
   }
 };

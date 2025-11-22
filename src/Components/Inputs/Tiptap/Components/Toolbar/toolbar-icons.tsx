@@ -159,6 +159,92 @@ const getToolbarIcons = ({ editor }: IToolbarIcons): IToolbarIconsReturn[] => {
       isActive: editor.isActive("codeBlock"),
       iconName: "IconCodeBlock",
       description: "Insert code block"
+    },
+    {
+      id: TIPTAP_TOOLBAR_ITEMS.TABLE,
+      iconName: "TableOutline",
+      description: "Insert table"
+    },
+    {
+      id: TIPTAP_TOOLBAR_ITEMS.TABLE_ADD_ROW_BEFORE,
+      onClick: () => {
+        editor.commands.addRowBefore();
+      },
+      iconName: "PlusCircleOutline",
+      description: "Add row above",
+      isDisabled: () => !editor.can().addRowBefore()
+    },
+    {
+      id: TIPTAP_TOOLBAR_ITEMS.TABLE_ADD_ROW_AFTER,
+      onClick: () => {
+        editor.commands.addRowAfter();
+      },
+      iconName: "PlusCircleOutline",
+      description: "Add row below",
+      isDisabled: () => !editor.can().addRowAfter()
+    },
+    {
+      id: TIPTAP_TOOLBAR_ITEMS.TABLE_DELETE_ROW,
+      onClick: () => {
+        editor.commands.deleteRow();
+      },
+      iconName: "MinusCircleOutline",
+      description: "Delete row",
+      isDisabled: () => !editor.can().deleteRow()
+    },
+    {
+      id: TIPTAP_TOOLBAR_ITEMS.TABLE_ADD_COLUMN_BEFORE,
+      onClick: () => {
+        editor.commands.addColumnBefore();
+      },
+      iconName: "ViewColumnOutline",
+      description: "Add column left",
+      isDisabled: () => !editor.can().addColumnBefore()
+    },
+    {
+      id: TIPTAP_TOOLBAR_ITEMS.TABLE_ADD_COLUMN_AFTER,
+      onClick: () => {
+        editor.commands.addColumnAfter();
+      },
+      iconName: "ViewColumnOutline",
+      description: "Add column right",
+      isDisabled: () => !editor.can().addColumnAfter()
+    },
+    {
+      id: TIPTAP_TOOLBAR_ITEMS.TABLE_DELETE_COLUMN,
+      onClick: () => {
+        editor.commands.deleteColumn();
+      },
+      iconName: "MinusCircleOutline",
+      description: "Delete column",
+      isDisabled: () => !editor.can().deleteColumn()
+    },
+    {
+      id: TIPTAP_TOOLBAR_ITEMS.TABLE_MERGE_CELLS,
+      onClick: () => {
+        editor.commands.mergeCells();
+      },
+      iconName: "ViewGridOutline",
+      description: "Merge cells",
+      isDisabled: () => !editor.can().mergeCells()
+    },
+    {
+      id: TIPTAP_TOOLBAR_ITEMS.TABLE_SPLIT_CELL,
+      onClick: () => {
+        editor.commands.splitCell();
+      },
+      iconName: "ViewGridOutline",
+      description: "Split cell",
+      isDisabled: () => !editor.can().splitCell()
+    },
+    {
+      id: TIPTAP_TOOLBAR_ITEMS.TABLE_DELETE_TABLE,
+      onClick: () => {
+        editor.commands.deleteTable();
+      },
+      iconName: "MinusCircleOutline",
+      description: "Delete table",
+      isDisabled: () => !editor.can().deleteTable()
     }
   ];
 };

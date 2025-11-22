@@ -11,6 +11,7 @@ import { TIPTAP_TOOLBAR_ITEMS } from "../../constants";
 import { TiptapToolbarProps } from "../../types";
 import { ModalInput } from "../ModalInput";
 import { LinkClickTarget } from "../ModalInput/types";
+import { TableDropdown } from "../TableDropdown";
 import getToolbarIcons from "./toolbar-icons";
 
 export const Toolbar = ({
@@ -186,10 +187,31 @@ export const Toolbar = ({
           </ModalInput>
         )}
 
+      {toolbarItems?.includes(TIPTAP_TOOLBAR_ITEMS.TABLE) && (
+        <TableDropdown editor={editor} isActive={editor.isActive("table")} />
+      )}
+
       {getToolbarIcons({
         editor
       })
         .filter(i => {
+          const tableOperationItems = [
+            "TABLE",
+            "TABLE_ADD_ROW_BEFORE",
+            "TABLE_ADD_ROW_AFTER",
+            "TABLE_DELETE_ROW",
+            "TABLE_ADD_COLUMN_BEFORE",
+            "TABLE_ADD_COLUMN_AFTER",
+            "TABLE_DELETE_COLUMN",
+            "TABLE_MERGE_CELLS",
+            "TABLE_SPLIT_CELL",
+            "TABLE_DELETE_TABLE"
+          ];
+
+          if (tableOperationItems.includes(i.id)) {
+            return false;
+          }
+
           return toolbarItems?.find(id => id === i.id);
         })
         .map(i => {
@@ -202,6 +224,7 @@ export const Toolbar = ({
             >
               <button
                 type='button'
+                disabled={typeof i.isDisabled === "function" && i.isDisabled()}
                 onClick={e => {
                   if (
                     image.isExtensionEnabled &&
@@ -236,7 +259,7 @@ export const Toolbar = ({
                   className={classNames("border-border w-8 cursor-pointer", {
                     "text-text": !i.isActive,
                     "fill-primary text-primary": i.isActive,
-                    "cursor-not-allowed":
+                    "cursor-not-allowed opacity-30":
                       typeof i.isDisabled === "function" && i.isDisabled(),
                     "cursor-default": !hasSelection,
                     "fill-primary": i.iconName === "IconLink" && hasSelection,

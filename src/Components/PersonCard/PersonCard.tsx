@@ -281,7 +281,7 @@ const PersonCard: FC<IPersonCardProps> = ({
       <div className='mt-auto flex flex-col gap-2'>
         {/* Tags */}
         {showTags && tags.length > 0 && (
-          <div className='justify-start flex flex-wrap gap-2'>
+          <div className='flex flex-wrap justify-start gap-2'>
             {tags
               .slice(0, maxTags)
               .map((tag: IPersonCardTag, index: number) => (

@@ -19,6 +19,7 @@ import OrderedList from "@tiptap/extension-ordered-list";
 import Paragraph from "@tiptap/extension-paragraph";
 import Placeholder from "@tiptap/extension-placeholder";
 import Strike from "@tiptap/extension-strike";
+import { TableKit } from "@tiptap/extension-table";
 import Text from "@tiptap/extension-text";
 import { TextStyle } from "@tiptap/extension-text-style";
 import Youtube from "@tiptap/extension-youtube";
@@ -109,7 +110,8 @@ const extensionsMap: IExtensionsMap = {
     HTMLAttributes: {
       class: toolbarItemToClassName[TIPTAP_TOOLBAR_ITEMS.IMAGE].classes
     }
-  })
+  }),
+  [TIPTAP_TOOLBAR_ITEMS.TABLE]: TableKit
 };
 
 export const defaultExtensions = ({

@@ -2,10 +2,11 @@
 
 ## [1.10.0](https://github.com/Programmer-Network/yail/compare/yail-v1.9.0...yail-v1.10.0) (2025-11-21)
 
-
 ### Features
 
-* adds 'isClearable' prop to Select component and enhance PersonCard wi… ([#52](https://github.com/Programmer-Network/yail/issues/52)) ([0a3179f](https://github.com/Programmer-Network/yail/commit/0a3179faecd76b2afab42aa4c580f8e0911a55b5))
+- adds 'isClearable' prop to Select component and enhance PersonCard wi…
+  ([#52](https://github.com/Programmer-Network/yail/issues/52))
+  ([0a3179f](https://github.com/Programmer-Network/yail/commit/0a3179faecd76b2afab42aa4c580f8e0911a55b5))
 
 ## [1.9.0](https://github.com/Programmer-Network/yail/compare/yail-v1.8.0...yail-v1.9.0) (2025-11-17)
 
