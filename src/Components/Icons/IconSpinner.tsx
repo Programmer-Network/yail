@@ -1,34 +1,19 @@
 import type { SVGProps } from "react";
 
 const SvgIconSpinner = (props: SVGProps<SVGSVGElement>) => (
-  <svg
-    xmlns='http://www.w3.org/2000/svg'
-    data-testid='icon-spinner'
-    viewBox='0 0 24 24'
-    {...props}
-  >
-    <style>
-      {
-        "@keyframes spinner-animation{93.75%,to{opacity:.2}}.icon-spinner_svg__spinner-circle{animation:spinner-animation .8s linear infinite}"
-      }
-    </style>
-    <circle cx={4} cy={12} r={3} className='icon-spinner_svg__spinner-circle' />
-    <circle
-      cx={12}
-      cy={12}
-      r={3}
-      className='icon-spinner_svg__spinner-circle'
-      style={{
-        animationDelay: "-.65s"
-      }}
+  <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' {...props}>
+    <style>{"@keyframes spinner_PBVY{to{transform:rotate(360deg)}}"}</style>
+    <path
+      d='M12 1a11 11 0 1 0 11 11A11 11 0 0 0 12 1m0 19a8 8 0 1 1 8-8 8 8 0 0 1-8 8'
+      opacity={0.25}
     />
     <circle
-      cx={20}
-      cy={12}
-      r={3}
-      className='icon-spinner_svg__spinner-circle'
+      cx={12}
+      cy={2.5}
+      r={1.5}
       style={{
-        animationDelay: "-.5s"
+        transformOrigin: "center",
+        animation: "spinner_PBVY .75s linear infinite"
       }}
     />
   </svg>

@@ -140,12 +140,12 @@ const EventCard: FC<IEventCard> = memo(
     }
 
     const cardClasses = classNames(
-      "group flex flex-col border-2 border-border rounded-lg overflow-hidden transition-all duration-200 relative",
-      "hover:shadow-md hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 hover:border-primary/50",
+      "group yl:flex yl:flex-col yl:border-2 yl:border-border yl:rounded-lg yl:overflow-hidden yl:transition-all yl:duration-200 yl:relative",
+      "yl:hover:shadow-md yl:hover:-translate-y-1 yl:focus:outline-none yl:focus:ring-2 yl:focus:ring-primary yl:focus:ring-offset-2 yl:hover:border-primary/50",
       getStatusCardClasses(data.status),
       {
         "cursor-pointer": onCardClick,
-        "ring-2 ring-blue-500": isRead
+        "yl:ring-2 yl:ring-blue-500": isRead
       },
       className
     );
@@ -176,23 +176,23 @@ const EventCard: FC<IEventCard> = memo(
           />
         )}
 
-        <div className='flex items-center gap-4 p-4'>
-          <div className='border-border flex h-16 w-16 shrink-0 flex-col items-center justify-center gap-0.5 rounded-lg border'>
+        <div className='yl:flex yl:items-center yl:gap-4 yl:p-4'>
+          <div className='yl:border-border yl:flex yl:h-16 yl:w-16 yl:shrink-0 yl:flex-col yl:items-center yl:justify-center yl:gap-0.5 yl:rounded-lg yl:border'>
             <Icon
               iconName='CalendarOutline'
-              className='text-primary/70 h-4 w-4'
+              className='yl:text-primary/70 yl:h-4 yl:w-4'
             />
-            <div className='text-primary text-xs leading-none font-semibold uppercase'>
+            <div className='yl:text-primary yl:text-xs yl:leading-none yl:font-semibold yl:uppercase'>
               {new Date(dateAndTime).toLocaleDateString("en-US", {
                 month: "short"
               })}
             </div>
-            <div className='text-text text-lg leading-none font-bold'>
+            <div className='yl:text-text yl:text-lg yl:leading-none yl:font-bold'>
               {new Date(dateAndTime).getDate()}
             </div>
           </div>
 
-          <div className='min-w-0 flex-1'>
+          <div className='yl:min-w-0 yl:flex-1'>
             <CardPills pills={pills} />
 
             <CardHeader
@@ -203,25 +203,27 @@ const EventCard: FC<IEventCard> = memo(
               NavLink={NavLink}
             />
 
-            <div className='mb-2 flex items-center gap-2'>
+            <div className='yl:mb-2 yl:flex yl:items-center yl:gap-2'>
               {author && (
-                <div className='flex items-center gap-2'>
+                <div className='yl:flex yl:items-center yl:gap-2'>
                   <Avatar src={author.avatarUrl} size={20} />
                   {author.url ? (
                     <NavLink
                       to={author.url}
                       onClick={handleAuthorClick}
-                      className='text-muted hover:text-primary text-sm transition-colors hover:underline'
+                      className='yl:text-muted yl:hover:text-primary yl:text-sm yl:transition-colors yl:hover:underline'
                     >
                       {author.name}
                     </NavLink>
                   ) : (
-                    <span className='text-muted text-sm'>{author.name}</span>
+                    <span className='yl:text-muted yl:text-sm'>
+                      {author.name}
+                    </span>
                   )}
                 </div>
               )}
-              <span className='text-muted text-xs'>•</span>
-              <span className='text-muted text-sm'>
+              <span className='yl:text-muted yl:text-xs'>•</span>
+              <span className='yl:text-muted yl:text-sm'>
                 {new Date(dateAndTime).toLocaleDateString("en-US", {
                   weekday: "short",
                   month: "short",
@@ -232,20 +234,20 @@ const EventCard: FC<IEventCard> = memo(
               </span>
               {locationType === "remote" && (
                 <>
-                  <span className='text-muted text-xs'>•</span>
-                  <span className='text-muted text-sm'>Online</span>
+                  <span className='yl:text-muted yl:text-xs'>•</span>
+                  <span className='yl:text-muted yl:text-sm'>Online</span>
                 </>
               )}
               {locationType === "onsite" && location && (
                 <>
-                  <span className='text-muted text-xs'>•</span>
-                  <span className='text-muted text-sm'>{location}</span>
+                  <span className='yl:text-muted yl:text-xs'>•</span>
+                  <span className='yl:text-muted yl:text-sm'>{location}</span>
                 </>
               )}
               {locationType === "hybrid" && location && (
                 <>
-                  <span className='text-muted text-xs'>•</span>
-                  <span className='text-muted text-sm'>{location}</span>
+                  <span className='yl:text-muted yl:text-xs'>•</span>
+                  <span className='yl:text-muted yl:text-sm'>{location}</span>
                 </>
               )}
             </div>
@@ -253,7 +255,7 @@ const EventCard: FC<IEventCard> = memo(
             <p
               id={`event-description-${cardId}`}
               className={classNames(
-                "text-text/80 mb-2 text-sm",
+                "yl:text-text/80 yl:mb-2 yl:text-sm",
                 `line-clamp-${maxDescriptionLines}`
               )}
             >

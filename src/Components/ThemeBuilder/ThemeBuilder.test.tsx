@@ -99,10 +99,10 @@ describe("ThemeBuilder component", () => {
       />
     );
 
-    const primaryButton = screen.getByText("Primary Color");
+    const primaryButton = screen.getByRole("button", { name: "Primary Color" });
 
     fireEvent.click(primaryButton);
-    expect(primaryButton.parentNode?.parentNode).toHaveClass("primary-button");
+    expect(primaryButton).toHaveClass("primary-button");
   });
 
   it("calls handleSaveColors on save button click", () => {

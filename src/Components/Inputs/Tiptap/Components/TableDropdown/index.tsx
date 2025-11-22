@@ -68,54 +68,63 @@ export const TableDropdown: FC<ITableDropdownProps> = ({
   const options = [
     {
       value: "Insert Table",
-      icon: { iconName: "TableOutline", className: "w-4 h-4" },
+      icon: { iconName: "TableOutline", className: "yl:w-4 yl:h-4" },
       onClick: handleInsertTable
     },
     ...(isInTable
       ? [
           {
             value: "Add Row Above",
-            icon: { iconName: "PlusCircleOutline", className: "w-4 h-4" },
+            icon: { iconName: "PlusCircleOutline", className: "yl:w-4 yl:h-4" },
             onClick: handleAddRowBefore
           },
           {
             value: "Add Row Below",
-            icon: { iconName: "PlusCircleOutline", className: "w-4 h-4" },
+            icon: { iconName: "PlusCircleOutline", className: "yl:w-4 yl:h-4" },
             onClick: handleAddRowAfter
           },
           {
             value: "Delete Row",
-            icon: { iconName: "MinusCircleOutline", className: "w-4 h-4" },
+            icon: {
+              iconName: "MinusCircleOutline",
+              className: "yl:w-4 yl:h-4"
+            },
             onClick: handleDeleteRow
           },
           {
             value: "Add Column Left",
-            icon: { iconName: "ViewColumnOutline", className: "w-4 h-4" },
+            icon: { iconName: "ViewColumnOutline", className: "yl:w-4 yl:h-4" },
             onClick: handleAddColumnBefore
           },
           {
             value: "Add Column Right",
-            icon: { iconName: "ViewColumnOutline", className: "w-4 h-4" },
+            icon: { iconName: "ViewColumnOutline", className: "yl:w-4 yl:h-4" },
             onClick: handleAddColumnAfter
           },
           {
             value: "Delete Column",
-            icon: { iconName: "MinusCircleOutline", className: "w-4 h-4" },
+            icon: {
+              iconName: "MinusCircleOutline",
+              className: "yl:w-4 yl:h-4"
+            },
             onClick: handleDeleteColumn
           },
           {
             value: "Merge Cells",
-            icon: { iconName: "ViewGridOutline", className: "w-4 h-4" },
+            icon: { iconName: "ViewGridOutline", className: "yl:w-4 yl:h-4" },
             onClick: handleMergeCells
           },
           {
             value: "Split Cell",
-            icon: { iconName: "ViewGridOutline", className: "w-4 h-4" },
+            icon: { iconName: "ViewGridOutline", className: "yl:w-4 yl:h-4" },
             onClick: handleSplitCell
           },
           {
             value: "Delete Table",
-            icon: { iconName: "MinusCircleOutline", className: "w-4 h-4" },
+            icon: {
+              iconName: "MinusCircleOutline",
+              className: "yl:w-4 yl:h-4"
+            },
             onClick: handleDeleteTable
           }
         ]
@@ -127,10 +136,10 @@ export const TableDropdown: FC<ITableDropdownProps> = ({
       buttonContent={
         <Icon
           iconName='TableOutline'
-          className={`h-6 w-6 ${isActive ? "text-primary" : "text-text"}`}
+          className={`yl:h-6 yl:w-6 ${isActive ? "text-primary" : "text-text"}`}
         />
       }
-      buttonClassName='hover:bg-text/10 p-2 rounded'
+      buttonClassName='hover:bg-text/10 yl:p-2 yl:rounded'
       options={options}
       placement='bottom-start'
     />

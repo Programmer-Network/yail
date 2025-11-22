@@ -14,7 +14,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Basic: Story = {
   render: () => (
-    <div className='w-[600px] p-6'>
+    <div className='yl:w-[600px] yl:p-6'>
       <Tabs>
         <TabList>
           <Tab>Overview</Tab>
@@ -23,37 +23,43 @@ export const Basic: Story = {
         </TabList>
 
         <TabPanel>
-          <div className='space-y-4'>
-            <h2 className='text-text text-xl font-semibold'>
+          <div className='yl:space-y-4'>
+            <h2 className='yl:text-text yl:text-xl yl:font-semibold'>
               Overview Dashboard
             </h2>
-            <p className='text-text-secondary'>
+            <p className='yl:text-text-secondary'>
               Welcome to your overview dashboard. Here you can see all your
               important metrics and KPIs at a glance.
             </p>
-            <div className='grid grid-cols-2 gap-4'>
-              <div className='bg-card border-border rounded-lg border p-4'>
-                <h3 className='font-medium'>Total Users</h3>
-                <p className='text-primary text-2xl font-bold'>12,847</p>
+            <div className='yl:grid yl:grid-cols-2 yl:gap-4'>
+              <div className='yl:bg-card yl:border-border yl:rounded-lg yl:p-4 yl:border'>
+                <h3 className='yl:font-medium'>Total Users</h3>
+                <p className='yl:text-primary yl:text-2xl yl:font-bold'>
+                  12,847
+                </p>
               </div>
-              <div className='bg-card border-border rounded-lg border p-4'>
-                <h3 className='font-medium'>Revenue</h3>
-                <p className='text-primary text-2xl font-bold'>$45,231</p>
+              <div className='yl:bg-card yl:border-border yl:rounded-lg yl:p-4 yl:border'>
+                <h3 className='yl:font-medium'>Revenue</h3>
+                <p className='yl:text-primary yl:text-2xl yl:font-bold'>
+                  $45,231
+                </p>
               </div>
             </div>
           </div>
         </TabPanel>
         <TabPanel>
-          <div className='space-y-4'>
-            <h2 className='text-text text-xl font-semibold'>Analytics</h2>
-            <p className='text-text-secondary'>
+          <div className='yl:space-y-4'>
+            <h2 className='yl:text-text yl:text-xl yl:font-semibold'>
+              Analytics
+            </h2>
+            <p className='yl:text-text-secondary'>
               Detailed analytics and insights about your application performance
               and user behavior.
             </p>
-            <div className='bg-card border-border rounded-lg border p-6'>
-              <h3 className='mb-2 font-medium'>User Engagement</h3>
-              <div className='bg-background flex h-32 items-center justify-center rounded'>
-                <span className='text-text-secondary'>
+            <div className='yl:bg-card yl:border-border yl:rounded-lg yl:p-6 yl:border'>
+              <h3 className='yl:mb-2 yl:font-medium'>User Engagement</h3>
+              <div className='yl:bg-background yl:flex yl:h-32 yl:items-center yl:justify-center yl:rounded'>
+                <span className='yl:text-text-secondary'>
                   📊 Chart Placeholder
                 </span>
               </div>
@@ -61,22 +67,26 @@ export const Basic: Story = {
           </div>
         </TabPanel>
         <TabPanel>
-          <div className='space-y-4'>
-            <h2 className='text-text text-xl font-semibold'>Reports</h2>
-            <p className='text-text-secondary'>
+          <div className='yl:space-y-4'>
+            <h2 className='yl:text-text yl:text-xl yl:font-semibold'>
+              Reports
+            </h2>
+            <p className='yl:text-text-secondary'>
               Generate and download comprehensive reports for your business
               intelligence needs.
             </p>
-            <div className='space-y-2'>
-              <div className='bg-card border-border rounded border p-3'>
-                <span className='font-medium'>Monthly Revenue Report</span>
-                <span className='text-text-secondary ml-2'>
+            <div className='yl:space-y-2'>
+              <div className='yl:bg-card yl:border-border yl:p-3 yl:border rounded'>
+                <span className='yl:font-medium'>Monthly Revenue Report</span>
+                <span className='yl:text-text-secondary yl:ml-2'>
                   Ready for download
                 </span>
               </div>
-              <div className='bg-card border-border rounded border p-3'>
-                <span className='font-medium'>User Activity Report</span>
-                <span className='text-text-secondary ml-2'>Generating...</span>
+              <div className='yl:bg-card yl:border-border yl:p-3 yl:border rounded'>
+                <span className='yl:font-medium'>User Activity Report</span>
+                <span className='yl:text-text-secondary yl:ml-2'>
+                  Generating...
+                </span>
               </div>
             </div>
           </div>
@@ -88,7 +98,7 @@ export const Basic: Story = {
 
 export const WithIcons: Story = {
   render: () => (
-    <div className='w-[500px] p-6'>
+    <div className='yl:w-[500px] yl:p-6'>
       <Tabs>
         <TabList>
           <Tab>🏠 Home</Tab>
@@ -98,38 +108,44 @@ export const WithIcons: Story = {
         </TabList>
 
         <TabPanel>
-          <div className='space-y-3'>
-            <h2 className='text-text text-lg font-semibold'>
+          <div className='yl:space-y-3'>
+            <h2 className='yl:text-text yl:text-lg yl:font-semibold'>
               🏠 Home Dashboard
             </h2>
-            <p className='text-text-secondary'>
+            <p className='yl:text-text-secondary'>
               Your personalized home dashboard with quick access to everything
               you need.
             </p>
           </div>
         </TabPanel>
         <TabPanel>
-          <div className='space-y-3'>
-            <h2 className='text-text text-lg font-semibold'>👤 User Profile</h2>
-            <p className='text-text-secondary'>
+          <div className='yl:space-y-3'>
+            <h2 className='yl:text-text yl:text-lg yl:font-semibold'>
+              👤 User Profile
+            </h2>
+            <p className='yl:text-text-secondary'>
               Manage your profile information, preferences, and account
               settings.
             </p>
           </div>
         </TabPanel>
         <TabPanel>
-          <div className='space-y-3'>
-            <h2 className='text-text text-lg font-semibold'>⚙️ Settings</h2>
-            <p className='text-text-secondary'>
+          <div className='yl:space-y-3'>
+            <h2 className='yl:text-text yl:text-lg yl:font-semibold'>
+              ⚙️ Settings
+            </h2>
+            <p className='yl:text-text-secondary'>
               Configure application settings, notifications, and privacy
               preferences.
             </p>
           </div>
         </TabPanel>
         <TabPanel>
-          <div className='space-y-3'>
-            <h2 className='text-text text-lg font-semibold'>📊 Analytics</h2>
-            <p className='text-text-secondary'>
+          <div className='yl:space-y-3'>
+            <h2 className='yl:text-text yl:text-lg yl:font-semibold'>
+              📊 Analytics
+            </h2>
+            <p className='yl:text-text-secondary'>
               View detailed analytics and performance metrics for your account.
             </p>
           </div>
@@ -141,7 +157,7 @@ export const WithIcons: Story = {
 
 export const ManyTabs: Story = {
   render: () => (
-    <div className='w-[700px] p-6'>
+    <div className='yl:w-[700px] yl:p-6'>
       <Tabs>
         <TabList>
           <Tab>Overview</Tab>
@@ -155,42 +171,46 @@ export const ManyTabs: Story = {
         </TabList>
 
         <TabPanel>
-          <h2 className='mb-2 text-lg font-semibold'>Overview</h2>
-          <p className='text-text-secondary'>
+          <h2 className='yl:mb-2 yl:text-lg yl:font-semibold'>Overview</h2>
+          <p className='yl:text-text-secondary'>
             System overview and key metrics.
           </p>
         </TabPanel>
         <TabPanel>
-          <h2 className='mb-2 text-lg font-semibold'>Analytics</h2>
-          <p className='text-text-secondary'>
+          <h2 className='yl:mb-2 yl:text-lg yl:font-semibold'>Analytics</h2>
+          <p className='yl:text-text-secondary'>
             Detailed analytics and insights.
           </p>
         </TabPanel>
         <TabPanel>
-          <h2 className='mb-2 text-lg font-semibold'>Reports</h2>
-          <p className='text-text-secondary'>Generate and view reports.</p>
+          <h2 className='yl:mb-2 yl:text-lg yl:font-semibold'>Reports</h2>
+          <p className='yl:text-text-secondary'>Generate and view reports.</p>
         </TabPanel>
         <TabPanel>
-          <h2 className='mb-2 text-lg font-semibold'>Exports</h2>
-          <p className='text-text-secondary'>Export data in various formats.</p>
+          <h2 className='yl:mb-2 yl:text-lg yl:font-semibold'>Exports</h2>
+          <p className='yl:text-text-secondary'>
+            Export data in various formats.
+          </p>
         </TabPanel>
         <TabPanel>
-          <h2 className='mb-2 text-lg font-semibold'>API</h2>
-          <p className='text-text-secondary'>API documentation and keys.</p>
+          <h2 className='yl:mb-2 yl:text-lg yl:font-semibold'>API</h2>
+          <p className='yl:text-text-secondary'>API documentation and keys.</p>
         </TabPanel>
         <TabPanel>
-          <h2 className='mb-2 text-lg font-semibold'>Settings</h2>
-          <p className='text-text-secondary'>Application configuration.</p>
+          <h2 className='yl:mb-2 yl:text-lg yl:font-semibold'>Settings</h2>
+          <p className='yl:text-text-secondary'>Application configuration.</p>
         </TabPanel>
         <TabPanel>
-          <h2 className='mb-2 text-lg font-semibold'>Billing</h2>
-          <p className='text-text-secondary'>
+          <h2 className='yl:mb-2 yl:text-lg yl:font-semibold'>Billing</h2>
+          <p className='yl:text-text-secondary'>
             Manage billing and subscriptions.
           </p>
         </TabPanel>
         <TabPanel>
-          <h2 className='mb-2 text-lg font-semibold'>Support</h2>
-          <p className='text-text-secondary'>Get help and contact support.</p>
+          <h2 className='yl:mb-2 yl:text-lg yl:font-semibold'>Support</h2>
+          <p className='yl:text-text-secondary'>
+            Get help and contact support.
+          </p>
         </TabPanel>
       </Tabs>
     </div>
@@ -199,7 +219,7 @@ export const ManyTabs: Story = {
 
 export const Compact: Story = {
   render: () => (
-    <div className='w-[400px] p-6'>
+    <div className='yl:w-[400px] yl:p-6'>
       <Tabs>
         <TabList>
           <Tab>Code</Tab>
@@ -208,8 +228,8 @@ export const Compact: Story = {
         </TabList>
 
         <TabPanel>
-          <div className='bg-card border-border rounded-lg border p-4'>
-            <pre className='text-text-secondary text-sm'>
+          <div className='yl:bg-card yl:border-border yl:rounded-lg yl:p-4 yl:border'>
+            <pre className='yl:text-text-secondary yl:text-sm'>
               <code>{`function hello() {
   console.log("Hello World!");
 }`}</code>
@@ -217,16 +237,16 @@ export const Compact: Story = {
           </div>
         </TabPanel>
         <TabPanel>
-          <div className='bg-card border-border rounded-lg border p-4 text-center'>
-            <p className='text-text'>Preview Mode</p>
-            <button className='bg-primary mt-2 rounded px-3 py-1 text-sm text-white'>
+          <div className='yl:bg-card yl:border-border yl:rounded-lg yl:p-4 yl:text-center yl:border'>
+            <p className='yl:text-text'>Preview Mode</p>
+            <button className='yl:bg-primary yl:mt-2 yl:px-3 yl:py-1 yl:text-sm yl:text-white yl:rounded'>
               Hello World!
             </button>
           </div>
         </TabPanel>
         <TabPanel>
-          <div className='bg-card border-border rounded-lg border p-4'>
-            <p className='text-text-secondary font-mono text-sm'>
+          <div className='yl:bg-card yl:border-border yl:rounded-lg yl:p-4 yl:border'>
+            <p className='yl:text-text-secondary yl:font-mono yl:text-sm'>
               &gt; Hello World!
               <br />
               &gt; Function executed successfully
@@ -240,7 +260,7 @@ export const Compact: Story = {
 
 export const DisabledTabs: Story = {
   render: () => (
-    <div className='w-[500px] p-6'>
+    <div className='yl:w-[500px] yl:p-6'>
       <Tabs>
         <TabList>
           <Tab>Active</Tab>
@@ -248,15 +268,15 @@ export const DisabledTabs: Story = {
           <Tab>Another</Tab>
         </TabList>
         <TabPanel>
-          <div className='text-text'>This tab is active and enabled.</div>
+          <div className='yl:text-text'>This tab is active and enabled.</div>
         </TabPanel>
         <TabPanel>
-          <div className='text-text'>
+          <div className='yl:text-text'>
             This tab is disabled and cannot be selected.
           </div>
         </TabPanel>
         <TabPanel>
-          <div className='text-text'>Another enabled tab.</div>
+          <div className='yl:text-text'>Another enabled tab.</div>
         </TabPanel>
       </Tabs>
     </div>
@@ -265,7 +285,7 @@ export const DisabledTabs: Story = {
 
 export const LongLabels: Story = {
   render: () => (
-    <div className='w-[600px] p-6'>
+    <div className='yl:w-[600px] yl:p-6'>
       <Tabs>
         <TabList>
           <Tab>This is a very long tab label to test overflow</Tab>
@@ -273,13 +293,13 @@ export const LongLabels: Story = {
           <Tab>Another extremely long tab label for testing</Tab>
         </TabList>
         <TabPanel>
-          <div className='text-text'>Long label tab content.</div>
+          <div className='yl:text-text'>Long label tab content.</div>
         </TabPanel>
         <TabPanel>
-          <div className='text-text'>Short label tab content.</div>
+          <div className='yl:text-text'>Short label tab content.</div>
         </TabPanel>
         <TabPanel>
-          <div className='text-text'>Another long label tab content.</div>
+          <div className='yl:text-text'>Another long label tab content.</div>
         </TabPanel>
       </Tabs>
     </div>
@@ -288,7 +308,7 @@ export const LongLabels: Story = {
 
 export const MixedEnabledDisabled: Story = {
   render: () => (
-    <div className='w-[500px] p-6'>
+    <div className='yl:w-[500px] yl:p-6'>
       <Tabs>
         <TabList>
           <Tab>First</Tab>
@@ -297,16 +317,16 @@ export const MixedEnabledDisabled: Story = {
           <Tab disabled>Fourth (Disabled)</Tab>
         </TabList>
         <TabPanel>
-          <div className='text-text'>First tab content.</div>
+          <div className='yl:text-text'>First tab content.</div>
         </TabPanel>
         <TabPanel>
-          <div className='text-text'>Second tab is disabled.</div>
+          <div className='yl:text-text'>Second tab is disabled.</div>
         </TabPanel>
         <TabPanel>
-          <div className='text-text'>Third tab content.</div>
+          <div className='yl:text-text'>Third tab content.</div>
         </TabPanel>
         <TabPanel>
-          <div className='text-text'>Fourth tab is disabled.</div>
+          <div className='yl:text-text'>Fourth tab is disabled.</div>
         </TabPanel>
       </Tabs>
     </div>

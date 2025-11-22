@@ -22,32 +22,34 @@ const CardAuthor: FC<ICardAuthor> = ({
   if (!author && !date) return null;
 
   return (
-    <div className='mb-4 flex flex-wrap items-center gap-2'>
+    <div className='yl:mb-4 yl:flex yl:flex-wrap yl:items-center yl:gap-2'>
       {author && (
         <>
           {author.url ? (
             <NavLink
               to={author.url}
               onClick={onAuthorClick}
-              className='text-primary hover:text-primary flex items-center gap-2 transition-colors hover:underline'
+              className='yl:text-primary yl:hover:text-primary yl:flex yl:items-center yl:gap-2 yl:transition-colors yl:hover:underline'
             >
               <Avatar src={author.avatarUrl} size={24} />
-              <span className='text-sm md:text-base'>{author.name}</span>
+              <span className='yl:text-sm yl:md:text-base'>{author.name}</span>
             </NavLink>
           ) : (
-            <span className='text-muted flex items-center gap-2'>
+            <span className='yl:text-muted yl:flex yl:items-center yl:gap-2'>
               <Avatar src={author.avatarUrl} size={24} />
-              <span className='text-sm md:text-base'>{author.name}</span>
+              <span className='yl:text-sm yl:md:text-base'>{author.name}</span>
             </span>
           )}
         </>
       )}
 
       {author && date && (
-        <span className='text-muted text-xs md:text-sm'>•</span>
+        <span className='yl:text-muted yl:text-xs yl:md:text-sm'>•</span>
       )}
 
-      {date && <time className='text-muted text-xs md:text-sm'>{date}</time>}
+      {date && (
+        <time className='yl:text-muted yl:text-xs yl:md:text-sm'>{date}</time>
+      )}
     </div>
   );
 };

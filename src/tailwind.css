@@ -1,5 +1,5 @@
 /* eslint-disable */
-@import "tailwindcss";
+@import "tailwindcss" prefix(yl);
 
 @layer base {
   *,
@@ -51,6 +51,23 @@
       height: 20rem;
     }
   }
+}
+
+/* Map unprefixed variables to prefixed ones (for direct CSS usage like Tiptap) */
+:root,
+:host {
+  --color-primary: var(--yl-color-primary);
+  --color-secondary: var(--yl-color-secondary);
+  --color-background: var(--yl-color-background);
+  --color-text: var(--yl-color-text);
+  --color-border: var(--yl-color-border);
+  --color-muted: var(--yl-color-muted);
+  --color-accent: var(--yl-color-accent);
+  --color-accent-hover: var(--yl-color-accent-hover);
+  --color-success: var(--yl-color-success);
+  --color-warning: var(--yl-color-warning);
+  --color-error: var(--yl-color-error);
+  --color-info: var(--yl-color-info);
 }
 
 .tiptap p.is-editor-empty:first-child::before {

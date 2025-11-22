@@ -33,7 +33,7 @@ export const ErrorWithCustomIcon = () => (
     description='Oops! Something went wrong on our end.'
     IconProps={{
       iconName: "IconQuestionMark",
-      className: "text-error w-24 text-text mb-4"
+      className: "yl:text-error yl:w-24 yl:text-text yl:mb-4"
     }}
     onIconClick={() => action("Icon clicked")()}
   />

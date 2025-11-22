@@ -11,7 +11,7 @@ const meta = {
   },
   decorators: [
     Story => (
-      <div className='max-w-sm'>
+      <div className='yl:max-w-sm'>
         <Story />
       </div>
     )
@@ -86,7 +86,7 @@ export const MultipleCards: Story = {
     NavLink: mockNavLink as never
   },
   render: () => (
-    <div className='space-y-3'>
+    <div className='yl:space-y-3'>
       <UpcomingEventCard
         data={{
           title: "React Advanced Workshop",

@@ -68,7 +68,7 @@ describe("LatestArticleCard", () => {
         />
       );
 
-      const skeleton = container.querySelector(".animate-pulse");
+      const skeleton = container.querySelector(".yl\\:animate-pulse");
       expect(skeleton).toBeInTheDocument();
     });
   });

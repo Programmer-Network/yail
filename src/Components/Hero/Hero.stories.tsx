@@ -15,7 +15,7 @@ export default meta;
 type Story = StoryObj<typeof Hero>;
 
 const withMaxWidth = (StoryComponent: any) => (
-  <div className='mx-auto w-[1024px]'>
+  <div className='yl:mx-auto yl:w-[1024px]'>
     <StoryComponent />
   </div>
 );

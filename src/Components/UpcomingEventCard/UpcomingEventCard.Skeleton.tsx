@@ -9,19 +9,19 @@ const UpcomingEventCardSkeleton: FC<IUpcomingEventCardSkeletonProps> = ({
   return (
     <article
       className={classNames(
-        "border-border flex animate-pulse gap-3 overflow-hidden rounded-lg border-2 p-3",
+        "yl:border-border yl:flex yl:animate-pulse yl:gap-3 yl:overflow-hidden yl:rounded-lg yl:border-2 yl:p-3",
         className
       )}
       role='status'
       aria-label='Loading event'
     >
-      <div className='bg-border/50 flex h-14 w-14 shrink-0 rounded-lg' />
+      <div className='yl:bg-border/50 yl:flex yl:h-14 yl:w-14 yl:shrink-0 yl:rounded-lg' />
 
-      <div className='min-w-0 flex-1 space-y-2'>
-        <div className='bg-border/50 h-4 w-3/4 rounded' />
-        <div className='bg-border/50 h-3 w-full rounded' />
-        <div className='bg-border/50 h-3 w-5/6 rounded' />
-        <div className='bg-border/50 h-3 w-1/2 rounded' />
+      <div className='yl:min-w-0 yl:flex-1 yl:space-y-2'>
+        <div className='yl:bg-border/50 yl:h-4 yl:w-3/4 yl:rounded' />
+        <div className='yl:bg-border/50 yl:h-3 yl:w-full yl:rounded' />
+        <div className='yl:bg-border/50 yl:h-3 yl:w-5/6 yl:rounded' />
+        <div className='yl:bg-border/50 yl:h-3 yl:w-1/2 yl:rounded' />
       </div>
     </article>
   );

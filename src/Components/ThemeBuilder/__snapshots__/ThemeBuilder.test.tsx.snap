@@ -4,59 +4,71 @@ exports[`ThemeBuilder component > renders correctly with given props 1`] = `
 <DocumentFragment>
   <div>
     <div
-      class="mb-1 flex items-center justify-center md:justify-start"
+      class="yl:mb-1 yl:flex yl:items-center yl:justify-center yl:md:justify-start"
     >
       <div
-        class="flex flex-col gap-1 md:flex-row"
+        class="yl:flex yl:flex-col yl:gap-1 yl:md:flex-row"
       >
         <button
-          class="select-none px-3 py-2 font-semibold tracking-tight rounded-md border-2 transition-all duration-200 transform hover:scale-105 cursor-pointer border-primary bg-transparent text-primary fill-primary hover:bg-primary hover:text-background hover:fill-background primary-button h-12 min-w-[120px] shadow-none"
+          class="yl:select-none yl:px-3 yl:py-2 yl:font-semibold yl:tracking-tight yl:rounded-md yl:border-2 yl:transition-all yl:duration-200 yl:transform yl:hover:scale-105 yl:cursor-pointer yl:border-primary yl:bg-transparent yl:text-primary yl:fill-primary yl:hover:bg-primary yl:hover:text-background yl:hover:fill-background primary-button yl:h-12 yl:min-w-[120px] yl:shadow-none"
           type="button"
         >
           <div
-            class="relative flex items-center justify-center"
+            class="yl:relative yl:flex yl:items-center yl:justify-center"
           >
             <span
               class=""
             >
-              Primary Color
+              <span
+                class=""
+              >
+                Primary Color
+              </span>
             </span>
             <span
-              class="absolute"
+              class="yl:absolute"
             />
           </div>
         </button>
         <button
-          class="select-none px-3 py-2 font-semibold tracking-tight rounded-md border-2 transition-all duration-200 transform hover:scale-105 cursor-pointer border-primary bg-transparent text-primary fill-primary hover:bg-primary hover:text-background hover:fill-background h-12 min-w-[120px] shadow-none"
+          class="yl:select-none yl:px-3 yl:py-2 yl:font-semibold yl:tracking-tight yl:rounded-md yl:border-2 yl:transition-all yl:duration-200 yl:transform yl:hover:scale-105 yl:cursor-pointer yl:border-primary yl:bg-transparent yl:text-primary yl:fill-primary yl:hover:bg-primary yl:hover:text-background yl:hover:fill-background yl:h-12 yl:min-w-[120px] yl:shadow-none"
           type="button"
         >
           <div
-            class="relative flex items-center justify-center"
+            class="yl:relative yl:flex yl:items-center yl:justify-center"
           >
             <span
               class=""
             >
-              Background
+              <span
+                class=""
+              >
+                Background
+              </span>
             </span>
             <span
-              class="absolute"
+              class="yl:absolute"
             />
           </div>
         </button>
         <button
-          class="select-none px-3 py-2 font-semibold tracking-tight rounded-md border-2 transition-all duration-200 transform hover:scale-105 cursor-pointer border-primary bg-transparent text-primary fill-primary hover:bg-primary hover:text-background hover:fill-background h-12 min-w-[120px] shadow-none"
+          class="yl:select-none yl:px-3 yl:py-2 yl:font-semibold yl:tracking-tight yl:rounded-md yl:border-2 yl:transition-all yl:duration-200 yl:transform yl:hover:scale-105 yl:cursor-pointer yl:border-primary yl:bg-transparent yl:text-primary yl:fill-primary yl:hover:bg-primary yl:hover:text-background yl:hover:fill-background yl:h-12 yl:min-w-[120px] yl:shadow-none"
           type="button"
         >
           <div
-            class="relative flex items-center justify-center"
+            class="yl:relative yl:flex yl:items-center yl:justify-center"
           >
             <span
               class=""
             >
-              Text Color
+              <span
+                class=""
+              >
+                Text Color
+              </span>
             </span>
             <span
-              class="absolute"
+              class="yl:absolute"
             />
           </div>
         </button>

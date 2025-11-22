@@ -3,80 +3,92 @@
 exports[`FormActions component > renders correctly - snapshot test 1`] = `
 <DocumentFragment>
   <div
-    class="w-full"
+    class="yl:w-full"
   >
     <div
-      class="flex flex-row justify-start items-center gap-3"
+      class="yl:flex yl:flex-row yl:justify-start yl:items-center yl:gap-3"
     >
       <button
-        class="select-none px-3 py-2 font-semibold tracking-tight rounded-md border-2 transition-all duration-200 transform hover:scale-105 cursor-pointer border-text/20 text-text/20 fill-text/20 hover:border-text/30 hover:text-text/30 hover:fill-text/30 hover:bg-background/20 min-w-[100px]"
+        class="yl:select-none yl:px-3 yl:py-2 yl:font-semibold yl:tracking-tight yl:rounded-md yl:border-2 yl:transition-all yl:duration-200 yl:transform yl:hover:scale-105 yl:cursor-pointer yl:border-text/20 yl:text-text/20 yl:fill-text/20 yl:hover:border-text/30 yl:hover:text-text/30 yl:hover:fill-text/30 yl:hover:bg-background/20 yl:min-w-[100px]"
         type="button"
       >
         <div
-          class="relative flex items-center justify-center"
+          class="yl:relative yl:flex yl:items-center yl:justify-center"
         >
           <span
-            class="flex items-center gap-1"
+            class="yl:flex yl:items-center yl:gap-1"
           >
             <div
-              class="w-6 h-6"
+              class="yl:w-6 yl:h-6"
               data-icon="Incomplete"
               data-testid="icon-Incomplete"
             >
               [Icon: Incomplete]
             </div>
-            Cancel
+            <span
+              class=""
+            >
+              Cancel
+            </span>
           </span>
           <span
-            class="absolute"
+            class="yl:absolute"
           />
         </div>
       </button>
       <button
-        class="select-none px-3 py-2 font-semibold tracking-tight rounded-md border-2 transition-all duration-200 transform hover:scale-105 cursor-pointer border-text/20 text-text/20 fill-text/20 hover:border-text/30 hover:text-text/30 hover:fill-text/30 hover:bg-background/20 min-w-[100px] transition-all duration-200 hover:scale-105"
+        class="yl:select-none yl:px-3 yl:py-2 yl:font-semibold yl:tracking-tight yl:rounded-md yl:border-2 yl:transition-all yl:duration-200 yl:transform yl:hover:scale-105 yl:cursor-pointer yl:border-text/20 yl:text-text/20 yl:fill-text/20 yl:hover:border-text/30 yl:hover:text-text/30 yl:hover:fill-text/30 yl:hover:bg-background/20 yl:min-w-[100px] yl:transition-all yl:duration-200 yl:hover:scale-105"
         type="button"
       >
         <div
-          class="relative flex items-center justify-center"
+          class="yl:relative yl:flex yl:items-center yl:justify-center"
         >
           <span
-            class="flex items-center gap-1"
+            class="yl:flex yl:items-center yl:gap-1"
           >
             <div
-              class="w-6 h-6"
+              class="yl:w-6 yl:h-6"
               data-icon="IconBomb"
               data-testid="icon-IconBomb"
             >
               [Icon: IconBomb]
             </div>
-            Delete
+            <span
+              class=""
+            >
+              Delete
+            </span>
           </span>
           <span
-            class="absolute"
+            class="yl:absolute"
           />
         </div>
       </button>
       <button
-        class="select-none px-3 py-2 font-semibold tracking-tight rounded-md border-2 transition-all duration-200 transform hover:scale-105 cursor-pointer border-primary bg-primary text-background hover:bg-transparent hover:text-primary min-w-[100px]"
+        class="yl:select-none yl:px-3 yl:py-2 yl:font-semibold yl:tracking-tight yl:rounded-md yl:border-2 yl:transition-all yl:duration-200 yl:transform yl:hover:scale-105 yl:cursor-pointer yl:border-primary yl:bg-primary yl:text-background yl:hover:bg-transparent yl:hover:text-primary yl:min-w-[100px]"
         type="submit"
       >
         <div
-          class="relative flex items-center justify-center"
+          class="yl:relative yl:flex yl:items-center yl:justify-center"
         >
           <span
-            class="flex items-center gap-1"
+            class="yl:flex yl:items-center yl:gap-1"
           >
             <div
-              class="w-5 h-5"
+              class="yl:w-5 yl:h-5"
               data-icon="Complete"
               data-testid="icon-Complete"
             >
               [Icon: Complete]
             </div>
-            Save
+            <span
+              class=""
+            >
+              Save
+            </span>
           </span>
           <span
-            class="absolute"
+            class="yl:absolute"
           />
         </div>
       </button>

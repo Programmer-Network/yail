@@ -86,7 +86,7 @@ const Dropdown: React.FC<IDropdownProps> = ({
         ref={popperRef}
         className={classNames(
           dropdownClassName,
-          "border-border/40 bg-background absolute z-50 mt-2 w-56 border-2 shadow-md"
+          "yl:border-border/40 yl:bg-background yl:absolute yl:z-50 yl:mt-2 yl:w-56 yl:border-2 yl:shadow-md"
         )}
       >
         {children ? (
@@ -101,7 +101,7 @@ const Dropdown: React.FC<IDropdownProps> = ({
   };
 
   return (
-    <div className='text-text relative' ref={dropdownRef}>
+    <div className='yl:text-text yl:relative' ref={dropdownRef}>
       <button
         ref={buttonRef}
         onClick={() => setIsOpen(!isOpen)}

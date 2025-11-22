@@ -3,21 +3,21 @@
 exports[`AuthorCard component > renders correctly 1`] = `
 <DocumentFragment>
   <div
-    class="border-border rounded-lg border-2 p-6"
+    class="yl:border-border yl:rounded-lg yl:border-2 yl:p-6"
   >
     <div
-      class="flex flex-col items-center gap-4 md:flex-row"
+      class="yl:flex yl:flex-col yl:items-center yl:gap-4 yl:md:flex-row"
     >
       <div
-        class="hidden md:block"
+        class="yl:hidden yl:md:block"
       >
         <div
-          class="sm:mt-0 rounded-full overflow-hidden flex items-center justify-center flex-shrink-0"
+          class="yl:sm:mt-0 yl:rounded-full yl:overflow-hidden yl:flex yl:items-center yl:justify-center yl:flex-shrink-0"
           style="width: 75px; height: 75px;"
         >
           <img
             alt="John Doe"
-            class="bg-background h-full w-full object-cover object-center"
+            class="yl:bg-background yl:h-full yl:w-full yl:object-cover yl:object-center"
             loading="lazy"
             src="https://avatars.githubusercontent.com/u/2085263?v=4"
           />
@@ -25,12 +25,12 @@ exports[`AuthorCard component > renders correctly 1`] = `
       </div>
       <div>
         <h3
-          class="text-xl sm:text-2xl md:text-3xl text-text break-words font-bold"
+          class="yl:text-xl yl:sm:text-2xl yl:md:text-3xl yl:text-text yl:break-words yl:font-bold"
         >
           John Doe
         </h3>
         <p
-          class="text-text break-words overflow-hidden"
+          class="yl:text-text yl:break-words yl:overflow-hidden"
         >
           An expert in the field.
         </p>

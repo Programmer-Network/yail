@@ -14,34 +14,34 @@ const Pill: FC<IPillProps> = ({
   ...props
 }) => {
   const baseClasses =
-    "inline-flex items-center justify-center font-medium rounded-full transition-colors ring-1 ring-inset";
+    "yl:inline-flex yl:items-center yl:justify-center yl:font-medium yl:rounded-full yl:transition-colors yl:ring-1 yl:ring-inset";
 
   const sizeClasses: Record<PillSize, string> = {
-    [PillSize.SMALL]: "px-2 py-0.5 text-xs",
-    [PillSize.MEDIUM]: "px-2 py-1 text-xs",
-    [PillSize.LARGE]: "px-3 py-1.5 text-sm"
+    [PillSize.SMALL]: "yl:px-2 yl:py-0.5 yl:text-xs",
+    [PillSize.MEDIUM]: "yl:px-2 yl:py-1 yl:text-xs",
+    [PillSize.LARGE]: "yl:px-3 yl:py-1.5 yl:text-sm"
   };
 
   const variantClasses: Record<PillVariant, string> = {
-    primary: "bg-primary/10 text-primary ring-primary/20",
-    secondary: "bg-muted/10 text-muted ring-muted/20",
-    success: "bg-green-500/10 text-green-400 ring-green-500/20",
-    error: "bg-red-500/10 text-red-400 ring-red-500/20",
-    warning: "bg-yellow-500/10 text-yellow-400 ring-yellow-500/20",
-    indigo: "bg-indigo-500/10 text-indigo-400 ring-indigo-500/20",
-    purple: "bg-purple-500/10 text-purple-400 ring-purple-500/20",
-    pink: "bg-pink-500/10 text-pink-400 ring-pink-500/20"
+    primary: "yl:bg-primary/10 yl:text-primary yl:ring-primary/20",
+    secondary: "yl:bg-muted/10 yl:text-muted yl:ring-muted/20",
+    success: "yl:bg-green-500/10 yl:text-green-400 yl:ring-green-500/20",
+    error: "yl:bg-red-500/10 yl:text-red-400 yl:ring-red-500/20",
+    warning: "yl:bg-yellow-500/10 yl:text-yellow-400 yl:ring-yellow-500/20",
+    indigo: "yl:bg-indigo-500/10 yl:text-indigo-400 yl:ring-indigo-500/20",
+    purple: "yl:bg-purple-500/10 yl:text-purple-400 yl:ring-purple-500/20",
+    pink: "yl:bg-pink-500/10 yl:text-pink-400 yl:ring-pink-500/20"
   };
 
   const hoverClasses: Record<PillVariant, string> = {
-    primary: "hover:bg-primary/20",
-    secondary: "hover:bg-muted/20",
-    success: "hover:bg-green-500/20",
-    error: "hover:bg-red-500/20",
-    warning: "hover:bg-yellow-500/20",
-    indigo: "hover:bg-indigo-500/20",
-    purple: "hover:bg-purple-500/20",
-    pink: "hover:bg-pink-500/20"
+    primary: "yl:hover:bg-primary/20",
+    secondary: "yl:hover:bg-muted/20",
+    success: "yl:hover:bg-green-500/20",
+    error: "yl:hover:bg-red-500/20",
+    warning: "yl:hover:bg-yellow-500/20",
+    indigo: "yl:hover:bg-indigo-500/20",
+    purple: "yl:hover:bg-purple-500/20",
+    pink: "yl:hover:bg-pink-500/20"
   };
 
   const pillClasses = classNames(
@@ -50,9 +50,9 @@ const Pill: FC<IPillProps> = ({
     variantClasses[variant],
     {
       [hoverClasses[variant] as string]: clickable && !disabled,
-      "cursor-pointer": clickable && !disabled,
-      "cursor-not-allowed opacity-50": disabled,
-      "cursor-default": !clickable && !disabled
+      "yl:cursor-pointer": clickable && !disabled,
+      "yl:cursor-not-allowed yl:opacity-50": disabled,
+      "yl:cursor-default": !clickable && !disabled
     },
     className
   );

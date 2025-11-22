@@ -16,18 +16,18 @@ const Checkbox: FC<ICheckboxProps> = (
   return (
     <div className={classNames(inputWrapperClassName)}>
       <InputHeader {...props} />
-      <div className='form-control items-start'>
-        <label className='label flex cursor-pointer items-center gap-2'>
-          <div className='relative'>
+      <div className='form-control yl:items-start'>
+        <label className='label yl:flex yl:cursor-pointer yl:items-center yl:gap-2'>
+          <div className='yl:relative'>
             <input
               type='checkbox'
               checked={checked}
-              className='border-border checked:bg-primary checked:border-primary checked:text-background focus:ring-primary focus:ring-opacity-50 hover:border-primary h-6 w-6 cursor-pointer appearance-none rounded border-2 transition-all duration-200 focus:ring-2 focus:outline-none'
+              className='yl:border-border yl:checked:bg-primary yl:checked:border-primary yl:checked:text-background yl:focus:ring-primary yl:focus:ring-opacity-50 yl:hover:border-primary yl:h-6 yl:w-6 yl:cursor-pointer yl:appearance-none yl:border-2 yl:transition-all yl:duration-200 yl:focus:ring-2 yl:focus:outline-none yl:rounded'
               onChange={onChange}
             />
             {checked && (
               <svg
-                className='text-background pointer-events-none absolute top-1 left-1 h-4 w-4'
+                className='yl:text-background yl:pointer-events-none yl:absolute yl:top-1 yl:left-1 yl:h-4 yl:w-4'
                 fill='currentColor'
                 viewBox='0 0 20 20'
               >
@@ -40,7 +40,9 @@ const Checkbox: FC<ICheckboxProps> = (
             )}
           </div>
           {text && (
-            <span className='text-primary relative top-[-2.5px]'>{text}</span>
+            <span className='yl:text-primary yl:relative yl:top-[-2.5px]'>
+              {text}
+            </span>
           )}
         </label>
       </div>

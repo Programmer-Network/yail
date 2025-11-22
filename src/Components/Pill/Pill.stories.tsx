@@ -119,7 +119,7 @@ export const Disabled: Story = {
 
 export const Sizes: Story = {
   render: () => (
-    <div className='flex items-center gap-4'>
+    <div className='yl:flex yl:items-center yl:gap-4'>
       <Pill size={PillSize.SMALL} variant={PillVariant.PRIMARY}>
         Small
       </Pill>
@@ -135,7 +135,7 @@ export const Sizes: Story = {
 
 export const AllVariants: Story = {
   render: () => (
-    <div className='flex flex-wrap gap-2'>
+    <div className='yl:flex yl:flex-wrap yl:gap-2'>
       <Pill variant={PillVariant.PRIMARY} size={PillSize.MEDIUM}>
         Primary
       </Pill>

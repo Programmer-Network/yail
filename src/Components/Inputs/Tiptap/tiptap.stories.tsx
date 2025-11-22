@@ -57,7 +57,7 @@ export const Default = () => {
   };
 
   return (
-    <div className='w-full md:w-[768px]'>
+    <div className='yl:w-full yl:md:w-[768px]'>
       <Tiptap
         ref={tiptapRef as RefObject<TiptapRef>}
         placeholder='Enter your content here...'
@@ -81,7 +81,7 @@ export const Default = () => {
       />
 
       <div
-        className='mt-8 wrap-break-word text-indigo-500'
+        className='yl:mt-8 yl:text-indigo-500 wrap-break-word'
         dangerouslySetInnerHTML={{ __html: editorState }}
       ></div>
     </div>
@@ -150,7 +150,7 @@ export const Confirming = () => {
   };
 
   return (
-    <div className='w-full md:w-[768px]'>
+    <div className='yl:w-full yl:md:w-[768px]'>
       <Tiptap
         ref={tiptapRef as RefObject<TiptapRef>}
         label='Content'
@@ -174,7 +174,7 @@ export const Confirming = () => {
       />
 
       <div
-        className='mt-8 wrap-break-word text-indigo-500'
+        className='yl:mt-8 yl:text-indigo-500 wrap-break-word'
         dangerouslySetInnerHTML={{ __html: editorState }}
       ></div>
     </div>
@@ -232,7 +232,7 @@ export const Error = () => {
   });
 
   return (
-    <div className='w-full md:w-[768px]'>
+    <div className='yl:w-full yl:md:w-[768px]'>
       <Tiptap
         ref={tiptapRef as RefObject<TiptapRef>}
         label='Content'
@@ -309,7 +309,7 @@ export const ImageUploadError = () => {
   const [error, setError] = useState<string>("");
 
   return (
-    <div className='w-full md:w-[768px]'>
+    <div className='yl:w-full yl:md:w-[768px]'>
       <Tiptap
         ref={tiptapRef as RefObject<TiptapRef>}
         label='Content'
@@ -330,7 +330,9 @@ export const ImageUploadError = () => {
         }}
         required={true}
       />
-      {error && <div className='mt-2 text-sm text-red-600'>{error}</div>}
+      {error && (
+        <div className='yl:mt-2 yl:text-sm yl:text-red-600'>{error}</div>
+      )}
     </div>
   );
 };
@@ -374,7 +376,7 @@ export const WithTable = () => {
   };
 
   return (
-    <div className='w-full md:w-[768px]'>
+    <div className='yl:w-full yl:md:w-[768px]'>
       <Tiptap
         ref={tiptapRef as RefObject<TiptapRef>}
         placeholder='Try inserting a table...'
@@ -392,9 +394,9 @@ export const WithTable = () => {
         required={true}
       />
 
-      <div className='mt-4'>
-        <h3 className='mb-2 font-bold'>Table Commands Available:</h3>
-        <ul className='list-disc pl-4 text-sm text-gray-600'>
+      <div className='yl:mt-4'>
+        <h3 className='yl:mb-2 yl:font-bold'>Table Commands Available:</h3>
+        <ul className='yl:list-disc yl:pl-4 yl:text-sm yl:text-gray-600'>
           <li>Click the table dropdown button in the toolbar</li>
           <li>
             Select &ldquo;Insert Table&rdquo; to create a new 3×3 table with
@@ -412,7 +414,7 @@ export const WithTable = () => {
       </div>
 
       <div
-        className='mt-8 wrap-break-word'
+        className='yl:mt-8 wrap-break-word'
         dangerouslySetInnerHTML={{ __html: editorState }}
       ></div>
     </div>
@@ -554,7 +556,7 @@ export const TableWithInitialContent = () => {
   };
 
   return (
-    <div className='w-full md:w-[768px]'>
+    <div className='yl:w-full yl:md:w-[768px]'>
       <Tiptap
         ref={tiptapRef as RefObject<TiptapRef>}
         label='Pre-populated Table'
@@ -572,7 +574,7 @@ export const TableWithInitialContent = () => {
       />
 
       <div
-        className='mt-8 rounded border p-4 wrap-break-word'
+        className='yl:mt-8 yl:p-4 rounded border wrap-break-word'
         dangerouslySetInnerHTML={{ __html: editorState }}
       ></div>
     </div>

@@ -61,7 +61,7 @@ const ItemActions = <T,>({
       buttonContent={
         <Icon
           iconName='IconDots'
-          className='text-text/60 hover:text-text w-6 hover:cursor-pointer'
+          className='yl:text-text/60 yl:hover:text-text yl:w-6 yl:hover:cursor-pointer'
         />
       }
     />

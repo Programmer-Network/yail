@@ -11,7 +11,7 @@ const meta = {
   },
   decorators: [
     Story => (
-      <div className='max-w-sm'>
+      <div className='yl:max-w-sm'>
         <Story />
       </div>
     )

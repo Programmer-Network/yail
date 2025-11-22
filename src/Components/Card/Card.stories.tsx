@@ -366,7 +366,7 @@ export const WithActions: Story = {
           window.alert("Edit action clicked");
         },
         variant: "primary",
-        icon: <Icon iconName='IconEdit' className='h-4 w-4' />
+        icon: <Icon iconName='IconEdit' className='yl:h-4 yl:w-4' />
       },
       {
         label: "Delete",
@@ -375,7 +375,7 @@ export const WithActions: Story = {
           window.alert("Delete action clicked");
         },
         variant: "danger",
-        icon: <Icon iconName='IconDeleteBin' className='h-4 w-4' />
+        icon: <Icon iconName='IconDeleteBin' className='yl:h-4 yl:w-4' />
       }
     ]
   }
@@ -392,7 +392,7 @@ export const EditOnlyAction: Story = {
           window.alert("Edit action clicked");
         },
         variant: "primary",
-        icon: <Icon iconName='IconEdit' className='h-4 w-4' />
+        icon: <Icon iconName='IconEdit' className='yl:h-4 yl:w-4' />
       }
     ]
   }
@@ -413,7 +413,7 @@ export const WithActionsNoImage: Story = {
           window.alert("Edit action clicked");
         },
         variant: "primary",
-        icon: <Icon iconName='IconEdit' className='h-4 w-4' />
+        icon: <Icon iconName='IconEdit' className='yl:h-4 yl:w-4' />
       },
       {
         label: "Delete",
@@ -422,7 +422,7 @@ export const WithActionsNoImage: Story = {
           window.alert("Delete action clicked");
         },
         variant: "danger",
-        icon: <Icon iconName='IconDeleteBin' className='h-4 w-4' />
+        icon: <Icon iconName='IconDeleteBin' className='yl:h-4 yl:w-4' />
       }
     ]
   }
@@ -443,7 +443,7 @@ export const EditOnlyActionNoImage: Story = {
           window.alert("Edit action clicked");
         },
         variant: "primary",
-        icon: <Icon iconName='IconEdit' className='h-4 w-4' />
+        icon: <Icon iconName='IconEdit' className='yl:h-4 yl:w-4' />
       }
     ]
   }
@@ -460,7 +460,7 @@ export const WithPills: Story = {
         {
           title: "Trending",
           variant: PillVariant.SUCCESS,
-          className: "bg-green-500 text-white"
+          className: "yl:bg-green-500 yl:text-white"
         }
       ]
     }
@@ -479,13 +479,13 @@ export const WithManyPills: Story = {
         {
           title: "New",
           variant: PillVariant.INDIGO,
-          className: "bg-blue-500 text-white"
+          className: "yl:bg-blue-500 yl:text-white"
         },
         { title: "Popular", variant: PillVariant.WARNING },
         {
           title: "Verified",
           variant: PillVariant.SUCCESS,
-          className: "bg-green-600 text-white"
+          className: "yl:bg-green-600 yl:text-white"
         }
       ]
     }
@@ -531,7 +531,7 @@ export const WithFooterActions: Story = {
           window.alert("View Details clicked");
         },
         variant: PillVariant.PRIMARY,
-        icon: <Icon iconName='IconEye' className='h-4 w-4' />
+        icon: <Icon iconName='IconEye' className='yl:h-4 yl:w-4' />
       },
       {
         label: "Share",
@@ -540,7 +540,7 @@ export const WithFooterActions: Story = {
           window.alert("Share clicked");
         },
         variant: "outlined",
-        icon: <Icon iconName='IconShare' className='h-4 w-4' />
+        icon: <Icon iconName='IconShare' className='yl:h-4 yl:w-4' />
       }
     ]
   }
@@ -557,7 +557,7 @@ export const WithSingleFooterAction: Story = {
           window.alert("Read More clicked");
         },
         variant: ButtonVariantEnum.PRIMARY,
-        icon: <Icon iconName='IconArrowRight' className='h-4 w-4' />
+        icon: <Icon iconName='IconArrowRight' className='yl:h-4 yl:w-4' />
       }
     ]
   }
@@ -574,7 +574,7 @@ export const WithMultipleFooterActions: Story = {
           window.alert("Like clicked");
         },
         variant: ButtonVariantEnum.PRIMARY,
-        icon: <Icon iconName='IconHeart' className='h-4 w-4' />
+        icon: <Icon iconName='IconHeart' className='yl:h-4 yl:w-4' />
       },
       {
         label: "Comment",
@@ -583,7 +583,7 @@ export const WithMultipleFooterActions: Story = {
           window.alert("Comment clicked");
         },
         variant: "outlined",
-        icon: <Icon iconName='IconMessage' className='h-4 w-4' />
+        icon: <Icon iconName='IconMessage' className='yl:h-4 yl:w-4' />
       },
       {
         label: "Save",
@@ -592,7 +592,7 @@ export const WithMultipleFooterActions: Story = {
           window.alert("Save clicked");
         },
         variant: "outlined",
-        icon: <Icon iconName='IconBookmark' className='h-4 w-4' />
+        icon: <Icon iconName='IconBookmark' className='yl:h-4 yl:w-4' />
       },
       {
         label: "Delete",
@@ -601,7 +601,7 @@ export const WithMultipleFooterActions: Story = {
           window.alert("Delete clicked");
         },
         variant: "danger",
-        icon: <Icon iconName='IconDeleteBin' className='h-4 w-4' />
+        icon: <Icon iconName='IconDeleteBin' className='yl:h-4 yl:w-4' />
       }
     ]
   }
@@ -618,7 +618,7 @@ export const WithTopAndBottomActions: Story = {
           window.alert("Edit action clicked");
         },
         variant: "primary",
-        icon: <Icon iconName='IconEdit' className='h-4 w-4' />
+        icon: <Icon iconName='IconEdit' className='yl:h-4 yl:w-4' />
       }
     ],
     footerActions: [
@@ -629,7 +629,7 @@ export const WithTopAndBottomActions: Story = {
           window.alert("View Comments clicked");
         },
         variant: "outlined",
-        icon: <Icon iconName='IconMessage' className='h-4 w-4' />
+        icon: <Icon iconName='IconMessage' className='yl:h-4 yl:w-4' />
       },
       {
         label: "Share Article",
@@ -638,7 +638,7 @@ export const WithTopAndBottomActions: Story = {
           window.alert("Share Article clicked");
         },
         variant: "primary",
-        icon: <Icon iconName='IconShare' className='h-4 w-4' />
+        icon: <Icon iconName='IconShare' className='yl:h-4 yl:w-4' />
       }
     ]
   }
@@ -659,7 +659,7 @@ export const FooterActionsNoImage: Story = {
           window.alert("Continue Reading clicked");
         },
         variant: "primary",
-        icon: <Icon iconName='IconArrowRight' className='h-4 w-4' />
+        icon: <Icon iconName='IconArrowRight' className='yl:h-4 yl:w-4' />
       },
       {
         label: "Add to Favorites",
@@ -668,7 +668,7 @@ export const FooterActionsNoImage: Story = {
           window.alert("Add to Favorites clicked");
         },
         variant: "outlined",
-        icon: <Icon iconName='IconHeart' className='h-4 w-4' />
+        icon: <Icon iconName='IconHeart' className='yl:h-4 yl:w-4' />
       }
     ]
   }
@@ -686,7 +686,7 @@ export const ConditionalFooterActions: Story = {
         },
         variant: "primary",
         show: true,
-        icon: <Icon iconName='IconCheck' className='h-4 w-4' />
+        icon: <Icon iconName='IconCheck' className='yl:h-4 yl:w-4' />
       },
       {
         label: "Hidden Action",
@@ -696,7 +696,7 @@ export const ConditionalFooterActions: Story = {
         },
         variant: "danger",
         show: false,
-        icon: <Icon iconName='IconX' className='h-4 w-4' />
+        icon: <Icon iconName='IconX' className='yl:h-4 yl:w-4' />
       }
     ]
   }

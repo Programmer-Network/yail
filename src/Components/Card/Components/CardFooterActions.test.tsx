@@ -137,15 +137,15 @@ describe("CardFooterActions component", () => {
 
     const footerActionsContainer = container.firstChild as HTMLElement;
     expect(footerActionsContainer).toHaveClass(
-      "flex",
-      "items-center",
-      "justify-between",
-      "gap-2",
-      "mt-4",
-      "pt-4",
-      "border-t",
-      "border-border/20",
-      "flex-wrap"
+      "yl:flex",
+      "yl:items-center",
+      "yl:justify-between",
+      "yl:gap-2",
+      "yl:mt-4",
+      "yl:pt-4",
+      "yl:border-t",
+      "yl:border-border/20",
+      "yl:flex-wrap"
     );
   });
 

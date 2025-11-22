@@ -322,7 +322,7 @@ describe("ConfirmDialog", () => {
     });
 
     const buttonContainer = screen.getByLabelText("Confirm").closest("div");
-    expect(buttonContainer).toHaveClass("justify-end");
+    expect(buttonContainer).toHaveClass("yl:justify-end");
   });
 
   it("renders destructive variant with red styling", () => {

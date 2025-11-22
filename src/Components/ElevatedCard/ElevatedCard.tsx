@@ -19,25 +19,25 @@ const ElevatedCard: React.FC<IElevatedCardProps> = ({
     <div
       data-testid={dataTestId}
       className={classNames(
-        "border-border bg-text/1 flex flex-col rounded-lg border p-6",
+        "yl:border-border yl:bg-text/1 yl:flex yl:flex-col yl:rounded-lg yl:p-6 yl:border",
         {
-          "hover:bg-text/3 cursor-pointer": onClick
+          "yl:hover:bg-text/3 yl:cursor-pointer": onClick
         },
         className
       )}
       onClick={onClick}
     >
       {icon && (
-        <div className='mb-4'>
-          <div className='border-primary inline-flex items-center justify-center rounded-md border p-2'>
+        <div className='yl:mb-4'>
+          <div className='yl:border-primary yl:inline-flex yl:items-center yl:justify-center yl:rounded-md yl:p-2 yl:border'>
             <Icon {...(icon as IIconProps)} />
           </div>
         </div>
       )}
-      <div className='space-y-2'>
+      <div className='yl:space-y-2'>
         <H5>{title}</H5>
         {description && <Paragraph>{description}</Paragraph>}
-        {children && <div className='mt-4'>{children}</div>}
+        {children && <div className='yl:mt-4'>{children}</div>}
       </div>
     </div>
   );

@@ -30,14 +30,14 @@ export const WithChildren: Meta<IDropdownProps> = Template.bind({});
 WithChildren.args = {
   buttonContent: "Click Me",
   children: (
-    <ul className='text-text p-2'>
-      <li className='text-text hover:bg-primary hover:text-background p-2 hover:cursor-pointer'>
+    <ul className='yl:text-text yl:p-2'>
+      <li className='yl:text-text yl:hover:bg-primary yl:hover:text-background yl:p-2 yl:hover:cursor-pointer'>
         Option 1
       </li>
-      <li className='text-text hover:bg-primary hover:text-background p-2 hover:cursor-pointer'>
+      <li className='yl:text-text yl:hover:bg-primary yl:hover:text-background yl:p-2 yl:hover:cursor-pointer'>
         Option 2
       </li>
-      <li className='text-text hover:bg-primary hover:text-background p-2 hover:cursor-pointer'>
+      <li className='yl:text-text yl:hover:bg-primary yl:hover:text-background yl:p-2 yl:hover:cursor-pointer'>
         Option 3
       </li>
     </ul>
@@ -48,12 +48,12 @@ export const WithLongContent: Meta<IDropdownProps> = Template.bind({});
 WithLongContent.args = {
   buttonContent: "More Options",
   children: (
-    <div className='text-text p-2'>
+    <div className='yl:text-text yl:p-2'>
       <ul>
-        <li className='text-text hover:bg-primary hover:text-background p-2 hover:cursor-pointer'>
+        <li className='yl:text-text yl:hover:bg-primary yl:hover:text-background yl:p-2 yl:hover:cursor-pointer'>
           Extended Option 1
         </li>
-        <li className='text-text hover:bg-primary hover:text-background p-2 hover:cursor-pointer'>
+        <li className='yl:text-text yl:hover:bg-primary yl:hover:text-background yl:p-2 yl:hover:cursor-pointer'>
           Extended Option 2
         </li>
       </ul>

@@ -37,34 +37,34 @@ const FormActions = ({
     switch (size) {
       case "small":
         return {
-          gap: "gap-2",
-          buttonWidth: "min-w-[80px]"
+          gap: "yl:gap-2",
+          buttonWidth: "yl:min-w-[80px]"
         };
       case "large":
         return {
-          gap: "gap-4",
-          buttonWidth: "min-w-[120px]"
+          gap: "yl:gap-4",
+          buttonWidth: "yl:min-w-[120px]"
         };
       default:
         return {
-          gap: "gap-3",
-          buttonWidth: "min-w-[100px]"
+          gap: "yl:gap-3",
+          buttonWidth: "yl:min-w-[100px]"
         };
     }
   };
 
   const getLayoutClasses = () => {
-    const baseClasses = "flex-row";
+    const baseClasses = "yl:flex-row";
 
     switch (alignment) {
       case "center":
-        return `flex ${baseClasses} justify-center items-center`;
+        return `yl:flex ${baseClasses} yl:justify-center yl:items-center`;
       case "right":
-        return `flex ${baseClasses} justify-end items-center`;
+        return `yl:flex ${baseClasses} yl:justify-end yl:items-center`;
       case "space-between":
-        return `flex ${baseClasses} justify-between items-center`;
+        return `yl:flex ${baseClasses} yl:justify-between yl:items-center`;
       default:
-        return `flex ${baseClasses} justify-start items-center`;
+        return `yl:flex ${baseClasses} yl:justify-start yl:items-center`;
     }
   };
 
@@ -134,7 +134,7 @@ const FormActions = ({
   const sizeClasses = getSizeClasses();
 
   return (
-    <div className={classNames("w-full", className)}>
+    <div className={classNames("yl:w-full", className)}>
       {showDelete && onDelete && (
         <ConfirmDialog
           ref={confirmDialogRef}
@@ -158,7 +158,7 @@ const FormActions = ({
             icon={{
               iconName: "Incomplete",
               iconPosition: "left",
-              iconClassName: "w-6 h-6"
+              iconClassName: "yl:w-6 yl:h-6"
             }}
           >
             {size !== "small" && cancelText}
@@ -175,11 +175,11 @@ const FormActions = ({
             icon={{
               iconName: "IconBomb",
               iconPosition: "left",
-              iconClassName: "w-6 h-6"
+              iconClassName: "yl:w-6 yl:h-6"
             }}
             className={classNames(
               sizeClasses.buttonWidth,
-              "transition-all duration-200 hover:scale-105"
+              "yl:transition-all yl:duration-200 yl:hover:scale-105"
             )}
             aria-label={`${deleteText} - This action cannot be undone`}
           >
@@ -203,7 +203,7 @@ const FormActions = ({
             icon={{
               iconName: "Complete",
               iconPosition: "left",
-              iconClassName: "w-5 h-5"
+              iconClassName: "yl:w-5 yl:h-5"
             }}
           >
             {saveText}

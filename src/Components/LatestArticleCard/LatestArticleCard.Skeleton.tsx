@@ -9,20 +9,20 @@ export const LatestArticleCardSkeleton: FC<ILatestArticleCardSkeleton> = ({
   return (
     <article
       className={classNames(
-        "border-border flex animate-pulse flex-col gap-2 rounded-lg border-2 p-3",
+        "yl:border-border yl:flex yl:animate-pulse yl:flex-col yl:gap-2 yl:rounded-lg yl:border-2 yl:p-3",
         className
       )}
       role='article'
       aria-busy='true'
       aria-label='Loading article'
     >
-      <div className='bg-border/50 h-4 w-3/4 rounded' />
-      <div className='bg-border/50 h-3 w-full rounded' />
-      <div className='bg-border/50 h-3 w-5/6 rounded' />
-      <div className='mt-1 flex items-center gap-2'>
-        <div className='bg-border/50 h-3 w-24 rounded' />
-        <div className='bg-border/50 h-1 w-1 rounded-full' />
-        <div className='bg-border/50 h-3 w-20 rounded' />
+      <div className='yl:bg-border/50 yl:h-4 yl:w-3/4 yl:rounded' />
+      <div className='yl:bg-border/50 yl:h-3 yl:w-full yl:rounded' />
+      <div className='yl:bg-border/50 yl:h-3 yl:w-5/6 yl:rounded' />
+      <div className='yl:mt-1 yl:flex yl:items-center yl:gap-2'>
+        <div className='yl:bg-border/50 yl:h-3 yl:w-24 yl:rounded' />
+        <div className='yl:bg-border/50 yl:h-1 yl:w-1 yl:rounded-full' />
+        <div className='yl:bg-border/50 yl:h-3 yl:w-20 yl:rounded' />
       </div>
     </article>
   );

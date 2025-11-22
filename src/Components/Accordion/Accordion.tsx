@@ -79,7 +79,7 @@ const Accordion: FC<IAccordionProps> = ({
   return (
     <section
       onDragEnd={handleSectionDrop}
-      className={classNames("bg-background", className)}
+      className={classNames("yl:bg-background", className)}
     >
       {sections
         .toSorted((a: ISection, b: ISection) => a.order - b.order)
@@ -92,11 +92,11 @@ const Accordion: FC<IAccordionProps> = ({
               hasDraggableSections && setDraggedOverId(section.id)
             }
             className={classNames(
-              "border-border border-2",
+              "yl:border-border yl:border-2",
               {
-                "border-b-0": idx !== sections.length - 1,
-                "rounded-tl-md rounded-tr-md": idx === 0,
-                "rounded-br-md rounded-bl-md":
+                "yl:border-b-0": idx !== sections.length - 1,
+                "yl:rounded-tl-md yl:rounded-tr-md": idx === 0,
+                "yl:rounded-br-md yl:rounded-bl-md":
                   idx === sections.length - 1 && !onAddSection
               },
               {}
@@ -113,14 +113,14 @@ const Accordion: FC<IAccordionProps> = ({
                 toggleExpand(section.id);
               }}
               className={classNames(
-                "hover:text-primary relative flex cursor-default items-center p-4 font-semibold capitalize transition-colors duration-400 ease-in-out select-none hover:cursor-pointer",
+                "yl:hover:text-primary yl:relative yl:flex yl:cursor-default yl:items-center yl:p-4 yl:font-semibold yl:capitalize yl:transition-colors yl:duration-400 yl:ease-in-out yl:select-none yl:hover:cursor-pointer",
                 sectionTitleClassName,
                 {
-                  "bg-text/2": expanded.includes(section.id),
+                  "yl:bg-text/2": expanded.includes(section.id),
                   "cursor-pointer": onSectionItemClick,
-                  "text-text":
+                  "yl:text-text":
                     selected?.sectionId !== section.id || !onSectionItemClick,
-                  "text-primary":
+                  "yl:text-primary":
                     onSectionItemClick && selected?.sectionId === section.id
                 }
               )}
@@ -136,27 +136,27 @@ const Accordion: FC<IAccordionProps> = ({
                   <Icon
                     iconName='IconDrag'
                     dataTestId='icon-drag'
-                    className='mr-1 w-6 opacity-50'
+                    className='yl:mr-1 yl:w-6 yl:opacity-50'
                   />
                 </div>
               )}
-              <div className='flex flex-col gap-1 overflow-hidden text-base text-ellipsis whitespace-nowrap'>
+              <div className='yl:flex yl:flex-col yl:gap-1 yl:overflow-hidden yl:text-base yl:text-ellipsis yl:whitespace-nowrap'>
                 {expanded.includes(section.id) ? (
                   <Icon
                     iconName='IconExpandLess'
                     dataTestId='icon-expand-less'
-                    className='fill-primary hover:fill-primary absolute right-2 w-6 cursor-pointer'
+                    className='yl:fill-primary yl:hover:fill-primary yl:absolute yl:right-2 yl:w-6 yl:cursor-pointer'
                   />
                 ) : (
                   <Icon
                     iconName='IconExpandMore'
                     dataTestId='icon-expand-more'
-                    className='fill-primary hover:fill-primary absolute right-2 w-6 cursor-pointer'
+                    className='yl:fill-primary yl:hover:fill-primary yl:absolute yl:right-2 yl:w-6 yl:cursor-pointer'
                   />
                 )}
                 {section.title}
                 {section.description && (
-                  <Paragraph className='text-text/70 text-xs'>
+                  <Paragraph className='yl:text-text/70 yl:text-xs'>
                     {section.description}
                   </Paragraph>
                 )}
@@ -190,17 +190,17 @@ const Accordion: FC<IAccordionProps> = ({
                     isDraggable={
                       hasDraggableSectionItems && section.items.length > 0
                     }
-                    className='flex flex-col gap-4 py-4'
-                    draggedOverClassName='border-t-2 border-border'
+                    className='yl:flex yl:flex-col yl:gap-4 yl:py-4'
+                    draggedOverClassName='yl:border-t-2 yl:border-border'
                     liClassName={(item: IDraggableListItem) =>
                       classNames(
-                        "cursor-default break-words leading-normal px-4",
+                        "yl:cursor-default yl:break-words yl:leading-normal yl:px-4",
                         {
-                          "hover:cursor-pointer hover:text-primary":
+                          "yl:hover:cursor-pointer yl:hover:text-primary":
                             onSectionItemClick,
-                          "text-primary":
+                          "yl:text-primary":
                             onSectionItemClick && selected?.itemId === item.id,
-                          "pl-5": section.items.length === 1
+                          "yl:pl-5": section.items.length === 1
                         }
                       )
                     }
@@ -210,24 +210,24 @@ const Accordion: FC<IAccordionProps> = ({
                   <div
                     onClick={() => onAddSectionItem(section)}
                     className={classNames(
-                      "group border-border hover:bg-text/1 bg-text/3 cursor-pointer"
+                      "group yl:border-border yl:hover:bg-text/1 yl:bg-text/3 yl:cursor-pointer"
                     )}
                     role='presentation'
                   >
                     <h3
                       className={classNames(
-                        "flex flex-col items-center justify-center p-4 text-center font-semibold select-none"
+                        "yl:flex yl:flex-col yl:items-center yl:justify-center yl:p-4 yl:text-center yl:font-semibold yl:select-none"
                       )}
                       role='button'
                     >
-                      <Paragraph className='flex items-center gap-1'>
+                      <Paragraph className='yl:flex yl:items-center yl:gap-1'>
                         <Icon
                           iconName='IconAddCircle'
                           dataTestId='icon-add-circle'
-                          className='text-primary w-6'
+                          className='yl:text-primary yl:w-6'
                         />
                         {addSectionItemLabel && (
-                          <span className='text-primary text-sm'>
+                          <span className='yl:text-primary yl:text-sm'>
                             {addSectionItemLabel}
                           </span>
                         )}
@@ -243,24 +243,26 @@ const Accordion: FC<IAccordionProps> = ({
         <div
           onClick={onAddSection}
           className={classNames(
-            "group border-border hover:bg-text/2 bg-text/3 cursor-pointer rounded-br-md rounded-bl-md border-2 border-t-0"
+            "group yl:border-border yl:hover:bg-text/2 yl:bg-text/3 yl:cursor-pointer yl:rounded-br-md yl:rounded-bl-md yl:border-2 yl:border-t-0"
           )}
           role='presentation'
         >
           <h3
             className={classNames(
-              "flex flex-col items-center justify-center p-4 text-center font-semibold select-none"
+              "yl:flex yl:flex-col yl:items-center yl:justify-center yl:p-4 yl:text-center yl:font-semibold yl:select-none"
             )}
             role='button'
           >
-            <Paragraph className='flex items-center gap-1'>
+            <Paragraph className='yl:flex yl:items-center yl:gap-1'>
               <Icon
                 iconName='IconAddCircle'
                 dataTestId='icon-add-circle'
-                className='text-primary w-6'
+                className='yl:text-primary yl:w-6'
               />
               {addSectionLabel && (
-                <span className='text-primary text-sm'>{addSectionLabel}</span>
+                <span className='yl:text-primary yl:text-sm'>
+                  {addSectionLabel}
+                </span>
               )}
             </Paragraph>
           </h3>

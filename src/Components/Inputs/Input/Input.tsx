@@ -55,7 +55,7 @@ const Input: FC<IInputProps> = forwardRef<HTMLInputElement, IInputProps>(
     return (
       <div className={classNames(inputWrapperClassName)}>
         <InputHeader {...inputHeaderProps} />
-        <div className='flex flex-col'>
+        <div className='yl:flex yl:flex-col'>
           <input
             ref={ref}
             {...rest}
@@ -64,7 +64,7 @@ const Input: FC<IInputProps> = forwardRef<HTMLInputElement, IInputProps>(
             type={type}
             onChange={handleChange}
             className={classNames(
-              "border-border text-text hover:border-border focus:border-border focus:ring-3-transparent w-full appearance-none rounded-md border-2 bg-transparent p-2 transition-colors focus:outline-hidden",
+              "yl:border-border yl:text-text yl:hover:border-border yl:focus:border-border yl:focus:ring-3-transparent yl:w-full yl:appearance-none yl:rounded-md yl:border-2 yl:bg-transparent yl:p-2 yl:transition-colors yl:focus:outline-hidden",
               className,
               {
                 "input-disabled": disabled
@@ -82,7 +82,7 @@ const Input: FC<IInputProps> = forwardRef<HTMLInputElement, IInputProps>(
           typeof value === "string" &&
           typeof min === "number" &&
           value.length < min && (
-            <p className='text-warning mt-2'>
+            <p className='yl:text-warning yl:mt-2'>
               {min - value.length} characters to go
             </p>
           )}

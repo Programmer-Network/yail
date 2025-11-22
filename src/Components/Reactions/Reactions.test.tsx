@@ -62,7 +62,7 @@ describe("Reactions component", () => {
     expect(mockOnReaction).not.toHaveBeenCalled();
   });
 
-  test("shows loading indicator during liking transition", async () => {
+  test("shows loading indicator during liking yl:transition", async () => {
     render(
       <Reactions
         {...baseProps}
@@ -75,7 +75,7 @@ describe("Reactions component", () => {
     expect(screen.queryByTestId("like-button")).not.toBeInTheDocument();
   });
 
-  test("shows loading indicator during disliking transition", async () => {
+  test("shows loading indicator during disliking yl:transition", async () => {
     render(
       <Reactions
         {...baseProps}

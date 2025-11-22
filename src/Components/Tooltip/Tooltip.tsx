@@ -42,7 +42,7 @@ const Tooltip: FC<ITooltipProps> = ({
         noArrow
         opacity={1}
         className={classNames(
-          "border-primary! bg-background! text-text! shadow-border z-50! border-2! shadow-md!",
+          "yl:border-primary! yl:bg-background! yl:text-text! yl:shadow-border yl:z-50! yl:border-2! yl:shadow-md!",
           className
         )}
       />

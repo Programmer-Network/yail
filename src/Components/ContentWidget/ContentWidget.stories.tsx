@@ -14,7 +14,7 @@ export const Default = () => {
       title: string;
     }>
       title='Latest articles'
-      className='min-w-[300px]'
+      className='yl:min-w-[300px]'
       isLoading={false}
       more={{
         tooltipText: "See more articles",
@@ -45,7 +45,7 @@ export const LoadingState = () => {
       title: string;
     }>
       title='Loading articles'
-      className='min-w-[300px]'
+      className='yl:min-w-[300px]'
       isLoading={true}
       items={[]}
     />
@@ -59,7 +59,7 @@ export const EmptyState = () => {
       title: string;
     }>
       title='No articles found'
-      className='min-w-[300px]'
+      className='yl:min-w-[300px]'
       isLoading={false}
       items={[]}
     />
@@ -68,7 +68,7 @@ export const EmptyState = () => {
 
 export const WithCustomItems = () => {
   return (
-    <div className='w-[400px]'>
+    <div className='yl:w-[400px]'>
       <ContentWidget<{
         id: number;
         title: string;
@@ -76,7 +76,7 @@ export const WithCustomItems = () => {
         author: string;
       }>
         title='Featured articles'
-        className='min-w-[300px]'
+        className='yl:min-w-[300px]'
         isLoading={false}
         items={Array(5)
           .fill(0)

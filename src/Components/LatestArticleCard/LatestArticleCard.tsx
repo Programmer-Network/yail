@@ -44,10 +44,10 @@ const LatestArticleCard: FC<ILatestArticleCard> = memo(
     const timeAgo = getTimeAgo(articleDate);
 
     const cardClasses = classNames(
-      "group flex flex-col gap-2 border-2 border-border rounded-lg p-3 overflow-hidden transition-all duration-200",
-      "hover:border-primary/30 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2",
+      "group yl:flex yl:flex-col yl:gap-2 yl:border-2 yl:border-border yl:rounded-lg yl:p-3 yl:overflow-hidden yl:transition-all yl:duration-200",
+      "yl:hover:border-primary/30 yl:focus:outline-none yl:focus:ring-2 yl:focus:ring-primary yl:focus:ring-offset-2",
       {
-        "cursor-pointer": onCardClick
+        "yl:cursor-pointer": onCardClick
       },
       className
     );
@@ -65,27 +65,27 @@ const LatestArticleCard: FC<ILatestArticleCard> = memo(
         <NavLink
           to={articleURL}
           onClick={handleCardClick}
-          className='hover:text-primary text-text line-clamp-2 text-sm font-semibold transition-colors'
+          className='yl:hover:text-primary yl:text-text yl:text-sm yl:font-semibold yl:transition-colors line-clamp-2'
         >
           {title}
         </NavLink>
 
         <p
           id={`latest-article-description-${cardId}`}
-          className='text-text/70 line-clamp-1 text-xs leading-relaxed'
+          className='yl:text-text/70 yl:text-xs yl:leading-relaxed line-clamp-1'
         >
           {summary}
         </p>
 
-        <div className='text-muted flex items-center gap-2 text-xs'>
+        <div className='yl:text-muted yl:flex yl:items-center yl:gap-2 yl:text-xs'>
           <NavLink
             to={`/${author.username}`}
             onClick={e => e.stopPropagation()}
-            className='hover:text-primary transition-colors'
+            className='yl:hover:text-primary yl:transition-colors'
           >
             @{author.username}
           </NavLink>
-          <span className='text-border'>•</span>
+          <span className='yl:text-border'>•</span>
           <span>{timeAgo}</span>
         </div>
       </article>

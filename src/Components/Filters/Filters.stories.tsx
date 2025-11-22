@@ -82,7 +82,7 @@ export const WithExtraFilters: Story = {
             { value: "draft", label: "Draft" }
           ]}
           onChange={() => {}}
-          inputWrapperClassName='min-w-[200px] max-w-xs'
+          inputWrapperClassName='yl:min-w-[200px] yl:max-w-xs'
         />
       }
     />

@@ -36,7 +36,7 @@ export const Outline: Story = {
 export const Custom: Story = {
   args: {
     title: "Badge",
-    className: "text-bg bg-red-500"
+    className: "yl:text-bg yl:bg-red-500"
   }
 };
 

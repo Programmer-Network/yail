@@ -96,7 +96,7 @@ export const Toolbar = ({
   };
 
   return (
-    <div className='border-border/40 bg-text/1 relative flex flex-wrap items-center gap-1 rounded-tl-md rounded-tr-md border-2 p-2 pb-0 md:gap-4 md:px-4'>
+    <div className='yl:border-border/40 yl:bg-text/1 yl:relative yl:flex yl:flex-wrap yl:items-center yl:gap-1 yl:rounded-tl-md yl:rounded-tr-md yl:border-2 yl:p-2 yl:pb-0 yl:md:gap-4 yl:md:px-4'>
       {image.isExtensionEnabled && (
         <input
           type='file'
@@ -181,7 +181,7 @@ export const Toolbar = ({
                 outlined
                 onClick={() => insertLink(LinkClickTarget.UnLink)}
               >
-                <Icon iconName='IconUnlink' className='w-6' />
+                <Icon iconName='IconUnlink' className='yl:w-6' />
               </Button>
             )}
           </ModalInput>
@@ -256,23 +256,27 @@ export const Toolbar = ({
               >
                 <Icon
                   iconName={i.iconName || ""}
-                  className={classNames("border-border w-8 cursor-pointer", {
-                    "text-text": !i.isActive,
-                    "fill-primary text-primary": i.isActive,
-                    "cursor-not-allowed opacity-30":
-                      typeof i.isDisabled === "function" && i.isDisabled(),
-                    "cursor-default": !hasSelection,
-                    "fill-primary": i.iconName === "IconLink" && hasSelection,
-                    "w-[27px]": i.iconName === "IconStrikethrough",
-                    "w-[28px]":
-                      i.iconName === "IconLink" || i.iconName === "IconItalic",
-                    "w-[29px]":
-                      i.iconName === "IconBold" ||
-                      i.iconName === "IconListOl" ||
-                      i.iconName === "IconListUl",
-                    "w-[26px]": i.iconName === "IconImage",
-                    "w-[32px]": i.iconName === "IconLink"
-                  })}
+                  className={classNames(
+                    "yl:border-border yl:w-8 yl:cursor-pointer",
+                    {
+                      "yl:text-text": !i.isActive,
+                      "yl:fill-primary yl:text-primary": i.isActive,
+                      "yl:cursor-not-allowed yl:opacity-30":
+                        typeof i.isDisabled === "function" && i.isDisabled(),
+                      "cursor-default": !hasSelection,
+                      "fill-primary": i.iconName === "IconLink" && hasSelection,
+                      "w-[27px]": i.iconName === "IconStrikethrough",
+                      "w-[28px]":
+                        i.iconName === "IconLink" ||
+                        i.iconName === "IconItalic",
+                      "w-[29px]":
+                        i.iconName === "IconBold" ||
+                        i.iconName === "IconListOl" ||
+                        i.iconName === "IconListUl",
+                      "w-[26px]": i.iconName === "IconImage",
+                      "w-[32px]": i.iconName === "IconLink"
+                    }
+                  )}
                 />
               </button>
             </Tooltip>

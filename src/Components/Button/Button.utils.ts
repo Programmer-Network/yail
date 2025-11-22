@@ -4,37 +4,40 @@ import { ButtonVariantEnum, IGetButtonClassesArgs } from "./types";
 
 export const getStyles = (isLoading: boolean) => {
   return {
-    base: "select-none px-3 py-2 font-semibold tracking-tight rounded-md border-2 transition-all duration-200 transform hover:scale-105",
-    disabled: "cursor-not-allowed opacity-70",
+    base: "yl:select-none yl:px-3 yl:py-2 yl:font-semibold yl:tracking-tight yl:rounded-md yl:border-2 yl:transition-all yl:duration-200 yl:transform yl:hover:scale-105",
+    disabled: "yl:cursor-not-allowed yl:opacity-70",
     enabled: classNames({
-      "cursor-pointer": !isLoading
+      "yl:cursor-pointer": !isLoading
     }),
     primary: {
-      default: "border-primary bg-primary text-background",
-      outlined: "border-primary bg-transparent text-primary fill-primary",
+      default: "yl:border-primary yl:bg-primary yl:text-background",
+      outlined:
+        "yl:border-primary yl:bg-transparent yl:text-primary yl:fill-primary",
       hover: classNames({
-        "hover:bg-transparent hover:text-primary": !isLoading,
-        "hover:fill-background": isLoading
+        "yl:hover:bg-transparent yl:hover:text-primary": !isLoading,
+        "yl:hover:fill-background": isLoading
       }),
       hoverOutlined: classNames({
-        "hover:bg-primary hover:text-background hover:fill-background":
+        "yl:hover:bg-primary yl:hover:text-background yl:hover:fill-background":
           !isLoading
       })
     },
     error: {
-      default: "border-error bg-error text-background fill-bg",
-      outlined: "border-error bg-transparent text-error fill-error",
+      default: "yl:border-error yl:bg-error yl:text-background yl:fill-bg",
+      outlined: "yl:border-error yl:bg-transparent yl:text-error yl:fill-error",
       hover: classNames({
-        "hover:bg-transparent hover:text-error hover:fill-error": !isLoading
+        "yl:hover:bg-transparent yl:hover:text-error yl:hover:fill-error":
+          !isLoading
       }),
       hoverOutlined: classNames({
-        "hover:bg-error hover:text-background hover:fill-background": !isLoading
+        "yl:hover:bg-error yl:hover:text-background yl:hover:fill-background":
+          !isLoading
       })
     },
     secondary: {
-      default: "border-text/20 text-text/20 fill-text/20",
+      default: "yl:border-text/20 yl:text-text/20 yl:fill-text/20",
       hover: classNames({
-        "hover:border-text/30 hover:text-text/30 hover:fill-text/30 hover:bg-background/20":
+        "yl:hover:border-text/30 yl:hover:text-text/30 yl:hover:fill-text/30 yl:hover:bg-background/20":
           !isLoading
       })
     }

@@ -138,7 +138,7 @@ describe("LatestArticlesList", () => {
         />
       );
 
-      const skeletons = container.querySelectorAll(".animate-pulse");
+      const skeletons = container.querySelectorAll(".yl\\:animate-pulse");
       expect(skeletons).toHaveLength(3);
     });
 
@@ -152,7 +152,7 @@ describe("LatestArticlesList", () => {
         />
       );
 
-      const skeletons = container.querySelectorAll(".animate-pulse");
+      const skeletons = container.querySelectorAll(".yl\\:animate-pulse");
       expect(skeletons).toHaveLength(7);
     });
 

@@ -26,7 +26,7 @@ describe("CharacterCounter component", () => {
     expect(screen.getByTestId("separator")).toHaveTextContent("/");
     expect(screen.getByTestId("max-length")).toHaveTextContent(max.toString());
     expect(screen.getByTestId("current-length").parentNode).toHaveClass(
-      "text-error"
+      "yl:text-error"
     );
   });
 

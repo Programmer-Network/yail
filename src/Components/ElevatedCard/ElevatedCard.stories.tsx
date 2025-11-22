@@ -23,7 +23,7 @@ export const WithIcon = () => (
     description='Explore our collection of tools, libraries, and tutorials to enhance your development workflow.'
     icon={{
       iconName: "IconBook",
-      className: "w-6 h-6 text-primary"
+      className: "yl:w-6 yl:h-6 yl:text-primary"
     }}
   />
 );
@@ -34,10 +34,10 @@ export const WithChildren = () => (
     description='Explore our collection of tools, libraries, and tutorials to enhance your development workflow.'
     icon={{
       iconName: "IconAddYoutube",
-      className: "w-6 h-6 text-primary"
+      className: "yl:w-6 yl:h-6 yl:text-primary"
     }}
   >
-    <div className='mt-4 flex gap-2'>
+    <div className='yl:mt-4 yl:flex yl:gap-2'>
       <Button>Explore</Button>
       <Button variant={ButtonVariantEnum.SECONDARY}>Learn More</Button>
     </div>
@@ -50,7 +50,7 @@ export const Clickable = () => (
     description='Explore our collection of tools, libraries, and tutorials to enhance your development workflow.'
     icon={{
       iconName: "IconGroupWork",
-      className: "w-6 h-6 text-primary"
+      className: "yl:w-6 yl:h-6 yl:text-primary"
     }}
     onClick={() => action("Card clicked")()}
   />
@@ -62,8 +62,8 @@ export const CustomStyling = () => (
     description='Explore our collection of tools, libraries, and tutorials to enhance your development workflow.'
     icon={{
       iconName: "IconSkull",
-      className: "w-6 h-6 text-primary"
+      className: "yl:w-6 yl:h-6 yl:text-primary"
     }}
-    className='bg-primary-50 border-primary-100 max-w-sm border'
+    className='yl:bg-primary-50 yl:border-primary-100 yl:max-w-sm yl:border'
   />
 );

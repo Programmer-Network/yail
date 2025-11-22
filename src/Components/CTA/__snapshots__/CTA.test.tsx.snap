@@ -3,24 +3,24 @@
 exports[`CTA component > renders correctly - snapshot test 1`] = `
 <DocumentFragment>
   <div
-    class="flex items-center justify-center"
+    class="yl:flex yl:items-center yl:justify-center"
   >
     <div
-      class="flex flex-col items-center text-center"
+      class="yl:flex yl:flex-col yl:items-center yl:text-center"
     >
       <div
-        class="flex flex-col items-center justify-center gap-4"
+        class="yl:flex yl:flex-col yl:items-center yl:justify-center yl:gap-4"
       >
         <div
-          class="flex flex-col gap-2"
+          class="yl:flex yl:flex-col yl:gap-2"
         >
           <h3
-            class="text-xl sm:text-2xl md:text-3xl text-text break-words font-bold"
+            class="yl:text-xl yl:sm:text-2xl yl:md:text-3xl yl:text-text yl:break-words yl:font-bold"
           >
             Test Title
           </h3>
           <p
-            class="text-text break-words overflow-hidden text-secondary mx-auto max-w-md text-center"
+            class="yl:text-text yl:break-words yl:overflow-hidden yl:text-secondary yl:mx-auto yl:max-w-md yl:text-center"
           >
             Test Subtitle
           </p>

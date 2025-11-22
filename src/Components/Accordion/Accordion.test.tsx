@@ -61,7 +61,7 @@ describe("Accordion component", () => {
     expect(screen.queryByText("Item C")).toBeNull();
   });
 
-  test("expands and collapses sections on click", () => {
+  test("expands and yl:collapses sections on click", () => {
     const setExpanded = vi.fn();
     const setSelectedSection = vi.fn();
     const setSelectedItem = vi.fn();

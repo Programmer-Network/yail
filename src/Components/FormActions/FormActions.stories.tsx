@@ -51,7 +51,7 @@ export const FuturisticDefault = () => {
   };
 
   return (
-    <div className='w-full max-w-md p-8'>
+    <div className='yl:w-full yl:max-w-md yl:p-8'>
       <FormActions
         onSave={handleSave}
         onCancel={handleCancel}
@@ -65,9 +65,9 @@ export const FuturisticDefault = () => {
 
 export const DifferentSizes = () => {
   return (
-    <div className='space-y-10 p-8'>
+    <div className='yl:space-y-10 yl:p-8'>
       <div>
-        <h3 className='text-text/70 mb-4 text-sm font-medium tracking-wider uppercase'>
+        <h3 className='yl:text-text/70 yl:mb-4 yl:text-sm yl:font-medium yl:tracking-wider yl:uppercase'>
           Small Size
         </h3>
         <FormActions
@@ -80,7 +80,7 @@ export const DifferentSizes = () => {
       </div>
 
       <div>
-        <h3 className='text-text/70 mb-4 text-sm font-medium tracking-wider uppercase'>
+        <h3 className='yl:text-text/70 yl:mb-4 yl:text-sm yl:font-medium yl:tracking-wider yl:uppercase'>
           Medium Size (Default)
         </h3>
         <FormActions
@@ -93,7 +93,7 @@ export const DifferentSizes = () => {
       </div>
 
       <div>
-        <h3 className='text-text/70 mb-4 text-sm font-medium tracking-wider uppercase'>
+        <h3 className='yl:text-text/70 yl:mb-4 yl:text-sm yl:font-medium yl:tracking-wider yl:uppercase'>
           Large Size
         </h3>
         <FormActions

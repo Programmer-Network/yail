@@ -28,7 +28,7 @@ export const Default = () => {
   }, []);
 
   return (
-    <div className='max-w-[500px]'>
+    <div className='yl:max-w-[500px]'>
       <ImageCrop
         src={imageBlob}
         circularCrop={false}

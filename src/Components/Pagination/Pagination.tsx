@@ -30,16 +30,16 @@ const Pagination: FC<IPaginationProps> = ({
   };
 
   return (
-    <div className={classNames("flex gap-2", className)} role='group'>
+    <div className={classNames("yl:flex yl:gap-2", className)} role='group'>
       <Button
-        className='w-40'
+        className='yl:w-40'
         outlined
         disabled={isFirstPage}
         onClick={handlePrevious}
       >
         Previous
       </Button>
-      <Button className='w-40' disabled={isLastPage} onClick={handleNext}>
+      <Button className='yl:w-40' disabled={isLastPage} onClick={handleNext}>
         Next
       </Button>
     </div>

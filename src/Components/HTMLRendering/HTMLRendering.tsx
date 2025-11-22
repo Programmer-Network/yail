@@ -5,7 +5,7 @@ const HTMLRendering: FC<{
 }> = ({ html }) => {
   return (
     <div
-      className='mt-8 wrap-break-word text-indigo-500'
+      className='yl:mt-8 yl:text-indigo-500 wrap-break-word'
       dangerouslySetInnerHTML={{ __html: html }}
     ></div>
   );

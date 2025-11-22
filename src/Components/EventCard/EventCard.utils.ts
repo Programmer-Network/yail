@@ -9,13 +9,13 @@ export const getStatusCardClasses = (
 ): string => {
   switch (status) {
     case "published":
-      return "border-green-500/30 bg-green-500/5";
+      return "yl:border-green-500/30 yl:bg-green-500/5";
     case "cancelled":
-      return "border-red-500/30 bg-red-500/5";
+      return "yl:border-red-500/30 yl:bg-red-500/5";
     case "completed":
-      return "border-gray-500/30 bg-gray-500/5";
+      return "yl:border-gray-500/30 yl:bg-gray-500/5";
     case "draft":
-      return "border-yellow-500/30 bg-yellow-500/5";
+      return "yl:border-yellow-500/30 yl:bg-yellow-500/5";
     default:
       return "";
   }

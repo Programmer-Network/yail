@@ -21,8 +21,10 @@ const Hero: FC<IHeroProps> = ({
     <>
       <div
         className={classNames(
-          "relative w-full rounded-lg",
-          hasCover ? "flex min-h-[300px] items-end" : "bg-background",
+          "yl:relative yl:w-full yl:rounded-lg",
+          hasCover
+            ? "yl:flex yl:min-h-[300px] yl:items-end"
+            : "yl:bg-background",
           className
         )}
         style={
@@ -38,16 +40,25 @@ const Hero: FC<IHeroProps> = ({
       >
         {/* Actions top right */}
         {actions.length > 0 && (
-          <div className={classNames("absolute top-4 right-4 z-20 flex gap-2")}>
+          <div
+            className={classNames(
+              "yl:absolute yl:top-4 yl:right-4 yl:z-20 yl:flex yl:gap-2"
+            )}
+          >
             {actions.map((action: ReactNode, i: number) => (
               <div key={i}>{action}</div>
             ))}
           </div>
         )}
-        <div className={classNames("w-full", hasCover ? "px-8 py-6" : "p-8")}>
+        <div
+          className={classNames(
+            "yl:w-full",
+            hasCover ? "yl:px-8 yl:py-6" : "yl:p-8"
+          )}
+        >
           {/* Pills */}
           {pills.length > 0 && (
-            <div className='mb-2 flex items-center gap-2'>
+            <div className='yl:mb-2 yl:flex yl:items-center yl:gap-2'>
               {pills.map((pill: IPillProps, idx: number) => (
                 <Pill
                   key={idx}

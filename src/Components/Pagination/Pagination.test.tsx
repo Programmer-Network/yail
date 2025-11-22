@@ -21,9 +21,9 @@ describe("Pagination component", () => {
       <Pagination currentPage={0} setCurrentPage={() => {}} totalPages={3} />
     );
 
-    const previousButton = screen.getByText("Previous");
+    const previousButton = screen.getByRole("button", { name: "Previous" });
 
-    expect(previousButton.parentElement?.parentElement).toBeDisabled();
+    expect(previousButton).toBeDisabled();
   });
 
   test("disables the Next button on the last page", () => {
@@ -31,9 +31,9 @@ describe("Pagination component", () => {
       <Pagination currentPage={2} setCurrentPage={() => {}} totalPages={3} />
     );
 
-    const nextButton = screen.getByText("Next");
+    const nextButton = screen.getByRole("button", { name: "Next" });
 
-    expect(nextButton.parentNode?.parentNode).toBeDisabled();
+    expect(nextButton).toBeDisabled();
   });
 
   test("calls setCurrentPage with the previous page when Previous is clicked", () => {
@@ -68,7 +68,7 @@ describe("Pagination component", () => {
     expect(setCurrentPage).toHaveBeenCalledWith(2);
   });
 
-  test("applies custom className to the container", () => {
+  test("applies custom className to the yl:container", () => {
     const customClass = "my-custom-class";
 
     render(

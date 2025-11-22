@@ -8,10 +8,10 @@ const Tag: FC<ITagProps> = ({ name, className = null, onClick }) => {
     <div
       onClick={onClick}
       className={classNames(
-        "text-primary hover:border-border hover:text-text rounded-md bg-transparent text-base last:mr-0",
+        "yl:text-primary yl:hover:border-border yl:hover:text-text yl:rounded-md yl:bg-transparent yl:text-base yl:last:mr-0",
         className,
         {
-          "cursor-pointer": onClick
+          "yl:cursor-pointer": onClick
         }
       )}
     >

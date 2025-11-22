@@ -214,7 +214,7 @@ export const JustPosted: Story = {
 
 export const MultipleCards: Story = {
   render: () => (
-    <div style={{ width: "350px" }} className='flex flex-col gap-3'>
+    <div style={{ width: "350px" }} className='yl:flex yl:flex-col yl:gap-3'>
       {mockArticles.map(article => (
         <LatestArticleCard
           key={article.id}

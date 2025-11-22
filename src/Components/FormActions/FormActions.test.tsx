@@ -198,12 +198,12 @@ describe("FormActions component", () => {
     // Look for the main container that has the gap classes
     let container = screen.getByText("Save").closest("div")
       ?.parentElement?.parentElement;
-    expect(container).toHaveClass("gap-2");
+    expect(container).toHaveClass("yl:gap-2");
 
     rerender(<FormActions onSave={vi.fn()} onCancel={vi.fn()} size='large' />);
     container = screen.getByText("Save").closest("div")
       ?.parentElement?.parentElement;
-    expect(container).toHaveClass("gap-4");
+    expect(container).toHaveClass("yl:gap-4");
   });
 
   test("renders delete dialog with custom title and message", () => {

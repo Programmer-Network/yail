@@ -44,9 +44,11 @@ type Story = StoryObj<typeof PersonCard>;
 
 const mockPerson: IPerson = {
   id: 1,
+  name: "Ada Lovelace",
   username: "ada_lovelace",
   email: "ada@lovelace.com",
   avatar: "https://randomuser.me/api/portraits/women/44.jpg",
+  about: "Pioneer in computer science and mathematics",
   location: "London, UK",
   badge: {
     text: "Verified",
@@ -156,7 +158,9 @@ export const NoSocialLinks: Story = {
 export const LongDescription: Story = {
   args: {
     person: {
-      ...mockPerson
+      ...mockPerson,
+      about:
+        "Pioneer in computer science and mathematics and a lot of other things"
     },
     size: "medium",
     maxDescriptionLines: 2

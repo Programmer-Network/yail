@@ -22,7 +22,7 @@ describe("Badge component", () => {
   test("applies filled variant", () => {
     render(<Badge title={testTitle} variant={BadgeVariantEnum.FILLED} />);
     const badgeElement = screen.getByText(testTitle);
-    expect(badgeElement).toHaveClass("bg-primary");
+    expect(badgeElement).toHaveClass("yl:bg-primary");
   });
 
   test("applies custom class name", () => {
@@ -41,7 +41,7 @@ describe("Badge component", () => {
   test("applies outline variant", () => {
     render(<Badge title={testTitle} variant={BadgeVariantEnum.OUTLINE} />);
     const badgeElement = screen.getByText(testTitle);
-    expect(badgeElement).toHaveClass("bg-transparent");
+    expect(badgeElement).toHaveClass("yl:bg-transparent");
   });
 
   test("applies clickable class name", () => {
@@ -54,6 +54,6 @@ describe("Badge component", () => {
     );
 
     const badgeElement = screen.getByText(testTitle);
-    expect(badgeElement).toHaveClass("cursor-pointer");
+    expect(badgeElement).toHaveClass("yl:cursor-pointer");
   });
 });

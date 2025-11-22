@@ -7,12 +7,12 @@ const TextOverLine: FC<ITextOverLineProps> = ({ children, className }) => {
   return (
     <div
       className={classNames(
-        "relative inline-flex w-full items-center justify-center",
+        "yl:relative yl:inline-flex yl:w-full yl:items-center yl:justify-center",
         className
       )}
     >
-      <hr className='bg-background h-px w-64 rounded border-0' />
-      <div className='bg-background text-text absolute left-1/2 -translate-x-1/2 rounded-md px-4'>
+      <hr className='yl:bg-background yl:h-px yl:w-64 yl:border-0 yl:rounded' />
+      <div className='yl:bg-background yl:text-text yl:absolute yl:left-1/2 yl:-translate-x-1/2 yl:rounded-md yl:px-4'>
         {children}
       </div>
     </div>

@@ -23,18 +23,18 @@ const CardHeader: FC<ICardHeader> = ({
   NavLink
 }) => {
   return (
-    <div className='mb-2'>
+    <div className='yl:mb-2'>
       {URLUtils.isExternalLink(titleUrl) ? (
         <a
           href={titleUrl}
           target='_blank'
           rel='noopener noreferrer'
-          className='hover:text-primary text-inherit no-underline transition-colors'
+          className='yl:hover:text-primary yl:text-inherit yl:no-underline yl:transition-colors'
         >
           <h3
             id={`card-title-${cardId}`}
             className={classNames(
-              "text-text m-0 flex items-center justify-start gap-2 text-xl font-semibold md:text-lg",
+              "yl:text-text yl:m-0 yl:flex yl:items-center yl:justify-start yl:gap-2 yl:text-xl yl:font-semibold yl:md:text-lg",
               getLineClampClass(maxTitleLines)
             )}
           >
@@ -42,11 +42,11 @@ const CardHeader: FC<ICardHeader> = ({
           </h3>
         </a>
       ) : (
-        <NavLink to={titleUrl} className='text-inherit no-underline'>
+        <NavLink to={titleUrl} className='yl:text-inherit yl:no-underline'>
           <h3
             id={`card-title-${cardId}`}
             className={classNames(
-              "group-hover:text-primary text-text m-0 text-xl font-semibold transition-colors md:text-lg",
+              "group-yl:hover:text-primary yl:text-text yl:m-0 yl:text-xl yl:font-semibold yl:transition-colors yl:md:text-lg",
               getLineClampClass(maxTitleLines)
             )}
           >

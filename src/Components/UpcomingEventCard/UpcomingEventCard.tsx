@@ -43,10 +43,10 @@ const UpcomingEventCard: FC<IUpcomingEventCard> = memo(
     const eventDate = new Date(dateAndTime);
 
     const cardClasses = classNames(
-      "group flex gap-3 border-2 border-border rounded-lg p-3 overflow-hidden transition-all duration-200",
-      "hover:border-primary/30 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2",
+      "yl:group yl:flex yl:gap-3 yl:border-2 yl:border-border yl:rounded-lg yl:p-3 yl:overflow-hidden yl:transition-all yl:duration-200",
+      "yl:hover:border-primary/30 yl:focus:outline-none yl:focus:ring-2 yl:focus:ring-primary yl:focus:ring-offset-2",
       {
-        "cursor-pointer": onCardClick
+        "yl:cursor-pointer": onCardClick
       },
       className
     );
@@ -61,22 +61,22 @@ const UpcomingEventCard: FC<IUpcomingEventCard> = memo(
         onClick={onCardClick ? handleCardClick : undefined}
         onKeyDown={onCardClick ? handleKeyDown : undefined}
       >
-        <div className='border-border/50 flex h-12 w-12 shrink-0 flex-col items-center justify-center gap-0.5 rounded border'>
-          <div className='text-primary text-[10px] leading-none font-semibold uppercase'>
+        <div className='yl:border-border/50 yl:flex yl:h-12 yl:w-12 yl:shrink-0 yl:flex-col yl:items-center yl:justify-center yl:gap-0.5 yl:rounded yl:border'>
+          <div className='yl:text-primary yl:text-[10px] yl:leading-none yl:font-semibold yl:uppercase'>
             {eventDate.toLocaleDateString("en-US", {
               month: "short"
             })}
           </div>
-          <div className='text-text text-lg leading-none font-bold'>
+          <div className='yl:text-text yl:text-lg yl:leading-none yl:font-bold'>
             {eventDate.getDate()}
           </div>
         </div>
 
-        <div className='min-w-0 flex-1'>
+        <div className='yl:min-w-0 yl:flex-1'>
           <NavLink
             to={eventURL}
             onClick={handleCardClick}
-            className='hover:text-primary text-text mb-1 line-clamp-1 text-sm font-semibold transition-colors'
+            className='yl:hover:text-primary yl:text-text yl:mb-1 yl:text-sm yl:font-semibold yl:transition-colors yl:line-clamp-1'
             id={`upcoming-event-title-${cardId}`}
           >
             {title}
@@ -84,12 +84,12 @@ const UpcomingEventCard: FC<IUpcomingEventCard> = memo(
 
           <p
             id={`upcoming-event-description-${cardId}`}
-            className='text-text/70 mb-1.5 line-clamp-1 text-xs'
+            className='yl:text-text/70 yl:mb-1.5 yl:text-xs yl:line-clamp-1'
           >
             {summary}
           </p>
 
-          <div className='text-muted text-xs'>
+          <div className='yl:text-muted yl:text-xs'>
             {eventDate.toLocaleDateString("en-US", {
               weekday: "short",
               month: "short",

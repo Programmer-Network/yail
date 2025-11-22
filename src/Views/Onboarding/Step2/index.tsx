@@ -6,24 +6,24 @@ import { Paragraph } from "../../../Components/Typography";
 
 export const StepTwo: React.FC<Partial<StepWizardChildProps>> = props => {
   return (
-    <div className='flex flex-col gap-4 p-4 md:gap-8 md:p-0'>
-      <div className='flex flex-col items-center gap-8'>
-        <Icon iconName='IconProgrammerCoding' className='w-64 md:w-96' />{" "}
+    <div className='yl:flex yl:flex-col yl:gap-4 yl:p-4 yl:md:gap-8 yl:md:p-0'>
+      <div className='yl:flex yl:flex-col yl:items-center yl:gap-8'>
+        <Icon iconName='IconProgrammerCoding' className='yl:w-64 yl:md:w-96' />{" "}
         <div>
           <Paragraph>
             Programmer Network exists as a professional haven for developers,
             committed to maintaining an environment focused solely on our
             domain. Our mission is to create a{" "}
-            <span className='font-semibold'>breakout room</span> for developers
-            to engage, learn, and share, devoid of unrelated and potentially
-            disruptive content.
+            <span className='yl:font-semibold'>breakout room</span> for
+            developers to engage, learn, and share, devoid of unrelated and
+            potentially disruptive content.
           </Paragraph>
         </div>
       </div>
-      <div className='flex justify-end gap-2'>
+      <div className='yl:flex yl:justify-end yl:gap-2'>
         <div>
           <Button
-            className='button--gray w-full md:w-auto'
+            className='button--gray yl:w-full yl:md:w-auto'
             type='button'
             onClick={() => {
               props.previousStep?.();

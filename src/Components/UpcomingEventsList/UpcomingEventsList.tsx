@@ -39,9 +39,9 @@ const UpcomingEventsList: FC<IUpcomingEventsList> = ({
   const displayEvents = events.slice(0, maxEvents);
 
   return (
-    <section className={classNames("space-y-4", className)}>
+    <section className={classNames("yl:space-y-4", className)}>
       {title && (
-        <div className='flex items-center justify-between'>
+        <div className='yl:flex yl:items-center yl:justify-between'>
           <H6>{title}</H6>
           {viewAllUrl && (
             <Anchor onClick={onViewAllClick ? handleViewAllClick : undefined}>
@@ -52,11 +52,11 @@ const UpcomingEventsList: FC<IUpcomingEventsList> = ({
       )}
 
       {displayEvents.length === 0 ? (
-        <div className='text-muted border-border rounded-lg border-2 p-8 text-center text-sm'>
+        <div className='yl:text-muted yl:border-border yl:rounded-lg yl:border-2 yl:p-8 yl:text-center yl:text-sm'>
           {emptyMessage}
         </div>
       ) : (
-        <div className='space-y-3'>
+        <div className='yl:space-y-3'>
           {displayEvents.map((event, index) => (
             <UpcomingEventCard
               key={`${event.eventURL}-${index}`}

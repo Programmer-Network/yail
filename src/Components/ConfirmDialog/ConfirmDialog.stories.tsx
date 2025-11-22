@@ -18,7 +18,7 @@ const ConfirmDialogWrapper = (args: IConfirmDialogProps) => {
   };
 
   return (
-    <div className='p-4'>
+    <div className='yl:p-4'>
       <Button onClick={openDialog}>Open Dialog</Button>
       <ConfirmDialog ref={dialogRef} {...args} />
     </div>

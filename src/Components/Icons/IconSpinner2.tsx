@@ -2,35 +2,20 @@ import type { SVGProps } from "react";
 
 const SvgIconSpinner2 = (props: SVGProps<SVGSVGElement>) => (
   <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' {...props}>
-    <path fill='currentColor' d='M1 4h6v14H1z'>
-      <animate
-        id='icon-spinner-2_svg__b'
-        fill='freeze'
-        attributeName='opacity'
-        begin='0;a.end-0.25s'
-        dur='0.75s'
-        values='1;.2'
-      />
-    </path>
-    <path fill='currentColor' d='M9 4h6v14H9z' opacity={0.4}>
-      <animate
-        fill='freeze'
-        attributeName='opacity'
-        begin='b.begin+0.15s'
-        dur='0.75s'
-        values='1;.2'
-      />
-    </path>
-    <path fill='currentColor' d='M17 4h6v14h-6z' opacity={0.3}>
-      <animate
-        id='icon-spinner-2_svg__a'
-        fill='freeze'
-        attributeName='opacity'
-        begin='b.begin+0.3s'
-        dur='0.75s'
-        values='1;.2'
-      />
-    </path>
+    <style>{"@keyframes spinner_PBVY{to{transform:rotate(360deg)}}"}</style>
+    <path
+      d='M12 1a11 11 0 1 0 11 11A11 11 0 0 0 12 1m0 19a8 8 0 1 1 8-8 8 8 0 0 1-8 8'
+      opacity={0.25}
+    />
+    <circle
+      cx={12}
+      cy={2.5}
+      r={1.5}
+      style={{
+        transformOrigin: "center",
+        animation: "spinner_PBVY .75s linear infinite"
+      }}
+    />
   </svg>
 );
 export default SvgIconSpinner2;

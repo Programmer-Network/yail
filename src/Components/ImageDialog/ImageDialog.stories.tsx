@@ -32,7 +32,7 @@ export const Default = () => {
 
   return (
     <ImageDialog
-      className='max-w-[500px] overflow-hidden p-4'
+      className='yl:max-w-[500px] yl:overflow-hidden yl:p-4'
       buttonText='Save'
       ref={dialogRef}
       onClose={handleClose}
@@ -67,7 +67,7 @@ export const WithFailedHTTPRequest = () => {
 
   return (
     <ImageDialog
-      className='max-w-[500px] overflow-hidden p-4'
+      className='yl:max-w-[500px] yl:overflow-hidden yl:p-4'
       buttonText='Save'
       ref={dialogRef}
       onClose={handleClose}

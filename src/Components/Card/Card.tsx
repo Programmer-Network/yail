@@ -74,12 +74,12 @@ const Card: FC<ICard> = memo(
     }
 
     const cardClasses = classNames(
-      "group flex flex-col justify-start border-2 border-border rounded-lg overflow-hidden transition-all duration-200 relative",
-      "hover:shadow-md hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 hover:border-primary/50",
+      "group yl:flex yl:flex-col yl:justify-start yl:border-2 yl:border-border yl:rounded-lg yl:overflow-hidden yl:transition-all yl:duration-200 yl:relative",
+      "yl:hover:shadow-md yl:hover:-translate-y-1 yl:focus:outline-none yl:focus:ring-2 yl:focus:ring-primary yl:focus:ring-offset-2 yl:hover:border-primary/50",
       getVariantClasses(variant),
       {
         "cursor-pointer": onCardClick,
-        "ring-2 ring-blue-500": isRead
+        "yl:ring-2 yl:ring-blue-500": isRead
       },
       className
     );
@@ -105,7 +105,7 @@ const Card: FC<ICard> = memo(
         />
 
         {actions && actions.length > 0 && (
-          <div className='absolute top-3 right-3 z-20 flex gap-2 opacity-0 transition-opacity duration-200 group-hover:opacity-100 md:opacity-100 md:group-hover:opacity-100'>
+          <div className='yl:absolute yl:top-3 yl:right-3 yl:z-20 yl:flex yl:gap-2 yl:opacity-0 yl:transition-opacity yl:duration-200 group-yl:hover:opacity-100 yl:md:opacity-100 md:group-yl:hover:opacity-100'>
             {actions
               .filter(a => a.show !== false)
               .map((action, idx) => (
@@ -116,43 +116,43 @@ const Card: FC<ICard> = memo(
                     action.onClick(e);
                   }}
                   className={classNames(
-                    "bg-background/5 flex min-w-[75px] cursor-pointer items-center justify-center gap-1 rounded-sm border-2 py-1 text-xs font-medium transition-all duration-200 hover:shadow-sm hover:brightness-95",
+                    "yl:bg-background/5 yl:flex yl:min-w-[75px] yl:cursor-pointer yl:items-center yl:justify-center yl:gap-1 yl:rounded-sm yl:border-2 yl:py-1 yl:text-xs yl:font-medium yl:transition-all yl:duration-200 yl:hover:shadow-sm yl:hover:brightness-95",
                     {
-                      "border-primary text-primary hover:bg-primary hover:text-background":
+                      "yl:border-primary yl:text-primary yl:hover:bg-primary yl:hover:text-background":
                         action.variant === "primary" || !action.variant,
-                      "hover:text-background border-red-500 text-red-600 hover:bg-red-700":
+                      "yl:hover:text-background yl:border-red-500 yl:text-red-600 yl:hover:bg-red-700":
                         action.variant === "danger",
-                      "border-border/20 text-muted hover:bg-background/80":
+                      "yl:border-border/20 yl:text-muted yl:hover:bg-background/80":
                         action.variant === "outlined"
                     }
                   )}
                   type='button'
                 >
-                  <div className='flex items-center justify-center gap-1'>
+                  <div className='yl:flex yl:items-center yl:justify-center yl:gap-1'>
                     {action.icon && (
-                      <span className='h-4 w-4'>{action.icon}</span>
+                      <span className='yl:h-4 yl:w-4'>{action.icon}</span>
                     )}
-                    <span className='text-center'>{action.label}</span>
+                    <span className='yl:text-center'>{action.label}</span>
                   </div>
                 </button>
               ))}
           </div>
         )}
 
-        <div className='flex flex-col'>
+        <div className='yl:flex yl:flex-col'>
           {image && (
             <CardImage
               {...image}
               onImageClick={
                 onImageClick ? interactions.handleImageClick : undefined
               }
-              className='w-full'
+              className='yl:w-full'
             />
           )}
 
           <div
             className={classNames(
-              "flex flex-1 flex-col justify-start p-6",
+              "yl:flex yl:flex-1 yl:flex-col yl:justify-start yl:p-6",
               (showBookmark || showShare) && !image && "pr-16"
             )}
           >
@@ -174,7 +174,7 @@ const Card: FC<ICard> = memo(
             <p
               id={`card-description-${cardId}`}
               className={classNames(
-                "text-text/80 m-0 flex-1",
+                "yl:text-text/80 yl:m-0 yl:flex-1",
                 getLineClampClass(maxDescriptionLines)
               )}
             >

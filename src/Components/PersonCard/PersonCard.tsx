@@ -71,7 +71,7 @@ const PersonCard: FC<IPersonCardProps> = ({
 
   const getSocialIcon = (platform: string): ReactNode => {
     const iconProps = {
-      className: "w-4 h-4"
+      className: "yl:w-4 yl:h-4"
     };
 
     const iconMapping: Record<string, string> = {
@@ -99,21 +99,21 @@ const PersonCard: FC<IPersonCardProps> = ({
 
   const getLineClampClass = (lines: number) => {
     const clampClasses: Record<number, string> = {
-      1: "line-clamp-1",
-      2: "line-clamp-2",
-      3: "line-clamp-3",
-      4: "line-clamp-4",
-      5: "line-clamp-5",
-      6: "line-clamp-6"
+      1: "yl:line-clamp-1",
+      2: "yl:line-clamp-2",
+      3: "yl:line-clamp-3",
+      4: "yl:line-clamp-4",
+      5: "yl:line-clamp-5",
+      6: "yl:line-clamp-6"
     };
-    return clampClasses[lines] || "line-clamp-3";
+    return clampClasses[lines] || "yl:line-clamp-3";
   };
 
   const getSizeClasses = (size: string) => {
     const sizeClasses: Record<string, string> = {
-      small: "p-4",
-      medium: "p-6",
-      large: "p-8"
+      small: "yl:p-4",
+      medium: "yl:p-6",
+      large: "yl:p-8"
     };
     return sizeClasses[size] || sizeClasses["medium"];
   };
@@ -128,40 +128,42 @@ const PersonCard: FC<IPersonCardProps> = ({
   };
 
   const cardClasses = classNames(
-    "group transition-all duration-200 relative",
-    "bg-background border-2 border-border rounded-lg shadow-sm hover:shadow-md hover:-translate-y-1 hover:border-primary/50 w-full",
+    "yl:group yl:transition-all yl:duration-200 yl:relative",
+    "yl:bg-background yl:border-2 yl:border-border yl:rounded-lg yl:shadow-sm yl:hover:shadow-md yl:hover:-translate-y-1 yl:hover:border-primary/50 yl:w-full",
     {
-      "cursor-pointer focus:outline-none": onClick || onPersonClick || href
+      "yl:cursor-pointer yl:focus:outline-none":
+        onClick || onPersonClick || href
     },
     getSizeClasses(size),
     className
   );
 
   const renderPersonContent = () => (
-    <div className='flex h-full flex-col gap-4'>
+    <div className='yl:flex yl:h-full yl:flex-col yl:gap-4'>
       {/* Avatar and Name/Username Section */}
-      <div className='flex items-start gap-3'>
+      <div className='yl:flex yl:items-start yl:gap-3'>
         {/* Avatar */}
-        <div className='relative shrink-0'>
+        <div className='yl:relative yl:shrink-0'>
           <Avatar src={avatar} alt={name} size={getAvatarSize(size)} />
         </div>
 
         {/* Name, Username, and Badge */}
-        <div className='flex min-w-0 flex-1 flex-col'>
-          <H4 className='text-foreground group-hover:text-primary m-0 truncate transition-colors'>
+        <div className='yl:flex yl:min-w-0 yl:flex-1 yl:flex-col'>
+          <H4 className='group-yl:hover:text-primary yl:m-0 yl:truncate yl:transition-colors yl:text-primary!'>
             {name}
           </H4>
           {username && (
-            <span className='text-muted -mt-1 flex items-center truncate text-sm'>
-              <span className='w-4 text-center'>@</span>
+            <span className='yl:text-muted yl:-mt-1 yl:flex yl:items-center yl:truncate yl:text-sm'>
+              <span className='yl:w-4 yl:text-center'>@</span>
               {username}
             </span>
           )}
           {(followingCount !== undefined || followersCount !== undefined) && (
-            <div className='text-muted ml-1 flex items-center gap-3 text-sm'>
+            <div className='yl:text-muted yl:ml-1 yl:flex yl:items-center yl:gap-3 yl:text-sm'>
               {followingCount !== undefined && (
                 <span>
-                  <span className='font-bold'>{followingCount}</span> Following
+                  <span className='yl:font-bold'>{followingCount}</span>{" "}
+                  Following
                 </span>
               )}
               {followingCount !== undefined && followersCount !== undefined && (
@@ -169,13 +171,14 @@ const PersonCard: FC<IPersonCardProps> = ({
               )}
               {followersCount !== undefined && (
                 <span>
-                  <span className='font-bold'>{followersCount}</span> Followers
+                  <span className='yl:font-bold'>{followersCount}</span>{" "}
+                  Followers
                 </span>
               )}
             </div>
           )}
           {badgeProps && (
-            <div className='mt-1'>
+            <div className='yl:mt-1'>
               <Pill variant={badgeProps.variant} size={PillSize.SMALL}>
                 {badgeProps.text}
               </Pill>
@@ -186,7 +189,7 @@ const PersonCard: FC<IPersonCardProps> = ({
 
       {/* Role and Location */}
       {(role || location) && (
-        <div className='text-muted -mt-2 text-center text-sm'>
+        <div className='yl:text-muted yl:-mt-2 yl:text-left yl:text-sm'>
           {role && <span>{role}</span>}
           {role && location && <span> • </span>}
           {location && <span>{location}</span>}
@@ -197,7 +200,7 @@ const PersonCard: FC<IPersonCardProps> = ({
       {about && (
         <Paragraph
           className={classNames(
-            "text-foreground/80 m-0 text-left text-sm",
+            "yl:text-text/80 yl:m-0 yl:text-left yl:text-sm",
             getLineClampClass(maxDescriptionLines)
           )}
         >
@@ -207,7 +210,7 @@ const PersonCard: FC<IPersonCardProps> = ({
 
       {/* Social Links */}
       {showSocialLinks && Object.keys(socialProfiles).length > 0 && (
-        <div className='flex justify-center gap-2'>
+        <div className='yl:flex yl:justify-start yl:gap-2'>
           {Object.entries(socialProfiles)
             .filter(([, url]) => url)
             .slice(0, 5)
@@ -217,7 +220,7 @@ const PersonCard: FC<IPersonCardProps> = ({
                 href={url as string}
                 target='_blank'
                 rel='noopener noreferrer'
-                className='text-muted hover:text-primary text-lg transition-colors'
+                className='yl:text-muted yl:hover:text-primary yl:text-lg yl:transition-colors'
                 onClick={e => e.stopPropagation()}
                 title={platform}
               >
@@ -228,7 +231,7 @@ const PersonCard: FC<IPersonCardProps> = ({
       )}
       {/* Actions */}
       {actions.length > 0 && (
-        <div className='flex flex-wrap justify-center gap-2'>
+        <div className='yl:flex yl:flex-wrap yl:justify-start yl:gap-2'>
           {actions
             .filter((action: IPersonAction) => action.show !== false)
             .map((action: IPersonAction, index: number) => {
@@ -257,7 +260,7 @@ const PersonCard: FC<IPersonCardProps> = ({
                   variant={getButtonVariant()}
                   outlined={isOutlined}
                   disabled={action.disabled}
-                  className='text-xs'
+                  className='yl:text-xs'
                   icon={
                     action.iconName
                       ? {
@@ -275,13 +278,13 @@ const PersonCard: FC<IPersonCardProps> = ({
       )}
 
       {/* Custom children */}
-      {children && <div className='mt-2'>{children}</div>}
+      {children && <div className='yl:mt-2'>{children}</div>}
 
       {/* Following, Followers, Tags, and Country at bottom left */}
-      <div className='mt-auto flex flex-col gap-2'>
+      <div className='yl:mt-auto yl:flex yl:flex-col yl:gap-2'>
         {/* Tags */}
         {showTags && tags.length > 0 && (
-          <div className='flex flex-wrap justify-start gap-2'>
+          <div className='yl:flex yl:flex-wrap yl:justify-start yl:gap-2'>
             {tags
               .slice(0, maxTags)
               .map((tag: IPersonCardTag, index: number) => (

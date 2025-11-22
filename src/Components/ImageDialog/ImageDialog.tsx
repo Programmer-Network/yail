@@ -77,7 +77,7 @@ const ImageDialog = forwardRef<HTMLDialogElement, IImageDialogProps>(
     };
 
     return (
-      <div className='h-full w-full'>
+      <div className='yl:h-full yl:w-full'>
         <Dialog
           shouldCloseOnClickOutside={false}
           ref={forwardedRef}
@@ -87,7 +87,7 @@ const ImageDialog = forwardRef<HTMLDialogElement, IImageDialogProps>(
         >
           {imageInputSelection?.file.blob && (
             <div>
-              <div className='relative w-full overflow-hidden'>
+              <div className='yl:relative yl:w-full yl:overflow-hidden'>
                 <ImageCrop
                   aspect={cropOptions.aspect}
                   circularCrop={cropOptions.circularCrop}
@@ -97,11 +97,11 @@ const ImageDialog = forwardRef<HTMLDialogElement, IImageDialogProps>(
                   }}
                 />
               </div>
-              <div className='mt-4'>
-                <div className='flex gap-2'>
+              <div className='yl:mt-4'>
+                <div className='yl:flex yl:gap-2'>
                   <Button
                     type='button'
-                    className='flex-1 cursor-pointer'
+                    className='yl:flex-1 yl:cursor-pointer'
                     onClick={handleSave}
                     icon={{
                       iconName: "IconImage",
@@ -117,7 +117,7 @@ const ImageDialog = forwardRef<HTMLDialogElement, IImageDialogProps>(
                     outlined
                     disabled={isSaving}
                     type='button'
-                    className='text-secondary fill-secondary border-secondary hover:bg-secondary/5 hover:text-secondary hover:fill-secondary hover:border-secondary cursor-pointer'
+                    className='yl:text-secondary yl:fill-secondary yl:border-secondary yl:hover:bg-secondary/5 yl:hover:text-secondary yl:hover:fill-secondary yl:hover:border-secondary yl:cursor-pointer'
                     onClick={() => {
                       setImageInputSelection(null);
                       setCroppedImage(null);

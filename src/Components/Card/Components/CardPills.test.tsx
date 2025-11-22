@@ -35,8 +35,8 @@ describe("CardPills component", () => {
     const premiumPill = screen.getByText("Premium");
     const editorChoicePill = screen.getByText("Editor's Choice");
 
-    expect(premiumPill).toHaveClass("bg-primary/10");
-    expect(editorChoicePill).toHaveClass("bg-muted/10");
+    expect(premiumPill).toHaveClass("yl:bg-primary/10");
+    expect(editorChoicePill).toHaveClass("yl:bg-muted/10");
   });
 
   it("applies custom className to pills", () => {
@@ -46,17 +46,17 @@ describe("CardPills component", () => {
     expect(customPill).toHaveClass("custom-class");
   });
 
-  it("renders pills in a flex container with proper spacing", () => {
+  it("renders pills in a yl:flex yl:container with proper spacing", () => {
     const { container } = render(<CardPills pills={mockPills} />);
 
     const pillsContainer = container.firstChild as HTMLElement;
     expect(pillsContainer).toHaveClass(
-      "flex",
-      "items-center",
-      "gap-2",
-      "flex-wrap",
-      "mt-3",
-      "mb-1"
+      "yl:flex",
+      "yl:items-center",
+      "yl:gap-2",
+      "yl:flex-wrap",
+      "yl:mt-3",
+      "yl:mb-1"
     );
   });
 

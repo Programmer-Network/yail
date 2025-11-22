@@ -352,7 +352,7 @@ describe("EventCard component", () => {
       expect(screen.getByText("#typescript")).toBeInTheDocument();
     });
 
-    it("limits visible tags based on maxVisibleTags prop", () => {
+    it("limits yl:visible tags based on maxVisibleTags prop", () => {
       renderEventCard({ data: fullEventData, maxVisibleTags: 2 });
 
       expect(screen.getByText("#react")).toBeInTheDocument();

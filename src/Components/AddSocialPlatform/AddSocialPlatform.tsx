@@ -24,7 +24,7 @@ const AddSocialPlatform: FC<IAddSocialPlatformProps> = ({
   return (
     <div
       className={classNames(
-        "flex flex-col items-end gap-2 md:flex-row",
+        "yl:flex yl:flex-col yl:items-end yl:gap-2 yl:md:flex-row",
         className
       )}
     >
@@ -40,7 +40,7 @@ const AddSocialPlatform: FC<IAddSocialPlatformProps> = ({
           value: name
         }))}
       />
-      <div className='w-full'>
+      <div className='yl:w-full'>
         <Input
           name='url'
           label={getValueLabel(form.state.platform.value)}
@@ -53,7 +53,7 @@ const AddSocialPlatform: FC<IAddSocialPlatformProps> = ({
       <div>
         <Button
           outlined
-          className='col-span-1 mt-2 md:mt-0'
+          className='yl:col-span-1 yl:mt-2 yl:md:mt-0'
           onClick={() => {
             if (!form.validate().isValid) {
               return;

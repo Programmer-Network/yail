@@ -47,7 +47,7 @@ export const Primary = () => {
   };
 
   return (
-    <div className='mx-auto my-6 w-full px-4 sm:max-w-5xl md:max-w-4xl lg:max-w-5xl lg:px-8'>
+    <div className='yl:mx-auto yl:my-6 yl:w-full yl:px-4 yl:sm:max-w-5xl yl:md:max-w-4xl yl:lg:max-w-5xl yl:lg:px-8'>
       <ImageSelector
         images={images}
         value={value}

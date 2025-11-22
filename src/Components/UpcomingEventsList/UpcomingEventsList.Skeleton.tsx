@@ -10,16 +10,16 @@ const UpcomingEventsListSkeleton: FC<IUpcomingEventsListSkeletonProps> = ({
 }) => {
   return (
     <section
-      className={classNames("space-y-4", className)}
+      className={classNames("yl:space-y-4", className)}
       role='status'
       aria-label='Loading events'
     >
-      <div className='flex items-center justify-between'>
-        <div className='bg-border/50 h-6 w-40 animate-pulse rounded' />
-        <div className='bg-border/50 h-5 w-16 animate-pulse rounded' />
+      <div className='yl:flex yl:items-center yl:justify-between'>
+        <div className='yl:bg-border/50 yl:h-6 yl:w-40 yl:animate-pulse yl:rounded' />
+        <div className='yl:bg-border/50 yl:h-5 yl:w-16 yl:animate-pulse yl:rounded' />
       </div>
 
-      <div className='space-y-3'>
+      <div className='yl:space-y-3'>
         {Array.from({ length: count }).map((_, index) => (
           <UpcomingEventCardSkeleton key={index} />
         ))}

@@ -19,7 +19,7 @@ export const getVariantClasses = (variant: string) => {
     case "compact":
       return "text-sm";
     case "featured":
-      return "border-primary shadow-lg";
+      return "yl:border-primary yl:shadow-lg";
     case "default":
     default:
       return "";

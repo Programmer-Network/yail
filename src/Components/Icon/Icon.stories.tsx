@@ -9,7 +9,7 @@ export default {
 export const Default = () => {
   return (
     <div>
-      <Icon iconName='IconItalic' className='text-text w-36' />
+      <Icon iconName='IconItalic' className='yl:text-text yl:w-36' />
     </div>
   );
 };

@@ -11,7 +11,7 @@ export const editorConfig = (args: IEditorConfig): Partial<EditorOptions> => {
     autofocus: autoFocus,
     editorProps: {
       attributes: {
-        class: "mx-auto focus:outline-hidden text-text"
+        class: "yl:mx-auto yl:focus:outline-hidden yl:text-text"
       }
     },
     extensions: getExtensions({

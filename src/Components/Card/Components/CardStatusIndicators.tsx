@@ -12,11 +12,11 @@ const CardStatusIndicators: FC<ICardStatusIndicators> = ({
   return (
     <>
       {isRead && (
-        <div className='absolute top-2 right-2 z-10 h-2 w-2 rounded-full bg-blue-500' />
+        <div className='yl:absolute yl:top-2 yl:right-2 yl:z-10 yl:h-2 yl:w-2 yl:rounded-full yl:bg-blue-500' />
       )}
 
       {isFeatured && (
-        <div className='bg-primary text-background absolute top-2 left-2 z-10 rounded px-2 py-1 text-xs font-semibold'>
+        <div className='yl:bg-primary yl:text-background yl:absolute yl:top-2 yl:left-2 yl:z-10 yl:px-2 yl:py-1 yl:text-xs yl:font-semibold yl:rounded'>
           Featured
         </div>
       )}

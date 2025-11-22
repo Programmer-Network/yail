@@ -3,19 +3,19 @@
 exports[`ElevatedCard component > renders correctly - snapshot test 1`] = `
 <DocumentFragment>
   <div
-    class="border-border bg-text/1 flex flex-col rounded-lg border p-6"
+    class="yl:border-border yl:bg-text/1 yl:flex yl:flex-col yl:rounded-lg yl:p-6 yl:border"
     data-testid="elevated-card"
   >
     <div
-      class="space-y-2"
+      class="yl:space-y-2"
     >
       <h5
-        class="text-md sm:text-lg md:text-xl text-text break-words font-bold"
+        class="yl:text-md yl:sm:text-lg yl:md:text-xl yl:text-text yl:break-words yl:font-bold"
       >
         Curated Resources
       </h5>
       <p
-        class="text-text break-words overflow-hidden"
+        class="yl:text-text yl:break-words yl:overflow-hidden"
       >
         Explore our collection of tools, libraries, and tutorials to enhance your development workflow.
       </p>

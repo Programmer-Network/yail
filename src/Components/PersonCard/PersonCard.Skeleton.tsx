@@ -21,80 +21,89 @@ const PersonCardSkeleton: FC<IPersonCardSkeletonProps> = ({
 
   const getAvatarSize = (size: string) => {
     const avatarSizes: Record<string, string> = {
-      small: "w-12 h-12",
-      medium: "w-16 h-16",
-      large: "w-20 h-20"
+      small: "yl:w-12 yl:h-12",
+      medium: "yl:w-16 yl:h-16",
+      large: "yl:w-20 yl:h-20"
     };
     return avatarSizes[size] || avatarSizes["medium"];
   };
 
   const cardClasses = classNames(
-    "animate-pulse",
-    "bg-background border-2 border-border rounded-lg shadow-sm max-w-sm w-full mx-auto",
+    "yl:animate-pulse",
+    "yl:bg-background yl:border-2 yl:border-border yl:rounded-lg yl:shadow-sm yl:max-w-sm yl:w-full yl:mx-auto",
     getSizeClasses(size),
     className
   );
 
   return (
     <div className={cardClasses}>
-      <div className='flex flex-col gap-4'>
+      <div className='yl:flex yl:flex-col yl:gap-4'>
         {/* Avatar Skeleton */}
-        <div className='relative mx-auto shrink-0'>
+        <div className='yl:relative yl:mx-auto yl:shrink-0'>
           <div
             className={classNames(
-              "bg-border rounded-full",
+              "yl:bg-border yl:rounded-full",
               getAvatarSize(size)
             )}
           />
         </div>
 
         {/* Name and Badge Skeleton */}
-        <div className='-mt-2 flex flex-col items-center gap-1'>
-          <div className='bg-border h-6 w-32 rounded' />
+        <div className='yl:-mt-2 yl:flex yl:flex-col yl:items-center yl:gap-1'>
+          <div className='yl:bg-border yl:h-6 yl:w-32 yl:rounded' />
           {/* Badge skeleton */}
-          <div className='bg-border h-5 w-16 rounded-full' />
+          <div className='yl:bg-border yl:h-5 yl:w-16 yl:rounded-full' />
         </div>
 
         {/* Username Skeleton */}
-        <div className='-mt-2'>
-          <div className='bg-border mx-auto h-4 w-20 rounded' />
+        <div className='yl:-mt-2'>
+          <div className='yl:bg-border yl:mx-auto yl:h-4 yl:w-20 yl:rounded' />
         </div>
 
         {/* Role and Location Skeleton */}
-        <div className='-mt-2 flex justify-center'>
-          <div className='bg-border h-4 w-28 rounded' />
+        <div className='yl:-mt-2 yl:flex yl:justify-center'>
+          <div className='yl:bg-border yl:h-4 yl:w-28 yl:rounded' />
         </div>
 
         {/* Description Skeleton */}
         {about && (
-          <div className='space-y-2'>
-            <div className='bg-border h-4 w-full rounded' />
-            <div className='bg-border mx-auto h-4 w-3/4 rounded' />
+          <div className='yl:space-y-2'>
+            <div className='yl:bg-border yl:h-4 yl:w-full yl:rounded' />
+            <div className='yl:bg-border yl:mx-auto yl:h-4 yl:w-3/4 yl:rounded' />
           </div>
         )}
 
         {/* Social Links Skeleton */}
         {showSocialLinks && (
-          <div className='flex justify-center gap-2'>
+          <div className='yl:flex yl:justify-center yl:gap-2'>
             {Array.from({ length: 3 }).map((_, index) => (
-              <div key={index} className='bg-border h-4 w-4 rounded' />
+              <div
+                key={index}
+                className='yl:bg-border yl:h-4 yl:w-4 yl:rounded'
+              />
             ))}
           </div>
         )}
 
         {/* Tags Skeleton */}
         {showTags && (
-          <div className='flex flex-wrap justify-center gap-2'>
+          <div className='yl:flex yl:flex-wrap yl:justify-center yl:gap-2'>
             {Array.from({ length: 3 }).map((_, index) => (
-              <div key={index} className='bg-border h-6 w-16 rounded-full' />
+              <div
+                key={index}
+                className='yl:bg-border yl:h-6 yl:w-16 yl:rounded-full'
+              />
             ))}
           </div>
         )}
 
         {/* Actions Skeleton */}
-        <div className='flex flex-wrap justify-center gap-2'>
+        <div className='yl:flex yl:flex-wrap yl:justify-center yl:gap-2'>
           {Array.from({ length: 2 }).map((_, index) => (
-            <div key={index} className='bg-border h-8 w-20 rounded' />
+            <div
+              key={index}
+              className='yl:bg-border yl:h-8 yl:w-20 yl:rounded'
+            />
           ))}
         </div>
       </div>

@@ -24,7 +24,7 @@ const LatestArticlesList: FC<ILatestArticlesList> = memo(
 
     const renderSkeletons = () => {
       return (
-        <div className='flex flex-col gap-3'>
+        <div className='yl:flex yl:flex-col yl:gap-3'>
           {Array.from({ length: maxArticles }).map((_, index) => (
             <LatestArticleCard
               key={`skeleton-${index}`}
@@ -47,7 +47,7 @@ const LatestArticlesList: FC<ILatestArticlesList> = memo(
     const renderEmptyState = () => {
       return (
         <div
-          className='text-muted border-border flex min-h-[120px] items-center justify-center rounded-lg border-2 border-dashed p-4 text-center text-sm'
+          className='yl:text-muted yl:border-border yl:flex yl:min-h-[120px] yl:items-center yl:justify-center yl:rounded-lg yl:border-2 yl:border-dashed yl:p-4 yl:text-center yl:text-sm'
           role='status'
           aria-live='polite'
         >
@@ -58,7 +58,7 @@ const LatestArticlesList: FC<ILatestArticlesList> = memo(
 
     const renderArticles = () => {
       return (
-        <div className='flex flex-col gap-3' role='list'>
+        <div className='yl:flex yl:flex-col yl:gap-3' role='list'>
           {displayedArticles.map((article: ILatestArticleCardData) => (
             <LatestArticleCard
               key={article.id}
@@ -76,9 +76,9 @@ const LatestArticlesList: FC<ILatestArticlesList> = memo(
         className={classNames(className)}
         aria-labelledby='latest-articles-title'
       >
-        <div className='mb-3 flex items-center justify-between'>
+        <div className='yl:mb-3 yl:flex yl:items-center yl:justify-between'>
           <H6
-            className='text-text text-base font-bold'
+            className='yl:text-text yl:text-base yl:font-bold'
             id='latest-articles-title'
           >
             {title}

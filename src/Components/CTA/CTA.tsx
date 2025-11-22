@@ -26,34 +26,34 @@ const CTA: FC<ICTAProps> = (
   }
 ) => {
   return (
-    <div className='flex items-center justify-center'>
-      <div className='flex flex-col items-center text-center'>
-        <div className='flex flex-col items-center justify-center gap-4'>
-          <div className='flex flex-col gap-2'>
+    <div className='yl:flex yl:items-center yl:justify-center'>
+      <div className='yl:flex yl:flex-col yl:items-center yl:text-center'>
+        <div className='yl:flex yl:flex-col yl:items-center yl:justify-center yl:gap-4'>
+          <div className='yl:flex yl:flex-col yl:gap-2'>
             {IconComponent && (
               <Icon
                 iconName={IconComponent.iconName}
                 dataTestId={IconComponent.dataTestId}
                 className={classNames(
-                  "text-primary mx-auto w-14 md:w-28",
+                  "yl:text-primary yl:mx-auto yl:w-14 yl:md:w-28",
                   iconClassName
                 )}
               />
             )}
 
             <H3>{title}</H3>
-            <Paragraph className='text-secondary mx-auto max-w-md text-center'>
+            <Paragraph className='yl:text-secondary yl:mx-auto yl:max-w-md yl:text-center'>
               {subtitle}
             </Paragraph>
           </div>
 
           {buttonText && onClick && (
             <Button onClick={onClick}>
-              <span className='flex items-center gap-2'>
+              <span className='yl:flex yl:items-center yl:gap-2'>
                 {ButtonIconComponent && (
                   <Icon
                     iconName={ButtonIconComponent.iconName}
-                    className='w-4'
+                    className='yl:w-4'
                     aria-hidden='true'
                   />
                 )}

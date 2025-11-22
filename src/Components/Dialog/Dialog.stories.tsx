@@ -19,8 +19,8 @@ export const SelectAnImage = () => {
 
   return (
     <div>
-      <div className='mt-14'>
-        <Dialog ref={dialogRef} className='px-4 py-2'>
+      <div className='yl:mt-14'>
+        <Dialog ref={dialogRef} className='yl:px-4 yl:py-2'>
           <ImageUpload onFileLoaded={() => null} label='Select an image' />
         </Dialog>
       </div>
@@ -39,9 +39,9 @@ export const Default = () => {
 
   return (
     <div>
-      <div className='mt-14'>
+      <div className='yl:mt-14'>
         <Dialog ref={dialogRef}>
-          <H1 className='mb-0!'>Hello, world</H1>
+          <H1 className='yl:mb-0!'>Hello, world</H1>
         </Dialog>
       </div>
 

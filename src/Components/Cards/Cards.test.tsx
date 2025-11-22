@@ -42,7 +42,7 @@ describe("Cards component", () => {
     expect(screen.getByText("Card 2 Title")).toBeInTheDocument();
   });
 
-  it("applies the correct grid column class based on columns prop", () => {
+  it("applies the correct yl:grid column class based on columns prop", () => {
     const { rerender } = render(
       <BrowserRouter>
         <Cards cards={mockCards} columns={3} NavLink={NavLink} />
@@ -50,7 +50,7 @@ describe("Cards component", () => {
     );
 
     expect(screen.getByTestId("cards")).toHaveClass(
-      "grid grid-cols-1 md:grid-cols-3"
+      "yl:grid yl:grid-cols-1 yl:md:grid-cols-3"
     );
 
     rerender(
@@ -59,7 +59,7 @@ describe("Cards component", () => {
       </BrowserRouter>
     );
     expect(screen.getByTestId("cards")).toHaveClass(
-      "grid grid-cols-1 md:grid-cols-4"
+      "yl:grid yl:grid-cols-1 yl:md:grid-cols-4"
     );
   });
 
