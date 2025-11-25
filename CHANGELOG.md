@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.12.1](https://github.com/Programmer-Network/yail/compare/yail-v1.12.0...yail-v1.12.1) (2025-11-25)
+
+
+### Bug Fixes
+
+* simplify image toolbar item styles in Tiptap editor ([c0ad8cc](https://github.com/Programmer-Network/yail/commit/c0ad8ccdcbb8faf2643c888175bde1aa66a47dcc))
+
 ## [1.12.0](https://github.com/Programmer-Network/yail/compare/yail-v1.11.0...yail-v1.12.0) (2025-11-22)
 
 
