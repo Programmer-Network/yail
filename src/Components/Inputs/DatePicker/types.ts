@@ -4,6 +4,7 @@ export interface IDatePickerProps {
   value?: Date;
   selected?: Date | null;
   required?: boolean;
+  disabled?: boolean;
   onChange: (value: Record<string, Date | null>) => void;
   timeFormat?: string;
   timeIntervals?: number;

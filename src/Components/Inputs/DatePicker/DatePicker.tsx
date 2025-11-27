@@ -11,6 +11,7 @@ const DatePicker: FC<IDatePickerProps> = props => {
   const {
     value = undefined,
     required,
+    disabled,
     onChange,
     name,
     showTimeSelect,
@@ -41,6 +42,7 @@ const DatePicker: FC<IDatePickerProps> = props => {
       <BaseDatePicker
         selected={value}
         required={required}
+        disabled={disabled}
         onChange={handleChange}
         showTimeSelect={showTimeSelect}
         timeFormat={timeFormat}
