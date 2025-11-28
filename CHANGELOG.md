@@ -2,24 +2,26 @@
 
 ## [1.12.1](https://github.com/Programmer-Network/yail/compare/yail-v1.12.0...yail-v1.12.1) (2025-11-25)
 
-
 ### Bug Fixes
 
-* simplify image toolbar item styles in Tiptap editor ([c0ad8cc](https://github.com/Programmer-Network/yail/commit/c0ad8ccdcbb8faf2643c888175bde1aa66a47dcc))
+- simplify image toolbar item styles in Tiptap editor
+  ([c0ad8cc](https://github.com/Programmer-Network/yail/commit/c0ad8ccdcbb8faf2643c888175bde1aa66a47dcc))
 
 ## [1.12.0](https://github.com/Programmer-Network/yail/compare/yail-v1.11.0...yail-v1.12.0) (2025-11-22)
 
-
 ### Features
 
-* update various components with new features and improvements, including Tiptap editor enhancements, icon updates, and new utility scripts ([bb421a8](https://github.com/Programmer-Network/yail/commit/bb421a874c055d806b10ed750b2f02538103c182))
+- update various components with new features and improvements, including Tiptap
+  editor enhancements, icon updates, and new utility scripts
+  ([bb421a8](https://github.com/Programmer-Network/yail/commit/bb421a874c055d806b10ed750b2f02538103c182))
 
 ## [1.11.0](https://github.com/Programmer-Network/yail/compare/yail-v1.10.0...yail-v1.11.0) (2025-11-22)
 
-
 ### Features
 
-* enhance Tiptap editor with table support including toolbar integration and styling ([6b83da1](https://github.com/Programmer-Network/yail/commit/6b83da19379ea1f12b72c687e5bf24cc6843210f))
+- enhance Tiptap editor with table support including toolbar integration and
+  styling
+  ([6b83da1](https://github.com/Programmer-Network/yail/commit/6b83da19379ea1f12b72c687e5bf24cc6843210f))
 
 ## [1.10.0](https://github.com/Programmer-Network/yail/compare/yail-v1.9.0...yail-v1.10.0) (2025-11-21)
 

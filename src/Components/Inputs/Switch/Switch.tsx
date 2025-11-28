@@ -39,7 +39,7 @@ const Switch: React.FC<ISwitchProps> = ({
           ></div>
         </div>
         {label && (
-          <span className='yl:text-text yl:text-sm yl:font-medium ms-3'>
+          <span className='yl:text-text yl:text-sm yl:font-medium yl:ms-3'>
             {label}
           </span>
         )}
