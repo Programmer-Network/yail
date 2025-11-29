@@ -94,13 +94,27 @@ export class TiptapToHTML {
           "title",
           "width",
           "height",
-          "loading"
+          "loading",
+          "data-align"
         ],
         span: ["data-id", "data-type", "text-primary"],
+        "rough-annotation": [
+          "data-type",
+          "data-color",
+          "data-label",
+          "data-stroke-width"
+        ],
         td: ["colspan", "rowspan", "colwidth"],
-        th: ["colspan", "rowspan", "colwidth"]
+        th: ["colspan", "rowspan", "colwidth"],
+        // TaskList attributes
+        ul: ["data-type"],
+        li: ["data-type", "data-checked"],
+        input: ["type", "checked", "disabled"],
+        label: [],
+        // Highlight attributes
+        mark: ["data-color"]
       },
-      selfClosing: ["img", "br"],
+      selfClosing: ["img", "br", "input"],
       allowedClasses: {
         "*": [
           "text-text",

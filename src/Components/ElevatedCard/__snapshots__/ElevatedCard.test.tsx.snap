@@ -10,12 +10,12 @@ exports[`ElevatedCard component > renders correctly - snapshot test 1`] = `
       class="yl:space-y-2"
     >
       <h5
-        class="yl:text-md yl:sm:text-lg yl:md:text-xl yl:text-text yl:break-words yl:font-bold"
+        class="yl:text-base yl:sm:text-lg yl:md:text-xl yl:leading-normal yl:text-text yl:break-words yl:font-bold"
       >
         Curated Resources
       </h5>
       <p
-        class="yl:text-text yl:break-words yl:overflow-hidden"
+        class="yl:text-base yl:md:text-lg yl:leading-relaxed yl:text-text yl:break-words yl:overflow-hidden"
       >
         Explore our collection of tools, libraries, and tutorials to enhance your development workflow.
       </p>

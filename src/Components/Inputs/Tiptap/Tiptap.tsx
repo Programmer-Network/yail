@@ -14,9 +14,11 @@ import { useMobile } from "../../../Hooks/useMediaQuery";
 import { InputError } from "../Common/InputError";
 import { InputHeader } from "../Common/InputHeader";
 import TiptapActions from "./Components/Actions";
+import { CharacterCount } from "./Components/CharacterCount";
 import { Toolbar } from "./Components/Toolbar";
 import "./Tiptap.css";
 import { editorConfig } from "./config";
+import { TIPTAP_TOOLBAR_ITEMS } from "./constants";
 import { TiptapProps, TiptapRef } from "./types";
 
 const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
@@ -64,6 +66,9 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
       return name === "link";
     })
   };
+
+  const characterCountEnabled =
+    toolbarItems?.includes(TIPTAP_TOOLBAR_ITEMS.CHARACTER_COUNT) ?? false;
 
   if (!image.isExtensionEnabled && typeof onSetImage === "function") {
     console.error(`"onSetImage" prop passed but image extension not found`);
@@ -173,6 +178,7 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
           onClick={() => editor.commands.focus()}
         >
           <EditorContent editor={editor} className='yl:p-4' />
+          {characterCountEnabled && <CharacterCount editor={editor} />}
           {actions &&
             typeof actions?.onAction === "function" &&
             actions.buttons?.length && (

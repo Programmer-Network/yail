@@ -2,17 +2,17 @@
 
 ## [1.13.1](https://github.com/Programmer-Network/yail/compare/yail-v1.13.0...yail-v1.13.1) (2025-11-28)
 
-
 ### Bug Fixes
 
-* correct margin class in Switch component for improved styling ([1278ff1](https://github.com/Programmer-Network/yail/commit/1278ff1abc2613575175b7270dafe6e7b4440e6f))
+- correct margin class in Switch component for improved styling
+  ([1278ff1](https://github.com/Programmer-Network/yail/commit/1278ff1abc2613575175b7270dafe6e7b4440e6f))
 
 ## [1.13.0](https://github.com/Programmer-Network/yail/compare/yail-v1.12.1...yail-v1.13.0) (2025-11-27)
 
-
 ### Features
 
-* add 'disabled' prop to DatePicker component for enhanced usability ([40a98d8](https://github.com/Programmer-Network/yail/commit/40a98d84f2da547bb14697490d6ca6a3f32820e3))
+- add 'disabled' prop to DatePicker component for enhanced usability
+  ([40a98d8](https://github.com/Programmer-Network/yail/commit/40a98d84f2da547bb14697490d6ca6a3f32820e3))
 
 ## [1.12.1](https://github.com/Programmer-Network/yail/compare/yail-v1.12.0...yail-v1.12.1) (2025-11-25)
 
