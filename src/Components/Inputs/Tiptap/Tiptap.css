@@ -347,6 +347,7 @@
   transition: box-shadow 0.2s ease;
 }
 
+/* Image alignment for HTML output */
 .ProseMirror img[data-align="left"] {
   margin-right: auto;
   margin-left: 0;

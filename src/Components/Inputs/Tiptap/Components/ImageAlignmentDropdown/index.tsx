@@ -1,9 +1,11 @@
 import { Editor } from "@tiptap/core";
+import { useEditorState } from "@tiptap/react";
 import { NodeSelection } from "prosemirror-state";
-import { FC, MouseEvent } from "react";
+import { FC, useCallback, useRef } from "react";
 
 import { Dropdown } from "../../../../Dropdown";
 import { Icon } from "../../../../Icon";
+import { ImageAlignment } from "../ResizableImage/ResizableImage.types";
 
 interface IImageAlignmentDropdownProps {
   editor: Editor;
@@ -12,44 +14,61 @@ interface IImageAlignmentDropdownProps {
 export const ImageAlignmentDropdown: FC<IImageAlignmentDropdownProps> = ({
   editor
 }) => {
-  // Check if an image node is selected using NodeSelection
-  const { selection } = editor.state;
-  const isNodeSelection = selection instanceof NodeSelection;
-  const selectedNode = isNodeSelection
-    ? (selection as NodeSelection).node
-    : null;
-  const isImageSelected = selectedNode?.type.name === "image";
+  // Store the node position when dropdown is about to open
+  const nodePositionRef = useRef<number | null>(null);
 
-  const currentAlignment = isImageSelected
-    ? selectedNode?.attrs["data-align"] || "center"
-    : "center";
+  // Subscribe to editor state for selection changes
+  const { isImageSelected, currentAlignment, nodePos } = useEditorState({
+    editor,
+    selector: ({ editor: e }) => {
+      const { selection } = e.state;
+      const isNodeSel = selection instanceof NodeSelection;
+      const selectedNode = isNodeSel ? (selection as NodeSelection).node : null;
+      const isImage = selectedNode?.type.name === "image";
 
-  const handleAlignLeft = (e: MouseEvent) => {
-    e.stopPropagation();
-    editor
-      .chain()
-      .focus()
-      .updateAttributes("image", { "data-align": "left" })
-      .run();
-  };
+      return {
+        isImageSelected: isImage,
+        currentAlignment: isImage
+          ? (selectedNode?.attrs["data-align"] as ImageAlignment) || "center"
+          : "center",
+        nodePos: isImage ? selection.from : null
+      };
+    }
+  });
 
-  const handleAlignCenter = (e: MouseEvent) => {
-    e.stopPropagation();
-    editor
-      .chain()
-      .focus()
-      .updateAttributes("image", { "data-align": "center" })
-      .run();
-  };
+  // Store position when we detect an image is selected
+  if (isImageSelected && nodePos !== null) {
+    nodePositionRef.current = nodePos;
+  }
 
-  const handleAlignRight = (e: MouseEvent) => {
-    e.stopPropagation();
-    editor
-      .chain()
-      .focus()
-      .updateAttributes("image", { "data-align": "right" })
-      .run();
-  };
+  const alignImage = useCallback(
+    (alignment: ImageAlignment) => {
+      const pos = nodePositionRef.current;
+      if (pos === null) return;
+
+      const { state, view } = editor;
+      const node = state.doc.nodeAt(pos);
+
+      if (node?.type.name === "image") {
+        const tr = state.tr.setNodeMarkup(pos, undefined, {
+          ...node.attrs,
+          "data-align": alignment
+        });
+
+        const newSelection = NodeSelection.create(tr.doc, pos);
+        tr.setSelection(newSelection);
+        view.dispatch(tr);
+      }
+    },
+    [editor]
+  );
+
+  const handleAlignLeft = useCallback(() => alignImage("left"), [alignImage]);
+  const handleAlignCenter = useCallback(
+    () => alignImage("center"),
+    [alignImage]
+  );
+  const handleAlignRight = useCallback(() => alignImage("right"), [alignImage]);
 
   const options = isImageSelected
     ? [
@@ -59,8 +78,7 @@ export const ImageAlignmentDropdown: FC<IImageAlignmentDropdownProps> = ({
             iconName: "AlignTextLeftOutline",
             className: `yl:w-4 yl:h-4 ${currentAlignment === "left" ? "yl:text-primary" : ""}`
           },
-          onClick: handleAlignLeft,
-          isActive: currentAlignment === "left"
+          onClick: handleAlignLeft
         },
         {
           value: "Align Center",
@@ -68,8 +86,7 @@ export const ImageAlignmentDropdown: FC<IImageAlignmentDropdownProps> = ({
             iconName: "AlignTextCenterOutline",
             className: `yl:w-4 yl:h-4 ${currentAlignment === "center" ? "yl:text-primary" : ""}`
           },
-          onClick: handleAlignCenter,
-          isActive: currentAlignment === "center"
+          onClick: handleAlignCenter
         },
         {
           value: "Align Right",
@@ -77,8 +94,7 @@ export const ImageAlignmentDropdown: FC<IImageAlignmentDropdownProps> = ({
             iconName: "AlignTextRightOutline",
             className: `yl:w-4 yl:h-4 ${currentAlignment === "right" ? "yl:text-primary" : ""}`
           },
-          onClick: handleAlignRight,
-          isActive: currentAlignment === "right"
+          onClick: handleAlignRight
         }
       ]
     : [];

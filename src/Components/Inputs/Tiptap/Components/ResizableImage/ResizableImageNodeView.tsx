@@ -132,37 +132,37 @@ const ResizableImageNodeView: FC<NodeViewProps> = ({
     };
   }, [resizeState.isResizing, handleResizeMove, handleResizeEnd]);
 
-  // Alignment styles using flexbox for reliable positioning
-  const alignmentStyles = {
-    left: "yl:justify-start",
-    center: "yl:justify-center",
-    right: "yl:justify-end"
-  };
+  const justifyContent =
+    alignment === "left"
+      ? "flex-start"
+      : alignment === "right"
+        ? "flex-end"
+        : "center";
 
   return (
     <NodeViewWrapper
       as='div'
-      className={classNames(
-        "yl:my-4 yl:flex yl:w-full",
-        alignmentStyles[alignment]
-      )}
+      className='yl:my-4'
+      style={{ display: "flex", justifyContent }}
     >
       <div
         ref={containerRef}
-        className='yl:relative yl:inline-block'
+        className='yl:relative'
         style={{
           width: currentSize.width ? `${currentSize.width}px` : "auto",
           maxWidth: "100%"
         }}
+        data-align={alignment}
       >
         <img
           ref={imageRef}
           src={src}
           alt={alt || ""}
           title={title || ""}
+          data-align={alignment}
           onLoad={handleImageLoad}
           className={classNames(
-            "yl:block yl:w-full yl:h-auto yl:rounded-md",
+            "yl:h-auto yl:rounded-md",
             "yl:transition-shadow yl:duration-200",
             {
               "yl:outline yl:outline-primary yl:outline-offset-2": selected,
