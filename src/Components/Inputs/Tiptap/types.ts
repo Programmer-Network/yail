@@ -118,3 +118,58 @@ export enum TiptapActionsEnum {
   CONFIRM = "CONFIRM",
   CANCEL = "CANCEL"
 }
+
+// Toolbar Group Types
+export enum ToolbarGroupId {
+  TYPOGRAPHY = "typography",
+  TEXT_FORMATTING = "text-formatting",
+  LISTS = "lists",
+  BLOCK_ELEMENTS = "block-elements",
+  INSERT = "insert",
+  ANNOTATIONS = "annotations",
+  CONTEXTUAL = "contextual"
+}
+
+// TiptapDropdown Types
+export interface ITiptapDropdownItem {
+  id: string;
+  label: string;
+  icon?: string;
+  onClick: () => void;
+  isActive?: boolean;
+  isDisabled?: boolean;
+  dividerAfter?: boolean;
+  shortcut?: string;
+}
+
+export interface ITiptapDropdownProps {
+  triggerIcon: string;
+  triggerLabel?: string;
+  items: ITiptapDropdownItem[];
+  isActive?: boolean;
+  disabled?: boolean;
+  showActiveIndicator?: boolean;
+  tooltipText?: string;
+  placement?: "bottom-start" | "bottom-end" | "bottom";
+}
+
+// ToolbarButton Types
+export interface IToolbarButtonProps {
+  icon: string;
+  onClick: () => void;
+  isActive?: boolean;
+  isDisabled?: boolean;
+  tooltipText?: string;
+}
+
+// ToolbarGroup Types
+export interface IToolbarGroupProps {
+  children: React.ReactNode;
+  showSeparator?: boolean;
+}
+
+// BubbleToolbar Types
+export interface IBubbleToolbarProps {
+  editor: Editor;
+  toolbarItems?: TiptapControls;
+}

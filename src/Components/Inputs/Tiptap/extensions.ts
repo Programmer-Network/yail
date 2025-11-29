@@ -2,15 +2,16 @@ import { mergeAttributes } from "@tiptap/core";
 import BlockQuote from "@tiptap/extension-blockquote";
 import Bold from "@tiptap/extension-bold";
 import UnorderedList from "@tiptap/extension-bullet-list";
+import CharacterCount from "@tiptap/extension-character-count";
 import Code from "@tiptap/extension-code";
-import CodeBlock from "@tiptap/extension-code-block";
+import CodeBlockLowlight from "@tiptap/extension-code-block-lowlight";
 import Color from "@tiptap/extension-color";
 import Document from "@tiptap/extension-document";
 import Dropcursor from "@tiptap/extension-dropcursor";
 import HardBreak from "@tiptap/extension-hard-break";
 import Heading from "@tiptap/extension-heading";
+import Highlight from "@tiptap/extension-highlight";
 import History from "@tiptap/extension-history";
-import Image from "@tiptap/extension-image";
 import Italic from "@tiptap/extension-italic";
 import Link from "@tiptap/extension-link";
 import ListItem from "@tiptap/extension-list-item";
@@ -20,13 +21,21 @@ import Paragraph from "@tiptap/extension-paragraph";
 import Placeholder from "@tiptap/extension-placeholder";
 import Strike from "@tiptap/extension-strike";
 import { TableKit } from "@tiptap/extension-table";
+import TaskItem from "@tiptap/extension-task-item";
+import TaskList from "@tiptap/extension-task-list";
 import Text from "@tiptap/extension-text";
 import { TextStyle } from "@tiptap/extension-text-style";
 import Youtube from "@tiptap/extension-youtube";
+import { common, createLowlight } from "lowlight";
 
+import { ResizableImageExtension } from "./Components/ResizableImage";
+import { RoughAnnotationExtension } from "./Components/RoughAnnotation";
 import Suggestion from "./Components/Suggestion";
 import { TIPTAP_TOOLBAR_ITEMS, toolbarItemToClassName } from "./constants";
 import { IExtensionsMap, IGetExtensions } from "./types";
+
+// Create lowlight instance with common programming languages
+const lowlight = createLowlight(common);
 
 const headers = Heading.configure({ levels: [1, 2, 3, 4, 5, 6] }).extend({
   levels: [1, 2, 3, 4, 5, 6],
@@ -76,7 +85,10 @@ const extensionsMap: IExtensionsMap = {
   }),
   [TIPTAP_TOOLBAR_ITEMS.CODE]: Code,
   [TIPTAP_TOOLBAR_ITEMS.STRIKE_THROUGH]: Strike,
-  [TIPTAP_TOOLBAR_ITEMS.CODE_BLOCK]: CodeBlock,
+  [TIPTAP_TOOLBAR_ITEMS.CODE_BLOCK]: CodeBlockLowlight.configure({
+    lowlight,
+    defaultLanguage: "plaintext"
+  }),
   [TIPTAP_TOOLBAR_ITEMS.BLOCK_QUOTE]: BlockQuote,
   [TIPTAP_TOOLBAR_ITEMS.LINK]: Link.configure({
     openOnClick: false,
@@ -105,13 +117,28 @@ const extensionsMap: IExtensionsMap = {
   [TIPTAP_TOOLBAR_ITEMS.HEADING_4]: headers,
   [TIPTAP_TOOLBAR_ITEMS.HEADING_5]: headers,
   [TIPTAP_TOOLBAR_ITEMS.HEADING_6]: headers,
-  [TIPTAP_TOOLBAR_ITEMS.IMAGE]: Image.configure({
+  [TIPTAP_TOOLBAR_ITEMS.IMAGE]: ResizableImageExtension.configure({
     allowBase64: true,
     HTMLAttributes: {
       class: toolbarItemToClassName[TIPTAP_TOOLBAR_ITEMS.IMAGE].classes
     }
   }),
-  [TIPTAP_TOOLBAR_ITEMS.TABLE]: TableKit
+  [TIPTAP_TOOLBAR_ITEMS.TABLE]: TableKit,
+  [TIPTAP_TOOLBAR_ITEMS.TASK_LIST]: TaskList.configure({
+    HTMLAttributes: {
+      class: "yl:list-none yl:pl-0"
+    }
+  }),
+  [TIPTAP_TOOLBAR_ITEMS.TASK_ITEM]: TaskItem.configure({
+    nested: true
+  }),
+  [TIPTAP_TOOLBAR_ITEMS.HIGHLIGHT]: Highlight.configure({
+    multicolor: true
+  }),
+  [TIPTAP_TOOLBAR_ITEMS.CHARACTER_COUNT]: CharacterCount.configure({
+    limit: null
+  }),
+  [TIPTAP_TOOLBAR_ITEMS.ROUGH_ANNOTATION]: RoughAnnotationExtension
 };
 
 export const defaultExtensions = ({
