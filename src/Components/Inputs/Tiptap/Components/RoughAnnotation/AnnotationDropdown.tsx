@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { FC, useCallback, useRef, useState } from "react";
+import { FC, useCallback, useEffect, useRef, useState } from "react";
 
 import {
   ANNOTATION_TYPE_OPTIONS,
@@ -23,6 +23,28 @@ const AnnotationDropdown: FC<IAnnotationDropdownProps> = ({
   const [label, setLabel] = useState("");
   const [strokeWidth, setStrokeWidth] = useState(DEFAULT_STROKE_WIDTH);
   const dropdownRef = useRef<HTMLDivElement>(null);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    if (!isOpen) {
+      return;
+    }
+
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Node;
+      const dropdown = dropdownRef.current;
+
+      if (dropdown && !dropdown.contains(target)) {
+        onClose();
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen, onClose]);
 
   const handleApply = useCallback(() => {
     const attrs: IRoughAnnotationAttrs = {
