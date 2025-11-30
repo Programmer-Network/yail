@@ -1,6 +1,5 @@
 import { validYouTubeUrl } from "@programmer_network/ajv";
 import useAJVForm from "@programmer_network/use-ajv-form";
-import { Editor } from "@tiptap/core";
 import { useEditorState } from "@tiptap/react";
 import {
   MouseEvent,
@@ -13,24 +12,12 @@ import {
 
 import { useModalInput } from "../../../../../Hooks/useModalInput";
 import { TIPTAP_TOOLBAR_ITEMS, TOOLBAR_GROUPS } from "../../constants";
-import { TiptapControls, ToolbarGroupId } from "../../types";
+import { ToolbarGroupId } from "../../types";
 import { LinkClickTarget } from "../ModalInput/types";
 import { IRoughAnnotationAttrs } from "../RoughAnnotation";
 import { ITiptapDropdownItem } from "../TiptapDropdown";
-import { getToolbarIcons } from "./toolbar-icons";
-
-interface IUseToolbarProps {
-  editor: Editor;
-  toolbarItems?: TiptapControls;
-  image: {
-    onSetImage?: (base64Image: string) => Promise<void>;
-    isExtensionEnabled: boolean;
-  };
-  link: {
-    isExtensionEnabled: boolean;
-  };
-  onImageUploadError?: (error: string) => void;
-}
+import { ILinkInputPosition, IUseToolbarProps } from "./Toolbar.types";
+import { getToolbarIcons } from "./Toolbar.utils";
 
 export const useToolbar = ({
   editor,
@@ -44,17 +31,12 @@ export const useToolbar = ({
   const [isAnnotationDropdownOpen, setIsAnnotationDropdownOpen] =
     useState(false);
   const [isLinkInputOpen, setIsLinkInputOpen] = useState(false);
-  const [linkInputPosition, setLinkInputPosition] = useState<{
-    x: number;
-    y: number;
-  } | null>(null);
+  const [linkInputPosition, setLinkInputPosition] =
+    useState<ILinkInputPosition | null>(null);
 
-  // Subscribe to editor state changes - this is Tiptap's built-in way
-  // to trigger re-renders when editor state changes (for active states, selection, etc.)
   useEditorState({
     editor,
     selector: ({ editor: e }) => ({
-      // Track enough state to trigger re-renders on relevant changes
       selectionFrom: e?.state.selection.from,
       selectionTo: e?.state.selection.to
     })
@@ -98,14 +80,15 @@ export const useToolbar = ({
   const hasExistingAnnotation = editor.isActive("roughAnnotation");
   const isInsideLink = editor.isActive("link");
 
-  // Track previous link state to detect when user clicks into a link
   const prevIsInsideLinkRef = useRef(false);
 
-  // Auto-open link input when user clicks/selects inside an existing link
   useEffect(() => {
-    // Only trigger when transitioning from outside to inside a link
     if (isInsideLink && !prevIsInsideLinkRef.current && !isLinkInputOpen) {
-      // Get position of the selection
+      if (!editor.view) {
+        prevIsInsideLinkRef.current = isInsideLink;
+        return;
+      }
+
       const { from } = editor.state.selection;
       const coords = editor.view.coordsAtPos(from);
 
@@ -114,21 +97,16 @@ export const useToolbar = ({
         y: coords.bottom
       });
 
-      // Pre-fill with existing link URL
       const existingHref = editor.getAttributes("link")["href"] || "";
       linkInputForm.set({ link: existingHref });
       setIsLinkInputOpen(true);
     }
 
-    // Update ref for next render
     prevIsInsideLinkRef.current = isInsideLink;
   }, [isInsideLink, isLinkInputOpen, editor, linkInputForm]);
 
-  // Get all toolbar icons - no memoization so isActive updates on editor state changes
   const allIcons = getToolbarIcons({ editor });
 
-  // Helper to check if item is enabled
-  // If toolbarItems is undefined, all items are enabled
   const isItemEnabled = useCallback(
     (itemId: string) =>
       !toolbarItems ||
@@ -136,13 +114,11 @@ export const useToolbar = ({
     [toolbarItems]
   );
 
-  // Helper to get icon config by id
   const getIconById = useCallback(
     (itemId: string) => allIcons.find(icon => icon.id === itemId),
     [allIcons]
   );
 
-  // Check if any items in a group are enabled
   const isGroupEnabled = useCallback(
     (groupId: ToolbarGroupId) => {
       const groupItems = TOOLBAR_GROUPS[groupId as keyof typeof TOOLBAR_GROUPS];
@@ -152,7 +128,6 @@ export const useToolbar = ({
     [isItemEnabled]
   );
 
-  // Insert link handler (legacy - for ModalInput)
   const insertLink = useCallback(
     (target: LinkClickTarget) => {
       if (!linkInputForm.isValid) return;
@@ -173,11 +148,9 @@ export const useToolbar = ({
     [editor, inputModal, linkInputForm]
   );
 
-  // Link input handlers (new TiptapLinkInput)
   const handleOpenLinkInput = useCallback(() => {
-    if (!hasSelection) return;
+    if (!hasSelection || !editor.view) return;
 
-    // Get position of the selection end to position the link input
     const { to } = editor.state.selection;
     const coords = editor.view.coordsAtPos(to);
 
@@ -186,7 +159,6 @@ export const useToolbar = ({
       y: coords.bottom
     });
 
-    // Pre-fill with existing link if any
     const existingHref = editor.getAttributes("link")["href"] || "";
     linkInputForm.set({ link: existingHref });
     setIsLinkInputOpen(true);
@@ -219,7 +191,6 @@ export const useToolbar = ({
     setIsLinkInputOpen(false);
   }, [editor]);
 
-  // Insert video handler
   const insertVideo = useCallback(() => {
     if (!youtubeInputForm.isValid) return;
 
@@ -230,7 +201,6 @@ export const useToolbar = ({
     inputModal.setModalId("");
   }, [editor, inputModal, youtubeInputForm]);
 
-  // Handle image upload
   const handleImageUpload = useCallback(
     async (file: File) => {
       const reader = new FileReader();
@@ -256,7 +226,6 @@ export const useToolbar = ({
     [editor, image, onImageUploadError]
   );
 
-  // Handle file input change
   const handleFileInputChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       const file = e.target.files?.[0];
@@ -268,7 +237,6 @@ export const useToolbar = ({
     [handleImageUpload]
   );
 
-  // Annotation handlers
   const handleApplyAnnotation = useCallback(
     (attrs: IRoughAnnotationAttrs) => {
       editor.commands.setRoughAnnotation(attrs);
@@ -294,7 +262,6 @@ export const useToolbar = ({
     }
   }, [editor]);
 
-  // Typography dropdown items - computed fresh each render for isActive updates
   const typographyDropdownItems = ((): ITiptapDropdownItem[] => {
     const items: ITiptapDropdownItem[] = [];
     const typographyItems = TOOLBAR_GROUPS[ToolbarGroupId.TYPOGRAPHY];
@@ -319,7 +286,6 @@ export const useToolbar = ({
     return items;
   })();
 
-  // Lists dropdown items
   const listsDropdownItems = ((): ITiptapDropdownItem[] => {
     const items: ITiptapDropdownItem[] = [];
     const listItems = TOOLBAR_GROUPS[ToolbarGroupId.LISTS];
@@ -344,11 +310,9 @@ export const useToolbar = ({
     return items;
   })();
 
-  // Insert dropdown items - computed fresh each render for isActive updates
   const insertDropdownItems = ((): ITiptapDropdownItem[] => {
     const items: ITiptapDropdownItem[] = [];
 
-    // Link - now uses TiptapLinkInput
     if (isItemEnabled(TIPTAP_TOOLBAR_ITEMS.LINK) && link.isExtensionEnabled) {
       const icon = getIconById(TIPTAP_TOOLBAR_ITEMS.LINK);
       items.push({
@@ -363,7 +327,6 @@ export const useToolbar = ({
       });
     }
 
-    // Image
     if (isItemEnabled(TIPTAP_TOOLBAR_ITEMS.IMAGE) && image.isExtensionEnabled) {
       const icon = getIconById(TIPTAP_TOOLBAR_ITEMS.IMAGE);
       items.push({
@@ -375,7 +338,6 @@ export const useToolbar = ({
       });
     }
 
-    // YouTube
     if (isItemEnabled(TIPTAP_TOOLBAR_ITEMS.YOUTUBE)) {
       const icon = getIconById(TIPTAP_TOOLBAR_ITEMS.YOUTUBE);
       items.push({
@@ -394,7 +356,6 @@ export const useToolbar = ({
       });
     }
 
-    // Table
     if (isItemEnabled(TIPTAP_TOOLBAR_ITEMS.TABLE)) {
       const icon = getIconById(TIPTAP_TOOLBAR_ITEMS.TABLE);
       items.push({
@@ -415,7 +376,6 @@ export const useToolbar = ({
     return items;
   })();
 
-  // Get filtered icons for a specific group
   const getGroupIcons = useCallback(
     (groupId: ToolbarGroupId) => {
       const groupItems = TOOLBAR_GROUPS[groupId as keyof typeof TOOLBAR_GROUPS];
@@ -430,30 +390,19 @@ export const useToolbar = ({
   );
 
   return {
-    // Refs
     ref,
     fileInputRef,
-
-    // State
     isAnnotationDropdownOpen,
     isLinkInputOpen,
     linkInputPosition,
     hasSelection,
     hasExistingAnnotation,
-
-    // Forms
     linkInputForm,
     youtubeInputForm,
-
-    // Modal
     inputModal,
-
-    // Dropdown items
     typographyDropdownItems,
     listsDropdownItems,
     insertDropdownItems,
-
-    // Handlers
     insertLink,
     insertVideo,
     handleFileInputChange,
@@ -461,21 +410,15 @@ export const useToolbar = ({
     handleRemoveAnnotation,
     handleCloseAnnotationDropdown,
     handleToggleAnnotationDropdown,
-
-    // Link input handlers
     handleOpenLinkInput,
     handleCloseLinkInput,
     handleLinkInputChange,
     handleLinkSubmit,
     handleUnlink,
-
-    // Helpers
     isItemEnabled,
     isGroupEnabled,
     getIconById,
     getGroupIcons,
-
-    // Image extension
     imageExtensionEnabled: image.isExtensionEnabled
   };
 };

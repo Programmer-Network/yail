@@ -265,7 +265,7 @@ export const BUBBLE_TOOLBAR_ITEMS = [
 /**
  * Standard icon size for toolbar - all icons should appear this size visually
  */
-export const TOOLBAR_ICON_SIZE = "yl:w-4 yl:h-4";
+export const TOOLBAR_ICON_SIZE = "yl:w-5 yl:h-5";
 
 /**
  * Individual icon size overrides - tuned per icon library for visual consistency
@@ -273,20 +273,20 @@ export const TOOLBAR_ICON_SIZE = "yl:w-4 yl:h-4";
  */
 export const TOOLBAR_ICON_SIZES: Record<string, string> = {
   // Dropdown chevron - smaller
-  DownSmallOutline: "yl:w-3 yl:h-3",
+  DownSmallOutline: "yl:w-4 yl:h-4",
 
   // Custom Icon* icons from our library - need slightly larger container
   // because they have more padding/whitespace baked in
-  IconH1: "yl:w-5 yl:h-5",
-  IconH2: "yl:w-5 yl:h-5",
-  IconH3: "yl:w-5 yl:h-5",
-  IconH4: "yl:w-5 yl:h-5",
-  IconH5: "yl:w-5 yl:h-5",
-  IconH6: "yl:w-5 yl:h-5",
-  IconCodeBlock: "yl:w-5 yl:h-5",
-  IconHighlight: "yl:w-5 yl:h-5",
-  IconCheck: "yl:w-5 yl:h-5",
-  IconPencilSquare: "yl:w-5 yl:h-5"
+  IconH1: "yl:w-6 yl:h-6",
+  IconH2: "yl:w-6 yl:h-6",
+  IconH3: "yl:w-6 yl:h-6",
+  IconH4: "yl:w-6 yl:h-6",
+  IconH5: "yl:w-6 yl:h-6",
+  IconH6: "yl:w-6 yl:h-6",
+  IconCodeBlock: "yl:w-6 yl:h-6",
+  IconHighlight: "yl:w-6 yl:h-6",
+  IconCheck: "yl:w-6 yl:h-6",
+  IconPencilSquare: "yl:w-6 yl:h-6"
 };
 
 export const getIconSize = (iconName: string): string => {

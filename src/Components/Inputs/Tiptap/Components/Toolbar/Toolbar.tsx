@@ -1,3 +1,4 @@
+import { BubbleMenu } from "@tiptap/react/menus";
 import classNames from "classnames";
 import { FC, MouseEvent, useCallback } from "react";
 
@@ -12,14 +13,60 @@ import { TiptapDropdown } from "../TiptapDropdown";
 import { TiptapLinkInput } from "../TiptapLinkInput";
 import { ToolbarButton } from "../ToolbarButton";
 import { ToolbarGroup } from "../ToolbarGroup";
+import { BUBBLE_MENU_OPTIONS } from "./Toolbar.constants";
 import { useToolbar } from "./Toolbar.hooks";
+import { IToolbarWrapperProps } from "./Toolbar.types";
+import { getActiveTypographyLabel } from "./Toolbar.utils";
+
+const ToolbarWrapper: FC<IToolbarWrapperProps> = ({
+  mode,
+  editor,
+  children,
+  className,
+  style
+}) => {
+  const handleShouldShow = useCallback(
+    ({ from, to }: { from: number; to: number }) => {
+      const isEmptySelection = from === to;
+      const isCodeBlock = editor.isActive("codeBlock");
+      const isImage = editor.isActive("image");
+      return !isEmptySelection && !isCodeBlock && !isImage;
+    },
+    [editor]
+  );
+
+  if (mode === "floating") {
+    return (
+      <BubbleMenu
+        editor={editor}
+        options={BUBBLE_MENU_OPTIONS}
+        shouldShow={handleShouldShow}
+      >
+        <div className={className} style={style}>
+          {children}
+        </div>
+      </BubbleMenu>
+    );
+  }
+
+  return (
+    <div className={className} style={style}>
+      {children}
+    </div>
+  );
+};
+
+ToolbarWrapper.displayName = "ToolbarWrapper";
 
 export const Toolbar: FC<TiptapToolbarProps> = ({
   editor,
   toolbarItems,
   image,
   link,
-  onImageUploadError
+  onImageUploadError,
+  stickyOffset,
+  variant = "default",
+  mode = "static"
 }) => {
   const {
     ref,
@@ -56,7 +103,6 @@ export const Toolbar: FC<TiptapToolbarProps> = ({
     onImageUploadError
   });
 
-  // Handle button click for toolbar icons
   const handleIconClick = useCallback(
     (_iconId: string, onClick?: (e: MouseEvent<HTMLButtonElement>) => void) => {
       return () => {
@@ -66,33 +112,69 @@ export const Toolbar: FC<TiptapToolbarProps> = ({
     []
   );
 
-  if (!editor) {
+  const handleYoutubeUrlChange = useCallback(
+    (input: Record<string, unknown>) => {
+      youtubeInputForm.set({ youtubeUrl: input["url"] as string });
+    },
+    [youtubeInputForm]
+  );
+
+  if (!editor || !editor.view) {
     return null;
   }
 
-  // Get active typography label for dropdown trigger
-  const getActiveTypographyLabel = (): string => {
-    if (editor.isActive("heading", { level: 1 })) return "H1";
-    if (editor.isActive("heading", { level: 2 })) return "H2";
-    if (editor.isActive("heading", { level: 3 })) return "H3";
-    if (editor.isActive("heading", { level: 4 })) return "H4";
-    if (editor.isActive("heading", { level: 5 })) return "H5";
-    if (editor.isActive("heading", { level: 6 })) return "H6";
-    return "¶";
-  };
-
+  const activeTypographyLabel = getActiveTypographyLabel(editor);
   const textFormattingIcons = getGroupIcons(ToolbarGroupId.TEXT_FORMATTING);
   const blockElementIcons = getGroupIcons(ToolbarGroupId.BLOCK_ELEMENTS);
 
+  const isZen = variant === "zen";
+  const isFloating = mode === "floating";
+
   const toolbarClasses = classNames(
-    "yl:border-border/40 yl:bg-background yl:sticky yl:top-0 yl:z-10",
-    "yl:flex yl:flex-wrap yl:items-center yl:rounded-tl-md yl:rounded-tr-md",
-    "yl:border-2 yl:border-b-0 yl:px-2 yl:py-1.5"
+    "yl:flex yl:flex-wrap yl:items-center yl:px-2 yl:py-1.5",
+    {
+      "yl:bg-background yl:sticky yl:z-10": !isFloating,
+      "yl:top-0": !isFloating && !stickyOffset,
+      "yl:border-border/40 yl:border-2 yl:border-b-0 yl:rounded-tl-md yl:rounded-tr-md":
+        !isFloating && !isZen,
+      "yl:border-b yl:border-border/20": !isFloating && isZen,
+      // Floating bubble menu - more prominent styling
+      "yl:bg-background/95 yl:backdrop-blur-sm yl:rounded-lg yl:border-2 yl:border-primary/30 yl:shadow-2xl yl:shadow-black/30 yl:gap-0.5 [&]:!z-[9999]":
+        isFloating
+    }
   );
 
+  const toolbarStyle =
+    !isFloating && stickyOffset ? { top: stickyOffset } : undefined;
+
+  const isTypographyEnabled =
+    isGroupEnabled(ToolbarGroupId.TYPOGRAPHY) &&
+    typographyDropdownItems.length > 0;
+  const isTextFormattingEnabled =
+    isGroupEnabled(ToolbarGroupId.TEXT_FORMATTING) &&
+    textFormattingIcons.length > 0;
+  const isListsEnabled =
+    isGroupEnabled(ToolbarGroupId.LISTS) && listsDropdownItems.length > 0;
+  const isBlockElementsEnabled =
+    isGroupEnabled(ToolbarGroupId.BLOCK_ELEMENTS) &&
+    blockElementIcons.length > 0;
+  const isInsertEnabled = insertDropdownItems.length > 0;
+  const isAnnotationEnabled = isItemEnabled(
+    TIPTAP_TOOLBAR_ITEMS.ROUGH_ANNOTATION
+  );
+  const isTableEnabled =
+    isItemEnabled(TIPTAP_TOOLBAR_ITEMS.TABLE) && editor.isActive("table");
+  const isImageEnabled = isItemEnabled(TIPTAP_TOOLBAR_ITEMS.IMAGE);
+  const isYoutubeModalOpen =
+    inputModal.modalId === TIPTAP_TOOLBAR_ITEMS.YOUTUBE;
+
   return (
-    <div className={toolbarClasses}>
-      {/* Hidden file input for image upload */}
+    <ToolbarWrapper
+      mode={mode}
+      editor={editor}
+      className={toolbarClasses}
+      style={toolbarStyle}
+    >
       {imageExtensionEnabled && (
         <input
           type='file'
@@ -103,15 +185,12 @@ export const Toolbar: FC<TiptapToolbarProps> = ({
         />
       )}
 
-      {/* YouTube URL Modal */}
-      {inputModal.modalId === TIPTAP_TOOLBAR_ITEMS.YOUTUBE && (
+      {isYoutubeModalOpen && (
         <ModalInput
           position={inputModal.position}
           value={youtubeInputForm.state.youtubeUrl.value}
           error={youtubeInputForm.state.youtubeUrl.error}
-          onChange={input => {
-            youtubeInputForm.set({ youtubeUrl: input["url"] as string });
-          }}
+          onChange={handleYoutubeUrlChange}
           ref={ref}
         >
           <Button
@@ -126,7 +205,6 @@ export const Toolbar: FC<TiptapToolbarProps> = ({
         </ModalInput>
       )}
 
-      {/* Link Input - positioned near the selected text */}
       {link.isExtensionEnabled && (
         <TiptapLinkInput
           isOpen={isLinkInputOpen}
@@ -141,83 +219,74 @@ export const Toolbar: FC<TiptapToolbarProps> = ({
         />
       )}
 
-      {/* Typography Dropdown */}
-      {isGroupEnabled(ToolbarGroupId.TYPOGRAPHY) &&
-        typographyDropdownItems.length > 0 && (
-          <ToolbarGroup>
-            <TiptapDropdown
-              triggerIcon='ParagraphOutline'
-              triggerLabel={getActiveTypographyLabel()}
-              items={typographyDropdownItems}
-              isActive={editor.isActive("heading")}
-              tooltipText='Text style'
-            />
-          </ToolbarGroup>
-        )}
+      {isTypographyEnabled && (
+        <ToolbarGroup>
+          <TiptapDropdown
+            triggerIcon='ParagraphOutline'
+            triggerLabel={activeTypographyLabel}
+            items={typographyDropdownItems}
+            isActive={editor.isActive("heading")}
+            tooltipText='Text style'
+          />
+        </ToolbarGroup>
+      )}
 
-      {/* Text Formatting Group */}
-      {isGroupEnabled(ToolbarGroupId.TEXT_FORMATTING) &&
-        textFormattingIcons.length > 0 && (
-          <ToolbarGroup>
-            {textFormattingIcons.map(icon => (
-              <ToolbarButton
-                key={icon.id}
-                icon={icon.iconName || ""}
-                onClick={handleIconClick(icon.id, icon.onClick)}
-                isActive={icon.isActive}
-                isDisabled={
-                  typeof icon.isDisabled === "function"
-                    ? icon.isDisabled()
-                    : false
-                }
-                tooltipText={icon.description}
-                tooltipId={`tooltip-${icon.id}`}
-              />
-            ))}
-          </ToolbarGroup>
-        )}
-
-      {/* Lists Dropdown */}
-      {isGroupEnabled(ToolbarGroupId.LISTS) &&
-        listsDropdownItems.length > 0 && (
-          <ToolbarGroup>
-            <TiptapDropdown
-              triggerIcon='ListUnorderedOutline'
-              items={listsDropdownItems}
-              isActive={
-                editor.isActive("bulletList") ||
-                editor.isActive("orderedList") ||
-                editor.isActive("taskList")
+      {isTextFormattingEnabled && (
+        <ToolbarGroup>
+          {textFormattingIcons.map(icon => (
+            <ToolbarButton
+              key={icon.id}
+              icon={icon.iconName || ""}
+              onClick={handleIconClick(icon.id, icon.onClick)}
+              isActive={icon.isActive}
+              isDisabled={
+                typeof icon.isDisabled === "function"
+                  ? icon.isDisabled()
+                  : false
               }
-              tooltipText='Lists'
+              tooltipText={icon.description}
+              tooltipId={`tooltip-${icon.id}`}
             />
-          </ToolbarGroup>
-        )}
+          ))}
+        </ToolbarGroup>
+      )}
 
-      {/* Block Elements Group */}
-      {isGroupEnabled(ToolbarGroupId.BLOCK_ELEMENTS) &&
-        blockElementIcons.length > 0 && (
-          <ToolbarGroup>
-            {blockElementIcons.map(icon => (
-              <ToolbarButton
-                key={icon.id}
-                icon={icon.iconName || ""}
-                onClick={handleIconClick(icon.id, icon.onClick)}
-                isActive={icon.isActive}
-                isDisabled={
-                  typeof icon.isDisabled === "function"
-                    ? icon.isDisabled()
-                    : false
-                }
-                tooltipText={icon.description}
-                tooltipId={`tooltip-${icon.id}`}
-              />
-            ))}
-          </ToolbarGroup>
-        )}
+      {isListsEnabled && (
+        <ToolbarGroup>
+          <TiptapDropdown
+            triggerIcon='ListUnorderedOutline'
+            items={listsDropdownItems}
+            isActive={
+              editor.isActive("bulletList") ||
+              editor.isActive("orderedList") ||
+              editor.isActive("taskList")
+            }
+            tooltipText='Lists'
+          />
+        </ToolbarGroup>
+      )}
 
-      {/* Insert Dropdown */}
-      {insertDropdownItems.length > 0 && (
+      {isBlockElementsEnabled && (
+        <ToolbarGroup>
+          {blockElementIcons.map(icon => (
+            <ToolbarButton
+              key={icon.id}
+              icon={icon.iconName || ""}
+              onClick={handleIconClick(icon.id, icon.onClick)}
+              isActive={icon.isActive}
+              isDisabled={
+                typeof icon.isDisabled === "function"
+                  ? icon.isDisabled()
+                  : false
+              }
+              tooltipText={icon.description}
+              tooltipId={`tooltip-${icon.id}`}
+            />
+          ))}
+        </ToolbarGroup>
+      )}
+
+      {isInsertEnabled && (
         <ToolbarGroup>
           <TiptapDropdown
             triggerIcon='AddOutline'
@@ -227,8 +296,7 @@ export const Toolbar: FC<TiptapToolbarProps> = ({
         </ToolbarGroup>
       )}
 
-      {/* Rough Annotation */}
-      {isItemEnabled(TIPTAP_TOOLBAR_ITEMS.ROUGH_ANNOTATION) && (
+      {isAnnotationEnabled && (
         <ToolbarGroup>
           <div className='yl:relative'>
             <ToolbarButton
@@ -249,23 +317,19 @@ export const Toolbar: FC<TiptapToolbarProps> = ({
         </ToolbarGroup>
       )}
 
-      {/* Table Controls (contextual - when inside table) */}
-      {isItemEnabled(TIPTAP_TOOLBAR_ITEMS.TABLE) &&
-        editor.isActive("table") && (
-          <ToolbarGroup>
-            <TableDropdown
-              editor={editor}
-              isActive={editor.isActive("table")}
-            />
-          </ToolbarGroup>
-        )}
+      {isTableEnabled && (
+        <ToolbarGroup>
+          <TableDropdown editor={editor} isActive={editor.isActive("table")} />
+        </ToolbarGroup>
+      )}
 
-      {/* Image Alignment (contextual - when image selected) */}
-      {isItemEnabled(TIPTAP_TOOLBAR_ITEMS.IMAGE) && (
+      {isImageEnabled && (
         <ToolbarGroup>
           <ImageAlignmentDropdown editor={editor} />
         </ToolbarGroup>
       )}
-    </div>
+    </ToolbarWrapper>
   );
 };
+
+Toolbar.displayName = "Toolbar";

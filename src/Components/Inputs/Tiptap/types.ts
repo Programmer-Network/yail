@@ -4,6 +4,10 @@ import { FC, MouseEventHandler } from "react";
 
 import { TIPTAP_TOOLBAR_ITEMS } from "./constants";
 
+export type TiptapToolbarMode = "full" | "minimal" | "bubble" | "hybrid";
+
+export type TiptapVariant = "default" | "zen";
+
 export interface TiptapSuggestionOptions {
   items: Partial<SuggestionOptions>["items"];
   trigger?: string;
@@ -29,6 +33,11 @@ export interface TiptapProps {
   suggestions?: TiptapSuggestionOptions;
   placeholder?: string;
   toolbarItems?: TiptapControls;
+  toolbarMode?: TiptapToolbarMode;
+  /** Visual style variant. "zen" removes borders for distraction-free writing */
+  variant?: TiptapVariant;
+  /** Offset for sticky toolbar (e.g., to account for a fixed header). CSS value like "48px" or "3rem" */
+  stickyOffset?: string;
   error?: string;
   label?: string;
   hint?: string;
@@ -37,6 +46,8 @@ export interface TiptapProps {
   isUpdating?: boolean;
   onImageUploadError?: (error: string) => void;
 }
+
+export type ToolbarMode = "static" | "floating";
 
 export interface TiptapToolbarProps {
   image: {
@@ -51,6 +62,12 @@ export interface TiptapToolbarProps {
   isCreating?: boolean;
   isUpdating?: boolean;
   onImageUploadError?: (error: string) => void;
+  /** Offset for sticky toolbar (e.g., "48px" to account for a fixed header) */
+  stickyOffset?: string;
+  /** Visual style variant. "zen" removes borders */
+  variant?: TiptapVariant;
+  /** Toolbar rendering mode - "static" for sticky, "floating" for bubble menu */
+  mode?: ToolbarMode;
 }
 
 export interface TiptapRef {
@@ -166,10 +183,4 @@ export interface IToolbarButtonProps {
 export interface IToolbarGroupProps {
   children: React.ReactNode;
   showSeparator?: boolean;
-}
-
-// BubbleToolbar Types
-export interface IBubbleToolbarProps {
-  editor: Editor;
-  toolbarItems?: TiptapControls;
 }

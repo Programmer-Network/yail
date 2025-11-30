@@ -34,6 +34,9 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
     placeholder,
     suggestions,
     toolbarItems,
+    toolbarMode = "full",
+    variant = "default",
+    stickyOffset,
     error = null,
     label,
     hint,
@@ -151,6 +154,19 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
 
   const hasToolbar = toolbarItems && toolbarItems?.length > 0;
 
+  // Determine sticky toolbar visibility based on mode
+  const showStickyToolbar =
+    hasToolbar && (toolbarMode === "full" || toolbarMode === "hybrid");
+
+  // Bubble toolbar is always shown when there are toolbar items
+  const showBubbleToolbar = hasToolbar;
+
+  // Use minimal toolbar styling for hybrid/minimal/bubble modes
+  const isMinimalToolbar =
+    toolbarMode === "hybrid" ||
+    toolbarMode === "minimal" ||
+    toolbarMode === "bubble";
+
   return (
     <div
       className={classNames("yl:relative", {
@@ -158,26 +174,51 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
       })}
     >
       {label && <InputHeader label={label} hint={hint} required={required} />}
-      {hasToolbar && (
+      {showStickyToolbar && (
         <Toolbar
           editor={editor}
           toolbarItems={toolbarItems}
           image={image}
           link={link}
           onImageUploadError={onImageUploadError}
+          stickyOffset={stickyOffset}
+          variant={variant}
+        />
+      )}
+      {showBubbleToolbar && (
+        <Toolbar
+          editor={editor}
+          toolbarItems={toolbarItems}
+          image={image}
+          link={link}
+          onImageUploadError={onImageUploadError}
+          mode='floating'
         />
       )}
       <div className='yl:flex yl:flex-col'>
         <div
           className={classNames("yl:relative wrap-break-word", {
-            "yl:border-t-0!": hasToolbar
+            "yl:border-t-0!": showStickyToolbar
           })}
         ></div>
         <div
-          className='yl:border-border/40 yl:relative yl:rounded-br-md yl:rounded-bl-md yl:border-2 yl:border-t-0'
+          className={classNames("yl:relative", {
+            "yl:border-border/40 yl:rounded-br-md yl:rounded-bl-md yl:border-2 yl:border-t-0":
+              showStickyToolbar && variant !== "zen",
+            "yl:border-border/40 yl:rounded-md yl:border-2":
+              !showStickyToolbar && !isMinimalToolbar && variant !== "zen",
+            "yl:border-0":
+              (isMinimalToolbar && !showStickyToolbar) || variant === "zen"
+          })}
           onClick={() => editor.commands.focus()}
         >
-          <EditorContent editor={editor} className='yl:p-4' />
+          <EditorContent
+            editor={editor}
+            className={classNames({
+              "yl:p-4": !isMinimalToolbar || showStickyToolbar,
+              "yl:p-0": isMinimalToolbar && !showStickyToolbar
+            })}
+          />
           {characterCountEnabled && <CharacterCount editor={editor} />}
           {actions &&
             typeof actions?.onAction === "function" &&

@@ -1,7 +1,15 @@
-import { TIPTAP_TOOLBAR_ITEMS } from "../../constants";
-import { IToolbarIcons, IToolbarIconsReturn } from "../../types";
+import { Editor } from "@tiptap/core";
 
-const getToolbarIcons = ({ editor }: IToolbarIcons): IToolbarIconsReturn[] => {
+import { TIPTAP_TOOLBAR_ITEMS } from "../../constants";
+import {
+  DEFAULT_TYPOGRAPHY_LABEL,
+  TYPOGRAPHY_LABELS
+} from "./Toolbar.constants";
+import { IToolbarIconReturn, IToolbarIconsProps } from "./Toolbar.types";
+
+export const getToolbarIcons = ({
+  editor
+}: IToolbarIconsProps): IToolbarIconReturn[] => {
   return [
     {
       id: TIPTAP_TOOLBAR_ITEMS.HEADING_1,
@@ -64,7 +72,7 @@ const getToolbarIcons = ({ editor }: IToolbarIcons): IToolbarIconsReturn[] => {
       },
       isActive: editor.isActive("bold"),
       iconName: "BoldOutline",
-      isDisabled: () => !editor.can().chain().focus().toggleBold().run(),
+      isDisabled: () => !editor.can().toggleBold(),
       description: "Make text bold"
     },
     {
@@ -74,7 +82,7 @@ const getToolbarIcons = ({ editor }: IToolbarIcons): IToolbarIconsReturn[] => {
       },
       isActive: editor.isActive("italic"),
       iconName: "ItalicOutline",
-      isDisabled: () => !editor.can().chain().focus().toggleItalic().run(),
+      isDisabled: () => !editor.can().toggleItalic(),
       description: "Make text italic"
     },
     {
@@ -84,7 +92,7 @@ const getToolbarIcons = ({ editor }: IToolbarIcons): IToolbarIconsReturn[] => {
       },
       isActive: editor.isActive("strike"),
       iconName: "StrikethroughOutline",
-      isDisabled: () => !editor.can().chain().focus().toggleStrike().run(),
+      isDisabled: () => !editor.can().toggleStrike(),
       description: "Add strikethrough to text"
     },
     {
@@ -94,7 +102,7 @@ const getToolbarIcons = ({ editor }: IToolbarIcons): IToolbarIconsReturn[] => {
       },
       isActive: editor.isActive("paragraph"),
       iconName: "ParagraphOutline",
-      isDisabled: () => !editor.can().chain().focus().toggleCode().run(),
+      isDisabled: () => !editor.can().setParagraph(),
       description: "Format as paragraph text"
     },
     {
@@ -147,7 +155,7 @@ const getToolbarIcons = ({ editor }: IToolbarIcons): IToolbarIconsReturn[] => {
       },
       isActive: editor.isActive("code"),
       iconName: "CodeOutline",
-      isDisabled: () => !editor.can().chain().focus().toggleCode().run(),
+      isDisabled: () => !editor.can().toggleCode(),
       description: "Format as inline code"
     },
     {
@@ -314,4 +322,11 @@ const getToolbarIcons = ({ editor }: IToolbarIcons): IToolbarIconsReturn[] => {
   ];
 };
 
-export { getToolbarIcons };
+export const getActiveTypographyLabel = (editor: Editor): string => {
+  for (let level = 1; level <= 6; level++) {
+    if (editor.isActive("heading", { level })) {
+      return TYPOGRAPHY_LABELS[level] || DEFAULT_TYPOGRAPHY_LABEL;
+    }
+  }
+  return DEFAULT_TYPOGRAPHY_LABEL;
+};

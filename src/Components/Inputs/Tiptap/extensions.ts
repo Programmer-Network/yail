@@ -157,7 +157,14 @@ export const defaultExtensions = ({
   }),
   Placeholder.configure({
     emptyEditorClass: "is-editor-empty",
-    placeholder
+    showOnlyWhenEditable: true,
+    placeholder: ({ editor }: { editor: { isEmpty: boolean } }) => {
+      if (editor.isEmpty) {
+        return placeholder || "Start writing...";
+      }
+
+      return "";
+    }
   }),
   Paragraph.configure({
     HTMLAttributes: {
