@@ -2,7 +2,7 @@ import classNames from "classnames";
 import { FC } from "react";
 
 import { Icon } from "../../../../Icon";
-import { ITiptapActions, TiptapActionsEnum } from "../../types";
+import { ITiptapActions, TiptapActionsEnum } from "../../Tiptap.types";
 
 const TiptapActions: FC<{
   isEditorEmpty: boolean;

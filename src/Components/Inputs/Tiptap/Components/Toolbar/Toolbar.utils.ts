@@ -1,7 +1,15 @@
-import { TIPTAP_TOOLBAR_ITEMS } from "../../constants";
-import { IToolbarIcons, IToolbarIconsReturn } from "../../types";
+import { Editor } from "@tiptap/core";
 
-const getToolbarIcons = ({ editor }: IToolbarIcons): IToolbarIconsReturn[] => {
+import { TIPTAP_TOOLBAR_ITEMS } from "../../Tiptap.constants";
+import {
+  DEFAULT_TYPOGRAPHY_LABEL,
+  TYPOGRAPHY_LABELS
+} from "./Toolbar.constants";
+import { IToolbarIconReturn, IToolbarIconsProps } from "./Toolbar.types";
+
+export const getToolbarIcons = ({
+  editor
+}: IToolbarIconsProps): IToolbarIconReturn[] => {
   return [
     {
       id: TIPTAP_TOOLBAR_ITEMS.HEADING_1,
@@ -63,9 +71,8 @@ const getToolbarIcons = ({ editor }: IToolbarIcons): IToolbarIconsReturn[] => {
         editor.chain().focus().toggleBold().run();
       },
       isActive: editor.isActive("bold"),
-      iconName: "IconBold",
-      className: "text-error",
-      isDisabled: () => !editor.can().chain().focus().toggleBold().run(),
+      iconName: "BoldOutline",
+      isDisabled: () => !editor.can().toggleBold(),
       description: "Make text bold"
     },
     {
@@ -74,8 +81,8 @@ const getToolbarIcons = ({ editor }: IToolbarIcons): IToolbarIconsReturn[] => {
         editor.chain().focus().toggleItalic().run();
       },
       isActive: editor.isActive("italic"),
-      iconName: "IconItalic",
-      isDisabled: () => !editor.can().chain().focus().toggleItalic().run(),
+      iconName: "ItalicOutline",
+      isDisabled: () => !editor.can().toggleItalic(),
       description: "Make text italic"
     },
     {
@@ -84,8 +91,8 @@ const getToolbarIcons = ({ editor }: IToolbarIcons): IToolbarIconsReturn[] => {
         editor.chain().focus().toggleStrike().run();
       },
       isActive: editor.isActive("strike"),
-      iconName: "IconStrikethrough",
-      isDisabled: () => !editor.can().chain().focus().toggleStrike().run(),
+      iconName: "StrikethroughOutline",
+      isDisabled: () => !editor.can().toggleStrike(),
       description: "Add strikethrough to text"
     },
     {
@@ -94,8 +101,8 @@ const getToolbarIcons = ({ editor }: IToolbarIcons): IToolbarIconsReturn[] => {
         editor.chain().focus().setParagraph().run();
       },
       isActive: editor.isActive("paragraph"),
-      iconName: "IconText",
-      isDisabled: () => !editor.can().chain().focus().toggleCode().run(),
+      iconName: "ParagraphOutline",
+      isDisabled: () => !editor.can().setParagraph(),
       description: "Format as paragraph text"
     },
     {
@@ -104,7 +111,7 @@ const getToolbarIcons = ({ editor }: IToolbarIcons): IToolbarIconsReturn[] => {
         editor.chain().focus().toggleBulletList().run();
       },
       isActive: editor.isActive("bulletList"),
-      iconName: "IconListUl",
+      iconName: "ListUnorderedOutline",
       description: "Create bullet list"
     },
     {
@@ -113,7 +120,7 @@ const getToolbarIcons = ({ editor }: IToolbarIcons): IToolbarIconsReturn[] => {
         editor.chain().focus().toggleOrderedList().run();
       },
       isActive: editor.isActive("orderedList"),
-      iconName: "IconListOl",
+      iconName: "ListOrderedOutline",
       description: "Create numbered list"
     },
     {
@@ -122,23 +129,23 @@ const getToolbarIcons = ({ editor }: IToolbarIcons): IToolbarIconsReturn[] => {
         editor.chain().focus().toggleBlockquote().run();
       },
       isActive: editor.isActive("blockquote"),
-      iconName: "IconQuote",
+      iconName: "QuoteOutline",
       description: "Insert block quote"
     },
     {
       id: TIPTAP_TOOLBAR_ITEMS.LINK,
-      iconName: "IconLink",
+      iconName: "LinkOutline",
       isActive: editor.isActive("link"),
       description: "Add or edit hyperlink"
     },
     {
       id: TIPTAP_TOOLBAR_ITEMS.YOUTUBE,
-      iconName: "IconAddYoutube",
+      iconName: "YoutubeOutline",
       description: "Embed YouTube video"
     },
     {
       id: TIPTAP_TOOLBAR_ITEMS.IMAGE,
-      iconName: "IconImage",
+      iconName: "ImageOutline",
       description: "Insert image"
     },
     {
@@ -147,8 +154,8 @@ const getToolbarIcons = ({ editor }: IToolbarIcons): IToolbarIconsReturn[] => {
         editor.chain().focus().toggleCode().run();
       },
       isActive: editor.isActive("code"),
-      iconName: "IconCode",
-      isDisabled: () => !editor.can().chain().focus().toggleCode().run(),
+      iconName: "CodeOutline",
+      isDisabled: () => !editor.can().toggleCode(),
       description: "Format as inline code"
     },
     {
@@ -245,8 +252,81 @@ const getToolbarIcons = ({ editor }: IToolbarIcons): IToolbarIconsReturn[] => {
       iconName: "MinusCircleOutline",
       description: "Delete table",
       isDisabled: () => !editor.can().deleteTable()
+    },
+    {
+      id: TIPTAP_TOOLBAR_ITEMS.TASK_LIST,
+      onClick: () => {
+        editor.chain().focus().toggleTaskList().run();
+      },
+      isActive: editor.isActive("taskList"),
+      iconName: "IconCheck",
+      description: "Create task list / checklist"
+    },
+    {
+      id: TIPTAP_TOOLBAR_ITEMS.HIGHLIGHT,
+      onClick: () => {
+        editor.chain().focus().toggleHighlight().run();
+      },
+      isActive: editor.isActive("highlight"),
+      iconName: "IconHighlight",
+      description: "Highlight selected text"
+    },
+    {
+      id: TIPTAP_TOOLBAR_ITEMS.ROUGH_ANNOTATION,
+      isActive: editor.isActive("roughAnnotation"),
+      iconName: "IconPencilSquare",
+      description: "Add hand-drawn annotation"
+    },
+    {
+      id: TIPTAP_TOOLBAR_ITEMS.IMAGE_ALIGN_LEFT,
+      onClick: () => {
+        editor
+          .chain()
+          .focus()
+          .updateAttributes("image", { "data-align": "left" })
+          .run();
+      },
+      isActive: editor.isActive("image", { "data-align": "left" }),
+      iconName: "AlignTextLeftOutline",
+      description: "Align image left",
+      isDisabled: () => !editor.isActive("image")
+    },
+    {
+      id: TIPTAP_TOOLBAR_ITEMS.IMAGE_ALIGN_CENTER,
+      onClick: () => {
+        editor
+          .chain()
+          .focus()
+          .updateAttributes("image", { "data-align": "center" })
+          .run();
+      },
+      isActive: editor.isActive("image", { "data-align": "center" }),
+      iconName: "AlignTextCenterOutline",
+      description: "Align image center",
+      isDisabled: () => !editor.isActive("image")
+    },
+    {
+      id: TIPTAP_TOOLBAR_ITEMS.IMAGE_ALIGN_RIGHT,
+      onClick: () => {
+        editor
+          .chain()
+          .focus()
+          .updateAttributes("image", { "data-align": "right" })
+          .run();
+      },
+      isActive: editor.isActive("image", { "data-align": "right" }),
+      iconName: "AlignTextRightOutline",
+      description: "Align image right",
+      isDisabled: () => !editor.isActive("image")
     }
   ];
 };
 
-export default getToolbarIcons;
+export const getActiveTypographyLabel = (editor: Editor): string => {
+  for (let level = 1; level <= 6; level++) {
+    if (editor.isActive("heading", { level })) {
+      return TYPOGRAPHY_LABELS[level] || DEFAULT_TYPOGRAPHY_LABEL;
+    }
+  }
+  return DEFAULT_TYPOGRAPHY_LABEL;
+};

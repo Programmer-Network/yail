@@ -1,5 +1,5 @@
-import { TIPTAP_TOOLBAR_ITEMS } from "../constants";
-import { TiptapControls } from "../types";
+import { TIPTAP_TOOLBAR_ITEMS } from "../Tiptap.constants";
+import { TiptapControls } from "../Tiptap.types";
 
 const tiptapToSanitizeHtmlTags: Record<string, string[]> = {
   [TIPTAP_TOOLBAR_ITEMS.BOLD]: ["strong"],
@@ -20,7 +20,11 @@ const tiptapToSanitizeHtmlTags: Record<string, string[]> = {
   [TIPTAP_TOOLBAR_ITEMS.BLOCK_QUOTE]: ["blockquote"],
   [TIPTAP_TOOLBAR_ITEMS.YOUTUBE]: ["iframe"],
   [TIPTAP_TOOLBAR_ITEMS.STRIKE_THROUGH]: ["s"],
-  [TIPTAP_TOOLBAR_ITEMS.TABLE]: ["table", "thead", "tbody", "tr", "th", "td"]
+  [TIPTAP_TOOLBAR_ITEMS.TABLE]: ["table", "thead", "tbody", "tr", "th", "td"],
+  [TIPTAP_TOOLBAR_ITEMS.TASK_LIST]: ["ul", "li", "label", "input"],
+  [TIPTAP_TOOLBAR_ITEMS.TASK_ITEM]: ["li", "label", "input"],
+  [TIPTAP_TOOLBAR_ITEMS.HIGHLIGHT]: ["mark"],
+  [TIPTAP_TOOLBAR_ITEMS.ROUGH_ANNOTATION]: ["rough-annotation"]
 };
 
 export const getAllowedTags = (data: TiptapControls) => {

@@ -2,9 +2,9 @@ import { Editor } from "@tiptap/core";
 import { RefObject, useRef, useState } from "react";
 
 import { Tiptap } from ".";
+import { TIPTAP_TOOLBAR_ITEMS } from "./Tiptap.constants";
+import { TiptapActionsEnum, TiptapRef } from "./Tiptap.types";
 import { TiptapToHTML } from "./TiptapToHTML";
-import { TIPTAP_TOOLBAR_ITEMS } from "./constants";
-import { TiptapActionsEnum, TiptapRef } from "./types";
 
 export default {
   title: "Rich Text Editing / Tiptap",
@@ -575,6 +575,178 @@ export const TableWithInitialContent = () => {
 
       <div
         className='yl:mt-8 yl:p-4 rounded border wrap-break-word'
+        dangerouslySetInnerHTML={{ __html: editorState }}
+      ></div>
+    </div>
+  );
+};
+
+export const WithRoughAnnotations = () => {
+  const [editorState, setEditorState] = useState<string>("");
+  const tiptapRef = useRef<TiptapRef>(null);
+
+  const toolbarItems = [
+    TIPTAP_TOOLBAR_ITEMS.BOLD,
+    TIPTAP_TOOLBAR_ITEMS.HEADING_2,
+    TIPTAP_TOOLBAR_ITEMS.HEADING_3,
+    TIPTAP_TOOLBAR_ITEMS.ITALIC,
+    TIPTAP_TOOLBAR_ITEMS.LINK,
+    TIPTAP_TOOLBAR_ITEMS.CODE,
+    TIPTAP_TOOLBAR_ITEMS.BLOCK_QUOTE,
+    TIPTAP_TOOLBAR_ITEMS.STRIKE_THROUGH,
+    TIPTAP_TOOLBAR_ITEMS.HIGHLIGHT,
+    TIPTAP_TOOLBAR_ITEMS.ROUGH_ANNOTATION
+  ];
+
+  const converter = new TiptapToHTML(toolbarItems);
+
+  const onEditorStateChange = ({ editor }: { editor: Editor }) => {
+    setEditorState(
+      converter.generateSanitizedHTML(JSON.stringify(editor.getJSON()))
+    );
+  };
+
+  return (
+    <div className='yl:w-full yl:md:w-[768px]'>
+      <div className='yl:mb-4 yl:rounded yl:bg-blue-50 yl:p-4 yl:text-sm yl:text-blue-800'>
+        <strong>How to use:</strong> Select some text, then click the pencil
+        icon in the toolbar to add a hand-drawn annotation. You can choose
+        different annotation types (bracket, underline, circle, etc.), colors,
+        and add an optional label.
+      </div>
+
+      <Tiptap
+        ref={tiptapRef as RefObject<TiptapRef>}
+        placeholder='Type something, select text, and click the pencil icon to annotate...'
+        label='Content with Rough Annotations'
+        toolbarItems={toolbarItems}
+        actions={{
+          buttons: [TiptapActionsEnum.CANCEL, TiptapActionsEnum.CONFIRM],
+          onAction: actionType => alert(actionType),
+          isConfirming: false
+        }}
+        onTransaction={({ editor }) => {
+          onEditorStateChange({ editor });
+        }}
+        required={true}
+      />
+
+      <div
+        className='yl:mt-8 yl:text-text wrap-break-word'
+        dangerouslySetInnerHTML={{ __html: editorState }}
+      ></div>
+    </div>
+  );
+};
+
+/**
+ * Full Featured Editor - Showcases the redesigned toolbar with:
+ * - Typography dropdown (H1-H6, Paragraph)
+ * - Text formatting group (Bold, Italic, Strike, Code, Highlight)
+ * - Lists group (Bullet, Ordered, Task)
+ * - Block elements group (Blockquote, Code Block)
+ * - Insert dropdown (Link, Image, YouTube, Table)
+ * - Annotations (Rough Annotation)
+ * - Bubble toolbar on text selection
+ * - Sticky toolbar that stays visible on scroll
+ */
+export const FullFeaturedEditor = () => {
+  const [editorState, setEditorState] = useState<string>("");
+  const tiptapRef = useRef<TiptapRef>(null);
+
+  // All available toolbar items grouped logically
+  const toolbarItems = [
+    // Typography
+    TIPTAP_TOOLBAR_ITEMS.HEADING_1,
+    TIPTAP_TOOLBAR_ITEMS.HEADING_2,
+    TIPTAP_TOOLBAR_ITEMS.HEADING_3,
+    TIPTAP_TOOLBAR_ITEMS.HEADING_4,
+    TIPTAP_TOOLBAR_ITEMS.HEADING_5,
+    TIPTAP_TOOLBAR_ITEMS.HEADING_6,
+    TIPTAP_TOOLBAR_ITEMS.PARAGRAPH,
+    // Text Formatting
+    TIPTAP_TOOLBAR_ITEMS.BOLD,
+    TIPTAP_TOOLBAR_ITEMS.ITALIC,
+    TIPTAP_TOOLBAR_ITEMS.STRIKE_THROUGH,
+    TIPTAP_TOOLBAR_ITEMS.CODE,
+    TIPTAP_TOOLBAR_ITEMS.HIGHLIGHT,
+    // Lists
+    TIPTAP_TOOLBAR_ITEMS.LIST_ITEM,
+    TIPTAP_TOOLBAR_ITEMS.UNORDERED_LIST,
+    TIPTAP_TOOLBAR_ITEMS.ORDERED_LIST,
+    TIPTAP_TOOLBAR_ITEMS.TASK_LIST,
+    TIPTAP_TOOLBAR_ITEMS.TASK_ITEM,
+    // Block Elements
+    TIPTAP_TOOLBAR_ITEMS.BLOCK_QUOTE,
+    TIPTAP_TOOLBAR_ITEMS.CODE_BLOCK,
+    // Insert
+    TIPTAP_TOOLBAR_ITEMS.LINK,
+    TIPTAP_TOOLBAR_ITEMS.IMAGE,
+    TIPTAP_TOOLBAR_ITEMS.YOUTUBE,
+    TIPTAP_TOOLBAR_ITEMS.TABLE,
+    // Annotations
+    TIPTAP_TOOLBAR_ITEMS.ROUGH_ANNOTATION
+  ];
+
+  const converter = new TiptapToHTML(toolbarItems);
+
+  const onEditorStateChange = ({ editor }: { editor: Editor }) => {
+    setEditorState(
+      converter.generateSanitizedHTML(JSON.stringify(editor.getJSON()))
+    );
+  };
+
+  return (
+    <div className='yl:w-full yl:md:w-[768px]'>
+      <div className='yl:mb-4 yl:rounded yl:bg-primary/10 yl:p-4 yl:text-sm yl:text-text'>
+        <strong>Redesigned Toolbar Features:</strong>
+        <ul className='yl:mt-2 yl:list-disc yl:pl-4'>
+          <li>
+            <strong>Typography Dropdown:</strong> Click the paragraph icon to
+            access H1-H6 headings and paragraph styles
+          </li>
+          <li>
+            <strong>Grouped Actions:</strong> Text formatting, lists, and block
+            elements are visually grouped with separators
+          </li>
+          <li>
+            <strong>Insert Dropdown:</strong> Click the + icon to insert links,
+            images, videos, or tables
+          </li>
+          <li>
+            <strong>Bubble Toolbar:</strong> Select text to see a floating
+            toolbar with formatting options
+          </li>
+          <li>
+            <strong>Consistent Icons:</strong> Using standardized Outline icons
+            throughout
+          </li>
+        </ul>
+      </div>
+
+      <Tiptap
+        ref={tiptapRef as RefObject<TiptapRef>}
+        placeholder='Start typing to explore all features...'
+        label='Full Featured Editor'
+        toolbarItems={toolbarItems}
+        actions={{
+          buttons: [TiptapActionsEnum.CANCEL, TiptapActionsEnum.CONFIRM],
+          onAction: actionType => alert(actionType),
+          isConfirming: false
+        }}
+        onSetImage={() => {
+          return new Promise<void>(resolve => {
+            resolve();
+          });
+        }}
+        onTransaction={({ editor }) => {
+          onEditorStateChange({ editor });
+        }}
+        required={true}
+      />
+
+      <div
+        className='yl:mt-8 yl:text-text wrap-break-word'
         dangerouslySetInnerHTML={{ __html: editorState }}
       ></div>
     </div>

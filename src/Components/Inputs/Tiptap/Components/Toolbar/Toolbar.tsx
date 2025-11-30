@@ -1,287 +1,335 @@
-import { validYouTubeUrl } from "@programmer_network/ajv";
-import useAJVForm from "@programmer_network/use-ajv-form";
+import { BubbleMenu } from "@tiptap/react/menus";
 import classNames from "classnames";
-import { RefObject, useRef } from "react";
+import { FC, MouseEvent, useCallback } from "react";
 
-import { useModalInput } from "../../../../../Hooks/useModalInput";
 import { Button } from "../../../../Button";
-import { Icon } from "../../../../Icon";
-import { Tooltip } from "../../../../Tooltip";
-import { TIPTAP_TOOLBAR_ITEMS } from "../../constants";
-import { TiptapToolbarProps } from "../../types";
+import { TIPTAP_TOOLBAR_ITEMS } from "../../Tiptap.constants";
+import { TiptapToolbarProps, ToolbarGroupId } from "../../Tiptap.types";
+import { ImageAlignmentDropdown } from "../ImageAlignmentDropdown";
 import { ModalInput } from "../ModalInput";
-import { LinkClickTarget } from "../ModalInput/types";
+import { AnnotationDropdown } from "../RoughAnnotation";
 import { TableDropdown } from "../TableDropdown";
-import getToolbarIcons from "./toolbar-icons";
+import { TiptapDropdown } from "../TiptapDropdown";
+import { TiptapLinkInput } from "../TiptapLinkInput";
+import { ToolbarButton } from "../ToolbarButton";
+import { ToolbarGroup } from "../ToolbarGroup";
+import { BUBBLE_MENU_OPTIONS } from "./Toolbar.constants";
+import { useToolbar } from "./Toolbar.hooks";
+import { IToolbarWrapperProps } from "./Toolbar.types";
+import { getActiveTypographyLabel } from "./Toolbar.utils";
 
-export const Toolbar = ({
+const ToolbarWrapper: FC<IToolbarWrapperProps> = ({
+  mode,
+  editor,
+  children,
+  className,
+  style
+}) => {
+  const handleShouldShow = useCallback(
+    ({ from, to }: { from: number; to: number }) => {
+      const isEmptySelection = from === to;
+      const isCodeBlock = editor.isActive("codeBlock");
+      const isImage = editor.isActive("image");
+      return !isEmptySelection && !isCodeBlock && !isImage;
+    },
+    [editor]
+  );
+
+  if (mode === "floating") {
+    return (
+      <BubbleMenu
+        editor={editor}
+        options={BUBBLE_MENU_OPTIONS}
+        shouldShow={handleShouldShow}
+      >
+        <div className={className} style={style}>
+          {children}
+        </div>
+      </BubbleMenu>
+    );
+  }
+
+  return (
+    <div className={className} style={style}>
+      {children}
+    </div>
+  );
+};
+
+ToolbarWrapper.displayName = "ToolbarWrapper";
+
+export const Toolbar: FC<TiptapToolbarProps> = ({
   editor,
   toolbarItems,
   image,
   link,
-  onImageUploadError
-}: TiptapToolbarProps) => {
-  const linkInputForm = useAJVForm(
-    { link: "" },
-    {
-      type: "object",
-      required: ["link"],
-      properties: {
-        link: {
-          type: "string",
-          format: "uri"
-        }
-      }
-    }
-  );
+  onImageUploadError,
+  stickyOffset,
+  variant = "default",
+  mode = "static"
+}) => {
+  const {
+    ref,
+    fileInputRef,
+    isAnnotationDropdownOpen,
+    isLinkInputOpen,
+    linkInputPosition,
+    hasExistingAnnotation,
+    linkInputForm,
+    youtubeInputForm,
+    inputModal,
+    typographyDropdownItems,
+    listsDropdownItems,
+    insertDropdownItems,
+    insertVideo,
+    handleFileInputChange,
+    handleApplyAnnotation,
+    handleRemoveAnnotation,
+    handleCloseAnnotationDropdown,
+    handleToggleAnnotationDropdown,
+    handleCloseLinkInput,
+    handleLinkInputChange,
+    handleLinkSubmit,
+    handleUnlink,
+    isItemEnabled,
+    isGroupEnabled,
+    getGroupIcons,
+    imageExtensionEnabled
+  } = useToolbar({
+    editor,
+    toolbarItems,
+    image,
+    link,
+    onImageUploadError
+  });
 
-  const youtubeInputForm = useAJVForm(
-    { youtubeUrl: "" },
-    {
-      type: "object",
-      required: ["youtubeUrl"],
-      properties: {
-        youtubeUrl: {
-          type: "string",
-          "is-youtube-url": true
-        }
-      }
+  const handleIconClick = useCallback(
+    (_iconId: string, onClick?: (e: MouseEvent<HTMLButtonElement>) => void) => {
+      return () => {
+        onClick?.({} as MouseEvent<HTMLButtonElement>);
+      };
     },
-    {
-      customKeywords: [validYouTubeUrl],
-      debounceTime: 1
-    }
+    []
   );
 
-  const ref = useRef<HTMLDivElement>(null);
-  const inputModal = useModalInput({ ref: ref as RefObject<HTMLDivElement> });
-  const fileInputRef = useRef<HTMLInputElement>(null);
+  const handleYoutubeUrlChange = useCallback(
+    (input: Record<string, unknown>) => {
+      youtubeInputForm.set({ youtubeUrl: input["url"] as string });
+    },
+    [youtubeInputForm]
+  );
 
-  const hasSelection = !editor.state.selection.empty;
-
-  if (!editor) {
+  if (!editor || !editor.view) {
     return null;
   }
 
-  const insertLink = (target: LinkClickTarget) => {
-    if (!linkInputForm.isValid) {
-      return;
+  const activeTypographyLabel = getActiveTypographyLabel(editor);
+  const textFormattingIcons = getGroupIcons(ToolbarGroupId.TEXT_FORMATTING);
+  const blockElementIcons = getGroupIcons(ToolbarGroupId.BLOCK_ELEMENTS);
+
+  const isZen = variant === "zen";
+  const isFloating = mode === "floating";
+
+  const toolbarClasses = classNames(
+    "yl:flex yl:flex-wrap yl:items-center yl:px-2 yl:py-1.5",
+    {
+      "yl:bg-background yl:sticky yl:z-10": !isFloating,
+      "yl:top-0": !isFloating && !stickyOffset,
+      "yl:border-border/40 yl:border-2 yl:border-b-0 yl:rounded-tl-md yl:rounded-tr-md":
+        !isFloating && !isZen,
+      "yl:border-b yl:border-border/20": !isFloating && isZen,
+      // Floating bubble menu - more prominent styling
+      "yl:bg-background/95 yl:backdrop-blur-sm yl:rounded-lg yl:border-2 yl:border-primary/30 yl:shadow-2xl yl:shadow-black/30 yl:gap-0.5 [&]:!z-[9999]":
+        isFloating
     }
+  );
 
-    if (target === LinkClickTarget.UnLink) {
-      editor.commands.unsetLink();
-      inputModal.setModalId("");
-      return;
-    }
+  const toolbarStyle =
+    !isFloating && stickyOffset ? { top: stickyOffset } : undefined;
 
-    editor
-      .chain()
-      .focus()
-      .setLink({ href: linkInputForm.state.link.value })
-      .run();
-
-    inputModal.setModalId("");
-  };
-
-  const insertVideo = () => {
-    if (!youtubeInputForm.isValid) {
-      return;
-    }
-
-    editor.commands.setYoutubeVideo({
-      src: youtubeInputForm.state.youtubeUrl.value
-    });
-
-    inputModal.setModalId("");
-  };
+  const isTypographyEnabled =
+    isGroupEnabled(ToolbarGroupId.TYPOGRAPHY) &&
+    typographyDropdownItems.length > 0;
+  const isTextFormattingEnabled =
+    isGroupEnabled(ToolbarGroupId.TEXT_FORMATTING) &&
+    textFormattingIcons.length > 0;
+  const isListsEnabled =
+    isGroupEnabled(ToolbarGroupId.LISTS) && listsDropdownItems.length > 0;
+  const isBlockElementsEnabled =
+    isGroupEnabled(ToolbarGroupId.BLOCK_ELEMENTS) &&
+    blockElementIcons.length > 0;
+  const isInsertEnabled = insertDropdownItems.length > 0;
+  const isAnnotationEnabled = isItemEnabled(
+    TIPTAP_TOOLBAR_ITEMS.ROUGH_ANNOTATION
+  );
+  const isTableEnabled =
+    isItemEnabled(TIPTAP_TOOLBAR_ITEMS.TABLE) && editor.isActive("table");
+  const isImageEnabled = isItemEnabled(TIPTAP_TOOLBAR_ITEMS.IMAGE);
+  const isYoutubeModalOpen =
+    inputModal.modalId === TIPTAP_TOOLBAR_ITEMS.YOUTUBE;
 
   return (
-    <div className='yl:border-border/40 yl:bg-text/1 yl:relative yl:flex yl:flex-wrap yl:items-center yl:gap-1 yl:rounded-tl-md yl:rounded-tr-md yl:border-2 yl:p-2 yl:pb-0 yl:md:gap-4 yl:md:px-4'>
-      {image.isExtensionEnabled && (
+    <ToolbarWrapper
+      mode={mode}
+      editor={editor}
+      className={toolbarClasses}
+      style={toolbarStyle}
+    >
+      {imageExtensionEnabled && (
         <input
           type='file'
           accept='image/*'
           ref={fileInputRef}
           style={{ display: "none" }}
-          onChange={async e => {
-            const file = e.target.files?.[0];
-            if (!file) return;
-            const reader = new FileReader();
-            reader.onload = async event => {
-              const base64 = event.target?.result as string;
-              try {
-                await image.onSetImage?.(base64);
-                editor
-                  .chain()
-                  .focus()
-                  .insertContent([
-                    { type: "image", attrs: { src: base64 } },
-                    { type: "paragraph" }
-                  ])
-                  .focus("end")
-                  .run();
-              } catch {
-                if (onImageUploadError) {
-                  onImageUploadError(
-                    "Failed to upload image. Please try again."
-                  );
-                }
-              }
-            };
-            reader.readAsDataURL(file);
-            // Reset the input value so the same file can be uploaded again if needed
-            e.target.value = "";
-          }}
+          onChange={handleFileInputChange}
         />
       )}
 
-      {inputModal.modalId === TIPTAP_TOOLBAR_ITEMS.YOUTUBE && (
+      {isYoutubeModalOpen && (
         <ModalInput
           position={inputModal.position}
           value={youtubeInputForm.state.youtubeUrl.value}
           error={youtubeInputForm.state.youtubeUrl.error}
-          onChange={input => {
-            youtubeInputForm.set({ youtubeUrl: input["url"] as string });
-          }}
+          onChange={handleYoutubeUrlChange}
           ref={ref}
         >
           <Button
             outlined
             icon={{
-              iconName: "IconAddYoutube",
-              iconPosition: "right",
-              iconClassName: "w-6"
+              iconName: "YoutubeOutline",
+              iconPosition: "left",
+              iconClassName: "yl:w-5"
             }}
             onClick={insertVideo}
           />
         </ModalInput>
       )}
-      {link.isExtensionEnabled &&
-        inputModal.modalId === TIPTAP_TOOLBAR_ITEMS.LINK && (
-          <ModalInput
-            position={inputModal.position}
-            value={linkInputForm.state.link.value}
-            error={linkInputForm.state.link.error}
-            onChange={input => {
-              linkInputForm.set({ link: input["url"] as string });
-            }}
-            ref={ref}
-          >
-            <Button
-              icon={{
-                iconName: "IconLink",
-                iconPosition: "right",
-                iconClassName: "w-6"
-              }}
-              onClick={() => insertLink(LinkClickTarget.Link)}
-            />
 
-            {linkInputForm.state.link.value && (
-              <Button
-                outlined
-                onClick={() => insertLink(LinkClickTarget.UnLink)}
-              >
-                <Icon iconName='IconUnlink' className='yl:w-6' />
-              </Button>
-            )}
-          </ModalInput>
-        )}
-
-      {toolbarItems?.includes(TIPTAP_TOOLBAR_ITEMS.TABLE) && (
-        <TableDropdown editor={editor} isActive={editor.isActive("table")} />
+      {link.isExtensionEnabled && (
+        <TiptapLinkInput
+          isOpen={isLinkInputOpen}
+          onClose={handleCloseLinkInput}
+          value={linkInputForm.state.link.value}
+          error={linkInputForm.state.link.error}
+          onChange={handleLinkInputChange}
+          onSubmit={handleLinkSubmit}
+          onUnlink={handleUnlink}
+          hasExistingLink={editor.isActive("link")}
+          anchorPosition={linkInputPosition || undefined}
+        />
       )}
 
-      {getToolbarIcons({
-        editor
-      })
-        .filter(i => {
-          const tableOperationItems = [
-            "TABLE",
-            "TABLE_ADD_ROW_BEFORE",
-            "TABLE_ADD_ROW_AFTER",
-            "TABLE_DELETE_ROW",
-            "TABLE_ADD_COLUMN_BEFORE",
-            "TABLE_ADD_COLUMN_AFTER",
-            "TABLE_DELETE_COLUMN",
-            "TABLE_MERGE_CELLS",
-            "TABLE_SPLIT_CELL",
-            "TABLE_DELETE_TABLE"
-          ];
+      {isTypographyEnabled && (
+        <ToolbarGroup>
+          <TiptapDropdown
+            triggerIcon='ParagraphOutline'
+            triggerLabel={activeTypographyLabel}
+            items={typographyDropdownItems}
+            isActive={editor.isActive("heading")}
+            tooltipText='Text style'
+          />
+        </ToolbarGroup>
+      )}
 
-          if (tableOperationItems.includes(i.id)) {
-            return false;
-          }
+      {isTextFormattingEnabled && (
+        <ToolbarGroup>
+          {textFormattingIcons.map(icon => (
+            <ToolbarButton
+              key={icon.id}
+              icon={icon.iconName || ""}
+              onClick={handleIconClick(icon.id, icon.onClick)}
+              isActive={icon.isActive}
+              isDisabled={
+                typeof icon.isDisabled === "function"
+                  ? icon.isDisabled()
+                  : false
+              }
+              tooltipText={icon.description}
+              tooltipId={`tooltip-${icon.id}`}
+            />
+          ))}
+        </ToolbarGroup>
+      )}
 
-          return toolbarItems?.find(id => id === i.id);
-        })
-        .map(i => {
-          return (
-            <Tooltip
-              key={i.iconName as string}
-              id={`tooltip-${i.id}`}
-              text={i.description || ""}
-              delayShow={500}
-            >
-              <button
-                type='button'
-                disabled={typeof i.isDisabled === "function" && i.isDisabled()}
-                onClick={e => {
-                  if (
-                    image.isExtensionEnabled &&
-                    i.id === TIPTAP_TOOLBAR_ITEMS.IMAGE
-                  ) {
-                    fileInputRef.current?.click();
-                    return;
-                  }
+      {isListsEnabled && (
+        <ToolbarGroup>
+          <TiptapDropdown
+            triggerIcon='ListUnorderedOutline'
+            items={listsDropdownItems}
+            isActive={
+              editor.isActive("bulletList") ||
+              editor.isActive("orderedList") ||
+              editor.isActive("taskList")
+            }
+            tooltipText='Lists'
+          />
+        </ToolbarGroup>
+      )}
 
-                  if (i.id === TIPTAP_TOOLBAR_ITEMS.LINK && hasSelection) {
-                    inputModal.openModal(e, TIPTAP_TOOLBAR_ITEMS.LINK);
-                    linkInputForm.set({
-                      link: editor.getAttributes("link")["href"] || ""
-                    });
-                    return;
-                  }
+      {isBlockElementsEnabled && (
+        <ToolbarGroup>
+          {blockElementIcons.map(icon => (
+            <ToolbarButton
+              key={icon.id}
+              icon={icon.iconName || ""}
+              onClick={handleIconClick(icon.id, icon.onClick)}
+              isActive={icon.isActive}
+              isDisabled={
+                typeof icon.isDisabled === "function"
+                  ? icon.isDisabled()
+                  : false
+              }
+              tooltipText={icon.description}
+              tooltipId={`tooltip-${icon.id}`}
+            />
+          ))}
+        </ToolbarGroup>
+      )}
 
-                  if (i.id === TIPTAP_TOOLBAR_ITEMS.YOUTUBE) {
-                    youtubeInputForm.set({
-                      youtubeUrl: ""
-                    });
+      {isInsertEnabled && (
+        <ToolbarGroup>
+          <TiptapDropdown
+            triggerIcon='AddOutline'
+            items={insertDropdownItems}
+            tooltipText='Insert'
+          />
+        </ToolbarGroup>
+      )}
 
-                    inputModal.openModal(e, TIPTAP_TOOLBAR_ITEMS.YOUTUBE);
-                    return;
-                  }
+      {isAnnotationEnabled && (
+        <ToolbarGroup>
+          <div className='yl:relative'>
+            <ToolbarButton
+              icon='IconPencilSquare'
+              onClick={handleToggleAnnotationDropdown}
+              isActive={editor.isActive("roughAnnotation")}
+              tooltipText='Add hand-drawn annotation'
+              tooltipId='tooltip-rough-annotation'
+            />
+            <AnnotationDropdown
+              isOpen={isAnnotationDropdownOpen}
+              hasExistingAnnotation={hasExistingAnnotation}
+              onApply={handleApplyAnnotation}
+              onRemove={handleRemoveAnnotation}
+              onClose={handleCloseAnnotationDropdown}
+            />
+          </div>
+        </ToolbarGroup>
+      )}
 
-                  i.onClick?.(e);
-                }}
-              >
-                <Icon
-                  iconName={i.iconName || ""}
-                  className={classNames(
-                    "yl:border-border yl:w-8 yl:cursor-pointer",
-                    {
-                      "yl:text-text": !i.isActive,
-                      "yl:fill-primary yl:text-primary": i.isActive,
-                      "yl:cursor-not-allowed yl:opacity-30":
-                        typeof i.isDisabled === "function" && i.isDisabled(),
-                      "cursor-default": !hasSelection,
-                      "fill-primary": i.iconName === "IconLink" && hasSelection,
-                      "w-[27px]": i.iconName === "IconStrikethrough",
-                      "w-[28px]":
-                        i.iconName === "IconLink" ||
-                        i.iconName === "IconItalic",
-                      "w-[29px]":
-                        i.iconName === "IconBold" ||
-                        i.iconName === "IconListOl" ||
-                        i.iconName === "IconListUl",
-                      "w-[26px]": i.iconName === "IconImage",
-                      "w-[32px]": i.iconName === "IconLink"
-                    }
-                  )}
-                />
-              </button>
-            </Tooltip>
-          );
-        })}
-    </div>
+      {isTableEnabled && (
+        <ToolbarGroup>
+          <TableDropdown editor={editor} isActive={editor.isActive("table")} />
+        </ToolbarGroup>
+      )}
+
+      {isImageEnabled && (
+        <ToolbarGroup>
+          <ImageAlignmentDropdown editor={editor} />
+        </ToolbarGroup>
+      )}
+    </ToolbarWrapper>
   );
 };
+
+Toolbar.displayName = "Toolbar";

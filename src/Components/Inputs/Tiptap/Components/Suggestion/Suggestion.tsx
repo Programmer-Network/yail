@@ -6,7 +6,7 @@ import {
 } from "@tiptap/suggestion";
 import tippy, { GetReferenceClientRect, Instance, Props } from "tippy.js";
 
-import { TiptapSuggestionOptions } from "../../types";
+import { TiptapSuggestionOptions } from "../../Tiptap.types";
 import Mention from "../Mention";
 
 interface MentionRef {

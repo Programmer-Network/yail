@@ -1,6 +1,6 @@
 import { TiptapToHTML } from "../Inputs";
-import { TIPTAP_TOOLBAR_ITEMS } from "../Inputs/Tiptap/constants";
-import { TiptapControls } from "../Inputs/Tiptap/types";
+import { TIPTAP_TOOLBAR_ITEMS } from "../Inputs/Tiptap/Tiptap.constants";
+import { TiptapControls } from "../Inputs/Tiptap/Tiptap.types";
 import HTMLRendering from "./HTMLRendering";
 import { getDocument } from "./HTMLRendering.utils";
 

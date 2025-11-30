@@ -48,5 +48,6 @@ export * from "./Components/Typography";
 export * from "./Components/UpcomingEventCard";
 export * from "./Components/UpcomingEventsList";
 export * from "./Components/ViewToggle";
+export * from "./Components/ZenEditor";
 export * from "./Utils";
 export * from "./Views";

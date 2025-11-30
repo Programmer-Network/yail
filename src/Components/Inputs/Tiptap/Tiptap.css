@@ -1,66 +1,5 @@
-/* .ProseMirror > * + * {
-  margin-top: 0.75em;
-}
-.ProseMirror img {
-  height: auto;
-  max-width: 100%;
-}
-.ProseMirror img.ProseMirror-selectednode {
-  outline: 2px solid #6366f1;
-}
-
-.ProseMirror > * + * {
-  margin-top: 0.75em;
-}
-.ProseMirror ul,
-.ProseMirror ol {
-  padding: 0 1rem;
-}
-.ProseMirror h1,
-.ProseMirror h2,
-.ProseMirror h3,
-.ProseMirror h4,
-.ProseMirror h5,
-.ProseMirror h6 {
-  line-height: 1.1;
-}
-.ProseMirror code {
-  background-color: rgba(97, 97, 97, 0.1);
-  color: #616161;
-}
-.ProseMirror pre {
-  background: #0d0d0d;
-  color: #fff;
-  font-family: "JetBrainsMono", monospace;
-  padding: 0.75rem 1rem;
-  border-radius: 0.5rem;
-}
-.ProseMirror pre code {
-  color: inherit;
-  padding: 0;
-  background: none;
-  font-size: 0.8rem;
-}
-.ProseMirror img {
-  max-width: 100%;
-  height: auto;
-}
-.ProseMirror blockquote {
-  padding-left: 1rem;
-  border-left: 2px solid rgba(13, 13, 13, 0.1);
-}
-.ProseMirror hr {
-  border: none;
-  border-top: 2px solid rgba(13, 13, 13, 0.1);
-  margin: 2rem 0;
-}
-.tiptap p.is-editor-empty:first-child::before {
-  @apply yl-text-text;
-  content: attr(data-placeholder);
-  float: left;
-  height: 0;
-  pointer-events: none;
-} */
+/* Handwritten font for rough annotations - must be at top */
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap");
 
 .ProseMirror table {
   border-collapse: collapse;
@@ -111,4 +50,316 @@
 .ProseMirror.resize-cursor {
   cursor: ew-resize;
   cursor: col-resize;
+}
+
+/* Code block - Modern dark theme with polish */
+.ProseMirror pre {
+  background: linear-gradient(135deg, #1a1b26 0%, #16161e 100%);
+  color: #a9b1d6;
+  font-family: "JetBrains Mono", "Fira Code", "SF Mono", "Consolas", monospace;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  padding: 1.25rem 1.5rem;
+  border-radius: 0.75rem;
+  border-left: 3px solid var(--color-primary, #7aa2f7);
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.3),
+    0 2px 4px -2px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+
+.ProseMirror pre code {
+  color: inherit;
+  padding: 0;
+  background: none;
+  font-size: inherit;
+  line-height: inherit;
+  font-feature-settings:
+    "liga" 1,
+    "calt" 1;
+}
+
+/* Syntax highlighting - Tokyo Night inspired */
+
+/* Comments - muted, italic */
+.ProseMirror .hljs-comment,
+.ProseMirror .hljs-quote {
+  color: #565f89;
+  font-style: italic;
+}
+
+/* Keywords - soft purple/magenta */
+.ProseMirror .hljs-keyword,
+.ProseMirror .hljs-selector-tag,
+.ProseMirror .hljs-addition {
+  color: #bb9af7;
+}
+
+/* Strings - soft green */
+.ProseMirror .hljs-string,
+.ProseMirror .hljs-meta .hljs-meta-string,
+.ProseMirror .hljs-doctag,
+.ProseMirror .hljs-regexp {
+  color: #9ece6a;
+}
+
+/* Numbers, literals - orange/peach */
+.ProseMirror .hljs-number,
+.ProseMirror .hljs-literal {
+  color: #ff9e64;
+}
+
+/* Functions, titles - vibrant blue */
+.ProseMirror .hljs-title,
+.ProseMirror .hljs-section,
+.ProseMirror .hljs-name,
+.ProseMirror .hljs-selector-id,
+.ProseMirror .hljs-selector-class {
+  color: #7aa2f7;
+}
+
+/* Types, classes - cyan/teal */
+.ProseMirror .hljs-attribute,
+.ProseMirror .hljs-attr,
+.ProseMirror .hljs-variable,
+.ProseMirror .hljs-template-variable,
+.ProseMirror .hljs-class .hljs-title,
+.ProseMirror .hljs-type {
+  color: #2ac3de;
+}
+
+/* Built-ins, special - soft red */
+.ProseMirror .hljs-built_in,
+.ProseMirror .hljs-deletion {
+  color: #f7768e;
+}
+
+/* Operators, punctuation - bright foreground */
+.ProseMirror .hljs-symbol,
+.ProseMirror .hljs-bullet,
+.ProseMirror .hljs-subst,
+.ProseMirror .hljs-meta,
+.ProseMirror .hljs-meta .hljs-keyword,
+.ProseMirror .hljs-selector-attr,
+.ProseMirror .hljs-selector-pseudo,
+.ProseMirror .hljs-link {
+  color: #89ddff;
+}
+
+/* Special keywords - pink */
+.ProseMirror .hljs-formula,
+.ProseMirror .hljs-keyword.hljs-this {
+  color: #ff007c;
+}
+
+/* Emphasis */
+.ProseMirror .hljs-emphasis {
+  font-style: italic;
+  color: #c0caf5;
+}
+
+.ProseMirror .hljs-strong {
+  font-weight: 600;
+  color: #c0caf5;
+}
+
+/* Blockquote - Minimal styling */
+.ProseMirror blockquote {
+  margin: 1rem 0;
+  padding: 0.5rem 0 0.5rem 1rem;
+  border-left: 2px solid var(--color-primary, #7aa2f7);
+  color: var(--color-text, #a9b1d6);
+  opacity: 0.85;
+}
+
+.ProseMirror blockquote p {
+  margin: 0;
+}
+
+.ProseMirror blockquote p + p {
+  margin-top: 0.5rem;
+}
+
+/* Code blocks inside blockquotes */
+.ProseMirror blockquote pre {
+  margin: 0.75rem 0;
+}
+
+/* Task List styling */
+.ProseMirror ul[data-type="taskList"] {
+  list-style: none;
+  padding-left: 0;
+  margin: 0.5rem 0;
+}
+
+.ProseMirror ul[data-type="taskList"] li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin: 0.25rem 0;
+}
+
+.ProseMirror ul[data-type="taskList"] li > label {
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+}
+
+.ProseMirror ul[data-type="taskList"] li > label input[type="checkbox"] {
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+  accent-color: var(--color-primary, #7aa2f7);
+}
+
+.ProseMirror ul[data-type="taskList"] li > div {
+  flex: 1;
+}
+
+.ProseMirror ul[data-type="taskList"] li[data-checked="true"] > div {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+/* Nested task lists */
+.ProseMirror ul[data-type="taskList"] ul[data-type="taskList"] {
+  margin-left: 1.5rem;
+}
+
+/* Highlight styling - Uses primary color, fits dark theme */
+.ProseMirror mark {
+  background-color: rgba(var(--color-primary-rgb, 122, 162, 247), 0.25);
+  border-bottom: 2px solid rgba(var(--color-primary-rgb, 122, 162, 247), 0.6);
+  border-radius: 0.125rem;
+  padding: 0.1rem 0.15rem;
+  color: var(--color-text, #e2e8f0);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* Rough Annotation styling - must match Frontend highlighter.css */
+.ProseMirror rough-annotation {
+  display: inline;
+  position: relative;
+}
+
+/* Wrapper created by NodeViewWrapper */
+.ProseMirror [data-node-view-wrapper] {
+  display: inline-block;
+  position: relative;
+}
+
+/* Add margin when label is present */
+.ProseMirror [data-node-view-wrapper].yl\:mt-6 {
+  margin-top: 1.5rem;
+}
+
+/* Label styling */
+.ProseMirror .rough-annotation-label,
+.ProseMirror [data-node-view-wrapper] > span[style*="Caveat"] {
+  position: absolute;
+  top: -1.25rem;
+  left: 0;
+  font-family: "Caveat", "Patrick Hand", cursive;
+  font-size: 0.85em;
+  white-space: nowrap;
+  z-index: 1;
+}
+
+/* Ensure SVG annotations render properly */
+.ProseMirror rough-annotation svg,
+.ProseMirror [data-node-view-wrapper] svg {
+  pointer-events: none;
+  overflow: visible !important;
+  z-index: 0;
+}
+
+/* Image alignment styling */
+.ProseMirror img {
+  max-width: 100%;
+  height: auto;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease;
+}
+
+/* Image alignment for HTML output */
+.ProseMirror img[data-align="left"] {
+  margin-right: auto;
+  margin-left: 0;
+  display: block;
+}
+
+.ProseMirror img[data-align="center"] {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.ProseMirror img[data-align="right"] {
+  margin-left: auto;
+  margin-right: 0;
+  display: block;
+}
+
+/* Selected image styling */
+.ProseMirror img.ProseMirror-selectednode {
+  outline: 2px solid var(--color-primary, #7aa2f7);
+  outline-offset: 2px;
+  border-radius: 0.25rem;
+}
+
+/* Image resize handles */
+.ProseMirror .resize-handle {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: var(--color-primary, #7aa2f7);
+  border: 2px solid white;
+  border-radius: 3px;
+  z-index: 20;
+  cursor: se-resize;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  transition: transform 0.1s ease;
+}
+
+.ProseMirror .resize-handle:hover {
+  transform: scale(1.2);
+}
+
+.ProseMirror .resize-handle-nw {
+  top: -6px;
+  left: -6px;
+  cursor: nw-resize;
+}
+
+.ProseMirror .resize-handle-ne {
+  top: -6px;
+  right: -6px;
+  cursor: ne-resize;
+}
+
+.ProseMirror .resize-handle-sw {
+  bottom: -6px;
+  left: -6px;
+  cursor: sw-resize;
+}
+
+.ProseMirror .resize-handle-se {
+  bottom: -6px;
+  right: -6px;
+  cursor: se-resize;
+}
+
+/* Resizing state */
+.ProseMirror.is-resizing {
+  cursor: se-resize !important;
+  user-select: none;
+}
+
+/* BubbleMenu z-index - ensure it appears above sticky toolbar */
+[data-tippy-root],
+.tippy-box,
+[data-floating-ui-root] {
+  z-index: 50 !important;
 }
