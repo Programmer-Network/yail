@@ -2,10 +2,11 @@
 
 ## [1.14.0](https://github.com/Programmer-Network/yail/compare/yail-v1.13.1...yail-v1.14.0) (2025-11-30)
 
-
 ### Features
 
-* enhance Tiptap editor with new toolbar items and extensions ([#59](https://github.com/Programmer-Network/yail/issues/59)) ([ec39a7b](https://github.com/Programmer-Network/yail/commit/ec39a7bb98924cb1c5be71f21d4c9854be4b1725))
+- enhance Tiptap editor with new toolbar items and extensions
+  ([#59](https://github.com/Programmer-Network/yail/issues/59))
+  ([ec39a7b](https://github.com/Programmer-Network/yail/commit/ec39a7bb98924cb1c5be71f21d4c9854be4b1725))
 
 ## [1.13.1](https://github.com/Programmer-Network/yail/compare/yail-v1.13.0...yail-v1.13.1) (2025-11-28)
 
