@@ -48,7 +48,6 @@ interface IRenderHTMLAttributes {
 }
 
 const headers = Heading.configure({ levels: [1, 2, 3, 4, 5, 6] }).extend({
-  levels: [1, 2, 3, 4, 5, 6],
   renderHTML(attributes: IRenderHTMLAttributes) {
     const { node, HTMLAttributes } = attributes;
 

@@ -1,7 +1,9 @@
 import { FocusEvent, InputHTMLAttributes } from "react";
 
-export interface IInputProps
-  extends Omit<InputHTMLAttributes<HTMLInputElement>, "onChange"> {
+export interface IInputProps extends Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  "onChange"
+> {
   name: string;
   value: string;
   label?: string;
