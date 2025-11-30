@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.15.0](https://github.com/Programmer-Network/yail/compare/yail-v1.14.0...yail-v1.15.0) (2025-11-30)
+
+
+### Features
+
+* add new Tiptap extensions for enhanced functionality ([0c6f967](https://github.com/Programmer-Network/yail/commit/0c6f96737860d9291399ec7611e0d5f4dca44a56))
+
 ## [1.14.0](https://github.com/Programmer-Network/yail/compare/yail-v1.13.1...yail-v1.14.0) (2025-11-30)
 
 ### Features
