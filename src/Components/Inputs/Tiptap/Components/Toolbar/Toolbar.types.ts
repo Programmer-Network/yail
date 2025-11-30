@@ -1,7 +1,7 @@
 import { Editor } from "@tiptap/core";
 import { MouseEvent, ReactNode, RefObject } from "react";
 
-import { TiptapControls, TiptapToolbarProps } from "../../types";
+import { TiptapControls, TiptapToolbarProps } from "../../Tiptap.types";
 
 // Toolbar Wrapper types
 export interface IToolbarWrapperProps {

@@ -3,8 +3,8 @@ import classNames from "classnames";
 import { FC, MouseEvent, useCallback } from "react";
 
 import { Button } from "../../../../Button";
-import { TIPTAP_TOOLBAR_ITEMS } from "../../constants";
-import { TiptapToolbarProps, ToolbarGroupId } from "../../types";
+import { TIPTAP_TOOLBAR_ITEMS } from "../../Tiptap.constants";
+import { TiptapToolbarProps, ToolbarGroupId } from "../../Tiptap.types";
 import { ImageAlignmentDropdown } from "../ImageAlignmentDropdown";
 import { ModalInput } from "../ModalInput";
 import { AnnotationDropdown } from "../RoughAnnotation";

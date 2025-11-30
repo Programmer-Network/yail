@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import React, { forwardRef, useImperativeHandle, useState } from "react";
 
-import { IMentionProps, MentionHandle } from "../../types";
+import { IMentionProps, MentionHandle } from "../../Tiptap.types";
 
 const Mention: React.ForwardRefRenderFunction<MentionHandle, IMentionProps> = (
   props,

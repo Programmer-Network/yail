@@ -5,7 +5,7 @@ import {
   TiptapControls,
   TiptapRef,
   TiptapSuggestionOptions
-} from "../Inputs/Tiptap/types";
+} from "../Inputs/Tiptap/Tiptap.types";
 import { IZenAction } from "./ZenPropertiesDrawer";
 import { ZenSaveStatus } from "./ZenStatusBar";
 

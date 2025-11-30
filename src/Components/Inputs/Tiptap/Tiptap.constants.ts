@@ -1,6 +1,6 @@
 import classNames from "classnames";
 
-import { ToolbarGroupId } from "./types";
+import { ToolbarGroupId } from "./Tiptap.types";
 
 export const TIPTAP_TOOLBAR_ITEMS = {
   BOLD: "BOLD",

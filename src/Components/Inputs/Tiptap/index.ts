@@ -1,2 +1,2 @@
 export { Tiptap } from "./Tiptap";
-export * from "./types";
+export * from "./Tiptap.types";

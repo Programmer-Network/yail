@@ -1,9 +1,9 @@
 import { Extensions, JSONContent, generateHTML } from "@tiptap/core";
 import sanitize from "sanitize-html";
 
-import { editorConfig } from "../config";
-import { toolbarItemToClassName } from "../constants";
-import { TiptapControls, TiptapSuggestionOptions } from "../types";
+import { toolbarItemToClassName } from "../Tiptap.constants";
+import { editorConfig } from "../Tiptap.editorConfig";
+import { TiptapControls, TiptapSuggestionOptions } from "../Tiptap.types";
 import { getAllowedTags } from "./utils";
 
 /**

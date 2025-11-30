@@ -1,25 +1,23 @@
 import { EditorContent, useEditor } from "@tiptap/react";
 import classNames from "classnames";
-import { TextSelection } from "prosemirror-state";
 import {
   ForwardRefRenderFunction,
   forwardRef,
   useEffect,
   useImperativeHandle,
-  useRef,
-  useState
+  useMemo,
+  useRef
 } from "react";
 
-import { useMobile } from "../../../Hooks/useMediaQuery";
 import { InputError } from "../Common/InputError";
 import { InputHeader } from "../Common/InputHeader";
 import TiptapActions from "./Components/Actions";
 import { CharacterCount } from "./Components/CharacterCount";
 import { Toolbar } from "./Components/Toolbar";
+import { TIPTAP_TOOLBAR_ITEMS } from "./Tiptap.constants";
 import "./Tiptap.css";
-import { editorConfig } from "./config";
-import { TIPTAP_TOOLBAR_ITEMS } from "./constants";
-import { TiptapProps, TiptapRef } from "./types";
+import { editorConfig } from "./Tiptap.editorConfig";
+import { TiptapProps, TiptapRef } from "./Tiptap.types";
 
 const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
   {
@@ -45,30 +43,52 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
   },
   ref
 ) => {
-  const isMobile = useMobile();
-  const [textSelected, setTextSelected] = useState<string>("");
   const hasSetInitialContent = useRef(false);
 
-  const useEditorConfig = editorConfig({
+  const editorOptions = useMemo(() => {
+    const config = editorConfig({
+      toolbarItems,
+      editorContent,
+      suggestions,
+      placeholder,
+      autoFocus
+    });
+
+    return {
+      ...config,
+      onTransaction,
+      onUpdate,
+      onSelectionUpdate
+    };
+  }, [
     toolbarItems,
     editorContent,
     suggestions,
     placeholder,
-    autoFocus
-  });
+    autoFocus,
+    onTransaction,
+    onUpdate,
+    onSelectionUpdate
+  ]);
 
-  const image = {
-    isExtensionEnabled: !!useEditorConfig?.extensions?.some(
-      ({ name }) => name === "image"
-    ),
-    onSetImage
-  };
+  const image = useMemo(
+    () => ({
+      isExtensionEnabled: !!editorOptions?.extensions?.some(
+        ({ name }) => name === "image"
+      ),
+      onSetImage
+    }),
+    [editorOptions?.extensions, onSetImage]
+  );
 
-  const link = {
-    isExtensionEnabled: !!useEditorConfig?.extensions?.some(({ name }) => {
-      return name === "link";
-    })
-  };
+  const link = useMemo(
+    () => ({
+      isExtensionEnabled: !!editorOptions?.extensions?.some(
+        ({ name }) => name === "link"
+      )
+    }),
+    [editorOptions?.extensions]
+  );
 
   const characterCountEnabled =
     toolbarItems?.includes(TIPTAP_TOOLBAR_ITEMS.CHARACTER_COUNT) ?? false;
@@ -78,19 +98,7 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
     throw new Error("Image extension not registered in Tiptap editor.");
   }
 
-  if (onTransaction) {
-    useEditorConfig.onTransaction = onTransaction;
-  }
-
-  if (onUpdate) {
-    useEditorConfig.onUpdate = onUpdate;
-  }
-
-  if (onSelectionUpdate) {
-    useEditorConfig.onSelectionUpdate = onSelectionUpdate;
-  }
-
-  const editor = useEditor(useEditorConfig);
+  const editor = useEditor(editorOptions);
 
   useImperativeHandle(
     ref,
@@ -120,18 +128,6 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
     }),
     [editor]
   );
-
-  useEffect(() => {
-    if (textSelected !== "clicked-outside" || !editor) {
-      return;
-    }
-
-    const { tr: transaction } = editor.state;
-    const endPos = transaction.doc.content.size;
-    transaction.setSelection(TextSelection.create(transaction.doc, endPos));
-    editor.view.dispatch(transaction);
-    setTextSelected("");
-  }, [textSelected, isMobile, editor]);
 
   useEffect(() => {
     const contentToSet = value || editorContent;

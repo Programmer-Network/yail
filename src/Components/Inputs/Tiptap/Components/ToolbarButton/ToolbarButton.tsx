@@ -3,7 +3,7 @@ import { FC, useCallback } from "react";
 
 import { Icon } from "../../../../Icon";
 import { Tooltip } from "../../../../Tooltip";
-import { getIconSize } from "../../constants";
+import { getIconSize } from "../../Tiptap.constants";
 import { IToolbarButtonProps } from "./ToolbarButton.types";
 
 const ToolbarButton: FC<IToolbarButtonProps> = ({

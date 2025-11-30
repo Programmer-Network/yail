@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { useCallback, useState } from "react";
 
 import { Input } from "../Inputs";
-import { TIPTAP_TOOLBAR_ITEMS } from "../Inputs/Tiptap/constants";
+import { TIPTAP_TOOLBAR_ITEMS } from "../Inputs/Tiptap/Tiptap.constants";
 import { ZenEditor } from "./ZenEditor";
 import { ZenSaveStatus } from "./ZenEditor.types";
 

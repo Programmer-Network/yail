@@ -1,5 +1,5 @@
-import { TIPTAP_TOOLBAR_ITEMS } from "../constants";
-import { TiptapControls } from "../types";
+import { TIPTAP_TOOLBAR_ITEMS } from "../Tiptap.constants";
+import { TiptapControls } from "../Tiptap.types";
 
 const tiptapToSanitizeHtmlTags: Record<string, string[]> = {
   [TIPTAP_TOOLBAR_ITEMS.BOLD]: ["strong"],

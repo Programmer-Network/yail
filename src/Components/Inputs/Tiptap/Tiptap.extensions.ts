@@ -31,19 +31,30 @@ import { common, createLowlight } from "lowlight";
 import { ResizableImageExtension } from "./Components/ResizableImage";
 import { RoughAnnotationExtension } from "./Components/RoughAnnotation";
 import Suggestion from "./Components/Suggestion";
-import { TIPTAP_TOOLBAR_ITEMS, toolbarItemToClassName } from "./constants";
-import { IExtensionsMap, IGetExtensions } from "./types";
+import {
+  TIPTAP_TOOLBAR_ITEMS,
+  toolbarItemToClassName
+} from "./Tiptap.constants";
+import { IExtensionsMap, IGetExtensions } from "./Tiptap.types";
 
 // Create lowlight instance with common programming languages
 const lowlight = createLowlight(common);
 
+type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
+
+interface IRenderHTMLAttributes {
+  node: { attrs: Record<string, unknown> };
+  HTMLAttributes: Record<string, unknown>;
+}
+
 const headers = Heading.configure({ levels: [1, 2, 3, 4, 5, 6] }).extend({
   levels: [1, 2, 3, 4, 5, 6],
-  renderHTML(attributes: Record<string, any>) {
+  renderHTML(attributes: IRenderHTMLAttributes) {
     const { node, HTMLAttributes } = attributes;
 
-    const level = this.options.levels.includes(node.attrs["level"])
-      ? node.attrs["level"]
+    const nodeLevel = node.attrs["level"] as HeadingLevel;
+    const level = this.options.levels.includes(nodeLevel)
+      ? nodeLevel
       : this.options.levels[0];
 
     const headingClassNames = {

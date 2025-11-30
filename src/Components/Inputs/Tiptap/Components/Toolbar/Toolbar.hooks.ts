@@ -11,8 +11,8 @@ import {
 } from "react";
 
 import { useModalInput } from "../../../../../Hooks/useModalInput";
-import { TIPTAP_TOOLBAR_ITEMS, TOOLBAR_GROUPS } from "../../constants";
-import { ToolbarGroupId } from "../../types";
+import { TIPTAP_TOOLBAR_ITEMS, TOOLBAR_GROUPS } from "../../Tiptap.constants";
+import { ToolbarGroupId } from "../../Tiptap.types";
 import { LinkClickTarget } from "../ModalInput/types";
 import { IRoughAnnotationAttrs } from "../RoughAnnotation";
 import { ITiptapDropdownItem } from "../TiptapDropdown";

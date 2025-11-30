@@ -1,7 +1,7 @@
 import { EditorOptions } from "@tiptap/core";
 
-import getExtensions from "./extensions";
-import { IEditorConfig } from "./types";
+import getExtensions from "./Tiptap.extensions";
+import { IEditorConfig } from "./Tiptap.types";
 
 export const editorConfig = (args: IEditorConfig): Partial<EditorOptions> => {
   const { toolbarItems, editorContent, placeholder, suggestions, autoFocus } =

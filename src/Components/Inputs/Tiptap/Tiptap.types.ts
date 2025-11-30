@@ -2,7 +2,7 @@ import { Editor, EditorEvents, Extension, Mark, Node } from "@tiptap/react";
 import { SuggestionOptions } from "@tiptap/suggestion";
 import { FC, MouseEventHandler } from "react";
 
-import { TIPTAP_TOOLBAR_ITEMS } from "./constants";
+import { TIPTAP_TOOLBAR_ITEMS } from "./Tiptap.constants";
 
 export type TiptapToolbarMode = "full" | "minimal" | "bubble" | "hybrid";
 

@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import { FC } from "react";
 
-import { typograyClassNames } from "../../Inputs/Tiptap/constants";
+import { typograyClassNames } from "../../Inputs/Tiptap/Tiptap.constants";
 import { IH5Props } from "./types";
 
 const H5: FC<IH5Props> = ({ id, children, className, onClick, ariaLabel }) => {

@@ -4,7 +4,7 @@ import { FC, MouseEvent, useCallback } from "react";
 import { Dropdown } from "../../../../Dropdown";
 import { Icon } from "../../../../Icon";
 import { Tooltip } from "../../../../Tooltip";
-import { getIconSize } from "../../constants";
+import { getIconSize } from "../../Tiptap.constants";
 import { ITiptapDropdownProps } from "./TiptapDropdown.types";
 
 const TiptapDropdown: FC<ITiptapDropdownProps> = ({

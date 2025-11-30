@@ -2,9 +2,9 @@ import { Editor } from "@tiptap/core";
 import { RefObject, useRef, useState } from "react";
 
 import { Tiptap } from ".";
+import { TIPTAP_TOOLBAR_ITEMS } from "./Tiptap.constants";
+import { TiptapActionsEnum, TiptapRef } from "./Tiptap.types";
 import { TiptapToHTML } from "./TiptapToHTML";
-import { TIPTAP_TOOLBAR_ITEMS } from "./constants";
-import { TiptapActionsEnum, TiptapRef } from "./types";
 
 export default {
   title: "Rich Text Editing / Tiptap",

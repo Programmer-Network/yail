@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef } from "react";
 
-import { TiptapControls, TiptapRef } from "../Inputs/Tiptap/types";
+import { TiptapControls, TiptapRef } from "../Inputs/Tiptap/Tiptap.types";
 import {
   IUseToolbarItemsProps,
   IUseZenEditorKeyboardProps,

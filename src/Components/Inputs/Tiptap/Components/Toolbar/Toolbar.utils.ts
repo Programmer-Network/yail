@@ -1,6 +1,6 @@
 import { Editor } from "@tiptap/core";
 
-import { TIPTAP_TOOLBAR_ITEMS } from "../../constants";
+import { TIPTAP_TOOLBAR_ITEMS } from "../../Tiptap.constants";
 import {
   DEFAULT_TYPOGRAPHY_LABEL,
   TYPOGRAPHY_LABELS
