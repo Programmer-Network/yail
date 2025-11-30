@@ -170,5 +170,3 @@ Once you've made your changes:
    `Programmer-Network/yail` repository.
 
 Please provide a clear description of the changes in your pull request.
-
-Thank you for contributing to Yail!
