@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.16.0](https://github.com/Programmer-Network/yail/compare/yail-v1.15.0...yail-v1.16.0) (2025-11-30)
+
+
+### Features
+
+* nudge ci ([e54f2b4](https://github.com/Programmer-Network/yail/commit/e54f2b42a57ab95e45d93a0cf6f8742b2e2a56b9))
+
 ## [1.15.0](https://github.com/Programmer-Network/yail/compare/yail-v1.14.0...yail-v1.15.0) (2025-11-30)
 
 ### Features
