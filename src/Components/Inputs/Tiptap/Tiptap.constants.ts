@@ -46,158 +46,188 @@ export const TIPTAP_TOOLBAR_ITEMS = {
   IMAGE_ALIGN_RIGHT: "IMAGE_ALIGN_RIGHT"
 } as const;
 
+// ---------------------------------------------------------------------------
+// Typography class helpers
+// ---------------------------------------------------------------------------
+
+const baseText = "yl:text-text yl:break-words";
+
 export const typograyClassNames = {
-  h1: (className?: string) =>
+  h1: (c?: string) =>
     classNames(
-      "yl:text-3xl yl:sm:text-4xl yl:md:text-5xl yl:leading-tight yl:text-text yl:break-words yl:font-bold",
-      className
+      "yl:text-3xl yl:sm:text-4xl yl:md:text-5xl yl:leading-tight yl:font-bold",
+      baseText,
+      c
     ),
-  h2: (className?: string) =>
+  h2: (c?: string) =>
     classNames(
-      "yl:text-2xl yl:sm:text-3xl yl:md:text-4xl yl:leading-tight yl:text-text yl:break-words yl:font-bold",
-      className
+      "yl:text-2xl yl:sm:text-3xl yl:md:text-4xl yl:leading-tight yl:font-bold",
+      baseText,
+      c
     ),
-  h3: (className?: string) =>
+  h3: (c?: string) =>
     classNames(
-      "yl:text-xl yl:sm:text-2xl yl:md:text-3xl yl:leading-snug yl:text-text yl:break-words yl:font-bold",
-      className
+      "yl:text-xl yl:sm:text-2xl yl:md:text-3xl yl:leading-snug yl:font-bold",
+      baseText,
+      c
     ),
-  h4: (className?: string) =>
+  h4: (c?: string) =>
     classNames(
-      "yl:text-lg yl:sm:text-xl yl:md:text-2xl yl:leading-snug yl:text-text yl:break-words yl:font-bold",
-      className
+      "yl:text-lg yl:sm:text-xl yl:md:text-2xl yl:leading-snug yl:font-bold",
+      baseText,
+      c
     ),
-  h5: (className?: string) =>
+  h5: (c?: string) =>
     classNames(
-      "yl:text-base yl:sm:text-lg yl:md:text-xl yl:leading-normal yl:text-text yl:break-words yl:font-bold",
-      className
+      "yl:text-base yl:sm:text-lg yl:md:text-xl yl:leading-normal yl:font-bold",
+      baseText,
+      c
     ),
-  h6: (className?: string) =>
+  h6: (c?: string) =>
     classNames(
-      "yl:text-base yl:sm:text-base yl:md:text-lg yl:leading-normal yl:text-text yl:break-words yl:font-bold",
-      className
+      "yl:text-base yl:md:text-lg yl:leading-normal yl:font-bold",
+      baseText,
+      c
     ),
-  p: (className?: string) =>
+
+  p: (c?: string) =>
     classNames(
-      "yl:text-base yl:md:text-lg yl:leading-relaxed yl:text-text yl:break-words yl:overflow-hidden",
-      className
+      "yl:text-base yl:md:text-lg yl:leading-relaxed yl:overflow-hidden",
+      baseText,
+      c
     ),
-  a: (className?: string) =>
+
+  a: (c?: string) =>
     classNames(
-      "yl:break-all yl:hover:text-stroke yl:text-primary yl:hover:underline yl:hover:opacity-80 yl:active:opacity-50 yl:cursor-pointer",
-      className
+      "yl:text-primary yl:hover:text-stroke yl:hover:underline yl:hover:opacity-80 yl:active:opacity-50 yl:cursor-pointer yl:break-all",
+      c
     ),
-  ul: (className?: string) =>
+
+  ul: (c?: string) =>
     classNames(
-      "yl:list-disc yl:text-text yl:pl-6 yl:ml-2 yl:my-2 marker:text-primary",
-      className
+      "yl:list-disc yl:pl-6 yl:ml-2 yl:my-4 yl:marker:text-primary",
+      baseText,
+      c
     ),
-  ol: (className?: string) =>
+
+  ol: (c?: string) =>
     classNames(
-      "yl:list-decimal yl:text-text yl:pl-6 yl:ml-2 yl:my-2 marker:text-primary",
-      className
+      "yl:list-decimal yl:pl-6 yl:ml-2 yl:my-4 yl:marker:text-primary",
+      baseText,
+      c
     )
 };
+
+// ---------------------------------------------------------------------------
+// Mapping toolbar items → DOM representation + classes
+// ---------------------------------------------------------------------------
 
 export const toolbarItemToClassName = {
   [TIPTAP_TOOLBAR_ITEMS.HEADING_1]: {
     tagName: "h1",
-    classes: typograyClassNames.h1("my-4")
+    classes: typograyClassNames.h1("yl:my-4")
   },
   [TIPTAP_TOOLBAR_ITEMS.HEADING_2]: {
     tagName: "h2",
-    classes: typograyClassNames.h2("my-4")
+    classes: typograyClassNames.h2("yl:my-4")
   },
   [TIPTAP_TOOLBAR_ITEMS.HEADING_3]: {
     tagName: "h3",
-    classes: typograyClassNames.h3("my-4")
+    classes: typograyClassNames.h3("yl:my-4")
   },
   [TIPTAP_TOOLBAR_ITEMS.HEADING_4]: {
     tagName: "h4",
-    classes: typograyClassNames.h4("my-4")
+    classes: typograyClassNames.h4("yl:my-4")
   },
   [TIPTAP_TOOLBAR_ITEMS.HEADING_5]: {
     tagName: "h5",
-    classes: typograyClassNames.h5("my-4")
+    classes: typograyClassNames.h5("yl:my-4")
   },
   [TIPTAP_TOOLBAR_ITEMS.HEADING_6]: {
     tagName: "h6",
-    classes: typograyClassNames.h6("my-4")
+    classes: typograyClassNames.h6("yl:my-4")
   },
+
   [TIPTAP_TOOLBAR_ITEMS.PARAGRAPH]: {
     tagName: "p",
-    classes: typograyClassNames.p("my-4")
+    classes: typograyClassNames.p("yl:my-4")
   },
+
   [TIPTAP_TOOLBAR_ITEMS.LINK]: {
     tagName: "a",
     classes: "yl:underline yl:text-primary yl:cursor-pointer yl:font-bold"
   },
+
   [TIPTAP_TOOLBAR_ITEMS.UNORDERED_LIST]: {
     tagName: "ul",
     classes: typograyClassNames.ul()
   },
+
   [TIPTAP_TOOLBAR_ITEMS.ORDERED_LIST]: {
     tagName: "ol",
     classes: typograyClassNames.ol()
   },
+
   [TIPTAP_TOOLBAR_ITEMS.YOUTUBE]: {
     tagName: null,
     classes: "yl:aspect-video yl:h-full yl:w-full yl:py-4"
   },
+
   [TIPTAP_TOOLBAR_ITEMS.IMAGE]: {
     tagName: "img",
     classes: "yl:block yl:my-4 yl:rounded-md"
   },
+
   [TIPTAP_TOOLBAR_ITEMS.MENTION]: {
     tagName: "span",
     classes: "yl:text-primary yl:cursor-pointer yl:font-bold"
   },
+
   [TIPTAP_TOOLBAR_ITEMS.TABLE]: {
     tagName: "table",
     classes: "yl:border-collapse yl:w-full yl:my-4"
   },
+
   [TIPTAP_TOOLBAR_ITEMS.TASK_LIST]: {
     tagName: "ul",
     classes: "yl:list-none yl:pl-0 yl:my-2"
   },
+
   [TIPTAP_TOOLBAR_ITEMS.TASK_ITEM]: {
     tagName: "li",
     classes: "yl:flex yl:items-start yl:gap-2"
   },
+
   [TIPTAP_TOOLBAR_ITEMS.HIGHLIGHT]: {
     tagName: "mark",
     classes: ""
   },
+
   [TIPTAP_TOOLBAR_ITEMS.ROUGH_ANNOTATION]: {
     tagName: "rough-annotation",
     classes: "yl:inline-block yl:relative"
   }
 };
 
-/**
- * Icon mapping from legacy Icon* names to standardized Outline icons
- * Used for consistent icon styling across the toolbar
- */
+// ---------------------------------------------------------------------------
+// Icon mapping & icon sizes
+// ---------------------------------------------------------------------------
+
 export const TOOLBAR_ICON_MAP: Record<string, string> = {
-  // Text Formatting - use Outline versions
   IconBold: "BoldOutline",
   IconItalic: "ItalicOutline",
   IconStrikethrough: "StrikethroughOutline",
   IconCode: "CodeOutline",
 
-  // Lists - use Outline versions
   IconListUl: "ListUnorderedOutline",
   IconListOl: "ListOrderedOutline",
 
-  // Block Elements
   IconQuote: "QuoteOutline",
 
-  // Insert Elements - use Outline versions
   IconLink: "LinkOutline",
   IconImage: "ImageOutline",
   IconAddYoutube: "YoutubeOutline",
 
-  // Keep custom icons (no outline versions available)
   IconH1: "IconH1",
   IconH2: "IconH2",
   IconH3: "IconH3",
@@ -211,9 +241,6 @@ export const TOOLBAR_ICON_MAP: Record<string, string> = {
   IconPencilSquare: "IconPencilSquare"
 };
 
-/**
- * Toolbar items grouped by functionality
- */
 export const TOOLBAR_GROUPS = {
   [ToolbarGroupId.TYPOGRAPHY]: [
     TIPTAP_TOOLBAR_ITEMS.HEADING_1,
@@ -249,9 +276,6 @@ export const TOOLBAR_GROUPS = {
   [ToolbarGroupId.ANNOTATIONS]: [TIPTAP_TOOLBAR_ITEMS.ROUGH_ANNOTATION]
 } as const;
 
-/**
- * Items that should appear in the bubble toolbar (text formatting on selection)
- */
 export const BUBBLE_TOOLBAR_ITEMS = [
   TIPTAP_TOOLBAR_ITEMS.BOLD,
   TIPTAP_TOOLBAR_ITEMS.ITALIC,
@@ -262,21 +286,10 @@ export const BUBBLE_TOOLBAR_ITEMS = [
   TIPTAP_TOOLBAR_ITEMS.ROUGH_ANNOTATION
 ] as const;
 
-/**
- * Standard icon size for toolbar - all icons should appear this size visually
- */
 export const TOOLBAR_ICON_SIZE = "yl:w-5 yl:h-5";
 
-/**
- * Individual icon size overrides - tuned per icon library for visual consistency
- * All sizes are calibrated to appear roughly the same visual size in the toolbar
- */
 export const TOOLBAR_ICON_SIZES: Record<string, string> = {
-  // Dropdown chevron - smaller
   DownSmallOutline: "yl:w-4 yl:h-4",
-
-  // Custom Icon* icons from our library - need slightly larger container
-  // because they have more padding/whitespace baked in
   IconH1: "yl:w-6 yl:h-6",
   IconH2: "yl:w-6 yl:h-6",
   IconH3: "yl:w-6 yl:h-6",
@@ -289,6 +302,5 @@ export const TOOLBAR_ICON_SIZES: Record<string, string> = {
   IconPencilSquare: "yl:w-6 yl:h-6"
 };
 
-export const getIconSize = (iconName: string): string => {
-  return TOOLBAR_ICON_SIZES[iconName] || TOOLBAR_ICON_SIZE;
-};
+export const getIconSize = (iconName: string): string =>
+  TOOLBAR_ICON_SIZES[iconName] || TOOLBAR_ICON_SIZE;

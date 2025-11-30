@@ -117,29 +117,46 @@ export class TiptapToHTML {
       selfClosing: ["img", "br", "input"],
       allowedClasses: {
         "*": [
-          "text-text",
-          "text-xl",
-          "text-2xl",
-          "text-3xl",
-          "text-4xl",
-          "text-6xl",
-          "my-4",
-          "mb-2",
-          "mt-2",
-          "break-words"
+          "yl:text-text",
+          "yl:text-xl",
+          "yl:text-2xl",
+          "yl:text-3xl",
+          "yl:text-4xl",
+          "yl:text-6xl",
+          "yl:my-4",
+          "yl:mb-2",
+          "yl:mt-2",
+          "yl:break-words"
         ],
-        a: ["underline,", "text-text", "cursor-pointer", "font-bold"],
-        iframe: ["aspect-video", "w-full", "h-full", "py-4"],
-        ...Object.values(toolbarItemToClassName).reduce((acc, tag) => {
-          if (!tag.tagName) {
-            return acc;
-          }
+        a: [
+          "yl:underline",
+          "yl:text-text",
+          "yl:cursor-pointer",
+          "yl:font-bold"
+        ],
+        iframe: ["yl:aspect-video", "yl:w-full", "yl:h-full", "yl:py-4"],
+        ...this.toolbarItems.reduce(
+          (acc, item) => {
+            const config =
+              toolbarItemToClassName[
+                item as keyof typeof toolbarItemToClassName
+              ];
 
-          return {
-            ...acc,
-            [tag.tagName]: tag.classes.split(" ")
-          };
-        }, {})
+            if (!config?.tagName) {
+              return acc;
+            }
+
+            const existingClasses = acc[config.tagName] || [];
+            const newClasses = config.classes.split(" ");
+            return {
+              ...acc,
+              [config.tagName]: [
+                ...new Set([...existingClasses, ...newClasses])
+              ]
+            };
+          },
+          {} as Record<string, string[]>
+        )
       },
       allowedIframeHostnames: ["www.youtube.com"]
     };
