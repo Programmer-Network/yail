@@ -21,15 +21,19 @@ import Paragraph from "@tiptap/extension-paragraph";
 import Placeholder from "@tiptap/extension-placeholder";
 import Strike from "@tiptap/extension-strike";
 import { TableKit } from "@tiptap/extension-table";
-import TaskItem from "@tiptap/extension-task-item";
 import TaskList from "@tiptap/extension-task-list";
 import Text from "@tiptap/extension-text";
 import { TextStyle } from "@tiptap/extension-text-style";
 import Youtube from "@tiptap/extension-youtube";
 import { common, createLowlight } from "lowlight";
 
+import { CustomTaskItemExtension } from "./Components/CustomTaskItem";
 import { ResizableImageExtension } from "./Components/ResizableImage";
 import { RoughAnnotationExtension } from "./Components/RoughAnnotation";
+import {
+  createSlashMenuExtension,
+  isSlashMenuEnabled
+} from "./Components/SlashMenu";
 import Suggestion from "./Components/Suggestion";
 import {
   TIPTAP_TOOLBAR_ITEMS,
@@ -139,7 +143,7 @@ const extensionsMap: IExtensionsMap = {
       class: "yl:list-none yl:pl-0"
     }
   }),
-  [TIPTAP_TOOLBAR_ITEMS.TASK_ITEM]: TaskItem.configure({
+  [TIPTAP_TOOLBAR_ITEMS.TASK_ITEM]: CustomTaskItemExtension.configure({
     nested: true
   }),
   [TIPTAP_TOOLBAR_ITEMS.HIGHLIGHT]: Highlight.configure({
@@ -189,7 +193,8 @@ export const defaultExtensions = ({
 const getExtensions = ({
   toolbarItems,
   placeholder,
-  suggestions
+  suggestions,
+  slashMenu
 }: IGetExtensions) => {
   const uniqueExtensions = new Map();
 
@@ -222,6 +227,15 @@ const getExtensions = ({
     });
 
     uniqueExtensions.set(mentionExtension.name, mentionExtension);
+  }
+
+  if (isSlashMenuEnabled(toolbarItems)) {
+    const slashMenuExtension = createSlashMenuExtension({
+      toolbarItems,
+      onImageSelect: slashMenu?.onImageSelect
+    });
+
+    uniqueExtensions.set(slashMenuExtension.name, slashMenuExtension);
   }
 
   return Array.from(uniqueExtensions.values());

@@ -1,8 +1,10 @@
 import { EditorContent, useEditor } from "@tiptap/react";
 import classNames from "classnames";
 import {
+  ChangeEvent,
   ForwardRefRenderFunction,
   forwardRef,
+  useCallback,
   useEffect,
   useImperativeHandle,
   useMemo,
@@ -44,6 +46,12 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
   ref
 ) => {
   const hasSetInitialContent = useRef(false);
+  const slashMenuFileInputRef = useRef<HTMLInputElement>(null);
+
+  // Slash menu callback for image selection
+  const handleSlashMenuImageSelect = useCallback(() => {
+    slashMenuFileInputRef.current?.click();
+  }, []);
 
   const editorOptions = useMemo(() => {
     const config = editorConfig({
@@ -51,7 +59,10 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
       editorContent,
       suggestions,
       placeholder,
-      autoFocus
+      autoFocus,
+      slashMenu: {
+        onImageSelect: handleSlashMenuImageSelect
+      }
     });
 
     return {
@@ -68,7 +79,8 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
     autoFocus,
     onTransaction,
     onUpdate,
-    onSelectionUpdate
+    onSelectionUpdate,
+    handleSlashMenuImageSelect
   ]);
 
   const image = useMemo(
@@ -99,6 +111,38 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
   }
 
   const editor = useEditor(editorOptions);
+
+  // Handle image upload from slash menu
+  const handleSlashMenuFileInputChange = useCallback(
+    async (e: ChangeEvent<HTMLInputElement>) => {
+      const file = e.target.files?.[0];
+      if (!file || !editor) return;
+
+      const reader = new FileReader();
+      reader.onload = async event => {
+        const base64 = event.target?.result as string;
+        try {
+          if (onSetImage) {
+            await onSetImage(base64);
+          }
+          editor
+            .chain()
+            .focus()
+            .insertContent([
+              { type: "image", attrs: { src: base64 } },
+              { type: "paragraph" }
+            ])
+            .focus("end")
+            .run();
+        } catch {
+          onImageUploadError?.("Failed to upload image. Please try again.");
+        }
+      };
+      reader.readAsDataURL(file);
+      e.target.value = "";
+    },
+    [editor, onSetImage, onImageUploadError]
+  );
 
   useImperativeHandle(
     ref,
@@ -169,6 +213,17 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
         "yl:mb-8": error
       })}
     >
+      {/* Hidden file input for slash menu image uploads */}
+      {image.isExtensionEnabled && (
+        <input
+          type='file'
+          accept='image/*'
+          ref={slashMenuFileInputRef}
+          style={{ display: "none" }}
+          onChange={handleSlashMenuFileInputChange}
+        />
+      )}
+
       {label && <InputHeader label={label} hint={hint} required={required} />}
       {showStickyToolbar && (
         <Toolbar

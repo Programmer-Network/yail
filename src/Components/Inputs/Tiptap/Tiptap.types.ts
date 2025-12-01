@@ -110,12 +110,21 @@ export interface IEditorConfig {
   trigger?: string;
   placeholder?: string;
   toolbarItems?: TiptapControls;
+  /** Slash menu configuration */
+  slashMenu?: ISlashMenuOptions;
+}
+
+export interface ISlashMenuOptions {
+  /** Callback when image is selected from slash menu */
+  onImageSelect?: () => void;
 }
 
 export interface IGetExtensions {
   toolbarItems?: TiptapControls;
   placeholder?: string;
   suggestions?: TiptapSuggestionOptions;
+  /** Slash menu configuration */
+  slashMenu?: ISlashMenuOptions;
 }
 
 export type IExtensionsMap = {

@@ -4,8 +4,14 @@ import getExtensions from "./Tiptap.extensions";
 import { IEditorConfig } from "./Tiptap.types";
 
 export const editorConfig = (args: IEditorConfig): Partial<EditorOptions> => {
-  const { toolbarItems, editorContent, placeholder, suggestions, autoFocus } =
-    args;
+  const {
+    toolbarItems,
+    editorContent,
+    placeholder,
+    suggestions,
+    autoFocus,
+    slashMenu
+  } = args;
 
   const config: Partial<EditorOptions> = {
     autofocus: autoFocus,
@@ -17,7 +23,8 @@ export const editorConfig = (args: IEditorConfig): Partial<EditorOptions> => {
     extensions: getExtensions({
       toolbarItems,
       placeholder,
-      suggestions
+      suggestions,
+      slashMenu
     }),
     content: editorContent
   };

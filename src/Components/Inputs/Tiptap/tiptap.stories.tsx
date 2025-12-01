@@ -752,3 +752,81 @@ export const FullFeaturedEditor = () => {
     </div>
   );
 };
+
+export const SlashMenu = () => {
+  const [editorState, setEditorState] = useState<string>("");
+  const tiptapRef = useRef<TiptapRef>(null);
+
+  const toolbarItems = [
+    TIPTAP_TOOLBAR_ITEMS.HEADING_1,
+    TIPTAP_TOOLBAR_ITEMS.HEADING_2,
+    TIPTAP_TOOLBAR_ITEMS.HEADING_3,
+    TIPTAP_TOOLBAR_ITEMS.PARAGRAPH,
+    TIPTAP_TOOLBAR_ITEMS.BOLD,
+    TIPTAP_TOOLBAR_ITEMS.ITALIC,
+    TIPTAP_TOOLBAR_ITEMS.LIST_ITEM,
+    TIPTAP_TOOLBAR_ITEMS.UNORDERED_LIST,
+    TIPTAP_TOOLBAR_ITEMS.ORDERED_LIST,
+    TIPTAP_TOOLBAR_ITEMS.TASK_LIST,
+    TIPTAP_TOOLBAR_ITEMS.TASK_ITEM,
+    TIPTAP_TOOLBAR_ITEMS.CODE_BLOCK,
+    TIPTAP_TOOLBAR_ITEMS.BLOCK_QUOTE,
+    TIPTAP_TOOLBAR_ITEMS.IMAGE,
+    TIPTAP_TOOLBAR_ITEMS.YOUTUBE,
+    TIPTAP_TOOLBAR_ITEMS.TABLE,
+    TIPTAP_TOOLBAR_ITEMS.LINK
+  ];
+
+  const converter = new TiptapToHTML(toolbarItems);
+
+  const onEditorStateChange = ({ editor }: { editor: Editor }) => {
+    setEditorState(
+      converter.generateSanitizedHTML(JSON.stringify(editor.getJSON()))
+    );
+  };
+
+  return (
+    <div className='yl:w-full yl:md:w-[768px]'>
+      <div className='yl:mb-4 yl:rounded yl:bg-primary/10 yl:p-4 yl:text-sm yl:text-text'>
+        <strong>Slash Menu (Notion-style Commands):</strong>
+        <ul className='yl:mt-2 yl:list-disc yl:pl-4'>
+          <li>
+            Type <code className='yl:bg-text/10 yl:px-1 yl:rounded'>/</code> at
+            the start of a line or after a space to open the command menu
+          </li>
+          <li>Use arrow keys to navigate, Enter to select, Escape to close</li>
+          <li>Type to filter commands (e.g., /head for headings)</li>
+          <li>
+            Available commands: Headings, Text, Lists, Code Block, Quote, Image,
+            YouTube, Table
+          </li>
+          <li>
+            Slash menu won&apos;t trigger inside code blocks or after regular
+            characters
+          </li>
+        </ul>
+      </div>
+
+      <Tiptap
+        ref={tiptapRef as RefObject<TiptapRef>}
+        placeholder='Type / to see the slash menu...'
+        label='Editor with Slash Menu'
+        toolbarItems={toolbarItems}
+        toolbarMode='hybrid'
+        onSetImage={() => {
+          return new Promise<void>(resolve => {
+            resolve();
+          });
+        }}
+        onTransaction={({ editor }) => {
+          onEditorStateChange({ editor });
+        }}
+      />
+
+      <div
+        className='yl:mt-8 yl:text-text wrap-break-word'
+        dangerouslySetInnerHTML={{ __html: editorState }}
+      ></div>
+    </div>
+  );
+};

@@ -187,44 +187,30 @@
   margin: 0.75rem 0;
 }
 
-/* Task List styling */
+/* Task List styling - uses custom Checkbox component via NodeView */
 .ProseMirror ul[data-type="taskList"] {
   list-style: none;
   padding-left: 0;
   margin: 0.5rem 0;
 }
 
-.ProseMirror ul[data-type="taskList"] li {
-  display: flex;
+/* Task item NodeViewWrapper needs flex display (overrides inline-block default) */
+.ProseMirror ul[data-type="taskList"] li[data-node-view-wrapper] {
+  display: flex !important;
   align-items: flex-start;
   gap: 0.5rem;
   margin: 0.25rem 0;
 }
 
-.ProseMirror ul[data-type="taskList"] li > label {
-  flex-shrink: 0;
-  margin-top: 0.25rem;
-}
-
-.ProseMirror ul[data-type="taskList"] li > label input[type="checkbox"] {
-  width: 1rem;
-  height: 1rem;
-  cursor: pointer;
-  accent-color: var(--color-primary, #7aa2f7);
-}
-
-.ProseMirror ul[data-type="taskList"] li > div {
-  flex: 1;
-}
-
-.ProseMirror ul[data-type="taskList"] li[data-checked="true"] > div {
-  text-decoration: line-through;
-  opacity: 0.6;
+/* Remove paragraph margin inside task items so text aligns with checkbox */
+.ProseMirror ul[data-type="taskList"] li[data-type="taskItem"] p {
+  margin: 0;
 }
 
 /* Nested task lists */
 .ProseMirror ul[data-type="taskList"] ul[data-type="taskList"] {
   margin-left: 1.5rem;
+  margin-top: 0.25rem;
 }
 
 /* Highlight styling - Uses primary color, fits dark theme */
