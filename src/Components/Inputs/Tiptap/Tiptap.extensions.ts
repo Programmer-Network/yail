@@ -5,7 +5,6 @@ import UnorderedList from "@tiptap/extension-bullet-list";
 import CharacterCount from "@tiptap/extension-character-count";
 import Code from "@tiptap/extension-code";
 import CodeBlockLowlight from "@tiptap/extension-code-block-lowlight";
-import Color from "@tiptap/extension-color";
 import Document from "@tiptap/extension-document";
 import Dropcursor from "@tiptap/extension-dropcursor";
 import HardBreak from "@tiptap/extension-hard-break";
@@ -23,10 +22,10 @@ import Strike from "@tiptap/extension-strike";
 import { TableKit } from "@tiptap/extension-table";
 import TaskList from "@tiptap/extension-task-list";
 import Text from "@tiptap/extension-text";
-import { TextStyle } from "@tiptap/extension-text-style";
 import Youtube from "@tiptap/extension-youtube";
 import { common, createLowlight } from "lowlight";
 
+import { TextColorExtension } from "./Components/ColorDropdown";
 import { CustomTaskItemExtension } from "./Components/CustomTaskItem";
 import { ResizableImageExtension } from "./Components/ResizableImage";
 import { RoughAnnotationExtension } from "./Components/RoughAnnotation";
@@ -122,8 +121,7 @@ const extensionsMap: IExtensionsMap = {
       class: toolbarItemToClassName[TIPTAP_TOOLBAR_ITEMS.YOUTUBE].classes
     }
   }),
-  [TIPTAP_TOOLBAR_ITEMS.COLOR]: Color,
-  [TIPTAP_TOOLBAR_ITEMS.TEXT_STYLE]: TextStyle,
+  [TIPTAP_TOOLBAR_ITEMS.COLOR]: TextColorExtension,
   [TIPTAP_TOOLBAR_ITEMS.PARAGRAPH]: Paragraph,
   [TIPTAP_TOOLBAR_ITEMS.HEADING_1]: headers,
   [TIPTAP_TOOLBAR_ITEMS.HEADING_2]: headers,

@@ -349,3 +349,36 @@
 [data-floating-ui-root] {
   z-index: 50 !important;
 }
+
+/* Text color classes - used by TextColorExtension */
+.yl\:text-color-primary {
+  color: oklch(65% 0.19 250);
+}
+
+.yl\:text-color-success {
+  color: oklch(70% 0.25 140);
+}
+
+.yl\:text-color-warning {
+  color: oklch(70% 0.19 60);
+}
+
+.yl\:text-color-error {
+  color: oklch(60% 0.22 30);
+}
+
+.yl\:text-color-purple {
+  color: oklch(65% 0.22 310);
+}
+
+.yl\:text-color-pink {
+  color: oklch(70% 0.18 350);
+}
+
+.yl\:text-color-cyan {
+  color: oklch(75% 0.15 200);
+}
+
+.yl\:text-color-gray {
+  color: oklch(60% 0.02 264);
+}

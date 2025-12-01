@@ -1,6 +1,7 @@
 import { Extensions, JSONContent, generateHTML } from "@tiptap/core";
 import sanitize from "sanitize-html";
 
+import { TEXT_COLOR_CLASSES } from "../Components/ColorDropdown";
 import { toolbarItemToClassName } from "../Tiptap.constants";
 import { editorConfig } from "../Tiptap.editorConfig";
 import { TiptapControls, TiptapSuggestionOptions } from "../Tiptap.types";
@@ -97,7 +98,7 @@ export class TiptapToHTML {
           "loading",
           "data-align"
         ],
-        span: ["data-id", "data-type", "text-primary"],
+        span: ["data-id", "data-type", "data-color", "class"],
         "rough-annotation": [
           "data-type",
           "data-color",
@@ -135,6 +136,7 @@ export class TiptapToHTML {
           "yl:font-bold"
         ],
         iframe: ["yl:aspect-video", "yl:w-full", "yl:h-full", "yl:py-4"],
+        span: Object.values(TEXT_COLOR_CLASSES),
         ...this.toolbarItems.reduce(
           (acc, item) => {
             const config =

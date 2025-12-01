@@ -5,6 +5,7 @@ import { FC, MouseEvent, useCallback } from "react";
 import { Button } from "../../../../Button";
 import { TIPTAP_TOOLBAR_ITEMS } from "../../Tiptap.constants";
 import { TiptapToolbarProps, ToolbarGroupId } from "../../Tiptap.types";
+import { ColorDropdown } from "../ColorDropdown";
 import { ImageAlignmentDropdown } from "../ImageAlignmentDropdown";
 import { ModalInput } from "../ModalInput";
 import { AnnotationDropdown } from "../RoughAnnotation";
@@ -124,8 +125,12 @@ export const Toolbar: FC<TiptapToolbarProps> = ({
   }
 
   const activeTypographyLabel = getActiveTypographyLabel(editor);
-  const textFormattingIcons = getGroupIcons(ToolbarGroupId.TEXT_FORMATTING);
+  const textFormattingIcons = getGroupIcons(
+    ToolbarGroupId.TEXT_FORMATTING
+  ).filter(icon => icon.id !== TIPTAP_TOOLBAR_ITEMS.COLOR);
+
   const blockElementIcons = getGroupIcons(ToolbarGroupId.BLOCK_ELEMENTS);
+  const isColorEnabled = isItemEnabled(TIPTAP_TOOLBAR_ITEMS.COLOR);
 
   const isZen = variant === "zen";
   const isFloating = mode === "floating";
@@ -150,21 +155,28 @@ export const Toolbar: FC<TiptapToolbarProps> = ({
   const isTypographyEnabled =
     isGroupEnabled(ToolbarGroupId.TYPOGRAPHY) &&
     typographyDropdownItems.length > 0;
+
   const isTextFormattingEnabled =
     isGroupEnabled(ToolbarGroupId.TEXT_FORMATTING) &&
     textFormattingIcons.length > 0;
+
   const isListsEnabled =
     isGroupEnabled(ToolbarGroupId.LISTS) && listsDropdownItems.length > 0;
+
   const isBlockElementsEnabled =
     isGroupEnabled(ToolbarGroupId.BLOCK_ELEMENTS) &&
     blockElementIcons.length > 0;
+
   const isInsertEnabled = insertDropdownItems.length > 0;
+
   const isAnnotationEnabled = isItemEnabled(
     TIPTAP_TOOLBAR_ITEMS.ROUGH_ANNOTATION
   );
   const isTableEnabled =
     isItemEnabled(TIPTAP_TOOLBAR_ITEMS.TABLE) && editor.isActive("table");
+
   const isImageEnabled = isItemEnabled(TIPTAP_TOOLBAR_ITEMS.IMAGE);
+
   const isYoutubeModalOpen =
     inputModal.modalId === TIPTAP_TOOLBAR_ITEMS.YOUTUBE;
 
@@ -248,6 +260,7 @@ export const Toolbar: FC<TiptapToolbarProps> = ({
               tooltipId={`tooltip-${icon.id}`}
             />
           ))}
+          {isColorEnabled && <ColorDropdown editor={editor} />}
         </ToolbarGroup>
       )}
 
