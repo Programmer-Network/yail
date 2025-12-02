@@ -2,10 +2,10 @@
 
 ## [1.18.0](https://github.com/Programmer-Network/yail/compare/yail-v1.17.0...yail-v1.18.0) (2025-12-01)
 
-
 ### Features
 
-* add text color functionality to Tiptap editor with ColorDropdown component ([d05c4e6](https://github.com/Programmer-Network/yail/commit/d05c4e61ee33538aba1cc427432c9fea9392dbe2))
+- add text color functionality to Tiptap editor with ColorDropdown component
+  ([d05c4e6](https://github.com/Programmer-Network/yail/commit/d05c4e61ee33538aba1cc427432c9fea9392dbe2))
 
 ## [1.17.0](https://github.com/Programmer-Network/yail/compare/yail-v1.16.0...yail-v1.17.0) (2025-12-01)
 

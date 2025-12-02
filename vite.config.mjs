@@ -65,6 +65,7 @@ export default defineConfig({
         "@tiptap/extension-text",
         "@tiptap/extension-text-style",
         "@tiptap/extension-youtube",
+        "@tiptap/extension-gapcursor",
         "@tiptap/suggestion",
         "prosemirror-model",
         "prosemirror-state",
