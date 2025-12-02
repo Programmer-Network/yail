@@ -4,3 +4,4 @@ export * from "./ZenEditor.hooks";
 export * from "./ZenEditor.types";
 export * from "./ZenPropertiesDrawer";
 export * from "./ZenStatusBar";
+export * from "./ZenWritingGuide";

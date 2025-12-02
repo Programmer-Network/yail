@@ -1,8 +1,24 @@
+import type { Placement } from "@floating-ui/dom";
+
+const FALLBACK_PLACEMENTS: Placement[] = [
+  "bottom",
+  "top-start",
+  "top-end",
+  "bottom-start",
+  "bottom-end"
+];
+
 export const BUBBLE_MENU_OPTIONS = {
-  placement: "bottom" as const,
-  offset: 10,
-  flip: { padding: 8 },
-  shift: { padding: 8 }
+  placement: "top" as Placement,
+  offset: 8,
+  flip: {
+    fallbackPlacements: FALLBACK_PLACEMENTS,
+    padding: 12
+  },
+  shift: {
+    padding: 12,
+    crossAxis: true
+  }
 };
 
 export const TYPOGRAPHY_LABELS: Record<number, string> = {

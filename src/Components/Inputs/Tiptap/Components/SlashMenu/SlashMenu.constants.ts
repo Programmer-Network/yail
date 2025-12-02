@@ -1,4 +1,5 @@
 import { TIPTAP_TOOLBAR_ITEMS } from "../../Tiptap.constants";
+import { CalloutType } from "../Callout";
 import { ISlashMenuItemWithCommand, SlashMenuGroup } from "./SlashMenu.types";
 
 export const SLASH_MENU_ITEMS: ISlashMenuItemWithCommand[] = [
@@ -190,6 +191,138 @@ export const SLASH_MENU_ITEMS: ISlashMenuItemWithCommand[] = [
         .insertTable({ rows: 3, cols: 3, withHeaderRow: true })
         .run();
     }
+  },
+  // Callout with submenu for type selection
+  {
+    id: TIPTAP_TOOLBAR_ITEMS.CALLOUT,
+    label: "Callout",
+    description: "Insert a callout block",
+    icon: "InfoOutline",
+    keywords: [
+      "callout",
+      "admonition",
+      "note",
+      "warning",
+      "tip",
+      "info",
+      "alert"
+    ],
+    group: SlashMenuGroup.BLOCKS,
+    command: ({ editor, range }) => {
+      // Default to Note if selected directly (e.g., pressing Enter without opening submenu)
+      editor
+        .chain()
+        .focus()
+        .deleteRange(range)
+        .setCallout({ type: CalloutType.NOTE })
+        .run();
+    },
+    submenu: [
+      {
+        id: "callout-note",
+        label: "Note",
+        icon: "InfoOutline",
+        command: ({ editor, range }) => {
+          editor
+            .chain()
+            .focus()
+            .deleteRange(range)
+            .setCallout({ type: CalloutType.NOTE })
+            .run();
+        }
+      },
+      {
+        id: "callout-tip",
+        label: "Tip",
+        icon: "BulbOnOutline",
+        command: ({ editor, range }) => {
+          editor
+            .chain()
+            .focus()
+            .deleteRange(range)
+            .setCallout({ type: CalloutType.TIP })
+            .run();
+        }
+      },
+      {
+        id: "callout-warning",
+        label: "Warning",
+        icon: "ExclamationCircleOutline",
+        command: ({ editor, range }) => {
+          editor
+            .chain()
+            .focus()
+            .deleteRange(range)
+            .setCallout({ type: CalloutType.WARNING })
+            .run();
+        }
+      },
+      {
+        id: "callout-critical",
+        label: "Critical",
+        icon: "XCircleOutline",
+        command: ({ editor, range }) => {
+          editor
+            .chain()
+            .focus()
+            .deleteRange(range)
+            .setCallout({ type: CalloutType.CRITICAL })
+            .run();
+        }
+      },
+      {
+        id: "callout-success",
+        label: "Success",
+        icon: "TickCircleOutline",
+        command: ({ editor, range }) => {
+          editor
+            .chain()
+            .focus()
+            .deleteRange(range)
+            .setCallout({ type: CalloutType.SUCCESS })
+            .run();
+        }
+      },
+      {
+        id: "callout-example",
+        label: "Example",
+        icon: "SearchOutline",
+        command: ({ editor, range }) => {
+          editor
+            .chain()
+            .focus()
+            .deleteRange(range)
+            .setCallout({ type: CalloutType.EXAMPLE })
+            .run();
+        }
+      },
+      {
+        id: "callout-component",
+        label: "Component",
+        icon: "LegoOutline",
+        command: ({ editor, range }) => {
+          editor
+            .chain()
+            .focus()
+            .deleteRange(range)
+            .setCallout({ type: CalloutType.COMPONENT })
+            .run();
+        }
+      },
+      {
+        id: "callout-navigation",
+        label: "Navigation",
+        icon: "CompassOutline",
+        command: ({ editor, range }) => {
+          editor
+            .chain()
+            .focus()
+            .deleteRange(range)
+            .setCallout({ type: CalloutType.NAVIGATION })
+            .run();
+        }
+      }
+    ]
   }
 ];
 
@@ -197,7 +330,8 @@ export const SLASH_MENU_GROUP_LABELS: Record<SlashMenuGroup, string> = {
   [SlashMenuGroup.TYPOGRAPHY]: "Typography",
   [SlashMenuGroup.LISTS]: "Lists",
   [SlashMenuGroup.BLOCKS]: "Blocks",
-  [SlashMenuGroup.INSERT]: "Insert"
+  [SlashMenuGroup.INSERT]: "Insert",
+  [SlashMenuGroup.CALLOUTS]: "Callouts" // Keep for backwards compatibility
 };
 
 export const SLASH_MENU_GROUP_ORDER: SlashMenuGroup[] = [

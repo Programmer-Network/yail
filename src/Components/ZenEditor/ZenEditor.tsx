@@ -6,15 +6,8 @@ import {
 } from "react";
 
 import { Tiptap } from "../Inputs/Tiptap";
-import {
-  DEFAULT_PLACEHOLDER,
-  DEFAULT_STICKY_OFFSET
-} from "./ZenEditor.constants";
-import {
-  useToolbarItems,
-  useZenEditorKeyboard,
-  useZenEditorRef
-} from "./ZenEditor.hooks";
+import { DEFAULT_PLACEHOLDER } from "./ZenEditor.constants";
+import { useZenEditorKeyboard, useZenEditorRef } from "./ZenEditor.hooks";
 import { IZenEditorProps, IZenEditorRef } from "./ZenEditor.types";
 import { ZenPropertiesDrawer } from "./ZenPropertiesDrawer";
 import { ZenStatusBar } from "./ZenStatusBar";
@@ -27,7 +20,6 @@ const ZenEditorComponent: ForwardRefRenderFunction<
     value,
     onUpdate,
     toolbarItems,
-    toolbarMode = "hybrid",
     placeholder = DEFAULT_PLACEHOLDER,
     editorRef: externalEditorRef,
     suggestions,
@@ -37,8 +29,7 @@ const ZenEditorComponent: ForwardRefRenderFunction<
     statusBar,
     className,
     contentClassName,
-    autoFocus = true,
-    stickyOffset = DEFAULT_STICKY_OFFSET
+    autoFocus = true
   },
   ref
 ) => {
@@ -48,8 +39,6 @@ const ZenEditorComponent: ForwardRefRenderFunction<
     propertiesDrawer,
     primaryAction: statusBar.primaryAction
   });
-
-  const resolvedToolbarItems = useToolbarItems({ toolbarMode, toolbarItems });
 
   useImperativeHandle(
     ref,
@@ -93,15 +82,14 @@ const ZenEditorComponent: ForwardRefRenderFunction<
             ref={editorRef}
             value={value}
             onUpdate={onUpdate}
-            toolbarItems={resolvedToolbarItems}
-            toolbarMode={toolbarMode}
+            toolbarItems={toolbarItems}
+            toolbarMode='bubble'
             variant='zen'
             placeholder={placeholder}
             suggestions={suggestions}
             onSetImage={onSetImage}
             onImageUploadError={onImageUploadError}
             autoFocus={autoFocus}
-            stickyOffset={stickyOffset}
           />
         </div>
       </div>

@@ -7,6 +7,7 @@ import Code from "@tiptap/extension-code";
 import CodeBlockLowlight from "@tiptap/extension-code-block-lowlight";
 import Document from "@tiptap/extension-document";
 import Dropcursor from "@tiptap/extension-dropcursor";
+import Gapcursor from "@tiptap/extension-gapcursor";
 import HardBreak from "@tiptap/extension-hard-break";
 import Heading from "@tiptap/extension-heading";
 import Highlight from "@tiptap/extension-highlight";
@@ -25,6 +26,7 @@ import Text from "@tiptap/extension-text";
 import Youtube from "@tiptap/extension-youtube";
 import { common, createLowlight } from "lowlight";
 
+import { CalloutExtension } from "./Components/Callout";
 import { TextColorExtension } from "./Components/ColorDropdown";
 import { CustomTaskItemExtension } from "./Components/CustomTaskItem";
 import { ResizableImageExtension } from "./Components/ResizableImage";
@@ -78,6 +80,34 @@ const headers = Heading.configure({ levels: [1, 2, 3, 4, 5, 6] }).extend({
   }
 });
 
+/**
+ * Extended CodeBlockLowlight with draggable support for drag-and-drop
+ */
+const DraggableCodeBlock = CodeBlockLowlight.configure({
+  lowlight,
+  defaultLanguage: "plaintext"
+}).extend({
+  draggable: true
+});
+
+/**
+ * Extended TaskList with draggable support for drag-and-drop
+ */
+const DraggableTaskList = TaskList.configure({
+  HTMLAttributes: {
+    class: "yl:list-none yl:pl-0"
+  }
+}).extend({
+  draggable: true
+});
+
+/**
+ * Extended BlockQuote with draggable support for drag-and-drop
+ */
+const DraggableBlockQuote = BlockQuote.extend({
+  draggable: true
+});
+
 const extensionsMap: IExtensionsMap = {
   [TIPTAP_TOOLBAR_ITEMS.BOLD]: Bold,
   [TIPTAP_TOOLBAR_ITEMS.ITALIC]: Italic,
@@ -98,11 +128,8 @@ const extensionsMap: IExtensionsMap = {
   }),
   [TIPTAP_TOOLBAR_ITEMS.CODE]: Code,
   [TIPTAP_TOOLBAR_ITEMS.STRIKE_THROUGH]: Strike,
-  [TIPTAP_TOOLBAR_ITEMS.CODE_BLOCK]: CodeBlockLowlight.configure({
-    lowlight,
-    defaultLanguage: "plaintext"
-  }),
-  [TIPTAP_TOOLBAR_ITEMS.BLOCK_QUOTE]: BlockQuote,
+  [TIPTAP_TOOLBAR_ITEMS.CODE_BLOCK]: DraggableCodeBlock,
+  [TIPTAP_TOOLBAR_ITEMS.BLOCK_QUOTE]: DraggableBlockQuote,
   [TIPTAP_TOOLBAR_ITEMS.LINK]: Link.configure({
     openOnClick: false,
     autolink: true,
@@ -136,11 +163,7 @@ const extensionsMap: IExtensionsMap = {
     }
   }),
   [TIPTAP_TOOLBAR_ITEMS.TABLE]: TableKit,
-  [TIPTAP_TOOLBAR_ITEMS.TASK_LIST]: TaskList.configure({
-    HTMLAttributes: {
-      class: "yl:list-none yl:pl-0"
-    }
-  }),
+  [TIPTAP_TOOLBAR_ITEMS.TASK_LIST]: DraggableTaskList,
   [TIPTAP_TOOLBAR_ITEMS.TASK_ITEM]: CustomTaskItemExtension.configure({
     nested: true
   }),
@@ -150,7 +173,8 @@ const extensionsMap: IExtensionsMap = {
   [TIPTAP_TOOLBAR_ITEMS.CHARACTER_COUNT]: CharacterCount.configure({
     limit: null
   }),
-  [TIPTAP_TOOLBAR_ITEMS.ROUGH_ANNOTATION]: RoughAnnotationExtension
+  [TIPTAP_TOOLBAR_ITEMS.ROUGH_ANNOTATION]: RoughAnnotationExtension,
+  [TIPTAP_TOOLBAR_ITEMS.CALLOUT]: CalloutExtension
 };
 
 export const defaultExtensions = ({
@@ -162,6 +186,7 @@ export const defaultExtensions = ({
   Text,
   Code,
   HardBreak,
+  Gapcursor,
   Dropcursor.configure({
     color: "var(--color-accent, #fbad00)",
     width: 1,

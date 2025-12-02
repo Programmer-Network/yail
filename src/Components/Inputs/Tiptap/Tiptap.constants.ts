@@ -43,7 +43,8 @@ export const TIPTAP_TOOLBAR_ITEMS = {
   ROUGH_ANNOTATION: "ROUGH_ANNOTATION",
   IMAGE_ALIGN_LEFT: "IMAGE_ALIGN_LEFT",
   IMAGE_ALIGN_CENTER: "IMAGE_ALIGN_CENTER",
-  IMAGE_ALIGN_RIGHT: "IMAGE_ALIGN_RIGHT"
+  IMAGE_ALIGN_RIGHT: "IMAGE_ALIGN_RIGHT",
+  CALLOUT: "CALLOUT"
 } as const;
 
 // ---------------------------------------------------------------------------
@@ -206,6 +207,11 @@ export const toolbarItemToClassName = {
   [TIPTAP_TOOLBAR_ITEMS.ROUGH_ANNOTATION]: {
     tagName: "rough-annotation",
     classes: "yl:inline-block yl:relative"
+  },
+
+  [TIPTAP_TOOLBAR_ITEMS.CALLOUT]: {
+    tagName: "div",
+    classes: "yl:my-4 yl:rounded-r-md yl:border-l-4 yl:p-4"
   }
 };
 

@@ -2,17 +2,17 @@
 
 ## [1.17.0](https://github.com/Programmer-Network/yail/compare/yail-v1.16.0...yail-v1.17.0) (2025-12-01)
 
-
 ### Features
 
-* implement slash menu for Tiptap editor with custom task item extension ([7eeb1a0](https://github.com/Programmer-Network/yail/commit/7eeb1a0e1a330fbe555ed84ee6301540e491d11e))
+- implement slash menu for Tiptap editor with custom task item extension
+  ([7eeb1a0](https://github.com/Programmer-Network/yail/commit/7eeb1a0e1a330fbe555ed84ee6301540e491d11e))
 
 ## [1.16.0](https://github.com/Programmer-Network/yail/compare/yail-v1.15.0...yail-v1.16.0) (2025-11-30)
 
-
 ### Features
 
-* nudge ci ([e54f2b4](https://github.com/Programmer-Network/yail/commit/e54f2b42a57ab95e45d93a0cf6f8742b2e2a56b9))
+- nudge ci
+  ([e54f2b4](https://github.com/Programmer-Network/yail/commit/e54f2b42a57ab95e45d93a0cf6f8742b2e2a56b9))
 
 ## [1.15.0](https://github.com/Programmer-Network/yail/compare/yail-v1.14.0...yail-v1.15.0) (2025-11-30)
 

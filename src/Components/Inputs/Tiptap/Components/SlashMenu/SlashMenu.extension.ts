@@ -9,7 +9,6 @@ import tippy, { Instance, Props } from "tippy.js";
 
 import { TIPTAP_TOOLBAR_ITEMS } from "../../Tiptap.constants";
 import { Extensions } from "../../Tiptap.types";
-import { SlashMenuList } from "./SlashMenu";
 import {
   ISlashMenuExtensionOptions,
   ISlashMenuItemWithCommand,
@@ -19,6 +18,7 @@ import {
   filterSlashMenuItems,
   getAvailableSlashMenuItems
 } from "./SlashMenu.utils";
+import { SlashMenuList } from "./SlashMenuList";
 
 const DEFAULT_RECT: DOMRect = {
   x: 0,

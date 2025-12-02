@@ -1,11 +1,53 @@
 import { Extensions, JSONContent, generateHTML } from "@tiptap/core";
 import sanitize from "sanitize-html";
 
+import { CALLOUT_CONFIG } from "../Components/Callout";
 import { TEXT_COLOR_CLASSES } from "../Components/ColorDropdown";
 import { toolbarItemToClassName } from "../Tiptap.constants";
 import { editorConfig } from "../Tiptap.editorConfig";
 import { TiptapControls, TiptapSuggestionOptions } from "../Tiptap.types";
 import { getAllowedTags } from "./utils";
+
+/**
+ * Get all callout-related CSS classes for sanitization
+ */
+const getCalloutClasses = (): string[] => {
+  const baseClasses = [
+    // Wrapper classes
+    "callout-wrapper",
+    "yl:my-4",
+    "yl:rounded-r-md",
+    "yl:border-l-4",
+    "yl:p-4",
+    // Header classes
+    "callout-header",
+    "yl:mb-2",
+    "yl:flex",
+    "yl:items-center",
+    "yl:gap-2",
+    "yl:font-semibold",
+    "yl:uppercase",
+    // Icon classes
+    "yl:h-5",
+    "yl:w-5",
+    // Content classes
+    "callout-content",
+    "yl:prose",
+    "yl:prose-sm",
+    "yl:max-w-none",
+    "[&>*:first-child]:yl:mt-0",
+    "[&>*:last-child]:yl:mb-0"
+  ];
+
+  // Add color classes from all callout types (split backgroundColor for gradient classes)
+  const colorClasses = Object.values(CALLOUT_CONFIG).flatMap(config => [
+    config.borderColor,
+    ...config.backgroundColor.split(" "),
+    config.headerColor
+  ]);
+
+  return [...baseClasses, ...colorClasses];
+};
 
 /**
  * Converts Tiptap editor content to sanitized HTML.
@@ -82,6 +124,7 @@ export class TiptapToHTML {
         "iframe",
         "img",
         "br",
+        "div",
         ...getAllowedTags(this.toolbarItems)
       ],
       allowedAttributes: {
@@ -113,7 +156,9 @@ export class TiptapToHTML {
         input: ["type", "checked", "disabled"],
         label: [],
         // Highlight attributes
-        mark: ["data-color"]
+        mark: ["data-color"],
+        // Callout attributes
+        div: ["data-type", "data-callout-type", "class", "contenteditable"]
       },
       selfClosing: ["img", "br", "input"],
       allowedClasses: {
@@ -127,7 +172,9 @@ export class TiptapToHTML {
           "yl:my-4",
           "yl:mb-2",
           "yl:mt-2",
-          "yl:break-words"
+          "yl:break-words",
+          // Callout classes for all elements
+          ...getCalloutClasses()
         ],
         a: [
           "yl:underline",
@@ -136,7 +183,13 @@ export class TiptapToHTML {
           "yl:font-bold"
         ],
         iframe: ["yl:aspect-video", "yl:w-full", "yl:h-full", "yl:py-4"],
-        span: Object.values(TEXT_COLOR_CLASSES),
+        span: [
+          ...Object.values(TEXT_COLOR_CLASSES),
+          "callout-icon",
+          "callout-label",
+          "yl:h-5",
+          "yl:w-5"
+        ],
         ...this.toolbarItems.reduce(
           (acc, item) => {
             const config =

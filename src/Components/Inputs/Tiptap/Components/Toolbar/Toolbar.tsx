@@ -5,6 +5,7 @@ import { FC, MouseEvent, useCallback } from "react";
 import { Button } from "../../../../Button";
 import { TIPTAP_TOOLBAR_ITEMS } from "../../Tiptap.constants";
 import { TiptapToolbarProps, ToolbarGroupId } from "../../Tiptap.types";
+import { CalloutDropdown } from "../CalloutDropdown";
 import { ColorDropdown } from "../ColorDropdown";
 import { ImageAlignmentDropdown } from "../ImageAlignmentDropdown";
 import { ModalInput } from "../ModalInput";
@@ -172,6 +173,7 @@ export const Toolbar: FC<TiptapToolbarProps> = ({
   const isAnnotationEnabled = isItemEnabled(
     TIPTAP_TOOLBAR_ITEMS.ROUGH_ANNOTATION
   );
+  const isCalloutEnabled = isItemEnabled(TIPTAP_TOOLBAR_ITEMS.CALLOUT);
   const isTableEnabled =
     isItemEnabled(TIPTAP_TOOLBAR_ITEMS.TABLE) && editor.isActive("table");
 
@@ -296,6 +298,12 @@ export const Toolbar: FC<TiptapToolbarProps> = ({
               tooltipId={`tooltip-${icon.id}`}
             />
           ))}
+        </ToolbarGroup>
+      )}
+
+      {isCalloutEnabled && (
+        <ToolbarGroup>
+          <CalloutDropdown editor={editor} />
         </ToolbarGroup>
       )}
 

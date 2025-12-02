@@ -28,7 +28,8 @@ export enum SlashMenuGroup {
   TYPOGRAPHY = "typography",
   LISTS = "lists",
   BLOCKS = "blocks",
-  INSERT = "insert"
+  INSERT = "insert",
+  CALLOUTS = "callouts"
 }
 
 /**
@@ -77,11 +78,23 @@ export interface ISlashMenuCommandContext {
 export type SlashMenuCommandFn = (context: ISlashMenuCommandContext) => void;
 
 /**
+ * Submenu item for nested menus
+ */
+export interface ISlashMenuSubmenuItem {
+  id: string;
+  label: string;
+  icon: string;
+  command: SlashMenuCommandFn;
+}
+
+/**
  * Extended menu item with command function
  */
 export interface ISlashMenuItemWithCommand extends ISlashMenuItem {
-  /** Command to execute when this item is selected */
+  /** Command to execute when this item is selected (not used if submenu is present) */
   command: SlashMenuCommandFn;
+  /** Optional submenu items for nested selection */
+  submenu?: ISlashMenuSubmenuItem[];
 }
 
 /**
@@ -97,13 +110,20 @@ export interface IRenderGroup {
  */
 export interface IUseSlashMenuListReturn {
   selectedIndex: number;
+  submenuIndex: number | null;
+  activeSubmenu: ISlashMenuSubmenuItem[] | null;
   menuRef: React.RefObject<HTMLDivElement | null>;
   renderGroups: IRenderGroup[];
   isEmpty: boolean;
   handleUpArrow: () => void;
   handleDownArrow: () => void;
   handleEnter: () => void;
-  handleItemClick: (index: number) => () => void;
-  handleItemMouseEnter: (index: number) => () => void;
+  handleEscape: () => void;
+  handleRightArrow: () => void;
+  handleLeftArrow: () => void;
+  handleItemClick: (index: number) => void;
+  handleItemMouseEnter: (index: number) => void;
+  handleSubmenuItemClick: (index: number) => void;
+  handleSubmenuItemMouseEnter: (index: number) => void;
   createItemRef: (flatIdx: number) => (el: HTMLButtonElement | null) => void;
 }

@@ -13,8 +13,6 @@ import { ZenSaveStatus } from "./ZenStatusBar";
 export type { IZenAction } from "./ZenPropertiesDrawer";
 export type { ZenSaveStatus } from "./ZenStatusBar";
 
-export type ZenToolbarMode = "full" | "minimal" | "bubble" | "hybrid";
-
 export interface IZenEditorPropertiesDrawer {
   isOpen: boolean;
   onToggle: () => void;
@@ -32,7 +30,6 @@ export interface IZenEditorProps {
   value: string;
   onUpdate: (props: EditorEvents["update"]) => void;
   toolbarItems?: TiptapControls;
-  toolbarMode?: ZenToolbarMode;
   placeholder?: string;
   editorRef?: RefObject<TiptapRef | null>;
   suggestions?: TiptapSuggestionOptions;
@@ -43,7 +40,6 @@ export interface IZenEditorProps {
   className?: string;
   contentClassName?: string;
   autoFocus?: boolean;
-  stickyOffset?: string;
 }
 
 export interface IZenEditorRef {
@@ -66,9 +62,4 @@ export interface IUseZenEditorRefProps {
 
 export interface IUseZenEditorRefReturn {
   editorRef: RefObject<TiptapRef | null>;
-}
-
-export interface IUseToolbarItemsProps {
-  toolbarMode: ZenToolbarMode;
-  toolbarItems?: TiptapControls;
 }

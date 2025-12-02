@@ -38,9 +38,11 @@ const ZenStatusBar: FC<IZenStatusBarProps> = ({
 
   return (
     <div className='yl:border-border/20 yl:bg-background/95 yl:sticky yl:top-0 yl:z-20 yl:flex yl:items-center yl:justify-between yl:border-b yl:px-4 yl:py-2 yl:backdrop-blur-sm'>
-      <div className={statusClasses}>
-        <Icon iconName={statusConfig.icon} className={iconClasses} />
-        <span className='yl:hidden yl:sm:inline'>{statusConfig.text}</span>
+      <div className='yl:flex yl:items-center yl:gap-2'>
+        <div className={statusClasses}>
+          <Icon iconName={statusConfig.icon} className={iconClasses} />
+          <span className='yl:hidden yl:sm:inline'>{statusConfig.text}</span>
+        </div>
       </div>
 
       <button
@@ -51,8 +53,8 @@ const ZenStatusBar: FC<IZenStatusBarProps> = ({
         aria-expanded={isPropertiesOpen}
         title='Title, tags, publish (⌘⇧P)'
       >
-        <Icon iconName='ArrowRightOutline' className={cogIconClasses} />
-        <span>Details</span>
+        <Icon iconName='Edit1Outline' className={cogIconClasses} />
+        <span>Article Details</span>
       </button>
     </div>
   );

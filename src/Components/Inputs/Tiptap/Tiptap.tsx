@@ -177,14 +177,17 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
     const contentToSet = value || editorContent;
 
     if (contentToSet && editor && !hasSetInitialContent.current) {
-      try {
-        const parsedContent = JSON.parse(contentToSet);
-        editor.commands.setContent(parsedContent);
-        hasSetInitialContent.current = true;
-      } catch {
-        editor.commands.setContent(contentToSet);
-        hasSetInitialContent.current = true;
-      }
+      // Defer setContent to avoid flushSync warning during React render
+      queueMicrotask(() => {
+        try {
+          const parsedContent = JSON.parse(contentToSet);
+          editor.commands.setContent(parsedContent);
+          hasSetInitialContent.current = true;
+        } catch {
+          editor.commands.setContent(contentToSet);
+          hasSetInitialContent.current = true;
+        }
+      });
     }
   }, [value, editorContent, editor]);
 

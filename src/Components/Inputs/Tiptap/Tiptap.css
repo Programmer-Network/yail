@@ -205,6 +205,7 @@
 /* Remove paragraph margin inside task items so text aligns with checkbox */
 .ProseMirror ul[data-type="taskList"] li[data-type="taskItem"] p {
   margin: 0;
+  min-width: 1px;
 }
 
 /* Nested task lists */
@@ -381,4 +382,207 @@
 
 .yl\:text-color-gray {
   color: oklch(60% 0.02 264);
+}
+
+/* ============================================
+   Drag Handle - Notion-style block dragging
+   ============================================ */
+
+/* Drag handle - inline with float to position left */
+.tiptap-drag-handle {
+  float: left;
+  margin-left: -1.75rem;
+  margin-right: 0.5rem;
+  width: 1.25rem;
+  height: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  opacity: 0;
+  color: #9ca3af;
+  border-radius: 0.25rem;
+  transition:
+    opacity 0.1s ease,
+    background-color 0.1s ease;
+  user-select: none;
+}
+
+/* Show handle on hover */
+.tiptap-drag-handle:hover {
+  opacity: 1 !important;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #e5e7eb;
+}
+
+/* Show handles when editor is focused/hovered - subtle */
+.ProseMirror:hover .tiptap-drag-handle,
+.ProseMirror:focus-within .tiptap-drag-handle {
+  opacity: 0.3;
+}
+
+/* Grabbing state */
+.tiptap-drag-handle:active {
+  cursor: grabbing;
+  opacity: 1 !important;
+}
+
+/* Dropcursor styling - enhanced for drag-and-drop visibility */
+.tiptap-dropcursor {
+  background-color: var(--color-accent, #fbad00) !important;
+  opacity: 1 !important;
+  height: 2px !important;
+}
+
+/* ============================================
+   Callout Blocks - Admonition/Alert styling
+   ============================================ */
+
+/* Base callout wrapper styling */
+.ProseMirror [data-type="callout"] {
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 0 0.5rem 0.5rem 0;
+  border-left-width: 4px;
+  border-left-style: solid;
+}
+
+/* Callout header - non-editable label with icon */
+.ProseMirror [data-type="callout"] .callout-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  margin-bottom: 0.5rem;
+  user-select: none;
+}
+
+/* Callout content - editable area */
+.ProseMirror [data-type="callout"] .callout-content {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+/* Fix cursor visibility in empty callout paragraphs */
+.ProseMirror [data-type="callout"] .callout-content p {
+  min-width: 1px;
+}
+
+/* Remove margin from first/last children in content */
+.ProseMirror [data-type="callout"] .callout-content > *:first-child {
+  margin-top: 0;
+}
+
+.ProseMirror [data-type="callout"] .callout-content > *:last-child {
+  margin-bottom: 0;
+}
+
+/* Warning callout - Amber/Yellow */
+.ProseMirror [data-type="callout"][data-callout-type="warning"] {
+  border-left-color: #f59e0b;
+  background-color: rgba(245, 158, 11, 0.1);
+}
+
+.ProseMirror
+  [data-type="callout"][data-callout-type="warning"]
+  .callout-header {
+  color: #f59e0b;
+}
+
+/* Critical callout - Red */
+.ProseMirror [data-type="callout"][data-callout-type="critical"] {
+  border-left-color: #ef4444;
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+.ProseMirror
+  [data-type="callout"][data-callout-type="critical"]
+  .callout-header {
+  color: #ef4444;
+}
+
+/* Tip callout - Yellow */
+.ProseMirror [data-type="callout"][data-callout-type="tip"] {
+  border-left-color: #eab308;
+  background-color: rgba(234, 179, 8, 0.1);
+}
+
+.ProseMirror [data-type="callout"][data-callout-type="tip"] .callout-header {
+  color: #eab308;
+}
+
+/* Note callout - Blue */
+.ProseMirror [data-type="callout"][data-callout-type="note"] {
+  border-left-color: #3b82f6;
+  background-color: rgba(59, 130, 246, 0.1);
+}
+
+.ProseMirror [data-type="callout"][data-callout-type="note"] .callout-header {
+  color: #3b82f6;
+}
+
+/* Example callout - Purple */
+.ProseMirror [data-type="callout"][data-callout-type="example"] {
+  border-left-color: #a855f7;
+  background-color: rgba(168, 85, 247, 0.1);
+}
+
+.ProseMirror
+  [data-type="callout"][data-callout-type="example"]
+  .callout-header {
+  color: #a855f7;
+}
+
+/* Component callout - Emerald/Green */
+.ProseMirror [data-type="callout"][data-callout-type="component"] {
+  border-left-color: #10b981;
+  background-color: rgba(16, 185, 129, 0.1);
+}
+
+.ProseMirror
+  [data-type="callout"][data-callout-type="component"]
+  .callout-header {
+  color: #10b981;
+}
+
+/* Navigation callout - Cyan */
+.ProseMirror [data-type="callout"][data-callout-type="navigation"] {
+  border-left-color: #06b6d4;
+  background-color: rgba(6, 182, 212, 0.1);
+}
+
+.ProseMirror
+  [data-type="callout"][data-callout-type="navigation"]
+  .callout-header {
+  color: #06b6d4;
+}
+
+/* Success callout - Green */
+.ProseMirror [data-type="callout"][data-callout-type="success"] {
+  border-left-color: #22c55e;
+  background-color: rgba(34, 197, 94, 0.1);
+}
+
+.ProseMirror
+  [data-type="callout"][data-callout-type="success"]
+  .callout-header {
+  color: #22c55e;
+}
+
+/* Selected callout styling */
+.ProseMirror [data-type="callout"].ProseMirror-selectednode {
+  outline: 2px solid var(--color-primary, #7aa2f7);
+  outline-offset: 2px;
+}
+
+/* Draggable callout - cursor hint */
+.ProseMirror [data-type="callout"][draggable="true"] {
+  cursor: grab;
+}
+
+.ProseMirror [data-type="callout"][draggable="true"]:active {
+  cursor: grabbing;
 }

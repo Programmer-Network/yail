@@ -7,7 +7,7 @@ import { ButtonVariantEnum } from "../Button/types";
 import { Icon } from "../Icon";
 import { Pill } from "../Pill";
 import { PillSize, PillVariant } from "../Pill/Pill.types";
-import { H4, Paragraph } from "../Typography";
+import { Paragraph } from "../Typography";
 import {
   IBadge,
   IPersonAction,
@@ -147,54 +147,76 @@ const PersonCard: FC<IPersonCardProps> = ({
           <Avatar src={avatar} alt={name} size={getAvatarSize(size)} />
         </div>
 
-        {/* Name, Username, and Badge */}
+        {/* Name, Username, Role/Location */}
         <div className='yl:flex yl:min-w-0 yl:flex-1 yl:flex-col'>
-          <H4 className='group-yl:hover:text-primary yl:m-0 yl:truncate yl:transition-colors yl:text-primary!'>
-            {name}
-          </H4>
+          <div className='yl:flex yl:items-center yl:gap-2'>
+            <span className='yl:text-base yl:font-semibold yl:text-text yl:truncate yl:transition-colors group-hover:yl:text-primary'>
+              {name}
+            </span>
+            {badgeProps && (
+              <Pill variant={badgeProps.variant} size={PillSize.SMALL}>
+                {badgeProps.text}
+              </Pill>
+            )}
+          </div>
           {username && (
-            <span className='yl:text-muted yl:-mt-1 yl:flex yl:items-center yl:truncate yl:text-sm'>
-              <span className='yl:w-4 yl:text-center'>@</span>
-              {username}
+            <span className='yl:text-muted/70 yl:truncate yl:text-xs'>
+              {`@${username}`}
+            </span>
+          )}
+          {(role || location) && (
+            <span className='yl:text-muted/50 yl:truncate yl:text-xs'>
+              {role}
+              {role && location && " · "}
+              {location}
             </span>
           )}
           {(followingCount !== undefined || followersCount !== undefined) && (
-            <div className='yl:text-muted yl:ml-1 yl:flex yl:items-center yl:gap-3 yl:text-sm'>
+            <div className='yl:text-muted/50 yl:mt-1 yl:flex yl:items-center yl:gap-2 yl:text-xs'>
               {followingCount !== undefined && (
                 <span>
-                  <span className='yl:font-bold'>{followingCount}</span>{" "}
+                  <span className='yl:font-medium yl:text-muted/70'>
+                    {followingCount}
+                  </span>{" "}
                   Following
                 </span>
               )}
               {followingCount !== undefined && followersCount !== undefined && (
-                <span>•</span>
+                <span className='yl:text-muted/30'>•</span>
               )}
               {followersCount !== undefined && (
                 <span>
-                  <span className='yl:font-bold'>{followersCount}</span>{" "}
+                  <span className='yl:font-medium yl:text-muted/70'>
+                    {followersCount}
+                  </span>{" "}
                   Followers
                 </span>
               )}
             </div>
           )}
-          {badgeProps && (
-            <div className='yl:mt-1'>
-              <Pill variant={badgeProps.variant} size={PillSize.SMALL}>
-                {badgeProps.text}
-              </Pill>
+          {/* Social Links */}
+          {showSocialLinks && Object.keys(socialProfiles).length > 0 && (
+            <div className='yl:mt-1.5 yl:flex yl:items-center yl:gap-2'>
+              {Object.entries(socialProfiles)
+                .filter(([, url]) => url)
+                .slice(0, 5)
+                .map(([platform, url]) => (
+                  <a
+                    key={platform}
+                    href={url as string}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='yl:text-muted/50 yl:hover:text-primary yl:transition-colors'
+                    onClick={e => e.stopPropagation()}
+                    title={platform}
+                  >
+                    {getSocialIcon(platform)}
+                  </a>
+                ))}
             </div>
           )}
         </div>
       </div>
-
-      {/* Role and Location */}
-      {(role || location) && (
-        <div className='yl:text-muted yl:-mt-2 yl:text-left yl:text-sm'>
-          {role && <span>{role}</span>}
-          {role && location && <span> • </span>}
-          {location && <span>{location}</span>}
-        </div>
-      )}
 
       {/* Description */}
       {about && (
@@ -208,27 +230,6 @@ const PersonCard: FC<IPersonCardProps> = ({
         </Paragraph>
       )}
 
-      {/* Social Links */}
-      {showSocialLinks && Object.keys(socialProfiles).length > 0 && (
-        <div className='yl:flex yl:justify-start yl:gap-2'>
-          {Object.entries(socialProfiles)
-            .filter(([, url]) => url)
-            .slice(0, 5)
-            .map(([platform, url]) => (
-              <a
-                key={platform}
-                href={url as string}
-                target='_blank'
-                rel='noopener noreferrer'
-                className='yl:text-muted yl:hover:text-primary yl:text-lg yl:transition-colors'
-                onClick={e => e.stopPropagation()}
-                title={platform}
-              >
-                {getSocialIcon(platform)}
-              </a>
-            ))}
-        </div>
-      )}
       {/* Actions */}
       {actions.length > 0 && (
         <div className='yl:flex yl:flex-wrap yl:justify-start yl:gap-2'>
@@ -280,11 +281,10 @@ const PersonCard: FC<IPersonCardProps> = ({
       {/* Custom children */}
       {children && <div className='yl:mt-2'>{children}</div>}
 
-      {/* Following, Followers, Tags, and Country at bottom left */}
-      <div className='yl:mt-auto yl:flex yl:flex-col yl:gap-2'>
-        {/* Tags */}
+      {/* Tags */}
+      <div className='yl:mt-auto yl:flex yl:flex-col yl:gap-3'>
         {showTags && tags.length > 0 && (
-          <div className='yl:flex yl:flex-wrap yl:justify-start yl:gap-2'>
+          <div className='yl:flex yl:flex-wrap yl:justify-start yl:gap-1.5'>
             {tags
               .slice(0, maxTags)
               .map((tag: IPersonCardTag, index: number) => (

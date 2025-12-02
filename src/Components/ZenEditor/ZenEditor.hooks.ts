@@ -1,8 +1,7 @@
 import { useCallback, useEffect, useRef } from "react";
 
-import { TiptapControls, TiptapRef } from "../Inputs/Tiptap/Tiptap.types";
+import { TiptapRef } from "../Inputs/Tiptap/Tiptap.types";
 import {
-  IUseToolbarItemsProps,
   IUseZenEditorKeyboardProps,
   IUseZenEditorRefProps,
   IUseZenEditorRefReturn
@@ -45,15 +44,4 @@ export const useZenEditorRef = ({
   const editorRef = externalEditorRef || internalEditorRef;
 
   return { editorRef };
-};
-
-export const useToolbarItems = ({
-  toolbarMode,
-  toolbarItems
-}: IUseToolbarItemsProps): TiptapControls | undefined => {
-  if (toolbarMode === "bubble") {
-    return undefined;
-  }
-
-  return toolbarItems;
 };
