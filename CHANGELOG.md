@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.19.0](https://github.com/Programmer-Network/yail/compare/yail-v1.18.0...yail-v1.19.0) (2025-12-02)
+
+
+### Features
+
+* add callout functionality and draggable support to Tiptap editor ([bd8ae67](https://github.com/Programmer-Network/yail/commit/bd8ae671816816f7eb12c96c65c12243fa608613))
+
 ## [1.18.0](https://github.com/Programmer-Network/yail/compare/yail-v1.17.0...yail-v1.18.0) (2025-12-01)
 
 ### Features
