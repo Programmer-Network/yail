@@ -9,7 +9,7 @@ export interface IFiltersProps {
     value: string;
     onChange: (value: string) => void;
   };
-  tags: {
+  tags?: {
     selected: string[];
     onChange: (options: string[]) => void;
     options: { value: string; label: string }[];
@@ -18,7 +18,7 @@ export interface IFiltersProps {
     value: ViewType;
     onChange: (view: ViewType) => void;
   };
-  sorting: {
+  sorting?: {
     value: string;
     onChange: (value: string) => void;
     options: { value: string; label: string }[];

@@ -99,7 +99,7 @@ const Filters: FC<IFiltersProps> = ({
           )}
         </div>
       </div>
-      {showFilters && (
+      {showFilters && tags && (
         <div className='yl:mt-2 yl:flex yl:flex-wrap yl:items-start yl:gap-2'>
           {tags && tags?.options?.length > 0 && (
             <Select

@@ -905,6 +905,7 @@ export { default as NesOutline } from "./NesOutline";
 export { default as NesSolid } from "./NesSolid";
 export { default as NetlifyOutline } from "./NetlifyOutline";
 export { default as NetlifySolid } from "./NetlifySolid";
+export { default as News } from "./News";
 export { default as NextCircleOutline } from "./NextCircleOutline";
 export { default as NextCircleSolid } from "./NextCircleSolid";
 export { default as NextOutline } from "./NextOutline";
