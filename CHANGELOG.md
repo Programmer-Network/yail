@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.20.0](https://github.com/Programmer-Network/yail/compare/yail-v1.19.0...yail-v1.20.0) (2025-12-02)
+
+
+### Features
+
+* add gap cursor extension to Tiptap editor for improved text selection ([8d7e6cc](https://github.com/Programmer-Network/yail/commit/8d7e6cc592c681fae81e0fa32b5529a390ab0e45))
+
 ## [1.19.0](https://github.com/Programmer-Network/yail/compare/yail-v1.18.0...yail-v1.19.0) (2025-12-02)
 
 ### Features
