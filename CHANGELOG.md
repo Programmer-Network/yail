@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.21.0](https://github.com/Programmer-Network/yail/compare/yail-v1.20.0...yail-v1.21.0) (2025-12-03)
+
+
+### Features
+
+* add News icon and update Filters component to conditionally render tags ([604607b](https://github.com/Programmer-Network/yail/commit/604607be21e7deacc659b8302fd8671f6560ed78))
+
 ## [1.20.0](https://github.com/Programmer-Network/yail/compare/yail-v1.19.0...yail-v1.20.0) (2025-12-02)
 
 
