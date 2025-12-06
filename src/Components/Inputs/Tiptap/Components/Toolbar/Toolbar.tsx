@@ -66,7 +66,6 @@ export const Toolbar: FC<TiptapToolbarProps> = ({
   image,
   link,
   onImageUploadError,
-  stickyOffset,
   variant = "default",
   mode = "static"
 }) => {
@@ -140,7 +139,7 @@ export const Toolbar: FC<TiptapToolbarProps> = ({
     "yl:flex yl:flex-wrap yl:items-center yl:px-2 yl:py-1.5",
     {
       "yl:bg-background yl:sticky yl:z-10": !isFloating,
-      "yl:top-0": !isFloating && !stickyOffset,
+      "yl:top-0": !isFloating,
       "yl:border-border/40 yl:border-2 yl:border-b-0 yl:rounded-tl-md yl:rounded-tr-md":
         !isFloating && !isZen,
       "yl:border-b yl:border-border/20": !isFloating && isZen,
@@ -150,8 +149,7 @@ export const Toolbar: FC<TiptapToolbarProps> = ({
     }
   );
 
-  const toolbarStyle =
-    !isFloating && stickyOffset ? { top: stickyOffset } : undefined;
+  const toolbarStyle = undefined;
 
   const isTypographyEnabled =
     isGroupEnabled(ToolbarGroupId.TYPOGRAPHY) &&

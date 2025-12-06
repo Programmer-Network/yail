@@ -812,7 +812,6 @@ export const SlashMenu = () => {
         placeholder='Type / to see the slash menu...'
         label='Editor with Slash Menu'
         toolbarItems={toolbarItems}
-        toolbarMode='hybrid'
         onSetImage={() => {
           return new Promise<void>(resolve => {
             resolve();

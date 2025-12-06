@@ -586,3 +586,28 @@
 .ProseMirror [data-type="callout"][draggable="true"]:active {
   cursor: grabbing;
 }
+
+/* Editor hints for discoverability */
+.tiptap-editor-hints {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Placeholder styling enhancement */
+.ProseMirror p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  float: left;
+  color: var(--color-text, #9ca3af);
+  pointer-events: none;
+  height: 0;
+}

@@ -2,10 +2,10 @@
 
 ## [1.22.0](https://github.com/Programmer-Network/yail/compare/yail-v1.21.0...yail-v1.22.0) (2025-12-06)
 
-
 ### Features
 
-* add functionality to remove trailing ([af70231](https://github.com/Programmer-Network/yail/commit/af70231aaa84762950596ae76e59fc9cf3250469))
+- add functionality to remove trailing
+  ([af70231](https://github.com/Programmer-Network/yail/commit/af70231aaa84762950596ae76e59fc9cf3250469))
 
 ## [1.21.0](https://github.com/Programmer-Network/yail/compare/yail-v1.20.0...yail-v1.21.0) (2025-12-03)
 

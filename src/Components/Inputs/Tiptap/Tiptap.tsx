@@ -8,13 +8,17 @@ import {
   useEffect,
   useImperativeHandle,
   useMemo,
-  useRef
+  useRef,
+  useState
 } from "react";
 
+import { Icon } from "../../Icon";
+import { Tooltip } from "../../Tooltip";
 import { InputError } from "../Common/InputError";
 import { InputHeader } from "../Common/InputHeader";
 import TiptapActions from "./Components/Actions";
 import { CharacterCount } from "./Components/CharacterCount";
+import { isSlashMenuEnabled } from "./Components/SlashMenu";
 import { Toolbar } from "./Components/Toolbar";
 import { TIPTAP_TOOLBAR_ITEMS } from "./Tiptap.constants";
 import "./Tiptap.css";
@@ -34,9 +38,7 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
     placeholder,
     suggestions,
     toolbarItems,
-    toolbarMode = "full",
     variant = "default",
-    stickyOffset,
     error = null,
     label,
     hint,
@@ -47,18 +49,38 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
 ) => {
   const hasSetInitialContent = useRef(false);
   const slashMenuFileInputRef = useRef<HTMLInputElement>(null);
+  const [isFocused, setIsFocused] = useState(false);
+
+  // Check if slash menu is enabled
+  const slashMenuEnabled = useMemo(
+    () => isSlashMenuEnabled(toolbarItems),
+    [toolbarItems]
+  );
 
   // Slash menu callback for image selection
   const handleSlashMenuImageSelect = useCallback(() => {
     slashMenuFileInputRef.current?.click();
   }, []);
 
+  // Enhanced placeholder that mentions slash menu when enabled
+  const enhancedPlaceholder = useMemo(() => {
+    if (placeholder) {
+      return placeholder;
+    }
+
+    if (slashMenuEnabled) {
+      return "Type / for commands or start writing...";
+    }
+
+    return "Start writing...";
+  }, [placeholder, slashMenuEnabled]);
+
   const editorOptions = useMemo(() => {
     const config = editorConfig({
       toolbarItems,
       editorContent,
       suggestions,
-      placeholder,
+      placeholder: enhancedPlaceholder,
       autoFocus,
       slashMenu: {
         onImageSelect: handleSlashMenuImageSelect
@@ -75,7 +97,7 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
     toolbarItems,
     editorContent,
     suggestions,
-    placeholder,
+    enhancedPlaceholder,
     autoFocus,
     onTransaction,
     onUpdate,
@@ -105,12 +127,40 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
   const characterCountEnabled =
     toolbarItems?.includes(TIPTAP_TOOLBAR_ITEMS.CHARACTER_COUNT) ?? false;
 
+  // Build tooltip text for hints
+  const hintsTooltipText = useMemo(() => {
+    const hints: string[] = [];
+    if (slashMenuEnabled) {
+      hints.push("Type / (slash) for commands");
+    }
+    hints.push("Select text for formatting");
+    return hints.join(" • ");
+  }, [slashMenuEnabled]);
+
   if (!image.isExtensionEnabled && typeof onSetImage === "function") {
     console.error(`"onSetImage" prop passed but image extension not found`);
     throw new Error("Image extension not registered in Tiptap editor.");
   }
 
   const editor = useEditor(editorOptions);
+
+  // Track focus state
+  useEffect(() => {
+    if (!editor) {
+      return;
+    }
+
+    const handleFocus = () => setIsFocused(true);
+    const handleBlur = () => setIsFocused(false);
+
+    editor.on("focus", handleFocus);
+    editor.on("blur", handleBlur);
+
+    return () => {
+      editor.off("focus", handleFocus);
+      editor.off("blur", handleBlur);
+    };
+  }, [editor]);
 
   // Handle image upload from slash menu
   const handleSlashMenuFileInputChange = useCallback(
@@ -197,18 +247,8 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
 
   const hasToolbar = toolbarItems && toolbarItems?.length > 0;
 
-  // Determine sticky toolbar visibility based on mode
-  const showStickyToolbar =
-    hasToolbar && (toolbarMode === "full" || toolbarMode === "hybrid");
-
   // Bubble toolbar is always shown when there are toolbar items
   const showBubbleToolbar = hasToolbar;
-
-  // Use minimal toolbar styling for hybrid/minimal/bubble modes
-  const isMinimalToolbar =
-    toolbarMode === "hybrid" ||
-    toolbarMode === "minimal" ||
-    toolbarMode === "bubble";
 
   return (
     <div
@@ -228,17 +268,6 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
       )}
 
       {label && <InputHeader label={label} hint={hint} required={required} />}
-      {showStickyToolbar && (
-        <Toolbar
-          editor={editor}
-          toolbarItems={toolbarItems}
-          image={image}
-          link={link}
-          onImageUploadError={onImageUploadError}
-          stickyOffset={stickyOffset}
-          variant={variant}
-        />
-      )}
       {showBubbleToolbar && (
         <Toolbar
           editor={editor}
@@ -251,28 +280,33 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
       )}
       <div className='yl:flex yl:flex-col'>
         <div
-          className={classNames("yl:relative wrap-break-word", {
-            "yl:border-t-0!": showStickyToolbar
-          })}
-        ></div>
-        <div
           className={classNames("yl:relative", {
-            "yl:border-border/40 yl:rounded-br-md yl:rounded-bl-md yl:border-2 yl:border-t-0":
-              showStickyToolbar && variant !== "zen",
-            "yl:border-border/40 yl:rounded-md yl:border-2":
-              !showStickyToolbar && !isMinimalToolbar && variant !== "zen",
-            "yl:border-0":
-              (isMinimalToolbar && !showStickyToolbar) || variant === "zen"
+            "yl:border-border/40 yl:rounded-md yl:border-2": variant !== "zen",
+            "yl:border-0": variant === "zen"
           })}
           onClick={() => editor.commands.focus()}
         >
           <EditorContent
             editor={editor}
             className={classNames({
-              "yl:p-4": !isMinimalToolbar || showStickyToolbar,
-              "yl:p-0": isMinimalToolbar && !showStickyToolbar
+              "yl:p-4": variant !== "zen"
             })}
           />
+          {/* Visual hints for discoverability */}
+          {editor.isEmpty && isFocused && hasToolbar && (
+            <div className='yl:absolute yl:top-3 yl:right-2 yl:z-10 yl:cursor-help'>
+              <Tooltip
+                text={hintsTooltipText}
+                id='tiptap-hints-tooltip'
+                place='left'
+              >
+                <Icon
+                  iconName='QuestionSolid'
+                  className='yl:w-4 yl:h-4 yl:text-text/60 yl:hover:text-text/60 yl:cursor-help yl:transition-colors'
+                />
+              </Tooltip>
+            </div>
+          )}
           {characterCountEnabled && <CharacterCount editor={editor} />}
           {actions &&
             typeof actions?.onAction === "function" &&

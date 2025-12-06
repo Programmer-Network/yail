@@ -4,8 +4,6 @@ import { FC, MouseEventHandler } from "react";
 
 import { TIPTAP_TOOLBAR_ITEMS } from "./Tiptap.constants";
 
-export type TiptapToolbarMode = "full" | "minimal" | "bubble" | "hybrid";
-
 export type TiptapVariant = "default" | "zen";
 
 export interface TiptapSuggestionOptions {
@@ -33,11 +31,8 @@ export interface TiptapProps {
   suggestions?: TiptapSuggestionOptions;
   placeholder?: string;
   toolbarItems?: TiptapControls;
-  toolbarMode?: TiptapToolbarMode;
   /** Visual style variant. "zen" removes borders for distraction-free writing */
   variant?: TiptapVariant;
-  /** Offset for sticky toolbar (e.g., to account for a fixed header). CSS value like "48px" or "3rem" */
-  stickyOffset?: string;
   error?: string;
   label?: string;
   hint?: string;
@@ -62,8 +57,6 @@ export interface TiptapToolbarProps {
   isCreating?: boolean;
   isUpdating?: boolean;
   onImageUploadError?: (error: string) => void;
-  /** Offset for sticky toolbar (e.g., "48px" to account for a fixed header) */
-  stickyOffset?: string;
   /** Visual style variant. "zen" removes borders */
   variant?: TiptapVariant;
   /** Toolbar rendering mode - "static" for sticky, "floating" for bubble menu */

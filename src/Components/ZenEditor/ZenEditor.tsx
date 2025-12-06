@@ -83,7 +83,6 @@ const ZenEditorComponent: ForwardRefRenderFunction<
             value={value}
             onUpdate={onUpdate}
             toolbarItems={toolbarItems}
-            toolbarMode='bubble'
             variant='zen'
             placeholder={placeholder}
             suggestions={suggestions}

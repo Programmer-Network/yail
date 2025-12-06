@@ -41,10 +41,7 @@ const Tooltip: FC<ITooltipProps> = ({
         content={getText()}
         noArrow
         opacity={1}
-        className={classNames(
-          "yl:border-primary! yl:bg-background! yl:text-text! yl:shadow-border yl:z-50! yl:border-2! yl:shadow-md!",
-          className
-        )}
+        className={classNames("yl:bg-background! yl:z-50!", className)}
       />
     </div>
   );
