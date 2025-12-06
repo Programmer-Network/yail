@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.24.0](https://github.com/Programmer-Network/yail/compare/yail-v1.23.0...yail-v1.24.0) (2025-12-06)
+
+
+### Features
+
+* enhance Tiptap editor with discoverability hints and improved placeholder functionality ([fa46f1a](https://github.com/Programmer-Network/yail/commit/fa46f1a51c42258c51ed04b234950de63459fa8e))
+
 ## [1.23.0](https://github.com/Programmer-Network/yail/compare/yail-v1.22.0...yail-v1.23.0) (2025-12-06)
 
 
