@@ -82,8 +82,24 @@ export class TiptapToHTML {
       return "";
     }
 
+    let parsedContent: JSONContent;
+    try {
+      parsedContent = JSON.parse(stringifiedContentState);
+    } catch (error) {
+      const errorMessage =
+        error instanceof Error ? error.message : String(error);
+      console.error(
+        "[TiptapToHTML] Failed to parse JSON content:",
+        errorMessage,
+        "\nContent preview:",
+        stringifiedContentState.substring(0, 100)
+      );
+
+      return "";
+    }
+
     const htmlContent = sanitize(
-      this.generateHTML(JSON.parse(stringifiedContentState)),
+      this.generateHTML(parsedContent),
       this.sanitizeConfig()
     );
 
@@ -93,6 +109,7 @@ export class TiptapToHTML {
   /**
    * Removes trailing `<br>` tags from the end of HTML content.
    * This prevents unwanted whitespace when users press Enter multiple times at the end of content.
+   * Handles both trailing `<br>` tags at the end of the string and before closing tags (e.g., `</p>`).
    * @private
    * @param {string} html - The HTML string to process.
    * @returns {string} The HTML string with trailing `<br>` tags removed.
@@ -102,9 +119,15 @@ export class TiptapToHTML {
       return html;
     }
 
-    // Match one or more trailing `<br>` tags (in various formats) with optional whitespace
-    // Handles: <br>, <br/>, <br />, and whitespace around them
-    return html.replace(/(\s*<br\s*\/?>\s*)+$/gi, "");
+    // First, remove trailing <br> tags before closing tags (e.g., </p>, </div>)
+    // Matches: <br> tags followed by optional whitespace and a closing tag
+    html = html.replace(/(\s*<br\s*\/?>\s*)+(?=\s*<\/[^>]+>)/gi, "");
+
+    // Then, remove trailing <br> tags at the very end of the string
+    // Matches: one or more <br> tags (in various formats) with optional whitespace at the end
+    html = html.replace(/(\s*<br\s*\/?>\s*)+$/gi, "");
+
+    return html;
   }
 
   /**
