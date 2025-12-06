@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.23.0](https://github.com/Programmer-Network/yail/compare/yail-v1.22.0...yail-v1.23.0) (2025-12-06)
+
+
+### Features
+
+* enhance TiptapToHTML to handle trailing &lt;br&gt; tags and add comprehensive tests ([a51865f](https://github.com/Programmer-Network/yail/commit/a51865f2f3dbab30cb1af7bad6395e4fb75c7e1a))
+
 ## [1.22.0](https://github.com/Programmer-Network/yail/compare/yail-v1.21.0...yail-v1.22.0) (2025-12-06)
 
 ### Features
