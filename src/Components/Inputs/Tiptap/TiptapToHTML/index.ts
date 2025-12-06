@@ -87,7 +87,24 @@ export class TiptapToHTML {
       this.sanitizeConfig()
     );
 
-    return htmlContent;
+    return this.removeTrailingBrTags(htmlContent);
+  }
+
+  /**
+   * Removes trailing `<br>` tags from the end of HTML content.
+   * This prevents unwanted whitespace when users press Enter multiple times at the end of content.
+   * @private
+   * @param {string} html - The HTML string to process.
+   * @returns {string} The HTML string with trailing `<br>` tags removed.
+   */
+  private removeTrailingBrTags(html: string): string {
+    if (!html) {
+      return html;
+    }
+
+    // Match one or more trailing `<br>` tags (in various formats) with optional whitespace
+    // Handles: <br>, <br/>, <br />, and whitespace around them
+    return html.replace(/(\s*<br\s*\/?>\s*)+$/gi, "");
   }
 
   /**
