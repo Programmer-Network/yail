@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.25.0](https://github.com/Programmer-Network/yail/compare/yail-v1.24.0...yail-v1.25.0) (2025-12-06)
+
+
+### Features
+
+* update Tiptap placeholder styles for improved visibility and readability ([a8051bb](https://github.com/Programmer-Network/yail/commit/a8051bba6ce3b9a62be98ac59c6c8e3bfcbff8a6))
+
 ## [1.24.0](https://github.com/Programmer-Network/yail/compare/yail-v1.23.0...yail-v1.24.0) (2025-12-06)
 
 ### Features
