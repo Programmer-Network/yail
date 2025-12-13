@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.27.0](https://github.com/Programmer-Network/yail/compare/yail-v1.26.0...yail-v1.27.0) (2025-12-13)
+
+
+### Features
+
+* adjust padding in ZenStatusBar for improved layout consistency ([8c9c82d](https://github.com/Programmer-Network/yail/commit/8c9c82df750f543508279e7becf9762c289c5cdd))
+
 ## [1.26.0](https://github.com/Programmer-Network/yail/compare/yail-v1.25.0...yail-v1.26.0) (2025-12-13)
 
 ### Features
