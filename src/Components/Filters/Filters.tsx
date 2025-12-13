@@ -35,6 +35,7 @@ const Filters: FC<IFiltersProps> = ({
           placeholder='Search...'
           onChange={input => search.onChange(input["search"] ?? "")}
           value={search.value}
+          className='yl:h-12'
           inputWrapperClassName='yl:flex-1 yl:min-w-0 yl:w-full'
         />
         <div className='yl:flex yl:gap-4'>
@@ -61,6 +62,7 @@ const Filters: FC<IFiltersProps> = ({
                     ? ButtonVariantEnum.PRIMARY
                     : ButtonVariantEnum.SECONDARY
                 }
+                className='yl:w-12 yl:h-12'
                 onClick={() => {
                   sorting.onChange("oldest");
                 }}
@@ -89,9 +91,10 @@ const Filters: FC<IFiltersProps> = ({
                   ? ButtonVariantEnum.PRIMARY
                   : ButtonVariantEnum.SECONDARY
               }
+              className='yl:w-12 yl:h-12'
               onClick={() => setShowFilters(v => !v)}
               icon={{
-                iconName: "FilterSolid",
+                iconName: "FilterOutline",
                 iconClassName: "yl:w-6 yl:h-6",
                 iconPosition: "left"
               }}

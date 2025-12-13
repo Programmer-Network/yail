@@ -19,6 +19,18 @@ const iconCache: Record<
   React.LazyExoticComponent<ComponentType<SVGProps<SVGElement>>>
 > = {};
 
+// HMR: Self-accept this module so it reloads when icon files change
+// This ensures the glob pattern is re-evaluated when new icons are added
+// Note: Vite's import.meta.glob is evaluated once at module init, so new files
+// added after dev server start require a module reload to be picked up
+if (import.meta.hot) {
+  import.meta.hot.accept(() => {
+    // Module will reload, causing glob to re-evaluate and pick up new files
+    // Clear the cache to ensure new icons are loaded
+    Object.keys(iconCache).forEach(key => delete iconCache[key]);
+  });
+}
+
 const Icon: FC<IIconProps> = props => {
   const { iconName, className, onClick, dataTestId, ...rest } = props;
   const [error, setError] = useState(false);

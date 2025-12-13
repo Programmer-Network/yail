@@ -3,15 +3,14 @@ import type { SVGProps } from "react";
 const SvgSortUpSolid = (props: SVGProps<SVGSVGElement>) => (
   <svg
     xmlns='http://www.w3.org/2000/svg'
-    fill='none'
-    viewBox='0 0 15 15'
+    width={32}
+    height={32}
+    viewBox='0 0 24 24'
     {...props}
   >
     <path
       fill='currentColor'
-      fillRule='evenodd'
-      d='M3.146.146a.5.5 0 0 1 .708 0l3 3-.708.708L4 1.707V15H3V1.707L.854 3.854l-.708-.708zM15 4H9V3h6zm-2 4H9V7h4zm-2 4H9v-1h2z'
-      clipRule='evenodd'
+      d='M10 5H8v2H4V5H2v2H0v12h12V7h-2zM2 9h8v2H2zm0 8v-4h8v4zm18 2h-2v-8h-2V9h2V7h2v2h2v2h-2zm2-8v2h2v-2zm-6 0v2h-2v-2z'
     />
   </svg>
 );

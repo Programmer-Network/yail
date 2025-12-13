@@ -194,3 +194,83 @@ export const ErrorOutlinedWithIcon: Story = {
     }
   }
 };
+
+export const IconOnly: Story = {
+  args: {
+    icon: {
+      iconName: "IconBomb",
+      iconPosition: "center"
+    }
+  }
+};
+
+export const IconOnlyDisabled: Story = {
+  args: {
+    icon: {
+      iconName: "IconBomb",
+      iconPosition: "center"
+    },
+    disabled: true
+  }
+};
+
+export const IconOnlyLoading: Story = {
+  args: {
+    icon: {
+      iconName: "IconBomb",
+      iconPosition: "center"
+    },
+    isLoading: true
+  }
+};
+
+export const IconOnlyOutlined: Story = {
+  args: {
+    icon: {
+      iconName: "IconBomb",
+      iconPosition: "center"
+    },
+    outlined: true
+  }
+};
+
+export const IconOnlyPrimary: Story = {
+  args: {
+    icon: {
+      iconName: "IconAddCircle",
+      iconPosition: "center"
+    },
+    variant: ButtonVariantEnum.PRIMARY
+  }
+};
+
+export const IconOnlySecondary: Story = {
+  args: {
+    icon: {
+      iconName: "IconAddCircle",
+      iconPosition: "center"
+    },
+    variant: ButtonVariantEnum.SECONDARY
+  }
+};
+
+export const IconOnlyError: Story = {
+  args: {
+    icon: {
+      iconName: "IconDeleteBin",
+      iconPosition: "center"
+    },
+    variant: ButtonVariantEnum.ERROR
+  }
+};
+
+export const IconOnlyErrorOutlined: Story = {
+  args: {
+    icon: {
+      iconName: "IconDeleteBin",
+      iconPosition: "center"
+    },
+    variant: ButtonVariantEnum.ERROR,
+    outlined: true
+  }
+};

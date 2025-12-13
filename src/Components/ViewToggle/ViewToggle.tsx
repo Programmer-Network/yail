@@ -22,10 +22,11 @@ const ViewToggle: FC<IViewToggleProps> = ({
             ? ButtonVariantEnum.PRIMARY
             : ButtonVariantEnum.SECONDARY
         }
+        className='yl:w-12 yl:h-12'
         onClick={() => onViewChange("card")}
       >
         <div className='yl:flex yl:items-center yl:gap-1'>
-          <Icon iconName='IconPosts' className='yl:h-6 yl:w-6' />
+          <Icon iconName='VerticalLayout' className='yl:h-6 yl:w-6' />
         </div>
       </Button>
       <Button
@@ -34,10 +35,11 @@ const ViewToggle: FC<IViewToggleProps> = ({
             ? ButtonVariantEnum.PRIMARY
             : ButtonVariantEnum.SECONDARY
         }
+        className='yl:w-12 yl:h-12'
         onClick={() => onViewChange("table")}
       >
         <div className='yl:flex yl:items-center yl:gap-1'>
-          <Icon iconName='ListUnorderedOutline' className='yl:h-6 yl:w-6' />
+          <Icon iconName='HorizontalLayout' className='yl:h-6 yl:w-6' />
         </div>
       </Button>
     </div>

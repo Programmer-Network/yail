@@ -9,7 +9,7 @@ exports[`FormActions component > renders correctly - snapshot test 1`] = `
       class="yl:flex yl:flex-row yl:justify-start yl:items-center yl:gap-3"
     >
       <button
-        class="yl:select-none yl:px-3 yl:py-2 yl:font-semibold yl:tracking-tight yl:rounded-md yl:border-2 yl:transition-all yl:duration-200 yl:transform yl:hover:scale-105 yl:cursor-pointer yl:border-text/20 yl:text-text/20 yl:fill-text/20 yl:hover:border-text/30 yl:hover:text-text/30 yl:hover:fill-text/30 yl:hover:bg-background/20 yl:min-w-[100px]"
+        class="yl:select-none yl:font-semibold yl:tracking-tight yl:rounded-md yl:border-2 yl:transition-all yl:duration-200 yl:transform yl:hover:scale-105 yl:px-3 yl:py-2 yl:cursor-pointer yl:border-text/20 yl:text-text/20 yl:fill-text/20 yl:hover:border-text/30 yl:hover:text-text/30 yl:hover:fill-text/30 yl:hover:bg-background/20 yl:min-w-[100px]"
         type="button"
       >
         <div
@@ -37,7 +37,7 @@ exports[`FormActions component > renders correctly - snapshot test 1`] = `
         </div>
       </button>
       <button
-        class="yl:select-none yl:px-3 yl:py-2 yl:font-semibold yl:tracking-tight yl:rounded-md yl:border-2 yl:transition-all yl:duration-200 yl:transform yl:hover:scale-105 yl:cursor-pointer yl:border-text/20 yl:text-text/20 yl:fill-text/20 yl:hover:border-text/30 yl:hover:text-text/30 yl:hover:fill-text/30 yl:hover:bg-background/20 yl:min-w-[100px] yl:transition-all yl:duration-200 yl:hover:scale-105"
+        class="yl:select-none yl:font-semibold yl:tracking-tight yl:rounded-md yl:border-2 yl:transition-all yl:duration-200 yl:transform yl:hover:scale-105 yl:px-3 yl:py-2 yl:cursor-pointer yl:border-text/20 yl:text-text/20 yl:fill-text/20 yl:hover:border-text/30 yl:hover:text-text/30 yl:hover:fill-text/30 yl:hover:bg-background/20 yl:min-w-[100px] yl:transition-all yl:duration-200 yl:hover:scale-105"
         type="button"
       >
         <div
@@ -65,7 +65,7 @@ exports[`FormActions component > renders correctly - snapshot test 1`] = `
         </div>
       </button>
       <button
-        class="yl:select-none yl:px-3 yl:py-2 yl:font-semibold yl:tracking-tight yl:rounded-md yl:border-2 yl:transition-all yl:duration-200 yl:transform yl:hover:scale-105 yl:cursor-pointer yl:border-primary yl:bg-primary yl:text-background yl:hover:bg-transparent yl:hover:text-primary yl:min-w-[100px]"
+        class="yl:select-none yl:font-semibold yl:tracking-tight yl:rounded-md yl:border-2 yl:transition-all yl:duration-200 yl:transform yl:hover:scale-105 yl:px-3 yl:py-2 yl:cursor-pointer yl:border-primary yl:bg-primary yl:text-background yl:hover:bg-transparent yl:hover:text-primary yl:min-w-[100px]"
         type="submit"
       >
         <div

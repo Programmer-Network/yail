@@ -3,11 +3,15 @@ import type { SVGProps } from "react";
 const SvgFilterOutline = (props: SVGProps<SVGSVGElement>) => (
   <svg
     xmlns='http://www.w3.org/2000/svg'
-    fill='none'
-    viewBox='0 0 15 15'
+    width={32}
+    height={32}
+    viewBox='0 0 24 24'
     {...props}
   >
-    <path stroke='currentColor' d='M0 2.5h15m-12 5h9m-7 5h5' />
+    <path
+      fill='currentColor'
+      d='M21 4v2h-1l-5 7.5V22H9v-8.5L4 6H3V4zM6.404 6 11 12.894V20h2v-7.106L17.596 6z'
+    />
   </svg>
 );
 export default SvgFilterOutline;

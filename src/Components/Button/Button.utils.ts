@@ -2,9 +2,16 @@ import classNames from "classnames";
 
 import { ButtonVariantEnum, IGetButtonClassesArgs } from "./types";
 
-export const getStyles = (isLoading: boolean) => {
+export const getStyles = (isLoading: boolean, isIconOnly?: boolean) => {
+  const padding = isIconOnly
+    ? "yl:p-2.5 yl:min-w-[2.5rem] yl:min-h-[2.5rem]"
+    : "yl:px-3 yl:py-2";
+
   return {
-    base: "yl:select-none yl:px-3 yl:py-2 yl:font-semibold yl:tracking-tight yl:rounded-md yl:border-2 yl:transition-all yl:duration-200 yl:transform yl:hover:scale-105",
+    base: classNames(
+      "yl:select-none yl:font-semibold yl:tracking-tight yl:rounded-md yl:border-2 yl:transition-all yl:duration-200 yl:transform yl:hover:scale-105",
+      padding
+    ),
     disabled: "yl:cursor-not-allowed yl:opacity-70",
     enabled: classNames({
       "yl:cursor-pointer": !isLoading
@@ -68,9 +75,10 @@ export const getVariantClasses = (
 };
 
 export const getButtonClasses = (args: IGetButtonClassesArgs) => {
-  const { variant, disabled, outlined, isLoading, className } = args;
+  const { variant, disabled, outlined, isLoading, className, isIconOnly } =
+    args;
 
-  const styles = getStyles(isLoading);
+  const styles = getStyles(isLoading, isIconOnly);
 
   return classNames(
     styles.base,

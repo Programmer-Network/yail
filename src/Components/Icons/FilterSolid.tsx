@@ -3,16 +3,12 @@ import type { SVGProps } from "react";
 const SvgFilterSolid = (props: SVGProps<SVGSVGElement>) => (
   <svg
     xmlns='http://www.w3.org/2000/svg'
-    fill='none'
-    viewBox='0 0 15 15'
+    width={32}
+    height={32}
+    viewBox='0 0 24 24'
     {...props}
   >
-    <path
-      fill='currentColor'
-      fillRule='evenodd'
-      d='M15 3H0V2h15zm-3 5H3V7h9zm-2 5H5v-1h5z'
-      clipRule='evenodd'
-    />
+    <path fill='currentColor' d='M21 4v2h-1l-6 9v7h-4v-7L4 6H3V4z' />
   </svg>
 );
 export default SvgFilterSolid;

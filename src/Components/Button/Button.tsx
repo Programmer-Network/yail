@@ -26,6 +26,8 @@ const Button: React.FC<IButtonProps> = (
     variant: ButtonVariantEnum.PRIMARY
   }
 ) => {
+  const isIconOnly = !children && !!icon?.iconName;
+
   return (
     <button
       disabled={disabled}
@@ -36,33 +38,53 @@ const Button: React.FC<IButtonProps> = (
         disabled,
         outlined,
         className,
-        isLoading
+        isLoading,
+        isIconOnly
       })}
     >
       <div className='yl:relative yl:flex yl:items-center yl:justify-center'>
         <span
           className={classNames({
-            "yl:flex yl:items-center yl:gap-1": icon?.iconName,
+            "yl:flex yl:items-center yl:gap-1": icon?.iconName && !isIconOnly,
             invisible: isLoading
           })}
         >
-          {!isLoading && icon?.iconName && icon.iconPosition === "left" && (
-            <Icon
-              className={classNames(
-                {
-                  "yl:w-5": !icon?.iconClassName
-                },
-                icon?.iconClassName
-              )}
-              iconName={icon.iconName}
-            />
-          )}
+          {!isLoading &&
+            icon?.iconName &&
+            (isIconOnly || icon.iconPosition === "left") && (
+              <Icon
+                className={classNames(
+                  {
+                    "yl:w-5": !icon?.iconClassName
+                  },
+                  icon?.iconClassName
+                )}
+                iconName={icon.iconName}
+              />
+            )}
           <span className={classNames({ "yl:invisible": isLoading })}>
             {children}
           </span>
-          {isLoading && icon?.iconName && icon.iconPosition === "right" && (
-            <Spinner className={classNames("yl:w-4")} />
-          )}
+          {!isLoading &&
+            !isIconOnly &&
+            icon?.iconName &&
+            icon.iconPosition === "right" && (
+              <Icon
+                className={classNames(
+                  {
+                    "yl:w-5": !icon?.iconClassName
+                  },
+                  icon?.iconClassName
+                )}
+                iconName={icon.iconName}
+              />
+            )}
+          {!isIconOnly &&
+            isLoading &&
+            icon?.iconName &&
+            icon.iconPosition === "right" && (
+              <Spinner className={classNames("yl:w-4")} />
+            )}
         </span>
         <span className='yl:absolute'>
           {isLoading && <Spinner className={classNames("yl:w-6")} />}

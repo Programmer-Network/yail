@@ -17,7 +17,7 @@ export interface IButtonProps {
   icon?: {
     iconName?: string;
     iconClassName?: string;
-    iconPosition?: "left" | "right";
+    iconPosition?: "left" | "right" | "center";
   };
   variant?: ButtonVariantEnum;
 }
@@ -28,4 +28,5 @@ export interface IGetButtonClassesArgs {
   outlined: boolean;
   isLoading: boolean;
   className?: string;
+  isIconOnly?: boolean;
 }
