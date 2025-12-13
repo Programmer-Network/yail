@@ -1,7 +1,10 @@
-export type ZenSaveStatus = "saved" | "saving" | "unsaved" | "error";
+import { IZenBreadcrumbItem } from "../ZenHeader";
 
 export interface IZenStatusBarProps {
-  saveStatus: ZenSaveStatus;
   onPropertiesToggle: () => void;
   isPropertiesOpen: boolean;
+  propertiesButtonText: string;
+  propertiesButtonIcon?: string;
+  onBack?: () => void;
+  breadcrumbs?: IZenBreadcrumbItem[];
 }

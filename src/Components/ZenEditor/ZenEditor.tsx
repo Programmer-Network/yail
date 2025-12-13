@@ -27,6 +27,7 @@ const ZenEditorComponent: ForwardRefRenderFunction<
     onImageUploadError,
     propertiesDrawer,
     statusBar,
+    header,
     className,
     contentClassName,
     autoFocus = true
@@ -71,9 +72,12 @@ const ZenEditorComponent: ForwardRefRenderFunction<
   return (
     <div className={containerClasses}>
       <ZenStatusBar
-        saveStatus={statusBar.saveStatus}
         onPropertiesToggle={propertiesDrawer.onToggle}
         isPropertiesOpen={propertiesDrawer.isOpen}
+        propertiesButtonText={statusBar.propertiesButtonText}
+        propertiesButtonIcon={statusBar.propertiesButtonIcon}
+        onBack={header?.onBack}
+        breadcrumbs={header?.breadcrumbs}
       />
 
       <div className={contentClasses}>

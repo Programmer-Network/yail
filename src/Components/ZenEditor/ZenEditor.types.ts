@@ -6,12 +6,12 @@ import {
   TiptapRef,
   TiptapSuggestionOptions
 } from "../Inputs/Tiptap/Tiptap.types";
+import { IZenBreadcrumbItem } from "./ZenHeader";
 import { IZenAction } from "./ZenPropertiesDrawer";
-import { ZenSaveStatus } from "./ZenStatusBar";
 
 // Re-export for convenience
+export type { IZenBreadcrumbItem } from "./ZenHeader";
 export type { IZenAction } from "./ZenPropertiesDrawer";
-export type { ZenSaveStatus } from "./ZenStatusBar";
 
 export interface IZenEditorPropertiesDrawer {
   isOpen: boolean;
@@ -21,9 +21,15 @@ export interface IZenEditorPropertiesDrawer {
 }
 
 export interface IZenEditorStatusBar {
-  saveStatus: ZenSaveStatus;
   primaryAction: IZenAction;
   secondaryAction?: IZenAction;
+  propertiesButtonText: string;
+  propertiesButtonIcon: string;
+}
+
+export interface IZenEditorHeader {
+  onBack?: () => void;
+  breadcrumbs: IZenBreadcrumbItem[];
 }
 
 export interface IZenEditorProps {
@@ -37,6 +43,7 @@ export interface IZenEditorProps {
   onImageUploadError?: (error: string) => void;
   propertiesDrawer: IZenEditorPropertiesDrawer;
   statusBar: IZenEditorStatusBar;
+  header?: IZenEditorHeader;
   className?: string;
   contentClassName?: string;
   autoFocus?: boolean;

@@ -105,7 +105,7 @@ const Card: FC<ICard> = memo(
         />
 
         {actions && actions.length > 0 && (
-          <div className='yl:absolute yl:top-3 yl:right-3 yl:z-20 yl:flex yl:gap-2 yl:opacity-0 yl:transition-opacity yl:duration-200 group-yl:hover:opacity-100 yl:md:opacity-100 md:group-yl:hover:opacity-100'>
+          <div className='yl:absolute yl:top-3 yl:right-3 yl:z-20 yl:flex yl:gap-2 opacity-0 transition-opacity duration-200 group-hover:opacity-100'>
             {actions
               .filter(a => a.show !== false)
               .map((action, idx) => (
@@ -116,13 +116,13 @@ const Card: FC<ICard> = memo(
                     action.onClick(e);
                   }}
                   className={classNames(
-                    "yl:bg-background/5 yl:flex yl:min-w-[75px] yl:cursor-pointer yl:items-center yl:justify-center yl:gap-1 yl:rounded-sm yl:border-2 yl:py-1 yl:text-xs yl:font-medium yl:transition-all yl:duration-200 yl:hover:shadow-sm yl:hover:brightness-95",
+                    "yl:flex yl:min-w-[75px] yl:cursor-pointer yl:items-center yl:justify-center yl:gap-1 yl:rounded-sm yl:py-1 yl:px-2 yl:text-xs yl:font-medium yl:transition-all yl:duration-200 yl:ease-out yl:shadow-lg yl:backdrop-blur-sm",
                     {
-                      "yl:border-primary yl:text-primary yl:hover:bg-primary yl:hover:text-background":
+                      "yl:bg-primary yl:text-background yl:hover:bg-primary/80 yl:hover:shadow-xl":
                         action.variant === "primary" || !action.variant,
-                      "yl:hover:text-background yl:border-red-500 yl:text-red-600 yl:hover:bg-red-700":
+                      "yl:bg-red-500 yl:text-background yl:hover:bg-red-600 yl:hover:shadow-xl":
                         action.variant === "danger",
-                      "yl:border-border/20 yl:text-muted yl:hover:bg-background/80":
+                      "yl:bg-background/80 yl:text-text yl:border yl:border-border/20 yl:hover:bg-background yl:hover:shadow-xl yl:hover:border-border/40":
                         action.variant === "outlined"
                     }
                   )}
