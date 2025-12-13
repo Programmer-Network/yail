@@ -41,7 +41,7 @@ const ZenStatusBar: FC<IZenStatusBarProps> = ({
   const hasBreadcrumbs = breadcrumbs && breadcrumbs.length > 0;
 
   return (
-    <div className='yl:border-border/20 yl:bg-background/95 yl:sticky yl:top-0 yl:z-20 yl:flex yl:items-center yl:justify-between yl:border-b yl:px-4 yl:py-2 yl:backdrop-blur-sm'>
+    <div className='yl:border-border/20 yl:bg-background/95 yl:sticky yl:top-0 yl:z-20 yl:flex yl:items-center yl:justify-between yl:border-b yl:py-4 yl:backdrop-blur-sm'>
       {(onBack || hasBreadcrumbs) && (
         <div className='yl:flex yl:items-center yl:gap-3'>
           {onBack && (

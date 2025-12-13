@@ -2,11 +2,14 @@
 
 ## [1.26.0](https://github.com/Programmer-Network/yail/compare/yail-v1.25.0...yail-v1.26.0) (2025-12-13)
 
-
 ### Features
 
-* enhance ZenEditor with header and breadcrumb navigation for improved user experience ([5f2e3d5](https://github.com/Programmer-Network/yail/commit/5f2e3d56fe24515d5576cce03b2abc8747289e34))
-* enhance ZenEditor with header and breadcrumb navigation for improved user experience ([bfaba42](https://github.com/Programmer-Network/yail/commit/bfaba421dc64636f22b2d27340723f5fe2b2905a))
+- enhance ZenEditor with header and breadcrumb navigation for improved user
+  experience
+  ([5f2e3d5](https://github.com/Programmer-Network/yail/commit/5f2e3d56fe24515d5576cce03b2abc8747289e34))
+- enhance ZenEditor with header and breadcrumb navigation for improved user
+  experience
+  ([bfaba42](https://github.com/Programmer-Network/yail/commit/bfaba421dc64636f22b2d27340723f5fe2b2905a))
 
 ## [1.25.0](https://github.com/Programmer-Network/yail/compare/yail-v1.24.0...yail-v1.25.0) (2025-12-06)
 
