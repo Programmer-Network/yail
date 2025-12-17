@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.29.0](https://github.com/Programmer-Network/yail/compare/yail-v1.28.0...yail-v1.29.0) (2025-12-17)
+
+
+### Features
+
+* add @storybook/addon-vitest and update dependencies for improved testing support ([ed2a271](https://github.com/Programmer-Network/yail/commit/ed2a271d297c888868964374e741fc1dfb3abeb9))
+* update dependencies in package.json and pnpm-lock.yaml for improved stability and performance ([34ca9d3](https://github.com/Programmer-Network/yail/commit/34ca9d3f414f13053574f2b746635b6a44172a6c))
+* update dependencies in package.json and pnpm-lock.yaml for improved stability and performance ([0427ef9](https://github.com/Programmer-Network/yail/commit/0427ef9871e2e8a37bc14bd01c08262ce0e1ba0b))
+
 ## [1.28.0](https://github.com/Programmer-Network/yail/compare/yail-v1.27.0...yail-v1.28.0) (2025-12-13)
 
 ### Features
