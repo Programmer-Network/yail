@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.28.0](https://github.com/Programmer-Network/yail/compare/yail-v1.27.0...yail-v1.28.0) (2025-12-13)
+
+### Features
+
+- update button component to support icon-only variants and enhance icon
+  handling in filters and view toggle
+  ([c8b5c02](https://github.com/Programmer-Network/yail/commit/c8b5c02cc16cca7c427481b61a9003e6f8e2ffa2))
+- update button component to support icon-only variants and enhance icon
+  handling in filters and view toggle
+  ([94acd9a](https://github.com/Programmer-Network/yail/commit/94acd9a1981f8da3b46f5b7c41a1f6294536fd9e))
+
 ## [1.27.0](https://github.com/Programmer-Network/yail/compare/yail-v1.26.0...yail-v1.27.0) (2025-12-13)
 
 ### Features
