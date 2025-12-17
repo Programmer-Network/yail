@@ -71,6 +71,7 @@
     "@programmer_network/use-ajv-form": "1.0.35",
     "@storybook/addon-docs": "10.1.10",
     "@storybook/addon-links": "10.1.10",
+    "@storybook/addon-vitest": "10.1.10",
     "@storybook/react-vite": "10.1.10",
     "@tailwindcss/forms": "0.5.11",
     "@tailwindcss/postcss": "4.1.18",
@@ -117,7 +118,10 @@
     "vite-plugin-dts": "4.5.4",
     "vite-plugin-eslint": "1.8.1",
     "vite-tsconfig-paths": "6.0.2",
-    "vitest": "4.0.16"
+    "vitest": "4.0.16",
+    "playwright": "1.57.0",
+    "@vitest/browser-playwright": "4.0.16",
+    "@vitest/coverage-v8": "4.0.16"
   },
   "dependencies": {
     "@popperjs/core": "2.11.8",
