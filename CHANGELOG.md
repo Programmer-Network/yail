@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.30.0](https://github.com/Programmer-Network/yail/compare/yail-v1.29.0...yail-v1.30.0) (2025-12-25)
+
+
+### Features
+
+* add new SVG icons and update component styles for improved UI consistency ([567d884](https://github.com/Programmer-Network/yail/commit/567d884132c83bdba4d5b5b12d268435150573ea))
+
 ## [1.29.0](https://github.com/Programmer-Network/yail/compare/yail-v1.28.0...yail-v1.29.0) (2025-12-17)
 
 ### Features

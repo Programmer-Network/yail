@@ -1,6 +1,6 @@
 {
   "name": "@programmer_network/yail",
-  "version": "1.29.0",
+  "version": "1.30.0",
   "description": "Programmer Network's official UI library for React",
   "author": "Aleksandar Grbic - (https://programmer.network)",
   "publishConfig": {
