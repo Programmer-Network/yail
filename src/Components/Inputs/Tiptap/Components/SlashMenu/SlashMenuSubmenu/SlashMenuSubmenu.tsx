@@ -17,7 +17,7 @@ const SlashMenuSubmenu: FC<ISlashMenuSubmenuProps> = ({
 
   return (
     <div
-      className='yl:bg-background yl:border-border/40 yl:flex yl:w-48 yl:flex-col yl:overflow-y-auto yl:rounded-lg yl:border-2 yl:shadow-xl'
+      className='yl:bg-background yl:border-border/40 yl:flex yl:w-48 yl:flex-col yl:overflow-y-auto yl:rounded-lg yl:border yl:shadow-xl'
       style={{ maxHeight: "300px" }}
     >
       {items.map((item, index) => (

@@ -74,7 +74,7 @@ const Card: FC<ICard> = memo(
     }
 
     const cardClasses = classNames(
-      "group yl:flex yl:flex-col yl:justify-start yl:border-2 yl:border-border yl:rounded-lg yl:overflow-hidden yl:transition-all yl:duration-200 yl:relative",
+      "group yl:flex yl:flex-col yl:justify-start yl:border yl:border-border yl:rounded-lg yl:overflow-hidden yl:transition-all yl:duration-200 yl:relative",
       "yl:hover:shadow-md yl:hover:-translate-y-1 yl:focus:outline-none yl:focus:ring-2 yl:focus:ring-primary yl:focus:ring-offset-2 yl:hover:border-primary/50",
       getVariantClasses(variant),
       {

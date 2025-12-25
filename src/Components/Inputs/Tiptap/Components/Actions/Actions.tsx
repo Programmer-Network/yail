@@ -16,7 +16,7 @@ const TiptapActions: FC<{
 
   return (
     <div className='yl:relative yl:top-[2px] yl:right-[-2px] yl:flex yl:justify-end'>
-      <div className='yl:border-border/40 yl:bg-text/1 yl:rounded-md yl:rounded-tr-none yl:rounded-bl-none yl:border-2 yl:border-r-0 yl:border-b-0 yl:p-1'>
+      <div className='yl:border-border/40 yl:bg-text/1 yl:rounded-md yl:rounded-tr-none yl:rounded-bl-none yl:border yl:border-r-0 yl:border-b-0 yl:p-1'>
         <div className='yl:flex yl:items-center'>
           {buttons.includes(TiptapActionsEnum.CANCEL) && (
             <Icon

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { Button } from ".";
-import { ButtonVariantEnum } from "./types";
+import { ButtonSizeEnum, ButtonVariantEnum } from "./types";
 
 const meta = {
   title: "Core/Button",
@@ -272,5 +272,309 @@ export const IconOnlyErrorOutlined: Story = {
     },
     variant: ButtonVariantEnum.ERROR,
     outlined: true
+  }
+};
+
+// Size Variants
+export const SizeSmall: Story = {
+  args: {
+    children: "Small Button",
+    size: ButtonSizeEnum.SM
+  }
+};
+
+export const SizeMedium: Story = {
+  args: {
+    children: "Medium Button",
+    size: ButtonSizeEnum.MD
+  }
+};
+
+export const SizeLarge: Story = {
+  args: {
+    children: "Large Button",
+    size: ButtonSizeEnum.LG
+  }
+};
+
+export const SizeSmallOutlined: Story = {
+  args: {
+    children: "Small Outlined",
+    size: ButtonSizeEnum.SM,
+    outlined: true
+  }
+};
+
+export const SizeLargeOutlined: Story = {
+  args: {
+    children: "Large Outlined",
+    size: ButtonSizeEnum.LG,
+    outlined: true
+  }
+};
+
+export const SizeSmallWithIcon: Story = {
+  args: {
+    children: "Small",
+    size: ButtonSizeEnum.SM,
+    icon: {
+      iconName: "IconPlus",
+      iconPosition: "left"
+    }
+  }
+};
+
+export const SizeLargeWithIcon: Story = {
+  args: {
+    children: "Large",
+    size: ButtonSizeEnum.LG,
+    icon: {
+      iconName: "IconPlus",
+      iconPosition: "left"
+    }
+  }
+};
+
+export const SizeSmallIconOnly: Story = {
+  args: {
+    size: ButtonSizeEnum.SM,
+    icon: {
+      iconName: "IconBomb",
+      iconPosition: "center"
+    }
+  }
+};
+
+export const SizeLargeIconOnly: Story = {
+  args: {
+    size: ButtonSizeEnum.LG,
+    icon: {
+      iconName: "IconBomb",
+      iconPosition: "center"
+    }
+  }
+};
+
+// New Variants (SUCCESS, WARNING)
+export const Success: Story = {
+  args: {
+    children: "Mark Complete",
+    variant: ButtonVariantEnum.SUCCESS
+  }
+};
+
+export const SuccessOutlined: Story = {
+  args: {
+    children: "Mark Complete",
+    variant: ButtonVariantEnum.SUCCESS,
+    outlined: true
+  }
+};
+
+export const SuccessWithIcon: Story = {
+  args: {
+    children: "Approve",
+    variant: ButtonVariantEnum.SUCCESS,
+    icon: {
+      iconName: "IconCheck",
+      iconPosition: "left"
+    }
+  }
+};
+
+export const SuccessLoading: Story = {
+  args: {
+    children: "Processing",
+    variant: ButtonVariantEnum.SUCCESS,
+    isLoading: true
+  }
+};
+
+export const SuccessDisabled: Story = {
+  args: {
+    children: "Mark Complete",
+    variant: ButtonVariantEnum.SUCCESS,
+    disabled: true
+  }
+};
+
+export const Warning: Story = {
+  args: {
+    children: "Archive",
+    variant: ButtonVariantEnum.WARNING
+  }
+};
+
+export const WarningOutlined: Story = {
+  args: {
+    children: "Archive",
+    variant: ButtonVariantEnum.WARNING,
+    outlined: true
+  }
+};
+
+export const WarningWithIcon: Story = {
+  args: {
+    children: "Suspend",
+    variant: ButtonVariantEnum.WARNING,
+    icon: {
+      iconName: "IconAlertCircle",
+      iconPosition: "left"
+    }
+  }
+};
+
+export const WarningLoading: Story = {
+  args: {
+    children: "Processing",
+    variant: ButtonVariantEnum.WARNING,
+    isLoading: true
+  }
+};
+
+export const WarningDisabled: Story = {
+  args: {
+    children: "Archive",
+    variant: ButtonVariantEnum.WARNING,
+    disabled: true
+  }
+};
+
+// Ghost Variant
+export const GhostPrimary: Story = {
+  args: {
+    children: "Ghost Button",
+    variant: ButtonVariantEnum.PRIMARY,
+    ghost: true
+  }
+};
+
+export const GhostSecondary: Story = {
+  args: {
+    children: "Ghost Button",
+    variant: ButtonVariantEnum.SECONDARY,
+    ghost: true
+  }
+};
+
+export const GhostError: Story = {
+  args: {
+    children: "Ghost Button",
+    variant: ButtonVariantEnum.ERROR,
+    ghost: true
+  }
+};
+
+export const GhostSuccess: Story = {
+  args: {
+    children: "Ghost Button",
+    variant: ButtonVariantEnum.SUCCESS,
+    ghost: true
+  }
+};
+
+export const GhostWarning: Story = {
+  args: {
+    children: "Ghost Button",
+    variant: ButtonVariantEnum.WARNING,
+    ghost: true
+  }
+};
+
+export const GhostWithIcon: Story = {
+  args: {
+    children: "View Details",
+    variant: ButtonVariantEnum.PRIMARY,
+    ghost: true,
+    icon: {
+      iconName: "IconEye",
+      iconPosition: "left"
+    }
+  }
+};
+
+export const GhostDisabled: Story = {
+  args: {
+    children: "Ghost Button",
+    variant: ButtonVariantEnum.PRIMARY,
+    ghost: true,
+    disabled: true
+  }
+};
+
+// Full Width
+export const FullWidth: Story = {
+  args: {
+    children: "Full Width Button",
+    fullWidth: true
+  }
+};
+
+export const FullWidthOutlined: Story = {
+  args: {
+    children: "Full Width Outlined",
+    outlined: true,
+    fullWidth: true
+  }
+};
+
+export const FullWidthSmall: Story = {
+  args: {
+    children: "Full Width Small",
+    size: ButtonSizeEnum.SM,
+    fullWidth: true
+  }
+};
+
+export const FullWidthLarge: Story = {
+  args: {
+    children: "Full Width Large",
+    size: ButtonSizeEnum.LG,
+    fullWidth: true
+  }
+};
+
+// Combinations
+export const SmallSuccessGhost: Story = {
+  args: {
+    children: "Small Success Ghost",
+    size: ButtonSizeEnum.SM,
+    variant: ButtonVariantEnum.SUCCESS,
+    ghost: true
+  }
+};
+
+export const LargeWarningOutlined: Story = {
+  args: {
+    children: "Large Warning Outlined",
+    size: ButtonSizeEnum.LG,
+    variant: ButtonVariantEnum.WARNING,
+    outlined: true
+  }
+};
+
+export const SmallGhostWithIcon: Story = {
+  args: {
+    children: "Small Ghost",
+    size: ButtonSizeEnum.SM,
+    variant: ButtonVariantEnum.SECONDARY,
+    ghost: true,
+    icon: {
+      iconName: "IconSettings",
+      iconPosition: "left"
+    }
+  }
+};
+
+export const LargeFullWidthSuccess: Story = {
+  args: {
+    children: "Complete Action",
+    size: ButtonSizeEnum.LG,
+    variant: ButtonVariantEnum.SUCCESS,
+    fullWidth: true,
+    icon: {
+      iconName: "IconCheck",
+      iconPosition: "left"
+    }
   }
 };

@@ -281,7 +281,7 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
       <div className='yl:flex yl:flex-col'>
         <div
           className={classNames("yl:relative", {
-            "yl:border-border/40 yl:rounded-md yl:border-2": variant !== "zen",
+            "yl:border-border/40 yl:rounded-md yl:border": variant !== "zen",
             "yl:border-0": variant === "zen"
           })}
           onClick={() => editor.commands.focus()}

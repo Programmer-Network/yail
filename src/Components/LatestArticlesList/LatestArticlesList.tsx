@@ -47,7 +47,7 @@ const LatestArticlesList: FC<ILatestArticlesList> = memo(
     const renderEmptyState = () => {
       return (
         <div
-          className='yl:text-muted yl:border-border yl:flex yl:min-h-[120px] yl:items-center yl:justify-center yl:rounded-lg yl:border-2 yl:border-dashed yl:p-4 yl:text-center yl:text-sm'
+          className='yl:text-muted yl:border-border yl:flex yl:min-h-[120px] yl:items-center yl:justify-center yl:rounded-lg yl:border yl:border-dashed yl:p-4 yl:text-center yl:text-sm'
           role='status'
           aria-live='polite'
         >

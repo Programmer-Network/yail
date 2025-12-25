@@ -28,7 +28,7 @@ const CustomTaskItemNodeView: FC<NodeViewProps> = ({
           checked={checked}
           onChange={handleCheckboxChange}
           aria-label='Toggle task completion'
-          className='yl:border-border yl:checked:bg-primary yl:checked:border-primary yl:focus:ring-primary yl:focus:ring-opacity-50 yl:hover:border-primary yl:h-5 yl:w-5 yl:cursor-pointer yl:appearance-none yl:border-2 yl:transition-all yl:duration-200 yl:focus:ring-2 yl:focus:outline-none yl:rounded'
+          className='yl:border-border yl:checked:bg-primary yl:checked:border-primary yl:focus:ring-primary yl:focus:ring-opacity-50 yl:hover:border-primary yl:h-5 yl:w-5 yl:cursor-pointer yl:appearance-none yl:border yl:transition-all yl:duration-200 yl:focus:ring-2 yl:focus:outline-none yl:rounded'
         />
         {checked && (
           <svg

@@ -89,7 +89,7 @@ const SlashMenuList = forwardRef<ISlashMenuListHandle, ISlashMenuListProps>(
         <div
           ref={menuRef}
           data-slash-menu
-          className='yl:bg-background yl:border-border/40 yl:flex yl:w-72 yl:flex-col yl:overflow-y-auto yl:rounded-lg yl:border-2 yl:shadow-xl'
+          className='yl:bg-background yl:border-border/40 yl:flex yl:w-72 yl:flex-col yl:overflow-y-auto yl:rounded-lg yl:border yl:shadow-xl'
           style={{ maxHeight: "300px" }}
         >
           {renderGroups.map(({ group, items: groupItems }) => (

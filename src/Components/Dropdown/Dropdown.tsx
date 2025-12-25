@@ -86,7 +86,7 @@ const Dropdown: React.FC<IDropdownProps> = ({
         ref={popperRef}
         className={classNames(
           dropdownClassName,
-          "yl:border-border/40 yl:bg-background yl:absolute yl:z-50 yl:mt-2 yl:w-56 yl:border-2 yl:shadow-md"
+          "yl:border-border/40 yl:bg-background yl:absolute yl:z-50 yl:mt-2 yl:w-56 yl:border yl:shadow-md"
         )}
       >
         {children ? (

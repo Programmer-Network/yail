@@ -2,8 +2,8 @@ import classNames from "classnames";
 
 import { Icon } from "../Icon";
 import { Spinner } from "../Spinner";
-import { getButtonClasses } from "./Button.utils";
-import { ButtonVariantEnum, IButtonProps } from "./types";
+import { getButtonClasses, getSizeClasses } from "./Button.utils";
+import { ButtonSizeEnum, ButtonVariantEnum, IButtonProps } from "./types";
 
 const Button: React.FC<IButtonProps> = (
   {
@@ -15,7 +15,10 @@ const Button: React.FC<IButtonProps> = (
     icon,
     isLoading = false,
     outlined = false,
-    variant = ButtonVariantEnum.PRIMARY
+    ghost = false,
+    fullWidth = false,
+    variant = ButtonVariantEnum.PRIMARY,
+    size = ButtonSizeEnum.MD
   } = {
     onClick: () => null,
     children: null,
@@ -23,10 +26,15 @@ const Button: React.FC<IButtonProps> = (
     disabled: false,
     outlined: false,
     isLoading: false,
-    variant: ButtonVariantEnum.PRIMARY
+    ghost: false,
+    fullWidth: false,
+    variant: ButtonVariantEnum.PRIMARY,
+    size: ButtonSizeEnum.MD
   }
 ) => {
   const isIconOnly = !children && !!icon?.iconName;
+  const sizeClasses = getSizeClasses(size, isIconOnly);
+  const defaultIconSize = sizeClasses.iconSize;
 
   return (
     <button
@@ -39,14 +47,19 @@ const Button: React.FC<IButtonProps> = (
         outlined,
         className,
         isLoading,
-        isIconOnly
+        isIconOnly,
+        size,
+        ghost,
+        fullWidth
       })}
     >
       <div className='yl:relative yl:flex yl:items-center yl:justify-center'>
         <span
           className={classNames({
-            "yl:flex yl:items-center yl:gap-1": icon?.iconName && !isIconOnly,
-            invisible: isLoading
+            "yl:flex yl:items-center": icon?.iconName && !isIconOnly,
+            invisible: isLoading,
+            "yl:gap-1": !icon?.iconGapClassName,
+            [icon?.iconGapClassName || ""]: icon?.iconGapClassName
           })}
         >
           {!isLoading &&
@@ -54,9 +67,7 @@ const Button: React.FC<IButtonProps> = (
             (isIconOnly || icon.iconPosition === "left") && (
               <Icon
                 className={classNames(
-                  {
-                    "yl:w-5": !icon?.iconClassName
-                  },
+                  !icon?.iconClassName && defaultIconSize,
                   icon?.iconClassName
                 )}
                 iconName={icon.iconName}
@@ -71,9 +82,7 @@ const Button: React.FC<IButtonProps> = (
             icon.iconPosition === "right" && (
               <Icon
                 className={classNames(
-                  {
-                    "yl:w-5": !icon?.iconClassName
-                  },
+                  !icon?.iconClassName && defaultIconSize,
                   icon?.iconClassName
                 )}
                 iconName={icon.iconName}

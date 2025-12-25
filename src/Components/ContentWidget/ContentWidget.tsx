@@ -29,7 +29,7 @@ const ContentWidget = <T extends IContentWidgetBaseItem>({
   return (
     <div
       className={classNames(
-        "yl:border-border/40 yl:relative yl:rounded-md yl:border-2 yl:px-8 yl:pt-4",
+        "yl:border-border/40 yl:relative yl:rounded-md yl:border yl:px-8 yl:pt-4",
         className
       )}
     >

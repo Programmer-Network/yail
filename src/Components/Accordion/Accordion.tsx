@@ -92,7 +92,7 @@ const Accordion: FC<IAccordionProps> = ({
               hasDraggableSections && setDraggedOverId(section.id)
             }
             className={classNames(
-              "yl:border-border yl:border-2",
+              "yl:border-border yl:border",
               {
                 "yl:border-b-0": idx !== sections.length - 1,
                 "yl:rounded-tl-md yl:rounded-tr-md": idx === 0,
@@ -243,7 +243,7 @@ const Accordion: FC<IAccordionProps> = ({
         <div
           onClick={onAddSection}
           className={classNames(
-            "group yl:border-border yl:hover:bg-text/2 yl:bg-text/3 yl:cursor-pointer yl:rounded-br-md yl:rounded-bl-md yl:border-2 yl:border-t-0"
+            "group yl:border-border yl:hover:bg-text/2 yl:bg-text/3 yl:cursor-pointer yl:rounded-br-md yl:rounded-bl-md yl:border yl:border-t-0"
           )}
           role='presentation'
         >

@@ -23,6 +23,7 @@
 }
 
 @theme {
+  /* Dark theme colors (default) - Tailwind auto-prefixes these to --yl-color-* */
   --color-primary: oklch(65% 0.19 250);
   --color-secondary: oklch(55% 0.15 250);
   --color-background: oklch(0.1776 0 0);
@@ -53,7 +54,7 @@
   }
 }
 
-/* Map unprefixed variables to prefixed ones (for direct CSS usage like Tiptap) */
+/* Map prefixed variables to unprefixed (for direct CSS usage like Tiptap) */
 :root,
 :host {
   --color-primary: var(--yl-color-primary);
@@ -68,6 +69,24 @@
   --color-warning: var(--yl-color-warning);
   --color-error: var(--yl-color-error);
   --color-info: var(--yl-color-info);
+}
+
+/* Light theme overrides - override prefixed (Tailwind utilities) */
+html.light,
+.light {
+  --yl-color-primary: oklch(45% 0.19 250);
+  --yl-color-secondary: oklch(40% 0.15 250);
+  --yl-color-background: oklch(98% 0.01 264);
+  --yl-color-text: oklch(15% 0.02 264);
+  --yl-color-border: oklch(80% 0.02 264);
+  --yl-color-muted: oklch(45% 0.03 264);
+  --yl-color-accent: oklch(45% 0.19 250);
+  --yl-color-accent-hover: oklch(40% 0.22 250);
+  --yl-color-success: oklch(45% 0.25 140);
+  --yl-color-warning: oklch(45% 0.19 60);
+  --yl-color-error: oklch(40% 0.22 30);
+  --yl-color-info: oklch(45% 0.19 250);
+  /* Unprefixed variables inherit from :root mapping above */
 }
 
 .tiptap p.is-editor-empty:first-child::before {

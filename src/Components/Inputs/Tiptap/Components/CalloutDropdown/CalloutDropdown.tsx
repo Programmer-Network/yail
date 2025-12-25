@@ -44,7 +44,7 @@ const CalloutDropdown: FC<ICalloutDropdownProps> = ({ editor }) => {
           className={optionClasses}
         >
           <span
-            className='yl:flex yl:h-5 yl:w-5 yl:items-center yl:justify-center yl:rounded yl:border-l-2'
+            className='yl:flex yl:h-5 yl:w-5 yl:items-center yl:justify-center yl:rounded yl:border-l'
             style={{ borderLeftColor: option.borderColor }}
           >
             <Icon iconName={option.icon} className='yl:h-4 yl:w-4' />
@@ -75,7 +75,7 @@ const CalloutDropdown: FC<ICalloutDropdownProps> = ({ editor }) => {
         <div
           role='listbox'
           aria-label='Callout type options'
-          className='yl:absolute yl:left-0 yl:top-full yl:z-50 yl:mt-2 yl:w-48 yl:rounded-md yl:border-2 yl:border-border/40 yl:bg-background yl:py-1 yl:shadow-md'
+          className='yl:absolute yl:left-0 yl:top-full yl:z-50 yl:mt-2 yl:w-48 yl:rounded-md yl:border yl:border-border/40 yl:bg-background yl:py-1 yl:shadow-md'
           data-testid='callout-dropdown-content'
         >
           <div className='yl:px-3 yl:py-1.5 yl:text-xs yl:font-medium yl:text-text/60'>

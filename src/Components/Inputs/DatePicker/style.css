@@ -6,19 +6,6 @@
   width: 100% !important;
 }
 
-/* --color-primary: oklch(65% 0.19 250);
---color-secondary: oklch(55% 0.15 250);
---color-background: oklch(0.1776 0 0);
---color-text: oklch(92% 0.01 264);
---color-border: oklch(25% 0.02 264);
---color-muted: oklch(50% 0.03 264);
---color-accent: oklch(65% 0.19 250);
---color-accent-hover: oklch(75% 0.22 250);
---color-success: oklch(70% 0.25 140);
---color-warning: oklch(70% 0.19 60);
---color-error: oklch(60% 0.22 30);
---color-info: oklch(65% 0.19 250); */
-
 .react-datepicker {
   user-select: none !important;
   border: none !important;

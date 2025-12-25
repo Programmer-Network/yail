@@ -30,7 +30,7 @@ const PersonCardSkeleton: FC<IPersonCardSkeletonProps> = ({
 
   const cardClasses = classNames(
     "yl:animate-pulse",
-    "yl:bg-background yl:border-2 yl:border-border yl:rounded-lg yl:shadow-sm yl:max-w-sm yl:w-full yl:mx-auto",
+    "yl:bg-background yl:border yl:border-border yl:rounded-lg yl:shadow-sm yl:max-w-sm yl:w-full yl:mx-auto",
     getSizeClasses(size),
     className
   );

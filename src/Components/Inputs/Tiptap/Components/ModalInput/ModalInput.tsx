@@ -15,7 +15,7 @@ export const ModalInput = forwardRef<HTMLDivElement, IModalInputProps>(
         style={{ left: x, top: y + 10 }}
         ref={ref}
       >
-        <div className='yl:bg-background yl:border-border/40 yl:rounded-md yl:border-2 yl:p-2 yl:shadow-lg'>
+        <div className='yl:bg-background yl:border-border/40 yl:rounded-md yl:border yl:p-2 yl:shadow-lg'>
           <div className='yl:flex yl:items-center yl:gap-2'>
             <Input name='url' type='text' value={value} onChange={onChange} />
             {children}

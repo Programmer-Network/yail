@@ -20,7 +20,7 @@ export const TabList: ReactTabs.ReactTabsFunctionComponent<
     <ReactTabs.TabList
       {...props}
       className={classNames(
-        "yl:text-text yl:border-border yl:flex yl:gap-4 yl:border-b-2 yl:pb-4",
+        "yl:text-text yl:border-border yl:flex yl:gap-4 yl:border-b yl:pb-4",
         props.className
       )}
     >

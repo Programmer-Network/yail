@@ -133,7 +133,7 @@ const TiptapLinkInput: FC<ITiptapLinkInputProps> = ({
   }
 
   const inputClasses = classNames(
-    "yl:w-64 yl:rounded yl:border-2 yl:bg-background yl:px-3 yl:py-2 yl:text-sm yl:text-text",
+    "yl:w-64 yl:rounded yl:border yl:bg-background yl:px-3 yl:py-2 yl:text-sm yl:text-text",
     "yl:outline-none yl:transition-colors",
     {
       "yl:border-error": error,
@@ -145,12 +145,12 @@ const TiptapLinkInput: FC<ITiptapLinkInputProps> = ({
     "yl:flex yl:items-center yl:justify-center yl:rounded yl:p-2 yl:transition-colors yl:bg-primary yl:text-background yl:hover:bg-primary/80";
 
   const unlinkButtonClasses =
-    "yl:flex yl:items-center yl:justify-center yl:rounded yl:p-2 yl:transition-colors yl:bg-error/10 yl:text-error yl:hover:bg-error yl:hover:text-background yl:border-2 yl:border-error";
+    "yl:flex yl:items-center yl:justify-center yl:rounded yl:p-2 yl:transition-colors yl:bg-error/10 yl:text-error yl:hover:bg-error yl:hover:text-background yl:border yl:border-error";
 
   const content = (
     <div
       ref={popperRef}
-      className='yl:bg-background yl:border-border/40 yl:absolute yl:z-50 yl:rounded-lg yl:border-2 yl:p-3 yl:shadow-lg'
+      className='yl:bg-background yl:border-border/40 yl:absolute yl:z-50 yl:rounded-lg yl:border yl:p-3 yl:shadow-lg'
     >
       <div className='yl:flex yl:items-center yl:gap-2'>
         <input

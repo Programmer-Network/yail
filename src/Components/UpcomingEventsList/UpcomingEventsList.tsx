@@ -52,7 +52,7 @@ const UpcomingEventsList: FC<IUpcomingEventsList> = ({
       )}
 
       {displayEvents.length === 0 ? (
-        <div className='yl:text-muted yl:border-border yl:rounded-lg yl:border-2 yl:p-8 yl:text-center yl:text-sm'>
+        <div className='yl:text-muted yl:border-border yl:rounded-lg yl:border yl:p-8 yl:text-center yl:text-sm'>
           {emptyMessage}
         </div>
       ) : (

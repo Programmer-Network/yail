@@ -140,11 +140,11 @@ export const Toolbar: FC<TiptapToolbarProps> = ({
     {
       "yl:bg-background yl:sticky yl:z-10": !isFloating,
       "yl:top-0": !isFloating,
-      "yl:border-border/40 yl:border-2 yl:border-b-0 yl:rounded-tl-md yl:rounded-tr-md":
+      "yl:border-border/40 yl:border yl:border-b-0 yl:rounded-tl-md yl:rounded-tr-md":
         !isFloating && !isZen,
       "yl:border-b yl:border-border/20": !isFloating && isZen,
       // Floating bubble menu - more prominent styling
-      "yl:bg-background/95 yl:backdrop-blur-sm yl:rounded-lg yl:border-2 yl:border-primary/30 yl:shadow-2xl yl:shadow-black/30 yl:gap-0.5 [&]:!z-[9999]":
+      "yl:bg-background/95 yl:backdrop-blur-sm yl:rounded-lg yl:border yl:border-primary/30 yl:shadow-2xl yl:shadow-black/30 yl:gap-0.5 [&]:!z-[9999]":
         isFloating
     }
   );

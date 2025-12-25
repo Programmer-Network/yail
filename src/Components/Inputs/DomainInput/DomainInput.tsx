@@ -37,7 +37,7 @@ const DomainInput: FC<IDomainInputProps> = (
         <span
           data-testid='domain'
           className={classNames(
-            "yl:border-border selection:text-text yl:min-w-max yl:rounded-tl-md yl:rounded-bl-md yl:border-2 yl:px-4 yl:py-2 yl:leading-5 yl:tracking-tighter",
+            "yl:border-border selection:text-text yl:min-w-max yl:rounded-tl-md yl:rounded-bl-md yl:border yl:px-4 yl:py-2 yl:leading-5 yl:tracking-tighter",
             props.domainClassName,
             {
               "yl:group-hover:border-border": !props.disabled,
@@ -55,7 +55,7 @@ const DomainInput: FC<IDomainInputProps> = (
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
           className={classNames(
-            "yl:border-border yl:focus:border-border yl:focus:ring-3-transparent yl:w-full yl:cursor-pointer yl:rounded-tr-md yl:rounded-br-md yl:border-t-2 yl:border-r-2 yl:border-b-2 yl:bg-transparent yl:p-2 yl:transition-colors yl:focus:outline-hidden",
+            "yl:border-border yl:focus:border-border yl:focus:ring-3-transparent yl:w-full yl:cursor-pointer yl:rounded-tr-md yl:rounded-br-md yl:border-t-2 yl:border-r yl:border-b yl:bg-transparent yl:p-2 yl:transition-colors yl:focus:outline-hidden",
             props.className,
             {
               "yl:group-hover:border-border": !props.disabled,

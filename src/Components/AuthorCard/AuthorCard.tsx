@@ -15,7 +15,7 @@ const AuthorCard: React.FC<IAuthorCardProps> = ({
   return (
     <div
       className={classNames(
-        "yl:border-border yl:rounded-lg yl:border-2 yl:p-6",
+        "yl:border-border yl:rounded-lg yl:border yl:p-6",
         className
       )}
       onClick={() => (onClick ? onClick({ name, avatar, about }) : undefined)}

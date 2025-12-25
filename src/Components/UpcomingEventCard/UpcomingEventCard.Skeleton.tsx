@@ -9,7 +9,7 @@ const UpcomingEventCardSkeleton: FC<IUpcomingEventCardSkeletonProps> = ({
   return (
     <article
       className={classNames(
-        "yl:border-border yl:flex yl:animate-pulse yl:gap-3 yl:overflow-hidden yl:rounded-lg yl:border-2 yl:p-3",
+        "yl:border-border yl:flex yl:animate-pulse yl:gap-3 yl:overflow-hidden yl:rounded-lg yl:border yl:p-3",
         className
       )}
       role='status'

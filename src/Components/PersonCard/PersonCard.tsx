@@ -129,7 +129,7 @@ const PersonCard: FC<IPersonCardProps> = ({
 
   const cardClasses = classNames(
     "yl:group yl:transition-all yl:duration-200 yl:relative",
-    "yl:bg-background yl:border-2 yl:border-border yl:rounded-lg yl:shadow-sm yl:hover:shadow-md yl:hover:-translate-y-1 yl:hover:border-primary/50 yl:w-full",
+    "yl:bg-background yl:border yl:border-border yl:rounded-lg yl:shadow-sm yl:hover:shadow-md yl:hover:-translate-y-1 yl:hover:border-primary/50 yl:w-full",
     {
       "yl:cursor-pointer yl:focus:outline-none":
         onClick || onPersonClick || href

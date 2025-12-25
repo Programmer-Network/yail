@@ -9,7 +9,7 @@ export const LatestArticleCardSkeleton: FC<ILatestArticleCardSkeleton> = ({
   return (
     <article
       className={classNames(
-        "yl:border-border yl:flex yl:animate-pulse yl:flex-col yl:gap-2 yl:rounded-lg yl:border-2 yl:p-3",
+        "yl:border-border yl:flex yl:animate-pulse yl:flex-col yl:gap-2 yl:rounded-lg yl:border yl:p-3",
         className
       )}
       role='article'

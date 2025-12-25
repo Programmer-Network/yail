@@ -43,7 +43,7 @@ const UpcomingEventCard: FC<IUpcomingEventCard> = memo(
     const eventDate = new Date(dateAndTime);
 
     const cardClasses = classNames(
-      "yl:group yl:flex yl:gap-3 yl:border-2 yl:border-border yl:rounded-lg yl:p-3 yl:overflow-hidden yl:transition-all yl:duration-200",
+      "yl:group yl:flex yl:gap-3 yl:border yl:border-border yl:rounded-lg yl:p-3 yl:overflow-hidden yl:transition-all yl:duration-200",
       "yl:hover:border-primary/30 yl:focus:outline-none yl:focus:ring-2 yl:focus:ring-primary yl:focus:ring-offset-2",
       {
         "yl:cursor-pointer": onCardClick

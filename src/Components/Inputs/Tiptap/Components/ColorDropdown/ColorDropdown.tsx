@@ -112,7 +112,7 @@ const ColorDropdown: FC<IColorDropdownProps> = ({ editor }) => {
         <div
           role='listbox'
           aria-label='Text color options'
-          className='yl:absolute yl:left-0 yl:top-full yl:z-50 yl:mt-2 yl:w-56 yl:rounded-md yl:border-2 yl:border-border/40 yl:bg-background yl:py-1 yl:shadow-md'
+          className='yl:absolute yl:left-0 yl:top-full yl:z-50 yl:mt-2 yl:w-56 yl:rounded-md yl:border yl:border-border/40 yl:bg-background yl:py-1 yl:shadow-md'
           data-testid='color-dropdown-content'
         >
           <div className='yl:px-3 yl:py-1.5 yl:text-xs yl:font-medium yl:text-text/60'>

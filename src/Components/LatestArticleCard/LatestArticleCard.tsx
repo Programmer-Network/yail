@@ -44,7 +44,7 @@ const LatestArticleCard: FC<ILatestArticleCard> = memo(
     const timeAgo = getTimeAgo(articleDate);
 
     const cardClasses = classNames(
-      "group yl:flex yl:flex-col yl:gap-2 yl:border-2 yl:border-border yl:rounded-lg yl:p-3 yl:overflow-hidden yl:transition-all yl:duration-200",
+      "group yl:flex yl:flex-col yl:gap-2 yl:border yl:border-border yl:rounded-lg yl:p-3 yl:overflow-hidden yl:transition-all yl:duration-200",
       "yl:hover:border-primary/30 yl:focus:outline-none yl:focus:ring-2 yl:focus:ring-primary yl:focus:ring-offset-2",
       {
         "yl:cursor-pointer": onCardClick

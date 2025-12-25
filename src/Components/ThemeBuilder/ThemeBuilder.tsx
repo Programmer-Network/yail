@@ -138,7 +138,7 @@ const ThemeBuilder: FC<IThemeBuilder> = ({
             <div onClick={() => setSelected(initialState)}>
               <Icon
                 iconName='IconClose'
-                className='yl:border-border yl:bg-background yl:text-text yl:hover:bg-primary yl:hover:text-background yl:absolute yl:top-[-5px] yl:right-[-5px] yl:z-50 yl:w-4 yl:cursor-pointer yl:rounded-lg yl:border-2'
+                className='yl:border-border yl:bg-background yl:text-text yl:hover:bg-primary yl:hover:text-background yl:absolute yl:top-[-5px] yl:right-[-5px] yl:z-50 yl:w-4 yl:cursor-pointer yl:rounded-lg yl:border'
               />
             </div>
 
@@ -147,7 +147,7 @@ const ThemeBuilder: FC<IThemeBuilder> = ({
               onChange={(color: string) => setSelected({ ...selected, color })}
               color={selected?.color}
               placeholder='e.g.175ca1'
-              className='yl:border-border yl:text-text yl:hover:border-border yl:focus:border-border yl:focus:ring-3-transparent yl:mb-2 yl:rounded-lg yl:border-2 yl:bg-transparent yl:p-2 yl:shadow-md yl:focus:shadow-none yl:focus:outline-hidden'
+              className='yl:border-border yl:text-text yl:hover:border-border yl:focus:border-border yl:focus:ring-3-transparent yl:mb-2 yl:rounded-lg yl:border yl:bg-transparent yl:p-2 yl:shadow-md yl:focus:shadow-none yl:focus:outline-hidden'
             />
             <HexColorPicker
               onChange={color => setSelected({ ...selected, color })}
