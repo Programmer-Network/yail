@@ -1,33 +1,24 @@
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 
 import { getMatches } from "./types";
 
 function useMediaQuery(query: string) {
-  const [matches, setMatches] = useState<boolean>(false);
-
-  function handleChange() {
-    setMatches(getMatches(query));
-  }
-
-  useEffect(() => {
-    if (!window.matchMedia) {
-      return;
+  const subscribe = (onChange: () => void) => {
+    if (typeof window === "undefined" || !window.matchMedia) {
+      return () => {};
     }
 
     const matchMedia = window.matchMedia(query);
-
-    // Triggered at the first client-side load and if query changes
-    handleChange();
-
-    matchMedia.addEventListener("change", handleChange);
-
+    matchMedia.addEventListener("change", onChange);
     return () => {
-      matchMedia.removeEventListener("change", handleChange);
+      matchMedia.removeEventListener("change", onChange);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [query]);
+  };
 
-  return matches;
+  const getSnapshot = () => getMatches(query);
+  const getServerSnapshot = () => false;
+
+  return useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 }
 
 export function useMobile() {

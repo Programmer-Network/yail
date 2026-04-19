@@ -92,6 +92,7 @@ export const useToolbar = ({
       const { from } = editor.state.selection;
       const coords = editor.view.coordsAtPos(from);
 
+      // eslint-disable-next-line @eslint-react/set-state-in-effect -- set depends on editor DOM coordinates only available after layout; cannot be derived synchronously
       setLinkInputPosition({
         x: coords.left,
         y: coords.bottom
@@ -99,6 +100,7 @@ export const useToolbar = ({
 
       const existingHref = editor.getAttributes("link")["href"] || "";
       linkInputForm.set({ link: existingHref });
+      // eslint-disable-next-line @eslint-react/set-state-in-effect -- companion to linkInputPosition set above
       setIsLinkInputOpen(true);
     }
 

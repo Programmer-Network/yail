@@ -1,4 +1,4 @@
-import { createRef } from "react";
+import { useRef } from "react";
 
 import { ImageDialog } from ".";
 import { IImageDialogOnSaveArgs } from "./types";
@@ -10,7 +10,7 @@ export default {
 };
 
 export const Default = () => {
-  const dialogRef = createRef<HTMLDialogElement>();
+  const dialogRef = useRef<HTMLDialogElement>(null);
 
   const handleOpen = () => {
     dialogRef.current?.showModal();
@@ -47,7 +47,7 @@ export const Default = () => {
 };
 
 export const WithFailedHTTPRequest = () => {
-  const dialogRef = createRef<HTMLDialogElement>();
+  const dialogRef = useRef<HTMLDialogElement>(null);
 
   const handleOpen = () => {
     dialogRef.current?.showModal();

@@ -26,9 +26,7 @@ const Onboarding: FC<{
   serverErrors: ErrorObject[];
 }> = ({ tags, countries, onSubmit, serverErrors }) => {
   return (
-    <OnboardingContext.Provider
-      value={{ onSubmit, tags, countries, serverErrors }}
-    >
+    <OnboardingContext value={{ onSubmit, tags, countries, serverErrors }}>
       <div className='yl:mx-auto yl:my-6 yl:w-full yl:px-4 yl:sm:max-w-5xl yl:lg:max-w-2xl yl:lg:px-8'>
         <StepWizard
           transitions={{
@@ -45,7 +43,7 @@ const Onboarding: FC<{
           <StepThree />
         </StepWizard>
       </div>
-    </OnboardingContext.Provider>
+    </OnboardingContext>
   );
 };
 

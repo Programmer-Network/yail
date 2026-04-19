@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { DragEvent, FC, useEffect, useState } from "react";
+import { DragEvent, FC, useState } from "react";
 
 import { ArrayUtils } from "../../Utils/Array";
 import { Icon } from "../Icon";
@@ -22,6 +22,12 @@ const DraggableList: FC<IDraggableList> = ({
   const [localItems, setLocalItems] = useState<IDraggableListItem[]>(
     items || []
   );
+  const [prevItems, setPrevItems] = useState(items);
+
+  if (items !== prevItems) {
+    setPrevItems(items);
+    setLocalItems(items || []);
+  }
 
   const canDrag = isDraggable && items.length > 1;
 
@@ -52,10 +58,6 @@ const DraggableList: FC<IDraggableList> = ({
     setDraggedId(null);
     setDraggedOverId(null);
   };
-
-  useEffect(() => {
-    setLocalItems(items || []);
-  }, [items]);
 
   return (
     <ul

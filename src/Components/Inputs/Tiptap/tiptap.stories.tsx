@@ -1,3 +1,4 @@
+/* eslint-disable @eslint-react/dom-no-dangerously-set-innerhtml -- Storybook demo fixtures rendering trusted HTML snippets */
 import { Editor } from "@tiptap/core";
 import { RefObject, useRef, useState } from "react";
 

@@ -1,3 +1,4 @@
+/* eslint-disable @eslint-react/no-forward-ref -- test mocks mirror legacy forwardRef component APIs */
 import "@testing-library/jest-dom";
 import React from "react";
 import { vi } from "vitest";

@@ -36,7 +36,7 @@ const DropdownListItem: FC<IDropdownListItem> = ({
 const DefaultDropdown: FC<IDefaultDropdownProps> = ({ options, setIsOpen }) => {
   return (
     <ul className='yl:text-text yl:p-2'>
-      {options.map((option, index) => (
+      {options.map(option => (
         <DropdownListItem
           icon={
             option.icon
@@ -48,7 +48,7 @@ const DefaultDropdown: FC<IDefaultDropdownProps> = ({ options, setIsOpen }) => {
               : undefined
           }
           value={option.value}
-          key={`${option.value}-${index}`}
+          key={option.value}
           onClick={option.onClick}
           setIsOpen={setIsOpen}
         />

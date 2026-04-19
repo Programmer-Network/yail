@@ -77,9 +77,12 @@ const TiptapLinkInput: FC<ITiptapLinkInputProps> = ({
 
   // Focus input when opened
   useEffect(() => {
-    if (isOpen && inputRef.current) {
-      setTimeout(() => inputRef.current?.focus(), 50);
+    if (!isOpen || !inputRef.current) {
+      return;
     }
+
+    const focusTimeoutId = setTimeout(() => inputRef.current?.focus(), 50);
+    return () => clearTimeout(focusTimeoutId);
   }, [isOpen]);
 
   // Handle click outside

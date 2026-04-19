@@ -22,9 +22,9 @@ const CardFooterActions: FC<ICardFooterActions> = ({ footerActions }) => {
 
   return (
     <div className='yl:border-border/20 yl:mt-4 yl:flex yl:flex-wrap yl:items-center yl:justify-between yl:gap-2 yl:border-t yl:pt-4'>
-      {visibleActions.map((action, idx) => (
+      {visibleActions.map(action => (
         <Button
-          key={action.label + idx}
+          key={action.label}
           onClick={e => {
             e.stopPropagation();
             action.onClick(e);

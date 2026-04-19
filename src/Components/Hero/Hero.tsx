@@ -46,6 +46,7 @@ const Hero: FC<IHeroProps> = ({
             )}
           >
             {actions.map((action: ReactNode, i: number) => (
+              // eslint-disable-next-line @eslint-react/no-array-index-key -- actions are opaque ReactNodes with no stable identity
               <div key={i}>{action}</div>
             ))}
           </div>
@@ -61,6 +62,7 @@ const Hero: FC<IHeroProps> = ({
             <div className='yl:mb-2 yl:flex yl:items-center yl:gap-2'>
               {pills.map((pill: IPillProps, idx: number) => (
                 <Pill
+                  // eslint-disable-next-line @eslint-react/no-array-index-key -- pills list is static per-render; no stable identity on IPillProps
                   key={idx}
                   variant={pill.variant}
                   size={pill.size}

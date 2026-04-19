@@ -1,6 +1,6 @@
 import { secureString } from "@programmer_network/ajv";
 import useAJVForm from "@programmer_network/use-ajv-form";
-import { FC, useContext, useState } from "react";
+import { FC, use, useState } from "react";
 import { StepWizardChildProps } from "react-step-wizard";
 
 import { OnboardingContext } from "..";
@@ -16,8 +16,7 @@ import { H4, Paragraph } from "../../../Components/Typography";
 import { schema } from "./schema";
 
 export const StepThree: FC<Partial<StepWizardChildProps>> = props => {
-  const { onSubmit, tags, countries, serverErrors } =
-    useContext(OnboardingContext);
+  const { onSubmit, tags, countries, serverErrors } = use(OnboardingContext);
 
   const form = useAJVForm<{
     username: string;

@@ -14,6 +14,7 @@ const InputError: FC<IInputErrorProps> = (
   if (Array.isArray(error)) {
     return error.map((e, i) => {
       return (
+        // eslint-disable-next-line @eslint-react/no-array-index-key -- error messages are plain strings without stable identity
         <span key={i} className={classNames(baseClassName, className)}>
           {e}
         </span>
@@ -22,9 +23,9 @@ const InputError: FC<IInputErrorProps> = (
   }
 
   if (typeof error === "object") {
-    return Object.keys(error).map((e, i) => {
+    return Object.keys(error).map(e => {
       return (
-        <span key={i} className={classNames(baseClassName, className)}>
+        <span key={e} className={classNames(baseClassName, className)}>
           {error[e]}
         </span>
       );

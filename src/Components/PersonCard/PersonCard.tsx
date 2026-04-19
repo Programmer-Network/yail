@@ -235,7 +235,7 @@ const PersonCard: FC<IPersonCardProps> = ({
         <div className='yl:flex yl:flex-wrap yl:justify-start yl:gap-2'>
           {actions
             .filter((action: IPersonAction) => action.show !== false)
-            .map((action: IPersonAction, index: number) => {
+            .map((action: IPersonAction) => {
               const getButtonVariant = () => {
                 switch (action.variant) {
                   case "danger":
@@ -253,7 +253,7 @@ const PersonCard: FC<IPersonCardProps> = ({
 
               return (
                 <Button
-                  key={action.label + index}
+                  key={action.label}
                   onClick={e => {
                     e.stopPropagation();
                     action.onClick(person, e);

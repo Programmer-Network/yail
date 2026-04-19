@@ -1,3 +1,4 @@
+/* eslint-disable @eslint-react/dom-no-dangerously-set-innerhtml -- this component's sole purpose is to render caller-provided HTML */
 import { FC } from "react";
 
 const HTMLRendering: FC<{

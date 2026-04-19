@@ -6,19 +6,21 @@ import { vi } from "vitest";
 import { useOnClickOutside } from "../../Hooks/useClickOutside";
 import { Dropdown } from "./";
 
+const ClickOutsideTestComponent = ({ callback }: { callback: () => void }) => {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useOnClickOutside(ref as RefObject<HTMLElement>, callback);
+
+  return <div ref={ref}>Test Div</div>;
+};
+
 describe("Dropdown Component", () => {
   it("should trigger callback when clicking outside the referenced element", () => {
     const callback = vi.fn();
 
-    const TestComponent = () => {
-      const ref = useRef<HTMLDivElement>(null);
-
-      useOnClickOutside(ref as RefObject<HTMLElement>, callback);
-
-      return <div ref={ref}>Test Div</div>;
-    };
-
-    const { getByText } = render(<TestComponent />);
+    const { getByText } = render(
+      <ClickOutsideTestComponent callback={callback} />
+    );
     const testDiv = getByText("Test Div");
 
     fireEvent.mouseDown(testDiv);

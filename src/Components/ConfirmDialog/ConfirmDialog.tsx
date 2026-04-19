@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import { Ref } from "react";
 
 import { Button } from "../Button";
 import { ButtonVariantEnum } from "../Button/types";
@@ -7,113 +7,107 @@ import { Icon } from "../Icon";
 import Paragraph from "../Typography/Paragraph";
 import { IConfirmDialogProps } from "./ConfirmDialog.types";
 
-const ConfirmDialog = forwardRef<HTMLDialogElement, IConfirmDialogProps>(
-  (
-    {
-      onConfirm,
-      isLoading = false,
-      title,
-      message = "Are you sure you want to proceed?",
-      confirmText = "Confirm",
-      cancelText = "Cancel",
-      iconName,
-      variant = "info"
-    },
-    ref
-  ) => {
-    const getVariantStyles = () => {
-      switch (variant) {
-        case "destructive":
-          return {
-            iconClass: "text-red-500",
-            messageClass: "text-red-500",
-            icon: iconName || "IconBomb",
-            buttonVariant: ButtonVariantEnum.ERROR,
-            confirmIcon: "IconBomb"
-          };
-        default:
-          return {
-            iconClass: "text-blue-500",
-            messageClass: "yl:text-text",
-            icon: iconName || "IconInfo",
-            buttonVariant: ButtonVariantEnum.PRIMARY,
-            confirmIcon: "Complete"
-          };
-      }
-    };
+const ConfirmDialog = ({
+  onConfirm,
+  isLoading = false,
+  title,
+  message = "Are you sure you want to proceed?",
+  confirmText = "Confirm",
+  cancelText = "Cancel",
+  iconName,
+  variant = "info",
+  ref
+}: IConfirmDialogProps & { ref?: Ref<HTMLDialogElement> }) => {
+  const getVariantStyles = () => {
+    switch (variant) {
+      case "destructive":
+        return {
+          iconClass: "text-red-500",
+          messageClass: "text-red-500",
+          icon: iconName || "IconBomb",
+          buttonVariant: ButtonVariantEnum.ERROR,
+          confirmIcon: "IconBomb"
+        };
+      default:
+        return {
+          iconClass: "text-blue-500",
+          messageClass: "yl:text-text",
+          icon: iconName || "IconInfo",
+          buttonVariant: ButtonVariantEnum.PRIMARY,
+          confirmIcon: "Complete"
+        };
+    }
+  };
 
-    const styles = getVariantStyles();
+  const styles = getVariantStyles();
 
-    const handleCancel = () => {
-      if (ref && "current" in ref && ref.current) {
-        (ref.current as HTMLDialogElement).close();
-      }
-    };
+  const handleCancel = () => {
+    if (ref && typeof ref !== "function" && ref.current) {
+      (ref.current as HTMLDialogElement).close();
+    }
+  };
 
-    return (
-      <Dialog
-        ref={ref}
-        className='yl:bg-background yl:max-w-[480px] yl:min-w-[460px] yl:px-6 yl:py-8'
-      >
-        <div className='yl:flex yl:flex-col yl:gap-6'>
-          {(iconName || variant) && (
-            <div className='yl:flex yl:items-center yl:justify-center yl:rounded-full'>
-              <Icon
-                iconName={styles.icon as any}
-                className={`yl:h-24 yl:w-24 ${styles.iconClass}`}
-              />
-            </div>
+  return (
+    <Dialog
+      ref={ref}
+      className='yl:bg-background yl:max-w-[480px] yl:min-w-[460px] yl:px-6 yl:py-8'
+    >
+      <div className='yl:flex yl:flex-col yl:gap-6'>
+        {(iconName || variant) && (
+          <div className='yl:flex yl:items-center yl:justify-center yl:rounded-full'>
+            <Icon
+              iconName={styles.icon as any}
+              className={`yl:h-24 yl:w-24 ${styles.iconClass}`}
+            />
+          </div>
+        )}
+
+        <div className='yl:space-y-3 yl:text-center'>
+          {title && (
+            <h3 className='yl:text-text yl:text-lg yl:font-semibold'>
+              {title}
+            </h3>
           )}
 
-          <div className='yl:space-y-3 yl:text-center'>
-            {title && (
-              <h3 className='yl:text-text yl:text-lg yl:font-semibold'>
-                {title}
-              </h3>
-            )}
-
-            <Paragraph className={`${styles.messageClass}`}>
-              {message}
-            </Paragraph>
-          </div>
-
-          <div className='yl:flex yl:justify-end yl:gap-3'>
-            <Button
-              variant={ButtonVariantEnum.SECONDARY}
-              outlined
-              onClick={handleCancel}
-              disabled={isLoading}
-              className='yl:min-w-[100px]'
-              icon={{
-                iconName: "Incomplete",
-                iconPosition: "left",
-                iconClassName: "yl:w-6 yl:h-6"
-              }}
-            >
-              {cancelText}
-            </Button>
-            <Button
-              onClick={onConfirm}
-              isLoading={isLoading}
-              className='yl:min-w-[100px]'
-              variant={styles.buttonVariant}
-              icon={{
-                iconName: styles.confirmIcon as any,
-                iconPosition: "left",
-                iconClassName:
-                  styles.confirmIcon === "Complete"
-                    ? "yl:w-5 yl:h-5"
-                    : "yl:w-6 yl:h-6"
-              }}
-            >
-              {confirmText}
-            </Button>
-          </div>
+          <Paragraph className={`${styles.messageClass}`}>{message}</Paragraph>
         </div>
-      </Dialog>
-    );
-  }
-);
+
+        <div className='yl:flex yl:justify-end yl:gap-3'>
+          <Button
+            variant={ButtonVariantEnum.SECONDARY}
+            outlined
+            onClick={handleCancel}
+            disabled={isLoading}
+            className='yl:min-w-[100px]'
+            icon={{
+              iconName: "Incomplete",
+              iconPosition: "left",
+              iconClassName: "yl:w-6 yl:h-6"
+            }}
+          >
+            {cancelText}
+          </Button>
+          <Button
+            onClick={onConfirm}
+            isLoading={isLoading}
+            className='yl:min-w-[100px]'
+            variant={styles.buttonVariant}
+            icon={{
+              iconName: styles.confirmIcon as any,
+              iconPosition: "left",
+              iconClassName:
+                styles.confirmIcon === "Complete"
+                  ? "yl:w-5 yl:h-5"
+                  : "yl:w-6 yl:h-6"
+            }}
+          >
+            {confirmText}
+          </Button>
+        </div>
+      </div>
+    </Dialog>
+  );
+};
 
 ConfirmDialog.displayName = "ConfirmDialog";
 

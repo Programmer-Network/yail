@@ -78,6 +78,7 @@ const PersonCardSkeleton: FC<IPersonCardSkeletonProps> = ({
           <div className='yl:flex yl:justify-center yl:gap-2'>
             {Array.from({ length: 3 }).map((_, index) => (
               <div
+                // eslint-disable-next-line @eslint-react/no-array-index-key -- fixed-length skeleton placeholders with no identity
                 key={index}
                 className='yl:bg-border yl:h-4 yl:w-4 yl:rounded'
               />
@@ -90,6 +91,7 @@ const PersonCardSkeleton: FC<IPersonCardSkeletonProps> = ({
           <div className='yl:flex yl:flex-wrap yl:justify-center yl:gap-2'>
             {Array.from({ length: 3 }).map((_, index) => (
               <div
+                // eslint-disable-next-line @eslint-react/no-array-index-key -- fixed-length skeleton placeholders with no identity
                 key={index}
                 className='yl:bg-border yl:h-6 yl:w-16 yl:rounded-full'
               />
@@ -101,6 +103,7 @@ const PersonCardSkeleton: FC<IPersonCardSkeletonProps> = ({
         <div className='yl:flex yl:flex-wrap yl:justify-center yl:gap-2'>
           {Array.from({ length: 2 }).map((_, index) => (
             <div
+              // eslint-disable-next-line @eslint-react/no-array-index-key -- fixed-length skeleton placeholders with no identity
               key={index}
               className='yl:bg-border yl:h-8 yl:w-20 yl:rounded'
             />

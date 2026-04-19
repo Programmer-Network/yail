@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { createRef, useState } from "react";
+import { useRef, useState } from "react";
 
 import { Button } from "../Button";
 import { ButtonVariantEnum } from "../Button/types";
@@ -29,7 +29,7 @@ const FormActions = ({
   size = "medium",
   alignment = "left"
 }: IFormActionsProps) => {
-  const confirmDialogRef = createRef<HTMLDialogElement>();
+  const confirmDialogRef = useRef<HTMLDialogElement>(null);
   const [isDeleteLoading, setIsDeleteLoading] = useState(false);
   const [isSaveLoading, setIsSaveLoading] = useState(false);
 

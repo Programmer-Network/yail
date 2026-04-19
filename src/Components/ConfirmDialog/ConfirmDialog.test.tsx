@@ -1,3 +1,4 @@
+/* eslint-disable @eslint-react/no-forward-ref, @eslint-react/no-create-ref -- test file mocks pre-19 APIs and uses createRef for a module-level ref held across test lifecycle */
 import { act, fireEvent, render, screen } from "@testing-library/react";
 import { createRef } from "react";
 import { vi } from "vitest";

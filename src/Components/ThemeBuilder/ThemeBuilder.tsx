@@ -68,8 +68,9 @@ const ThemeBuilder: FC<IThemeBuilder> = ({
       ThemeBuilderUtils.hexToRGB(selected.color) as string
     );
 
-    setLocalSettings(
-      localSettings.map(s => {
+    // eslint-disable-next-line @eslint-react/set-state-in-effect -- runs after a DOM side effect (setCSSVariable); the state update is the second phase of that effect and can't be derived
+    setLocalSettings(prev =>
+      prev.map(s => {
         if (s.type !== selected.type) {
           return s;
         }
@@ -80,7 +81,6 @@ const ThemeBuilder: FC<IThemeBuilder> = ({
         };
       })
     );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selected.type, selected.color, selected.cssVariable]);
 
   return (

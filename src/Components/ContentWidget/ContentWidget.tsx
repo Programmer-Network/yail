@@ -68,9 +68,9 @@ const ContentWidget = <T extends IContentWidgetBaseItem>({
       </div>
 
       <div>
-        {items.map(({ item, onClick }, index) => {
+        {items.map(({ item, onClick }) => {
           return (
-            <div className='group yl:mb-4' key={index}>
+            <div className='group yl:mb-4' key={item.title}>
               <Paragraph
                 className='yl:mt-width-0 yl:flex-1 wrap-break-word'
                 onClick={() => onClick(item)}

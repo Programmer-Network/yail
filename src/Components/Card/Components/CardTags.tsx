@@ -35,9 +35,9 @@ const CardTags: FC<ICardTags> = ({
 
   return (
     <div className='yl:mt-4 yl:flex yl:flex-wrap yl:items-center yl:gap-2'>
-      {visibleTags.map((tag, index) => (
+      {visibleTags.map(tag => (
         <NavLink
-          key={`${tag.name}-${index}`}
+          key={tag.name}
           to={tag.url}
           onClick={handleTagClick(tag)}
           className='yl:hover:text-stroke yl:text-primary yl:transition-all yl:hover:underline yl:hover:opacity-80 yl:active:opacity-50'

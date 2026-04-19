@@ -29,7 +29,7 @@ const Accordion: FC<IAccordionProps> = ({
   setSelectedSection,
   setSelectedItem
 }) => {
-  const hasInitialized = useRef(false);
+  const hasInitializedRef = useRef(false);
   const [draggedId, setDraggedId] = useState<number | null>(null);
   const [draggedOverId, setDraggedOverId] = useState<number | null>(null);
 
@@ -42,9 +42,9 @@ const Accordion: FC<IAccordionProps> = ({
   };
 
   useEffect(() => {
-    if (defaultExpanded && sections.length > 0 && !hasInitialized.current) {
+    if (defaultExpanded && sections.length > 0 && !hasInitializedRef.current) {
       setExpanded(sections.map(section => section.id));
-      hasInitialized.current = true;
+      hasInitializedRef.current = true;
     }
   }, [defaultExpanded, sections, setExpanded]);
 

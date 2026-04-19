@@ -2,8 +2,7 @@ import { EditorContent, useEditor } from "@tiptap/react";
 import classNames from "classnames";
 import {
   ChangeEvent,
-  ForwardRefRenderFunction,
-  forwardRef,
+  Ref,
   useCallback,
   useEffect,
   useImperativeHandle,
@@ -25,29 +24,27 @@ import "./Tiptap.css";
 import { editorConfig } from "./Tiptap.editorConfig";
 import { TiptapProps, TiptapRef } from "./Tiptap.types";
 
-const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
-  {
-    autoFocus = true,
-    editorContent,
-    value,
-    onUpdate,
-    actions,
-    onTransaction,
-    onSelectionUpdate,
-    onSetImage,
-    placeholder,
-    suggestions,
-    toolbarItems,
-    variant = "default",
-    error = null,
-    label,
-    hint,
-    required,
-    onImageUploadError
-  },
+const Tiptap = ({
+  autoFocus = true,
+  editorContent,
+  value,
+  onUpdate,
+  actions,
+  onTransaction,
+  onSelectionUpdate,
+  onSetImage,
+  placeholder,
+  suggestions,
+  toolbarItems,
+  variant = "default",
+  error,
+  label,
+  hint,
+  required,
+  onImageUploadError,
   ref
-) => {
-  const hasSetInitialContent = useRef(false);
+}: TiptapProps & { ref?: Ref<TiptapRef> }) => {
+  const hasSetInitialContentRef = useRef(false);
   const slashMenuFileInputRef = useRef<HTMLInputElement>(null);
   const [isFocused, setIsFocused] = useState(false);
 
@@ -226,16 +223,16 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
   useEffect(() => {
     const contentToSet = value || editorContent;
 
-    if (contentToSet && editor && !hasSetInitialContent.current) {
+    if (contentToSet && editor && !hasSetInitialContentRef.current) {
       // Defer setContent to avoid flushSync warning during React render
       queueMicrotask(() => {
         try {
           const parsedContent = JSON.parse(contentToSet);
           editor.commands.setContent(parsedContent);
-          hasSetInitialContent.current = true;
+          hasSetInitialContentRef.current = true;
         } catch {
           editor.commands.setContent(contentToSet);
-          hasSetInitialContent.current = true;
+          hasSetInitialContentRef.current = true;
         }
       });
     }
@@ -323,6 +320,4 @@ const Tiptap: ForwardRefRenderFunction<TiptapRef, TiptapProps> = (
 
 Tiptap.displayName = "Tiptap";
 
-const TiptapForwardRef = forwardRef(Tiptap);
-
-export { TiptapForwardRef as Tiptap };
+export { Tiptap };

@@ -108,9 +108,9 @@ const Card: FC<ICard> = memo(
           <div className='yl:absolute yl:top-3 yl:right-3 yl:z-20 yl:flex yl:gap-2 opacity-0 transition-opacity duration-200 group-hover:opacity-100'>
             {actions
               .filter(a => a.show !== false)
-              .map((action, idx) => (
+              .map(action => (
                 <button
-                  key={action.label + idx}
+                  key={action.label}
                   onClick={e => {
                     e.stopPropagation();
                     action.onClick(e);

@@ -1,12 +1,12 @@
 import classNames from "classnames";
-import React, { forwardRef, useImperativeHandle, useState } from "react";
+import { Ref, useImperativeHandle, useState } from "react";
 
 import { IMentionProps, MentionHandle } from "../../Tiptap.types";
 
-const Mention: React.ForwardRefRenderFunction<MentionHandle, IMentionProps> = (
-  props,
-  ref
-) => {
+const Mention = ({
+  ref,
+  ...props
+}: IMentionProps & { ref?: Ref<MentionHandle> }) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const selectItem = (index: number) => {
@@ -61,7 +61,7 @@ const Mention: React.ForwardRefRenderFunction<MentionHandle, IMentionProps> = (
           className={classNames("yl:rounded-xs yl:p-1", {
             "yl:text-primary yl:bg-text/5": index === selectedIndex
           })}
-          key={index}
+          key={item.label}
           onClick={() => selectItem(index)}
         >
           {item.label}
@@ -71,4 +71,4 @@ const Mention: React.ForwardRefRenderFunction<MentionHandle, IMentionProps> = (
   );
 };
 
-export default forwardRef(Mention);
+export default Mention;

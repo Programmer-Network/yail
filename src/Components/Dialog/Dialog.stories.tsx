@@ -1,4 +1,4 @@
-import { createRef } from "react";
+import { useRef } from "react";
 
 import { Dialog } from ".";
 import { Button } from "../Button";
@@ -11,7 +11,7 @@ export default {
 };
 
 export const SelectAnImage = () => {
-  const dialogRef = createRef<HTMLDialogElement>();
+  const dialogRef = useRef<HTMLDialogElement>(null);
 
   const handleShow = () => {
     dialogRef.current?.showModal();
@@ -31,7 +31,7 @@ export const SelectAnImage = () => {
 };
 
 export const Default = () => {
-  const dialogRef = createRef<HTMLDialogElement>();
+  const dialogRef = useRef<HTMLDialogElement>(null);
 
   const handleShow = () => {
     dialogRef.current?.showModal();

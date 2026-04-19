@@ -21,6 +21,7 @@ const UpcomingEventsListSkeleton: FC<IUpcomingEventsListSkeletonProps> = ({
 
       <div className='yl:space-y-3'>
         {Array.from({ length: count }).map((_, index) => (
+          // eslint-disable-next-line @eslint-react/no-array-index-key -- fixed-length skeleton placeholders with no identity
           <UpcomingEventCardSkeleton key={index} />
         ))}
       </div>

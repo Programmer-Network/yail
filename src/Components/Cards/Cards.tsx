@@ -29,10 +29,10 @@ const Cards: FC<ICardsProps> = ({
         "yl:md:grid-cols-12": columns === 12
       })}
     >
-      {cards.map((card, index) => {
+      {cards.map(card => {
         return (
           <Card
-            key={index}
+            key={card.title}
             data={card}
             NavLink={NavLink}
             className={cardClassName}

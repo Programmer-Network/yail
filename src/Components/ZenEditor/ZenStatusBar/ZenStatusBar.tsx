@@ -65,7 +65,7 @@ const ZenStatusBar: FC<IZenStatusBarProps> = ({
 
                 return (
                   <div
-                    key={index}
+                    key={item.label}
                     className='yl:flex yl:items-center yl:gap-1.5'
                   >
                     {index > 0 && (

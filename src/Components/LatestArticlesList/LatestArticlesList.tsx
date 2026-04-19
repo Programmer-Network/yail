@@ -27,6 +27,7 @@ const LatestArticlesList: FC<ILatestArticlesList> = memo(
         <div className='yl:flex yl:flex-col yl:gap-3'>
           {Array.from({ length: maxArticles }).map((_, index) => (
             <LatestArticleCard
+              // eslint-disable-next-line @eslint-react/no-array-index-key -- fixed-length skeleton placeholders with no identity
               key={`skeleton-${index}`}
               data={{
                 id: 0,

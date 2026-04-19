@@ -1,9 +1,5 @@
 import classNames from "classnames";
-import {
-  ForwardRefRenderFunction,
-  forwardRef,
-  useImperativeHandle
-} from "react";
+import { Ref, useImperativeHandle } from "react";
 
 import { Tiptap } from "../Inputs/Tiptap";
 import { DEFAULT_PLACEHOLDER } from "./ZenEditor.constants";
@@ -12,28 +8,23 @@ import { IZenEditorProps, IZenEditorRef } from "./ZenEditor.types";
 import { ZenPropertiesDrawer } from "./ZenPropertiesDrawer";
 import { ZenStatusBar } from "./ZenStatusBar";
 
-const ZenEditorComponent: ForwardRefRenderFunction<
-  IZenEditorRef,
-  IZenEditorProps
-> = (
-  {
-    value,
-    onUpdate,
-    toolbarItems,
-    placeholder = DEFAULT_PLACEHOLDER,
-    editorRef: externalEditorRef,
-    suggestions,
-    onSetImage,
-    onImageUploadError,
-    propertiesDrawer,
-    statusBar,
-    header,
-    className,
-    contentClassName,
-    autoFocus = true
-  },
+const ZenEditor = ({
+  value,
+  onUpdate,
+  toolbarItems,
+  placeholder = DEFAULT_PLACEHOLDER,
+  editorRef: externalEditorRef,
+  suggestions,
+  onSetImage,
+  onImageUploadError,
+  propertiesDrawer,
+  statusBar,
+  header,
+  className,
+  contentClassName,
+  autoFocus = true,
   ref
-) => {
+}: IZenEditorProps & { ref?: Ref<IZenEditorRef> }) => {
   const { editorRef } = useZenEditorRef({ externalEditorRef });
 
   useZenEditorKeyboard({
@@ -110,8 +101,6 @@ const ZenEditorComponent: ForwardRefRenderFunction<
   );
 };
 
-ZenEditorComponent.displayName = "ZenEditor";
-
-const ZenEditor = forwardRef(ZenEditorComponent);
+ZenEditor.displayName = "ZenEditor";
 
 export { ZenEditor };

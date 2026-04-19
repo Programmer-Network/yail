@@ -1,5 +1,5 @@
 import Fuse, { IFuseOptions } from "fuse.js";
-import { useEffect, useState } from "react";
+import { useMemo, useState } from "react";
 
 import useDebounce from "../useDebounce";
 
@@ -16,38 +16,35 @@ const useSearchResults = <T>(
   const { debounceDelay = 250, fuseOptions } = options;
 
   const [searchTerm, setSearchTerm] = useState<string>("");
-  const [searchResults, setSearchResults] = useState(data || []);
   const debouncedSearchTerm = useDebounce<string>(searchTerm, debounceDelay);
 
-  const defaultKeys = [
-    "title",
-    "name",
-    "slug",
-    "summary",
-    "description",
-    "tags.name",
-    "tags.description",
-    "tags.label"
-  ];
-  const keys = fuseOptions.keys
-    ? [...fuseOptions.keys, ...defaultKeys]
-    : defaultKeys;
-
-  useEffect(() => {
+  const searchResults = useMemo(() => {
     if (!Array.isArray(data) || data.length === 0) {
-      return setSearchResults([]);
+      return [];
     }
+
+    const defaultKeys = [
+      "title",
+      "name",
+      "slug",
+      "summary",
+      "description",
+      "tags.name",
+      "tags.description",
+      "tags.label"
+    ];
+    const keys = fuseOptions.keys
+      ? [...fuseOptions.keys, ...defaultKeys]
+      : defaultKeys;
 
     const fuse = new Fuse(data, { ...fuseOptions, keys });
 
     if (debouncedSearchTerm) {
-      const results = fuse.search(debouncedSearchTerm).map(({ item }) => item);
-      setSearchResults(results);
-    } else {
-      setSearchResults(data);
+      return fuse.search(debouncedSearchTerm).map(({ item }) => item);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [debouncedSearchTerm, data]);
+
+    return data;
+  }, [debouncedSearchTerm, data, fuseOptions]);
 
   const handleSearch = ({ search }: { search: string }) => {
     setSearchTerm(search);

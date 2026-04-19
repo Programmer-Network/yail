@@ -18,18 +18,20 @@ export const useSlashMenuList = ({
   const [activeSubmenu, setActiveSubmenu] = useState<
     ISlashMenuSubmenuItem[] | null
   >(null);
+  const [prevItems, setPrevItems] = useState(items);
   const menuRef = useRef<HTMLDivElement>(null);
-  const itemRefs = useRef<Map<number, HTMLButtonElement>>(new Map());
+  const itemsRef = useRef<Map<number, HTMLButtonElement>>(new Map());
 
   // Reset state when items change
-  useEffect(() => {
+  if (items !== prevItems) {
+    setPrevItems(items);
     setSelectedIndex(0);
     setSubmenuIndex(null);
     setActiveSubmenu(null);
-  }, [items]);
+  }
 
   useEffect(() => {
-    const selectedElement = itemRefs.current.get(selectedIndex);
+    const selectedElement = itemsRef.current.get(selectedIndex);
     if (!selectedElement) {
       return;
     }
@@ -188,9 +190,9 @@ export const useSlashMenuList = ({
   const createItemRef = useCallback(
     (flatIdx: number) => (el: HTMLButtonElement | null) => {
       if (el) {
-        itemRefs.current.set(flatIdx, el);
+        itemsRef.current.set(flatIdx, el);
       } else {
-        itemRefs.current.delete(flatIdx);
+        itemsRef.current.delete(flatIdx);
       }
     },
     []

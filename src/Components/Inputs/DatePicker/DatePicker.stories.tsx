@@ -12,7 +12,7 @@ export default {
 };
 
 export const Default = () => {
-  const [date, setDate] = useState(new Date());
+  const [date, setDate] = useState(() => new Date());
 
   return (
     <div className='yl:w-[500px]'>
@@ -34,13 +34,17 @@ export const Default = () => {
 };
 
 export const WithMinAndMaxDate = () => {
-  const [date, setDate] = useState(new Date());
+  const [date, setDate] = useState(() => new Date());
+  const [minDate] = useState(() => new Date());
+  const [maxDate] = useState(
+    () => new Date(new Date().setDate(new Date().getDate() + 7))
+  );
 
   return (
     <DatePicker
       name='datetime'
-      minDate={new Date()}
-      maxDate={new Date(new Date().setDate(new Date().getDate() + 7))}
+      minDate={minDate}
+      maxDate={maxDate}
       value={date}
       timeIntervals={60}
       showTimeSelect
@@ -57,15 +61,19 @@ export const WithMinAndMaxDate = () => {
 };
 
 export const WithAHeaderAndError = () => {
-  const [date, setDate] = useState(new Date());
+  const [date, setDate] = useState(() => new Date());
+  const [minDate] = useState(() => new Date());
+  const [maxDate] = useState(
+    () => new Date(new Date().setDate(new Date().getDate() + 7))
+  );
 
   return (
     <DatePicker
       name='datetime'
       label='Select a date and time'
       required
-      minDate={new Date()}
-      maxDate={new Date(new Date().setDate(new Date().getDate() + 7))}
+      minDate={minDate}
+      maxDate={maxDate}
       value={date}
       timeIntervals={60}
       showTimeSelect

@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 
 import { Icon } from "../Icon";
 import { Spinner } from "../Spinner";
@@ -14,10 +14,15 @@ const ImageSelector: FC<IImageSelectorProps> = ({
   const [selected, setSelected] = useState<IImage>(value || images[0]);
   const [hoveredImage, setHoveredImage] = useState<IImage | null>(null);
   const [itemToDelete, setItemToDelete] = useState<IImage | null>(null);
+  const [prevSyncKey, setPrevSyncKey] = useState({
+    length: images.length,
+    value
+  });
 
-  useEffect(() => {
+  if (prevSyncKey.length !== images.length || prevSyncKey.value !== value) {
+    setPrevSyncKey({ length: images.length, value });
     setSelected(value);
-  }, [images.length, value]);
+  }
 
   return (
     <div className='yl:grid yl:grid-cols-4 yl:gap-4'>

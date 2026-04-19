@@ -123,7 +123,10 @@ const Filters: FC<IFiltersProps> = ({
             />
           )}
           {Array.isArray(additional) ? (
-            additional.map((item, index) => <div key={index}>{item}</div>)
+            additional.map((item, index) => (
+              // eslint-disable-next-line @eslint-react/no-array-index-key -- consumer passes opaque ReactNodes; no stable identity available
+              <div key={index}>{item}</div>
+            ))
           ) : (
             <div>{additional}</div>
           )}

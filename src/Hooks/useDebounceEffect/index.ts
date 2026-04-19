@@ -13,6 +13,6 @@ export function useDebounceEffect(
     return () => {
       clearTimeout(timer);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps, @eslint-react/exhaustive-deps -- hook deliberately accepts caller-provided deps via spread, mirroring useEffect's signature
   }, [fn, waitTime, ...deps]);
 }

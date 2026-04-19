@@ -57,9 +57,9 @@ const UpcomingEventsList: FC<IUpcomingEventsList> = ({
         </div>
       ) : (
         <div className='yl:space-y-3'>
-          {displayEvents.map((event, index) => (
+          {displayEvents.map(event => (
             <UpcomingEventCard
-              key={`${event.eventURL}-${index}`}
+              key={event.eventURL}
               data={event}
               NavLink={NavLink}
               onCardClick={onEventClick}

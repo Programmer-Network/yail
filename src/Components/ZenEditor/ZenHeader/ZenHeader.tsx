@@ -42,7 +42,10 @@ const ZenHeader: FC<IZenHeaderProps> = ({ onBack, breadcrumbs }) => {
               : breadcrumbItemClasses;
 
             return (
-              <div key={index} className='yl:flex yl:items-center yl:gap-1.5'>
+              <div
+                key={item.label}
+                className='yl:flex yl:items-center yl:gap-1.5'
+              >
                 {index > 0 && (
                   <Icon
                     iconName='IconArrowRight'

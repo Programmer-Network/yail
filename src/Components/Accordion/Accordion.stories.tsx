@@ -1,6 +1,6 @@
 import { faker } from "@faker-js/faker";
 import { Meta } from "@storybook/react-vite";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { action } from "storybook/actions";
 
 import { Accordion } from ".";
@@ -36,22 +36,10 @@ const dummySections = Array(5)
   }));
 
 export const Primary = () => {
-  const [sections, setSections] = useState<ISection[]>([]);
+  const [sections, setSections] = useState<ISection[]>(() => dummySections);
   const [expandedSections, setExpandedSections] = useState<number[]>([1]);
   const [selectedSection, setSelectedSection] = useState<number | null>(null);
   const [selectedItem, setSelectedItem] = useState<number | null>(null);
-
-  useEffect(() => {
-    if (sections.length) {
-      return;
-    }
-
-    setSections(dummySections);
-  }, [sections.length]);
-
-  if (!sections.length) {
-    return <div>Loading...</div>;
-  }
 
   return (
     <div>
@@ -89,22 +77,10 @@ export const Primary = () => {
 };
 
 export const Interactive = () => {
-  const [sections, setSections] = useState<ISection[]>([]);
+  const [sections] = useState<ISection[]>(() => dummySections);
   const [expandedSections, setExpandedSections] = useState<number[]>([1]);
   const [selectedSection, setSelectedSection] = useState<number | null>(null);
   const [selectedItem, setSelectedItem] = useState<number | null>(null);
-
-  useEffect(() => {
-    if (sections.length) {
-      return;
-    }
-
-    setSections(dummySections);
-  }, [sections.length]);
-
-  if (!sections.length) {
-    return <div>Loading...</div>;
-  }
 
   return (
     <div>
@@ -139,22 +115,10 @@ export const Interactive = () => {
 };
 
 export const NonInteractiveItems = () => {
-  const [sections, setSections] = useState<ISection[]>([]);
+  const [sections, setSections] = useState<ISection[]>(() => dummySections);
   const [expandedSections, setExpandedSections] = useState<number[]>([1]);
   const [selectedSection, setSelectedSection] = useState<number | null>(null);
   const [selectedItem, setSelectedItem] = useState<number | null>(null);
-
-  useEffect(() => {
-    if (sections.length) {
-      return;
-    }
-
-    setSections(dummySections);
-  }, [sections.length]);
-
-  if (!sections.length) {
-    return <div>Loading...</div>;
-  }
 
   return (
     <div>
@@ -187,22 +151,10 @@ export const NonInteractiveItems = () => {
 };
 
 export const WithoutDragAndDrop = () => {
-  const [sections, setSections] = useState<ISection[]>([]);
+  const [sections, setSections] = useState<ISection[]>(() => dummySections);
   const [expandedSections, setExpandedSections] = useState<number[]>([1]);
   const [selectedSection, setSelectedSection] = useState<number | null>(null);
   const [selectedItem, setSelectedItem] = useState<number | null>(null);
-
-  useEffect(() => {
-    if (sections.length) {
-      return;
-    }
-
-    setSections(dummySections);
-  }, [sections.length]);
-
-  if (!sections.length) {
-    return <div>Loading...</div>;
-  }
 
   return (
     <div>
@@ -235,22 +187,10 @@ export const WithoutDragAndDrop = () => {
 };
 
 export const WithAddLabels = () => {
-  const [sections, setSections] = useState<ISection[]>([]);
+  const [sections, setSections] = useState<ISection[]>(() => dummySections);
   const [expandedSections, setExpandedSections] = useState<number[]>([1]);
   const [selectedSection, setSelectedSection] = useState<number | null>(null);
   const [selectedItem, setSelectedItem] = useState<number | null>(null);
-
-  useEffect(() => {
-    if (sections.length) {
-      return;
-    }
-
-    setSections(dummySections);
-  }, [sections.length]);
-
-  if (!sections.length) {
-    return <div>Loading...</div>;
-  }
 
   return (
     <div>
@@ -346,22 +286,10 @@ export const WithNoItems = () => {
 };
 
 export const ExpandedByDefault = () => {
-  const [sections, setSections] = useState<ISection[]>([]);
+  const [sections, setSections] = useState<ISection[]>(() => dummySections);
   const [expandedSections, setExpandedSections] = useState<number[]>([]);
   const [selectedSection, setSelectedSection] = useState<number | null>(null);
   const [selectedItem, setSelectedItem] = useState<number | null>(null);
-
-  useEffect(() => {
-    if (sections.length) {
-      return;
-    }
-
-    setSections(dummySections);
-  }, [sections.length]);
-
-  if (!sections.length) {
-    return <div>Loading...</div>;
-  }
 
   return (
     <div>
