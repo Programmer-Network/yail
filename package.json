@@ -117,7 +117,7 @@
     "tailwindcss": "4.2.2",
     "typescript": "6.0.3",
     "typescript-eslint": "8.58.2",
-    "vite": "8.0.8",
+    "vite": "8.0.9",
     "vite-plugin-dts": "4.5.4",
     "vite-plugin-eslint": "1.8.1",
     "vite-tsconfig-paths": "6.1.1",
